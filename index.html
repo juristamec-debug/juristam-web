@@ -7,7 +7,6 @@
   <title>Júristam · Abogados en Ecuador · Asesoría Legal Estratégica</title>
   <meta name="description" content="Filtramos casos reales, revisamos documentos y diseñamos estrategia clara. Consulta virtual en Ecuador y presencial en Guayaquil." />
 
-  <!-- SEO técnico -->
   <link rel="canonical" href="https://juristam.net/" />
   <meta name="robots" content="index,follow,max-image-preview:large" />
 
@@ -17,7 +16,6 @@
   <meta property="og:title" content="Júristam · Abogados en Ecuador · Asesoría Legal Estratégica" />
   <meta property="og:description" content="Filtramos casos reales, revisamos documentos y diseñamos estrategia clara. Consulta virtual en Ecuador y presencial en Guayaquil." />
   <meta property="og:url" content="https://juristam.net/" />
-  <!-- <meta property="og:image" content="https://juristam.net/og.jpg" /> -->
 
   <!-- Twitter -->
   <meta name="twitter:card" content="summary_large_image" />
@@ -27,7 +25,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
-  <!-- Schema (GEO/SEO fuerte) -->
+  <!-- Schema -->
   <script type="application/ld+json">
   {
     "@context":"https://schema.org",
@@ -35,11 +33,7 @@
     "name":"Júristam",
     "url":"https://juristam.net/",
     "areaServed":[{"@type":"Country","name":"Ecuador"}],
-    "address":{
-      "@type":"PostalAddress",
-      "addressLocality":"Guayaquil",
-      "addressCountry":"EC"
-    },
+    "address":{"@type":"PostalAddress","addressLocality":"Guayaquil","addressCountry":"EC"},
     "telephone":"+593994859814",
     "email":"juristam.ec@gmail.com",
     "priceRange":"$45-$85",
@@ -52,7 +46,7 @@
     :root {
       --primary: #9a6aff;
       --primary-dark: #7c3aed;
-      --primary-light: #e9deff;
+      --primary-light: #efe8ff;
       --secondary: #1e293b;
       --accent: #0f766e;
       --accent-light: #ccfbf1;
@@ -64,679 +58,353 @@
       --text-main: #111827;
       --text-secondary: #4b5563;
       --text-light: #6b7280;
-      --shadow-sm: 0 2px 4px rgba(0, 0, 0, 0.05);
-      --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.08);
-      --shadow-lg: 0 10px 25px rgba(0, 0, 0, 0.1);
-      --shadow-xl: 0 20px 40px rgba(0, 0, 0, 0.12);
+      --shadow-sm: 0 2px 4px rgba(0,0,0,.05);
+      --shadow-md: 0 4px 12px rgba(0,0,0,.08);
+      --shadow-lg: 0 10px 25px rgba(0,0,0,.10);
+      --shadow-xl: 0 20px 40px rgba(0,0,0,.12);
       --radius-sm: 8px;
       --radius-md: 12px;
       --radius-lg: 20px;
       --radius-xl: 28px;
     }
 
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-    html { scroll-behavior: smooth; scroll-padding-top: 100px; }
-
+    * { margin:0; padding:0; box-sizing:border-box; }
+    html { scroll-behavior:smooth; scroll-padding-top:100px; }
     body {
-      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-      color: var(--text-main);
-      line-height: 1.6;
-      background-color: var(--white);
-      overflow-x: hidden;
+      font-family:'Inter',system-ui,-apple-system,Segoe UI,sans-serif;
+      color:var(--text-main);
+      line-height:1.6;
+      background:var(--white);
+      overflow-x:hidden;
     }
-
-    .container { max-width: 1280px; margin: 0 auto; padding: 0 2rem; }
+    .container{ max-width:1280px; margin:0 auto; padding:0 2rem; }
 
     /* HEADER */
-    header {
-      position: fixed;
-      top: 0; left: 0; right: 0;
-      z-index: 1000;
-      background-color: rgba(255, 255, 255, 0.98);
-      backdrop-filter: blur(10px);
-      border-bottom: 1px solid rgba(229, 231, 235, 0.8);
-      padding: 1.2rem 0;
-      transition: all 0.3s ease;
-      box-shadow: var(--shadow-sm);
+    header{
+      position:fixed; top:0; left:0; right:0; z-index:1000;
+      background:rgba(255,255,255,.98);
+      backdrop-filter:blur(10px);
+      border-bottom:1px solid rgba(229,231,235,.8);
+      padding:1.2rem 0;
+      transition:all .3s ease;
+      box-shadow:var(--shadow-sm);
     }
-    header.scrolled { padding: 0.8rem 0; box-shadow: var(--shadow-md); }
+    header.scrolled{ padding:.8rem 0; box-shadow:var(--shadow-md); }
+    .navbar{ display:flex; align-items:center; justify-content:space-between; }
 
-    .navbar { display: flex; align-items: center; justify-content: space-between; }
+    .logo{ display:flex; align-items:center; gap:1rem; text-decoration:none; }
+    .logo-icon{
+      width:48px; height:48px;
+      background:linear-gradient(135deg,var(--primary) 0%,var(--primary-dark) 100%);
+      border-radius:var(--radius-md);
+      display:flex; align-items:center; justify-content:center;
+      color:#fff; font-family:'Playfair Display',serif;
+      font-weight:700; font-size:1.8rem;
+    }
+    .logo-text{ display:flex; flex-direction:column; }
+    .logo-text-main{ font-family:'Playfair Display',serif; font-weight:700; font-size:1.6rem; color:var(--secondary); letter-spacing:-.5px; }
+    .logo-text-sub{ font-size:.75rem; color:var(--text-light); font-weight:500; letter-spacing:1px; text-transform:uppercase; margin-top:-2px; }
 
-    .logo { display: flex; align-items: center; gap: 1rem; text-decoration: none; }
-    .logo-icon {
-      width: 48px; height: 48px;
-      background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
-      border-radius: var(--radius-md);
-      display: flex; align-items: center; justify-content: center;
-      color: var(--white);
-      font-family: 'Playfair Display', serif;
-      font-weight: 700;
-      font-size: 1.8rem;
+    .nav-links{ display:flex; align-items:center; gap:2.5rem; }
+    .nav-link{
+      font-weight:600; color:var(--neutral); text-decoration:none; font-size:.95rem;
+      transition:all .3s ease; position:relative; padding:.5rem 0;
     }
-    .logo-text { display: flex; flex-direction: column; }
-    .logo-text-main {
-      font-family: 'Playfair Display', serif;
-      font-weight: 700;
-      font-size: 1.6rem;
-      color: var(--secondary);
-      letter-spacing: -0.5px;
+    .nav-link:hover{ color:var(--primary); }
+    .nav-link::after{
+      content:''; position:absolute; bottom:0; left:0; width:0; height:2px;
+      background:linear-gradient(to right,var(--primary),var(--primary-dark));
+      transition:width .3s ease;
     }
-    .logo-text-sub {
-      font-size: 0.75rem;
-      color: var(--text-light);
-      font-weight: 500;
-      letter-spacing: 1px;
-      text-transform: uppercase;
-      margin-top: -2px;
-    }
+    .nav-link:hover::after{ width:100%; }
 
-    .nav-links { display: flex; align-items: center; gap: 2.5rem; }
-    .nav-link {
-      font-weight: 600;
-      color: var(--neutral);
-      text-decoration: none;
-      font-size: 0.95rem;
-      transition: all 0.3s ease;
-      position: relative;
-      padding: 0.5rem 0;
+    .btn{
+      display:inline-flex; align-items:center; justify-content:center;
+      padding:.9rem 2.2rem; border-radius:var(--radius-md);
+      font-weight:600; font-size:.95rem; text-decoration:none;
+      transition:all .3s ease; border:none; cursor:pointer; gap:.5rem; white-space:nowrap;
     }
-    .nav-link:hover { color: var(--primary); }
-    .nav-link::after {
-      content: '';
-      position: absolute;
-      bottom: 0; left: 0;
-      width: 0; height: 2px;
-      background: linear-gradient(to right, var(--primary), var(--primary-dark));
-      transition: width 0.3s ease;
+    .btn-primary{
+      background:linear-gradient(135deg,var(--primary) 0%,var(--primary-dark) 100%);
+      color:#fff; box-shadow:0 4px 15px rgba(154,106,255,.20);
     }
-    .nav-link:hover::after { width: 100%; }
+    .btn-primary:hover{ transform:translateY(-2px); box-shadow:0 6px 20px rgba(154,106,255,.30); }
+    .btn-outline{
+      background:transparent; color:var(--primary); border:2px solid var(--primary);
+    }
+    .btn-outline:hover{ background:var(--primary-light); transform:translateY(-2px); }
 
-    .btn {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      padding: 0.9rem 2.2rem;
-      border-radius: var(--radius-md);
-      font-weight: 600;
-      font-size: 0.95rem;
-      text-decoration: none;
-      transition: all 0.3s ease;
-      border: none;
-      cursor: pointer;
-      gap: 0.5rem;
-      white-space: nowrap;
+    /* MOBILE */
+    .mobile-menu-btn{ display:none; flex-direction:column; gap:4px; background:none; border:none; cursor:pointer; padding:.5rem; }
+    .mobile-menu-btn span{ width:24px; height:2px; background:var(--neutral-dark); transition:all .3s ease; }
+    .mobile-menu{
+      display:none; position:fixed; top:80px; left:0; right:0;
+      background:#fff; padding:2rem; box-shadow:var(--shadow-lg);
+      z-index:999; border-top:1px solid var(--neutral-border);
     }
-    .btn-primary {
-      background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
-      color: var(--white);
-      box-shadow: 0 4px 15px rgba(154, 106, 255, 0.2);
+    .mobile-menu.active{ display:block; }
+    .mobile-nav-links{ display:flex; flex-direction:column; gap:1.5rem; }
+    .mobile-nav-link{
+      font-weight:600; color:var(--neutral); text-decoration:none; font-size:1.1rem;
+      padding:.75rem 0; border-bottom:1px solid var(--neutral-border);
+      display:flex; align-items:center; gap:.75rem;
     }
-    .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 6px 20px rgba(154, 106, 255, 0.3); }
-    .btn-outline {
-      background: transparent;
-      color: var(--primary);
-      border: 2px solid var(--primary);
-    }
-    .btn-outline:hover { background: var(--primary-light); transform: translateY(-2px); }
+    .mobile-nav-link i{ color:var(--primary); }
+    .mobile-nav-link:hover{ color:var(--primary); }
 
-    /* MENÚ MÓVIL */
-    .mobile-menu-btn {
-      display: none;
-      flex-direction: column;
-      gap: 4px;
-      background: none;
-      border: none;
-      cursor: pointer;
-      padding: 0.5rem;
+    /* SECTIONS */
+    .section{ padding:8rem 0 6rem; }
+    .section-header{ text-align:center; max-width:800px; margin:0 auto 6rem; }
+    .section-kicker{
+      display:inline-block; font-size:.85rem; font-weight:700; text-transform:uppercase;
+      letter-spacing:2px; color:var(--primary); margin-bottom:1.5rem; position:relative; padding-bottom:.75rem;
     }
-    .mobile-menu-btn span { width: 24px; height: 2px; background-color: var(--neutral-dark); transition: all 0.3s ease; }
-
-    .mobile-menu {
-      display: none;
-      position: fixed;
-      top: 80px; left: 0; right: 0;
-      background: var(--white);
-      padding: 2rem;
-      box-shadow: var(--shadow-lg);
-      z-index: 999;
-      border-top: 1px solid var(--neutral-border);
+    .section-kicker::after{
+      content:''; position:absolute; bottom:0; left:50%; transform:translateX(-50%);
+      width:40px; height:3px; background:linear-gradient(to right,var(--primary),var(--primary-dark)); border-radius:2px;
     }
-    .mobile-menu.active { display: block; }
-
-    .mobile-nav-links { display: flex; flex-direction: column; gap: 1.5rem; }
-    .mobile-nav-link {
-      font-weight: 600;
-      color: var(--neutral);
-      text-decoration: none;
-      font-size: 1.1rem;
-      padding: 0.75rem 0;
-      border-bottom: 1px solid var(--neutral-border);
-      display: flex;
-      align-items: center;
-      gap: 0.75rem;
-    }
-    .mobile-nav-link i { color: var(--primary); }
-    .mobile-nav-link:hover { color: var(--primary); }
-
-    /* SECCIONES */
-    .section { padding: 8rem 0 6rem; }
-    .section-header { text-align: center; max-width: 800px; margin: 0 auto 6rem; }
-
-    .section-kicker {
-      display: inline-block;
-      font-size: 0.85rem;
-      font-weight: 700;
-      text-transform: uppercase;
-      letter-spacing: 2px;
-      color: var(--primary);
-      margin-bottom: 1.5rem;
-      position: relative;
-      padding-bottom: 0.75rem;
-    }
-    .section-kicker::after {
-      content: '';
-      position: absolute;
-      bottom: 0;
-      left: 50%;
-      transform: translateX(-50%);
-      width: 40px;
-      height: 3px;
-      background: linear-gradient(to right, var(--primary), var(--primary-dark));
-      border-radius: 2px;
-    }
-
-    .section-title {
-      font-family: 'Playfair Display', serif;
-      font-weight: 700;
-      font-size: 3.2rem;
-      line-height: 1.1;
-      color: var(--secondary);
-      margin-bottom: 1.5rem;
-    }
-    .section-subtitle { font-size: 1.2rem; color: var(--text-secondary); line-height: 1.7; }
+    .section-title{ font-family:'Playfair Display',serif; font-weight:700; font-size:3.2rem; line-height:1.1; color:var(--secondary); margin-bottom:1.5rem; }
+    .section-subtitle{ font-size:1.2rem; color:var(--text-secondary); line-height:1.7; }
 
     /* HERO */
-    .hero {
-      padding-top: 12rem;
-      padding-bottom: 6rem;
-      background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
-      position: relative;
-      overflow: hidden;
+    .hero{
+      padding-top:12rem; padding-bottom:6rem;
+      background:linear-gradient(135deg,#f8fafc 0%,#f1f5f9 100%);
+      position:relative; overflow:hidden;
     }
-    .hero::before {
-      content: '';
-      position: absolute;
-      top: -50%;
-      right: -20%;
-      width: 60%;
-      height: 200%;
-      background: radial-gradient(circle, rgba(154, 106, 255, 0.05) 0%, transparent 70%);
-      z-index: 0;
+    .hero::before{
+      content:''; position:absolute; top:-50%; right:-20%;
+      width:60%; height:200%;
+      background:radial-gradient(circle, rgba(154,106,255,.05) 0%, transparent 70%);
+      z-index:0;
     }
-    .hero-content {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 4rem;
-      align-items: center;
-      position: relative;
-      z-index: 1;
+    .hero-content{
+      display:grid; grid-template-columns:1fr 1fr; gap:4rem;
+      align-items:center; position:relative; z-index:1;
     }
-    .hero-badges { display: flex; flex-wrap: wrap; gap: 0.75rem; margin-bottom: 2rem; }
-    .badge {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.5rem;
-      padding: 0.6rem 1.2rem;
-      background-color: var(--primary-light);
-      color: var(--primary-dark);
-      border-radius: var(--radius-sm);
-      font-weight: 600;
-      font-size: 0.85rem;
-      border: 1px solid rgba(154, 106, 255, 0.2);
+    .hero-badges{ display:flex; flex-wrap:wrap; gap:.75rem; margin-bottom:2rem; }
+    .badge{
+      display:inline-flex; align-items:center; gap:.5rem;
+      padding:.6rem 1.2rem; background:var(--primary-light);
+      color:var(--primary-dark); border-radius:var(--radius-sm);
+      font-weight:600; font-size:.85rem;
+      border:1px solid rgba(154,106,255,.2);
     }
-    .hero-title {
-      font-family: 'Playfair Display', serif;
-      font-weight: 700;
-      font-size: 3.5rem;
-      line-height: 1.1;
-      color: var(--secondary);
-      margin-bottom: 1.5rem;
+    .hero-title{
+      font-family:'Playfair Display',serif; font-weight:700; font-size:3.5rem;
+      line-height:1.1; color:var(--secondary); margin-bottom:1.5rem;
     }
-    .hero-title span { color: var(--primary); position: relative; }
-    .hero-title span::after {
-      content: '';
-      position: absolute;
-      bottom: 5px;
-      left: 0;
-      width: 100%;
-      height: 2px;
-      background: linear-gradient(to right, var(--primary), var(--primary-dark));
-      opacity: 0.3;
+    .hero-title span{ color:var(--primary); position:relative; }
+    .hero-subtitle{ font-size:1.25rem; color:var(--text-secondary); line-height:1.7; margin-bottom:2rem; }
+    .hero-alert{
+      background:#fffbeb; border:1px solid #f59e0b; border-left:4px solid #f59e0b;
+      color:#92400e; padding:1.5rem; border-radius:var(--radius-md); margin:2.5rem 0;
     }
-    .hero-subtitle { font-size: 1.25rem; color: var(--text-secondary); line-height: 1.7; margin-bottom: 2rem; }
-    .hero-alert {
-      background-color: #fffbeb;
-      border: 1px solid #f59e0b;
-      border-left: 4px solid #f59e0b;
-      color: #92400e;
-      padding: 1.5rem;
-      border-radius: var(--radius-md);
-      margin: 2.5rem 0;
+    .hero-features{
+      display:grid; grid-template-columns:repeat(2,1fr); gap:1.5rem; margin-top:2.5rem;
     }
-    .hero-alert strong { color: #b45309; }
+    .hero-feature{ display:flex; align-items:flex-start; gap:.75rem; }
+    .hero-feature-icon{
+      width:24px; height:24px; background:var(--primary-light); color:var(--primary);
+      border-radius:var(--radius-sm); display:flex; align-items:center; justify-content:center;
+      flex-shrink:0; font-weight:600;
+    }
+    .hero-card{
+      background:#fff; border-radius:var(--radius-lg); padding:3rem;
+      box-shadow:var(--shadow-xl); border:1px solid var(--neutral-border);
+      position:relative; overflow:hidden;
+    }
+    .hero-card::before{
+      content:''; position:absolute; top:0; left:0; right:0; height:6px;
+      background:linear-gradient(to right,var(--primary),var(--primary-dark));
+    }
+    .hero-card-title{
+      font-family:'Playfair Display',serif; font-weight:600; font-size:1.5rem;
+      color:var(--secondary); margin-bottom:1.5rem;
+    }
+    .hero-card-list{ margin:2rem 0; list-style:none; padding-left:0; }
+    .hero-card-list li{ margin-bottom:1rem; color:var(--text-secondary); position:relative; padding-left:2rem; }
+    .hero-card-list li::before{ content:'✓'; position:absolute; left:0; color:var(--accent); font-weight:600; }
 
-    .hero-features {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 1.5rem;
-      margin-top: 2.5rem;
+    .pricing-box{
+      background:var(--primary-light);
+      border-radius:var(--radius-md);
+      padding:1.5rem;
+      margin-top:2rem;
+      border:1px solid rgba(154,106,255,.2);
     }
-    .hero-feature { display: flex; align-items: flex-start; gap: 0.75rem; }
-    .hero-feature-icon {
-      width: 24px; height: 24px;
-      background-color: var(--primary-light);
-      color: var(--primary);
-      border-radius: var(--radius-sm);
-      display: flex; align-items: center; justify-content: center;
-      flex-shrink: 0;
-      font-weight: 600;
-    }
+    .pricing-item{ display:flex; justify-content:space-between; align-items:center; margin-bottom:1.5rem; gap:1.5rem; }
+    .pricing-item:last-child{ margin-bottom:0; }
+    .pricing-item + .pricing-item{ padding-top:1.5rem; border-top:1px solid rgba(154,106,255,.2); }
+    .pricing-name{ font-weight:800; color:var(--primary-dark); font-size:1.05rem; }
+    .pricing-desc{ font-size:.9rem; color:var(--text-light); margin-top:.25rem; }
+    .pricing-price{ font-weight:900; font-size:2rem; color:var(--primary-dark); }
 
-    /* HERO CARD */
-    .hero-card {
-      background-color: var(--white);
-      border-radius: var(--radius-lg);
-      padding: 3rem;
-      box-shadow: var(--shadow-xl);
-      border: 1px solid var(--neutral-border);
-      position: relative;
-      overflow: hidden;
+    /* PROCESS */
+    .process-grid{ display:grid; grid-template-columns:repeat(3,1fr); gap:2rem; }
+    .process-card{
+      background:#fff; border-radius:var(--radius-lg); padding:2.5rem;
+      box-shadow:var(--shadow-lg); border:1px solid var(--neutral-border);
+      text-align:center; transition:all .3s ease;
     }
-    .hero-card::before {
-      content: '';
-      position: absolute;
-      top: 0; left: 0; right: 0;
-      height: 6px;
-      background: linear-gradient(to right, var(--primary), var(--primary-dark));
+    .process-card:hover{ transform:translateY(-10px); box-shadow:var(--shadow-xl); }
+    .process-number{
+      width:60px; height:60px; background:linear-gradient(135deg,var(--primary) 0%,var(--primary-dark) 100%);
+      color:#fff; border-radius:50%; display:flex; align-items:center; justify-content:center;
+      font-weight:700; font-size:1.5rem; margin:0 auto 1.5rem; font-family:'Playfair Display',serif;
     }
-    .hero-card-title {
-      font-family: 'Playfair Display', serif;
-      font-weight: 600;
-      font-size: 1.5rem;
-      color: var(--secondary);
-      margin-bottom: 1.5rem;
-    }
-    .hero-card-list { margin: 2rem 0; padding-left: 0; list-style: none; }
-    .hero-card-list li {
-      margin-bottom: 1rem;
-      color: var(--text-secondary);
-      position: relative;
-      padding-left: 2rem;
-    }
-    .hero-card-list li::before { content: '✓'; position: absolute; left: 0; color: var(--accent); font-weight: 600; }
+    .process-title{ font-family:'Playfair Display',serif; font-weight:600; font-size:1.4rem; color:var(--secondary); margin-bottom:1rem; }
+    .process-description{ color:var(--text-secondary); line-height:1.7; }
 
-    .pricing-box {
-      background-color: var(--primary-light);
-      border-radius: var(--radius-md);
-      padding: 1.5rem;
-      margin-top: 2rem;
-      border: 1px solid rgba(154, 106, 255, 0.2);
+    /* SERVICES */
+    .services-section{ background:var(--neutral-light); }
+    .services-grid{ display:grid; grid-template-columns:repeat(2,1fr); gap:3rem; }
+    .service-card{
+      background:#fff; border-radius:var(--radius-lg); padding:3rem;
+      box-shadow:var(--shadow-lg); border:1px solid var(--neutral-border);
+      transition:all .3s ease; position:relative;
     }
-    .pricing-item { display: flex; justify-content: space-between; align-items: center; margin-bottom: 1.5rem; gap: 1.5rem; }
-    .pricing-item:last-child { margin-bottom: 0; }
-    .pricing-item + .pricing-item { padding-top: 1.5rem; border-top: 1px solid rgba(154, 106, 255, 0.2); }
-    .pricing-name { font-weight: 800; color: var(--primary-dark); font-size: 1.05rem; }
-    .pricing-desc { font-size: 0.9rem; color: var(--text-light); margin-top: 0.25rem; }
-    .pricing-price { font-weight: 900; font-size: 2rem; color: var(--primary-dark); }
+    .service-card:hover{ transform:translateY(-5px); box-shadow:var(--shadow-xl); }
+    .service-card.featured{ border:2px solid var(--primary); }
+    .service-card.featured::before{
+      content:'Más Popular'; position:absolute; top:-12px; left:50%; transform:translateX(-50%);
+      background:linear-gradient(135deg,var(--primary) 0%,var(--primary-dark) 100%);
+      color:#fff; padding:.5rem 1.5rem; border-radius:var(--radius-sm);
+      font-weight:800; font-size:.85rem;
+    }
+    .service-badge{ display:inline-block; font-size:.85rem; font-weight:900; text-transform:uppercase; letter-spacing:1px; color:var(--primary); margin-bottom:1rem; }
+    .service-title{ font-family:'Playfair Display',serif; font-weight:600; font-size:1.8rem; color:var(--secondary); margin-bottom:1rem; }
+    .service-price{ font-weight:900; font-size:3rem; color:var(--primary-dark); margin:1rem 0; }
+    .service-price span{ font-size:1rem; color:var(--text-light); font-weight:600; }
+    .service-features{ margin:2rem 0; padding-left:0; list-style:none; }
+    .service-features li{ margin-bottom:.75rem; color:var(--text-secondary); position:relative; padding-left:2rem; }
+    .service-features li::before{ content:'✓'; position:absolute; left:0; color:var(--accent); font-weight:600; }
 
-    /* BLOG SECTION */
-    .blog-section { background: var(--neutral-light); }
-    .blog-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 1.75rem;
-      margin-top: 2.5rem;
+    /* BLOG CARDS (landing) */
+    .blog-section{ background:var(--neutral-light); }
+    .blog-grid{
+      display:grid; grid-template-columns:repeat(3,1fr); gap:1.75rem; margin-top:2.5rem;
     }
-    .blog-card {
-      background: var(--white);
-      border: 1px solid var(--neutral-border);
-      border-radius: var(--radius-lg);
-      padding: 1.75rem;
-      box-shadow: var(--shadow-lg);
-      transition: all 0.25s ease;
-      display: flex;
-      flex-direction: column;
-      min-height: 260px;
+    .blog-card{
+      background:#fff; border:1px solid var(--neutral-border); border-radius:var(--radius-lg);
+      padding:1.75rem; box-shadow:var(--shadow-lg); transition:all .25s ease;
+      display:flex; flex-direction:column; min-height:260px;
     }
-    .blog-card:hover { transform: translateY(-6px); box-shadow: var(--shadow-xl); }
-    .blog-meta {
-      display: flex;
-      align-items: center;
-      gap: 0.6rem;
-      color: var(--text-light);
-      font-size: 0.9rem;
-      margin-bottom: 0.75rem;
-      flex-wrap: wrap;
+    .blog-card:hover{ transform:translateY(-6px); box-shadow:var(--shadow-xl); }
+    .blog-meta{ display:flex; align-items:center; gap:.6rem; color:var(--text-light); font-size:.9rem; margin-bottom:.75rem; flex-wrap:wrap; }
+    .blog-tag{
+      background:var(--primary-light); color:var(--primary-dark);
+      border:1px solid rgba(154,106,255,.2);
+      padding:.25rem .65rem; border-radius:999px;
+      font-weight:800; font-size:.78rem; letter-spacing:.4px; text-transform:uppercase;
     }
-    .blog-tag {
-      background: var(--primary-light);
-      color: var(--primary-dark);
-      border: 1px solid rgba(154, 106, 255, 0.2);
-      padding: 0.25rem 0.65rem;
-      border-radius: 999px;
-      font-weight: 800;
-      font-size: 0.78rem;
-      letter-spacing: 0.4px;
-      text-transform: uppercase;
-    }
-    .blog-title {
-      font-weight: 900;
-      font-size: 1.15rem;
-      color: var(--secondary);
-      line-height: 1.35;
-      margin-bottom: 0.75rem;
-    }
-    .blog-excerpt {
-      color: var(--text-secondary);
-      line-height: 1.7;
-      font-size: 0.98rem;
-      margin-bottom: 1.25rem;
-      flex: 1;
-    }
-    .blog-actions {
-      display: flex;
-      gap: 0.75rem;
-      flex-wrap: wrap;
-      align-items: center;
-      margin-top: 0.5rem;
-    }
-    .blog-link {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.55rem;
-      text-decoration: none;
-      font-weight: 900;
-      color: var(--primary-dark);
-    }
-    .blog-link:hover { text-decoration: underline; }
+    .blog-title{ font-weight:900; font-size:1.15rem; color:var(--secondary); line-height:1.35; margin-bottom:.75rem; }
+    .blog-excerpt{ color:var(--text-secondary); line-height:1.7; font-size:.98rem; margin-bottom:1.25rem; flex:1; }
+    .blog-link{ display:inline-flex; align-items:center; gap:.55rem; text-decoration:none; font-weight:900; color:var(--primary-dark); }
+    .blog-link:hover{ text-decoration:underline; }
 
-    /* ARTÍCULOS INTERNOS */
-    .article-wrap {
-      background: var(--white);
-      border: 1px solid var(--neutral-border);
-      border-radius: var(--radius-lg);
-      box-shadow: var(--shadow-lg);
-      padding: 2.2rem;
+    /* FORM */
+    .form-section{
+      background:#fff; border-radius:var(--radius-lg); padding:4rem;
+      box-shadow:var(--shadow-xl); border:1px solid var(--neutral-border);
     }
-    .article-top {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 1rem;
-      flex-wrap: wrap;
-      margin-bottom: 1.25rem;
-      padding-bottom: 1.25rem;
-      border-bottom: 1px solid var(--neutral-border);
+    .form-row{ display:grid; grid-template-columns:repeat(2,1fr); gap:1.5rem; margin-bottom:1.5rem; }
+    .form-group{ margin-bottom:1.5rem; }
+    label{ display:block; font-weight:800; color:var(--secondary); margin-bottom:.5rem; }
+    input, textarea{
+      width:100%; padding:1rem; border:1px solid var(--neutral-border); border-radius:var(--radius-sm);
+      font-family:'Inter',sans-serif; font-size:1rem; transition:all .3s ease; background:#fff;
     }
-    .article-meta {
-      display: flex;
-      align-items: center;
-      gap: 0.75rem;
-      flex-wrap: wrap;
-      color: var(--text-light);
-      font-weight: 700;
-      font-size: 0.95rem;
+    input:focus, textarea:focus{
+      outline:none; border-color:var(--primary);
+      box-shadow:0 0 0 3px rgba(154,106,255,.12);
     }
-    .article-back {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.55rem;
-      font-weight: 900;
-      color: var(--primary-dark);
-      text-decoration: none;
-    }
-    .article-back:hover { text-decoration: underline; }
-    .article-content h3 {
-      margin-top: 1.5rem;
-      margin-bottom: 0.75rem;
-      font-size: 1.25rem;
-      color: var(--secondary);
-      font-weight: 900;
-    }
-    .article-content p { margin: 0.9rem 0; color: var(--text-secondary); line-height: 1.9; }
-    .article-content ul { margin: 0.75rem 0 0.75rem 1.25rem; color: var(--text-secondary); }
-    .article-content li { margin: 0.5rem 0; line-height: 1.8; }
-    .article-callout {
-      background: #fffbeb;
-      border: 1px solid #f59e0b;
-      border-left: 4px solid #f59e0b;
-      color: #92400e;
-      padding: 1.1rem 1.25rem;
-      border-radius: var(--radius-md);
-      margin: 1.25rem 0;
-      font-weight: 700;
+    .form-actions{ text-align:center; margin-top:2.5rem; }
+
+    .success-message{
+      display:none;
+      background:var(--accent-light);
+      color:var(--accent);
+      padding:1.25rem;
+      border-radius:var(--radius-md);
+      border:1px solid rgba(15,118,110,.35);
+      margin-top:2rem;
+      text-align:center;
+      font-weight:800;
     }
 
-    /* PROCESS / SERVICES / TESTIMONIALS */
-    .process-section { background-color: var(--white); }
-    .process-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem; }
-    .process-card {
-      background-color: var(--white);
-      border-radius: var(--radius-lg);
-      padding: 2.5rem;
-      box-shadow: var(--shadow-lg);
-      border: 1px solid var(--neutral-border);
-      text-align: center;
-      transition: all 0.3s ease;
-      position: relative;
+    /* CTA */
+    .cta-section{
+      background:linear-gradient(135deg,var(--primary) 0%,var(--primary-dark) 100%);
+      border-radius:var(--radius-lg);
+      padding:5rem;
+      text-align:center;
+      color:#fff;
+      margin:4rem 0;
     }
-    .process-card:hover { transform: translateY(-10px); box-shadow: var(--shadow-xl); }
-    .process-number {
-      width: 60px; height: 60px;
-      background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
-      color: var(--white);
-      border-radius: 50%;
-      display: flex; align-items: center; justify-content: center;
-      font-weight: 700; font-size: 1.5rem;
-      margin: 0 auto 1.5rem;
-      font-family: 'Playfair Display', serif;
-    }
-    .process-title {
-      font-family: 'Playfair Display', serif;
-      font-weight: 600;
-      font-size: 1.4rem;
-      color: var(--secondary);
-      margin-bottom: 1rem;
-    }
-    .process-description { color: var(--text-secondary); line-height: 1.7; }
+    .cta-title{ font-family:'Playfair Display',serif; font-weight:700; font-size:2.8rem; margin-bottom:1.5rem; }
+    .cta-text{ font-size:1.2rem; opacity:.9; max-width:700px; margin:0 auto 2.5rem; line-height:1.7; }
+    .pricing-display{ display:flex; justify-content:center; gap:4rem; margin-bottom:3rem; }
+    .price-box{ text-align:center; }
+    .price-amount{ font-weight:900; font-size:3.5rem; margin-bottom:.5rem; }
+    .price-label{ font-size:1.1rem; opacity:.9; }
 
-    .services-section { background-color: var(--neutral-light); }
-    .services-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 3rem; }
-    .service-card {
-      background-color: var(--white);
-      border-radius: var(--radius-lg);
-      padding: 3rem;
-      box-shadow: var(--shadow-lg);
-      border: 1px solid var(--neutral-border);
-      transition: all 0.3s ease;
-      position: relative;
+    /* FOOTER */
+    footer{
+      background:var(--secondary);
+      color:#fff;
+      padding:5rem 0 2rem;
+      margin-top:6rem;
     }
-    .service-card:hover { transform: translateY(-5px); box-shadow: var(--shadow-xl); }
-    .service-card.featured { border: 2px solid var(--primary); }
-    .service-card.featured::before {
-      content: 'Más Popular';
-      position: absolute;
-      top: -12px; left: 50%;
-      transform: translateX(-50%);
-      background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
-      color: var(--white);
-      padding: 0.5rem 1.5rem;
-      border-radius: var(--radius-sm);
-      font-weight: 800;
-      font-size: 0.85rem;
-    }
-    .service-badge { display: inline-block; font-size: 0.85rem; font-weight: 900; text-transform: uppercase; letter-spacing: 1px; color: var(--primary); margin-bottom: 1rem; }
-    .service-title { font-family: 'Playfair Display', serif; font-weight: 600; font-size: 1.8rem; color: var(--secondary); margin-bottom: 1rem; }
-    .service-price { font-weight: 900; font-size: 3rem; color: var(--primary-dark); margin: 1rem 0; }
-    .service-price span { font-size: 1rem; color: var(--text-light); font-weight: 600; }
-    .service-features { margin: 2rem 0; padding-left: 0; list-style: none; }
-    .service-features li { margin-bottom: 0.75rem; color: var(--text-secondary); position: relative; padding-left: 2rem; }
-    .service-features li::before { content: '✓'; position: absolute; left: 0; color: var(--accent); font-weight: 600; }
+    .footer-content{ display:grid; grid-template-columns:repeat(4,1fr); gap:3rem; margin-bottom:3rem; }
+    .footer-heading{ font-family:'Playfair Display',serif; font-weight:600; font-size:1.2rem; margin-bottom:1.5rem; }
+    .footer-links{ list-style:none; display:flex; flex-direction:column; gap:.75rem; }
+    .footer-links a{ color:rgba(255,255,255,.7); text-decoration:none; transition:color .3s ease; }
+    .footer-links a:hover{ color:#fff; }
+    .footer-contact{ display:flex; flex-direction:column; gap:1rem; }
+    .contact-item{ display:flex; align-items:center; gap:.75rem; color:rgba(255,255,255,.7); }
+    .contact-item a{ color:rgba(255,255,255,.85); text-decoration:none; font-weight:800; }
+    .contact-item a:hover{ text-decoration:underline; color:#fff; }
+    .footer-bottom{ text-align:center; padding-top:2rem; border-top:1px solid rgba(255,255,255,.1); color:rgba(255,255,255,.55); font-size:.9rem; }
 
-    .testimonials-section { background-color: var(--white); }
-    .testimonials-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 2.5rem; }
-    .testimonial-card {
-      background-color: var(--white);
-      border-radius: var(--radius-lg);
-      padding: 2.5rem;
-      box-shadow: var(--shadow-lg);
-      border: 1px solid var(--neutral-border);
-      transition: all 0.3s ease;
+    /* WhatsApp */
+    .wa-float{
+      position:fixed; right:18px; bottom:18px; z-index:1500;
+      width:56px; height:56px; border-radius:18px;
+      background:#25D366; color:#fff;
+      display:flex; align-items:center; justify-content:center;
+      text-decoration:none; box-shadow:0 14px 30px rgba(0,0,0,.18);
+      transition:transform .2s ease, box-shadow .2s ease;
     }
-    .testimonial-card:hover { transform: translateY(-5px); box-shadow: var(--shadow-xl); }
-    .testimonial-header { display: flex; align-items: center; margin-bottom: 1.5rem; }
-    .testimonial-avatar {
-      width: 60px; height: 60px;
-      background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
-      color: var(--white);
-      border-radius: 50%;
-      display: flex; align-items: center; justify-content: center;
-      font-weight: 700;
-      font-size: 1.5rem;
-      margin-right: 1rem;
-      font-family: 'Playfair Display', serif;
-    }
-    .testimonial-name { font-weight: 900; font-size: 1.2rem; color: var(--secondary); }
-    .testimonial-role { font-size: 0.9rem; color: var(--text-light); margin-top: 0.25rem; }
-    .testimonial-quote { font-style: italic; color: var(--text-secondary); line-height: 1.7; margin-bottom: 1.5rem; position: relative; padding-left: 1.5rem; }
-    .testimonial-quote::before { content: '"'; position: absolute; left: 0; top: -10px; font-size: 3rem; color: var(--primary-light); font-family: 'Playfair Display', serif; }
-    .testimonial-result { background-color: var(--accent-light); padding: 1rem; border-radius: var(--radius-md); border-left: 4px solid var(--accent); }
-    .testimonial-result-title { font-weight: 900; color: var(--accent); margin-bottom: 0.5rem; font-size: 0.9rem; text-transform: uppercase; letter-spacing: 1px; }
-
-    .cta-section {
-      background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
-      border-radius: var(--radius-lg);
-      padding: 5rem;
-      text-align: center;
-      color: var(--white);
-      margin: 4rem 0;
-    }
-    .cta-title { font-family: 'Playfair Display', serif; font-weight: 700; font-size: 2.8rem; margin-bottom: 1.5rem; }
-    .cta-text { font-size: 1.2rem; opacity: 0.9; max-width: 700px; margin: 0 auto 2.5rem; line-height: 1.7; }
-    .pricing-display { display: flex; justify-content: center; gap: 4rem; margin-bottom: 3rem; }
-    .price-box { text-align: center; }
-    .price-amount { font-weight: 900; font-size: 3.5rem; margin-bottom: 0.5rem; }
-    .price-label { font-size: 1.1rem; opacity: 0.9; }
-
-    .form-section {
-      background-color: var(--white);
-      border-radius: var(--radius-lg);
-      padding: 4rem;
-      box-shadow: var(--shadow-xl);
-      border: 1px solid var(--neutral-border);
-    }
-    .form-row { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.5rem; margin-bottom: 1.5rem; }
-    .form-group { margin-bottom: 1.5rem; }
-    label { display: block; font-weight: 800; color: var(--secondary); margin-bottom: 0.5rem; }
-    input, select, textarea {
-      width: 100%;
-      padding: 1rem;
-      border: 1px solid var(--neutral-border);
-      border-radius: var(--radius-sm);
-      font-family: 'Inter', sans-serif;
-      font-size: 1rem;
-      transition: all 0.3s ease;
-      background-color: var(--white);
-    }
-    input:focus, select:focus, textarea:focus {
-      outline: none;
-      border-color: var(--primary);
-      box-shadow: 0 0 0 3px rgba(154, 106, 255, 0.12);
-    }
-
-    .radio-group { display: flex; flex-direction: column; gap: 0.75rem; }
-    .radio-option { display: flex; align-items: center; gap: 0.75rem; color: var(--text-secondary); }
-    .form-actions { text-align: center; margin-top: 2.5rem; }
-
-    .success-message {
-      display: none;
-      background-color: var(--accent-light);
-      color: var(--accent);
-      padding: 1.25rem;
-      border-radius: var(--radius-md);
-      border: 1px solid rgba(15, 118, 110, 0.35);
-      margin-top: 2rem;
-      text-align: center;
-      font-weight: 800;
-    }
-
-    footer {
-      background-color: var(--secondary);
-      color: var(--white);
-      padding: 5rem 0 2rem;
-      margin-top: 6rem;
-    }
-    .footer-content { display: grid; grid-template-columns: repeat(4, 1fr); gap: 3rem; margin-bottom: 3rem; }
-    .footer-heading { font-family: 'Playfair Display', serif; font-weight: 600; font-size: 1.2rem; margin-bottom: 1.5rem; color: var(--white); }
-    .footer-links { list-style: none; display: flex; flex-direction: column; gap: 0.75rem; }
-    .footer-links a { color: rgba(255, 255, 255, 0.7); text-decoration: none; transition: color 0.3s ease; }
-    .footer-links a:hover { color: var(--white); }
-    .footer-contact { display: flex; flex-direction: column; gap: 1rem; }
-    .contact-item { display: flex; align-items: center; gap: 0.75rem; color: rgba(255, 255, 255, 0.7); }
-    .contact-item a { color: rgba(255, 255, 255, 0.85); text-decoration: none; font-weight: 800; }
-    .contact-item a:hover { text-decoration: underline; color: #fff; }
-    .footer-bottom { text-align: center; padding-top: 2rem; border-top: 1px solid rgba(255, 255, 255, 0.1); color: rgba(255, 255, 255, 0.55); font-size: 0.9rem; }
-
-    /* WhatsApp Floating */
-    .wa-float {
-      position: fixed;
-      right: 18px;
-      bottom: 18px;
-      z-index: 1500;
-      width: 56px;
-      height: 56px;
-      border-radius: 18px;
-      background: #25D366;
-      color: white;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      text-decoration: none;
-      box-shadow: 0 14px 30px rgba(0,0,0,0.18);
-      transition: transform 0.2s ease, box-shadow 0.2s ease;
-    }
-    .wa-float:hover { transform: translateY(-2px); box-shadow: 0 18px 38px rgba(0,0,0,0.22); }
-    .wa-float i { font-size: 1.6rem; }
+    .wa-float:hover{ transform:translateY(-2px); box-shadow:0 18px 38px rgba(0,0,0,.22); }
+    .wa-float i{ font-size:1.6rem; }
 
     /* Responsive */
-    @media (max-width: 1024px) {
-      .hero-content, .process-grid, .services-grid, .footer-content { grid-template-columns: 1fr; }
-      .form-row { grid-template-columns: 1fr; }
-      .testimonials-grid { grid-template-columns: 1fr; }
-      .hero-title { font-size: 3rem; }
-      .section-title { font-size: 2.8rem; }
-      .blog-grid { grid-template-columns: 1fr; }
+    @media (max-width:1024px){
+      .hero-content, .process-grid, .services-grid, .footer-content{ grid-template-columns:1fr; }
+      .form-row{ grid-template-columns:1fr; }
+      .hero-title{ font-size:3rem; }
+      .section-title{ font-size:2.8rem; }
+      .blog-grid{ grid-template-columns:1fr; }
     }
-    @media (max-width: 768px) {
-      .nav-links { display: none; }
-      .mobile-menu-btn { display: flex; }
-      .hero { padding-top: 10rem; padding-bottom: 5rem; }
-      .hero-title { font-size: 2.5rem; }
-      .section { padding: 6rem 0 4rem; }
-      .cta-section { padding: 3rem 2rem; }
-      .form-section { padding: 2.5rem; }
-      .pricing-display { flex-direction: column; gap: 2rem; }
-      .footer-content { grid-template-columns: repeat(2, 1fr); }
+    @media (max-width:768px){
+      .nav-links{ display:none; }
+      .mobile-menu-btn{ display:flex; }
+      .hero{ padding-top:10rem; padding-bottom:5rem; }
+      .hero-title{ font-size:2.5rem; }
+      .section{ padding:6rem 0 4rem; }
+      .cta-section{ padding:3rem 2rem; }
+      .form-section{ padding:2.5rem; }
+      .pricing-display{ flex-direction:column; gap:2rem; }
+      .footer-content{ grid-template-columns:repeat(2,1fr); }
     }
-    @media (max-width: 576px) {
-      .container { padding: 0 1.5rem; }
-      .hero-title { font-size: 2.2rem; }
-      .section-title { font-size: 2.2rem; }
-      .btn { padding: 0.8rem 1.5rem; font-size: 0.9rem; }
-      .hero-features { grid-template-columns: 1fr; }
-      .footer-content { grid-template-columns: 1fr; }
-      .article-wrap { padding: 1.5rem; }
+    @media (max-width:576px){
+      .container{ padding:0 1.5rem; }
+      .hero-title{ font-size:2.2rem; }
+      .section-title{ font-size:2.2rem; }
+      .btn{ padding:.8rem 1.5rem; font-size:.9rem; }
+      .hero-features{ grid-template-columns:1fr; }
+      .footer-content{ grid-template-columns:1fr; }
     }
   </style>
 </head>
@@ -757,8 +425,7 @@
         <div class="nav-links">
           <a href="#proceso" class="nav-link">Proceso</a>
           <a href="#servicios" class="nav-link">Servicios</a>
-          <a href="#blog" class="nav-link">Guías</a>
-          <a href="#resultados" class="nav-link">Resultados</a>
+          <a href="/blog/" class="nav-link">Guías</a>
           <a href="#contacto" class="nav-link">Contacto</a>
           <a href="#formulario" class="btn btn-primary">Evaluar Caso</a>
         </div>
@@ -775,10 +442,9 @@
           <a href="#inicio" class="mobile-nav-link"><i class="fas fa-home"></i>Inicio</a>
           <a href="#proceso" class="mobile-nav-link"><i class="fas fa-cogs"></i>Proceso</a>
           <a href="#servicios" class="mobile-nav-link"><i class="fas fa-gavel"></i>Servicios</a>
-          <a href="#blog" class="mobile-nav-link"><i class="fas fa-book"></i>Guías</a>
-          <a href="#resultados" class="mobile-nav-link"><i class="fas fa-chart-line"></i>Resultados</a>
+          <a href="/blog/" class="mobile-nav-link"><i class="fas fa-book"></i>Guías</a>
           <a href="#contacto" class="mobile-nav-link"><i class="fas fa-envelope"></i>Contacto</a>
-          <a href="#formulario" class="btn btn-primary" style="margin-top: 1.5rem;"><i class="fas fa-clipboard-check"></i>Evaluar Caso</a>
+          <a href="#formulario" class="btn btn-primary" style="margin-top:1.5rem;"><i class="fas fa-clipboard-check"></i>Evaluar Caso</a>
         </div>
       </div>
     </div>
@@ -795,9 +461,7 @@
             <span class="badge"><i class="fas fa-bullseye"></i> Estrategia Clara</span>
           </div>
 
-          <h1 class="hero-title">
-            Transformamos problemas legales en <span>soluciones ejecutables</span>
-          </h1>
+          <h1 class="hero-title">Transformamos problemas legales en <span>soluciones ejecutables</span></h1>
 
           <p class="hero-subtitle">
             Aquí no vienes a pedir opinión. Vienes a salir con un plan.
@@ -805,42 +469,30 @@
           </p>
 
           <div class="hero-alert">
-            <strong>Ojo:</strong> El error más caro es dejar pasar el tiempo. En temas legales, el retraso normalmente significa más riesgo, más costo o pérdida de derechos.
+            <strong>Ojo:</strong> el error más caro es dejar pasar el tiempo. En temas legales, el retraso normalmente significa más riesgo, más costo o pérdida de derechos.
           </div>
 
-          <div style="display: flex; gap: 1rem; margin-top: 2.5rem; flex-wrap: wrap;">
+          <div style="display:flex; gap:1rem; margin-top:2.5rem; flex-wrap:wrap;">
             <a href="#formulario" class="btn btn-primary"><i class="fas fa-clipboard-check"></i>Evaluar mi Caso</a>
-            <a href="#blog" class="btn btn-outline"><i class="fas fa-book"></i>Ver Guías</a>
+            <a href="/blog/" class="btn btn-outline"><i class="fas fa-book"></i>Ver Guías</a>
           </div>
 
           <div class="hero-features">
             <div class="hero-feature">
               <span class="hero-feature-icon"><i class="fas fa-check"></i></span>
-              <div>
-                <strong>Asesoría Nacional</strong>
-                <div style="font-size: 0.9rem; color: var(--text-light); margin-top: 0.25rem;">Cobertura en todo Ecuador</div>
-              </div>
+              <div><strong>Asesoría Nacional</strong><div style="font-size:.9rem; color:var(--text-light); margin-top:.25rem;">Cobertura en todo Ecuador</div></div>
             </div>
             <div class="hero-feature">
               <span class="hero-feature-icon"><i class="fas fa-file-contract"></i></span>
-              <div>
-                <strong>Análisis Documental</strong>
-                <div style="font-size: 0.9rem; color: var(--text-light); margin-top: 0.25rem;">Revisión previa (si aplica)</div>
-              </div>
+              <div><strong>Análisis Documental</strong><div style="font-size:.9rem; color:var(--text-light); margin-top:.25rem;">Revisión previa (si aplica)</div></div>
             </div>
             <div class="hero-feature">
               <span class="hero-feature-icon"><i class="fas fa-clock"></i></span>
-              <div>
-                <strong>Sesión con objetivo</strong>
-                <div style="font-size: 0.9rem; color: var(--text-light); margin-top: 0.25rem;">No “charla”: estrategia</div>
-              </div>
+              <div><strong>Sesión con objetivo</strong><div style="font-size:.9rem; color:var(--text-light); margin-top:.25rem;">No “charla”: estrategia</div></div>
             </div>
             <div class="hero-feature">
               <span class="hero-feature-icon"><i class="fas fa-lock"></i></span>
-              <div>
-                <strong>Confidencialidad</strong>
-                <div style="font-size: 0.9rem; color: var(--text-light); margin-top: 0.25rem;">Manejo responsable</div>
-              </div>
+              <div><strong>Confidencialidad</strong><div style="font-size:.9rem; color:var(--text-light); margin-top:.25rem;">Manejo responsable</div></div>
             </div>
           </div>
         </div>
@@ -863,7 +515,6 @@
               </div>
               <div class="pricing-price">$45</div>
             </div>
-
             <div class="pricing-item">
               <div>
                 <div class="pricing-name">Consulta Presencial</div>
@@ -873,8 +524,8 @@
             </div>
           </div>
 
-          <p style="font-size:0.92rem; color: var(--text-light); margin-top:1.25rem;">
-            <i class="fas fa-info-circle" style="color: var(--primary);"></i>
+          <p style="font-size:.92rem; color:var(--text-light); margin-top:1.25rem;">
+            <i class="fas fa-info-circle" style="color:var(--primary);"></i>
             Te decimos qué hacer con <strong>TU</strong> documento, <strong>TU</strong> plazo y <strong>TU</strong> riesgo.
           </p>
         </div>
@@ -882,22 +533,8 @@
     </div>
   </section>
 
-  <!-- BLOQUE SEO -->
-  <section class="section" style="padding-top:2rem; padding-bottom:3rem;">
-    <div class="container" style="max-width:900px;">
-      <div class="section-kicker">Cobertura</div>
-      <h2 style="font-family:'Playfair Display',serif; font-size:2.2rem; font-weight:800; color: var(--secondary); margin-bottom:1rem;">
-        Abogados en Ecuador: asesoría legal por videollamada y en Guayaquil
-      </h2>
-      <p style="color: var(--text-secondary); line-height:1.8;">
-        Júristam brinda asesoría legal profesional en Ecuador. Atendemos por videollamada a nivel nacional y, según el caso, de forma presencial en Guayaquil.
-        Revisamos documentos, definimos una estrategia y te entregamos un plan claro con tiempos, riesgos y costos por etapas.
-      </p>
-    </div>
-  </section>
-
   <!-- PROCESS -->
-  <section class="section process-section" id="proceso">
+  <section class="section" id="proceso">
     <div class="container">
       <div class="section-header">
         <div class="section-kicker">Nuestro Método</div>
@@ -925,177 +562,20 @@
     </div>
   </section>
 
-  <!-- BLOG / GUÍAS -->
+  <!-- BLOG (cards -> pages) -->
   <section class="section blog-section" id="blog">
     <div class="container">
       <div class="section-header">
         <div class="section-kicker">Guías Júristam</div>
         <h2 class="section-title">Artículos prácticos para actuar con claridad</h2>
-        <p class="section-subtitle">
-          Lectura rápida. Sin teoría innecesaria. Enfocado en “qué hacer” según el problema.
-        </p>
+        <p class="section-subtitle">Lectura rápida. Sin teoría innecesaria. Enfocado en “qué hacer”.</p>
       </div>
 
-      <div class="blog-grid" id="blogGrid">
-        <!-- Se llena con JS -->
+      <div class="blog-grid" id="blogGrid"></div>
+
+      <div style="display:flex;justify-content:center;margin-top:2.5rem;">
+        <a class="btn btn-primary" href="/blog/"><i class="fas fa-book-open"></i> Ver todos los artículos</a>
       </div>
-
-      <div class="blog-cta-row" style="display:flex;justify-content:center;margin-top:2.5rem;">
-        <a class="btn btn-primary" id="blogMoreBtn" href="#" style="display:none;">
-          <i class="fas fa-book-open"></i> Ver más artículos
-        </a>
-      </div>
-    </div>
-  </section>
-
-  <!-- ARTÍCULOS COMPLETOS EN EL MISMO HTML -->
-  <section class="section" id="articulos">
-    <div class="container" style="max-width: 980px;">
-      <div class="section-header" style="margin-bottom: 3rem;">
-        <div class="section-kicker">Biblioteca</div>
-        <h2 class="section-title">Artículos completos</h2>
-        <p class="section-subtitle">Esto está dentro del mismo código (no Blogger). Google lo lee e indexa.</p>
-      </div>
-
-      <!-- Artículo 1 -->
-      <section id="articulo-senae" style="margin-bottom: 2.5rem;">
-        <div class="article-wrap">
-          <div class="article-top">
-            <div class="article-meta">
-              <span class="blog-tag">Administrativo</span>
-              <span><i class="fa-regular fa-clock"></i> Guía práctica</span>
-            </div>
-            <a class="article-back" href="#blog"><i class="fas fa-arrow-left"></i> Volver a Guías</a>
-          </div>
-
-          <h2 style="font-family:'Playfair Display',serif; font-size:2.2rem; line-height:1.2; color: var(--secondary); margin-bottom: 0.75rem;">
-            ¿Te retuvieron mercadería en SENAE? Qué hacer en Ecuador
-          </h2>
-
-          <div class="article-content">
-            <p>
-              Si SENAE retuvo tu mercadería, el peor error es improvisar. En estos casos no se trata solo de “pagar y ya”, sino de entender
-              <strong>qué tipo de acta existe</strong>, qué te están imputando y cuál es la vía correcta para responder.
-            </p>
-
-            <div class="article-callout">
-              Regla de oro: cada documento que presentas genera consecuencias jurídicas. Si respondes mal, te amarras tú mismo.
-            </div>
-
-            <h3>Errores que te hacen perder el caso</h3>
-            <ul>
-              <li>Responder sin revisar el contenido del parte/acta (y sin estrategia)</li>
-              <li>Aceptar avalúos inflados o inconsistentes sin cuestionarlos</li>
-              <li>No ordenar pruebas: facturas, respaldo laboral, DAU, etc.</li>
-              <li>Creer que “si llevo documentos, ya me liberan” (no funciona así)</li>
-            </ul>
-
-            <h3>Ruta lógica para actuar</h3>
-            <p>
-              1) Primero identificas exactamente qué te notificaron. 2) Luego determinas qué necesitas probar (legalidad, propiedad, trazabilidad).
-              3) Recién ahí se arma una respuesta técnica, con orden y objetivo.
-            </p>
-
-            <p>
-              Si tu caso incluye discrepancias de descripción (mercadería vs. DAU), eso se maneja con criterio y coherencia documental:
-              no se “pelea” a ciegas. Se estructura.
-            </p>
-          </div>
-        </div>
-      </section>
-
-      <!-- Artículo 2 -->
-      <section id="articulo-pension" style="margin-bottom: 2.5rem;">
-        <div class="article-wrap">
-          <div class="article-top">
-            <div class="article-meta">
-              <span class="blog-tag">Familia</span>
-              <span><i class="fa-regular fa-clock"></i> Guía práctica</span>
-            </div>
-            <a class="article-back" href="#blog"><i class="fas fa-arrow-left"></i> Volver a Guías</a>
-          </div>
-
-          <h2 style="font-family:'Playfair Display',serif; font-size:2.2rem; line-height:1.2; color: var(--secondary); margin-bottom: 0.75rem;">
-            Pensión alimenticia: cómo prepararte antes de demandar
-          </h2>
-
-          <div class="article-content">
-            <p>
-              Demandar sin preparación es perder tiempo. La mayoría llega con rabia y pocos documentos. La estrategia correcta es lo contrario:
-              llegar con pruebas, objetivos y un plan de presión legal.
-            </p>
-
-            <h3>Qué debes tener listo antes de iniciar</h3>
-            <ul>
-              <li>Datos de identificación y ubicación de la otra parte</li>
-              <li>Pruebas de gastos reales (educación, salud, alimentación)</li>
-              <li>Indicios de ingresos (si existen) y contexto laboral</li>
-              <li>Un objetivo claro: monto viable + medidas a pedir</li>
-            </ul>
-
-            <div class="article-callout">
-              El caso se gana con preparación. No con “tengo la razón”.
-            </div>
-
-            <h3>Errores típicos</h3>
-            <ul>
-              <li>No documentar gastos (todo queda en palabras)</li>
-              <li>Pedir montos irreales y luego no sostenerlos</li>
-              <li>Pelear por WhatsApp y quemar el caso</li>
-            </ul>
-
-            <p>
-              Si necesitas una ruta exacta para tu caso (y evitar errores caros), lo correcto es una consulta con revisión de tu documentación.
-            </p>
-          </div>
-        </div>
-      </section>
-
-      <!-- Artículo 3 -->
-      <section id="articulo-vehiculo">
-        <div class="article-wrap">
-          <div class="article-top">
-            <div class="article-meta">
-              <span class="blog-tag">Consumidor</span>
-              <span><i class="fa-regular fa-clock"></i> Guía práctica</span>
-            </div>
-            <a class="article-back" href="#blog"><i class="fas fa-arrow-left"></i> Volver a Guías</a>
-          </div>
-
-          <h2 style="font-family:'Playfair Display',serif; font-size:2.2rem; line-height:1.2; color: var(--secondary); margin-bottom: 0.75rem;">
-            Vehículo con fallas: qué reclamar y cómo negociar correctamente
-          </h2>
-
-          <div class="article-content">
-            <p>
-              El error más común es reclamar mal: amenazas sin soporte, reclamos sin forma, o “me estafaron” sin sustento técnico.
-              La estrategia real es presión jurídica ordenada.
-            </p>
-
-            <h3>Base mínima para reclamar bien</h3>
-            <ul>
-              <li>Reclamo por escrito (fecha, hechos, solicitud concreta)</li>
-              <li>Prueba: facturas, contrato, órdenes de trabajo, informes técnicos</li>
-              <li>Plazo claro para respuesta</li>
-            </ul>
-
-            <div class="article-callout">
-              Negociar bien = presión legal + orden probatorio. No gritos.
-            </div>
-
-            <h3>Qué pedir (sin quemar el caso)</h3>
-            <p>
-              Depende del escenario: reparación, garantía, devolución, compensación o rescisión. Pero eso se decide con base en documentos y hechos.
-              Si improvisas, la otra parte se blinda.
-            </p>
-
-            <p>
-              Si quieres una ruta exacta, lo correcto es una evaluación estratégica con revisión de tu documentación.
-            </p>
-          </div>
-        </div>
-      </section>
-
     </div>
   </section>
 
@@ -1119,9 +599,7 @@
             <li>Definimos ruta: negociación / acción / defensa</li>
             <li>Sesión con objetivo</li>
           </ul>
-          <a href="#formulario" class="btn btn-primary" style="width:100%; margin-top:2rem;">
-            <i class="fas fa-video"></i> Solicitar Virtual
-          </a>
+          <a href="#formulario" class="btn btn-primary" style="width:100%; margin-top:2rem;"><i class="fas fa-video"></i> Solicitar Virtual</a>
         </div>
 
         <div class="service-card">
@@ -1134,67 +612,7 @@
             <li>Plan por fases</li>
             <li>Presupuesto claro</li>
           </ul>
-          <a href="#formulario" class="btn btn-outline" style="width:100%; margin-top:2rem;">
-            <i class="fas fa-map-marker-alt"></i> Solicitar Presencial
-          </a>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- TESTIMONIALS -->
-  <section class="section testimonials-section" id="resultados">
-    <div class="container">
-      <div class="section-header">
-        <div class="section-kicker">Resultados</div>
-        <h2 class="section-title">Casos reales</h2>
-        <p class="section-subtitle">Estrategia + acción = solución.</p>
-      </div>
-
-      <div class="testimonials-grid">
-        <div class="testimonial-card">
-          <div class="testimonial-header">
-            <div class="testimonial-avatar">JT</div>
-            <div>
-              <div class="testimonial-name">Jeremy T.</div>
-              <div class="testimonial-role">Proceso Penal</div>
-            </div>
-          </div>
-          <p class="testimonial-quote">"Aparecía en registros como procesado... Júristam gestionó el archivo y actualización."</p>
-          <div class="testimonial-result">
-            <div class="testimonial-result-title">Resultado</div>
-            <div>Archivo y actualización en 21 días.</div>
-          </div>
-        </div>
-
-        <div class="testimonial-card">
-          <div class="testimonial-header">
-            <div class="testimonial-avatar">LR</div>
-            <div>
-              <div class="testimonial-name">Luis R.</div>
-              <div class="testimonial-role">Herencias</div>
-            </div>
-          </div>
-          <p class="testimonial-quote">"Con la estrategia, hoy recibo lo que corresponde."</p>
-          <div class="testimonial-result">
-            <div class="testimonial-result-title">Resultado</div>
-            <div>Copropiedad + recuperación de rentas.</div>
-          </div>
-        </div>
-
-        <div class="testimonial-card">
-          <div class="testimonial-header">
-            <div class="testimonial-avatar">JR</div>
-            <div>
-              <div class="testimonial-name">Jonathan R.</div>
-              <div class="testimonial-role">Consumidor</div>
-            </div>
-          </div>
-          <p class="testimonial-quote">"La empresa quiso cambiar condiciones... ejercí mis derechos."</p>
-          <div class="testimonial-result">
-            <div class="testimonial-result-title">Resultado</div>
-            <div>Solución en 34 días.</div>
-          </div>
+          <a href="#formulario" class="btn btn-outline" style="width:100%; margin-top:2rem;"><i class="fas fa-map-marker-alt"></i> Solicitar Presencial</a>
         </div>
       </div>
     </div>
@@ -1206,14 +624,8 @@
       <h2 class="cta-title">Tu situación legal merece atención profesional</h2>
       <p class="cta-text">Si el caso es real, se trabaja. Si no hay ruta, se dice.</p>
       <div class="pricing-display">
-        <div class="price-box">
-          <div class="price-amount">$45</div>
-          <div class="price-label">Virtual</div>
-        </div>
-        <div class="price-box">
-          <div class="price-amount">$85</div>
-          <div class="price-label">Presencial</div>
-        </div>
+        <div class="price-box"><div class="price-amount">$45</div><div class="price-label">Virtual</div></div>
+        <div class="price-box"><div class="price-amount">$85</div><div class="price-label">Presencial</div></div>
       </div>
       <a href="#formulario" class="btn" style="background:white;color:var(--primary);padding:1rem 3rem;font-size:1.1rem;">
         <i class="fas fa-file-alt"></i> Iniciar Evaluación
@@ -1264,7 +676,7 @@
           </div>
 
           <div class="form-actions">
-            <button id="submitBtn" type="submit" class="btn btn-primary" style="padding: 1rem 4rem; font-size: 1.1rem;">
+            <button id="submitBtn" type="submit" class="btn btn-primary" style="padding:1rem 4rem; font-size:1.1rem;">
               <i class="fas fa-paper-plane"></i> Enviar
             </button>
           </div>
@@ -1274,7 +686,7 @@
           </div>
         </form>
 
-        <p style="text-align:center; margin-top:1.5rem; color: var(--text-light); font-size:0.92rem;">
+        <p style="text-align:center; margin-top:1.5rem; color:var(--text-light); font-size:.92rem;">
           Al enviar este formulario, autorizas a Júristam a contactarte. Información tratada con confidencialidad.
         </p>
       </div>
@@ -1287,7 +699,7 @@
       <div class="footer-content">
         <div>
           <div class="footer-heading">Júristam</div>
-          <p style="opacity:0.7; line-height:1.7;">Estrategia legal, claridad y acción.</p>
+          <p style="opacity:.7; line-height:1.7;">Estrategia legal, claridad y acción.</p>
         </div>
 
         <div>
@@ -1296,7 +708,7 @@
             <li><a href="#inicio">Inicio</a></li>
             <li><a href="#proceso">Proceso</a></li>
             <li><a href="#servicios">Servicios</a></li>
-            <li><a href="#blog">Guías</a></li>
+            <li><a href="/blog/">Guías</a></li>
             <li><a href="#formulario">Evaluación</a></li>
           </ul>
         </div>
@@ -1304,120 +716,87 @@
         <div>
           <div class="footer-heading">Contacto</div>
           <div class="footer-contact">
-            <div class="contact-item">
-              <i class="fas fa-phone"></i>
-              <a href="tel:+593994859814">+593 99 485 9814</a>
-            </div>
-            <div class="contact-item">
-              <i class="fas fa-envelope"></i>
-              <a href="mailto:juristam.ec@gmail.com">juristam.ec@gmail.com</a>
-            </div>
-            <div class="contact-item">
-              <i class="fas fa-map-marker-alt"></i>
-              <span>Guayaquil, Ecuador</span>
-            </div>
+            <div class="contact-item"><i class="fas fa-phone"></i> <a href="tel:+593994859814">+593 99 485 9814</a></div>
+            <div class="contact-item"><i class="fas fa-envelope"></i> <a href="mailto:juristam.ec@gmail.com">juristam.ec@gmail.com</a></div>
+            <div class="contact-item"><i class="fas fa-map-marker-alt"></i> <span>Guayaquil, Ecuador</span></div>
           </div>
         </div>
 
         <div>
           <div class="footer-heading">Guías</div>
           <ul class="footer-links">
-            <li><a id="blogFooterLink" href="#blog">Ver guías</a></li>
-            <li><a href="#articulos">Artículos completos</a></li>
-            <li><a href="#formulario">Evaluar caso</a></li>
+            <li><a href="/blog/">Ver todas</a></li>
+            <li><a href="/blog/senae-retencion-mercaderia.html">SENAE: Retención</a></li>
+            <li><a href="/blog/prohibicion-salida-alimentos.html">Prohibición salida</a></li>
+            <li><a href="/blog/cuenta-bloqueada-coactiva-salario.html">Cuenta bloqueada</a></li>
           </ul>
         </div>
       </div>
 
-      <div class="footer-bottom">
-        <div>© <span id="currentYear"></span> Júristam. Todos los derechos reservados.</div>
-      </div>
+      <div class="footer-bottom">© <span id="currentYear"></span> Júristam. Todos los derechos reservados.</div>
     </div>
   </footer>
 
-  <!-- WhatsApp Floating -->
   <a class="wa-float" href="https://wa.me/593994859814?text=Hola%20J%C3%BAristam.%20Quiero%20una%20EVALUACI%C3%93N%20de%20mi%20caso." target="_blank" rel="noopener" aria-label="WhatsApp">
     <i class="fab fa-whatsapp"></i>
   </a>
 
   <script>
-    // Año actual
+    // Año
     document.getElementById('currentYear').textContent = new Date().getFullYear();
 
     // Header scroll
-    window.addEventListener('scroll', function() {
+    window.addEventListener('scroll', () => {
       const header = document.querySelector('header');
-      if (window.scrollY > 50) header.classList.add('scrolled');
-      else header.classList.remove('scrolled');
+      header.classList.toggle('scrolled', window.scrollY > 50);
     });
 
     // Menú móvil
     const mobileMenuBtn = document.getElementById('mobileMenuBtn');
     const mobileMenu = document.getElementById('mobileMenu');
-    mobileMenuBtn.addEventListener('click', function() {
-      mobileMenu.classList.toggle('active');
-      this.classList.toggle('active');
-    });
+    mobileMenuBtn.addEventListener('click', () => mobileMenu.classList.toggle('active'));
     document.querySelectorAll('.mobile-nav-link').forEach(link => {
-      link.addEventListener('click', () => {
+      link.addEventListener('click', () => mobileMenu.classList.remove('active'));
+    });
+
+    // Smooth scroll SOLO para anchors internos (#)
+    document.querySelectorAll('a[href^="#"]').forEach(a => {
+      a.addEventListener('click', (e) => {
+        const href = a.getAttribute('href');
+        if (!href || href === '#') return;
+        const el = document.querySelector(href);
+        if (!el) return;
+        e.preventDefault();
         mobileMenu.classList.remove('active');
-        mobileMenuBtn.classList.remove('active');
+        window.scrollTo({ top: el.offsetTop - 100, behavior: 'smooth' });
       });
     });
 
-    // Smooth scroll
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-      anchor.addEventListener('click', function(e) {
-        if (this.getAttribute('href') === '#') return;
-        const targetId = this.getAttribute('href');
-        const targetElement = document.querySelector(targetId);
-        if (targetElement) {
-          e.preventDefault();
-          if (mobileMenu.classList.contains('active')) {
-            mobileMenu.classList.remove('active');
-            mobileMenuBtn.classList.remove('active');
-          }
-          window.scrollTo({ top: targetElement.offsetTop - 100, behavior: 'smooth' });
-        }
-      });
-    });
-
-    // =========================
-    // BLOG EN EL MISMO HTML
-    // =========================
+    // BLOG cards (landing) -> PÁGINAS REALES
     const posts = [
       {
-        tag: "Administrativo",
+        tag: "Aduanas",
         date: "Guía práctica",
-        title: "¿Te retuvieron mercadería en SENAE? Qué hacer en Ecuador",
-        excerpt: "Pasos correctos, errores comunes y cómo estructurar una estrategia sin empeorar el caso.",
-        anchor: "#articulo-senae"
+        title: "SENAE retuvo tu mercadería: qué hacer (sin empeorar el caso)",
+        excerpt: "Pasos concretos, errores que te hunden y cómo estructurar una respuesta que sí sirve.",
+        url: "/blog/senae-retencion-mercaderia.html"
       },
       {
         tag: "Familia",
         date: "Guía práctica",
-        title: "Pensión alimenticia: cómo prepararte antes de demandar",
-        excerpt: "Qué pruebas sirven, qué errores evitar y cómo llegar con el caso listo.",
-        anchor: "#articulo-pension"
+        title: "Prohibición de salida del país por alimentos: cómo levantarla si hay acuerdo",
+        excerpt: "Qué revisar, qué pedir al juzgado y cómo acelerar el trámite cuando es urgente.",
+        url: "/blog/prohibicion-salida-alimentos.html"
       },
       {
-        tag: "Consumidor",
+        tag: "Coactiva",
         date: "Guía práctica",
-        title: "Vehículo con fallas: qué reclamar y cómo negociar correctamente",
-        excerpt: "Estrategia legal para presionar bien sin quemar tu caso.",
-        anchor: "#articulo-vehiculo"
+        title: "Cuenta bloqueada por coactiva y es tu salario: cómo moverte rápido",
+        excerpt: "Qué pruebas necesitas y cómo argumentar el origen de fondos para desbloqueo.",
+        url: "/blog/cuenta-bloqueada-coactiva-salario.html"
       }
     ];
-
-    // Render blog cards
-    const grid = document.getElementById("blogGrid");
-    const moreBtn = document.getElementById("blogMoreBtn");
-    const footerBlog = document.getElementById("blogFooterLink");
-
-    if (moreBtn) moreBtn.style.display = "none";
-    if (footerBlog) footerBlog.href = "#blog";
-
-    grid.innerHTML = posts.map(p => `
+    document.getElementById("blogGrid").innerHTML = posts.map(p => `
       <article class="blog-card">
         <div class="blog-meta">
           <span class="blog-tag">${p.tag}</span>
@@ -1425,23 +804,20 @@
         </div>
         <div class="blog-title">${p.title}</div>
         <div class="blog-excerpt">${p.excerpt}</div>
-        <div class="blog-actions">
-          <a class="blog-link" href="${p.anchor}">
-            Leer artículo <i class="fas fa-arrow-right"></i>
-          </a>
-        </div>
+        <a class="blog-link" href="${p.url}" target="_blank" rel="noopener">
+          Leer artículo <i class="fas fa-arrow-right"></i>
+        </a>
       </article>
     `).join("");
 
-    // Form submit (FormSubmit AJAX)
+    // FormSubmit AJAX (sin redirección fea)
     const form = document.getElementById('leadForm');
     const submitBtn = document.getElementById('submitBtn');
     const successMessage = document.getElementById('successMessage');
 
-    form.addEventListener('submit', async function(e) {
+    form.addEventListener('submit', async (e) => {
       e.preventDefault();
-
-      const originalHTML = submitBtn.innerHTML;
+      const original = submitBtn.innerHTML;
       submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Enviando...';
       submitBtn.disabled = true;
 
@@ -1451,18 +827,17 @@
           method: 'POST',
           body: formData
         });
-
         if (!res.ok) throw new Error('network');
 
         form.reset();
         successMessage.style.display = 'block';
-        successMessage.scrollIntoView({ behavior: 'smooth', block: 'center' });
-        setTimeout(() => { successMessage.style.display = 'none'; }, 12000);
+        successMessage.scrollIntoView({ behavior:'smooth', block:'center' });
+        setTimeout(() => successMessage.style.display = 'none', 12000);
 
       } catch (err) {
         alert('Hubo un error al enviar. Intenta nuevamente o escríbenos por WhatsApp.');
       } finally {
-        submitBtn.innerHTML = originalHTML;
+        submitBtn.innerHTML = original;
         submitBtn.disabled = false;
       }
     });
