@@ -1,0 +1,1703 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Júristam · Asesoría Legal Profesional</title>
+  <meta name="description" content="Asesoría legal profesional que filtra casos reales y diseña estrategia clara para tu situación legal.">
+  
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  
+  <style>
+    :root {
+      --primary: #7c3aed;
+      --primary-dark: #5b21b6;
+      --primary-gradient: linear-gradient(135deg, #7c3aed 0%, #5b21b6 100%);
+      --danger: #dc2626;
+      --success: #059669;
+      --warning: #d97706;
+      --bg: #f8fafc;
+      --bg-card: #ffffff;
+      --text-main: #111827;
+      --text-secondary: #374151;
+      --text-muted: #6b7280;
+      --border: #e5e7eb;
+      --radius-lg: 24px;
+      --radius-md: 16px;
+      --radius-sm: 12px;
+      --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+      --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+      --shadow-primary: 0 20px 55px rgba(124, 58, 237, 0.2);
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      background-color: var(--bg);
+      color: var(--text-main);
+      line-height: 1.6;
+      overflow-x: hidden;
+      width: 100%;
+    }
+
+    /* HEADER FIJO */
+    header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 1000;
+      background: rgba(255, 255, 255, 0.98);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid rgba(229, 231, 235, 0.8);
+      padding: 1rem 0;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 1.5rem;
+    }
+
+    .navbar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      text-decoration: none;
+    }
+
+    .logo-icon {
+      width: 45px;
+      height: 45px;
+      border-radius: 14px;
+      background: var(--primary-gradient);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-weight: 800;
+      font-size: 1.5rem;
+      box-shadow: var(--shadow-primary);
+    }
+
+    .logo-text {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .logo-text-main {
+      font-weight: 800;
+      font-size: 1.3rem;
+      letter-spacing: -0.5px;
+    }
+
+    .logo-text-sub {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+    }
+
+    /* MENÚ DE NAVEGACIÓN */
+    .nav-links {
+      display: flex;
+      gap: 2.5rem;
+      align-items: center;
+    }
+
+    .nav-link {
+      font-weight: 600;
+      color: var(--text-secondary);
+      text-decoration: none;
+      padding: 0.5rem 0;
+      position: relative;
+      transition: all 0.3s ease;
+      font-size: 0.95rem;
+    }
+
+    .nav-link:hover {
+      color: var(--primary);
+    }
+
+    .nav-link::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 0;
+      height: 3px;
+      background: var(--primary-gradient);
+      transition: width 0.3s ease;
+      border-radius: 2px;
+    }
+
+    .nav-link:hover::after {
+      width: 100%;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0.85rem 2rem;
+      border-radius: 100px;
+      font-weight: 600;
+      text-decoration: none;
+      transition: all 0.3s ease;
+      border: none;
+      cursor: pointer;
+      font-family: inherit;
+      font-size: 0.95rem;
+      letter-spacing: -0.2px;
+    }
+
+    .btn-primary {
+      background: var(--primary-gradient);
+      color: white;
+      box-shadow: var(--shadow-primary);
+      padding: 0.85rem 2.2rem;
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 25px 60px rgba(124, 58, 237, 0.35);
+    }
+
+    /* MENÚ MÓVIL */
+    .mobile-menu-btn {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 0.5rem;
+    }
+
+    .mobile-menu-btn span {
+      width: 25px;
+      height: 3px;
+      background: var(--text-main);
+      border-radius: 3px;
+      transition: 0.3s ease;
+    }
+
+    .mobile-menu {
+      display: none;
+      position: fixed;
+      top: 80px;
+      left: 0;
+      right: 0;
+      background: white;
+      padding: 2rem;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+      z-index: 999;
+      border-top: 1px solid var(--border);
+    }
+
+    .mobile-menu.active {
+      display: block;
+    }
+
+    .mobile-nav-links {
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+    }
+
+    .mobile-nav-link {
+      font-weight: 600;
+      color: var(--text-secondary);
+      text-decoration: none;
+      font-size: 1.1rem;
+      padding: 0.75rem 0;
+      border-bottom: 1px solid var(--border);
+      transition: color 0.3s ease;
+    }
+
+    .mobile-nav-link:hover {
+      color: var(--primary);
+    }
+
+    /* SECCIONES CON ESPACIO PARA HEADER FIJO */
+    .section {
+      padding: 6rem 0 4rem;
+      scroll-margin-top: 90px;
+    }
+
+    /* HERO SECTION */
+    .hero {
+      padding-top: 8rem;
+      padding-bottom: 5rem;
+      background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      right: -20%;
+      width: 70%;
+      height: 200%;
+      background: radial-gradient(circle, rgba(124, 58, 237, 0.08) 0%, transparent 70%);
+      z-index: 0;
+    }
+
+    .hero-content {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4rem;
+      align-items: center;
+      position: relative;
+      z-index: 1;
+    }
+
+    .hero-badges {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.6rem 1.2rem;
+      border-radius: 100px;
+      font-size: 0.85rem;
+      font-weight: 600;
+      background: rgba(124, 58, 237, 0.1);
+      color: var(--primary);
+      border: 1px solid rgba(124, 58, 237, 0.2);
+    }
+
+    .hero-title {
+      font-size: 3.2rem;
+      font-weight: 800;
+      line-height: 1.1;
+      margin-bottom: 1.5rem;
+      letter-spacing: -1px;
+    }
+
+    .hero-title span {
+      color: var(--primary);
+    }
+
+    .hero-subtitle {
+      font-size: 1.25rem;
+      color: var(--text-secondary);
+      margin-bottom: 2rem;
+      line-height: 1.6;
+    }
+
+    .hero-alert {
+      background: #fef3c7;
+      border: 1px solid #f59e0b;
+      color: #92400e;
+      padding: 1.2rem;
+      border-radius: var(--radius-md);
+      margin: 2rem 0;
+      font-size: 0.95rem;
+    }
+
+    .hero-alert strong {
+      color: #b45309;
+    }
+
+    .hero-features {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.5rem;
+      margin-top: 2rem;
+    }
+
+    .hero-feature {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      font-size: 0.95rem;
+    }
+
+    .hero-feature-icon {
+      width: 24px;
+      height: 24px;
+      border-radius: 6px;
+      background: rgba(124, 58, 237, 0.1);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--primary);
+      font-weight: 600;
+    }
+
+    .hero-card {
+      background: white;
+      border-radius: var(--radius-lg);
+      padding: 2.5rem;
+      box-shadow: var(--shadow-xl);
+      border: 1px solid var(--border);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 6px;
+      background: var(--primary-gradient);
+    }
+
+    .hero-card-title {
+      font-size: 1.5rem;
+      font-weight: 700;
+      margin-bottom: 1rem;
+    }
+
+    .hero-card-list {
+      margin: 1.5rem 0;
+      padding-left: 1.5rem;
+    }
+
+    .hero-card-list li {
+      margin-bottom: 0.75rem;
+      color: var(--text-secondary);
+    }
+
+    .pricing-box {
+      background: rgba(124, 58, 237, 0.05);
+      border-radius: var(--radius-md);
+      padding: 1.5rem;
+      margin-top: 1.5rem;
+      border: 1px solid rgba(124, 58, 237, 0.1);
+    }
+
+    .pricing-item {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 1rem;
+    }
+
+    .pricing-item:last-child {
+      margin-bottom: 0;
+    }
+
+    .pricing-item + .pricing-item {
+      padding-top: 1rem;
+      border-top: 1px solid rgba(124, 58, 237, 0.1);
+    }
+
+    .pricing-name {
+      font-weight: 600;
+      color: var(--primary);
+      font-size: 1.1rem;
+    }
+
+    .pricing-desc {
+      font-size: 0.9rem;
+      color: var(--text-muted);
+      margin-top: 0.25rem;
+    }
+
+    .pricing-price {
+      font-size: 2rem;
+      font-weight: 800;
+      color: var(--primary);
+    }
+
+    /* STEPS SECTION */
+    .steps-section {
+      background: white;
+    }
+
+    .section-header {
+      text-align: center;
+      max-width: 800px;
+      margin: 0 auto 4rem;
+    }
+
+    .section-kicker {
+      display: inline-block;
+      font-size: 0.85rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      color: var(--primary);
+      background: rgba(124, 58, 237, 0.1);
+      padding: 0.6rem 1.5rem;
+      border-radius: 100px;
+      margin-bottom: 1.5rem;
+    }
+
+    .section-title {
+      font-size: 2.8rem;
+      font-weight: 800;
+      margin-bottom: 1.5rem;
+      line-height: 1.1;
+    }
+
+    .section-subtitle {
+      font-size: 1.2rem;
+      color: var(--text-secondary);
+      line-height: 1.6;
+    }
+
+    .steps-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2rem;
+    }
+
+    .step-card {
+      background: white;
+      border-radius: var(--radius-lg);
+      padding: 2.5rem 2rem;
+      box-shadow: var(--shadow-lg);
+      border: 1px solid var(--border);
+      text-align: center;
+      transition: transform 0.3s ease;
+    }
+
+    .step-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 25px 50px rgba(0, 0, 0, 0.1);
+    }
+
+    .step-number {
+      width: 70px;
+      height: 70px;
+      background: var(--primary-gradient);
+      color: white;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 800;
+      font-size: 1.8rem;
+      margin: 0 auto 1.5rem;
+      position: relative;
+    }
+
+    .step-number::after {
+      content: '';
+      position: absolute;
+      top: -10px;
+      left: -10px;
+      right: -10px;
+      bottom: -10px;
+      border: 2px dashed rgba(124, 58, 237, 0.2);
+      border-radius: 50%;
+      animation: spin 20s linear infinite;
+    }
+
+    @keyframes spin {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+
+    .step-title {
+      font-size: 1.4rem;
+      font-weight: 700;
+      margin-bottom: 1rem;
+      color: var(--text-main);
+    }
+
+    .step-description {
+      color: var(--text-muted);
+      line-height: 1.6;
+    }
+
+    /* SERVICES SECTION */
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 2.5rem;
+      margin-top: 3rem;
+    }
+
+    .service-card {
+      background: white;
+      border-radius: var(--radius-lg);
+      padding: 2.5rem;
+      box-shadow: var(--shadow-lg);
+      border: 1px solid var(--border);
+      position: relative;
+      transition: all 0.3s ease;
+    }
+
+    .service-card:hover {
+      transform: translateY(-5px);
+      box-shadow: var(--shadow-xl);
+    }
+
+    .service-card.featured {
+      border: 2px solid var(--primary);
+      transform: scale(1.02);
+    }
+
+    .service-card.featured::before {
+      content: 'MÁS POPULAR';
+      position: absolute;
+      top: 20px;
+      right: -35px;
+      background: var(--primary);
+      color: white;
+      padding: 0.5rem 3rem;
+      font-size: 0.8rem;
+      font-weight: 700;
+      transform: rotate(45deg);
+    }
+
+    .service-badge {
+      font-size: 0.85rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      color: var(--primary);
+      margin-bottom: 1rem;
+      display: inline-block;
+    }
+
+    .service-title {
+      font-size: 1.8rem;
+      font-weight: 700;
+      margin-bottom: 1rem;
+    }
+
+    .service-price {
+      font-size: 3rem;
+      font-weight: 800;
+      color: var(--primary);
+      margin: 1rem 0;
+    }
+
+    .service-price span {
+      font-size: 1rem;
+      color: var(--text-muted);
+      font-weight: 600;
+    }
+
+    .service-features {
+      margin: 2rem 0;
+      padding-left: 1.5rem;
+    }
+
+    .service-features li {
+      margin-bottom: 0.75rem;
+      color: var(--text-secondary);
+    }
+
+    /* CASOS DE ÉXITO */
+    .success-cases {
+      background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
+    }
+
+    .testimonials-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+      gap: 2rem;
+      margin-top: 3rem;
+    }
+
+    .testimonial-card {
+      background: white;
+      border-radius: var(--radius-lg);
+      padding: 2rem;
+      box-shadow: var(--shadow-lg);
+      border: 1px solid var(--border);
+      transition: all 0.3s ease;
+    }
+
+    .testimonial-card:hover {
+      transform: translateY(-5px);
+      box-shadow: var(--shadow-xl);
+    }
+
+    .testimonial-header {
+      display: flex;
+      align-items: center;
+      margin-bottom: 1.5rem;
+    }
+
+    .testimonial-icon {
+      width: 50px;
+      height: 50px;
+      background: var(--primary-gradient);
+      color: white;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.5rem;
+      font-weight: 700;
+      margin-right: 1rem;
+      flex-shrink: 0;
+    }
+
+    .testimonial-name {
+      font-weight: 700;
+      font-size: 1.2rem;
+    }
+
+    .testimonial-role {
+      font-size: 0.9rem;
+      color: var(--text-muted);
+      margin-top: 0.25rem;
+    }
+
+    .testimonial-quote {
+      font-style: italic;
+      color: var(--text-secondary);
+      margin-bottom: 1.5rem;
+      line-height: 1.6;
+      font-size: 1.05rem;
+    }
+
+    .testimonial-result-title {
+      font-weight: 700;
+      color: var(--primary);
+      margin-bottom: 0.5rem;
+      font-size: 0.95rem;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    .testimonial-result {
+      color: var(--success);
+      font-weight: 700;
+      font-size: 1.1rem;
+    }
+
+    .case-button {
+      margin-top: 1.5rem;
+      width: 100%;
+    }
+
+    .case-detail {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.5s ease;
+      margin-top: 1.5rem;
+      padding-top: 1.5rem;
+      border-top: 1px solid var(--border);
+    }
+
+    .case-detail.open {
+      max-height: 500px;
+    }
+
+    .case-detail h4 {
+      color: var(--primary);
+      margin-bottom: 1rem;
+      font-size: 1.1rem;
+    }
+
+    .case-detail p {
+      margin-bottom: 0.75rem;
+      color: var(--text-secondary);
+      line-height: 1.6;
+    }
+
+    /* CTA SECTION */
+    .cta-section {
+      background: var(--primary-gradient);
+      color: white;
+      border-radius: var(--radius-lg);
+      padding: 4rem;
+      text-align: center;
+      margin: 4rem 0;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .cta-section::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.05'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+    }
+
+    .cta-content {
+      position: relative;
+      z-index: 1;
+    }
+
+    .cta-title {
+      font-size: 2.5rem;
+      font-weight: 800;
+      margin-bottom: 1.5rem;
+    }
+
+    .cta-text {
+      font-size: 1.2rem;
+      opacity: 0.9;
+      max-width: 700px;
+      margin: 0 auto 2.5rem;
+      line-height: 1.6;
+    }
+
+    .pricing-display {
+      display: flex;
+      justify-content: center;
+      gap: 4rem;
+      margin-bottom: 2.5rem;
+      flex-wrap: wrap;
+    }
+
+    .price-box {
+      text-align: center;
+    }
+
+    .price-amount {
+      font-size: 3.5rem;
+      font-weight: 800;
+      line-height: 1;
+      margin-bottom: 0.5rem;
+    }
+
+    .price-label {
+      font-size: 1.1rem;
+      opacity: 0.8;
+    }
+
+    /* FORM SECTION */
+    .form-section {
+      background: white;
+      border-radius: var(--radius-lg);
+      padding: 3.5rem;
+      box-shadow: var(--shadow-xl);
+      border: 1px solid var(--border);
+    }
+
+    .form-row {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1.5rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .form-group {
+      margin-bottom: 1.5rem;
+    }
+
+    label {
+      display: block;
+      font-weight: 600;
+      margin-bottom: 0.5rem;
+      color: var(--text-secondary);
+    }
+
+    input, select, textarea {
+      width: 100%;
+      padding: 1rem 1.2rem;
+      border: 2px solid var(--border);
+      border-radius: var(--radius-sm);
+      font-family: inherit;
+      font-size: 1rem;
+      transition: all 0.3s ease;
+      background: white;
+    }
+
+    input:focus, select:focus, textarea:focus {
+      outline: none;
+      border-color: var(--primary);
+      box-shadow: 0 0 0 3px rgba(124, 58, 237, 0.1);
+    }
+
+    .radio-group {
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+    }
+
+    .radio-option {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+
+    .radio-option input[type="radio"] {
+      width: 20px;
+      height: 20px;
+    }
+
+    .form-actions {
+      display: flex;
+      justify-content: center;
+      margin-top: 2.5rem;
+    }
+
+    .success-message {
+      display: none;
+      background: #d1fae5;
+      color: var(--success);
+      padding: 1.5rem;
+      border-radius: var(--radius-md);
+      border: 1px solid var(--success);
+      margin-top: 2rem;
+      text-align: center;
+      font-weight: 600;
+    }
+
+    /* FOOTER */
+    footer {
+      background: var(--text-main);
+      color: white;
+      padding: 4rem 0 2rem;
+      margin-top: 4rem;
+    }
+
+    .footer-content {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 3rem;
+      margin-bottom: 3rem;
+    }
+
+    .footer-heading {
+      font-size: 1.1rem;
+      font-weight: 700;
+      margin-bottom: 1.5rem;
+      color: rgba(255, 255, 255, 0.9);
+    }
+
+    .footer-links {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+    }
+
+    .footer-links a {
+      color: rgba(255, 255, 255, 0.7);
+      text-decoration: none;
+      transition: color 0.3s ease;
+      font-size: 0.95rem;
+    }
+
+    .footer-links a:hover {
+      color: white;
+    }
+
+    .footer-contact {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+
+    .contact-item {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      color: rgba(255, 255, 255, 0.7);
+      font-size: 0.95rem;
+    }
+
+    .footer-bottom {
+      text-align: center;
+      padding-top: 2rem;
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+      color: rgba(255, 255, 255, 0.5);
+      font-size: 0.9rem;
+    }
+
+    /* RESPONSIVE */
+    @media (max-width: 1100px) {
+      .hero-content,
+      .steps-grid,
+      .services-grid,
+      .footer-content {
+        grid-template-columns: 1fr;
+      }
+      
+      .form-row {
+        grid-template-columns: 1fr;
+      }
+      
+      .testimonials-grid {
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      }
+      
+      .hero-title {
+        font-size: 2.8rem;
+      }
+      
+      .section-title {
+        font-size: 2.5rem;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .nav-links {
+        display: none;
+      }
+      
+      .mobile-menu-btn {
+        display: flex;
+      }
+      
+      .hero {
+        padding-top: 7rem;
+        padding-bottom: 3rem;
+      }
+      
+      .hero-title {
+        font-size: 2.3rem;
+      }
+      
+      .section {
+        padding: 4rem 0 2rem;
+      }
+      
+      .cta-section {
+        padding: 3rem 1.5rem;
+      }
+      
+      .form-section {
+        padding: 2rem;
+      }
+      
+      .service-card.featured::before {
+        display: none;
+      }
+      
+      .pricing-display {
+        gap: 2rem;
+      }
+      
+      .price-amount {
+        font-size: 2.8rem;
+      }
+      
+      .footer-content {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 2rem;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .container {
+        padding: 0 1rem;
+      }
+      
+      .hero-title {
+        font-size: 2rem;
+      }
+      
+      .section-title {
+        font-size: 2rem;
+      }
+      
+      .btn-primary {
+        padding: 0.75rem 1.5rem;
+        font-size: 0.9rem;
+      }
+      
+      .footer-content {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- HEADER CON MENÚ COMPLETO -->
+  <header>
+    <div class="container">
+      <nav class="navbar">
+        <a href="#inicio" class="logo">
+          <div class="logo-icon">J</div>
+          <div class="logo-text">
+            <div class="logo-text-main">JÚRISTAM</div>
+            <div class="logo-text-sub">Estrategia legal, no opiniones</div>
+          </div>
+        </a>
+        
+        <!-- MENÚ DESKTOP -->
+        <div class="nav-links">
+          <a href="#funciona" class="nav-link">Cómo funciona</a>
+          <a href="#servicios" class="nav-link">Servicios</a>
+          <a href="#casos-exito" class="nav-link">Casos de éxito</a>
+          <a href="#formulario" class="nav-link">Formulario</a>
+          <a href="#formulario" class="btn btn-primary">Evaluar mi caso</a>
+        </div>
+        
+        <!-- BOTÓN MENÚ MÓVIL -->
+        <button class="mobile-menu-btn" id="mobileMenuBtn">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+      </nav>
+    </div>
+    
+    <!-- MENÚ MÓVIL -->
+    <div class="mobile-menu" id="mobileMenu">
+      <div class="container">
+        <div class="mobile-nav-links">
+          <a href="#inicio" class="mobile-nav-link">Inicio</a>
+          <a href="#funciona" class="mobile-nav-link">Cómo funciona</a>
+          <a href="#servicios" class="mobile-nav-link">Servicios</a>
+          <a href="#casos-exito" class="mobile-nav-link">Casos de éxito</a>
+          <a href="#formulario" class="mobile-nav-link">Formulario</a>
+          <a href="#formulario" class="btn btn-primary" style="margin-top: 1rem;">Evaluar mi caso</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- HERO SECTION -->
+  <section class="section hero" id="inicio">
+    <div class="container">
+      <div class="hero-content">
+        <div>
+          <div class="hero-badges">
+            <span class="badge">⚠️ No es consulta gratis</span>
+            <span class="badge">⚖️ Asesoría profesional</span>
+            <span class="badge">🎯 Filtramos casos reales</span>
+          </div>
+          
+          <h1 class="hero-title">
+            Deja de coleccionar opiniones en Facebook. Tu caso necesita <span>estrategia, no comentarios.</span>
+          </h1>
+          
+          <p class="hero-subtitle">
+            En Júristam filtramos casos reales, revisamos tus documentos y diseñamos una estrategia clara para tu situación legal. Primero calidad, después precio.
+          </p>
+          
+          <div class="hero-alert">
+            <strong>Error común:</strong> El error más caro es "esperar a ver qué pasa". Cada día perdido puede significar más deuda, más riesgo o perder derechos que después no se recuperan.
+          </div>
+          
+          <div style="display: flex; gap: 1rem; margin-top: 2rem;">
+            <a href="#formulario" class="btn btn-primary">Evaluar mi caso ahora</a>
+            <a href="#funciona" class="btn" style="background: white; color: var(--primary); border: 2px solid var(--primary);">
+              Ver cómo funciona
+            </a>
+          </div>
+          
+          <div class="hero-features">
+            <div class="hero-feature">
+              <span class="hero-feature-icon">✓</span>
+              <span>Atención en todo Ecuador</span>
+            </div>
+            <div class="hero-feature">
+              <span class="hero-feature-icon">⚖️</span>
+              <span>Casos revisados antes de agendar</span>
+            </div>
+            <div class="hero-feature">
+              <span class="hero-feature-icon">⏱</span>
+              <span>Respuesta en menos de 24h</span>
+            </div>
+          </div>
+        </div>
+        
+        <div class="hero-card">
+          <h3 class="hero-card-title">¿Qué incluye tu primera asesoría?</h3>
+          <p style="color: var(--text-secondary); margin-bottom: 1.5rem;">
+            En 45-60 minutos evitamos decisiones impulsivas que después salen más caras:
+          </p>
+          
+          <ul class="hero-card-list">
+            <li>Escuchamos tu historia completa, sin juicios ni apuro</li>
+            <li>Revisamos documentos: demandas, notificaciones, contratos</li>
+            <li>Te explicamos opciones realistas en lenguaje claro</li>
+            <li>Plan de acción y presupuesto por etapas</li>
+          </ul>
+          
+          <div class="pricing-box">
+            <div class="pricing-item">
+              <div>
+                <div class="pricing-name">Asesoría por Zoom</div>
+                <div class="pricing-desc">Ideal para cualquier ciudad</div>
+              </div>
+              <div class="pricing-price">$45</div>
+            </div>
+            
+            <div class="pricing-item">
+              <div>
+                <div class="pricing-name">Asesoría presencial</div>
+                <div class="pricing-desc">Para casos complejos con carpeta física</div>
+              </div>
+              <div class="pricing-price">$85</div>
+            </div>
+          </div>
+          
+          <p style="font-size: 0.9rem; color: var(--text-muted); margin-top: 1rem;">
+            * Valores mostrados después de evaluar tu caso. Primero claridad, después precio.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CÓMO FUNCIONA -->
+  <section class="section steps-section" id="funciona">
+    <div class="container">
+      <div class="section-header">
+        <div class="section-kicker">Proceso claro</div>
+        <h2 class="section-title">De estar perdido a tener un plan en 3 pasos</h2>
+        <p class="section-subtitle">
+          No necesitas saber leyes. Para eso estamos nosotros. Solo tienes que seguir estos pasos:
+        </p>
+      </div>
+      
+      <div class="steps-grid">
+        <div class="step-card">
+          <div class="step-number">1</div>
+          <h3 class="step-title">Llenas el formulario filtro</h3>
+          <p class="step-description">
+            Nos cuentas qué problema tienes, desde cuándo, qué has hecho y si tienes documentos. Toma 3–5 minutos.
+            Un curioso no lo llena. Una persona que realmente quiere resolver su caso sí.
+          </p>
+        </div>
+        
+        <div class="step-card">
+          <div class="step-number">2</div>
+          <h3 class="step-title">Revisamos si realmente podemos ayudarte</h3>
+          <p class="step-description">
+            Un abogado de Júristam revisa tu formulario. Si tu caso entra en nuestras áreas y hay algo que hacer,
+            te escribimos para proponerte la asesoría (Zoom o presencial) y explicarte cómo funciona.
+          </p>
+        </div>
+        
+        <div class="step-card">
+          <div class="step-number">3</div>
+          <h3 class="step-title">Agendas, pagas y recibes tu asesoría</h3>
+          <p class="step-description">
+            Coordinamos horario, forma de pago y modalidad. Llegamos a la reunión con tu caso leído, no desde cero,
+            para aprovechar al máximo el tiempo contigo.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SERVICIOS -->
+  <section class="section" id="servicios">
+    <div class="container">
+      <div class="section-header">
+        <div class="section-kicker">Dos formas de trabajar</div>
+        <h2 class="section-title">Zoom o presencial: tú decides cómo hablar con tu abogado</h2>
+        <p class="section-subtitle">
+          Las dos son asesorías profesionales. La diferencia está en la comodidad, la profundidad y el tipo de caso.
+        </p>
+      </div>
+      
+      <div class="services-grid">
+        <div class="service-card featured">
+          <div class="service-badge">Zoom · rápido y accesible</div>
+          <h3 class="service-title">Asesoría legal por videollamada</h3>
+          <div class="service-price">$45 <span>USD</span></div>
+          <p style="color: var(--text-secondary); margin-bottom: 1.5rem;">
+            Recomendado como primer paso para la mayoría de personas.
+          </p>
+          
+          <ul class="service-features">
+            <li>Te atendemos estés donde estés, dentro o fuera del país</li>
+            <li>Nos envías tus documentos en PDF o foto antes de la reunión</li>
+            <li>Definimos si conviene negociar, demandar, apelar o cerrar el tema</li>
+            <li>Si luego contratamos el caso, el valor de la asesoría se descuenta</li>
+          </ul>
+          
+          <a href="#formulario" class="btn btn-primary" style="width: 100%;">Quiero empezar por Zoom</a>
+          
+          <p style="font-size: 0.9rem; color: var(--text-muted); margin-top: 1.5rem;">
+            Ideal si quieres claridad rápida, sin moverte de casa y con un costo inicial más bajo.
+          </p>
+        </div>
+        
+        <div class="service-card">
+          <div class="service-badge">Presencial · premium y profundo</div>
+          <h3 class="service-title">Asesoría en oficina (Guayaquil)</h3>
+          <div class="service-price">$85 <span>USD</span></div>
+          <p style="color: var(--text-secondary); margin-bottom: 1.5rem;">
+            Para casos complejos, carpetas grandes o cuando prefieres ver a tu abogado cara a cara.
+          </p>
+          
+          <ul class="service-features">
+            <li>Revisamos contigo contratos, carpetas físicas o expedientes</li>
+            <li>Te explicamos el caso con esquemas y plan de acción por escrito</li>
+            <li>Presupuesto por etapas, sin letra pequeña ni sorpresas</li>
+            <li>Cita confirmada con pago anticipado, en fecha y hora específicas</li>
+          </ul>
+          
+          <a href="#formulario" class="btn btn-primary" style="width: 100%; background: white; color: var(--primary); border: 2px solid var(--primary);">
+            Ver si mi caso califica para presencial
+          </a>
+          
+          <p style="font-size: 0.9rem; color: var(--text-muted); margin-top: 1.5rem;">
+            Puedes combinar: primera asesoría por Zoom y, si el caso lo amerita, una segunda reunión en oficina.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CASOS DE ÉXITO -->
+  <section class="section success-cases" id="casos-exito">
+    <div class="container">
+      <div class="section-header">
+        <div class="section-kicker">Resultados comprobados</div>
+        <h2 class="section-title">Casos de Éxito Reales</h2>
+        <p class="section-subtitle">
+          Historias reales de clientes que transformaron sus problemas legales en soluciones concretas.
+        </p>
+      </div>
+      
+      <div class="testimonials-grid">
+        <!-- CASO 1 -->
+        <div class="testimonial-card">
+          <div class="testimonial-header">
+            <div class="testimonial-icon">J</div>
+            <div>
+              <div class="testimonial-name">Jeremy T.</div>
+              <div class="testimonial-role">Historial Limpio</div>
+            </div>
+          </div>
+          
+          <p class="testimonial-quote">
+            "Seguía apareciendo como procesado y me rechazaban trabajos. Júristam gestionó el archivo y hoy mi registro está limpio."
+          </p>
+          
+          <div class="testimonial-result-title">Resultado Notable</div>
+          <div class="testimonial-result">
+            Archivo definitivo en Fiscalía y eliminación del registro policial en 21 días.
+          </div>
+          
+          <button class="btn btn-primary case-button" onclick="toggleDetail('case1')">
+            Ver detalles del caso
+          </button>
+          
+          <div id="case1" class="case-detail">
+            <h4>Detalles del Caso: Jeremy T.</h4>
+            <p><strong>Situación inicial:</strong> Libertad sin medidas desde abril, pero el sistema policial lo mostraba como "procesado", afectando empleo y acceso a créditos.</p>
+            <p><strong>Estrategia Júristam:</strong> Solicitud de archivo por inactividad (art. 592 COIP) y gestión administrativa para actualizar el Módulo de Noticias del Delito hasta reflejar "sin antecedentes vigentes".</p>
+            <p><strong>Resultado:</strong> Resolución de archivo emitida y constancia policial actualizada. Cliente volvió a postular a empleos sin restricciones.</p>
+          </div>
+        </div>
+
+        <!-- CASO 2 -->
+        <div class="testimonial-card">
+          <div class="testimonial-header">
+            <div class="testimonial-icon">L</div>
+            <div>
+              <div class="testimonial-name">Luis R.</div>
+              <div class="testimonial-role">Herencia Protegida</div>
+            </div>
+          </div>
+          
+          <p class="testimonial-quote">
+            "Creí que mis derechos se habían esfumado, pero Júristam bloqueó a los abusivos y ahora cada quincena recibo mi parte sin rogarle a nadie."
+          </p>
+          
+          <div class="testimonial-result-title">Resultado Notable</div>
+          <div class="testimonial-result">
+            USD 14,600 en rentas atrasadas recuperados y dominio inscrito en 63 días.
+          </div>
+          
+          <button class="btn btn-primary case-button" onclick="toggleDetail('case2')">
+            Ver detalles del caso
+          </button>
+          
+          <div id="case2" class="case-detail">
+            <h4>Detalles del Caso: Luis R.</h4>
+            <p><strong>Situación Inicial:</strong> Un familiar administraba la casa heredada, cobraba los arriendos y se negaba a reconocer la participación de Luis.</p>
+            <p><strong>Estrategia:</strong> Incidente de ejecución con medida cautelar de depósito judicial y anotación de prohibición de venta.</p>
+            <p><strong>Resultado:</strong> El juez obligó al depósito del 40% mensual para Luis y ordenó la inscripción inmediata de su copropiedad, evitando futuras ventas ocultas.</p>
+          </div>
+        </div>
+
+        <!-- CASO 3 -->
+        <div class="testimonial-card">
+          <div class="testimonial-header">
+            <div class="testimonial-icon">J</div>
+            <div>
+              <div class="testimonial-name">Jonathan R.</div>
+              <div class="testimonial-role">Cliente Satisfecho</div>
+            </div>
+          </div>
+          
+          <p class="testimonial-quote">
+            "Pagaba puntualmente mis letras para el auto y la empresa se inventaba excusas: que otro modelo, que espere más cuotas. Con Juristam presenté el reclamo de consumidor y logré que me entreguen el vehículo exacto que había elegido."
+          </p>
+          
+          <div class="testimonial-result-title">Resultado Notable</div>
+          <div class="testimonial-result">
+            Entrega forzada del vehículo (USD 18,800) + devolución de USD 310 en 34 días.
+          </div>
+          
+          <button class="btn btn-primary case-button" onclick="toggleDetail('case3')">
+            Ver detalles del caso
+          </button>
+          
+          <div id="case3" class="case-detail">
+            <h4>Detalles del Caso: Jonathan R.</h4>
+            <p><strong>Desafío Inicial:</strong> Tras 62 cuotas pagadas, la empresa intentó cambiar condiciones y exigir un garante.</p>
+            <p><strong>Estrategia:</strong> Revisión contractual en Zoom, requerimiento notarial de 48 h y denuncia ante la SCPM.</p>
+            <p><strong>Resultado:</strong> Vehículo entregado, cargos indebidos reembolsados y penalidad condonada.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA SECTION -->
+  <div class="container">
+    <div class="cta-section">
+      <div class="cta-content">
+        <div class="section-kicker" style="background: rgba(255, 255, 255, 0.15); color: white; margin-bottom: 1.5rem;">Último paso</div>
+        <h2 class="cta-title">Tu caso no se resuelve solo. El primer paso es tomarlo en serio.</h2>
+        <p class="cta-text">
+          Este formulario está pensado para separar curiosos de personas que realmente quieren trabajar su caso con un abogado.
+          Si llegaste hasta aquí, es porque lo quieres resolver bien.
+        </p>
+        
+        <div class="pricing-display">
+          <div class="price-box">
+            <div class="price-amount">$45</div>
+            <div class="price-label">Por Zoom</div>
+          </div>
+          <div class="price-box">
+            <div class="price-amount">$85</div>
+            <div class="price-label">Presencial</div>
+          </div>
+        </div>
+        
+        <a href="#formulario" class="btn btn-primary" style="background: white; color: var(--primary); padding: 1rem 3rem; font-size: 1.1rem;">
+          Completar formulario ahora
+        </a>
+        
+        <p style="margin-top: 2rem; opacity: 0.8; font-size: 0.95rem;">
+          Solo ofrecemos agenda a quienes completen este formulario con datos reales y completos.
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <!-- FORMULARIO -->
+  <section class="section" id="formulario">
+    <div class="container">
+      <div class="section-header">
+        <div class="section-kicker">Evaluación profesional</div>
+        <h2 class="section-title">Formulario de evaluación Júristam</h2>
+        <p class="section-subtitle">
+          Completa todos los campos marcados con *. Sin esta información no podemos revisar tu caso ni ofrecerte una agenda responsable.
+        </p>
+      </div>
+      
+      <div class="form-section">
+        <form id="leadForm" action="https://formsubmit.co/juristam.ec@gmail.com" method="POST">
+          <input type="hidden" name="_subject" value="NUEVO LEAD CALIFICADO - Júristam">
+          <input type="hidden" name="_template" value="table">
+          <input type="hidden" name="_captcha" value="false">
+          
+          <div class="form-row">
+            <div class="form-group">
+              <label for="nombre">Nombre completo *</label>
+              <input type="text" id="nombre" name="Nombre" required placeholder="Nombre y apellido">
+            </div>
+            
+            <div class="form-group">
+              <label for="ciudad">Ciudad / Cantón *</label>
+              <input type="text" id="ciudad" name="Ciudad" required placeholder="Ej: Guayaquil, Quito, Riobamba">
+            </div>
+          </div>
+          
+          <div class="form-row">
+            <div class="form-group">
+              <label for="telefono">Teléfono (WhatsApp) *</label>
+              <input type="tel" id="telefono" name="Teléfono" required placeholder="099 xxx xxxx">
+            </div>
+            
+            <div class="form-group">
+              <label for="correo">Correo electrónico *</label>
+              <input type="email" id="correo" name="Correo" required placeholder="tucorreo@mail.com">
+            </div>
+          </div>
+          
+          <div class="form-row">
+            <div class="form-group">
+              <label for="tipo-caso">Tipo de caso legal *</label>
+              <select id="tipo-caso" name="Tipo de caso" required>
+                <option value="" disabled selected>Selecciona una opción</option>
+                <option>Alimentos / familia</option>
+                <option>Violencia / protección</option>
+                <option>Deudas / coactiva / banco / retención judicial</option>
+                <option>Laboral</option>
+                <option>Inquilinato / arriendo</option>
+                <option>Inmobiliario / terrenos / herencias</option>
+                <option>Penal</option>
+                <option>Otro tipo de caso</option>
+              </select>
+            </div>
+            
+            <div class="form-group">
+              <label for="tiempo">¿Desde cuándo tienes este problema? *</label>
+              <select id="tiempo" name="Tiempo del problema" required>
+                <option value="" disabled selected>Selecciona una opción</option>
+                <option>Menos de 1 mes</option>
+                <option>Entre 1 y 6 meses</option>
+                <option>Entre 6 meses y 1 año</option>
+                <option>Más de 1 año</option>
+              </select>
+            </div>
+          </div>
+          
+          <div class="form-row">
+            <div class="form-group">
+              <label for="acciones">¿Qué has hecho legalmente hasta ahora? *</label>
+              <select id="acciones" name="Acciones tomadas" required>
+                <option value="" disabled selected>Selecciona una opción</option>
+                <option>No he hecho nada todavía</option>
+                <option>Ya presenté demanda / denuncia</option>
+                <option>Ya me demandaron / denunciaron</option>
+                <option>Estoy en mediación o negociación</option>
+                <option>Ya tengo sentencia o resolución</option>
+              </select>
+            </div>
+            
+            <div class="form-group">
+              <label for="presupuesto">Presupuesto aproximado para honorarios</label>
+              <select id="presupuesto" name="Presupuesto">
+                <option value="No especifica" selected>No quiero decirlo todavía</option>
+                <option>Hasta $200</option>
+                <option>$200 – $500</option>
+                <option>Más de $500</option>
+              </select>
+            </div>
+          </div>
+          
+          <div class="form-group">
+            <label>¿Tienes documentos, resoluciones o notificaciones? *</label>
+            <div class="radio-group">
+              <label class="radio-option">
+                <input type="radio" name="Documentos" value="Si" required>
+                Sí, tengo documentos importantes que puedo enviar en PDF o foto.
+              </label>
+              <label class="radio-option">
+                <input type="radio" name="Documentos" value="No">
+                No, casi no tengo documentos, solo la situación de hecho.
+              </label>
+            </div>
+          </div>
+          
+          <div class="form-group">
+            <label for="resumen">Resume tu caso en 5–8 líneas *</label>
+            <textarea id="resumen" name="Resumen del caso" required rows="4" placeholder="Cuéntanos qué pasó, quiénes están involucrados, qué te preocupa más y qué resultado te gustaría conseguir."></textarea>
+          </div>
+          
+          <div class="form-group">
+            <label for="detalles">Fechas, montos o detalles clave que debamos saber</label>
+            <textarea id="detalles" name="Detalles adicionales" rows="3" placeholder="Audiencias, fechas de sentencia, montos aproximados de deuda, tiempo sin ver a tus hijos, tiempo de atraso, etc."></textarea>
+          </div>
+          
+          <div class="form-actions">
+            <button type="submit" class="btn btn-primary" style="padding: 1rem 4rem; font-size: 1.1rem;">
+              Enviar formulario para revisión
+            </button>
+          </div>
+          
+          <p style="text-align: center; margin-top: 2rem; color: var(--text-muted); font-size: 0.9rem;">
+            Al enviar este formulario autorizas a Júristam a contactarte por WhatsApp o correo para explicarte cómo funciona la asesoría,
+            su valor y las formas de pago. Tus datos se manejan de forma confidencial.
+          </p>
+        </form>
+        
+        <div id="successMessage" class="success-message">
+          ✅ <strong>¡Formulario enviado exitosamente!</strong><br>
+          Gracias por confiar en Júristam. Te contactaremos en menos de 24 horas hábiles.
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="container">
+      <div class="footer-content">
+        <div>
+          <div class="footer-heading">Júristam</div>
+          <div style="display: flex; align-items: center; gap: 0.75rem; margin-bottom: 1rem;">
+            <div style="width: 40px; height: 40px; border-radius: var(--radius-md); background: var(--primary-gradient); display: flex; align-items: center; justify-content: center; color: white; font-weight: 800; font-size: 1.25rem;">
+              J
+            </div>
+            <div>
+              <div style="font-weight: 800; font-size: 1.25rem;">JÚRISTAM</div>
+              <div style="font-size: 0.75rem; color: rgba(255, 255, 255, 0.7);">Estrategia legal profesional</div>
+            </div>
+          </div>
+          <p style="color: rgba(255, 255, 255, 0.7); font-size: 0.9rem;">
+            Transformamos consultas confusas en estrategias legales claras y ejecutables.
+          </p>
+        </div>
+        
+        <div>
+          <div class="footer-heading">Enlaces rápidos</div>
+          <ul class="footer-links">
+            <li><a href="#inicio">Inicio</a></li>
+            <li><a href="#funciona">Cómo funciona</a></li>
+            <li><a href="#servicios">Servicios</a></li>
+            <li><a href="#casos-exito">Casos de éxito</a></li>
+            <li><a href="#formulario">Formulario</a></li>
+          </ul>
+        </div>
+        
+        <div>
+          <div class="footer-heading">Servicios</div>
+          <ul class="footer-links">
+            <li><a>Asesoría por Zoom ($45)</a></li>
+            <li><a>Asesoría presencial ($85)</a></li>
+            <li><a>Representación legal</a></li>
+            <li><a>Revisión de contratos</a></li>
+            <li><a>Negociación especializada</a></li>
+          </ul>
+        </div>
+        
+        <div>
+          <div class="footer-heading">Contacto</div>
+          <div class="footer-contact">
+            <div class="contact-item">
+              <span>📱</span>
+              <a href="https://wa.me/593994859814" style="color: rgba(255, 255, 255, 0.7);">0994859814</a>
+            </div>
+            <div class="contact-item">
+              <span>✉️</span>
+              <a href="mailto:juristam.ec@gmail.com" style="color: rgba(255, 255, 255, 0.7);">juristam.ec@gmail.com</a>
+            </div>
+            <div class="contact-item">
+              <span>📍</span>
+              <span style="color: rgba(255, 255, 255, 0.7);">Guayaquil, Ecuador</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <div class="footer-bottom">
+        <div>© <span id="currentYear"></span> Júristam. Todos los derechos reservados.</div>
+        <div style="margin-top: 0.5rem; font-size: 0.8rem;">
+          Diseñado para filtrar leads de calidad y ofrecer asesoría legal profesional
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Año actual
+    document.getElementById('currentYear').textContent = new Date().getFullYear();
+    
+    // Menú móvil
+    const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+    const mobileMenu = document.getElementById('mobileMenu');
+    
+    mobileMenuBtn.addEventListener('click', function() {
+      mobileMenu.classList.toggle('active');
+      this.classList.toggle('active');
+    });
+    
+    // Cerrar menú al hacer clic en un enlace
+    document.querySelectorAll('.mobile-nav-link').forEach(link => {
+      link.addEventListener('click', () => {
+        mobileMenu.classList.remove('active');
+        mobileMenuBtn.classList.remove('active');
+      });
+    });
+    
+    // Mostrar/ocultar detalles de casos
+    function toggleDetail(id) {
+      const detail = document.getElementById(id);
+      detail.classList.toggle('open');
+    }
+    
+    // Manejo del formulario
+    document.getElementById('leadForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+      
+      const submitBtn = this.querySelector('button[type="submit"]');
+      const originalText = submitBtn.innerHTML;
+      
+      // Mostrar estado de carga
+      submitBtn.innerHTML = 'Enviando...';
+      submitBtn.disabled = true;
+      
+      const formData = new FormData(this);
+      
+      fetch('https://formsubmit.co/ajax/juristam.ec@gmail.com', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'Accept': 'application/json'
+        },
+        body: JSON.stringify(Object.fromEntries(formData))
+      })
+      .then(response => response.json())
+      .then(() => {
+        // Mostrar mensaje de éxito
+        document.getElementById('successMessage').style.display = 'block';
+        this.reset();
+        
+        // Scroll al mensaje de éxito
+        document.getElementById('successMessage').scrollIntoView({ 
+          behavior: 'smooth',
+          block: 'center'
+        });
+      })
+      .catch(() => {
+        alert('Hubo un error al enviar el formulario. Por favor, intenta nuevamente.');
+      })
+      .finally(() => {
+        // Restaurar botón
+        submitBtn.innerHTML = originalText;
+        submitBtn.disabled = false;
+      });
+    });
+    
+    // Efecto hover en cards
+    document.querySelectorAll('.testimonial-card, .step-card, .service-card').forEach(card => {
+      card.addEventListener('mouseenter', function() {
+        this.style.transition = 'all 0.3s ease';
+      });
+    });
+    
+    // Smooth scroll para anclas
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function(e) {
+        e.preventDefault();
+        
+        const targetId = this.getAttribute('href');
+        if (targetId === '#') return;
+        
+        const targetElement = document.querySelector(targetId);
+        if (targetElement) {
+          window.scrollTo({
+            top: targetElement.offsetTop - 80,
+            behavior: 'smooth'
+          });
+        }
+      });
+    });
+  </script>
+</body>
+</html>
