@@ -280,11 +280,9 @@
     .service-features li{ margin-bottom:.75rem; color:var(--text-secondary); position:relative; padding-left:2rem; }
     .service-features li::before{ content:'✓'; position:absolute; left:0; color:var(--accent); font-weight:600; }
 
-    /* BLOG CARDS (landing) */
+    /* BLOG CARDS */
     .blog-section{ background:var(--neutral-light); }
-    .blog-grid{
-      display:grid; grid-template-columns:repeat(3,1fr); gap:1.75rem; margin-top:2.5rem;
-    }
+    .blog-grid{ display:grid; grid-template-columns:repeat(3,1fr); gap:1.75rem; margin-top:2.5rem; }
     .blog-card{
       background:#fff; border:1px solid var(--neutral-border); border-radius:var(--radius-lg);
       padding:1.75rem; box-shadow:var(--shadow-lg); transition:all .25s ease;
@@ -311,14 +309,17 @@
     .form-row{ display:grid; grid-template-columns:repeat(2,1fr); gap:1.5rem; margin-bottom:1.5rem; }
     .form-group{ margin-bottom:1.5rem; }
     label{ display:block; font-weight:800; color:var(--secondary); margin-bottom:.5rem; }
-    input, textarea{
+    input, select, textarea{
       width:100%; padding:1rem; border:1px solid var(--neutral-border); border-radius:var(--radius-sm);
       font-family:'Inter',sans-serif; font-size:1rem; transition:all .3s ease; background:#fff;
     }
-    input:focus, textarea:focus{
+    input:focus, select:focus, textarea:focus{
       outline:none; border-color:var(--primary);
       box-shadow:0 0 0 3px rgba(154,106,255,.12);
     }
+    .radio-group{ display:flex; flex-direction:column; gap:.75rem; }
+    .radio-option{ display:flex; align-items:flex-start; gap:.75rem; color:var(--text-secondary); }
+    .radio-option input[type="radio"]{ margin-top:3px; }
     .form-actions{ text-align:center; margin-top:2.5rem; }
 
     .success-message{
@@ -425,6 +426,12 @@
         <div class="nav-links">
           <a href="#proceso" class="nav-link">Proceso</a>
           <a href="#servicios" class="nav-link">Servicios</a>
+
+          <!-- ✅ NUEVO: Casos de Éxito (abre en nueva pestaña) -->
+          <a href="/casos-de-exito.html" class="nav-link" target="_blank" rel="noopener">
+            Casos de Éxito
+          </a>
+
           <a href="/blog/" class="nav-link">Guías</a>
           <a href="#contacto" class="nav-link">Contacto</a>
           <a href="#formulario" class="btn btn-primary">Evaluar Caso</a>
@@ -442,6 +449,12 @@
           <a href="#inicio" class="mobile-nav-link"><i class="fas fa-home"></i>Inicio</a>
           <a href="#proceso" class="mobile-nav-link"><i class="fas fa-cogs"></i>Proceso</a>
           <a href="#servicios" class="mobile-nav-link"><i class="fas fa-gavel"></i>Servicios</a>
+
+          <!-- ✅ NUEVO: Casos de Éxito (abre en nueva pestaña) -->
+          <a href="/casos-de-exito.html" class="mobile-nav-link" target="_blank" rel="noopener">
+            <i class="fas fa-trophy"></i>Casos de Éxito
+          </a>
+
           <a href="/blog/" class="mobile-nav-link"><i class="fas fa-book"></i>Guías</a>
           <a href="#contacto" class="mobile-nav-link"><i class="fas fa-envelope"></i>Contacto</a>
           <a href="#formulario" class="btn btn-primary" style="margin-top:1.5rem;"><i class="fas fa-clipboard-check"></i>Evaluar Caso</a>
@@ -562,7 +575,7 @@
     </div>
   </section>
 
-  <!-- BLOG (cards -> pages) -->
+  <!-- BLOG -->
   <section class="section blog-section" id="blog">
     <div class="container">
       <div class="section-header">
@@ -638,57 +651,128 @@
     <div class="container">
       <div class="section-header">
         <div class="section-kicker">Evaluación</div>
-        <h2 class="section-title">Formulario Inicial</h2>
-        <p class="section-subtitle">Llénalo con precisión para evaluar viabilidad y siguiente paso.</p>
+        <h2 class="section-title">Formulario de evaluación Júristam</h2>
+        <p class="section-subtitle">Completa todos los campos marcados con *. Sin esto no podemos ofrecerte una agenda responsable.</p>
       </div>
 
       <div class="form-section">
-        <form id="leadForm" method="POST">
-          <input type="hidden" name="_subject" value="Nueva Solicitud de Evaluación - Júristam">
+        <form id="leadForm" action="https://formsubmit.co/juristam.ec@gmail.com" method="POST">
+          <input type="hidden" name="_subject" value="NUEVO LEAD CALIFICADO - Júristam">
           <input type="hidden" name="_template" value="table">
           <input type="hidden" name="_captcha" value="false">
 
           <div class="form-row">
             <div class="form-group">
-              <label>Nombre completo *</label>
-              <input type="text" name="Nombre" required placeholder="Nombre y apellidos">
+              <label for="nombre">Nombre completo *</label>
+              <input type="text" id="nombre" name="Nombre" required placeholder="Nombre y apellido">
             </div>
             <div class="form-group">
-              <label>Ciudad *</label>
-              <input type="text" name="Ciudad" required placeholder="Ej: Guayaquil, Quito, Cuenca">
+              <label for="ciudad">Ciudad / Cantón *</label>
+              <input type="text" id="ciudad" name="Ciudad" required placeholder="Ej: Guayaquil, Quito, Riobamba">
             </div>
           </div>
 
           <div class="form-row">
             <div class="form-group">
-              <label>Teléfono *</label>
-              <input type="tel" name="Teléfono" required placeholder="WhatsApp">
+              <label for="telefono">Teléfono (WhatsApp) *</label>
+              <input type="tel" id="telefono" name="Teléfono" required placeholder="099 xxx xxxx">
             </div>
             <div class="form-group">
-              <label>Correo *</label>
-              <input type="email" name="Correo" required placeholder="correo@ejemplo.com">
+              <label for="correo">Correo electrónico *</label>
+              <input type="email" id="correo" name="Correo" required placeholder="tucorreo@mail.com">
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label for="tipo-caso">Tipo de caso legal *</label>
+              <select id="tipo-caso" name="Tipo de caso" required>
+                <option value="" disabled selected>Selecciona una opción</option>
+                <option>Alimentos / familia</option>
+                <option>Violencia / protección</option>
+                <option>Deudas / coactiva / banco / retención judicial</option>
+                <option>Laboral</option>
+                <option>Inquilinato / arriendo</option>
+                <option>Inmobiliario / terrenos / herencias</option>
+                <option>Penal</option>
+                <option>Otro tipo de caso</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="tiempo">¿Desde cuándo tienes este problema? *</label>
+              <select id="tiempo" name="Tiempo del problema" required>
+                <option value="" disabled selected>Selecciona una opción</option>
+                <option>Menos de 1 mes</option>
+                <option>Entre 1 y 6 meses</option>
+                <option>Entre 6 meses y 1 año</option>
+                <option>Más de 1 año</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label for="acciones">¿Qué has hecho legalmente hasta ahora? *</label>
+              <select id="acciones" name="Acciones tomadas" required>
+                <option value="" disabled selected>Selecciona una opción</option>
+                <option>No he hecho nada todavía</option>
+                <option>Ya presenté demanda / denuncia</option>
+                <option>Ya me demandaron / denunciaron</option>
+                <option>Estoy en mediación o negociación</option>
+                <option>Ya tengo sentencia o resolución</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label for="presupuesto">Presupuesto aproximado para honorarios</label>
+              <select id="presupuesto" name="Presupuesto">
+                <option value="No especifica" selected>No quiero decirlo todavía</option>
+                <option>Hasta $200</option>
+                <option>$200 – $500</option>
+                <option>Más de $500</option>
+              </select>
             </div>
           </div>
 
           <div class="form-group">
-            <label>Describe tu situación *</label>
-            <textarea name="Descripción del caso" required rows="4" placeholder="Qué pasó, fechas clave y qué necesitas lograr."></textarea>
+            <label>¿Tienes documentos, resoluciones o notificaciones? *</label>
+            <div class="radio-group">
+              <label class="radio-option">
+                <input type="radio" name="Documentos" value="Si" required>
+                <span>Sí, tengo documentos importantes que puedo enviar en PDF o foto.</span>
+              </label>
+              <label class="radio-option">
+                <input type="radio" name="Documentos" value="No">
+                <span>No, casi no tengo documentos, solo la situación de hecho.</span>
+              </label>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="resumen">Resume tu caso en 5–8 líneas *</label>
+            <textarea id="resumen" name="Resumen del caso" required rows="4" placeholder="Qué pasó, fechas clave, qué necesitas lograr."></textarea>
+          </div>
+
+          <div class="form-group">
+            <label for="detalles">Fechas, montos o detalles clave</label>
+            <textarea id="detalles" name="Detalles adicionales" rows="3" placeholder="Audiencias, fechas, montos aproximados, etc."></textarea>
           </div>
 
           <div class="form-actions">
-            <button id="submitBtn" type="submit" class="btn btn-primary" style="padding:1rem 4rem; font-size:1.1rem;">
-              <i class="fas fa-paper-plane"></i> Enviar
+            <button id="submitBtn" type="submit" class="btn btn-primary" style="padding: 1rem 4rem; font-size: 1.1rem;">
+              <i class="fas fa-paper-plane"></i> Enviar formulario para revisión
             </button>
           </div>
 
-          <div id="successMessage" class="success-message">
-            <i class="fas fa-check-circle"></i> Enviado. Si el caso es viable, te contactamos en menos de 24 horas hábiles.
-          </div>
+          <p style="text-align: center; margin-top: 1.5rem; color: var(--text-light); font-size: 0.92rem;">
+            Al enviar autorizas a Júristam a contactarte por WhatsApp o correo. Tus datos se manejan de forma confidencial.
+          </p>
         </form>
 
-        <p style="text-align:center; margin-top:1.5rem; color:var(--text-light); font-size:.92rem;">
-          Al enviar este formulario, autorizas a Júristam a contactarte. Información tratada con confidencialidad.
-        </p>
+        <div id="successMessage" class="success-message">
+          <i class="fas fa-check-circle"></i> ✅ <strong>¡Formulario enviado exitosamente!</strong><br>
+          Te contactaremos en menos de 24 horas hábiles.
+        </div>
       </div>
     </div>
   </section>
@@ -708,6 +792,10 @@
             <li><a href="#inicio">Inicio</a></li>
             <li><a href="#proceso">Proceso</a></li>
             <li><a href="#servicios">Servicios</a></li>
+
+            <!-- ✅ NUEVO -->
+            <li><a href="/casos-de-exito.html" target="_blank" rel="noopener">Casos de Éxito</a></li>
+
             <li><a href="/blog/">Guías</a></li>
             <li><a href="#formulario">Evaluación</a></li>
           </ul>
@@ -810,7 +898,7 @@
       </article>
     `).join("");
 
-    // FormSubmit AJAX (sin redirección fea)
+    // FormSubmit AJAX (✅)
     const form = document.getElementById('leadForm');
     const submitBtn = document.getElementById('submitBtn');
     const successMessage = document.getElementById('successMessage');
