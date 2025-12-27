@@ -1,7 +1,39 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+
+  <!-- Página principal -->
   <url>
     <loc>https://juristam.net/</loc>
     <priority>1.0</priority>
   </url>
+
+  <!-- Blog -->
+  <url>
+    <loc>https://juristam.net/blog/</loc>
+    <priority>0.9</priority>
+  </url>
+
+  <!-- Artículos -->
+  <url>
+    <loc>https://juristam.net/blog/senae-retencion-mercaderia.html</loc>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://juristam.net/blog/prohibicion-salida-alimentos.html</loc>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://juristam.net/blog/cuenta-bloqueada-coactiva-salario.html</loc>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://juristam.net/blog/embargo-sueldo-ecuador.html</loc>
+    <priority>0.8</priority>
+  </url>
+
 </urlset>
+
+
