@@ -37,72 +37,27 @@
     }
     .container{max-width:1200px;margin:0 auto;padding:0 2rem}
 
-    /* HEADER */
     header{
-      position:sticky;
-      top:0;
-      z-index:50;
+      position:sticky;top:0;z-index:50;
       background:rgba(255,255,255,.98);
       backdrop-filter:blur(10px);
       border-bottom:1px solid rgba(229,231,235,.9);
       padding:1.2rem 0;
     }
-    .nav{
-      display:flex;
-      justify-content:space-between;
-      align-items:center;
-      gap:1rem;
-    }
+    .nav{display:flex;justify-content:space-between;align-items:center;gap:1rem}
 
-    .brand{
-      display:flex;
-      align-items:center;
-      gap:1rem;
-      text-decoration:none;
-    }
-    .brand img{
-      height:110px;              /* 🔥 LOGO GRANDE */
-      width:auto;
-      display:block;
-    }
-    .brand-title{
-      display:flex;
-      flex-direction:column;
-      justify-content:center;
-    }
-    .brand-title strong{
-      font-family:'Playfair Display',serif;
-      font-size:1.6rem;
-      color:var(--secondary);
-      line-height:1.1;
-    }
-    .brand-title span{
-      font-size:.8rem;
-      color:var(--text-light);
-      text-transform:uppercase;
-      letter-spacing:1.5px;
-      margin-top:2px;
-    }
+    .brand{display:flex;align-items:center;gap:1rem;text-decoration:none}
+    .brand img{height:110px;width:auto}
 
     .btn{
-      display:inline-flex;
-      align-items:center;
-      gap:.55rem;
-      padding:.9rem 1.6rem;
-      border-radius:var(--radius-md);
-      font-weight:800;
-      text-decoration:none;
-      border:2px solid var(--primary);
-      color:var(--primary);
-      background:#fff;
-      transition:.2s ease;
+      display:inline-flex;align-items:center;gap:.55rem;
+      padding:.9rem 1.6rem;border-radius:var(--radius-md);
+      font-weight:800;text-decoration:none;
+      border:2px solid var(--primary);color:var(--primary);
+      background:#fff;transition:.2s ease;
     }
-    .btn:hover{
-      background:var(--primary-light);
-      transform:translateY(-1px);
-    }
+    .btn:hover{background:var(--primary-light)}
 
-    /* MAIN */
     main{padding:3rem 0 5rem}
 
     .hero{
@@ -114,17 +69,10 @@
     }
     h1{
       font-family:'Playfair Display',serif;
-      font-size:2.7rem;
-      line-height:1.1;
-      color:var(--secondary);
-      margin-bottom:.9rem;
+      font-size:2.7rem;line-height:1.1;
+      color:var(--secondary);margin-bottom:.9rem;
     }
-    .sub{
-      color:var(--text-secondary);
-      font-size:1.15rem;
-      line-height:1.7;
-      max-width:900px;
-    }
+    .sub{color:var(--text-secondary);font-size:1.15rem;line-height:1.7}
 
     .grid{
       margin-top:2.5rem;
@@ -143,61 +91,24 @@
       min-height:270px;
       background:#fff;
     }
-    .card:hover{
-      transform:translateY(-6px);
-      box-shadow:var(--shadow-xl);
-    }
+    .card:hover{transform:translateY(-6px);box-shadow:var(--shadow-xl)}
 
-    .meta{
-      display:flex;
-      gap:.6rem;
-      flex-wrap:wrap;
-      align-items:center;
-      margin-bottom:.8rem;
-      color:var(--text-light);
-      font-size:.92rem;
-    }
+    .meta{display:flex;gap:.6rem;flex-wrap:wrap;margin-bottom:.8rem;color:var(--text-light);font-size:.92rem}
     .tag{
       background:var(--primary-light);
       color:var(--primary-dark);
       border:1px solid rgba(154,106,255,.2);
-      padding:.3rem .7rem;
-      border-radius:999px;
-      font-weight:900;
-      font-size:.78rem;
-      text-transform:uppercase;
-      letter-spacing:.5px;
+      padding:.3rem .7rem;border-radius:999px;
+      font-weight:900;font-size:.78rem;text-transform:uppercase;
     }
-    .title{
-      font-weight:900;
-      font-size:1.18rem;
-      color:var(--secondary);
-      line-height:1.35;
-      margin-bottom:.7rem;
-    }
-    .excerpt{
-      color:var(--text-secondary);
-      line-height:1.7;
-      flex:1;
-    }
-    .link{
-      margin-top:1.1rem;
-      display:inline-flex;
-      align-items:center;
-      gap:.55rem;
-      font-weight:900;
-      color:var(--primary-dark);
-      text-decoration:none;
-    }
+    .title{font-weight:900;font-size:1.18rem;color:var(--secondary);margin-bottom:.7rem}
+    .excerpt{color:var(--text-secondary);line-height:1.7;flex:1}
+    .link{margin-top:1.1rem;font-weight:900;color:var(--primary-dark);text-decoration:none}
     .link:hover{text-decoration:underline}
 
-    footer{
-      border-top:1px solid var(--border);
-      padding:2rem 0;
-      color:var(--text-light);
-    }
+    footer{border-top:1px solid var(--border);padding:2rem 0;color:var(--text-light)}
 
-    @media (max-width:1024px){
+    @media(max-width:1024px){
       .grid{grid-template-columns:1fr}
       h1{font-size:2.3rem}
       .brand img{height:56px}
@@ -212,12 +123,7 @@
     <div class="nav">
       <a class="brand" href="/">
         <img src="https://i.postimg.cc/vHygbHxz/oie-transparent-(2).png" alt="Júristam">
-        <div class="brand-title">
-          <strong></strong>
-          <span></span>
-        </div>
       </a>
-
       <a class="btn" href="/#formulario">
         <i class="fas fa-clipboard-check"></i> Evaluar caso
       </a>
@@ -249,6 +155,13 @@
   document.getElementById('y').textContent = new Date().getFullYear();
 
   const posts = [
+    {
+      tag: "Inmuebles",
+      date: "Jurisprudencia obligatoria",
+      title: "Terrenos: la regla obligatoria de la Corte sobre identificación del inmueble",
+      excerpt: "La Corte Nacional aclaró qué se exige en prescripción y qué en reivindicación. Explicado fácil, sin tecnicismos.",
+      url: "/blog/regla-obligatoria-singularizacion-inmueble-prescripcion-reivindicacion.html"
+    },
     {
       tag: "Aduanas",
       date: "Guía práctica",
