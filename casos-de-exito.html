@@ -4,9 +4,11 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
   <title>Casos de Éxito | Juristam</title>
+
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
   <style>
     :root {
       --color-primary: #4c3398;
@@ -20,114 +22,364 @@
       --spacing-sm: 8px;
       --spacing-md: 20px;
       --spacing-lg: 40px;
+
+      /* ====== HEADER estilo “píldora” + altura fija (NO crece con el logo) ====== */
+      --primary: #9a6aff;
+      --primary-dark: #7c3aed;
+      --primary-light: #efe8ff;
+
+      --header-fixed-h: 96px; /* ajusta 88/96/104 */
+      --header-h: 96px;       /* para offsets */
+      --header-shadow: 0 2px 10px rgba(0,0,0,.06);
+      --header-border: rgba(229,231,235,.9);
+      --pill-bg: rgba(243,244,246,.65);
+      --pill-border: rgba(229,231,235,.9);
     }
+
     *,*::before,*::after{box-sizing:border-box;}
-    body{margin:0;font-family:'Inter',sans-serif;background-color:var(--color-bg);color:var(--color-text);display:flex;justify-content:center;padding:var(--spacing-lg) var(--spacing-sm);}
-    .section{max-width:1200px;width:100%;text-align:center;}
+
+    html{
+      scroll-behavior:smooth;
+      scroll-padding-top: calc(var(--header-h) + 14px);
+    }
+
+    body{
+      margin:0;
+      font-family:'Inter',sans-serif;
+      background-color:var(--color-bg);
+      color:var(--color-text);
+
+      /* ✅ antes tenías display:flex + center, eso rompía el layout con header.
+         ahora lo dejamos normal y centramos con .section */
+      padding:0;
+    }
+
+    /* =========================
+       HEADER (igual a la imagen)
+       ========================= */
+    header{
+      position:sticky; top:0; z-index:999;
+      background:rgba(255,255,255,.92);
+      backdrop-filter: blur(12px);
+      border-bottom:1px solid var(--header-border);
+      box-shadow: var(--header-shadow);
+
+      /* ✅ CLAVE: altura fija -> la franja NO crece */
+      height: var(--header-fixed-h);
+      display:flex;
+      align-items:center;
+      padding:0;
+    }
+
+    .header-container{
+      max-width:1200px;
+      width:100%;
+      margin:0 auto;
+      padding:0 16px;
+      height: var(--header-fixed-h);
+      display:flex;
+      align-items:center;
+    }
+
+    .nav{
+      display:flex;
+      align-items:center;
+      gap:16px;
+      width:100%;
+      height: var(--header-fixed-h);
+    }
+
+    .brand{
+      display:flex;
+      align-items:center;
+      text-decoration:none;
+      flex:0 0 auto;
+    }
+
+    /* ✅ El logo puede ser “grande” sin inflar la franja */
+    .logo-box{
+      height:140px;     /* tamaño visible del logo */
+      width:170px;     /* controla el ancho del bloque */
+      display:flex;
+      align-items:center;
+      justify-content:flex-start;
+      overflow:hidden; /* no empuja la franja */
+    }
+    .logo-box img{
+      height:100%;
+      width:auto;
+      object-fit:contain;
+      display:block;
+    }
+
+    .nav-center{
+      flex:1 1 auto;
+      display:flex;
+      justify-content:center;
+      min-width:0;
+    }
+
+    .nav-pill{
+      display:flex;
+      align-items:center;
+      gap:4px;
+      padding:6px;
+      border-radius:999px;
+      background: var(--pill-bg);
+      border:1px solid var(--pill-border);
+      box-shadow:0 10px 24px rgba(17,24,39,.06);
+      max-width:100%;
+      overflow:auto;
+    }
+
+    .nav-link{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      padding:12px 18px;
+      border-radius:999px;
+      text-decoration:none;
+      font-weight:800;
+      color:#374151;
+      white-space:nowrap;
+      transition:.2s ease;
+    }
+    .nav-link:hover{
+      background:#fff;
+      color: var(--primary-dark);
+      box-shadow:0 10px 18px rgba(17,24,39,.08);
+    }
+
+    .nav-right{
+      flex:0 0 auto;
+      display:flex;
+      align-items:center;
+      justify-content:flex-end;
+    }
+
+    .btn-primary{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      padding:16px 34px;
+      border-radius:999px;
+      font-weight:900;
+      text-decoration:none;
+      color:#fff;
+      border:1px solid rgba(124,58,237,.15);
+      background:linear-gradient(135deg,var(--primary) 0%,var(--primary-dark) 100%);
+      box-shadow:0 18px 34px rgba(124,58,237,.28);
+      transition:.2s ease;
+      white-space:nowrap;
+    }
+    .btn-primary:hover{
+      transform:translateY(-1px);
+      box-shadow:0 22px 44px rgba(124,58,237,.32);
+    }
+
+    /* =========================
+       CONTENIDO (tu diseño original)
+       ========================= */
+    .section{
+      max-width:1200px;
+      width:100%;
+      margin:0 auto;
+      text-align:center;
+      padding: var(--spacing-lg) 16px; /* ahora sí el padding va aquí */
+    }
+
     .section-title{font-size:2.5rem;color:var(--color-primary);font-weight:700;margin-bottom:var(--spacing-sm);}
-    .section-subtitle{color:var(--color-secondary);font-size:1rem;font-weight:400;margin-bottom:var(--spacing-lg);max-width:800px;margin:0 auto;}
+    .section-subtitle{
+      color:var(--color-secondary);
+      font-size:1rem;
+      font-weight:400;
+      margin-bottom:var(--spacing-lg);
+      max-width:800px;
+      margin-left:auto;
+      margin-right:auto;
+    }
+
     .testimonial-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:var(--spacing-lg);}
     .testimonial-card{background:var(--color-card-bg);border-radius:var(--radius);box-shadow:0 4px 12px rgba(0,0,0,.05);padding:var(--spacing-md);display:flex;flex-direction:column;transition:transform var(--transition),box-shadow var(--transition);}
     .testimonial-card:hover{transform:translateY(-5px);box-shadow:0 8px 24px rgba(0,0,0,.1);}
-    .testimonial-header{display:flex;align-items:center;margin-bottom:var(--spacing-md);}
+    .testimonial-header{display:flex;align-items:center;margin-bottom:var(--spacing-md);text-align:left;}
     .testimonial-icon{background-color:var(--color-bg);color:var(--color-primary);width:48px;height:48px;border-radius:50%;display:flex;justify-content:center;align-items:center;font-size:1.5rem;margin-right:var(--spacing-sm);}
     .testimonial-name{font-size:1.1rem;font-weight:600;margin:0;}
     .testimonial-role{font-size:.875rem;color:var(--color-secondary);margin:0;}
-    .testimonial-quote{font-style:italic;margin-bottom:var(--spacing-md);flex-grow:1;}
-    .testimonial-result-title{font-weight:600;color:var(--color-primary);margin-bottom:var(--spacing-sm);font-size:.9rem;}
-    .testimonial-result{color:var(--color-accent);font-weight:500;margin-bottom:var(--spacing-md);}
-    .case-button{align-self:flex-start;background-color:var(--color-primary);color:#fff;border:none;padding:var(--spacing-sm) var(--spacing-md);border-radius:var(--radius);cursor:pointer;transition:background-color var(--transition),transform var(--transition);font-weight:500;}
+    .testimonial-quote{font-style:italic;margin-bottom:var(--spacing-md);flex-grow:1;text-align:left;}
+    .testimonial-result-title{font-weight:600;color:var(--color-primary);margin-bottom:var(--spacing-sm);font-size:.9rem;text-align:left;}
+    .testimonial-result{color:var(--color-accent);font-weight:500;margin-bottom:var(--spacing-md);text-align:left;}
+
+    .case-button{
+      align-self:flex-start;
+      background-color:var(--color-primary);
+      color:#fff;border:none;
+      padding:var(--spacing-sm) var(--spacing-md);
+      border-radius:var(--radius);
+      cursor:pointer;
+      transition:background-color var(--transition),transform var(--transition);
+      font-weight:500;
+    }
     .case-button:hover{background-color:#3a2775;transform:scale(1.05);}
-    .case-detail{max-height:0;overflow:hidden;transition:max-height var(--transition),padding var(--transition);background-color:var(--color-bg);padding:0 var(--spacing-md);margin-top:var(--spacing-md);border-radius:var(--radius);text-align:left;}
-    .case-detail.open{padding:var(--spacing-md);max-height:500px;}
+
+    .case-detail{
+      max-height:0;
+      overflow:hidden;
+      transition:max-height var(--transition),padding var(--transition);
+      background-color:var(--color-bg);
+      padding:0 var(--spacing-md);
+      margin-top:var(--spacing-md);
+      border-radius:var(--radius);
+      text-align:left;
+    }
+    .case-detail.open{padding:var(--spacing-md);max-height:700px;}
     .case-detail h4{margin:0 0 var(--spacing-sm);color:var(--color-primary);font-weight:600;font-size:1rem;}
     .case-detail p{margin:0 0 var(--spacing-sm);font-size:.9rem;}
-    .cta-section{background-color:var(--color-bg);padding:var(--spacing-lg) var(--spacing-sm);border-radius:var(--radius);box-shadow:0 4px 12px rgba(0,0,0,.05);text-align:center;}
+
+    .cta-section{
+      background-color:var(--color-bg);
+      padding:var(--spacing-lg) var(--spacing-sm);
+      border-radius:var(--radius);
+      box-shadow:0 4px 12px rgba(0,0,0,.05);
+      text-align:center;
+    }
     .cta-title{font-size:2rem;color:var(--color-primary);margin-bottom:var(--spacing-sm);font-weight:700;}
-    .cta-button{display:inline-block;background-color:var(--color-primary);color:#fff;padding:var(--spacing-sm) var(--spacing-lg);border-radius:var(--radius);text-decoration:none;font-weight:600;transition:background-color var(--transition),transform var(--transition);margin-top:var(--spacing-sm);}
+    .cta-button{
+      display:inline-block;
+      background-color:var(--color-primary);
+      color:#fff;
+      padding:var(--spacing-sm) var(--spacing-lg);
+      border-radius:var(--radius);
+      text-decoration:none;
+      font-weight:600;
+      transition:background-color var(--transition),transform var(--transition);
+      margin-top:var(--spacing-sm);
+    }
     .cta-button:hover{background-color:#3a2775;transform:scale(1.05);}
-    @media(max-width:600px){.section-title{font-size:2rem;}.testimonial-grid{gap:var(--spacing-md);}.testimonial-card{padding:var(--spacing-sm);}}
+
+    @media(max-width:900px){
+      :root{ --header-fixed-h: 84px; --header-h: 84px; }
+      .nav-center{display:none;} /* en móvil ocultamos menú centrado */
+      .logo-box{height:58px;width:150px;}
+      .btn-primary{padding:14px 18px;}
+    }
+
+    @media(max-width:600px){
+      .section-title{font-size:2rem;}
+      .testimonial-grid{gap:var(--spacing-md);}
+      .testimonial-card{padding:var(--spacing-sm);}
+    }
   </style>
 </head>
+
 <body>
+
+  <!-- ✅ HEADER NUEVO -->
+  <header>
+    <div class="header-container">
+      <div class="nav">
+        <a class="brand" href="/" aria-label="Volver al inicio">
+          <div class="logo-box">
+            <img src="https://i.postimg.cc/vHygbHxz/oie-transparent-(2).png" alt="Júristam">
+          </div>
+        </a>
+
+        <div class="nav-center" aria-label="Menú">
+          <div class="nav-pill">
+            <a class="nav-link" href="/#proceso">Proceso</a>
+            <a class="nav-link" href="/#servicios">Servicios</a>
+            <a class="nav-link" href="/casos-de-exito.html">Casos de Éxito</a>
+            <a class="nav-link" href="/blog/">Guías</a>
+            <a class="nav-link" href="/#contacto">Contacto</a>
+          </div>
+        </div>
+
+        <div class="nav-right">
+          <a class="btn-primary" href="/#formulario">Evaluar Caso</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
   <section class="section">
     <h1 class="section-title">Historias de Éxito Comprobado</h1>
-    <p class="section-subtitle">Descubra cómo hemos transformado los desafíos legales de nuestros clientes en resultados positivos y duraderos. Nuestro compromiso con la excelencia nos permite construir relaciones a largo plazo basadas en la confianza y el respeto mutuo.</p>
+    <p class="section-subtitle">
+      Descubra cómo hemos transformado los desafíos legales de nuestros clientes en resultados positivos y duraderos.
+      Nuestro compromiso con la excelencia nos permite construir relaciones a largo plazo basadas en la confianza y el respeto mutuo.
+    </p>
 
     <div class="testimonial-grid">
-      <!-- Caso de Éxito: Kevin T. -->
-<div class="testimonial-card">
-  <div class="testimonial-header">
-    <div class="testimonial-icon">“</div>
-    <div>
-      <p class="testimonial-name">Jeremy T.</p>
-      <p class="testimonial-role">Historial Limpio</p>
-    </div>
-  </div>
 
-  <p class="testimonial-quote">
-    “Seguía apareciendo como procesado y me rechazaban trabajos.
-    Júristam gestionó el archivo y hoy mi registro está limpio.”
-  </p>
+      <!-- Caso de Éxito: Jeremy T. -->
+      <div class="testimonial-card">
+        <div class="testimonial-header">
+          <div class="testimonial-icon">“</div>
+          <div>
+            <p class="testimonial-name">Jeremy T.</p>
+            <p class="testimonial-role">Historial Limpio</p>
+          </div>
+        </div>
 
-  <p class="testimonial-result-title">Resultado Notable:</p>
-  <p class="testimonial-result">
-    Archivo definitivo en Fiscalía y eliminación del registro policial en 21 días.
-  </p>
+        <p class="testimonial-quote">
+          “Seguía apareciendo como procesado y me rechazaban trabajos.
+          Júristam gestionó el archivo y hoy mi registro está limpio.”
+        </p>
 
-  <button class="case-button" onclick="toggleDetail('caseKevin')">
-    Ver detalles
-  </button>
+        <p class="testimonial-result-title">Resultado Notable:</p>
+        <p class="testimonial-result">
+          Archivo definitivo en Fiscalía y eliminación del registro policial en 21 días.
+        </p>
 
-  <div id="caseKevin" class="case-detail">
-    <h4>Detalles del Caso: Jeremy T.</h4>
-    <p><strong>Situación inicial:</strong>
-       Libertad sin medidas desde abril, pero el sistema policial lo mostraba como “procesado”,
-       afectando empleo y acceso a créditos.</p>
-    <p><strong>Estrategia Júristam:</strong>
-       Solicitud de archivo por inactividad (art. 592 COIP) y gestión administrativa para actualizar
-       el Módulo de Noticias del Delito hasta reflejar “sin antecedentes vigentes”.</p>
-    <p><strong>Resultado:</strong>
-       Resolución de archivo emitida y constancia policial actualizada. Cliente volvió a postular a
-       empleos sin restricciones.</p>
-  </div>
-</div>
+        <button class="case-button" onclick="toggleDetail('caseKevin')">Ver detalles</button>
+
+        <div id="caseKevin" class="case-detail">
+          <h4>Detalles del Caso: Jeremy T.</h4>
+          <p><strong>Situación inicial:</strong>
+            Libertad sin medidas desde abril, pero el sistema policial lo mostraba como “procesado”,
+            afectando empleo y acceso a créditos.</p>
+          <p><strong>Estrategia Júristam:</strong>
+            Solicitud de archivo por inactividad (art. 592 COIP) y gestión administrativa para actualizar
+            el Módulo de Noticias del Delito hasta reflejar “sin antecedentes vigentes”.</p>
+          <p><strong>Resultado:</strong>
+            Resolución de archivo emitida y constancia policial actualizada. Cliente volvió a postular a
+            empleos sin restricciones.</p>
+        </div>
+      </div>
 
       <!-- Caso de Éxito: Luis R. -->
-<div class="testimonial-card">
-  <div class="testimonial-header">
-    <div class="testimonial-icon">“</div>
-    <div>
-      <p class="testimonial-name">Luis R.</p>
-      <p class="testimonial-role">Herencia Protegida</p>
-    </div>
-  </div>
-  <p class="testimonial-quote">
-    “Creí que mis derechos se habían esfumado, pero Júristam bloqueó a los abusivos y
-    ahora cada quincena recibo mi parte sin rogarle a nadie.”
-  </p>
+      <div class="testimonial-card">
+        <div class="testimonial-header">
+          <div class="testimonial-icon">“</div>
+          <div>
+            <p class="testimonial-name">Luis R.</p>
+            <p class="testimonial-role">Herencia Protegida</p>
+          </div>
+        </div>
 
-  <p class="testimonial-result-title">Resultado Notable:</p>
-  <p class="testimonial-result">
-    USD&nbsp;14&nbsp;600 en rentas atrasadas recuperados y dominio inscrito en 63&nbsp;días.
-  </p>
+        <p class="testimonial-quote">
+          “Creí que mis derechos se habían esfumado, pero Júristam bloqueó a los abusivos y
+          ahora cada quincena recibo mi parte sin rogarle a nadie.”
+        </p>
 
-  <button class="case-button" onclick="toggleDetail('caseLuis')">
-    Ver detalles
-  </button>
+        <p class="testimonial-result-title">Resultado Notable:</p>
+        <p class="testimonial-result">
+          USD&nbsp;14&nbsp;600 en rentas atrasadas recuperados y dominio inscrito en 63&nbsp;días.
+        </p>
 
-  <div id="caseLuis" class="case-detail">
-    <h4>Detalles del Caso: Luis R.</h4>
-    <p><strong>Situación Inicial:</strong>
-       Un familiar administraba la casa heredada, cobraba los arriendos y se negaba a reconocer
-       la participación de Luis.</p>
-    <p><strong>Estrategia:</strong>
-       Incidente de ejecución con medida cautelar de depósito judicial y anotación de prohibición de venta.</p>
-    <p><strong>Resultado:</strong>
-       El juez obligó al depósito del 40% mensual para Luis y ordenó la inscripción inmediata de su
-       copropiedad, evitando futuras ventas ocultas.</p>
-  </div>
-</div>
+        <button class="case-button" onclick="toggleDetail('caseLuis')">Ver detalles</button>
+
+        <div id="caseLuis" class="case-detail">
+          <h4>Detalles del Caso: Luis R.</h4>
+          <p><strong>Situación Inicial:</strong>
+            Un familiar administraba la casa heredada, cobraba los arriendos y se negaba a reconocer
+            la participación de Luis.</p>
+          <p><strong>Estrategia:</strong>
+            Incidente de ejecución con medida cautelar de depósito judicial y anotación de prohibición de venta.</p>
+          <p><strong>Resultado:</strong>
+            El juez obligó al depósito del 40% mensual para Luis y ordenó la inscripción inmediata de su
+            copropiedad, evitando futuras ventas ocultas.</p>
+        </div>
+      </div>
 
       <!-- Jonathan R. -->
       <div class="testimonial-card">
@@ -140,12 +392,12 @@
         </div>
         <p class="testimonial-quote">“Pagaba puntualmente mis letras para el auto y la empresa se inventaba excusas: que otro modelo, que espere más cuotas. Con Juristam presenté el reclamo de consumidor y logré que me entreguen el vehículo exacto que había elegido.”</p>
         <p class="testimonial-result-title">Resultado Notable:</p>
-        <p class="testimonial-result">Entrega forzada del vehículo (USD 18 800) + devolución de USD 310 en 34 días.</p>
+        <p class="testimonial-result">Entrega forzada del vehículo (USD 18 800) + devolución de USD 310 en 34 días.</p>
         <button class="case-button" onclick="toggleDetail('caseJonathan')">Ver detalles</button>
         <div id="caseJonathan" class="case-detail">
           <h4>Detalles del Caso: Jonathan R.</h4>
           <p><strong>Desafío Inicial:</strong> Tras 62 cuotas pagadas, la empresa intentó cambiar condiciones y exigir un garante.</p>
-          <p><strong>Estrategia:</strong> Revisión contractual en Zoom, requerimiento notarial de 48 h y denuncia ante la SCPM.</p>
+          <p><strong>Estrategia:</strong> Revisión contractual en Zoom, requerimiento notarial de 48 h y denuncia ante la SCPM.</p>
           <p><strong>Resultado:</strong> Vehículo entregado, cargos indebidos reembolsados y penalidad condonada.</p>
         </div>
       </div>
@@ -161,11 +413,11 @@
         </div>
         <p class="testimonial-quote">“En menos de dos semanas mis multas de la ATM se prescribieron y pude matricular sin pagar un centavo.”</p>
         <p class="testimonial-result-title">Resultado Notable:</p>
-        <p class="testimonial-result">Deuda anulada (USD 1 988) y bloqueo levantado en 12 días hábiles.</p>
+        <p class="testimonial-result">Deuda anulada (USD 1 988) y bloqueo levantado en 12 días hábiles.</p>
         <button class="case-button" onclick="toggleDetail('caseAndrea')">Ver detalles</button>
         <div id="caseAndrea" class="case-detail">
           <h4>Detalles del Caso: Andrea P.</h4>
-          <p><strong>Desafío Inicial:</strong> Cinco multas de 2014‑2017 bloqueaban su matrícula y crédito.</p>
+          <p><strong>Desafío Inicial:</strong> Cinco multas de 2014-2017 bloqueaban su matrícula y crédito.</p>
           <p><strong>Estrategia:</strong> Solicitud de prescripción el mismo día, seguimiento diario y certificación oficial.</p>
           <p><strong>Resultado:</strong> Anulación total de la deuda y certificado “no adeudar”.</p>
         </div>
@@ -182,7 +434,7 @@
         </div>
         <p class="testimonial-quote">“Juristam bloqueó mi número y logró que la SENAE anulara los cobros de ISD.”</p>
         <p class="testimonial-result-title">Resultado Notable:</p>
-        <p class="testimonial-result">ISD anulado (USD 457) y paquete liberado en 10 días.</p>
+        <p class="testimonial-result">ISD anulado (USD 457) y paquete liberado en 10 días.</p>
         <button class="case-button" onclick="toggleDetail('caseGabriel')">Ver detalles</button>
         <div id="caseGabriel" class="case-detail">
           <h4>Detalles del Caso: Gabriel R.</h4>
@@ -201,15 +453,15 @@
             <p class="testimonial-role">Cliente Satisfecho</p>
           </div>
         </div>
-        <p class="testimonial-quote">“Detectaron en horas lo que yo no entendía en semanas y redujeron 87 % la liquidación.”</p>
+        <p class="testimonial-quote">“Detectaron en horas lo que yo no entendía en semanas y redujeron 87 % la liquidación.”</p>
         <p class="testimonial-result-title">Resultado Notable:</p>
-        <p class="testimonial-result">Liquidación bajó de USD 6 250 a USD 790; carga liberada en 42 días.</p>
+        <p class="testimonial-result">Liquidación bajó de USD 6 250 a USD 790; carga liberada en 42 días.</p>
         <button class="case-button" onclick="toggleDetail('caseDavid')">Ver detalles</button>
         <div id="caseDavid" class="case-detail">
           <h4>Detalles del Caso: David S.</h4>
           <p><strong>Desafío Inicial:</strong> Retención de smartwatches por supuesta infracción aduanera.</p>
           <p><strong>Estrategia:</strong> Informe técnico y jurisprudencia andina para reclasificar mercancía.</p>
-          <p><strong>Resultado:</strong> Ahorro de USD 5 460 y eliminación de alerta de riesgo.</p>
+          <p><strong>Resultado:</strong> Ahorro de USD 5 460 y eliminación de alerta de riesgo.</p>
         </div>
       </div>
 
@@ -224,12 +476,12 @@
         </div>
         <p class="testimonial-quote">“Con Juristam logramos que SENAE liberara la mercancía sin pagar la multa.”</p>
         <p class="testimonial-result-title">Resultado Notable:</p>
-        <p class="testimonial-result">Multa anulada (USD 18 000) y contenedor liberado en 5 días.</p>
+        <p class="testimonial-result">Multa anulada (USD 18 000) y contenedor liberado en 5 días.</p>
         <button class="case-button" onclick="toggleDetail('caseMaria')">Ver detalles</button>
         <div id="caseMaria" class="case-detail">
           <h4>Detalles del Caso: María Fernanda V.</h4>
           <p><strong>Desafío Inicial:</strong> Multa y retención por presunta declaración inexacta de valores CIF.</p>
-          <p><strong>Estrategia:</strong> Informe técnico‑contable, recurso de revisión y peritaje externo.</p>
+          <p><strong>Estrategia:</strong> Informe técnico-contable, recurso de revisión y peritaje externo.</p>
           <p><strong>Resultado:</strong> SENAE anuló la multa, devolvió la garantía y liberó la carga.</p>
         </div>
       </div>
@@ -243,15 +495,15 @@
             <p class="testimonial-role">Cliente Satisfecho</p>
           </div>
         </div>
-        <p class="testimonial-quote">“Pensé que perdería todo por un error de clasificación arancelaria. Recuperé el 100 % de los tributos.”</p>
+        <p class="testimonial-quote">“Pensé que perdería todo por un error de clasificación arancelaria. Recuperé el 100 % de los tributos.”</p>
         <p class="testimonial-result-title">Resultado Notable:</p>
-        <p class="testimonial-result">Reclasificación favorable y devolución de USD 24 300.</p>
+        <p class="testimonial-result">Reclasificación favorable y devolución de USD 24 300.</p>
         <button class="case-button" onclick="toggleDetail('caseEduardo')">Ver detalles</button>
         <div id="caseEduardo" class="case-detail">
           <h4>Detalles del Caso: Eduardo G.</h4>
-          <p><strong>Desafío Inicial:</strong> Liquidación complementaria y multa del 40 % sobre valor CIF.</p>
+          <p><strong>Desafío Inicial:</strong> Liquidación complementaria y multa del 40 % sobre valor CIF.</p>
           <p><strong>Estrategia:</strong> Peritaje técnico, regla interpretativa SA y medidas cautelares.</p>
-          <p><strong>Resultado:</strong> Devolución total de tributos y liberación de la mercancía en 4 días.</p>
+          <p><strong>Resultado:</strong> Devolución total de tributos y liberación de la mercancía en 4 días.</p>
         </div>
       </div>
 
@@ -266,7 +518,7 @@
         </div>
         <p class="testimonial-quote">“La asesoría de Juristam fue clave para lograr condiciones bancarias más favorables.”</p>
         <p class="testimonial-result-title">Resultado Notable:</p>
-        <p class="testimonial-result">Reducción de 6 % en la tasa y reestructuración integral.</p>
+        <p class="testimonial-result">Reducción de 6 % en la tasa y reestructuración integral.</p>
         <button class="case-button" onclick="toggleDetail('caseCarlos')">Ver detalles</button>
         <div id="caseCarlos" class="case-detail">
           <h4>Detalles del Caso: Carlos L.</h4>
@@ -287,7 +539,7 @@
         </div>
         <p class="testimonial-quote">“Actualizamos mi buró de crédito en tiempo récord. ¡Servicio excepcional!”</p>
         <p class="testimonial-result-title">Resultado Notable:</p>
-        <p class="testimonial-result">Reporte negativo eliminado en < 60 días.</p>
+        <p class="testimonial-result">Reporte negativo eliminado en &lt; 60 días.</p>
         <button class="case-button" onclick="toggleDetail('caseLucia')">Ver detalles</button>
         <div id="caseLucia" class="case-detail">
           <h4>Detalles del Caso: Lucía T.</h4>
@@ -317,15 +569,27 @@
           <p><strong>Resultado:</strong> Deuda reducida y cronograma flexible acorde a su capacidad.</p>
         </div>
       </div>
+
     </div>
 
     <div class="cta-section" style="margin-top:var(--spacing-lg);">
       <h2 class="cta-title">¿Quieres ser nuestro próximo caso de éxito?</h2>
-      <a href="#contacto" class="cta-button">Contáctanos Hoy</a>
+      <a href="/#formulario" class="cta-button">Evaluar mi Caso</a>
     </div>
   </section>
 
   <script>
+    // ✅ Mantener --header-h sincronizado (por si usas anchors)
+    const syncHeaderVars = () => {
+      const fixedH = getComputedStyle(document.documentElement)
+        .getPropertyValue('--header-fixed-h')
+        .trim() || '96px';
+      document.documentElement.style.setProperty('--header-h', fixedH);
+    };
+    window.addEventListener('load', syncHeaderVars);
+    window.addEventListener('resize', syncHeaderVars);
+    syncHeaderVars();
+
     function toggleDetail(id){
       const section=document.getElementById(id);
       section.classList.toggle('open');
