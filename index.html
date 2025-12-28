@@ -67,8 +67,11 @@
       --radius-lg: 20px;
       --radius-xl: 28px;
 
-      /* ✅ se setea por JS según altura real del header */
-      --header-h: 110px;
+      /* ✅ FIX: altura fija del header (la franja NO crece aunque el logo crezca) */
+      --header-fixed-h: 96px; /* ajusta 88/96/104 según gusto */
+
+      /* ✅ usado para scroll-padding y menú móvil */
+      --header-h: 96px;
     }
 
     * { margin:0; padding:0; box-sizing:border-box; }
@@ -86,26 +89,41 @@
     img{ max-width:100%; height:auto; }
     a{ -webkit-tap-highlight-color: transparent; }
 
+    /* container general */
     .container{
       max-width:1280px;
       margin:0 auto;
       padding:0 clamp(1rem, 3vw, 2rem);
     }
 
+    /* ✅ header más pegado al borde */
+    .header-container{
+      max-width:1280px;
+      margin:0 auto;
+      padding-left:10px;   /* ajusta: 0 / 6 / 10 / 16 */
+      padding-right:10px;
+    }
+
     /* =========================
-       HEADER / MENÚ
+       HEADER / MENÚ (FIX)
        ========================= */
     header{
       position:fixed; top:0; left:0; right:0; z-index:1000;
       background:rgba(255,255,255,.92);
       backdrop-filter:blur(14px);
       border-bottom:1px solid rgba(229,231,235,.85);
-      padding: .9rem 0;
-      transition:all .25s ease;
       box-shadow:var(--shadow-sm);
+      transition:background .25s ease, box-shadow .25s ease;
+
+      /* ✅ CLAVE: altura fija */
+      height: var(--header-fixed-h);
+      display:flex;
+      align-items:center;
+
+      /* quitamos padding variable que inflaba la franja */
+      padding: 0;
     }
     header.scrolled{
-      padding:.65rem 0;
       background:rgba(255,255,255,.96);
       box-shadow:var(--shadow-md);
     }
@@ -114,7 +132,11 @@
       display:flex;
       align-items:center;
       gap:1rem;
-      min-height:56px;
+      width:100%;
+
+      /* ✅ CLAVE: altura fija interna */
+      height: var(--header-fixed-h);
+      min-height:unset;
     }
 
     .brand{
@@ -124,12 +146,15 @@
       text-decoration:none;
       flex:0 0 auto;
       min-width:0;
+
+      /* ✅ pegado a la izquierda */
+      margin-right: 100px;
     }
 
-    /* ✅ LOGO FLUIDO (GRANDE EN DESKTOP, CONTROLADO EN MÓVIL) */
+    /* ✅ MARCO del logo: el logo vive dentro y NO empuja al header */
     .logo-icon{
-      width: clamp(112px, 22vw, 150px);
-      height:auto;
+      height: 140px;         /* controla el tamaño visible */
+      width: 170px;         /* controla el ancho del bloque (evita empujar el centro) */
       display:flex;
       align-items:center;
       justify-content:flex-start;
@@ -137,12 +162,13 @@
       border:none;
       box-shadow:none;
       border-radius:0;
-      overflow:visible;
+
+      overflow:hidden;      /* ✅ clave: no agranda la franja */
       flex-shrink:0;
     }
     .logo-icon img{
-      width: 100%;
-      height:auto;
+      height:100%;
+      width:auto;
       object-fit:contain;
       display:block;
     }
@@ -351,7 +377,7 @@
       position:relative;
       z-index:1;
     }
-    .hero-content > *{ min-width:0; } /* ✅ evita overflow en móvil */
+    .hero-content > *{ min-width:0; }
 
     .hero-badges{ display:flex; flex-wrap:wrap; gap:.75rem; margin-bottom:1.6rem; }
     .badge{
@@ -372,8 +398,7 @@
       line-height:1.05;
       color:var(--secondary);
       margin-bottom:1.1rem;
-      word-break: normal;
-      overflow-wrap: anywhere;
+      overflow-wrap:anywhere;
     }
     .hero-title span{ color:var(--primary); }
 
@@ -421,7 +446,7 @@
     .hero-card{
       background:#fff;
       border-radius:var(--radius-lg);
-      padding: clamp(1.25rem, 3.2vw, 3rem); /* ✅ menos agresivo en móvil */
+      padding: clamp(1.25rem, 3.2vw, 3rem);
       box-shadow:var(--shadow-xl);
       border:1px solid var(--neutral-border);
       position:relative;
@@ -643,11 +668,16 @@
       .nav-right{ display:none; }
       .mobile-menu-btn{ display:flex; }
       .hero-features{ grid-template-columns:1fr; }
+
+      /* ✅ en móvil baja un poco la franja */
+      :root{ --header-fixed-h: 84px; }
+      .logo-icon{ height:60px; width:150px; }
     }
     @media (max-width:576px){
       .btn{ padding:.9rem 1.2rem; font-size:.95rem; }
       .hero-actions a{ width:100%; }
       .wa-float{ right:14px; bottom:14px; width:54px; height:54px; }
+      .logo-icon{ height:54px; width:140px; }
     }
 
     /* Accesibilidad: reduce motion */
@@ -660,7 +690,7 @@
 <body>
   <!-- HEADER -->
   <header id="siteHeader">
-    <div class="container">
+    <div class="header-container">
       <nav class="navbar" aria-label="Menú principal">
         <!-- LEFT: LOGO -->
         <a href="#inicio" class="brand" aria-label="Ir a inicio">
@@ -1079,6 +1109,7 @@
             <li><a href="/blog/senae-retencion-mercaderia.html">SENAE: Retención</a></li>
             <li><a href="/blog/prohibicion-salida-alimentos.html">Prohibición salida</a></li>
             <li><a href="/blog/cuenta-bloqueada-coactiva-salario.html">Cuenta bloqueada</a></li>
+            <li><a href="/blog/embargo-sueldo-ecuador.html">Embargo de sueldo</a></li>
           </ul>
         </div>
       </div>
@@ -1095,22 +1126,21 @@
     // Año
     document.getElementById('currentYear').textContent = new Date().getFullYear();
 
-    // ✅ Setear altura real del header para que el HERO y el menú móvil NO queden “raros” en celular
-    const headerEl = document.getElementById('siteHeader');
+    // ✅ FIX: header-h = header-fixed-h (estable, no cambia con scroll)
     const setHeaderHeightVar = () => {
-      const h = headerEl ? headerEl.offsetHeight : 110;
-      document.documentElement.style.setProperty('--header-h', h + 'px');
+      const fixedH = getComputedStyle(document.documentElement)
+        .getPropertyValue('--header-fixed-h')
+        .trim() || '96px';
+      document.documentElement.style.setProperty('--header-h', fixedH);
     };
     window.addEventListener('load', setHeaderHeightVar);
     window.addEventListener('resize', setHeaderHeightVar);
     setHeaderHeightVar();
 
-    // Header scroll
+    // Header scroll (sin cambiar padding/altura)
     window.addEventListener('scroll', () => {
       const header = document.querySelector('header');
       header.classList.toggle('scrolled', window.scrollY > 50);
-      // Recalcula por si cambia padding al scrollear
-      setHeaderHeightVar();
     });
 
     // Menú móvil
@@ -1150,7 +1180,7 @@
         e.preventDefault();
         closeMobileMenu();
 
-        const headerH = parseFloat(getComputedStyle(document.documentElement).getPropertyValue('--header-h')) || 110;
+        const headerH = parseFloat(getComputedStyle(document.documentElement).getPropertyValue('--header-h')) || 96;
         const y = el.getBoundingClientRect().top + window.scrollY - (headerH + 14);
         window.scrollTo({ top: y, behavior: 'smooth' });
       });
@@ -1178,6 +1208,13 @@
         title: "Cuenta bloqueada por coactiva y es tu salario: cómo moverte rápido",
         excerpt: "Qué pruebas necesitas y cómo argumentar el origen de fondos para desbloqueo.",
         url: "/blog/cuenta-bloqueada-coactiva-salario.html"
+      },
+      {
+        tag: "Laboral",
+        date: "Guía práctica",
+        title: "¿Me pueden embargar todo el sueldo en Ecuador?",
+        excerpt: "Te explicamos qué parte del salario se protege y qué hacer si te retienen de más.",
+        url: "/blog/embargo-sueldo-ecuador.html"
       }
     ];
 
