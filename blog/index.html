@@ -10,7 +10,7 @@
   <link rel="canonical" href="https://juristam.net/blog/" />
   <meta name="robots" content="index,follow,max-image-preview:large" />
 
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Playfair+Display:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
   <style>
@@ -19,247 +19,721 @@
       --primary-dark:#7c3aed;
       --primary-light:#efe8ff;
       --secondary:#1e293b;
+
+      --bg:#ffffff;
+      --panel:#ffffff;
       --border:#e5e7eb;
+
       --text:#111827;
       --text-secondary:#4b5563;
       --text-light:#6b7280;
-      --shadow-lg:0 10px 25px rgba(0,0,0,.10);
-      --shadow-xl:0 20px 40px rgba(0,0,0,.12);
-      --radius-lg:20px;
 
-      /* Header */
+      --shadow-sm:0 2px 10px rgba(0,0,0,.06);
+      --shadow-lg:0 10px 25px rgba(0,0,0,.10);
+      --shadow-xl:0 22px 50px rgba(0,0,0,.14);
+      --shadow-2xl:0 30px 60px rgba(0,0,0,.18);
+
+      --radius-xl:28px;
+      --radius-lg:20px;
+      --radius-md:12px;
+
+      --header-fixed-h: 92px;
       --header-h: 92px;
 
-      /* ✅ RESPONSIVE REAL: logo y botón se adaptan sin romper línea */
-      --logo-h: clamp(56px, 10vw, 78px);
-      --logo-w: clamp(140px, 42vw, 240px);
-
-      --btn-fs: clamp(.90rem, 2.7vw, 1.02rem);
-      --btn-py: clamp(.72rem, 2.2vw, .95rem);
-      --btn-px: clamp(.95rem, 3.2vw, 1.60rem);
+      /* Parallax speeds mejoradas */
+      --px-slow: .12;
+      --px-mid:  .25;
+      --px-fast: .38;
     }
 
     *{margin:0;padding:0;box-sizing:border-box}
-    html{scroll-behavior:smooth}
+    html{
+      scroll-behavior:smooth;
+      scroll-padding-top: calc(var(--header-h) + 14px);
+    }
     body{
       font-family:Inter,system-ui,-apple-system,Segoe UI,sans-serif;
       color:var(--text);
-      background:#fff;
+      background:var(--bg);
       overflow-x:hidden;
+      -webkit-font-smoothing:antialiased;
+      -moz-osx-font-smoothing:grayscale;
     }
-
+    img{max-width:100%;height:auto;display:block}
+    a{-webkit-tap-highlight-color:transparent}
     .container{
       max-width:1200px;
       margin:0 auto;
-      padding:0 2rem;
+      padding:0 clamp(1rem, 3.6vw, 2.2rem);
     }
 
     /* =========================
-       HEADER (FIX: 100vw + safe-area + no overflow)
+       HEADER
        ========================= */
     header{
-      position:sticky; top:0; z-index:50;
+      position:sticky; top:0; z-index:100;
       background:rgba(255,255,255,.96);
-      backdrop-filter:blur(12px);
-      border-bottom:1px solid rgba(229,231,235,.9);
-      box-shadow:0 2px 10px rgba(0,0,0,.06);
-      height: var(--header-h);
-
-      width: 100%;
-      max-width: 100vw; /* ✅ evita desborde raro en in-app browsers */
-    }
-
-    .header-inner{
-      height: var(--header-h);
-      width: 100%;
-      max-width: 1200px;
-      margin:0 auto;
-
-      /* ✅ safe areas para FB/IG + padding */
-      padding-left: max(12px, env(safe-area-inset-left));
-      padding-right: max(12px, env(safe-area-inset-right));
-    }
-
-    .nav{
-      height: var(--header-h);
-      width:100%;
+      backdrop-filter:blur(20px);
+      border-bottom:1px solid rgba(229,231,235,.85);
+      box-shadow:var(--shadow-sm);
+      height: var(--header-fixed-h);
       display:flex;
       align-items:center;
-      justify-content:space-between;
-      gap: 10px;
-      min-width:0; /* ✅ permite shrink correcto */
+      padding:0;
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    
+    header.scrolled {
+      height: calc(var(--header-fixed-h) - 12px);
+      background:rgba(255,255,255,.98);
+      box-shadow: 0 4px 30px rgba(0,0,0,.08);
+    }
+    
+    .nav{
+      display:flex;
+      align-items:center;
+      gap: clamp(.6rem, 2vw, 1rem);
+      width:100%;
+      height: 100%;
+      min-width:0;
     }
 
     .brand{
       display:flex;
       align-items:center;
       text-decoration:none;
-      flex: 0 1 auto;
+      flex:0 0 auto;
       min-width:0;
     }
 
-    /* ✅ El logo puede ser grande, pero también puede encogerse */
     .logo-box{
-      height: var(--logo-h);
-      width: var(--logo-w);
+      height: clamp(56px, 6.4vw, 72px);
+      width:  clamp(150px, 24vw, 220px);
       display:flex;
       align-items:center;
+      justify-content:flex-start;
       overflow:hidden;
-      flex: 0 1 auto;
-      min-width: 120px;
+      flex:0 0 auto;
+      transition: transform 0.3s ease;
     }
+    
+    header.scrolled .logo-box {
+      transform: scale(0.95);
+    }
+    
     .logo-box img{
       height:100%;
-      width:100%;
+      width:auto;
       object-fit:contain;
-      display:block;
     }
 
-    .nav-right{
-      display:flex;
-      align-items:center;
-      justify-content:flex-end;
-      flex: 0 0 auto;
-      min-width:0;
-    }
-
-    /* ✅ Botón SIEMPRE 1 línea + nunca se corta */
-    .btn-primary{
-      display:inline-flex;
-      align-items:center;
-      justify-content:center;
-
-      white-space:nowrap;        /* ✅ 1 sola línea */
-      flex-shrink:0;
-
-      font-weight:900;
-      font-size: var(--btn-fs);
-      line-height: 1;
-
-      padding: var(--btn-py) var(--btn-px);
-      border-radius: 999px;
-      text-decoration:none;
-      color:#fff;
-
-      background:linear-gradient(135deg,var(--primary) 0%,var(--primary-dark) 100%);
-      border:1px solid rgba(124,58,237,.15);
-      box-shadow:0 16px 30px rgba(124,58,237,.26);
-
-      /* ✅ Evita que el botón empuje fuera */
-      max-width: 46vw;
-      overflow:hidden;
-      text-overflow:ellipsis;
-    }
-
-    /* Desktop menú centrado (opcional) */
     .nav-center{
       flex:1 1 auto;
       display:flex;
       justify-content:center;
+      align-items:center;
       min-width:0;
     }
+    
     .nav-pill{
       display:flex;
       align-items:center;
       gap:.25rem;
       padding:.45rem;
       border-radius:999px;
-      background:rgba(243,244,246,.65);
+      background:rgba(255,255,255,.7);
       border:1px solid rgba(229,231,235,.9);
-      box-shadow:0 10px 24px rgba(17,24,39,.06);
+      box-shadow:0 8px 32px rgba(17,24,39,.05);
       max-width:100%;
       overflow:auto;
-      -webkit-overflow-scrolling: touch;
+      scrollbar-width:none;
+      backdrop-filter: blur(8px);
+      transition: all 0.3s ease;
     }
+    
+    .nav-pill::-webkit-scrollbar{display:none}
+
     .nav-link{
       display:inline-flex;
       align-items:center;
       justify-content:center;
-      padding:.75rem 1.15rem;
+      padding:.72rem 1.05rem;
       border-radius:999px;
       text-decoration:none;
       font-weight:900;
       color:var(--text-secondary);
       white-space:nowrap;
       transition:.2s ease;
+      position:relative;
+      flex:0 0 auto;
     }
+    
     .nav-link:hover{
       background:#fff;
       color:var(--primary-dark);
-      box-shadow:0 10px 18px rgba(17,24,39,.08);
+      box-shadow:0 4px 16px rgba(17,24,39,.08);
     }
 
-    main{padding:3rem 0 5rem}
-
-    .hero{
-      background:linear-gradient(135deg,#f8fafc 0%,#f1f5f9 100%);
-      border:1px solid var(--border);
-      border-radius:var(--radius-lg);
-      padding:2.5rem;
-      box-shadow:var(--shadow-lg);
+    .nav-right{
+      flex:0 0 auto;
+      margin-left:auto;
+      display:flex;
+      align-items:center;
+      justify-content:flex-end;
+      min-width:0;
     }
+
+    .btn-primary{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      gap:.55rem;
+      padding: .92rem 1.45rem;
+      border-radius:999px;
+      font-weight:900;
+      text-decoration:none;
+      color:#fff;
+      border:1px solid rgba(124,58,237,.2);
+      background:linear-gradient(135deg,var(--primary) 0%,var(--primary-dark) 100%);
+      box-shadow:0 18px 34px rgba(124,58,237,.28);
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      white-space:nowrap;
+      line-height:1;
+      flex:0 0 auto;
+      max-width: 100%;
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .btn-primary::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(255,255,255,.2), transparent);
+      transition: left 0.7s ease;
+    }
+    
+    .btn-primary:hover{
+      transform:translateY(-2px);
+      box-shadow:0 22px 44px rgba(124,58,237,.32);
+    }
+    
+    .btn-primary:hover::before {
+      left: 100%;
+    }
+
+    /* =========================
+       PARALLAX SECTIONS MEJORADAS
+       ========================= */
+    .parallax{
+      position:relative;
+      border-bottom:1px solid rgba(229,231,235,.85);
+      background:#fff;
+      overflow:hidden;
+      isolation: isolate;
+    }
+    
+    .parallax-inner{
+      position:relative;
+      padding: clamp(2.8rem, 6vw, 5rem) 0;
+      z-index:2;
+    }
+
+    /* Capas de parallax múltiples para profundidad */
+    .parallax-bg{
+      position:absolute;
+      inset:-30% -20%;
+      z-index:0;
+      transform:translate3d(0,0,0);
+      will-change:transform;
+      pointer-events:none;
+      transition: transform 0.1s linear;
+      background-size: cover;
+      background-position: center;
+    }
+    
+    /* Capa adicional para efecto de profundidad */
+    .parallax-fg {
+      position: absolute;
+      inset: -20% -10%;
+      z-index: 1;
+      transform: translate3d(0,0,0);
+      will-change: transform;
+      pointer-events: none;
+      opacity: 0.4;
+      mix-blend-mode: overlay;
+      filter: blur(1px);
+    }
+
+    /* Overlay refinado */
+    .parallax::after{
+      content:"";
+      position:absolute;
+      inset:0;
+      background: linear-gradient(
+        180deg, 
+        rgba(255,255,255,.88) 0%, 
+        rgba(255,255,255,.94) 30%, 
+        rgba(255,255,255,.98) 60%, 
+        rgba(255,255,255,1) 100%
+      );
+      z-index:1;
+      pointer-events:none;
+    }
+
+    /* Fondos mejorados con patrones sutiles */
+    .bg-hero{
+      background:
+        radial-gradient(circle at 15% 30%, rgba(154,106,255,.20) 0%, transparent 60%),
+        radial-gradient(circle at 85% 15%, rgba(124,58,237,.15) 0%, transparent 60%),
+        radial-gradient(circle at 70% 80%, rgba(15,118,110,.12) 0%, transparent 60%),
+        linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
+      filter: saturate(1.1) brightness(1.05);
+    }
+    
+    .bg-hero-fg {
+      background: 
+        radial-gradient(circle at 20% 40%, rgba(255,255,255,.3) 0%, transparent 40%),
+        repeating-linear-gradient(45deg, transparent, transparent 2px, rgba(154,106,255,.03) 2px, rgba(154,106,255,.03) 4px);
+    }
+
+    .bg-aduanas{
+      background:
+        radial-gradient(circle at 15% 10%, rgba(245,158,11,.18) 0%, transparent 60%),
+        radial-gradient(circle at 90% 20%, rgba(154,106,255,.15) 0%, transparent 60%),
+        linear-gradient(135deg, #fbfbff 0%, #f6f7ff 100%);
+      filter: saturate(1.05);
+    }
+    
+    .bg-aduanas-fg {
+      background: 
+        radial-gradient(circle at 25% 25%, rgba(255,255,255,.25) 0%, transparent 50%),
+        repeating-linear-gradient(-45deg, transparent, transparent 3px, rgba(245,158,11,.04) 3px, rgba(245,158,11,.04) 6px);
+    }
+
+    .bg-coactiva{
+      background:
+        radial-gradient(circle at 20% 20%, rgba(124,58,237,.18) 0%, transparent 60%),
+        radial-gradient(circle at 80% 15%, rgba(154,106,255,.12) 0%, transparent 60%),
+        linear-gradient(135deg, #fbfbff 0%, #f7f4ff 100%);
+      filter: saturate(1.05);
+    }
+    
+    .bg-coactiva-fg {
+      background: 
+        radial-gradient(circle at 30% 35%, rgba(255,255,255,.2) 0%, transparent 50%),
+        repeating-linear-gradient(90deg, transparent, transparent 4px, rgba(124,58,237,.03) 4px, rgba(124,58,237,.03) 8px);
+    }
+
+    .bg-laboral{
+      background:
+        radial-gradient(circle at 18% 18%, rgba(15,118,110,.18) 0%, transparent 60%),
+        radial-gradient(circle at 88% 20%, rgba(154,106,255,.12) 0%, transparent 60%),
+        linear-gradient(135deg, #fbfeff 0%, #f3fbf9 100%);
+      filter: saturate(1.05);
+    }
+    
+    .bg-laboral-fg {
+      background: 
+        radial-gradient(circle at 35% 30%, rgba(255,255,255,.2) 0%, transparent 50%),
+        repeating-linear-gradient(135deg, transparent, transparent 5px, rgba(15,118,110,.03) 5px, rgba(15,118,110,.03) 10px);
+    }
+
+    .bg-inmobiliario{
+      background:
+        radial-gradient(circle at 16% 18%, rgba(59,130,246,.18) 0%, transparent 60%),
+        radial-gradient(circle at 85% 22%, rgba(154,106,255,.12) 0%, transparent 60%),
+        linear-gradient(135deg, #fbfdff 0%, #f1f7ff 100%);
+      filter: saturate(1.05);
+    }
+    
+    .bg-inmobiliario-fg {
+      background: 
+        radial-gradient(circle at 40% 25%, rgba(255,255,255,.2) 0%, transparent 50%),
+        repeating-linear-gradient(0deg, transparent, transparent 6px, rgba(59,130,246,.03) 6px, rgba(59,130,246,.03) 12px);
+    }
+
+    /* =========================
+       HERO CONTENT MEJORADO
+       ========================= */
+    .hero-wrap{
+      display:grid;
+      grid-template-columns: 1.15fr .85fr;
+      gap: clamp(1.2rem, 3.6vw, 3rem);
+      align-items:stretch;
+    }
+    
+    .hero-card{
+      background:rgba(255,255,255,.92);
+      border:1px solid rgba(229,231,235,.85);
+      border-radius:var(--radius-xl);
+      padding: clamp(1.5rem, 4vw, 2.5rem);
+      box-shadow: var(--shadow-2xl);
+      backdrop-filter: blur(16px);
+      transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.4s ease;
+    }
+    
+    .hero-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 30px 60px rgba(0,0,0,.15);
+    }
+    
+    .kicker{
+      display:inline-flex;
+      align-items:center;
+      gap:.55rem;
+      padding:.55rem .95rem;
+      border-radius:999px;
+      background:rgba(154,106,255,.12);
+      border:1px solid rgba(154,106,255,.22);
+      color:var(--primary-dark);
+      font-weight:900;
+      font-size:.86rem;
+      letter-spacing:.2px;
+      margin-bottom:1rem;
+      backdrop-filter: blur(4px);
+    }
+    
     h1{
       font-family:'Playfair Display',serif;
-      font-size:2.7rem;line-height:1.1;
-      color:var(--secondary);margin-bottom:.9rem;
+      font-size: clamp(2.2rem, 5.5vw, 3.5rem);
+      line-height:1.05;
+      color:var(--secondary);
+      margin-bottom:.85rem;
+      background: linear-gradient(135deg, var(--secondary) 0%, #374151 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
     }
-    .sub{color:var(--text-secondary);font-size:1.15rem;line-height:1.7}
+    
+    .sub{
+      color:var(--text-secondary);
+      font-size: clamp(1.05rem, 2.5vw, 1.2rem);
+      line-height:1.75;
+    }
+
+    .hero-actions{
+      display:flex;
+      gap:.9rem;
+      flex-wrap:wrap;
+      margin-top:1.5rem;
+    }
+    
+    .btn-ghost{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      gap:.55rem;
+      padding:.92rem 1.25rem;
+      border-radius:999px;
+      font-weight:900;
+      text-decoration:none;
+      color:var(--primary-dark);
+      background:rgba(255,255,255,.9);
+      border:1px solid rgba(154,106,255,.26);
+      box-shadow:0 12px 24px rgba(17,24,39,.06);
+      transition: all 0.3s ease;
+      white-space:nowrap;
+    }
+    
+    .btn-ghost:hover{
+      transform:translateY(-2px); 
+      background:var(--primary-light);
+      box-shadow:0 16px 32px rgba(17,24,39,.08);
+    }
+
+    /* Categorías */
+    .cat-grid{
+      display:grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap:1rem;
+      margin-top:1.8rem;
+    }
+    
+    .cat{
+      background:rgba(255,255,255,.92);
+      border:1px solid rgba(229,231,235,.9);
+      border-radius:20px;
+      padding:1.15rem;
+      box-shadow:0 16px 40px rgba(17,24,39,.07);
+      min-width:0;
+      transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .cat::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 3px;
+      background: linear-gradient(90deg, var(--primary), var(--primary-dark));
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform 0.4s ease;
+    }
+    
+    .cat:hover{
+      transform:translateY(-6px) scale(1.02); 
+      box-shadow:0 24px 48px rgba(17,24,39,.10);
+    }
+    
+    .cat:hover::before {
+      transform: scaleX(1);
+    }
+    
+    .cat-top{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:.8rem;
+      margin-bottom:.6rem;
+    }
+    
+    .cat-name{
+      font-weight:950;
+      color:var(--secondary);
+      letter-spacing:.2px;
+      font-size: 1.05rem;
+    }
+    
+    .chip{
+      display:inline-flex;
+      align-items:center;
+      gap:.35rem;
+      padding:.35rem .7rem;
+      border-radius:999px;
+      font-weight:900;
+      font-size:.78rem;
+      color:var(--primary-dark);
+      background:rgba(154,106,255,.12);
+      border:1px solid rgba(154,106,255,.20);
+      white-space:nowrap;
+    }
+    
+    .cat-desc{
+      color:var(--text-secondary);
+      font-size:.95rem;
+      line-height:1.65;
+      margin-bottom:.85rem;
+    }
+    
+    .cat a{
+      display:inline-flex;
+      align-items:center;
+      gap:.5rem;
+      color:var(--primary-dark);
+      font-weight:900;
+      text-decoration:none;
+      transition: gap 0.3s ease;
+    }
+    
+    .cat a:hover{
+      text-decoration:underline;
+      gap: .8rem;
+    }
+
+    /* =========================
+       LISTA DE ARTÍCULOS
+       ========================= */
+    .section{
+      padding: clamp(2.8rem, 6vw, 5rem) 0;
+    }
+    
+    .section-head{
+      display:flex;
+      align-items:flex-end;
+      justify-content:space-between;
+      gap:1.5rem;
+      margin-bottom:1.5rem;
+      flex-wrap:wrap;
+    }
+    
+    .h2{
+      font-family:'Playfair Display',serif;
+      font-size: clamp(1.8rem, 4vw, 2.6rem);
+      line-height:1.1;
+      color:var(--secondary);
+      background: linear-gradient(135deg, var(--secondary) 0%, #4b5563 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    
+    .section-note{
+      color:var(--text-secondary);
+      font-size:1.05rem;
+      line-height:1.7;
+      max-width:68ch;
+      padding: .5rem 0;
+    }
 
     .grid{
-      margin-top:2.5rem;
+      margin-top:1.5rem;
       display:grid;
-      grid-template-columns:repeat(3,1fr);
-      gap:1.6rem;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 1.5rem;
     }
+
     .card{
-      border:1px solid var(--border);
+      border:1px solid rgba(229,231,235,.95);
       border-radius:var(--radius-lg);
-      padding:1.7rem;
+      padding:1.5rem;
       box-shadow:var(--shadow-lg);
-      transition:.25s ease;
+      transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
       display:flex;
       flex-direction:column;
-      min-height:270px;
-      background:#fff;
+      min-height: 300px;
+      background:rgba(255,255,255,.95);
+      min-width:0;
+      overflow:hidden;
+      position: relative;
     }
-    .card:hover{transform:translateY(-6px);box-shadow:var(--shadow-xl)}
-    .meta{display:flex;gap:.6rem;flex-wrap:wrap;margin-bottom:.8rem;color:var(--text-light);font-size:.92rem}
+    
+    .card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 4px;
+      background: linear-gradient(90deg, var(--primary), var(--primary-dark));
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform 0.4s ease;
+    }
+    
+    .card:hover{
+      transform:translateY(-8px) scale(1.02);
+      box-shadow:var(--shadow-2xl);
+    }
+    
+    .card:hover::before {
+      transform: scaleX(1);
+    }
+    
+    .meta{
+      display:flex;
+      gap:.6rem;
+      flex-wrap:wrap;
+      margin-bottom:1rem;
+      color:var(--text-light);
+      font-size:.92rem;
+    }
+    
     .tag{
       background:var(--primary-light);
       color:var(--primary-dark);
-      border:1px solid rgba(154,106,255,.2);
-      padding:.3rem .7rem;border-radius:999px;
-      font-weight:900;font-size:.78rem;text-transform:uppercase;
+      border:1px solid rgba(154,106,255,.25);
+      padding:.28rem .7rem;
+      border-radius:999px;
+      font-weight:950;
+      font-size:.78rem;
+      text-transform:uppercase;
+      letter-spacing:.35px;
     }
-    .title{font-weight:900;font-size:1.18rem;color:var(--secondary);margin-bottom:.7rem}
-    .excerpt{color:var(--text-secondary);line-height:1.7;flex:1}
-    .link{margin-top:1.1rem;font-weight:900;color:var(--primary-dark);text-decoration:none}
-    .link:hover{text-decoration:underline}
-    footer{border-top:1px solid var(--border);padding:2rem 0;color:var(--text-light)}
+    
+    .title{
+      font-weight:950;
+      font-size:1.15rem;
+      color:var(--secondary);
+      margin-bottom:.8rem;
+      line-height:1.35;
+    }
+    
+    .excerpt{
+      color:var(--text-secondary);
+      line-height:1.7;
+      flex:1;
+    }
+    
+    .link{
+      margin-top:1.2rem;
+      font-weight:950;
+      color:var(--primary-dark);
+      text-decoration:none;
+      display:inline-flex;
+      align-items:center;
+      gap:.55rem;
+      white-space:nowrap;
+      transition: gap 0.3s ease;
+    }
+    
+    .link:hover{
+      text-decoration:underline;
+      gap: .8rem;
+    }
 
-    /* ✅ RESPONSIVE: en móvil ocultamos la píldora (como tu landing) */
+    footer{
+      border-top:1px solid rgba(229,231,235,.95);
+      padding:3rem 0;
+      color:var(--text-light);
+      text-align: center;
+      background: linear-gradient(180deg, #fff 0%, #f9fafb 100%);
+    }
+
+    /* =========================
+       RESPONSIVE
+       ========================= */
+
+    @media(max-width:1100px){
+      .grid{grid-template-columns: repeat(2, minmax(0,1fr));}
+      .cat-grid{grid-template-columns: repeat(2, minmax(0,1fr));}
+      .hero-wrap{grid-template-columns:1fr;}
+    }
+
     @media(max-width:860px){
-      .container{padding:0 1.05rem}
-      .nav-center{display:none}
-      :root{ --header-h: 88px; }
+      :root{ --header-fixed-h: 84px; --header-h: 84px; }
+
+      .nav-center{display:none;}
+      .btn-primary{
+        padding:.86rem 1.15rem;
+        font-size:.98rem;
+      }
+      
+      .logo-box{
+        height: 64px;
+        width:  185px;
+      }
+
+      .hero-actions a{width:100%;}
+      .card{min-height: 280px;}
+      .grid{grid-template-columns: 1fr;}
+      .section-head {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 1rem;
+      }
     }
 
-    /* ✅ Extra pequeño: el logo se reduce un poquito más para que NUNCA corte el botón */
-    @media(max-width:380px){
-      :root{
-        --logo-w: clamp(130px, 38vw, 190px);
-        --btn-px: clamp(.85rem, 3vw, 1.15rem);
-        --btn-fs: clamp(.88rem, 2.6vw, .98rem);
+    @media(max-width:420px){
+      :root{ --header-fixed-h: 80px; --header-h: 80px; }
+      .logo-box{ height: 62px; width: 175px; }
+      .btn-primary{
+        padding:.82rem 1.05rem;
+        font-size:.95rem;
       }
-      .btn-primary{ max-width: 50vw; }
+      .cat-grid{grid-template-columns: 1fr;}
+    }
+
+    @media (prefers-reduced-motion: reduce){
+      html{scroll-behavior:auto}
+      .parallax-bg, .parallax-fg{transform:none !important}
+      .card, .cat, .btn-primary, .btn-ghost, .hero-card{transition:none !important}
+      .nav-pill, header { transition: none !important; }
     }
   </style>
 </head>
 
 <body>
 
-<header>
-  <div class="header-inner">
+<header id="main-header">
+  <div class="container">
     <div class="nav">
       <a class="brand" href="/" aria-label="Volver al inicio">
         <div class="logo-box">
@@ -278,60 +752,286 @@
       </div>
 
       <div class="nav-right">
-        <a class="btn-primary" href="/#formulario">Evaluar Caso</a>
+        <a class="btn-primary" href="/#formulario" aria-label="Evaluar Caso">
+          <i class="fa-solid fa-clipboard-check"></i> Evaluar Caso
+        </a>
       </div>
     </div>
   </div>
 </header>
 
-<main>
-  <div class="container">
-    <section class="hero">
-      <h1>Guías Júristam</h1>
-      <p class="sub">
-        Artículos directos y accionables.
-        Nada de teoría inútil. Si tu problema es real, aquí empiezas bien.
-      </p>
-    </section>
+<!-- HERO PARALLAX -->
+<section class="parallax" id="top">
+  <div class="parallax-bg bg-hero" data-parallax data-speed="0.15"></div>
+  <div class="parallax-fg bg-hero-fg" data-parallax data-speed="0.25"></div>
+  <div class="parallax-inner">
+    <div class="container">
+      <div class="hero-wrap">
+        <div class="hero-card">
+          <div class="kicker"><i class="fa-solid fa-bolt"></i> Guías rápidas, sin humo</div>
+          <h1>Guías Júristam</h1>
+          <p class="sub">
+            Artículos directos y accionables. Nada de teoría inútil.
+            Si tu problema es real, aquí empiezas bien.
+          </p>
 
-    <section class="grid" id="grid"></section>
+          <div class="hero-actions">
+            <a class="btn-primary" href="#categorias"><i class="fa-solid fa-layer-group"></i> Ver categorías</a>
+            <a class="btn-ghost" href="/#formulario"><i class="fa-solid fa-paper-plane"></i> Evaluar mi caso</a>
+          </div>
+
+          <div class="cat-grid" id="categorias">
+            <div class="cat">
+              <div class="cat-top">
+                <div class="cat-name">Aduanas</div>
+                <div class="chip"><i class="fa-solid fa-box"></i> SENAE</div>
+              </div>
+              <div class="cat-desc">Retenciones, liquidaciones, estrategias y errores comunes.</div>
+              <a href="#aduanas">Ver artículos <i class="fa-solid fa-arrow-right"></i></a>
+            </div>
+
+            <div class="cat">
+              <div class="cat-top">
+                <div class="cat-name">Coactiva</div>
+                <div class="chip"><i class="fa-solid fa-gavel"></i> Cobros</div>
+              </div>
+              <div class="cat-desc">Defensas rápidas: prescripción, nulidades y salario.</div>
+              <a href="#coactiva">Ver artículos <i class="fa-solid fa-arrow-right"></i></a>
+            </div>
+
+            <div class="cat">
+              <div class="cat-top">
+                <div class="cat-name">Laboral</div>
+                <div class="chip"><i class="fa-solid fa-briefcase"></i> Trabajo</div>
+              </div>
+              <div class="cat-desc">Embargos, fondos de reserva y reglas obligatorias.</div>
+              <a href="#laboral">Ver artículos <i class="fa-solid fa-arrow-right"></i></a>
+            </div>
+
+            <div class="cat">
+              <div class="cat-top">
+                <div class="cat-name">Inmobiliario</div>
+                <div class="chip"><i class="fa-solid fa-building"></i> Terrenos</div>
+              </div>
+              <div class="cat-desc">Identificación del inmueble, prescripción y reivindicación.</div>
+              <a href="#inmobiliario">Ver artículos <i class="fa-solid fa-arrow-right"></i></a>
+            </div>
+          </div>
+        </div>
+
+        <div class="hero-card">
+          <div class="kicker"><i class="fa-solid fa-circle-check"></i> Cómo usar estas guías</div>
+          <p class="sub" style="margin-bottom:1rem;">
+            1) Identifica tu categoría.<br>
+            2) Lee la guía y evita errores típicos.<br>
+            3) Si el caso es urgente o hay notificación: evalúalo con nosotros.
+          </p>
+
+          <div style="display:grid; gap:1rem; margin-top:1.5rem;">
+            <div style="padding:1.2rem; border-radius:20px; border:1px solid rgba(229,231,235,.95); background:rgba(255,255,255,.92); box-shadow:0 12px 26px rgba(17,24,39,.06); backdrop-filter: blur(8px); transition: transform 0.3s ease;">
+              <div style="font-weight:950; color:var(--secondary); margin-bottom:.5rem; display: flex; align-items: center; gap: .5rem;">
+                <i class="fa-solid fa-stopwatch" style="color:var(--primary-dark)"></i> Lectura rápida
+              </div>
+              <div style="color:var(--text-secondary); line-height:1.7;">
+                Diseñadas para actuar en minutos: qué hacer, qué NO hacer y el siguiente paso.
+              </div>
+            </div>
+
+            <div style="padding:1.2rem; border-radius:20px; border:1px solid rgba(229,231,235,.95); background:rgba(255,255,255,.92); box-shadow:0 12px 26px rgba(17,24,39,.06); backdrop-filter: blur(8px); transition: transform 0.3s ease;">
+              <div style="font-weight:950; color:var(--secondary); margin-bottom:.5rem; display: flex; align-items: center; gap: .5rem;">
+                <i class="fa-solid fa-shield-halved" style="color:var(--primary-dark)"></i> Enfoque práctico
+              </div>
+              <div style="color:var(--text-secondary); line-height:1.7;">
+                Menos teoría, más decisiones: rutas, riesgos, plazos y documentos clave.
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
   </div>
-</main>
+</section>
+
+<!-- ADUANAS -->
+<section class="parallax" id="aduanas">
+  <div class="parallax-bg bg-aduanas" data-parallax data-speed="0.12"></div>
+  <div class="parallax-fg bg-aduanas-fg" data-parallax data-speed="0.22"></div>
+  <div class="parallax-inner section">
+    <div class="container">
+      <div class="section-head">
+        <div>
+          <div class="kicker"><i class="fa-solid fa-box"></i> Aduanas</div>
+          <div class="h2">SENAE · Retenciones y estrategia</div>
+        </div>
+        <div class="section-note">
+          Si hay liquidación o acta: el tiempo juega en tu contra. Esta categoría es para evitar el error caro.
+        </div>
+      </div>
+      <div class="grid" id="grid-aduanas"></div>
+    </div>
+  </div>
+</section>
+
+<!-- COACTIVA -->
+<section class="parallax" id="coactiva">
+  <div class="parallax-bg bg-coactiva" data-parallax data-speed="0.14"></div>
+  <div class="parallax-fg bg-coactiva-fg" data-parallax data-speed="0.24"></div>
+  <div class="parallax-inner section">
+    <div class="container">
+      <div class="section-head">
+        <div>
+          <div class="kicker"><i class="fa-solid fa-gavel"></i> Coactiva</div>
+          <div class="h2">Cobros, nulidades y salario</div>
+        </div>
+        <div class="section-note">
+          No todo se defiende "adentro" de la coactiva. Aquí te decimos dónde pegar para que sí sirva.
+        </div>
+      </div>
+      <div class="grid" id="grid-coactiva"></div>
+    </div>
+  </div>
+</section>
+
+<!-- LABORAL -->
+<section class="parallax" id="laboral">
+  <div class="parallax-bg bg-laboral" data-parallax data-speed="0.13"></div>
+  <div class="parallax-fg bg-laboral-fg" data-parallax data-speed="0.23"></div>
+  <div class="parallax-inner section">
+    <div class="container">
+      <div class="section-head">
+        <div>
+          <div class="kicker"><i class="fa-solid fa-briefcase"></i> Laboral</div>
+          <div class="h2">Embargos y reglas obligatorias</div>
+        </div>
+        <div class="section-note">
+          Si te retienen de más, se puede corregir. Esta categoría te da la ruta rápida.
+        </div>
+      </div>
+      <div class="grid" id="grid-laboral"></div>
+    </div>
+  </div>
+</section>
+
+<!-- INMOBILIARIO -->
+<section class="parallax" id="inmobiliario">
+  <div class="parallax-bg bg-inmobiliario" data-parallax data-speed="0.12"></div>
+  <div class="parallax-fg bg-inmobiliario-fg" data-parallax data-speed="0.22"></div>
+  <div class="parallax-inner section">
+    <div class="container">
+      <div class="section-head">
+        <div>
+          <div class="kicker"><i class="fa-solid fa-building"></i> Inmobiliario</div>
+          <div class="h2">Terrenos, prescripción y reivindicación</div>
+        </div>
+        <div class="section-note">
+          En inmuebles, un detalle mal hecho te tumba el caso. Aquí tienes la regla clara.
+        </div>
+      </div>
+      <div class="grid" id="grid-inmobiliario"></div>
+    </div>
+  </div>
+</section>
 
 <footer>
   <div class="container">
-    © <span id="y"></span> Júristam · <a href="/" style="color:inherit;">Volver al inicio</a>
+    © <span id="y"></span> Júristam · <a href="/" style="color:inherit; font-weight:900;">Volver al inicio</a>
   </div>
 </footer>
 
 <script>
   document.getElementById('y').textContent = new Date().getFullYear();
 
+  // ✅ Header dinámico
+  const header = document.getElementById('main-header');
+  const syncHeaderVars = () => {
+    const fixedH = getComputedStyle(document.documentElement)
+      .getPropertyValue('--header-fixed-h')
+      .trim() || '92px';
+    document.documentElement.style.setProperty('--header-h', fixedH);
+  };
+  
+  window.addEventListener('load', syncHeaderVars);
+  window.addEventListener('resize', syncHeaderVars);
+  syncHeaderVars();
+
+  // Header scroll effect
+  window.addEventListener('scroll', () => {
+    if (window.scrollY > 50) {
+      header.classList.add('scrolled');
+    } else {
+      header.classList.remove('scrolled');
+    }
+  });
+
+  // ====== POSTS ======
   const posts = [
+    // COACTIVA
     {
+      category: "Coactiva",
       tag: "Coactiva",
       date: "Corte Nacional · Nulidad por personería",
       title: "¿Te pueden cobrar una coactiva si ya no eres representante legal?",
-      excerpt: "Muchas personas pagan coactivas que nunca debieron dirigirse contra ellas. La Corte Nacional aclaró que cobrar a un exrepresentante legal puede anular todo el proceso.",
+      excerpt: "Muchas personas pagan coactivas que nunca debieron dirigirse contra ellas. La Corte Nacional aclaró que cobrar a un exrepresentante legal puede anular el proceso.",
       url: "/blog/coactiva-ex-representante-legal-nulidad-ecuador.html"
     },
     {
+      category: "Coactiva",
       tag: "Coactiva",
       date: "Corte Nacional · Resolución 393-2023",
       title: "¿Te pueden cobrar en coactiva si la deuda es ilegal en Ecuador?",
-      excerpt: "La Corte Nacional aclaró un error grave: no todo se defiende dentro de la coactiva. Conoce cuándo atacar el título de crédito, la prescripción y por qué el tiempo lo cambia todo.",
+      excerpt: "La Corte Nacional aclaró un punto clave: no todo se defiende dentro de la coactiva. Conoce cuándo atacar el título, la prescripción y por qué el tiempo lo cambia todo.",
       url: "/blog/coactiva-deuda-ilegal-defensa-ecuador.html"
     },
     {
+      category: "Coactiva",
+      tag: "Coactiva",
+      date: "Guía práctica",
+      title: "Cuenta bloqueada por coactiva y es tu salario: cómo moverte rápido",
+      excerpt: "Qué pruebas necesitas y cómo argumentar el origen del dinero para desbloqueo.",
+      url: "/blog/coactiva-cuenta-bloqueada-salario.html"
+    },
+
+    // LABORAL
+    {
+      category: "Laboral",
       tag: "Laboral",
       date: "Guía práctica",
       title: "¿Me pueden embargar todo el sueldo en Ecuador?",
       excerpt: "Cuánto pueden retenerte legalmente, cuándo es ilegal y qué hacer si te bloquean todo el salario.",
       url: "/blog/embargo-sueldo-ecuador.html"
-    }
+    },
+    {
+      category: "Laboral",
+      tag: "Laboral",
+      date: "Jurisprudencia obligatoria",
+      title: "¿Tus fondos de reserva cuentan para la jubilación patronal en Ecuador?",
+      excerpt: "Regla obligatoria: cuándo los fondos de reserva cuentan, qué se puede descontar y qué ya no.",
+      url: "/blog/fondos-reserva-jubilacion-patronal-ecuador.html"
+    },
+
+    // INMOBILIARIO
+    {
+      category: "Inmobiliario",
+      tag: "Inmuebles",
+      date: "Jurisprudencia obligatoria",
+      title: "Terrenos: la regla obligatoria de la Corte sobre identificación del inmueble",
+      excerpt: "Qué se exige en prescripción y qué en reivindicación. Explicado fácil, sin tecnicismos.",
+      url: "/blog/regla-obligatoria-singularizacion-inmueble-prescripcion-reivindicacion.html"
+    },
+
+    // ADUANAS
+    {
+      category: "Aduanas",
+      tag: "Aduanas",
+      date: "Guía práctica",
+      title: "SENAE retuvo tu mercadería: qué hacer (sin empeorar el caso)",
+      excerpt: "Pasos concretos, errores comunes y cómo ordenar tu estrategia para recuperar tu mercancía.",
+      url: "/blog/senae-retencion-mercaderia.html"
+    },
   ];
 
-  document.getElementById('grid').innerHTML = posts.map(p => `
+  const renderCard = (p) => `
     <article class="card">
       <div class="meta">
         <span class="tag">${p.tag}</span>
@@ -340,10 +1040,98 @@
       <div class="title">${p.title}</div>
       <div class="excerpt">${p.excerpt}</div>
       <a class="link" href="${p.url}" target="_blank" rel="noopener">
-        Leer artículo <i class="fas fa-arrow-right"></i>
+        Leer artículo <i class="fa-solid fa-arrow-right"></i>
       </a>
     </article>
-  `).join("");
+  `;
+
+  const mount = (id, category) => {
+    const el = document.getElementById(id);
+    const list = posts.filter(p => p.category === category);
+    el.innerHTML = list.length
+      ? list.map(renderCard).join("")
+      : `<div class="card" style="min-height:auto;">
+           <div class="title">Todavía no hay artículos aquí</div>
+           <div class="excerpt">Agrega tus fichas de artículos en esta categoría y se mostrarán automáticamente.</div>
+         </div>`;
+  };
+
+  mount("grid-aduanas", "Aduanas");
+  mount("grid-coactiva", "Coactiva");
+  mount("grid-laboral", "Laboral");
+  mount("grid-inmobiliario", "Inmobiliario");
+
+  // =========================
+  // PARALLAX MEJORADO
+  // =========================
+  const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  const parallaxBgEls = Array.from(document.querySelectorAll('.parallax-bg[data-parallax]'));
+  const parallaxFgEls = Array.from(document.querySelectorAll('.parallax-fg[data-parallax]'));
+  const parallaxEls = [...parallaxBgEls, ...parallaxFgEls];
+  
+  let ticking = false;
+  let lastScrollY = 0;
+  const scrollThreshold = 1;
+
+  const updateParallax = () => {
+    if (reduceMotion) return;
+    
+    const vh = window.innerHeight || 800;
+    const scrollY = window.scrollY || 0;
+    const deltaY = Math.abs(scrollY - lastScrollY);
+    
+    // Solo actualizar si hay suficiente desplazamiento
+    if (deltaY < scrollThreshold && ticking) return;
+    
+    lastScrollY = scrollY;
+
+    parallaxEls.forEach(el => {
+      const speed = parseFloat(el.getAttribute('data-speed') || '0.2');
+      const rect = el.closest('.parallax').getBoundingClientRect();
+      
+      // Calcular posición relativa del elemento en la ventana
+      const elementCenter = rect.top + rect.height / 2;
+      const viewportCenter = vh / 2;
+      const distanceFromCenter = elementCenter - viewportCenter;
+      
+      // Efecto parallax más suave y natural
+      const offset = distanceFromCenter * speed * 0.5;
+      
+      // Limitar el movimiento para evitar efectos exagerados
+      const clampedOffset = Math.max(-100, Math.min(100, offset));
+      
+      // Aplicar transformación
+      el.style.transform = `translate3d(0, ${clampedOffset}px, 0)`;
+    });
+  };
+
+  const onScroll = () => {
+    if (!ticking) {
+      window.requestAnimationFrame(() => {
+        updateParallax();
+        ticking = false;
+      });
+      ticking = true;
+    }
+  };
+
+  // Optimización del evento scroll
+  window.addEventListener('scroll', onScroll, { passive: true });
+  window.addEventListener('resize', updateParallax);
+  
+  // Inicializar
+  updateParallax();
+  
+  // Efecto hover en tarjetas info
+  document.querySelectorAll('.hero-card + .hero-card > div > div').forEach(el => {
+    el.addEventListener('mouseenter', () => {
+      el.style.transform = 'translateY(-4px)';
+    });
+    el.addEventListener('mouseleave', () => {
+      el.style.transform = 'translateY(0)';
+    });
+  });
 </script>
 
 </body>
