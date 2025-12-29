@@ -26,76 +26,132 @@
       --shadow-lg:0 10px 25px rgba(0,0,0,.10);
       --shadow-xl:0 20px 40px rgba(0,0,0,.12);
       --radius-lg:20px;
-      --radius-md:12px;
 
-      /* ✅ FIX: header con altura fija para que la franja NO crezca */
-      --header-fixed-h: 96px; /* ajusta 88/96/104 */
-      --header-h: 96px;       /* se usa para offsets si luego lo necesitas */
+      /* Header */
+      --header-h: 92px;
+
+      /* ✅ RESPONSIVE REAL: logo y botón se adaptan sin romper línea */
+      --logo-h: clamp(56px, 10vw, 78px);
+      --logo-w: clamp(140px, 42vw, 240px);
+
+      --btn-fs: clamp(.90rem, 2.7vw, 1.02rem);
+      --btn-py: clamp(.72rem, 2.2vw, .95rem);
+      --btn-px: clamp(.95rem, 3.2vw, 1.60rem);
     }
 
     *{margin:0;padding:0;box-sizing:border-box}
-    html{
-      scroll-behavior:smooth;
-      scroll-padding-top: calc(var(--header-h) + 14px);
-    }
+    html{scroll-behavior:smooth}
     body{
       font-family:Inter,system-ui,-apple-system,Segoe UI,sans-serif;
       color:var(--text);
       background:#fff;
       overflow-x:hidden;
     }
-    .container{max-width:1200px;margin:0 auto;padding:0 2rem}
+
+    .container{
+      max-width:1200px;
+      margin:0 auto;
+      padding:0 2rem;
+    }
 
     /* =========================
-       HEADER (igual a la imagen)
+       HEADER (FIX: 100vw + safe-area + no overflow)
        ========================= */
     header{
       position:sticky; top:0; z-index:50;
-      background:rgba(255,255,255,.92);
+      background:rgba(255,255,255,.96);
       backdrop-filter:blur(12px);
       border-bottom:1px solid rgba(229,231,235,.9);
       box-shadow:0 2px 10px rgba(0,0,0,.06);
+      height: var(--header-h);
 
-      /* ✅ CLAVE: NO padding variable + altura fija */
-      height: var(--header-fixed-h);
-      display:flex;
-      align-items:center;
-      padding:0;
+      width: 100%;
+      max-width: 100vw; /* ✅ evita desborde raro en in-app browsers */
+    }
+
+    .header-inner{
+      height: var(--header-h);
+      width: 100%;
+      max-width: 1200px;
+      margin:0 auto;
+
+      /* ✅ safe areas para FB/IG + padding */
+      padding-left: max(12px, env(safe-area-inset-left));
+      padding-right: max(12px, env(safe-area-inset-right));
     }
 
     .nav{
+      height: var(--header-h);
+      width:100%;
       display:flex;
       align-items:center;
-      gap:1rem;
-      width:100%;
-      height: var(--header-fixed-h);
+      justify-content:space-between;
+      gap: 10px;
+      min-width:0; /* ✅ permite shrink correcto */
     }
 
-    /* Logo pegado a la izquierda */
     .brand{
       display:flex;
       align-items:center;
       text-decoration:none;
-      flex:0 0 auto;
+      flex: 0 1 auto;
+      min-width:0;
     }
 
-    /* ✅ Marco del logo: el logo puede ser grande sin inflar la franja */
+    /* ✅ El logo puede ser grande, pero también puede encogerse */
     .logo-box{
-      height:140px;         /* tamaño visible */
-      width:170px;         /* controla el ancho del bloque del logo */
+      height: var(--logo-h);
+      width: var(--logo-w);
       display:flex;
       align-items:center;
-      justify-content:flex-start;
-      overflow:hidden;     /* importante para que no “empuje” */
+      overflow:hidden;
+      flex: 0 1 auto;
+      min-width: 120px;
     }
     .logo-box img{
       height:100%;
-      width:auto;
+      width:100%;
       object-fit:contain;
       display:block;
     }
 
-    /* Menú centrado como píldora (imagen) */
+    .nav-right{
+      display:flex;
+      align-items:center;
+      justify-content:flex-end;
+      flex: 0 0 auto;
+      min-width:0;
+    }
+
+    /* ✅ Botón SIEMPRE 1 línea + nunca se corta */
+    .btn-primary{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+
+      white-space:nowrap;        /* ✅ 1 sola línea */
+      flex-shrink:0;
+
+      font-weight:900;
+      font-size: var(--btn-fs);
+      line-height: 1;
+
+      padding: var(--btn-py) var(--btn-px);
+      border-radius: 999px;
+      text-decoration:none;
+      color:#fff;
+
+      background:linear-gradient(135deg,var(--primary) 0%,var(--primary-dark) 100%);
+      border:1px solid rgba(124,58,237,.15);
+      box-shadow:0 16px 30px rgba(124,58,237,.26);
+
+      /* ✅ Evita que el botón empuje fuera */
+      max-width: 46vw;
+      overflow:hidden;
+      text-overflow:ellipsis;
+    }
+
+    /* Desktop menú centrado (opcional) */
     .nav-center{
       flex:1 1 auto;
       display:flex;
@@ -113,6 +169,7 @@
       box-shadow:0 10px 24px rgba(17,24,39,.06);
       max-width:100%;
       overflow:auto;
+      -webkit-overflow-scrolling: touch;
     }
     .nav-link{
       display:inline-flex;
@@ -125,40 +182,11 @@
       color:var(--text-secondary);
       white-space:nowrap;
       transition:.2s ease;
-      position:relative;
     }
     .nav-link:hover{
       background:#fff;
       color:var(--primary-dark);
       box-shadow:0 10px 18px rgba(17,24,39,.08);
-    }
-
-    /* Botón a la derecha como en la imagen */
-    .nav-right{
-      flex:0 0 auto;
-      display:flex;
-      justify-content:flex-end;
-      align-items:center;
-      gap:.8rem;
-    }
-    .btn-primary{
-      display:inline-flex;
-      align-items:center;
-      justify-content:center;
-      padding:1.05rem 2.2rem;
-      border-radius:999px;
-      font-weight:900;
-      text-decoration:none;
-      color:#fff;
-      border:1px solid rgba(124,58,237,.15);
-      background:linear-gradient(135deg,var(--primary) 0%,var(--primary-dark) 100%);
-      box-shadow:0 18px 34px rgba(124,58,237,.28);
-      transition:.2s ease;
-      white-space:nowrap;
-    }
-    .btn-primary:hover{
-      transform:translateY(-1px);
-      box-shadow:0 22px 44px rgba(124,58,237,.32);
     }
 
     main{padding:3rem 0 5rem}
@@ -195,7 +223,6 @@
       background:#fff;
     }
     .card:hover{transform:translateY(-6px);box-shadow:var(--shadow-xl)}
-
     .meta{display:flex;gap:.6rem;flex-wrap:wrap;margin-bottom:.8rem;color:var(--text-light);font-size:.92rem}
     .tag{
       background:var(--primary-light);
@@ -208,21 +235,23 @@
     .excerpt{color:var(--text-secondary);line-height:1.7;flex:1}
     .link{margin-top:1.1rem;font-weight:900;color:var(--primary-dark);text-decoration:none}
     .link:hover{text-decoration:underline}
-
     footer{border-top:1px solid var(--border);padding:2rem 0;color:var(--text-light)}
 
-    /* Responsive */
-    @media(max-width:1024px){
-      .grid{grid-template-columns:1fr}
-      h1{font-size:2.3rem}
+    /* ✅ RESPONSIVE: en móvil ocultamos la píldora (como tu landing) */
+    @media(max-width:860px){
+      .container{padding:0 1.05rem}
+      .nav-center{display:none}
+      :root{ --header-h: 88px; }
     }
 
-    @media(max-width:860px){
-      :root{ --header-fixed-h: 84px; --header-h: 84px; }
-      .container{padding:0 1.1rem}
-      .nav-center{display:none} /* en móvil ocultamos la píldora, como tu landing */
-      .logo-box{height:58px;width:150px}
-      .btn-primary{padding:.95rem 1.35rem}
+    /* ✅ Extra pequeño: el logo se reduce un poquito más para que NUNCA corte el botón */
+    @media(max-width:380px){
+      :root{
+        --logo-w: clamp(130px, 38vw, 190px);
+        --btn-px: clamp(.85rem, 3vw, 1.15rem);
+        --btn-fs: clamp(.88rem, 2.6vw, .98rem);
+      }
+      .btn-primary{ max-width: 50vw; }
     }
   </style>
 </head>
@@ -230,16 +259,14 @@
 <body>
 
 <header>
-  <div class="container">
+  <div class="header-inner">
     <div class="nav">
-      <!-- Logo izquierda -->
       <a class="brand" href="/" aria-label="Volver al inicio">
         <div class="logo-box">
           <img src="https://i.postimg.cc/vHygbHxz/oie-transparent-(2).png" alt="Júristam">
         </div>
       </a>
 
-      <!-- Menú centrado (como la imagen) -->
       <div class="nav-center" aria-label="Menú">
         <div class="nav-pill">
           <a class="nav-link" href="/#proceso">Proceso</a>
@@ -250,11 +277,8 @@
         </div>
       </div>
 
-      <!-- Botón derecha -->
       <div class="nav-right">
-        <a class="btn-primary" href="/#formulario">
-          Evaluar Caso
-        </a>
+        <a class="btn-primary" href="/#formulario">Evaluar Caso</a>
       </div>
     </div>
   </div>
@@ -283,74 +307,28 @@
 <script>
   document.getElementById('y').textContent = new Date().getFullYear();
 
-  // ✅ Mantener --header-h sincronizado con --header-fixed-h (por si luego haces anchors)
-  const syncHeaderVars = () => {
-    const fixedH = getComputedStyle(document.documentElement)
-      .getPropertyValue('--header-fixed-h')
-      .trim() || '96px';
-    document.documentElement.style.setProperty('--header-h', fixedH);
-  };
-  window.addEventListener('load', syncHeaderVars);
-  window.addEventListener('resize', syncHeaderVars);
-  syncHeaderVars();
-
   const posts = [
     {
-  tag: "Coactiva",
-  date: "Corte Nacional · Nulidad por personería",
-  title: "¿Te pueden cobrar una coactiva si ya no eres representante legal?",
-  excerpt: "Muchas personas pagan coactivas que nunca debieron dirigirse contra ellas. La Corte Nacional aclaró que cobrar a un exrepresentante legal puede anular todo el proceso.",
-  url: "/blog/coactiva-ex-representante-legal-nulidad-ecuador.html"
-},
+      tag: "Coactiva",
+      date: "Corte Nacional · Nulidad por personería",
+      title: "¿Te pueden cobrar una coactiva si ya no eres representante legal?",
+      excerpt: "Muchas personas pagan coactivas que nunca debieron dirigirse contra ellas. La Corte Nacional aclaró que cobrar a un exrepresentante legal puede anular todo el proceso.",
+      url: "/blog/coactiva-ex-representante-legal-nulidad-ecuador.html"
+    },
     {
-  tag: "Coactiva",
-  date: "Corte Nacional · Resolución 393-2023",
-  title: "¿Te pueden cobrar en coactiva si la deuda es ilegal en Ecuador?",
-  excerpt: "La Corte Nacional aclaró un error grave: no todo se defiende dentro de la coactiva. Conoce cuándo atacar el título de crédito, la prescripción y por qué el tiempo lo cambia todo.",
-  url: "/blog/coactiva-deuda-ilegal-defensa-ecuador.html"
-},
+      tag: "Coactiva",
+      date: "Corte Nacional · Resolución 393-2023",
+      title: "¿Te pueden cobrar en coactiva si la deuda es ilegal en Ecuador?",
+      excerpt: "La Corte Nacional aclaró un error grave: no todo se defiende dentro de la coactiva. Conoce cuándo atacar el título de crédito, la prescripción y por qué el tiempo lo cambia todo.",
+      url: "/blog/coactiva-deuda-ilegal-defensa-ecuador.html"
+    },
     {
       tag: "Laboral",
       date: "Guía práctica",
       title: "¿Me pueden embargar todo el sueldo en Ecuador?",
       excerpt: "Cuánto pueden retenerte legalmente, cuándo es ilegal y qué hacer si te bloquean todo el salario.",
       url: "/blog/embargo-sueldo-ecuador.html"
-    },
-    {
-      tag: "Inmuebles",
-      date: "Jurisprudencia obligatoria",
-      title: "Terrenos: la regla obligatoria de la Corte sobre identificación del inmueble",
-      excerpt: "La Corte Nacional aclaró qué se exige en prescripción y qué en reivindicación. Explicado fácil, sin tecnicismos.",
-      url: "/blog/regla-obligatoria-singularizacion-inmueble-prescripcion-reivindicacion.html"
-    },
-    {
-      tag: "Aduanas",
-      date: "Guía práctica",
-      title: "SENAE retuvo tu mercadería: qué hacer (sin empeorar el caso)",
-      excerpt: "Pasos concretos, errores comunes y cómo ordenar tu estrategia para recuperar tu mercancía.",
-      url: "/blog/senae-retencion-mercaderia.html"
-    },
-    {
-      tag: "Familia",
-      date: "Guía práctica",
-      title: "Prohibición de salida del país por alimentos: cómo levantarla si hay acuerdo",
-      excerpt: "Qué revisar, qué pedir al juzgado y cómo acelerar el trámite cuando hay urgencia.",
-      url: "/blog/prohibicion-salida-alimentos.html"
-    },
-    {
-      tag: "Coactiva",
-      date: "Guía práctica",
-      title: "Cuenta bloqueada por coactiva y es tu salario: cómo moverte rápido",
-      excerpt: "Qué pruebas necesitas y cómo argumentar el origen del dinero para desbloqueo.",
-      url: "/blog/cuenta-bloqueada-coactiva-salario.html"
-    },
-    {
-  tag: "Laboral",
-  date: "Jurisprudencia obligatoria",
-  title: "¿Tus fondos de reserva cuentan para la jubilación patronal en Ecuador?",
-  excerpt: "La Corte Nacional dejó una regla obligatoria: cuándo los fondos de reserva cuentan, qué se puede descontar y qué ya no.",
-  url: "/blog/fondos-reserva-jubilacion-patronal-ecuador.html"
-}
+    }
   ];
 
   document.getElementById('grid').innerHTML = posts.map(p => `
