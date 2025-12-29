@@ -1,0 +1,499 @@
+<!DOCTYPE html> 
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>¿Te pueden cobrar una coactiva si ya no eres representante legal? | Júristam</title>
+  <meta name="description" content="Criterio de la Corte Nacional: si una entidad pública inicia coactiva contra la persona equivocada (exrepresentante legal), el proceso puede ser nulo. Explicación clara y qué hacer si te pasa." />
+  <link rel="canonical" href="https://juristam.net/blog/coactiva-ex-representante-legal-nulidad-ecuador.html" />
+  <meta name="robots" content="index,follow,max-image-preview:large" />
+
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    :root{
+      --primary:#9a6aff;--primary-dark:#7c3aed;--primary-light:#efe8ff;
+      --secondary:#1e293b;--border:#e5e7eb;--text:#111827;--muted:#6b7280;--sub:#4b5563;
+      --shadow:0 20px 40px rgba(0,0,0,.10);--r:18px;
+      --warn-bg:#fffbeb;--warn-bd:#f59e0b;--warn-tx:#92400e;
+      --ok-bg:#ecfdf5;--ok-bd:#10b981;--ok-tx:#065f46;
+      --card-bg:#ffffff;
+      --chip-bg:#f8fafc;
+    }
+    *{margin:0;padding:0;box-sizing:border-box;}
+    body{font-family:Inter,system-ui,-apple-system,Segoe UI,sans-serif;color:var(--text);background:#fff;line-height:1.85;}
+    .container{max-width:980px;margin:0 auto;padding:0 1.5rem;}
+    header{
+      position:sticky;top:0;background:rgba(255,255,255,.97);backdrop-filter:blur(10px);
+      border-bottom:1px solid rgba(229,231,235,.8);padding:1rem 0;z-index:50;
+    }
+    .top{display:flex;align-items:center;justify-content:space-between;gap:1rem;}
+    .brand{display:flex;align-items:center;gap:.9rem;text-decoration:none;}
+    .badge{
+      width:44px;height:44px;border-radius:12px;
+      background:linear-gradient(135deg,var(--primary),var(--primary-dark));
+      display:flex;align-items:center;justify-content:center;
+      font-family:"Playfair Display",serif;font-weight:800;color:#fff;font-size:1.6rem;
+      flex:0 0 auto;
+    }
+    .btxt{display:flex;flex-direction:column;}
+    .btxt strong{font-family:"Playfair Display",serif;font-size:1.25rem;color:var(--secondary);}
+    .btxt span{font-size:.78rem;color:var(--muted);text-transform:uppercase;letter-spacing:1px;margin-top:-2px;}
+
+    .btn{
+      display:inline-flex;align-items:center;justify-content:center;
+      padding:.8rem 1.2rem;border-radius:12px;border:2px solid var(--primary);
+      color:var(--primary);text-decoration:none;font-weight:900;transition:.18s ease;
+      background:#fff;
+      white-space:nowrap;
+    }
+    .btn:hover{background:var(--primary-light);}
+    .btn-solid{
+      background:linear-gradient(135deg,var(--primary),var(--primary-dark));
+      color:#fff;border:0;
+    }
+    .btn-solid:hover{filter:brightness(1.03);}
+
+    main{padding:2.5rem 0 5rem;}
+    .wrap{
+      border:1px solid var(--border);border-radius:var(--r);box-shadow:var(--shadow);
+      padding:2.2rem;background:#fff;
+    }
+
+    .meta{display:flex;gap:.6rem;flex-wrap:wrap;align-items:center;margin-bottom:1rem;color:var(--muted);font-weight:700;}
+    .tag{
+      background:var(--primary-light);color:var(--primary-dark);
+      border:1px solid rgba(154,106,255,.2);padding:.25rem .65rem;border-radius:999px;
+      font-weight:900;font-size:.78rem;letter-spacing:.4px;text-transform:uppercase;
+    }
+    .chip{
+      display:inline-flex;align-items:center;gap:.45rem;
+      background:var(--chip-bg);
+      border:1px solid var(--border);
+      padding:.25rem .6rem;border-radius:999px;
+      font-weight:800;font-size:.82rem;
+      color:var(--secondary);
+    }
+
+    h1{font-family:"Playfair Display",serif;font-size:2.5rem;line-height:1.15;color:var(--secondary);margin-bottom:1rem;}
+    p{color:var(--sub);margin:.85rem 0;}
+    h2{margin-top:1.6rem;color:var(--secondary);font-size:1.35rem;}
+    h3{margin-top:1.1rem;color:var(--secondary);font-size:1.12rem;}
+    ul{margin:.75rem 0 .75rem 1.2rem;color:var(--sub);}
+    li{margin:.45rem 0;}
+
+    .divider{height:1px;background:var(--border);margin:1.6rem 0;}
+
+    .callout{
+      background:var(--warn-bg);
+      border:1px solid var(--warn-bd);
+      border-left:4px solid var(--warn-bd);
+      color:var(--warn-tx);
+      padding:1rem 1.1rem;border-radius:14px;margin:1.2rem 0;font-weight:800;
+    }
+    .good{
+      background:var(--ok-bg);
+      border:1px solid rgba(16,185,129,.35);
+      border-left:4px solid var(--ok-bd);
+      color:var(--ok-tx);
+      padding:1rem 1.1rem;border-radius:14px;margin:1.2rem 0;font-weight:800;
+    }
+
+    .summary{
+      margin:1.1rem 0 1.4rem;
+      padding:1.05rem 1.1rem;
+      border-radius:14px;
+      border:1px solid rgba(154,106,255,.25);
+      background:linear-gradient(180deg, rgba(239,232,255,.75), rgba(239,232,255,.45));
+    }
+    .summary strong{color:var(--primary-dark);}
+    .summary ul{margin:.7rem 0 0 1.2rem;}
+    .summary li{margin:.35rem 0;}
+
+    .cards{
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:1rem;
+      margin:1.1rem 0 1.4rem;
+    }
+    .card{
+      background:var(--card-bg);
+      border:1px solid var(--border);
+      border-radius:14px;
+      padding:1rem 1.05rem;
+    }
+    .card h3{margin-top:0;font-size:1.02rem;}
+    .muted{color:var(--muted);font-weight:700;font-size:.95rem;}
+
+    .mini-table{
+      width:100%;
+      border-collapse:separate;
+      border-spacing:0;
+      margin:1rem 0 1.4rem;
+      overflow:hidden;
+      border:1px solid var(--border);
+      border-radius:14px;
+    }
+    .mini-table th{
+      text-align:left;
+      padding:.85rem 1rem;
+      background:rgba(243,244,246,.7);
+      color:var(--secondary);
+      font-size:.92rem;
+      border-bottom:1px solid var(--border);
+    }
+    .mini-table td{
+      padding:.85rem 1rem;
+      vertical-align:top;
+      color:var(--sub);
+      border-bottom:1px solid var(--border);
+    }
+    .mini-table tr:last-child td{border-bottom:none;}
+    .pill-ok{
+      display:inline-block;
+      padding:.2rem .55rem;
+      border-radius:999px;
+      background:rgba(16,185,129,.12);
+      border:1px solid rgba(16,185,129,.25);
+      color:#065f46;
+      font-weight:900;
+      font-size:.78rem;
+      margin-right:.45rem;
+    }
+    .pill-no{
+      display:inline-block;
+      padding:.2rem .55rem;
+      border-radius:999px;
+      background:rgba(245,158,11,.12);
+      border:1px solid rgba(245,158,11,.25);
+      color:#92400e;
+      font-weight:900;
+      font-size:.78rem;
+      margin-right:.45rem;
+    }
+
+    .checklist{
+      border:1px dashed rgba(154,106,255,.5);
+      border-radius:14px;
+      padding:1rem 1.05rem;
+      background:#faf7ff;
+      margin:1.1rem 0 1.4rem;
+    }
+    .checklist h3{margin-top:0;}
+    .checks{
+      list-style:none;
+      padding-left:0;
+      margin:.7rem 0 0;
+    }
+    .checks li{
+      margin:.5rem 0;
+      display:flex;
+      gap:.6rem;
+      align-items:flex-start;
+      color:var(--sub);
+    }
+    .tick{
+      width:22px;height:22px;border-radius:7px;
+      display:flex;align-items:center;justify-content:center;
+      background:rgba(154,106,255,.15);
+      border:1px solid rgba(154,106,255,.25);
+      color:var(--primary-dark);
+      font-weight:900;
+      flex:0 0 auto;
+      margin-top:2px;
+    }
+
+    details{
+      border:1px solid var(--border);
+      border-radius:14px;
+      padding:.9rem 1rem;
+      margin:.65rem 0;
+      background:#fff;
+    }
+    summary{
+      cursor:pointer;
+      font-weight:900;
+      color:var(--secondary);
+      list-style:none;
+    }
+    summary::-webkit-details-marker{display:none;}
+    details p{margin:.65rem 0 0;color:var(--sub);}
+
+    .cta{
+      margin-top:2rem;padding:1.2rem;border-radius:14px;
+      border:1px solid rgba(154,106,255,.25);
+      background:var(--primary-light);
+      display:flex;flex-wrap:wrap;gap:1rem;align-items:center;justify-content:space-between;
+    }
+    .cta strong{color:var(--primary-dark);}
+
+    .soft{
+      border:1px solid var(--border);
+      border-radius:14px;
+      padding:1rem 1.05rem;
+      background:#fff;
+      margin:1.1rem 0 1.4rem;
+    }
+    .soft .k{font-weight:900;color:var(--secondary);}
+
+    @media(max-width:720px){
+      h1{font-size:2rem}
+      .wrap{padding:1.4rem}
+      .cards{grid-template-columns:1fr;}
+      .top{flex-wrap:wrap;align-items:flex-start;}
+      .btn{width:100%;}
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <div class="container">
+      <div class="top">
+        <a class="brand" href="/blog/">
+          <div class="badge">J</div>
+          <div class="btxt">
+            <strong>Júristam</strong>
+            <span>Guías prácticas</span>
+          </div>
+        </a>
+        <a class="btn" href="/blog/">← Volver al blog</a>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <div class="container">
+      <article class="wrap">
+
+        <div class="meta">
+          <span class="tag">Coactiva</span>
+          <span class="chip">Corte Nacional</span>
+          <span class="chip">Nulidad por personería</span>
+          <span class="chip">Ecuador</span>
+        </div>
+
+        <h1>¿Te pueden cobrar una coactiva si ya no eres representante legal? La Corte Nacional aclaró un error que anula el cobro</h1>
+
+        <p><strong>Si una entidad pública te está cobrando una deuda de una empresa que ya no manejas, este artículo es clave para ti.</strong></p>
+
+        <div class="summary">
+          <p><strong>Resumen rápido:</strong></p>
+          <ul>
+            <li><strong>NO</strong> pueden cobrarte “porque antes fuiste gerente” si <strong>ya no eras representante legal</strong> cuando inició el cobro.</li>
+            <li>Si la coactiva se dirige contra la <strong>persona equivocada</strong>, el proceso puede ser <strong>nulo</strong>.</li>
+            <li>Esto pasa mucho con <strong>exgerentes</strong>, <strong>exrepresentantes</strong> y nombres “viejos” en papeles.</li>
+            <li>La clave está en <strong>fechas</strong> y <strong>documentos oficiales</strong>. Un papel cambia todo.</li>
+          </ul>
+        </div>
+
+        <div class="callout">
+          En coactivas, mucha gente paga por miedo un cobro que ni siquiera debió estar a su nombre. El primer paso es confirmar <strong>a quién</strong> podían cobrar legalmente.
+        </div>
+
+        <div class="divider"></div>
+
+        <h2>1) Lo que pasa en la vida real</h2>
+        <p>Imagina esto:</p>
+        <ul>
+          <li>Fuiste gerente o representante legal de una empresa.</li>
+          <li>Renunciaste o te removieron del cargo.</li>
+          <li>Pasaron meses o años.</li>
+          <li>Un día te llega una notificación con una palabra que asusta: <strong>COACTIVA</strong>.</li>
+        </ul>
+
+        <p>Y luego viene lo peor: te retienen dinero, te congelan cuentas o te presionan para pagar rápido.</p>
+
+        <p>En ese momento, muchas personas piensan:</p>
+        <p><em>“Seguro me toca pagar… algo firmé alguna vez”.</em></p>
+
+        <div class="good">
+          Ojo: haber sido representante antes NO significa que te puedan cobrar siempre a ti. Lo que manda es la fecha del cobro y la personería vigente.
+        </div>
+
+        <div class="divider"></div>
+
+        <h2>2) La idea clave</h2>
+        <p>Te lo explico como si fuera una regla simple:</p>
+        <p><strong>Una coactiva es un cobro forzoso.</strong> Y un cobro forzoso solo puede dirigirse contra quien <strong>legalmente</strong> debe responder.</p>
+
+        <p>Entonces la pregunta real no es “¿existe deuda?” primero. La pregunta real es esta:</p>
+
+        <div class="soft">
+          <p class="k">✅ Pregunta clave:</p>
+          <p><strong>¿Eras el representante legal cuando la entidad inició la coactiva contra ti?</strong></p>
+          <p>Si la respuesta es <strong>NO</strong>, el cobro puede estar dirigido contra la persona equivocada.</p>
+        </div>
+
+        <div class="divider"></div>
+
+        <h2>3) El error grave que cometen muchas entidades públicas</h2>
+        <p>En la práctica, algunas instituciones hacen esto:</p>
+        <ul>
+          <li>Revisan un documento antiguo.</li>
+          <li>Ven tu nombre.</li>
+          <li>Asumen que “igual respondes”.</li>
+          <li>Inician coactiva contra ti.</li>
+        </ul>
+
+        <p>Pero aquí está el punto:</p>
+        <p><strong>La representación legal no es eterna.</strong> Cambia. Termina. Se reemplaza.</p>
+
+        <div class="callout">
+          Cobrarle a la persona equivocada no es un “detalle”. Es un error que puede tumbar todo el proceso.
+        </div>
+
+        <div class="divider"></div>
+
+        <h2>4) Lo que dijo la Corte Nacional</h2>
+        <p>La Corte Nacional analizó un caso donde una entidad pública inició una coactiva contra una persona natural, tratándola como representante legal.</p>
+
+        <p>El problema: <strong>esa persona ya no era representante legal</strong> cuando comenzó el cobro.</p>
+
+        <p>La Corte fue clara:</p>
+        <div class="good">
+          Si la coactiva se dirige contra alguien que no es el obligado legal (o no tiene personería vigente), el proceso puede ser <strong>nulo</strong>.
+        </div>
+
+        <p>En palabras de vida real:</p>
+        <ul>
+          <li>No basta con decir “tú estabas antes”.</li>
+          <li>No basta con “tu nombre aparece”.</li>
+          <li>Debe ser el sujeto correcto <strong>al momento</strong> de ejecutar el cobro.</li>
+        </ul>
+
+        <div class="divider"></div>
+
+        <h2>5) Por qué es tan grave (qué te puede pasar si no lo revisas)</h2>
+        <p>Porque la coactiva no es una carta amable. Es fuerza.</p>
+
+        <div class="cards">
+          <div class="card">
+            <h3>Qué puede hacer la entidad</h3>
+            <ul>
+              <li>Orden de pago</li>
+              <li>Embargos</li>
+              <li>Retenciones bancarias</li>
+              <li>Medidas cautelares</li>
+            </ul>
+          </div>
+          <div class="card">
+            <h3>Qué pasa si te cobraron a ti mal</h3>
+            <p class="muted">Te ejecutan como si fueras el deudor.</p>
+            <p>Y muchas veces pagas por miedo… aunque legalmente no debían dirigirse a ti.</p>
+          </div>
+        </div>
+
+        <div class="divider"></div>
+
+        <h2>6) Casos donde esto pasa MUCHO en Ecuador</h2>
+        <p>Este tipo de errores aparece sobre todo en cobros de:</p>
+        <ul>
+          <li>Municipios</li>
+          <li>SENAE</li>
+          <li>SRI</li>
+          <li>Empresas públicas</li>
+          <li>Autoridades portuarias y entidades con cobro coactivo</li>
+        </ul>
+
+        <p>Y suele afectar a:</p>
+        <ul>
+          <li><strong>exgerentes</strong></li>
+          <li><strong>exrepresentantes legales</strong></li>
+          <li><strong>exadministradores</strong></li>
+          <li>personas vinculadas por documentos antiguos</li>
+        </ul>
+
+        <div class="divider"></div>
+
+        <h2>7) Checklist rápido</h2>
+        <p>Si te llega una coactiva a tu nombre por una empresa, estas son las preguntas que determinan si hay una defensa fuerte:</p>
+
+        <div class="checklist">
+          <h3>Checklist (guárdalo / tómale captura)</h3>
+          <ul class="checks">
+            <li><span class="tick">✓</span> ¿La coactiva está dirigida contra <strong>ti</strong> como persona natural?</li>
+            <li><span class="tick">✓</span> ¿Eras <strong>representante legal</strong> en esa fecha exacta?</li>
+            <li><span class="tick">✓</span> ¿Existe un nombramiento vigente que te respalde o te descarte?</li>
+            <li><span class="tick">✓</span> ¿La entidad está cobrando a la empresa o te “saltó” a ti?</li>
+            <li><span class="tick">✓</span> ¿Hay medidas cautelares ya aplicadas? (si sí, el tiempo importa)</li>
+          </ul>
+        </div>
+
+        <div class="callout">
+          Un solo documento (y una sola fecha) pueden cambiarlo todo. Por eso este tipo de casos no conviene resolverlos “a ojo”.
+        </div>
+
+        <div class="divider"></div>
+
+        <h2>8) Pausa clave: si te identificas, no avances solo</h2>
+        <p>Si estás en alguna de estas situaciones, vale la pena revisar tu expediente antes de pagar:</p>
+        <ul>
+          <li>Te cobran una deuda de una empresa que ya no manejas.</li>
+          <li>Fuiste representante legal, pero ya no lo eres.</li>
+          <li>Te llegó una coactiva “a tu nombre personal”.</li>
+          <li>Te retuvieron dinero sin que entiendas por qué tú respondes.</li>
+        </ul>
+
+        <div class="cta">
+          <div>
+            <strong>Quiero saber si esta coactiva es ilegal</strong><br />
+            <span style="color:#5b6472">Revisión estratégica: personería vigente, fechas y documentos. Si el cobro está bien dirigido, te lo decimos con honestidad. Si está mal dirigido, también.</span>
+          </div>
+          <a class="btn btn-solid" href="/#formulario">Revisar mi caso ahora</a>
+        </div>
+
+        <div class="divider"></div>
+
+        <h2>9) Preguntas frecuentes (FAQ)</h2>
+
+        <details>
+          <summary>¿Si fui gerente antes, siempre me pueden cobrar a mí?</summary>
+          <p>No. Haber sido gerente o representante antes no significa que la entidad pueda ejecutarte siempre. La clave es si tu personería estaba vigente cuando inició el cobro.</p>
+        </details>
+
+        <details>
+          <summary>¿Qué significa que la coactiva esté “mal dirigida”?</summary>
+          <p>Que el cobro se inició contra una persona que no era el obligado legal o no tenía representación vigente. En esos casos puede existir nulidad del procedimiento.</p>
+        </details>
+
+        <details>
+          <summary>¿Esto solo aplica a una entidad específica?</summary>
+          <p>No. Este problema aparece en distintas entidades públicas que usan cobro coactivo. La defensa depende de hechos y documentos del caso.</p>
+        </details>
+
+        <details>
+          <summary>¿Qué documentos suelen ser clave?</summary>
+          <p>Nombramientos y certificaciones que prueben quién era el representante legal en la fecha del inicio del proceso, además del expediente coactivo (auto de pago, notificaciones, actuaciones).</p>
+        </details>
+
+        <details>
+          <summary>¿Y si ya me retuvieron dinero?</summary>
+          <p>Normalmente ya estás en ejecución. Ahí el tiempo y la estrategia importan más. Conviene revisar de inmediato el expediente y la personería.</p>
+        </details>
+
+        <div class="divider"></div>
+
+        <h2>10)La regla que debes recordar</h2>
+        <p>La Corte Nacional dejó una idea simple:</p>
+        <div class="good">
+          La coactiva no se puede usar contra cualquiera. Si la entidad cobra a la persona equivocada, el proceso puede ser nulo.
+        </div>
+
+        <p>Si algo no cuadra, no es exageración revisar. Es protección básica.</p>
+        <p>Muchos pagos indebidos en Ecuador nacen del miedo, no de la ley.</p>
+
+        <div class="cta">
+          <div>
+            <strong>Confirmar si el cobro debió ser contra ti</strong><br />
+            <span style="color:#5b6472">Un análisis a tiempo puede evitar embargos innecesarios y pagos que no te correspondían.</span>
+          </div>
+          <a class="btn btn-solid" href="/#formulario">Confirmar mi estrategia</a>
+        </div>
+
+      </article>
+    </div>
+  </main>
+</body>
+</html>
