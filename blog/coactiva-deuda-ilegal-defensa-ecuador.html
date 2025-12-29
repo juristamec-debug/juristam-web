@@ -1,0 +1,497 @@
+<!DOCTYPE html> 
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>¿Te pueden cobrar en coactiva si la deuda es ilegal? | Júristam</title>
+  <meta name="description" content="La Corte Nacional (Resolución 393-2023) aclaró cómo defenderte frente a una coactiva en Ecuador: título de crédito vs ejecución, prescripción y el error que hace perder el caso por la vía equivocada." />
+  <link rel="canonical" href="https://juristam.net/blog/coactiva-deuda-ilegal-defensa-ecuador.html" />
+  <meta name="robots" content="index,follow,max-image-preview:large" />
+
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    :root{
+      --primary:#9a6aff;--primary-dark:#7c3aed;--primary-light:#efe8ff;
+      --secondary:#1e293b;--border:#e5e7eb;--text:#111827;--muted:#6b7280;--sub:#4b5563;
+      --shadow:0 20px 40px rgba(0,0,0,.10);--r:18px;
+      --warn-bg:#fffbeb;--warn-bd:#f59e0b;--warn-tx:#92400e;
+      --ok-bg:#ecfdf5;--ok-bd:#10b981;--ok-tx:#065f46;
+      --card-bg:#ffffff;
+    }
+    *{margin:0;padding:0;box-sizing:border-box;}
+    body{font-family:Inter,system-ui,-apple-system,Segoe UI,sans-serif;color:var(--text);background:#fff;line-height:1.85;}
+    .container{max-width:980px;margin:0 auto;padding:0 1.5rem;}
+    header{
+      position:sticky;top:0;background:rgba(255,255,255,.97);backdrop-filter:blur(10px);
+      border-bottom:1px solid rgba(229,231,235,.8);padding:1rem 0;z-index:50;
+    }
+    .top{display:flex;align-items:center;justify-content:space-between;gap:1rem;}
+    .brand{display:flex;align-items:center;gap:.9rem;text-decoration:none;}
+    .badge{
+      width:44px;height:44px;border-radius:12px;
+      background:linear-gradient(135deg,var(--primary),var(--primary-dark));
+      display:flex;align-items:center;justify-content:center;
+      font-family:"Playfair Display",serif;font-weight:800;color:#fff;font-size:1.6rem;
+      flex:0 0 auto;
+    }
+    .btxt{display:flex;flex-direction:column;}
+    .btxt strong{font-family:"Playfair Display",serif;font-size:1.25rem;color:var(--secondary);}
+    .btxt span{font-size:.78rem;color:var(--muted);text-transform:uppercase;letter-spacing:1px;margin-top:-2px;}
+
+    .btn{
+      display:inline-flex;align-items:center;justify-content:center;
+      padding:.8rem 1.2rem;border-radius:12px;border:2px solid var(--primary);
+      color:var(--primary);text-decoration:none;font-weight:900;transition:.18s ease;
+      background:#fff;
+    }
+    .btn:hover{background:var(--primary-light);}
+    .btn-solid{
+      background:linear-gradient(135deg,var(--primary),var(--primary-dark));
+      color:#fff;border:0;
+    }
+    .btn-solid:hover{filter:brightness(1.03);}
+
+    main{padding:2.5rem 0 5rem;}
+
+    .wrap{
+      border:1px solid var(--border);border-radius:var(--r);box-shadow:var(--shadow);
+      padding:2.2rem;background:#fff;
+    }
+
+    .meta{display:flex;gap:.6rem;flex-wrap:wrap;align-items:center;margin-bottom:1rem;color:var(--muted);font-weight:700;}
+    .tag{
+      background:var(--primary-light);color:var(--primary-dark);
+      border:1px solid rgba(154,106,255,.2);padding:.25rem .65rem;border-radius:999px;
+      font-weight:900;font-size:.78rem;letter-spacing:.4px;text-transform:uppercase;
+    }
+
+    h1{font-family:"Playfair Display",serif;font-size:2.5rem;line-height:1.15;color:var(--secondary);margin-bottom:1rem;}
+    p{color:var(--sub);margin:.85rem 0;}
+    h2{margin-top:1.6rem;color:var(--secondary);font-size:1.35rem;}
+    h3{margin-top:1.1rem;color:var(--secondary);font-size:1.12rem;}
+    ul{margin:.75rem 0 .75rem 1.2rem;color:var(--sub);}
+    li{margin:.45rem 0;}
+
+    .divider{height:1px;background:var(--border);margin:1.6rem 0;}
+
+    .callout{
+      background:var(--warn-bg);
+      border:1px solid var(--warn-bd);
+      border-left:4px solid var(--warn-bd);
+      color:var(--warn-tx);
+      padding:1rem 1.1rem;border-radius:14px;margin:1.2rem 0;font-weight:800;
+    }
+    .good{
+      background:var(--ok-bg);
+      border:1px solid rgba(16,185,129,.35);
+      border-left:4px solid var(--ok-bd);
+      color:var(--ok-tx);
+      padding:1rem 1.1rem;border-radius:14px;margin:1.2rem 0;font-weight:800;
+    }
+
+    /* 🔥 Bloque resumen arriba */
+    .summary{
+      margin:1.1rem 0 1.4rem;
+      padding:1.05rem 1.1rem;
+      border-radius:14px;
+      border:1px solid rgba(154,106,255,.25);
+      background:linear-gradient(180deg, rgba(239,232,255,.75), rgba(239,232,255,.45));
+    }
+    .summary strong{color:var(--primary-dark);}
+    .summary ul{margin:.7rem 0 0 1.2rem;}
+    .summary li{margin:.35rem 0;}
+
+    /* Cards */
+    .cards{
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:1rem;
+      margin:1.1rem 0 1.4rem;
+    }
+    .card{
+      background:var(--card-bg);
+      border:1px solid var(--border);
+      border-radius:14px;
+      padding:1rem 1.05rem;
+    }
+    .card h3{margin-top:0;font-size:1.02rem;}
+    .muted{color:var(--muted);font-weight:700;font-size:.95rem;}
+
+    /* Tabla mini */
+    .mini-table{
+      width:100%;
+      border-collapse:separate;
+      border-spacing:0;
+      margin:1rem 0 1.4rem;
+      overflow:hidden;
+      border:1px solid var(--border);
+      border-radius:14px;
+    }
+    .mini-table th{
+      text-align:left;
+      padding:.85rem 1rem;
+      background:rgba(243,244,246,.7);
+      color:var(--secondary);
+      font-size:.92rem;
+      border-bottom:1px solid var(--border);
+    }
+    .mini-table td{
+      padding:.85rem 1rem;
+      vertical-align:top;
+      color:var(--sub);
+      border-bottom:1px solid var(--border);
+    }
+    .mini-table tr:last-child td{border-bottom:none;}
+    .pill-ok{
+      display:inline-block;
+      padding:.2rem .55rem;
+      border-radius:999px;
+      background:rgba(16,185,129,.12);
+      border:1px solid rgba(16,185,129,.25);
+      color:#065f46;
+      font-weight:900;
+      font-size:.78rem;
+      margin-right:.45rem;
+    }
+    .pill-no{
+      display:inline-block;
+      padding:.2rem .55rem;
+      border-radius:999px;
+      background:rgba(245,158,11,.12);
+      border:1px solid rgba(245,158,11,.25);
+      color:#92400e;
+      font-weight:900;
+      font-size:.78rem;
+      margin-right:.45rem;
+    }
+
+    /* Checklist */
+    .checklist{
+      border:1px dashed rgba(154,106,255,.5);
+      border-radius:14px;
+      padding:1rem 1.05rem;
+      background:#faf7ff;
+      margin:1.1rem 0 1.4rem;
+    }
+    .checklist h3{margin-top:0;}
+    .checks{
+      list-style:none;
+      padding-left:0;
+      margin:.7rem 0 0;
+    }
+    .checks li{
+      margin:.5rem 0;
+      display:flex;
+      gap:.6rem;
+      align-items:flex-start;
+      color:var(--sub);
+    }
+    .tick{
+      width:22px;height:22px;border-radius:7px;
+      display:flex;align-items:center;justify-content:center;
+      background:rgba(154,106,255,.15);
+      border:1px solid rgba(154,106,255,.25);
+      color:var(--primary-dark);
+      font-weight:900;
+      flex:0 0 auto;
+      margin-top:2px;
+    }
+
+    /* FAQ acordeón */
+    details{
+      border:1px solid var(--border);
+      border-radius:14px;
+      padding:.9rem 1rem;
+      margin:.65rem 0;
+      background:#fff;
+    }
+    summary{
+      cursor:pointer;
+      font-weight:900;
+      color:var(--secondary);
+      list-style:none;
+    }
+    summary::-webkit-details-marker{display:none;}
+    details p{margin:.65rem 0 0;color:var(--sub);}
+
+    .cta{
+      margin-top:2rem;padding:1.2rem;border-radius:14px;
+      border:1px solid rgba(154,106,255,.25);
+      background:var(--primary-light);
+      display:flex;flex-wrap:wrap;gap:1rem;align-items:center;justify-content:space-between;
+    }
+    .cta strong{color:var(--primary-dark);}
+
+    @media(max-width:720px){
+      h1{font-size:2rem}
+      .wrap{padding:1.4rem}
+      .cards{grid-template-columns:1fr;}
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <div class="container">
+      <div class="top">
+        <a class="brand" href="/blog/">
+          <div class="badge">J</div>
+          <div class="btxt">
+            <strong>Júristam</strong>
+            <span>Guías prácticas</span>
+          </div>
+        </a>
+        <a class="btn" href="/blog/">← Volver al blog</a>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <div class="container">
+      <article class="wrap">
+
+        <div class="meta">
+          <span class="tag">Coactiva</span>
+          <span>Corte Nacional · Resolución 393-2023</span>
+        </div>
+
+        <h1>¿Te pueden cobrar en coactiva si la deuda es ilegal? Lo que la Corte Nacional aclaró en Ecuador</h1>
+
+        <p><strong>Si una entidad pública te está cobrando dinero y no entiendes bien de dónde salió la deuda, este artículo puede ahorrarte un error grave.</strong></p>
+
+        <div class="summary">
+          <p><strong>Resumen rápido (para entender en 30 segundos):</strong></p>
+          <ul>
+            <li>En coactivas, muchas personas pierden <strong>no por falta de razón</strong>, sino por defenderse tarde o por la vía equivocada.</li>
+            <li>La Corte Nacional aclara que hay <strong>dos momentos</strong>: (1) nace la deuda (título) y (2) se ejecuta (coactiva).</li>
+            <li><strong>No todo</strong> se defiende dentro de la coactiva: el <strong>título de crédito</strong> puede ser impugnable.</li>
+            <li><strong>Prescripción:</strong> se analiza desde la obligación/título, no desde el embargo.</li>
+          </ul>
+        </div>
+
+        <div class="callout">
+          En coactivas, la diferencia entre pagar por miedo y defenderte bien suele ser una sola cosa: <strong>estrategia + tiempo</strong>.
+        </div>
+
+        <div class="divider"></div>
+
+        <h2>1) Lo que pasa en la vida real (sin lenguaje legal)</h2>
+        <p>Un día te llega un correo, un oficio o una notificación. Días después, aparece la palabra que asusta:</p>
+        <p><strong>COACTIVA</strong> (cobro forzoso).</p>
+        <p>Y tú te preguntas con razón:</p>
+        <p>“¿De dónde salió esta deuda?”<br>
+          “¿Por qué nunca me explicaron?”<br>
+          “¿Ya no puedo defenderme?”</p>
+
+        <p>En Ecuador, muchas personas escuchan esta frase:</p>
+        <p><em>“Ya está en coactiva, pague y después reclame”.</em></p>
+
+        <div class="good">
+          La Corte Nacional aclaró que no todo empieza en el embargo. Todo empieza en un documento previo.
+        </div>
+
+        <div class="divider"></div>
+
+        <h2>2) La idea clave (método Feynman)</h2>
+        <p>Piensa en la coactiva como una “grúa”. La grúa no aparece de la nada. Primero alguien tuvo que decir: “este carro está mal estacionado”.</p>
+        <p>En coactivas pasa igual:</p>
+        <p><strong>Antes del cobro forzoso, existe un documento que afirma que tú debes dinero.</strong></p>
+
+        <p>Ese documento suele llamarse:</p>
+        <ul>
+          <li><strong>Liquidación</strong> (cálculo del valor supuestamente adeudado)</li>
+          <li><strong>Título de crédito</strong> (documento base para cobrar)</li>
+          <li><strong>Acto administrativo de cobro</strong></li>
+        </ul>
+
+        <p>👉 Si ese documento está mal hecho o es ilegal, <strong>la coactiva puede estar sostenida sobre arena</strong>.</p>
+
+        <div class="callout">
+          Regla simple: primero revisa si la deuda debió existir. Luego se analiza la ejecución.
+        </div>
+
+        <div class="divider"></div>
+
+        <h2>3) El error más caro: defender “lo mismo” con la herramienta equivocada</h2>
+        <p>La mayoría de personas hace esto:</p>
+        <ul>
+          <li>espera al embargo,</li>
+          <li>presenta escritos por presión,</li>
+          <li>intenta defenderse solo dentro de la coactiva.</li>
+        </ul>
+
+        <p>Pero la Corte Nacional aclara que hay <strong>dos momentos</strong>, y cada uno se defiende distinto.</p>
+
+        <div class="cards">
+          <div class="card">
+            <h3>Momento 1: cuando nace la deuda</h3>
+            <p class="muted">Liquidación / Título de crédito</p>
+            <ul>
+              <li>Se revisa si la deuda existe y si está bien calculada.</li>
+              <li>Aquí vive la discusión sobre <strong>prescripción</strong> de la obligación (según el caso).</li>
+              <li>El documento debe estar <strong>explicado</strong> y respaldado.</li>
+            </ul>
+          </div>
+
+          <div class="card">
+            <h3>Momento 2: cuando se ejecuta la deuda</h3>
+            <p class="muted">Orden de pago / Coactiva</p>
+            <ul>
+              <li>Ya hay cobro forzoso: embargo, retenciones, etc.</li>
+              <li>Aquí se pelean <strong>plazos y excepciones</strong>.</li>
+              <li>Un error de tiempo puede cerrar puertas.</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="good">
+          Dos personas con la misma deuda pueden tener resultados opuestos solo por una fecha o por usar la vía equivocada.
+        </div>
+
+        <div class="divider"></div>
+
+        <h2>4) El caso real que analizó la Corte (explicado simple)</h2>
+        <p>En la resolución, una ciudadana fue cobrada por una entidad pública. Ella no se limitó a pelear “cuando ya le ejecutaban”.</p>
+        <p>Lo que hizo fue atacar el origen:</p>
+        <ul>
+          <li>Cuestionó la liquidación.</li>
+          <li>Impugnó el título de crédito.</li>
+          <li>Usó una demanda contencioso-administrativa ordinaria para discutir la legalidad del acto base.</li>
+        </ul>
+
+        <p>La entidad pública dijo:</p>
+        <p><em>“Esa no era la vía. Debió defenderse solo con excepciones”.</em></p>
+
+        <p><strong>La Corte Nacional aclaró:</strong> si atacas el <strong>título de crédito</strong> (origen), esa vía puede ser correcta. Si atacas la <strong>ejecución</strong>, la herramienta es distinta.</p>
+
+        <div class="divider"></div>
+
+        <h2>5) Prescripción: lo que la mayoría confunde</h2>
+        <p>La prescripción, en simple, es tiempo. Si la entidad deja pasar el tiempo sin cobrar como corresponde, puede perder el derecho de cobrar (según el tipo de obligación y reglas aplicables).</p>
+        <p><strong>Lo importante:</strong></p>
+        <ul>
+          <li>La prescripción se analiza desde la obligación y el título.</li>
+          <li>No “nace” con el embargo.</li>
+          <li><strong>Pedir copias no borra la prescripción</strong> ni significa reconocer deuda.</li>
+        </ul>
+
+        <div class="callout">
+          Mucha gente paga por miedo sin revisar fechas. Ese es el error más caro.
+        </div>
+
+        <div class="divider"></div>
+
+        <h2>6) Pausa importante: si te identificas, no avances solo</h2>
+        <p>Si estás en cualquiera de estas situaciones, actuar solo puede salir caro:</p>
+        <ul>
+          <li>Ya te notificaron una coactiva.</li>
+          <li>Te retuvieron o congelaron dinero.</li>
+          <li>No sabes si la deuda está prescrita.</li>
+          <li>No tienes claro si debes atacar el título o la ejecución.</li>
+          <li>Ya presentaste algo, pero no sabes si fue lo correcto.</li>
+        </ul>
+
+        <div class="cta">
+          <div>
+            <strong>Quiero saber si todavía estoy a tiempo</strong><br />
+            <span style="color:#5b6472">Revisión estratégica: título, fechas, prescripción (si aplica) y vía correcta. Sin respuestas genéricas.</span>
+          </div>
+          <a class="btn btn-solid" href="/#formulario">Revisar mi coactiva ahora</a>
+        </div>
+
+        <div class="divider"></div>
+
+        <h2>7) Tabla simple: ¿qué problema tienes y dónde se pelea mejor?</h2>
+        <table class="mini-table" aria-label="Tabla de vías de defensa en coactiva">
+          <thead>
+            <tr>
+              <th>¿Qué estás cuestionando?</th>
+              <th>¿Qué enfoque suele corresponder?</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><span class="pill-no">ORIGEN</span> La deuda nació mal, está mal calculada o sin respaldo</td>
+              <td><span class="pill-ok">CLAVE</span> Revisar/impugnar el título o acto base (según el caso)</td>
+            </tr>
+            <tr>
+              <td><span class="pill-no">PRESCRIPCIÓN</span> La deuda es antigua y la entidad dejó pasar el tiempo</td>
+              <td><span class="pill-ok">CLAVE</span> Revisar fechas y estrategia (título y/o ejecución, según el caso)</td>
+            </tr>
+            <tr>
+              <td><span class="pill-no">EJECUCIÓN</span> Ya hay orden de pago, embargo o retención</td>
+              <td><span class="pill-ok">CLAVE</span> Actuar rápido por la vía de ejecución (plazos)</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <div class="divider"></div>
+
+        <h2>8) Checklist práctico (sin regalar la ejecución)</h2>
+        <div class="checklist">
+          <h3>Guárdalo / tómale captura</h3>
+          <ul class="checks">
+            <li><span class="tick">✓</span> Pide el <strong>título</strong> y la <strong>liquidación</strong> (documentos base).</li>
+            <li><span class="tick">✓</span> Identifica <strong>fechas clave</strong> (emisión, notificación, actuaciones).</li>
+            <li><span class="tick">✓</span> Define si el problema es <strong>origen</strong> o <strong>ejecución</strong>.</li>
+            <li><span class="tick">✓</span> No firmes ni reconozcas deuda sin revisión.</li>
+            <li><span class="tick">✓</span> Si ya hay embargo, el tiempo es crítico.</li>
+          </ul>
+        </div>
+
+        <div class="good">
+          Esta guía te da claridad. La estrategia final depende del expediente: una fecha o un documento cambian todo.
+        </div>
+
+        <div class="divider"></div>
+
+        <h2>9) Preguntas frecuentes (FAQ)</h2>
+
+        <details>
+          <summary>¿Puedo impugnar el título de crédito aunque ya exista coactiva?</summary>
+          <p>Depende del caso, pero la Corte aclara que el título (origen) y la ejecución (coactiva) son momentos distintos. Por eso, la vía correcta se define según qué estés atacando.</p>
+        </details>
+
+        <details>
+          <summary>¿Pedir copias elimina la prescripción o me obliga a pagar?</summary>
+          <p>No. Pedir copias no borra la prescripción ni significa reconocer deuda. Sirve para conocer el expediente y tomar decisiones con información real.</p>
+        </details>
+
+        <details>
+          <summary>¿Esto aplica solo a COSEDE?</summary>
+          <p>No necesariamente. La lógica de distinguir entre acto base (título) y ejecución (coactiva) es útil para entender defensas frente a cobros de entidades públicas, según cada caso.</p>
+        </details>
+
+        <details>
+          <summary>¿Qué pasa si ya me retuvieron dinero?</summary>
+          <p>Normalmente ya estás en fase de ejecución. Ahí los plazos suelen ser cortos y la estrategia debe revisarse de inmediato con el expediente.</p>
+        </details>
+
+        <details>
+          <summary>¿Qué documentos son clave para revisar mi caso?</summary>
+          <p>Liquidación, título de crédito, notificaciones, orden de pago, actuaciones del expediente y cualquier respaldo del supuesto valor adeudado.</p>
+        </details>
+
+        <div class="divider"></div>
+
+        <h2>10) Cierre: lo que debes quedarte grabado</h2>
+        <p>Una coactiva no es el inicio del problema. Muchas veces es el final.</p>
+        <p><strong>El verdadero error es no revisar el origen a tiempo.</strong></p>
+        <p>Eso no es evadir. Es protegerte de un cobro ilegal o mal hecho.</p>
+        <p>Si algo no cuadra, no es exageración revisar. Es sentido común.</p>
+
+        <div class="cta">
+          <div>
+            <strong>Revisar si esta coactiva todavía se puede defender</strong><br />
+            <span style="color:#5b6472">Si el plazo ya pasó, te lo decimos con honestidad. Si hay defensa real, también.</span>
+          </div>
+          <a class="btn btn-solid" href="/#formulario">Confirmar mi estrategia legal</a>
+        </div>
+
+      </article>
+    </div>
+  </main>
+</body>
+</html>
