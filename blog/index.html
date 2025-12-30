@@ -4,7 +4,6 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover, maximum-scale=5.0" />
   <meta name="theme-color" content="#9a6aff">
-  <meta name="format-detection" content="telephone=no">
 
   <title>Guías Júristam · Blog Legal por Categorías</title>
   <meta name="description" content="Guías prácticas de Júristam organizadas por categorías: Coactiva, SENAE/Aduanas, Familia, Inmobiliario y Laboral. Encuentra soluciones reales en Ecuador." />
@@ -16,199 +15,94 @@
 
   <style>
     /* =========================
-       MOBILE-FIRST RESET
-       ========================= */
+      RESET + BASE (MOBILE FIRST)
+    ========================= */
     *{margin:0;padding:0;box-sizing:border-box}
+    html{scroll-behavior:smooth;-webkit-text-size-adjust:100%;text-size-adjust:100%}
+    body{
+      font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
+      background:#fff;
+      color:#0f172a;
+      overflow-x:hidden;
+    }
+    a{color:inherit;text-decoration:none}
+    img{max-width:100%;display:block}
+    button,input{font:inherit}
     :root{
       --sat: env(safe-area-inset-top);
       --sar: env(safe-area-inset-right);
-      --sab: env(safe-area-inset-bottom);
       --sal: env(safe-area-inset-left);
+      --sab: env(safe-area-inset-bottom);
 
       --primary:#9a6aff;
       --primary-dark:#7c3aed;
       --primary-soft:#efe8ff;
-      --primary-grad:linear-gradient(135deg,#9a6aff 0%,#7c3aed 100%);
-
-      --bg:#ffffff;
-      --bg-soft:#f8f9ff;
-
       --border:#e2e8f0;
-      --border-soft:rgba(226,232,240,.8);
-
       --text:#0f172a;
       --text-2:#334155;
       --text-3:#64748b;
 
-      --shadow-sm:0 2px 10px rgba(15,23,42,.08);
-      --shadow-md:0 10px 30px rgba(15,23,42,.12);
-      --shadow-primary:0 10px 24px rgba(154,106,255,.25);
+      --shadow-sm: 0 6px 16px rgba(15,23,42,.06);
+      --shadow-md: 0 14px 28px rgba(15,23,42,.10);
+      --shadow-lg: 0 22px 48px rgba(15,23,42,.12);
 
-      --r:16px;
-      --r-lg:20px;
-      --r-full:9999px;
+      --radius: 18px;
+      --radius-xl: 24px;
+      --pill: 9999px;
 
-      --fs-12: 12px;
-      --fs-13: 13px;
-      --fs-14: 14px;
-      --fs-16: 16px;
-
-      --header-h: calc(60px + var(--sat));
-      --tap: 44px;
+      /* Header mobile */
+      --header-h: calc(66px + var(--sat));
+      --touch: 44px;
     }
-
-    html{scroll-behavior:smooth;-webkit-text-size-adjust:100%;text-size-adjust:100%}
-    body{
-      font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
-      background:var(--bg);
-      color:var(--text);
-      overflow-x:hidden;
-      -webkit-font-smoothing:antialiased;
-    }
-
-    a{color:inherit;text-decoration:none}
-    img{max-width:100%;display:block}
-    button,input{font-family:inherit}
-    input[type="text"],input[type="search"]{font-size:16px !important}
 
     .container{
-      width:100%;
-      max-width:1200px;
+      width:min(1200px, 100%);
       margin:0 auto;
-      padding:0 max(16px, var(--sal));
+      padding:0 16px;
     }
 
     /* =========================
-       HEADER
-       ========================= */
+      HEADER (MOBILE FIRST)
+    ========================= */
     header{
-      position:sticky;top:0;z-index:1200;
+      position:sticky; top:0; z-index:1000;
       height:var(--header-h);
-      padding-top:var(--sat);
-      background:rgba(255,255,255,.96);
-      backdrop-filter: blur(14px);
-      -webkit-backdrop-filter: blur(14px);
-      border-bottom:1px solid var(--border-soft);
+      background:rgba(255,255,255,.94);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border-bottom:1px solid rgba(226,232,240,.9);
       box-shadow: var(--shadow-sm);
+      padding-top: var(--sat);
     }
 
     .header-inner{
-      height:calc(var(--header-h) - var(--sat));
-      max-width:1200px;
-      margin:0 auto;
-      padding:0 max(12px, var(--sal));
+      height: calc(var(--header-h) - var(--sat));
       display:flex;
       align-items:center;
+      justify-content:space-between;
       gap:12px;
-      min-width:0;
+      padding-left:max(12px, var(--sal));
+      padding-right:max(12px, var(--sar));
+      max-width:1200px;
+      margin:0 auto;
     }
 
     .brand{
-      display:flex;
-      align-items:center;
-      min-width:0;
-      flex: 1 1 auto; /* móvil: logo crece si hay espacio */
+      display:flex;align-items:center;gap:10px;
+      min-width:0;flex:0 0 auto;
     }
-
     .logo-box{
-      height:44px;
-      width:min(160px, 42vw);
-      min-width:110px;
-      overflow:hidden;
+      height:50px;
+      width:auto;
+      max-width:160px;
       display:flex;
       align-items:center;
     }
-    .logo-box img{
-      height:100%;width:100%;
-      object-fit:contain;
-      object-position:left center;
-    }
+    .logo-box img{height:200%;width:auto;object-fit:contain}
 
-    /* ✅ MOBILE ACTIONS (buscador + hamburguesa) */
+    /* Actions (mobile): Buscador + Hamburguesa */
     .header-actions{
-      display:flex;
-      align-items:center;
-      gap:8px;
-      flex: 0 0 auto;
-    }
-
-    .btn-search-mobile{
-      display:inline-flex;
-      align-items:center;
-      justify-content:center;
-      gap:8px;
-      height:var(--tap);
-      padding:0 12px;
-      border-radius:14px;
-      border:1px solid rgba(154,106,255,.25);
-      background: rgba(154,106,255,.10);
-      color: var(--primary-dark);
-      font-weight: 900;
-      font-size: var(--fs-13);
-      white-space:nowrap;
-      max-width: 46vw;
-      overflow:hidden;
-      text-overflow:ellipsis;
-      cursor:pointer;
-    }
-
-    .btn-burger{
-      width:var(--tap);
-      height:var(--tap);
-      border-radius:14px;
-      border:1px solid rgba(15,23,42,.10);
-      background: rgba(15,23,42,.04);
-      display:inline-flex;
-      align-items:center;
-      justify-content:center;
-      cursor:pointer;
-    }
-    .btn-burger i{font-size:18px}
-
-    /* ✅ DESKTOP NAV (oculto en móvil) */
-    .nav-center{
-      display:none;
-      flex: 1 1 auto;
-      justify-content:center;
-      min-width:0;
-    }
-    .nav-pill{
-      display:flex;
-      align-items:center;
-      gap:6px;
-      padding:6px;
-      border-radius:999px;
-      background: rgba(243,244,246,.75);
-      border:1px solid rgba(226,232,240,.9);
-      box-shadow: 0 12px 24px rgba(15,23,42,.06);
-      max-width: 100%;
-      overflow:auto;
-    }
-    .nav-link{
-      display:inline-flex;
-      align-items:center;
-      gap:8px;
-      padding:10px 14px;
-      border-radius:999px;
-      font-weight:900;
-      font-size: 14px;
-      color: var(--text-2);
-      white-space:nowrap;
-      transition:.18s ease;
-    }
-    .nav-link:hover{
-      background:#fff;
-      color: var(--primary-dark);
-      box-shadow: 0 10px 18px rgba(15,23,42,.08);
-    }
-
-    /* ✅ DESKTOP CTAs (oculto en móvil) */
-    .desktop-actions{
-      display:none;
-      flex: 0 0 auto;
-      align-items:center;
-      gap:10px;
-      min-width:0;
+      display:flex;align-items:center;gap:10px;flex:0 0 auto;
     }
 
     .btn{
@@ -216,108 +110,210 @@
       align-items:center;
       justify-content:center;
       gap:10px;
-      height:48px;
-      padding:0 16px;
-      border-radius:999px;
-      border:1px solid transparent;
+      min-height: var(--touch);
+      padding: 10px 14px;
+      border-radius: var(--pill);
+      border: 1px solid rgba(154,106,255,.22);
+      background: var(--primary-soft);
+      color: var(--primary-dark);
       font-weight: 900;
-      font-size: 14px;
-      white-space:nowrap;
+      white-space: nowrap;
+      line-height: 1;
+      -webkit-tap-highlight-color: transparent;
       cursor:pointer;
     }
+    .btn i{font-size:14px}
+
     .btn-primary{
-      background: var(--primary-grad);
+      background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
       color:#fff;
-      border-color: rgba(124,58,237,.18);
-      box-shadow: var(--shadow-primary);
-    }
-    .btn-secondary{
-      background: rgba(154,106,255,.10);
-      color: var(--primary-dark);
-      border-color: rgba(154,106,255,.25);
+      border: 1px solid rgba(124,58,237,.18);
+      box-shadow: 0 18px 32px rgba(124,58,237,.18);
     }
 
+    .icon-btn{
+      width: var(--touch);
+      height: var(--touch);
+      padding:0;
+      border-radius: 14px;
+      border: 1px solid rgba(226,232,240,1);
+      background:#fff;
+      box-shadow: 0 10px 18px rgba(15,23,42,.06);
+    }
+    .icon-btn i{font-size:18px;color:#0f172a}
+
+    /* Desktop menu area hidden on mobile */
+    .nav-center{display:none}
+    .desktop-actions{display:none}
+
     /* =========================
-       HERO + CONTENT
-       ========================= */
-    main{padding:16px 0 70px}
-    .hero{
-      margin: 0 auto 18px;
-      padding: 18px;
-      background: linear-gradient(135deg,#f8fafc 0%,#f2f3fb 100%);
+      MOBILE DRAWER (HAMBURGUESA)
+    ========================= */
+    .drawer-overlay{
+      position:fixed; inset:0;
+      background: rgba(15,23,42,.60);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      display:none;
+      z-index:2000;
+    }
+    .drawer-overlay.active{display:block}
+
+    .drawer{
+      position:absolute;
+      top:0; right:0;
+      width:min(380px, 92vw);
+      height:100%;
+      background:#fff;
+      border-left:1px solid rgba(226,232,240,.9);
+      box-shadow: -20px 0 60px rgba(15,23,42,.18);
+      padding: 16px 16px calc(16px + var(--sab));
+      display:flex;
+      flex-direction:column;
+      gap:14px;
+    }
+    .drawer-head{
+      display:flex;align-items:center;justify-content:space-between;
+      padding-top: max(0px, var(--sat));
+    }
+    .drawer-title{
+      font-weight:900;
+      font-size:1.05rem;
+      color:var(--text);
+    }
+    .drawer-close{
+      width:44px;height:44px;
+      border-radius:14px;
       border:1px solid var(--border);
-      border-radius: 22px;
+      background:#fff;
+      cursor:pointer;
+    }
+
+    .drawer-links{
+      display:flex;flex-direction:column;gap:8px;
+      margin-top:4px;
+    }
+    .drawer-links a{
+      display:flex;align-items:center;justify-content:space-between;
+      padding:12px 14px;
+      border:1px solid var(--border);
+      border-radius: 16px;
+      background:#fff;
+      font-weight:800;
+      color:var(--text-2);
+    }
+    .drawer-links a:active{transform:scale(.99)}
+    .drawer-cta{
+      margin-top:auto;
+      display:flex;
+      gap:10px;
+      flex-direction:column;
+    }
+    .drawer-cta .btn{width:100%}
+
+    /* =========================
+      HERO
+    ========================= */
+    main{
+      padding: 18px 0 60px;
+      background:#fff;
+    }
+    .hero{
+      background: linear-gradient(135deg, #f8fafc 0%, #f2f3fb 100%);
+      border:1px solid var(--border);
+      border-radius: var(--radius-xl);
+      padding: 20px 18px;
       box-shadow: var(--shadow-md);
+      position:relative;
       overflow:hidden;
     }
     .hero h1{
       font-family:"Playfair Display", serif;
-      font-weight:900;
-      font-size: clamp(24px, 7.2vw, 40px);
+      font-weight:700;
+      font-size: clamp(1.9rem, 6vw, 2.6rem);
       line-height:1.08;
-      margin-bottom:10px;
       letter-spacing:-.02em;
+      margin-bottom:12px;
     }
     .hero p{
       color:var(--text-2);
-      font-size: clamp(14px, 3.8vw, 18px);
-      line-height:1.6;
+      font-size: clamp(1.02rem, 3.2vw, 1.15rem);
+      line-height:1.7;
+      max-width:60ch;
       margin-bottom:14px;
-      max-width: 65ch;
     }
+
     .hero-actions{
       display:flex;
       flex-wrap:wrap;
       gap:10px;
-      margin-bottom: 14px;
+      margin-bottom:14px;
     }
+    .hero-actions .btn{flex:1 1 170px}
 
     .search-bar{
       display:flex;
       flex-direction:column;
       gap:10px;
+      margin-top:10px;
     }
     .search-input{
       width:100%;
-      height:52px;
-      padding: 0 14px;
-      border-radius: 16px;
+      min-height: 48px;
+      padding: 14px 14px;
       border:2px solid var(--border);
+      border-radius: 16px;
       background:#fff;
+      font-size:16px;
       outline:none;
     }
     .search-input:focus{
       border-color: var(--primary);
-      box-shadow: 0 0 0 3px rgba(154,106,255,.15);
+      box-shadow: 0 0 0 3px rgba(154,106,255,.16);
     }
     .search-hint{
+      color:var(--text-3);
+      font-size:.92rem;
+      line-height:1.55;
       margin-top:8px;
-      font-size: var(--fs-13);
-      color: var(--text-3);
-      line-height:1.45;
+      padding-left:4px;
     }
 
-    .section-title{margin: 18px 0 10px}
-    .section-title h2{font-size: 22px;font-weight: 900;margin-bottom: 4px}
-    .section-title p{color:var(--text-3);font-size: var(--fs-14);line-height:1.5}
+    /* =========================
+      CATEGORIES
+    ========================= */
+    .section-title{
+      margin: 22px 0 12px;
+    }
+    .section-title h2{
+      font-size: clamp(1.35rem, 4vw, 1.7rem);
+      font-weight: 900;
+      margin-bottom: 6px;
+    }
+    .section-subtitle{
+      color:var(--text-3);
+      line-height:1.55;
+    }
 
     .categories-grid{
       display:grid;
-      grid-template-columns: 1fr;
-      gap: 14px;
-      margin-top: 14px;
+      grid-template-columns:1fr;
+      gap:14px;
+      margin-top:14px;
     }
+
     .category-card{
       background:#fff;
       border:1px solid var(--border);
-      border-radius: 22px;
-      padding: 16px;
+      border-radius: var(--radius-xl);
+      padding: 18px;
       box-shadow: var(--shadow-sm);
       display:flex;
       flex-direction:column;
       min-height: 190px;
       cursor:pointer;
     }
+    .category-card:hover{box-shadow: var(--shadow-lg); transform: translateY(-2px)}
     .card-header{
       display:flex;
       align-items:flex-start;
@@ -329,269 +325,296 @@
     .category-chip{
       display:inline-flex;
       align-items:center;
-      gap:8px;
-      padding:8px 12px;
-      border-radius: 999px;
+      gap:10px;
+      padding: 8px 12px;
+      border-radius: var(--pill);
       background: var(--primary-soft);
-      color: var(--primary-dark);
       border:1px solid rgba(154,106,255,.22);
       font-weight:900;
-      font-size: var(--fs-13);
+      color: var(--primary-dark);
       white-space:nowrap;
     }
     .article-count{
       display:inline-flex;
       align-items:center;
-      gap:6px;
-      padding:8px 10px;
-      border-radius: 999px;
-      background: var(--bg-soft);
-      border:1px solid rgba(15,23,42,.06);
-      color: var(--text-2);
-      font-weight:900;
-      font-size: var(--fs-12);
+      gap:8px;
+      padding: 8px 10px;
+      border-radius: var(--pill);
+      background:#f8fafc;
+      border:1px solid var(--border);
+      color:var(--text-2);
+      font-weight:800;
+      font-size:.82rem;
       white-space:nowrap;
     }
-    .category-card h3{font-size: 18px;font-weight: 900;margin-bottom:8px;line-height:1.25}
-    .category-card p{color: var(--text-2);font-size: var(--fs-14);line-height:1.6;margin-bottom: 14px}
-    .card-actions{margin-top:auto;display:flex;flex-direction:column;gap:10px}
-    .card-link{display:inline-flex;align-items:center;gap:8px;font-weight:900;color: var(--primary-dark);font-size: var(--fs-13);cursor:pointer}
+    .category-card h3{
+      font-size:1.2rem;
+      font-weight: 900;
+      margin: 6px 0 8px;
+      line-height:1.25;
+    }
+    .category-card p{
+      color:var(--text-2);
+      line-height:1.65;
+      margin-bottom:12px;
+    }
+    .card-actions{
+      display:flex;
+      flex-direction:column;
+      gap:10px;
+      margin-top:auto;
+    }
+    .card-actions .btn{width:100%}
+    .card-link{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      gap:10px;
+      padding: 10px 12px;
+      border-radius: 16px;
+      border:1px dashed rgba(154,106,255,.35);
+      background: rgba(154,106,255,.08);
+      color: var(--primary-dark);
+      font-weight:900;
+      cursor:pointer;
+    }
+
+    /* =========================
+      CHAT MODAL
+    ========================= */
+    .modal-overlay{
+      position:fixed; inset:0;
+      background: rgba(15,23,42,.70);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      display:none;
+      align-items:flex-end;
+      justify-content:center;
+      z-index:2500;
+    }
+    .modal-overlay.active{display:flex}
+    .chat-modal{
+      width:100%;
+      max-height: 88vh;
+      background:#fff;
+      border-radius: 22px 22px 0 0;
+      box-shadow: 0 -20px 60px rgba(15,23,42,.25);
+      overflow:hidden;
+      display:flex;
+      flex-direction:column;
+    }
+    .modal-header{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:12px;
+      padding: 14px 16px;
+      border-bottom:1px solid rgba(226,232,240,.9);
+    }
+    .modal-title{
+      display:flex;align-items:center;gap:12px;min-width:0;
+    }
+    .modal-icon{
+      width:44px;height:44px;border-radius: 14px;
+      background: var(--primary-soft);
+      display:flex;align-items:center;justify-content:center;
+      color: var(--primary-dark);
+      flex:0 0 auto;
+    }
+    .modal-text h3{font-size:1.05rem;font-weight:900;line-height:1.2}
+    .modal-text p{font-size:.9rem;color:var(--text-3);line-height:1.25}
+    .close-btn{
+      width:44px;height:44px;border-radius:14px;
+      border:1px solid var(--border);
+      background:#fff;cursor:pointer;
+    }
+
+    .chat-messages{
+      padding: 16px;
+      overflow:auto;
+      -webkit-overflow-scrolling: touch;
+      background: linear-gradient(180deg, #fff 0%, #fbfbfe 100%);
+      display:flex;
+      flex-direction:column;
+      gap:12px;
+    }
+    .message{
+      max-width: 88%;
+      padding: 12px 14px;
+      border-radius: 18px;
+      box-shadow: var(--shadow-sm);
+      line-height:1.5;
+      word-break:break-word;
+    }
+    .message-bot{
+      align-self:flex-start;
+      background:#fff;
+      border:1px solid var(--border);
+      border-top-left-radius: 6px;
+    }
+    .message-user{
+      align-self:flex-end;
+      color:#fff;
+      background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+      border-top-right-radius: 6px;
+    }
+
+    .search-results{
+      display:grid;
+      grid-template-columns:1fr;
+      gap:12px;
+      margin-top:10px;
+    }
+    .result-card{
+      border:1px solid var(--border);
+      border-radius: 18px;
+      padding: 14px;
+      background:#fff;
+    }
+    .result-header{
+      display:flex;
+      justify-content:space-between;
+      gap:10px;
+      flex-wrap:wrap;
+      margin-bottom:8px;
+    }
+    .result-tag{
+      padding:6px 10px;
+      border-radius: var(--pill);
+      background: var(--primary-soft);
+      color: var(--primary-dark);
+      border:1px solid rgba(154,106,255,.22);
+      font-weight:900;
+      font-size:.75rem;
+      letter-spacing:.04em;
+      text-transform:uppercase;
+      white-space:nowrap;
+    }
+    .result-date{
+      color:var(--text-3);
+      font-size:.78rem;
+      display:flex;
+      align-items:center;
+      gap:6px;
+      white-space:nowrap;
+    }
+    .result-title{font-weight:900;margin-bottom:6px;line-height:1.35}
+    .result-excerpt{color:var(--text-2);line-height:1.6;font-size:.96rem;margin-bottom:10px}
+    .result-link{display:inline-flex;align-items:center;gap:8px;font-weight:900;color:var(--primary-dark)}
+
+    .chat-input-container{
+      padding: 12px 12px calc(12px + var(--sab));
+      border-top:1px solid rgba(226,232,240,.9);
+      display:flex;
+      gap:10px;
+      align-items:center;
+      background:#fff;
+    }
+    .chat-input{
+      flex:1; min-width:0;
+      min-height: 46px;
+      border-radius: var(--pill);
+      border:2px solid var(--border);
+      padding: 10px 14px;
+      background:#f8fafc;
+      font-size:16px;
+      outline:none;
+    }
+    .chat-input:focus{
+      border-color: var(--primary);
+      background:#fff;
+      box-shadow: 0 0 0 3px rgba(154,106,255,.16);
+    }
+    .chat-send-btn{
+      min-height:46px;
+      padding: 10px 14px;
+    }
 
     footer{
       border-top:1px solid var(--border);
-      padding:18px 0 calc(18px + var(--sab));
+      padding: 18px 0 calc(18px + var(--sab));
       color:var(--text-3);
       text-align:center;
       background:#fff;
     }
 
     /* =========================
-       OFFCANVAS MENU (MÓVIL)
-       ========================= */
-    .menu-overlay{
-      position:fixed; inset:0;
-      background: rgba(15,23,42,.55);
-      backdrop-filter: blur(8px);
-      -webkit-backdrop-filter: blur(8px);
-      z-index: 1600;
-      display:none;
-      opacity:0;
-      transition:opacity .18s ease;
-    }
-    .menu-overlay.active{display:block;opacity:1}
+      DESKTOP (FIX: MENU EN UNA SOLA FRANJA, SIN SCROLL, SIN SALTOS)
+    ========================= */
+    @media (min-width: 980px){
+      :root{ --header-h: 96px; }
 
-    .offcanvas{
-      position:fixed;
-      top:0; right:0;
-      height:100vh;
-      width:min(340px, 92vw);
-      background:#fff;
-      z-index: 1700;
-      transform: translateX(110%);
-      transition: transform .22s ease;
-      box-shadow: -22px 0 60px rgba(15,23,42,.22);
-      padding-top: calc(14px + var(--sat));
-      padding-right: max(14px, var(--sar));
-      padding-left: 14px;
-      padding-bottom: calc(18px + var(--sab));
-      display:flex;
-      flex-direction:column;
-      gap:12px;
-    }
-    .offcanvas.active{transform: translateX(0)}
+      .logo-box{height:56px;max-width:220px}
 
-    .off-top{
-      display:flex;
-      align-items:center;
-      justify-content:space-between;
-      gap:10px;
-      padding-bottom: 10px;
-      border-bottom:1px solid var(--border);
-    }
-    .off-title{font-weight: 900;font-size: 16px}
-    .off-close{
-      width:44px;height:44px;border-radius:14px;
-      border:1px solid rgba(15,23,42,.10);
-      background: rgba(15,23,42,.04);
-      display:inline-flex;align-items:center;justify-content:center;
-      cursor:pointer;
-    }
+      /* Hide mobile actions, show desktop */
+      .header-actions{display:none}
+      .nav-center{display:flex;flex:1 1 auto;justify-content:center;min-width:0}
+      .desktop-actions{display:flex;gap:12px;align-items:center;flex:0 0 auto}
 
-    .off-links{
-      display:flex;
-      flex-direction:column;
-      gap:6px;
-      padding-top: 6px;
-    }
-    .off-link{
-      display:flex;
-      align-items:center;
-      justify-content:space-between;
-      gap:10px;
-      padding:12px 12px;
-      border-radius:14px;
-      border:1px solid rgba(15,23,42,.08);
-      background: rgba(15,23,42,.03);
-      font-weight: 900;
-      font-size: 14px;
-    }
-    .off-link i{color: var(--text-3)}
+      /* Nav pill: NO scroll, NO wrap */
+      .nav-menu{
+        display:flex;
+        align-items:center;
+        gap: 8px;
+        padding: 8px;
+        border-radius: var(--pill);
+        background: rgba(243,244,246,.70);
+        border: 1px solid rgba(226,232,240,.95);
+        box-shadow: 0 12px 24px rgba(15,23,42,.06);
 
-    .off-ctas{
-      margin-top:auto;
-      display:flex;
-      flex-direction:column;
-      gap:10px;
-      padding-top: 10px;
-      border-top:1px solid var(--border);
-    }
+        flex-wrap: nowrap;      /* ✅ nunca baja a otra línea */
+        overflow: hidden;       /* ✅ nunca aparece scrollbar */
+        max-width: 100%;
+        min-width: 0;
+      }
 
-    /* =========================
-       CHAT MODAL
-       ========================= */
-    .modal-overlay{
-      position:fixed; inset:0;
-      background: rgba(15,23,42,.65);
-      backdrop-filter: blur(10px);
-      -webkit-backdrop-filter: blur(10px);
-      z-index: 2000;
-      display:none;
-      opacity:0;
-      transition: opacity .2s ease;
-      align-items:flex-end;
-      justify-content:center;
-    }
-    .modal-overlay.active{display:flex;opacity:1}
+      .nav-link{
+        display:inline-flex;
+        align-items:center;
+        justify-content:center;
+        white-space: nowrap;    /* ✅ nunca parte texto */
+        padding: 10px 14px;
+        border-radius: var(--pill);
+        font-weight: 900;
+        color: var(--text-2);
 
-    .chat-modal{
-      width:100%;
-      max-height: 86vh;
-      background:#fff;
-      border-radius: 22px 22px 0 0;
-      box-shadow: 0 -18px 60px rgba(15,23,42,.25);
-      overflow:hidden;
-      display:flex;
-      flex-direction:column;
-      transform: translateY(100%);
-      transition: transform .28s ease;
-    }
-    .modal-overlay.active .chat-modal{transform: translateY(0)}
+        /* ✅ permite que "encaje" antes de romperse */
+        flex: 0 1 auto;
+        min-width: 0;
 
-    .modal-header{
-      padding: 12px 14px;
-      border-bottom:1px solid var(--border);
-      display:flex;
-      align-items:center;
-      justify-content:space-between;
-      gap:10px;
-      background:#fff;
-    }
-    .modal-title{display:flex;align-items:center;gap:10px;min-width:0}
-    .modal-icon{
-      width:44px;height:44px;border-radius:14px;
-      background: var(--primary-soft);
-      color: var(--primary-dark);
-      display:flex;align-items:center;justify-content:center;
-      flex:0 0 auto;
-    }
-    .modal-text{min-width:0}
-    .modal-text h3{font-size:15px;font-weight:900;line-height:1.2;margin-bottom:2px}
-    .modal-text p{font-size:12px;color:var(--text-3);line-height:1.25}
-    .close-btn{
-      width:44px;height:44px;border-radius:14px;
-      border:1px solid rgba(15,23,42,.10);
-      background: rgba(15,23,42,.04);
-      display:flex;align-items:center;justify-content:center;
-      cursor:pointer;
-    }
+        font-size: clamp(.92rem, .95vw, 1.02rem); /* ✅ evita letra gigante */
+      }
+      .nav-link:hover{
+        background:#fff;
+        color: var(--primary-dark);
+        box-shadow: 0 10px 20px rgba(15,23,42,.08);
+      }
 
-    .chat-messages{
-      flex:1;
-      padding: 14px;
-      overflow:auto;
-      -webkit-overflow-scrolling:touch;
-      background: linear-gradient(180deg,#fff 0%, #fbfbfe 100%);
-      display:flex;
-      flex-direction:column;
-      gap: 12px;
-    }
-    .message{
-      max-width: 88%;
-      padding: 12px;
-      border-radius: 18px;
-      box-shadow: var(--shadow-sm);
-      line-height:1.5;
-      font-size: 14px;
-    }
-    .message-bot{align-self:flex-start;background:#fff;border:1px solid var(--border);border-top-left-radius:6px}
-    .message-user{align-self:flex-end;background: var(--primary-grad);color:#fff;border-top-right-radius:6px;box-shadow: var(--shadow-primary)}
+      /* Desktop: botones */
+      .desktop-actions .btn{
+        padding: 12px 16px;
+        min-height: 48px;
+        font-size: .98rem;
+      }
+      .desktop-actions .btn-primary{padding: 12px 18px}
 
-    .search-results{display:grid;grid-template-columns:1fr;gap:12px;margin-top: 10px}
-    .result-card{border:1px solid var(--border);border-radius:18px;padding:12px;background:#fff}
-    .result-header{display:flex;justify-content:space-between;gap:8px;flex-wrap:wrap;margin-bottom:8px}
-    .result-tag{
-      padding:6px 10px;border-radius:999px;background: var(--primary-soft);
-      color: var(--primary-dark);font-weight:900;font-size: 11px;letter-spacing:.04em;text-transform:uppercase;
-      border:1px solid rgba(154,106,255,.18);
-    }
-    .result-date{font-size:11px;color:var(--text-3);display:flex;align-items:center;gap:6px}
-    .result-title{font-weight:900;font-size:14px;line-height:1.35;margin-bottom:6px}
-    .result-excerpt{font-size:13px;color:var(--text-2);line-height:1.45;margin-bottom:10px}
-    .result-link{display:inline-flex;align-items:center;gap:8px;color:var(--primary-dark);font-weight:900;font-size:13px}
-
-    .chat-input-container{
-      padding: 12px 14px calc(12px + var(--sab));
-      border-top:1px solid var(--border);
-      background:#fff;
-      display:flex;
-      gap:10px;
-      align-items:center;
-    }
-    .chat-input{
-      flex:1;
-      height:48px;
-      padding:0 14px;
-      border-radius:999px;
-      border:2px solid var(--border);
-      background: var(--bg-soft);
-      outline:none;
-    }
-    .chat-input:focus{border-color: var(--primary);box-shadow:0 0 0 3px rgba(154,106,255,.15);background:#fff}
-    .chat-send{
-      height:48px;
-      padding:0 14px;
-      border-radius:999px;
-      background: var(--primary-grad);
-      color:#fff;
-      border:1px solid rgba(124,58,237,.18);
-      font-weight:900;
-      display:inline-flex;align-items:center;gap:8px;
-      box-shadow: var(--shadow-primary);
-      cursor:pointer;
-    }
-
-    /* =========================
-       ✅ DESKTOP: menú normal + CTAs
-       ========================= */
-    @media (min-width: 960px){
-      :root{--header-h: 92px;}
-
-      .logo-box{height:56px;width:240px}
-
-      /* ocultar acciones móviles en desktop */
-      .header-actions{display:none;}
-
-      /* mostrar menú centrado y acciones desktop */
-      .nav-center{display:flex;}
-      .desktop-actions{display:flex;}
-
+      /* layout main */
+      .hero{padding: 34px}
       .search-bar{flex-direction:row}
-      .btn{height:52px}
-      .categories-grid{grid-template-columns: repeat(3, minmax(0,1fr))}
+      .search-input{flex:1}
+      .categories-grid{grid-template-columns: repeat(2, minmax(0,1fr))}
       .search-results{grid-template-columns: repeat(2, minmax(0,1fr))}
       .modal-overlay{align-items:center}
-      .chat-modal{max-width: 820px;border-radius: 22px;max-height: 80vh}
+      .chat-modal{max-width: 860px;border-radius: 22px;max-height: 84vh}
     }
+
+    @media (min-width: 1200px){
+      .categories-grid{grid-template-columns: repeat(3, minmax(0,1fr))}
+      .search-results{grid-template-columns: repeat(3, minmax(0,1fr))}
+    }
+
+    /* Focus accessibility */
+    a:focus, button:focus, input:focus { outline: 2px solid rgba(154,106,255,.55); outline-offset: 2px; }
   </style>
 </head>
 
@@ -599,16 +622,15 @@
   <!-- HEADER -->
   <header role="banner">
     <div class="header-inner">
-      <!-- Logo -->
       <a href="/" class="brand" aria-label="Júristam - Inicio">
         <div class="logo-box">
           <img src="https://i.postimg.cc/vHygbHxz/oie-transparent-(2).png" alt="Júristam Logo" loading="eager">
         </div>
       </a>
 
-      <!-- ✅ Desktop: menú normal centrado -->
+      <!-- NAV DESKTOP (se muestra en PC) -->
       <nav class="nav-center" aria-label="Navegación principal">
-        <div class="nav-pill">
+        <div class="nav-menu">
           <a href="/#proceso" class="nav-link">Proceso</a>
           <a href="/#servicios" class="nav-link">Servicios</a>
           <a href="/casos-de-exito.html" class="nav-link" target="_blank" rel="noopener">Casos de Éxito</a>
@@ -617,120 +639,141 @@
         </div>
       </nav>
 
-      <!-- ✅ Desktop: Categorías + Evaluar Caso (como tu imagen 2) -->
-      <div class="desktop-actions" aria-label="Acciones principales">
-        <button class="btn btn-secondary" id="btnDesktopSearch" type="button">
-          <i class="fas fa-magnifying-glass"></i>
-          Buscador
-        </button>
-        <a href="#categorias" class="btn btn-secondary">
-          <i class="fas fa-layer-group"></i>
-          Categorías
-        </a>
-        <a href="/#formulario" class="btn btn-primary">
-          Evaluar Caso <i class="fas fa-arrow-right"></i>
-        </a>
-      </div>
-
-      <!-- ✅ Móvil: buscador + hamburguesa -->
-      <div class="header-actions">
-        <button class="btn-search-mobile" id="btnHeaderSearch" type="button" aria-label="Abrir buscador">
+      <!-- ACCIONES DESKTOP -->
+      <div class="desktop-actions" aria-label="Acciones">
+        <button class="btn" id="btnOpenChatDesktop" type="button">
           <i class="fas fa-magnifying-glass"></i>
           <span>Buscador</span>
         </button>
+        <a href="#categorias" class="btn">
+          <i class="fas fa-layer-group"></i>
+          <span>Categorías</span>
+        </a>
+        <a href="/#formulario" class="btn btn-primary">
+          <span>Evaluar Caso</span>
+          <i class="fas fa-arrow-right"></i>
+        </a>
+      </div>
 
-        <button class="btn-burger" id="btnBurger" type="button" aria-label="Abrir menú">
+      <!-- ACCIONES MOBILE (Buscador + Hamburguesa) -->
+      <div class="header-actions" aria-label="Acciones móviles">
+        <button class="btn" id="btnOpenChat" type="button">
+          <i class="fas fa-magnifying-glass"></i>
+          <span>Buscador</span>
+        </button>
+        <button class="icon-btn" id="btnHamburger" type="button" aria-label="Abrir menú">
           <i class="fas fa-bars"></i>
         </button>
       </div>
     </div>
   </header>
 
-  <!-- OFFCANVAS MENU (móvil) -->
-  <div class="menu-overlay" id="menuOverlay" aria-hidden="true"></div>
-  <aside class="offcanvas" id="offcanvas" aria-label="Menú principal" aria-hidden="true">
-    <div class="off-top">
-      <div class="off-title">Menú Júristam</div>
-      <button class="off-close" id="btnCloseMenu" aria-label="Cerrar menú" type="button">
-        <i class="fas fa-times"></i>
-      </button>
-    </div>
+  <!-- DRAWER MOBILE -->
+  <div class="drawer-overlay" id="drawerOverlay" aria-hidden="true">
+    <aside class="drawer" role="dialog" aria-modal="true" aria-label="Menú móvil">
+      <div class="drawer-head">
+        <div class="drawer-title">Menú</div>
+        <button class="drawer-close" id="btnCloseDrawer" type="button" aria-label="Cerrar menú">
+          <i class="fas fa-times"></i>
+        </button>
+      </div>
 
-    <nav class="off-links">
-      <a class="off-link" href="/#proceso"><span>Proceso</span> <i class="fas fa-chevron-right"></i></a>
-      <a class="off-link" href="/#servicios"><span>Servicios</span> <i class="fas fa-chevron-right"></i></a>
-      <a class="off-link" href="/casos-de-exito.html" target="_blank" rel="noopener"><span>Casos de Éxito</span> <i class="fas fa-arrow-up-right-from-square"></i></a>
-      <a class="off-link" href="/blog/"><span>Guías</span> <i class="fas fa-chevron-right"></i></a>
-      <a class="off-link" href="/#contacto"><span>Contacto</span> <i class="fas fa-chevron-right"></i></a>
-      <a class="off-link" href="#categorias" id="menuGoCategories"><span>Categorías</span> <i class="fas fa-layer-group"></i></a>
-      <a class="off-link" href="/#formulario"><span>Evaluar Caso</span> <i class="fas fa-bolt"></i></a>
-      <button class="off-link" id="menuOpenSearch" type="button">
-        <span>Buscador</span> <i class="fas fa-magnifying-glass"></i>
-      </button>
-    </nav>
+      <nav class="drawer-links" aria-label="Navegación">
+        <a href="/#proceso">Proceso <i class="fas fa-chevron-right"></i></a>
+        <a href="/#servicios">Servicios <i class="fas fa-chevron-right"></i></a>
+        <a href="/casos-de-exito.html" target="_blank" rel="noopener">Casos de Éxito <i class="fas fa-arrow-up-right-from-square"></i></a>
+        <a href="/blog/">Guías <i class="fas fa-chevron-right"></i></a>
+        <a href="/#contacto">Contacto <i class="fas fa-chevron-right"></i></a>
+        <a href="#categorias">Categorías <i class="fas fa-layer-group"></i></a>
+      </nav>
 
-    <div class="off-ctas">
-      <a class="btn btn-secondary" href="#categorias"><i class="fas fa-layer-group"></i> Categorías</a>
-      <a class="btn btn-primary" href="/#formulario"><i class="fas fa-bolt"></i> Evaluar Caso</a>
-    </div>
-  </aside>
+      <div class="drawer-cta">
+        <a href="/#formulario" class="btn btn-primary">
+          <span>Evaluar Caso</span>
+          <i class="fas fa-arrow-right"></i>
+        </a>
+      </div>
+    </aside>
+  </div>
 
-  <!-- MAIN -->
+  <!-- CONTENIDO PRINCIPAL -->
   <main role="main">
     <div class="container">
+      <!-- HERO -->
       <section class="hero" aria-labelledby="hero-title">
         <h1 id="hero-title">Guías Júristam</h1>
-        <p>Artículos directos y accionables por categorías. Si tu problema es real, aquí empiezas bien.</p>
+        <p>
+          Artículos directos y accionables por categorías.
+          Si tu problema es real, aquí empiezas bien.
+        </p>
 
         <div class="hero-actions">
-          <a href="#categorias" class="btn btn-secondary"><i class="fas fa-compass"></i> Explorar categorías</a>
-          <button class="btn btn-secondary" id="btnOpenChat" type="button"><i class="fas fa-comment-dots"></i> Buscar tipo “chat”</button>
+          <a href="#categorias" class="btn">
+            <i class="fas fa-compass"></i>
+            <span>Explorar categorías</span>
+          </a>
+          <button class="btn" id="btnOpenChatHero" type="button">
+            <i class="fas fa-comment-dots"></i>
+            <span>Buscar tipo "chat"</span>
+          </button>
         </div>
 
-        <div class="search-bar" role="search">
-          <input
-            type="search"
-            class="search-input"
-            id="searchInput"
-            placeholder="Ej: 'me bloquearon la cuenta por coactiva', 'SENAE retuvo mercadería', 'alimentos salida del país'"
-            aria-label="Buscar artículos"
-            enterkeyhint="search"
-          >
-          <button class="btn btn-primary" id="searchBtn" type="button"><i class="fas fa-search"></i> Buscar</button>
+        <div class="search-container">
+          <div class="search-bar" role="search">
+            <input
+              type="search"
+              class="search-input"
+              id="searchInput"
+              placeholder="Ej: 'me bloquearon la cuenta por coactiva', 'SENAE retuvo mercadería', 'alimentos salida del país'"
+              aria-label="Buscar artículos"
+              enterkeyhint="search"
+            >
+            <button class="btn btn-primary" id="searchBtn" type="button">
+              <i class="fas fa-search"></i>
+              <span>Buscar</span>
+            </button>
+          </div>
+          <p class="search-hint">
+            Tip: escribe tu problema en palabras normales. Te muestro los artículos más cercanos y la categoría.
+          </p>
         </div>
-
-        <p class="search-hint">
-          Tip: escribe tu problema en palabras normales. Te muestro los artículos más cercanos y la categoría.
-        </p>
       </section>
 
+      <!-- CATEGORÍAS -->
       <section class="section-title" id="categorias">
         <h2>Categorías</h2>
-        <p>Toca una categoría y se abre su “ventana” (página) con todos sus artículos.</p>
+        <p class="section-subtitle">
+          Toca una categoría y se abre su "ventana" (página) con todos sus artículos.
+        </p>
       </section>
 
       <div class="categories-grid" id="categoriesGrid" aria-label="Lista de categorías"></div>
     </div>
   </main>
 
+  <!-- FOOTER -->
   <footer role="contentinfo">
     <div class="container">
-      © <span id="currentYear"></span> Júristam · <a href="/" style="text-decoration:underline;text-underline-offset:3px;color:var(--primary-dark)">Volver al inicio</a>
+      © <span id="currentYear"></span> Júristam · <a href="/" style="text-decoration:underline; text-underline-offset:3px;">Volver al inicio</a>
     </div>
   </footer>
 
-  <!-- CHAT MODAL -->
+  <!-- MODAL CHAT -->
   <div class="modal-overlay" id="chatModal" aria-hidden="true">
     <div class="chat-modal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
       <div class="modal-header">
         <div class="modal-title">
-          <div class="modal-icon"><i class="fas fa-scale-balanced"></i></div>
+          <div class="modal-icon">
+            <i class="fas fa-scale-balanced"></i>
+          </div>
           <div class="modal-text">
             <h3 id="modalTitle">Buscador Júristam</h3>
             <p>Escribe tu caso y te muestro artículos por relevancia</p>
           </div>
         </div>
-        <button class="close-btn" id="btnCloseChat" aria-label="Cerrar buscador" type="button"><i class="fas fa-times"></i></button>
+        <button class="close-btn" id="btnCloseChat" aria-label="Cerrar buscador" type="button">
+          <i class="fas fa-times"></i>
+        </button>
       </div>
 
       <div class="chat-messages" id="chatMessages"></div>
@@ -744,276 +787,425 @@
           aria-label="Escribe tu consulta"
           enterkeyhint="send"
         >
-        <button class="chat-send" id="btnSendChat" type="button"><i class="fas fa-paper-plane"></i> Enviar</button>
+        <button class="btn btn-primary chat-send-btn" id="btnSendChat" type="button">
+          <i class="fas fa-paper-plane"></i>
+          <span>Enviar</span>
+        </button>
       </div>
     </div>
   </div>
 
   <script>
+    // =========================
+    // INIT
+    // =========================
     document.addEventListener('DOMContentLoaded', () => {
       document.getElementById('currentYear').textContent = new Date().getFullYear();
       renderCategories();
-      setupEvents();
+      setupEventListeners();
     });
 
+    // =========================
+    // DATA
+    // =========================
     const posts = [
-      { tag:"Coactiva", date:"Corte Nacional · Nulidad por personería", title:"¿Te pueden cobrar una coactiva si ya no eres representante legal?", excerpt:"Muchas personas pagan coactivas que nunca debieron dirigirse contra ellas. La Corte Nacional aclaró que cobrar a un exrepresentante legal puede anular todo el proceso.", url:"/blog/coactiva-ex-representante-legal-nulidad-ecuador.html" },
-      { tag:"Coactiva", date:"Corte Nacional · Resolución 393-2023", title:"¿Te pueden cobrar en coactiva si la deuda es ilegal en Ecuador?", excerpt:"La Corte Nacional aclaró un error grave: no todo se defiende dentro de la coactiva. Conoce cuándo atacar el título de crédito, la prescripción y por qué el tiempo lo cambia todo.", url:"/blog/coactiva-deuda-ilegal-defensa-ecuador.html" },
-      { tag:"Laboral", date:"Guía práctica", title:"¿Me pueden embargar todo el sueldo en Ecuador?", excerpt:"Cuánto pueden retenerte legalmente, cuándo es ilegal y qué hacer si te bloquean todo el salario.", url:"/blog/embargo-sueldo-ecuador.html" },
-      { tag:"Inmuebles", date:"Jurisprudencia obligatoria", title:"Terrenos: la regla obligatoria de la Corte sobre identificación del inmueble", excerpt:"La Corte Nacional aclaró qué se exige en prescripción y qué en reivindicación. Explicado fácil, sin tecnicismos.", url:"/blog/regla-obligatoria-singularizacion-inmueble-prescripcion-reivindicacion.html" },
-      { tag:"Aduanas", date:"Guía práctica", title:"SENAE retuvo tu mercadería: qué hacer (sin empeorar el caso)", excerpt:"Pasos concretos, errores comunes y cómo ordenar tu estrategia para recuperar tu mercancía.", url:"/blog/senae-retencion-mercaderia.html" },
-      { tag:"Familia", date:"Guía práctica", title:"Prohibición de salida del país por alimentos: cómo levantarla si hay acuerdo", excerpt:"Qué revisar, qué pedir al juzgado y cómo acelerar el trámite cuando hay urgencia.", url:"/blog/prohibicion-salida-alimentos.html" },
-      { tag:"Coactiva", date:"Guía práctica", title:"Cuenta bloqueada por coactiva y es tu salario: cómo moverte rápido", excerpt:"Qué pruebas necesitas y cómo argumentar el origen del dinero para desbloqueo.", url:"/blog/cuenta-bloqueada-coactiva-salario.html" },
-      { tag:"Laboral", date:"Jurisprudencia obligatoria", title:"¿Tus fondos de reserva cuentan para la jubilación patronal en Ecuador?", excerpt:"La Corte Nacional dejó una regla obligatoria: cuándo los fondos de reserva cuentan, qué se puede descontar y qué ya no.", url:"/blog/fondos-reserva-jubilacion-patronal-ecuador.html" }
+      {
+        tag: "Coactiva",
+        date: "Corte Nacional · Nulidad por personería",
+        title: "¿Te pueden cobrar una coactiva si ya no eres representante legal?",
+        excerpt: "Muchas personas pagan coactivas que nunca debieron dirigirse contra ellas. La Corte Nacional aclaró que cobrar a un exrepresentante legal puede anular todo el proceso.",
+        url: "/blog/coactiva-ex-representante-legal-nulidad-ecuador.html"
+      },
+      {
+        tag: "Coactiva",
+        date: "Corte Nacional · Resolución 393-2023",
+        title: "¿Te pueden cobrar en coactiva si la deuda es ilegal en Ecuador?",
+        excerpt: "La Corte Nacional aclaró un error grave: no todo se defiende dentro de la coactiva. Conoce cuándo atacar el título de crédito, la prescripción y por qué el tiempo lo cambia todo.",
+        url: "/blog/coactiva-deuda-ilegal-defensa-ecuador.html"
+      },
+      {
+        tag: "Laboral",
+        date: "Guía práctica",
+        title: "¿Me pueden embargar todo el sueldo en Ecuador?",
+        excerpt: "Cuánto pueden retenerte legalmente, cuándo es ilegal y qué hacer si te bloquean todo el salario.",
+        url: "/blog/embargo-sueldo-ecuador.html"
+      },
+      {
+        tag: "Inmuebles",
+        date: "Jurisprudencia obligatoria",
+        title: "Terrenos: la regla obligatoria de la Corte sobre identificación del inmueble",
+        excerpt: "La Corte Nacional aclaró qué se exige en prescripción y qué en reivindicación. Explicado fácil, sin tecnicismos.",
+        url: "/blog/regla-obligatoria-singularizacion-inmueble-prescripcion-reivindicacion.html"
+      },
+      {
+        tag: "Aduanas",
+        date: "Guía práctica",
+        title: "SENAE retuvo tu mercadería: qué hacer (sin empeorar el caso)",
+        excerpt: "Pasos concretos, errores comunes y cómo ordenar tu estrategia para recuperar tu mercancía.",
+        url: "/blog/senae-retencion-mercaderia.html"
+      },
+      {
+        tag: "Familia",
+        date: "Guía práctica",
+        title: "Prohibición de salida del país por alimentos: cómo levantarla si hay acuerdo",
+        excerpt: "Qué revisar, qué pedir al juzgado y cómo acelerar el trámite cuando hay urgencia.",
+        url: "/blog/prohibicion-salida-alimentos.html"
+      },
+      {
+        tag: "Coactiva",
+        date: "Guía práctica",
+        title: "Cuenta bloqueada por coactiva y es tu salario: cómo moverte rápido",
+        excerpt: "Qué pruebas necesitas y cómo argumentar el origen del dinero para desbloqueo.",
+        url: "/blog/cuenta-bloqueada-coactiva-salario.html"
+      },
+      {
+        tag: "Laboral",
+        date: "Jurisprudencia obligatoria",
+        title: "¿Tus fondos de reserva cuentan para la jubilación patronal en Ecuador?",
+        excerpt: "La Corte Nacional dejó una regla obligatoria: cuándo los fondos de reserva cuentan, qué se puede descontar y qué ya no.",
+        url: "/blog/fondos-reserva-jubilacion-patronal-ecuador.html"
+      }
     ];
 
     const categories = [
-      { key:"coactiva", name:"Coactiva", icon:"fa-gavel", desc:"Cuenta bloqueada, medidas de cobro, prescripción, nulidades y estrategia rápida.", href:"/blog/categoria-coactiva.html", tags:["Coactiva"] },
-      { key:"senae", name:"SENAE / Aduanas", icon:"fa-boxes-stacked", desc:"Retención de mercadería, liquidaciones, multas y pasos para no empeorar el caso.", href:"/blog/categoria-senae-aduanas.html", tags:["Aduanas","SENAE","Aduana"] },
-      { key:"familia", name:"Familia", icon:"fa-people-roof", desc:"Alimentos, medidas como prohibición de salida, acuerdos y trámites urgentes.", href:"/blog/categoria-familia.html", tags:["Familia"] },
-      { key:"inmobiliario", name:"Inmobiliario", icon:"fa-house-chimney", desc:"Prescripción, reivindicación, escrituras, conflictos por terrenos y posesión.", href:"/blog/categoria-inmobiliario.html", tags:["Inmuebles","Inmobiliario"] },
-      { key:"laboral", name:"Laboral", icon:"fa-briefcase", desc:"Embargos, derechos del trabajador, liquidaciones y reglas obligatorias.", href:"/blog/categoria-laboral.html", tags:["Laboral"] }
+      {
+        key: "coactiva",
+        name: "Coactiva",
+        icon: "fa-gavel",
+        desc: "Cuenta bloqueada, medidas de cobro, prescripción, nulidades y estrategia rápida.",
+        href: "/blog/categoria-coactiva.html",
+        tags: ["Coactiva"]
+      },
+      {
+        key: "senae",
+        name: "SENAE / Aduanas",
+        icon: "fa-boxes-stacked",
+        desc: "Retención de mercadería, liquidaciones, multas y pasos para no empeorar el caso.",
+        href: "/blog/categoria-senae-aduanas.html",
+        tags: ["Aduanas", "SENAE", "Aduana"]
+      },
+      {
+        key: "familia",
+        name: "Familia",
+        icon: "fa-people-roof",
+        desc: "Alimentos, medidas como prohibición de salida, acuerdos y trámites urgentes.",
+        href: "/blog/categoria-familia.html",
+        tags: ["Familia"]
+      },
+      {
+        key: "inmobiliario",
+        name: "Inmobiliario",
+        icon: "fa-house-chimney",
+        desc: "Prescripción, reivindicación, escrituras, conflictos por terrenos y posesión.",
+        href: "/blog/categoria-inmobiliario.html",
+        tags: ["Inmuebles", "Inmobiliario"]
+      },
+      {
+        key: "laboral",
+        name: "Laboral",
+        icon: "fa-briefcase",
+        desc: "Embargos, derechos del trabajador, liquidaciones y reglas obligatorias.",
+        href: "/blog/categoria-laboral.html",
+        tags: ["Laboral"]
+      }
     ];
 
-    function normalize(text){
-      return String(text||"")
+    // =========================
+    // HELPERS
+    // =========================
+    function normalize(text) {
+      return String(text || "")
         .toLowerCase()
-        .normalize("NFD").replace(/[\u0300-\u036f]/g,"")
-        .replace(/[^\p{L}\p{N}\s]/gu," ")
-        .replace(/\s+/g," ")
+        .normalize("NFD").replace(/[\u0300-\u036f]/g, "")
+        .replace(/[^\p{L}\p{N}\s]/gu, " ")
+        .replace(/\s+/g, " ")
         .trim();
     }
-    function escapeHtml(text){
-      const d=document.createElement("div");
-      d.textContent=text;
-      return d.innerHTML;
+
+    function escapeHtml(text) {
+      const div = document.createElement('div');
+      div.textContent = text;
+      return div.innerHTML;
     }
 
-    function renderCategories(){
-      const grid=document.getElementById("categoriesGrid");
-      grid.innerHTML = categories.map(c=>{
-        const count = posts.filter(p=> c.tags.some(t=> normalize(t)===normalize(p.tag))).length;
+    // =========================
+    // RENDER CATEGORIES
+    // =========================
+    function renderCategories() {
+      const grid = document.getElementById('categoriesGrid');
+      if (!grid) return;
+
+      grid.innerHTML = categories.map(category => {
+        const articleCount = posts.filter(post =>
+          category.tags.some(tag => normalize(tag) === normalize(post.tag))
+        ).length;
+
         return `
-          <article class="category-card" data-category="${c.key}" tabindex="0" role="button" aria-label="${c.name} - ${count} artículos">
+          <article class="category-card" data-category="${category.key}" tabindex="0" role="button" aria-label="${category.name} - ${articleCount} artículos">
             <div class="card-header">
-              <span class="category-chip"><i class="fas ${c.icon}"></i> ${escapeHtml(c.name)}</span>
-              <span class="article-count"><i class="far fa-file-lines"></i> ${count}</span>
+              <span class="category-chip">
+                <i class="fas ${category.icon}"></i>
+                ${escapeHtml(category.name)}
+              </span>
+              <span class="article-count" aria-hidden="true">
+                <i class="far fa-file-lines"></i>
+                ${articleCount}
+              </span>
             </div>
-            <h3>${escapeHtml(c.name)}</h3>
-            <p>${escapeHtml(c.desc)}</p>
+            <h3>${escapeHtml(category.name)}</h3>
+            <p>${escapeHtml(category.desc)}</p>
             <div class="card-actions">
-              <a class="btn btn-secondary" href="${c.href}">Ver artículos <i class="fas fa-arrow-right"></i></a>
-              <button class="card-link" data-category-search="${escapeHtml(c.name)}" type="button">Buscar sobre ${escapeHtml(c.name)} <i class="far fa-comment-dots"></i></button>
+              <a href="${category.href}" class="btn" aria-label="Ver artículos de ${category.name}">
+                Ver artículos
+                <i class="fas fa-arrow-right"></i>
+              </a>
+              <button class="card-link" data-category-search="${category.name}" type="button" aria-label="Buscar sobre ${category.name}">
+                Buscar sobre ${category.name}
+                <i class="far fa-comment-dots"></i>
+              </button>
             </div>
           </article>
         `;
-      }).join("");
+      }).join('');
     }
 
-    function setupEvents(){
-      const btnBurger=document.getElementById("btnBurger");
-      const overlay=document.getElementById("menuOverlay");
-      const panel=document.getElementById("offcanvas");
-      const btnClose=document.getElementById("btnCloseMenu");
+    // =========================
+    // EVENTS
+    // =========================
+    function setupEventListeners() {
+      // Chat open buttons
+      const openBtns = [
+        document.getElementById('btnOpenChat'),
+        document.getElementById('btnOpenChatHero'),
+        document.getElementById('btnOpenChatDesktop')
+      ].filter(Boolean);
+      openBtns.forEach(b => b.addEventListener('click', openChatModal));
 
-      function openMenu(){
-        overlay.classList.add("active");
-        panel.classList.add("active");
-        overlay.setAttribute("aria-hidden","false");
-        panel.setAttribute("aria-hidden","false");
-        document.body.style.overflow="hidden";
-      }
-      function closeMenu(){
-        overlay.classList.remove("active");
-        panel.classList.remove("active");
-        overlay.setAttribute("aria-hidden","true");
-        panel.setAttribute("aria-hidden","true");
-        document.body.style.overflow="";
-      }
+      document.getElementById('btnCloseChat').addEventListener('click', closeChatModal);
 
-      if(btnBurger) btnBurger.addEventListener("click", openMenu);
-      if(btnClose) btnClose.addEventListener("click", closeMenu);
-      if(overlay) overlay.addEventListener("click", closeMenu);
-
-      const goCats=document.getElementById("menuGoCategories");
-      if(goCats) goCats.addEventListener("click", ()=> closeMenu());
-
-      const menuSearch=document.getElementById("menuOpenSearch");
-      if(menuSearch) menuSearch.addEventListener("click", ()=>{ closeMenu(); openChatModal(); });
-
-      document.addEventListener("keydown",(e)=>{
-        if(e.key==="Escape"){ closeMenu(); closeChatModal(); }
+      // close chat clicking overlay
+      document.getElementById('chatModal').addEventListener('click', (e) => {
+        if (e.target.id === 'chatModal') closeChatModal();
       });
 
-      // Chat open buttons (móvil + desktop)
-      const btnOpenChat=document.getElementById("btnOpenChat");
-      const btnHeaderSearch=document.getElementById("btnHeaderSearch");
-      const btnDesktopSearch=document.getElementById("btnDesktopSearch");
-      if(btnOpenChat) btnOpenChat.addEventListener("click", openChatModal);
-      if(btnHeaderSearch) btnHeaderSearch.addEventListener("click", openChatModal);
-      if(btnDesktopSearch) btnDesktopSearch.addEventListener("click", openChatModal);
-
-      document.getElementById("btnCloseChat").addEventListener("click", closeChatModal);
-      document.getElementById("chatModal").addEventListener("click", function(e){
-        if(e.target===this) closeChatModal();
+      // search quick
+      document.getElementById('searchBtn').addEventListener('click', handleQuickSearch);
+      document.getElementById('searchInput').addEventListener('keydown', (e) => {
+        if (e.key === 'Enter') { e.preventDefault(); handleQuickSearch(); }
       });
 
-      // Search submit
-      document.getElementById("searchBtn").addEventListener("click", quickSearch);
-      document.getElementById("searchInput").addEventListener("keydown",(e)=>{
-        if(e.key==="Enter"){ e.preventDefault(); quickSearch(); }
+      // chat send
+      document.getElementById('btnSendChat').addEventListener('click', sendChatMessage);
+      document.getElementById('chatInput').addEventListener('keydown', (e) => {
+        if (e.key === 'Enter') { e.preventDefault(); sendChatMessage(); }
       });
 
-      // Chat send
-      document.getElementById("btnSendChat").addEventListener("click", sendChat);
-      document.getElementById("chatInput").addEventListener("keydown",(e)=>{
-        if(e.key==="Enter"){ e.preventDefault(); sendChat(); }
-      });
-
-      // Cards behavior
-      document.addEventListener("click",(e)=>{
-        const card=e.target.closest(".category-card");
-        if(card && !e.target.closest("a") && !e.target.closest("button")){
-          const key=card.getAttribute("data-category");
-          const cat=categories.find(x=>x.key===key);
-          if(cat) window.location.href=cat.href;
+      // category card click
+      document.addEventListener('click', (e) => {
+        const card = e.target.closest('.category-card');
+        if (card && !e.target.closest('a') && !e.target.closest('button')) {
+          const key = card.getAttribute('data-category');
+          const cat = categories.find(c => c.key === key);
+          if (cat) window.location.href = cat.href;
         }
 
-        const catSearch=e.target.closest("[data-category-search]");
-        if(catSearch){
+        const catSearch = e.target.closest('[data-category-search]');
+        if (catSearch) {
           e.preventDefault();
-          const name=catSearch.getAttribute("data-category-search");
+          const catName = catSearch.getAttribute('data-category-search');
           openChatModal();
-          setTimeout(()=> sendBotMessage(`Perfecto. Escribe tu pregunta sobre <strong>${escapeHtml(name)}</strong> y te muestro artículos.`), 220);
+          setTimeout(() => {
+            sendBotMessage(`Perfecto. Escribe tu pregunta sobre <strong>${escapeHtml(catName)}</strong> y te mostraré artículos relacionados.`);
+          }, 200);
         }
+      });
+
+      // Esc closes chat
+      document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape') {
+          if (document.getElementById('chatModal').classList.contains('active')) closeChatModal();
+          if (document.getElementById('drawerOverlay').classList.contains('active')) closeDrawer();
+        }
+      });
+
+      // Drawer
+      document.getElementById('btnHamburger').addEventListener('click', openDrawer);
+      document.getElementById('btnCloseDrawer').addEventListener('click', closeDrawer);
+      document.getElementById('drawerOverlay').addEventListener('click', (e) => {
+        if (e.target.id === 'drawerOverlay') closeDrawer();
+      });
+
+      // close drawer when clicking a link
+      document.querySelectorAll('.drawer-links a').forEach(a => {
+        a.addEventListener('click', () => closeDrawer());
       });
     }
 
-    function openChatModal(){
-      const modal=document.getElementById("chatModal");
-      const messages=document.getElementById("chatMessages");
-
-      modal.classList.add("active");
-      modal.setAttribute("aria-hidden","false");
-      document.body.style.overflow="hidden";
-
-      if(messages.children.length===0){
-        sendBotMessage("Hola. Soy el buscador de guías de Júristam. Escribe tu problema y te mostraré los artículos más relevantes.");
-      }
-      setTimeout(()=> document.getElementById("chatInput").focus(), 240);
+    // =========================
+    // DRAWER
+    // =========================
+    function openDrawer(){
+      const overlay = document.getElementById('drawerOverlay');
+      overlay.classList.add('active');
+      overlay.setAttribute('aria-hidden','false');
+      document.body.style.overflow='hidden';
     }
+    function closeDrawer(){
+      const overlay = document.getElementById('drawerOverlay');
+      overlay.classList.remove('active');
+      overlay.setAttribute('aria-hidden','true');
+      document.body.style.overflow='';
+    }
+
+    // =========================
+    // CHAT
+    // =========================
+    function openChatModal(){
+      const modal = document.getElementById('chatModal');
+      modal.classList.add('active');
+      modal.setAttribute('aria-hidden','false');
+      document.body.style.overflow='hidden';
+
+      const messages = document.getElementById('chatMessages');
+      if (messages.children.length === 0) {
+        sendBotMessage('Hola. Soy el buscador de guías de Júristam. Escribe tu problema y te mostraré los artículos más relevantes.');
+      }
+
+      setTimeout(() => document.getElementById('chatInput').focus(), 200);
+    }
+
     function closeChatModal(){
-      const modal=document.getElementById("chatModal");
-      modal.classList.remove("active");
-      modal.setAttribute("aria-hidden","true");
-      document.body.style.overflow="";
-      const i=document.getElementById("chatInput");
-      if(i) i.blur();
+      const modal = document.getElementById('chatModal');
+      modal.classList.remove('active');
+      modal.setAttribute('aria-hidden','true');
+      document.body.style.overflow='';
+      const input = document.getElementById('chatInput');
+      input.blur();
+    }
+
+    function sendChatMessage(){
+      const input = document.getElementById('chatInput');
+      const msg = input.value.trim();
+      if (!msg) return;
+      sendUserMessage(msg);
+      input.value = '';
+      processSearchQuery(msg);
     }
 
     function sendUserMessage(text){
-      const wrap=document.getElementById("chatMessages");
-      const div=document.createElement("div");
-      div.className="message message-user";
-      div.textContent=text;
-      wrap.appendChild(div);
-      scrollBottom();
+      const messages = document.getElementById('chatMessages');
+      const div = document.createElement('div');
+      div.className = 'message message-user';
+      div.textContent = text;
+      messages.appendChild(div);
+      scrollToBottom();
     }
+
     function sendBotMessage(html){
-      const wrap=document.getElementById("chatMessages");
-      const div=document.createElement("div");
-      div.className="message message-bot";
-      div.innerHTML=html;
-      wrap.appendChild(div);
-      scrollBottom();
-    }
-    function scrollBottom(){
-      const wrap=document.getElementById("chatMessages");
-      setTimeout(()=> wrap.scrollTop = wrap.scrollHeight, 80);
+      const messages = document.getElementById('chatMessages');
+      const div = document.createElement('div');
+      div.className = 'message message-bot';
+      div.innerHTML = html;
+      messages.appendChild(div);
+      scrollToBottom();
     }
 
-    function sendChat(){
-      const input=document.getElementById("chatInput");
-      const q=input.value.trim();
-      if(!q) return;
-      sendUserMessage(q);
-      input.value="";
-      processQuery(q);
+    function scrollToBottom(){
+      const messages = document.getElementById('chatMessages');
+      setTimeout(() => { messages.scrollTop = messages.scrollHeight; }, 80);
     }
 
-    function quickSearch(){
-      const input=document.getElementById("searchInput");
-      const q=input.value.trim();
-      if(!q) return;
+    // =========================
+    // SEARCH
+    // =========================
+    function handleQuickSearch(){
+      const input = document.getElementById('searchInput');
+      const query = input.value.trim();
+      if (!query) return;
       openChatModal();
-      setTimeout(()=>{
-        sendUserMessage(q);
-        processQuery(q);
+      setTimeout(() => {
+        sendUserMessage(query);
+        processSearchQuery(query);
       }, 150);
     }
 
-    function processQuery(query){
-      const results=searchPosts(normalize(query));
-      if(results.length===0){
-        sendBotMessage('No encontré artículos exactos. Prueba con: "coactiva", "SENAE", "alimentos", "terreno", "sueldo".');
+    function processSearchQuery(queryRaw){
+      const q = normalize(queryRaw);
+      const results = searchPosts(q);
+
+      if (!results.length){
+        sendBotMessage('No encontré artículos exactos con esas palabras. Prueba con: "coactiva", "SENAE", "alimentos", "terreno", "sueldo".');
         return;
       }
 
-      const inferred=inferCategory(normalize(query));
-      if(inferred){
-        const cat=categories.find(c => normalize(c.name)===normalize(inferred) || c.tags.some(t=> normalize(t)===normalize(inferred)));
-        if(cat){
-          sendBotMessage(`Esto suena a <strong>${escapeHtml(cat.name)}</strong>. Si quieres ver todos: <a href="${cat.href}" target="_blank">abrir ${escapeHtml(cat.name)}</a>.`);
+      const inferred = inferCategory(q);
+      if (inferred){
+        const cat = categories.find(c =>
+          normalize(c.name) === normalize(inferred) ||
+          c.tags.some(t => normalize(t) === normalize(inferred))
+        );
+        if (cat){
+          sendBotMessage(`Esto suena a <strong>${escapeHtml(cat.name)}</strong>. Si prefieres ver todos: <a href="${cat.href}" target="_blank" rel="noopener">abrir ${escapeHtml(cat.name)}</a>.`);
         }
       }
 
-      sendBotMessage(`Artículos relevantes para: <strong>${escapeHtml(query)}</strong>`);
-      const block=document.createElement("div");
-      block.className="search-results";
-      block.innerHTML = results.map(p=>`
+      sendBotMessage(`Artículos relevantes para: <strong>${escapeHtml(queryRaw)}</strong>`);
+
+      const container = document.createElement('div');
+      container.className = 'search-results';
+      container.innerHTML = results.map(post => `
         <div class="result-card">
           <div class="result-header">
-            <span class="result-tag">${escapeHtml(p.tag)}</span>
-            <span class="result-date"><i class="far fa-clock"></i> ${escapeHtml(p.date)}</span>
+            <span class="result-tag">${escapeHtml(post.tag)}</span>
+            <span class="result-date"><i class="far fa-clock"></i> ${escapeHtml(post.date)}</span>
           </div>
-          <div class="result-title">${escapeHtml(p.title)}</div>
-          <div class="result-excerpt">${escapeHtml(p.excerpt)}</div>
-          <a class="result-link" href="${p.url}" target="_blank" rel="noopener">Leer artículo <i class="fas fa-arrow-right"></i></a>
+          <div class="result-title">${escapeHtml(post.title)}</div>
+          <div class="result-excerpt">${escapeHtml(post.excerpt)}</div>
+          <a href="${post.url}" class="result-link" target="_blank" rel="noopener">
+            Leer artículo <i class="fas fa-arrow-right"></i>
+          </a>
         </div>
-      `).join("");
-      document.getElementById("chatMessages").appendChild(block);
-      scrollBottom();
+      `).join('');
+
+      document.getElementById('chatMessages').appendChild(container);
+      scrollToBottom();
     }
 
-    function searchPosts(q){
+    function searchPosts(query){
       return posts
-        .map(p=>({...p, score:score(q,p)}))
-        .filter(p=>p.score>0)
-        .sort((a,b)=>b.score-a.score)
-        .slice(0,6);
+        .map(p => ({...p, score: calculateScore(query, p)}))
+        .filter(p => p.score > 0)
+        .sort((a,b) => b.score - a.score)
+        .slice(0, 6);
     }
 
-    function score(q,p){
-      let s=0;
-      const t=normalize([p.tag,p.title,p.excerpt].join(" "));
-      if(q.length>=5 && t.includes(q)) s+=18;
-      q.split(" ").filter(w=>w.length>=3).forEach(w=>{ if(t.includes(w)) s+=5; });
-      const cat=inferCategory(q);
-      if(cat && normalize(p.tag)===normalize(cat)) s+=10;
-      return s;
+    function calculateScore(query, post){
+      let score = 0;
+      const text = normalize([post.tag, post.title, post.excerpt].join(' '));
+
+      if (query.length >= 5 && text.includes(query)) score += 20;
+
+      query.split(' ').filter(w => w.length >= 3).forEach(w => {
+        if (text.includes(w)) score += 5;
+      });
+
+      const cat = inferCategory(query);
+      if (cat && normalize(post.tag) === normalize(cat)) score += 10;
+
+      return score;
     }
 
-    function inferCategory(q){
-      const groups=[
-        {keys:["coactiva","cobro coactivo","embargo","bloquearon","bloqueo","cuenta bloqueada","retencion de cuenta"], cat:"Coactiva"},
-        {keys:["senae","aduanas","aduana","retuvieron","mercaderia","mercadería","liquidacion","liquidación","aforo","multa aduanera"], cat:"Aduanas"},
-        {keys:["alimentos","familia","pension","pensión","prohibicion de salida","prohibición de salida","salida del pais","salida del país"], cat:"Familia"},
-        {keys:["terreno","inmueble","prescripcion","prescripción","posesion","posesión","reivindicacion","reivindicación","escritura"], cat:"Inmuebles"},
-        {keys:["laboral","sueldo","salario","despido","fondo de reserva","jubilacion patronal","jubilación patronal"], cat:"Laboral"}
+    function inferCategory(query){
+      const synonyms = [
+        { keys: ["coactiva","cobro coactivo","embargo","bloquearon","bloqueo","cuenta bloqueada","retuvieron mi cuenta"], cat:"Coactiva" },
+        { keys: ["senae","aduanas","aduana","retuvieron","mercaderia","mercadería","liquidacion","liquidación","aforo","multa"], cat:"Aduanas" },
+        { keys: ["alimentos","familia","pension","pensión","prohibicion de salida","prohibición de salida","salida del pais","salida del país"], cat:"Familia" },
+        { keys: ["terreno","inmueble","prescripcion","prescripción","posesion","posesión","reivindicacion","reivindicación","escritura"], cat:"Inmuebles" },
+        { keys: ["laboral","sueldo","salario","despido","fondo de reserva","fondos de reserva","jubilacion patronal","jubilación patronal"], cat:"Laboral" }
       ];
-      for(const g of groups){
-        for(const k of g.keys){
-          if(q.includes(normalize(k))) return g.cat;
+      for (const g of synonyms){
+        for (const k of g.keys){
+          if (query.includes(normalize(k))) return g.cat;
         }
       }
       return null;
