@@ -2,1197 +2,1022 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover, maximum-scale=5.0" />
+  <meta name="theme-color" content="#9a6aff">
+  <meta name="format-detection" content="telephone=no">
 
-  <title>Guías Júristam · Artículos prácticos en Ecuador</title>
-  <meta name="description" content="Guías prácticas de Júristam: qué hacer en problemas legales comunes en Ecuador. Sin humo, con pasos claros." />
-
+  <title>Guías Júristam · Blog Legal por Categorías</title>
+  <meta name="description" content="Guías prácticas de Júristam organizadas por categorías: Coactiva, SENAE/Aduanas, Familia, Inmobiliario y Laboral. Encuentra soluciones reales en Ecuador." />
   <link rel="canonical" href="https://juristam.net/blog/" />
   <meta name="robots" content="index,follow,max-image-preview:large" />
 
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Playfair+Display:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
   <style>
+    /* =========================
+       MOBILE-FIRST RESET
+       ========================= */
+    *{margin:0;padding:0;box-sizing:border-box}
     :root{
+      --sat: env(safe-area-inset-top);
+      --sar: env(safe-area-inset-right);
+      --sab: env(safe-area-inset-bottom);
+      --sal: env(safe-area-inset-left);
+
       --primary:#9a6aff;
       --primary-dark:#7c3aed;
-      --primary-light:#efe8ff;
-      --secondary:#1e293b;
+      --primary-soft:#efe8ff;
+      --primary-grad:linear-gradient(135deg,#9a6aff 0%,#7c3aed 100%);
 
       --bg:#ffffff;
-      --panel:#ffffff;
-      --border:#e5e7eb;
+      --bg-soft:#f8f9ff;
 
-      --text:#111827;
-      --text-secondary:#4b5563;
-      --text-light:#6b7280;
+      --border:#e2e8f0;
+      --border-soft:rgba(226,232,240,.8);
 
-      --shadow-sm:0 2px 10px rgba(0,0,0,.06);
-      --shadow-lg:0 10px 25px rgba(0,0,0,.10);
-      --shadow-xl:0 22px 50px rgba(0,0,0,.14);
-      --shadow-2xl:0 30px 60px rgba(0,0,0,.18);
+      --text:#0f172a;
+      --text-2:#334155;
+      --text-3:#64748b;
 
-      --radius-xl:28px;
-      --radius-lg:20px;
-      --radius-md:12px;
+      --shadow-sm:0 2px 10px rgba(15,23,42,.08);
+      --shadow-md:0 10px 30px rgba(15,23,42,.12);
+      --shadow-primary:0 10px 24px rgba(154,106,255,.25);
 
-      --header-fixed-h: 92px;
-      --header-h: 92px;
+      --r:16px;
+      --r-lg:20px;
+      --r-full:9999px;
+
+      --fs-12: 12px;
+      --fs-13: 13px;
+      --fs-14: 14px;
+      --fs-16: 16px;
+
+      --header-h: calc(60px + var(--sat));
+      --tap: 44px;
     }
 
-    *{margin:0;padding:0;box-sizing:border-box}
-    html{
-      scroll-behavior:smooth;
-      scroll-padding-top: calc(var(--header-h) + 14px);
-    }
+    html{scroll-behavior:smooth;-webkit-text-size-adjust:100%;text-size-adjust:100%}
     body{
-      font-family:Inter,system-ui,-apple-system,Segoe UI,sans-serif;
-      color:var(--text);
+      font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
       background:var(--bg);
+      color:var(--text);
       overflow-x:hidden;
       -webkit-font-smoothing:antialiased;
-      -moz-osx-font-smoothing:grayscale;
     }
-    img{max-width:100%;height:auto;display:block}
-    a{-webkit-tap-highlight-color:transparent}
+
+    a{color:inherit;text-decoration:none}
+    img{max-width:100%;display:block}
+    button,input{font-family:inherit}
+    input[type="text"],input[type="search"]{font-size:16px !important}
+
     .container{
+      width:100%;
       max-width:1200px;
       margin:0 auto;
-      padding:0 clamp(1rem, 3.6vw, 2.2rem);
+      padding:0 max(16px, var(--sal));
     }
 
     /* =========================
        HEADER
        ========================= */
     header{
-      position:sticky; top:0; z-index:100;
+      position:sticky;top:0;z-index:1200;
+      height:var(--header-h);
+      padding-top:var(--sat);
       background:rgba(255,255,255,.96);
-      backdrop-filter:blur(20px);
-      border-bottom:1px solid rgba(229,231,235,.85);
-      box-shadow:var(--shadow-sm);
-      height: var(--header-fixed-h);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+      border-bottom:1px solid var(--border-soft);
+      box-shadow: var(--shadow-sm);
+    }
+
+    .header-inner{
+      height:calc(var(--header-h) - var(--sat));
+      max-width:1200px;
+      margin:0 auto;
+      padding:0 max(12px, var(--sal));
       display:flex;
       align-items:center;
-      padding:0;
-      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-    }
-    
-    header.scrolled {
-      height: calc(var(--header-fixed-h) - 12px);
-      background:rgba(255,255,255,.98);
-      box-shadow: 0 4px 30px rgba(0,0,0,.08);
-    }
-    
-    .nav{
-      display:flex;
-      align-items:center;
-      gap: clamp(.6rem, 2vw, 1rem);
-      width:100%;
-      height: 100%;
+      gap:12px;
       min-width:0;
     }
 
     .brand{
       display:flex;
       align-items:center;
-      text-decoration:none;
-      flex:0 0 auto;
       min-width:0;
+      flex: 1 1 auto; /* móvil: logo crece si hay espacio */
     }
 
     .logo-box{
-      height: clamp(56px, 6.4vw, 72px);
-      width:  clamp(150px, 24vw, 220px);
+      height:44px;
+      width:min(160px, 42vw);
+      min-width:110px;
+      overflow:hidden;
       display:flex;
       align-items:center;
-      justify-content:flex-start;
-      overflow:hidden;
-      flex:0 0 auto;
-      transition: transform 0.3s ease;
     }
-    
-    header.scrolled .logo-box {
-      transform: scale(0.95);
-    }
-    
     .logo-box img{
-      height:100%;
-      width:auto;
+      height:100%;width:100%;
       object-fit:contain;
+      object-position:left center;
     }
 
-    .nav-center{
-      flex:1 1 auto;
+    /* ✅ MOBILE ACTIONS (buscador + hamburguesa) */
+    .header-actions{
       display:flex;
-      justify-content:center;
       align-items:center;
+      gap:8px;
+      flex: 0 0 auto;
+    }
+
+    .btn-search-mobile{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      gap:8px;
+      height:var(--tap);
+      padding:0 12px;
+      border-radius:14px;
+      border:1px solid rgba(154,106,255,.25);
+      background: rgba(154,106,255,.10);
+      color: var(--primary-dark);
+      font-weight: 900;
+      font-size: var(--fs-13);
+      white-space:nowrap;
+      max-width: 46vw;
+      overflow:hidden;
+      text-overflow:ellipsis;
+      cursor:pointer;
+    }
+
+    .btn-burger{
+      width:var(--tap);
+      height:var(--tap);
+      border-radius:14px;
+      border:1px solid rgba(15,23,42,.10);
+      background: rgba(15,23,42,.04);
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      cursor:pointer;
+    }
+    .btn-burger i{font-size:18px}
+
+    /* ✅ DESKTOP NAV (oculto en móvil) */
+    .nav-center{
+      display:none;
+      flex: 1 1 auto;
+      justify-content:center;
       min-width:0;
     }
-    
     .nav-pill{
       display:flex;
       align-items:center;
-      gap:.25rem;
-      padding:.45rem;
+      gap:6px;
+      padding:6px;
       border-radius:999px;
-      background:rgba(255,255,255,.7);
-      border:1px solid rgba(229,231,235,.9);
-      box-shadow:0 8px 32px rgba(17,24,39,.05);
-      max-width:100%;
+      background: rgba(243,244,246,.75);
+      border:1px solid rgba(226,232,240,.9);
+      box-shadow: 0 12px 24px rgba(15,23,42,.06);
+      max-width: 100%;
       overflow:auto;
-      scrollbar-width:none;
-      backdrop-filter: blur(8px);
-      transition: all 0.3s ease;
     }
-    
-    .nav-pill::-webkit-scrollbar{display:none}
-
     .nav-link{
       display:inline-flex;
       align-items:center;
-      justify-content:center;
-      padding:.72rem 1.05rem;
+      gap:8px;
+      padding:10px 14px;
       border-radius:999px;
-      text-decoration:none;
       font-weight:900;
-      color:var(--text-secondary);
+      font-size: 14px;
+      color: var(--text-2);
       white-space:nowrap;
-      transition:.2s ease;
-      position:relative;
-      flex:0 0 auto;
+      transition:.18s ease;
     }
-    
     .nav-link:hover{
       background:#fff;
-      color:var(--primary-dark);
-      box-shadow:0 4px 16px rgba(17,24,39,.08);
+      color: var(--primary-dark);
+      box-shadow: 0 10px 18px rgba(15,23,42,.08);
     }
 
-    .nav-right{
-      flex:0 0 auto;
-      margin-left:auto;
-      display:flex;
+    /* ✅ DESKTOP CTAs (oculto en móvil) */
+    .desktop-actions{
+      display:none;
+      flex: 0 0 auto;
       align-items:center;
-      justify-content:flex-end;
+      gap:10px;
       min-width:0;
     }
 
-    .btn-primary{
+    .btn{
       display:inline-flex;
       align-items:center;
       justify-content:center;
-      gap:.55rem;
-      padding: .92rem 1.45rem;
+      gap:10px;
+      height:48px;
+      padding:0 16px;
       border-radius:999px;
-      font-weight:900;
-      text-decoration:none;
-      color:#fff;
-      border:1px solid rgba(124,58,237,.2);
-      background:linear-gradient(135deg,var(--primary) 0%,var(--primary-dark) 100%);
-      box-shadow:0 18px 34px rgba(124,58,237,.28);
-      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      border:1px solid transparent;
+      font-weight: 900;
+      font-size: 14px;
       white-space:nowrap;
-      line-height:1;
-      flex:0 0 auto;
-      max-width: 100%;
-      position: relative;
-      overflow: hidden;
+      cursor:pointer;
     }
-    
-    .btn-primary::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: -100%;
-      width: 100%;
-      height: 100%;
-      background: linear-gradient(90deg, transparent, rgba(255,255,255,.2), transparent);
-      transition: left 0.7s ease;
+    .btn-primary{
+      background: var(--primary-grad);
+      color:#fff;
+      border-color: rgba(124,58,237,.18);
+      box-shadow: var(--shadow-primary);
     }
-    
-    .btn-primary:hover{
-      transform:translateY(-2px);
-      box-shadow:0 22px 44px rgba(124,58,237,.32);
-    }
-    
-    .btn-primary:hover::before {
-      left: 100%;
+    .btn-secondary{
+      background: rgba(154,106,255,.10);
+      color: var(--primary-dark);
+      border-color: rgba(154,106,255,.25);
     }
 
     /* =========================
-       PARALLAX SECTIONS - EFECTO REAL
+       HERO + CONTENT
        ========================= */
-    .parallax-section {
-      position: relative;
-      overflow: hidden;
-      min-height: 100vh;
-      display: flex;
-      align-items: center;
-      border-bottom: 1px solid rgba(229,231,235,.85);
+    main{padding:16px 0 70px}
+    .hero{
+      margin: 0 auto 18px;
+      padding: 18px;
+      background: linear-gradient(135deg,#f8fafc 0%,#f2f3fb 100%);
+      border:1px solid var(--border);
+      border-radius: 22px;
+      box-shadow: var(--shadow-md);
+      overflow:hidden;
     }
-    
-    .parallax-section.first-section {
-      min-height: 80vh;
-    }
-
-    /* Capas de parallax */
-    .parallax-layer {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 120%;
-      z-index: 1;
-      will-change: transform;
-      transform: translateZ(0);
-    }
-    
-    .parallax-layer.background {
-      z-index: 1;
-    }
-    
-    .parallax-layer.foreground {
-      z-index: 2;
-      opacity: 0.3;
-      mix-blend-mode: overlay;
-    }
-
-    /* Contenido principal */
-    .parallax-content {
-      position: relative;
-      z-index: 3;
-      width: 100%;
-      padding: 4rem 0;
-    }
-
-    /* Fondos con gradientes para el parallax */
-    .parallax-bg-1 {
-      background: 
-        radial-gradient(circle at 20% 30%, rgba(154, 106, 255, 0.25) 0%, transparent 50%),
-        radial-gradient(circle at 80% 20%, rgba(124, 58, 237, 0.2) 0%, transparent 50%),
-        radial-gradient(circle at 40% 70%, rgba(59, 130, 246, 0.15) 0%, transparent 50%),
-        linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-      background-size: 400% 400%;
-      animation: gradientMove 15s ease infinite;
-    }
-
-    .parallax-bg-2 {
-      background: 
-        radial-gradient(circle at 30% 40%, rgba(245, 158, 11, 0.25) 0%, transparent 50%),
-        radial-gradient(circle at 70% 30%, rgba(236, 72, 153, 0.2) 0%, transparent 50%),
-        radial-gradient(circle at 50% 60%, rgba(139, 92, 246, 0.15) 0%, transparent 50%),
-        linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
-      background-size: 400% 400%;
-      animation: gradientMove 18s ease infinite;
-    }
-
-    .parallax-bg-3 {
-      background: 
-        radial-gradient(circle at 40% 50%, rgba(16, 185, 129, 0.25) 0%, transparent 50%),
-        radial-gradient(circle at 60% 40%, rgba(6, 182, 212, 0.2) 0%, transparent 50%),
-        radial-gradient(circle at 30% 70%, rgba(59, 130, 246, 0.15) 0%, transparent 50%),
-        linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
-      background-size: 400% 400%;
-      animation: gradientMove 20s ease infinite;
-    }
-
-    .parallax-bg-4 {
-      background: 
-        radial-gradient(circle at 25% 35%, rgba(99, 102, 241, 0.25) 0%, transparent 50%),
-        radial-gradient(circle at 75% 45%, rgba(168, 85, 247, 0.2) 0%, transparent 50%),
-        radial-gradient(circle at 45% 65%, rgba(236, 72, 153, 0.15) 0%, transparent 50%),
-        linear-gradient(135deg, #a78bfa 0%, #7dd3fc 100%);
-      background-size: 400% 400%;
-      animation: gradientMove 22s ease infinite;
-    }
-
-    .parallax-bg-5 {
-      background: 
-        radial-gradient(circle at 35% 45%, rgba(251, 146, 60, 0.25) 0%, transparent 50%),
-        radial-gradient(circle at 65% 35%, rgba(249, 115, 22, 0.2) 0%, transparent 50%),
-        radial-gradient(circle at 55% 75%, rgba(234, 88, 12, 0.15) 0%, transparent 50%),
-        linear-gradient(135deg, #fbbf24 0%, #f59e0b 100%);
-      background-size: 400% 400%;
-      animation: gradientMove 17s ease infinite;
-    }
-
-    /* Patrones para capa frontal */
-    .pattern-1 {
-      background-image: 
-        radial-gradient(circle at 25% 25%, rgba(255,255,255,0.1) 2px, transparent 2px),
-        radial-gradient(circle at 75% 75%, rgba(255,255,255,0.1) 2px, transparent 2px);
-      background-size: 60px 60px;
-    }
-
-    .pattern-2 {
-      background-image: 
-        linear-gradient(45deg, rgba(255,255,255,0.05) 25%, transparent 25%),
-        linear-gradient(-45deg, rgba(255,255,255,0.05) 25%, transparent 25%),
-        linear-gradient(45deg, transparent 75%, rgba(255,255,255,0.05) 75%),
-        linear-gradient(-45deg, transparent 75%, rgba(255,255,255,0.05) 75%);
-      background-size: 40px 40px;
-    }
-
-    /* Animación de gradientes */
-    @keyframes gradientMove {
-      0% {
-        background-position: 0% 50%;
-      }
-      50% {
-        background-position: 100% 50%;
-      }
-      100% {
-        background-position: 0% 50%;
-      }
-    }
-
-    /* Overlay para mejorar legibilidad */
-    .parallax-section::after {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: linear-gradient(
-        to bottom,
-        rgba(255,255,255,0.85) 0%,
-        rgba(255,255,255,0.9) 30%,
-        rgba(255,255,255,0.95) 70%,
-        rgba(255,255,255,1) 100%
-      );
-      z-index: 2;
-      pointer-events: none;
-    }
-
-    /* =========================
-       CONTENIDO MEJORADO
-       ========================= */
-    .hero-card{
-      background:rgba(255,255,255,.95);
-      border:1px solid rgba(229,231,235,.85);
-      border-radius:var(--radius-xl);
-      padding: clamp(1.5rem, 4vw, 2.5rem);
-      box-shadow: var(--shadow-2xl);
-      backdrop-filter: blur(16px);
-      transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.4s ease;
-    }
-    
-    .hero-card:hover {
-      transform: translateY(-4px);
-      box-shadow: 0 30px 60px rgba(0,0,0,.15);
-    }
-    
-    .kicker{
-      display:inline-flex;
-      align-items:center;
-      gap:.55rem;
-      padding:.55rem .95rem;
-      border-radius:999px;
-      background:rgba(154,106,255,.12);
-      border:1px solid rgba(154,106,255,.22);
-      color:var(--primary-dark);
+    .hero h1{
+      font-family:"Playfair Display", serif;
       font-weight:900;
-      font-size:.86rem;
-      letter-spacing:.2px;
-      margin-bottom:1rem;
-      backdrop-filter: blur(4px);
+      font-size: clamp(24px, 7.2vw, 40px);
+      line-height:1.08;
+      margin-bottom:10px;
+      letter-spacing:-.02em;
     }
-    
-    h1{
-      font-family:'Playfair Display',serif;
-      font-size: clamp(2.2rem, 5.5vw, 3.5rem);
-      line-height:1.05;
-      color:var(--secondary);
-      margin-bottom:.85rem;
-      background: linear-gradient(135deg, var(--secondary) 0%, #374151 100%);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
+    .hero p{
+      color:var(--text-2);
+      font-size: clamp(14px, 3.8vw, 18px);
+      line-height:1.6;
+      margin-bottom:14px;
+      max-width: 65ch;
     }
-    
-    .sub{
-      color:var(--text-secondary);
-      font-size: clamp(1.05rem, 2.5vw, 1.2rem);
-      line-height:1.75;
-    }
-
     .hero-actions{
       display:flex;
-      gap:.9rem;
       flex-wrap:wrap;
-      margin-top:1.5rem;
-    }
-    
-    .btn-ghost{
-      display:inline-flex;
-      align-items:center;
-      justify-content:center;
-      gap:.55rem;
-      padding:.92rem 1.25rem;
-      border-radius:999px;
-      font-weight:900;
-      text-decoration:none;
-      color:var(--primary-dark);
-      background:rgba(255,255,255,.9);
-      border:1px solid rgba(154,106,255,.26);
-      box-shadow:0 12px 24px rgba(17,24,39,.06);
-      transition: all 0.3s ease;
-      white-space:nowrap;
-    }
-    
-    .btn-ghost:hover{
-      transform:translateY(-2px); 
-      background:var(--primary-light);
-      box-shadow:0 16px 32px rgba(17,24,39,.08);
+      gap:10px;
+      margin-bottom: 14px;
     }
 
-    /* Categorías */
-    .cat-grid{
-      display:grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap:1rem;
-      margin-top:1.8rem;
-    }
-    
-    .cat{
-      background:rgba(255,255,255,.95);
-      border:1px solid rgba(229,231,235,.9);
-      border-radius:20px;
-      padding:1.15rem;
-      box-shadow:0 16px 40px rgba(17,24,39,.07);
-      min-width:0;
-      transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-      position: relative;
-      overflow: hidden;
-    }
-    
-    .cat::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      height: 3px;
-      background: linear-gradient(90deg, var(--primary), var(--primary-dark));
-      transform: scaleX(0);
-      transform-origin: left;
-      transition: transform 0.4s ease;
-    }
-    
-    .cat:hover{
-      transform:translateY(-6px) scale(1.02); 
-      box-shadow:0 24px 48px rgba(17,24,39,.10);
-    }
-    
-    .cat:hover::before {
-      transform: scaleX(1);
-    }
-    
-    .cat-top{
-      display:flex;
-      align-items:center;
-      justify-content:space-between;
-      gap:.8rem;
-      margin-bottom:.6rem;
-    }
-    
-    .cat-name{
-      font-weight:950;
-      color:var(--secondary);
-      letter-spacing:.2px;
-      font-size: 1.05rem;
-    }
-    
-    .chip{
-      display:inline-flex;
-      align-items:center;
-      gap:.35rem;
-      padding:.35rem .7rem;
-      border-radius:999px;
-      font-weight:900;
-      font-size:.78rem;
-      color:var(--primary-dark);
-      background:rgba(154,106,255,.12);
-      border:1px solid rgba(154,106,255,.20);
-      white-space:nowrap;
-    }
-    
-    .cat-desc{
-      color:var(--text-secondary);
-      font-size:.95rem;
-      line-height:1.65;
-      margin-bottom:.85rem;
-    }
-    
-    .cat a{
-      display:inline-flex;
-      align-items:center;
-      gap:.5rem;
-      color:var(--primary-dark);
-      font-weight:900;
-      text-decoration:none;
-      transition: gap 0.3s ease;
-    }
-    
-    .cat a:hover{
-      text-decoration:underline;
-      gap: .8rem;
-    }
-
-    /* =========================
-       LISTA DE ARTÍCULOS
-       ========================= */
-    .section-content {
-      background: rgba(255,255,255,.98);
-      border-radius: var(--radius-xl);
-      padding: clamp(1.5rem, 4vw, 2.5rem);
-      box-shadow: var(--shadow-2xl);
-      backdrop-filter: blur(16px);
-      border: 1px solid rgba(229,231,235,.85);
-    }
-    
-    .section-head{
-      display:flex;
-      align-items:flex-end;
-      justify-content:space-between;
-      gap:1.5rem;
-      margin-bottom:1.5rem;
-      flex-wrap:wrap;
-    }
-    
-    .h2{
-      font-family:'Playfair Display',serif;
-      font-size: clamp(1.8rem, 4vw, 2.6rem);
-      line-height:1.1;
-      color:var(--secondary);
-      background: linear-gradient(135deg, var(--secondary) 0%, #4b5563 100%);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
-    }
-    
-    .section-note{
-      color:var(--text-secondary);
-      font-size:1.05rem;
-      line-height:1.7;
-      max-width:68ch;
-      padding: .5rem 0;
-    }
-
-    .grid{
-      margin-top:1.5rem;
-      display:grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: 1.5rem;
-    }
-
-    .card{
-      border:1px solid rgba(229,231,235,.95);
-      border-radius:var(--radius-lg);
-      padding:1.5rem;
-      box-shadow:var(--shadow-lg);
-      transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    .search-bar{
       display:flex;
       flex-direction:column;
-      min-height: 300px;
-      background:rgba(255,255,255,.98);
-      min-width:0;
-      overflow:hidden;
-      position: relative;
+      gap:10px;
     }
-    
-    .card::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      height: 4px;
-      background: linear-gradient(90deg, var(--primary), var(--primary-dark));
-      transform: scaleX(0);
-      transform-origin: left;
-      transition: transform 0.4s ease;
+    .search-input{
+      width:100%;
+      height:52px;
+      padding: 0 14px;
+      border-radius: 16px;
+      border:2px solid var(--border);
+      background:#fff;
+      outline:none;
     }
-    
-    .card:hover{
-      transform:translateY(-8px) scale(1.02);
-      box-shadow:var(--shadow-2xl);
+    .search-input:focus{
+      border-color: var(--primary);
+      box-shadow: 0 0 0 3px rgba(154,106,255,.15);
     }
-    
-    .card:hover::before {
-      transform: scaleX(1);
-    }
-    
-    .meta{
-      display:flex;
-      gap:.6rem;
-      flex-wrap:wrap;
-      margin-bottom:1rem;
-      color:var(--text-light);
-      font-size:.92rem;
-    }
-    
-    .tag{
-      background:var(--primary-light);
-      color:var(--primary-dark);
-      border:1px solid rgba(154,106,255,.25);
-      padding:.28rem .7rem;
-      border-radius:999px;
-      font-weight:950;
-      font-size:.78rem;
-      text-transform:uppercase;
-      letter-spacing:.35px;
-    }
-    
-    .title{
-      font-weight:950;
-      font-size:1.15rem;
-      color:var(--secondary);
-      margin-bottom:.8rem;
-      line-height:1.35;
-    }
-    
-    .excerpt{
-      color:var(--text-secondary);
-      line-height:1.7;
-      flex:1;
-    }
-    
-    .link{
-      margin-top:1.2rem;
-      font-weight:950;
-      color:var(--primary-dark);
-      text-decoration:none;
-      display:inline-flex;
-      align-items:center;
-      gap:.55rem;
-      white-space:nowrap;
-      transition: gap 0.3s ease;
-    }
-    
-    .link:hover{
-      text-decoration:underline;
-      gap: .8rem;
+    .search-hint{
+      margin-top:8px;
+      font-size: var(--fs-13);
+      color: var(--text-3);
+      line-height:1.45;
     }
 
+    .section-title{margin: 18px 0 10px}
+    .section-title h2{font-size: 22px;font-weight: 900;margin-bottom: 4px}
+    .section-title p{color:var(--text-3);font-size: var(--fs-14);line-height:1.5}
+
+    .categories-grid{
+      display:grid;
+      grid-template-columns: 1fr;
+      gap: 14px;
+      margin-top: 14px;
+    }
+    .category-card{
+      background:#fff;
+      border:1px solid var(--border);
+      border-radius: 22px;
+      padding: 16px;
+      box-shadow: var(--shadow-sm);
+      display:flex;
+      flex-direction:column;
+      min-height: 190px;
+      cursor:pointer;
+    }
+    .card-header{
+      display:flex;
+      align-items:flex-start;
+      justify-content:space-between;
+      gap:10px;
+      flex-wrap:wrap;
+      margin-bottom:10px;
+    }
+    .category-chip{
+      display:inline-flex;
+      align-items:center;
+      gap:8px;
+      padding:8px 12px;
+      border-radius: 999px;
+      background: var(--primary-soft);
+      color: var(--primary-dark);
+      border:1px solid rgba(154,106,255,.22);
+      font-weight:900;
+      font-size: var(--fs-13);
+      white-space:nowrap;
+    }
+    .article-count{
+      display:inline-flex;
+      align-items:center;
+      gap:6px;
+      padding:8px 10px;
+      border-radius: 999px;
+      background: var(--bg-soft);
+      border:1px solid rgba(15,23,42,.06);
+      color: var(--text-2);
+      font-weight:900;
+      font-size: var(--fs-12);
+      white-space:nowrap;
+    }
+    .category-card h3{font-size: 18px;font-weight: 900;margin-bottom:8px;line-height:1.25}
+    .category-card p{color: var(--text-2);font-size: var(--fs-14);line-height:1.6;margin-bottom: 14px}
+    .card-actions{margin-top:auto;display:flex;flex-direction:column;gap:10px}
+    .card-link{display:inline-flex;align-items:center;gap:8px;font-weight:900;color: var(--primary-dark);font-size: var(--fs-13);cursor:pointer}
+
     footer{
-      border-top:1px solid rgba(229,231,235,.95);
-      padding:3rem 0;
-      color:var(--text-light);
-      text-align: center;
-      background: linear-gradient(180deg, #fff 0%, #f9fafb 100%);
+      border-top:1px solid var(--border);
+      padding:18px 0 calc(18px + var(--sab));
+      color:var(--text-3);
+      text-align:center;
+      background:#fff;
     }
 
     /* =========================
-       RESPONSIVE
+       OFFCANVAS MENU (MÓVIL)
        ========================= */
+    .menu-overlay{
+      position:fixed; inset:0;
+      background: rgba(15,23,42,.55);
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+      z-index: 1600;
+      display:none;
+      opacity:0;
+      transition:opacity .18s ease;
+    }
+    .menu-overlay.active{display:block;opacity:1}
 
-    @media(max-width:1100px){
-      .grid{grid-template-columns: repeat(2, minmax(0,1fr));}
-      .cat-grid{grid-template-columns: repeat(2, minmax(0,1fr));}
-      .hero-wrap{grid-template-columns:1fr;}
+    .offcanvas{
+      position:fixed;
+      top:0; right:0;
+      height:100vh;
+      width:min(340px, 92vw);
+      background:#fff;
+      z-index: 1700;
+      transform: translateX(110%);
+      transition: transform .22s ease;
+      box-shadow: -22px 0 60px rgba(15,23,42,.22);
+      padding-top: calc(14px + var(--sat));
+      padding-right: max(14px, var(--sar));
+      padding-left: 14px;
+      padding-bottom: calc(18px + var(--sab));
+      display:flex;
+      flex-direction:column;
+      gap:12px;
+    }
+    .offcanvas.active{transform: translateX(0)}
+
+    .off-top{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:10px;
+      padding-bottom: 10px;
+      border-bottom:1px solid var(--border);
+    }
+    .off-title{font-weight: 900;font-size: 16px}
+    .off-close{
+      width:44px;height:44px;border-radius:14px;
+      border:1px solid rgba(15,23,42,.10);
+      background: rgba(15,23,42,.04);
+      display:inline-flex;align-items:center;justify-content:center;
+      cursor:pointer;
     }
 
-    @media(max-width:860px){
-      :root{ --header-fixed-h: 84px; --header-h: 84px; }
+    .off-links{
+      display:flex;
+      flex-direction:column;
+      gap:6px;
+      padding-top: 6px;
+    }
+    .off-link{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:10px;
+      padding:12px 12px;
+      border-radius:14px;
+      border:1px solid rgba(15,23,42,.08);
+      background: rgba(15,23,42,.03);
+      font-weight: 900;
+      font-size: 14px;
+    }
+    .off-link i{color: var(--text-3)}
 
-      .nav-center{display:none;}
-      .btn-primary{
-        padding:.86rem 1.15rem;
-        font-size:.98rem;
-      }
-      
-      .logo-box{
-        height: 64px;
-        width:  185px;
-      }
-
-      .hero-actions a{width:100%;}
-      .card{min-height: 280px;}
-      .grid{grid-template-columns: 1fr;}
-      .section-head {
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 1rem;
-      }
-      
-      .parallax-section {
-        min-height: 80vh;
-      }
-      
-      .parallax-section.first-section {
-        min-height: 60vh;
-      }
+    .off-ctas{
+      margin-top:auto;
+      display:flex;
+      flex-direction:column;
+      gap:10px;
+      padding-top: 10px;
+      border-top:1px solid var(--border);
     }
 
-    @media(max-width:420px){
-      :root{ --header-fixed-h: 80px; --header-h: 80px; }
-      .logo-box{ height: 62px; width: 175px; }
-      .btn-primary{
-        padding:.82rem 1.05rem;
-        font-size:.95rem;
-      }
-      .cat-grid{grid-template-columns: 1fr;}
+    /* =========================
+       CHAT MODAL
+       ========================= */
+    .modal-overlay{
+      position:fixed; inset:0;
+      background: rgba(15,23,42,.65);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      z-index: 2000;
+      display:none;
+      opacity:0;
+      transition: opacity .2s ease;
+      align-items:flex-end;
+      justify-content:center;
+    }
+    .modal-overlay.active{display:flex;opacity:1}
+
+    .chat-modal{
+      width:100%;
+      max-height: 86vh;
+      background:#fff;
+      border-radius: 22px 22px 0 0;
+      box-shadow: 0 -18px 60px rgba(15,23,42,.25);
+      overflow:hidden;
+      display:flex;
+      flex-direction:column;
+      transform: translateY(100%);
+      transition: transform .28s ease;
+    }
+    .modal-overlay.active .chat-modal{transform: translateY(0)}
+
+    .modal-header{
+      padding: 12px 14px;
+      border-bottom:1px solid var(--border);
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:10px;
+      background:#fff;
+    }
+    .modal-title{display:flex;align-items:center;gap:10px;min-width:0}
+    .modal-icon{
+      width:44px;height:44px;border-radius:14px;
+      background: var(--primary-soft);
+      color: var(--primary-dark);
+      display:flex;align-items:center;justify-content:center;
+      flex:0 0 auto;
+    }
+    .modal-text{min-width:0}
+    .modal-text h3{font-size:15px;font-weight:900;line-height:1.2;margin-bottom:2px}
+    .modal-text p{font-size:12px;color:var(--text-3);line-height:1.25}
+    .close-btn{
+      width:44px;height:44px;border-radius:14px;
+      border:1px solid rgba(15,23,42,.10);
+      background: rgba(15,23,42,.04);
+      display:flex;align-items:center;justify-content:center;
+      cursor:pointer;
     }
 
-    @media (prefers-reduced-motion: reduce){
-      html{scroll-behavior:auto}
-      .parallax-layer{transform:none !important}
-      .card, .cat, .btn-primary, .btn-ghost, .hero-card{transition:none !important}
-      .nav-pill, header { transition: none !important; }
-      .parallax-bg-1,
-      .parallax-bg-2,
-      .parallax-bg-3,
-      .parallax-bg-4,
-      .parallax-bg-5 {
-        animation: none;
-      }
+    .chat-messages{
+      flex:1;
+      padding: 14px;
+      overflow:auto;
+      -webkit-overflow-scrolling:touch;
+      background: linear-gradient(180deg,#fff 0%, #fbfbfe 100%);
+      display:flex;
+      flex-direction:column;
+      gap: 12px;
+    }
+    .message{
+      max-width: 88%;
+      padding: 12px;
+      border-radius: 18px;
+      box-shadow: var(--shadow-sm);
+      line-height:1.5;
+      font-size: 14px;
+    }
+    .message-bot{align-self:flex-start;background:#fff;border:1px solid var(--border);border-top-left-radius:6px}
+    .message-user{align-self:flex-end;background: var(--primary-grad);color:#fff;border-top-right-radius:6px;box-shadow: var(--shadow-primary)}
+
+    .search-results{display:grid;grid-template-columns:1fr;gap:12px;margin-top: 10px}
+    .result-card{border:1px solid var(--border);border-radius:18px;padding:12px;background:#fff}
+    .result-header{display:flex;justify-content:space-between;gap:8px;flex-wrap:wrap;margin-bottom:8px}
+    .result-tag{
+      padding:6px 10px;border-radius:999px;background: var(--primary-soft);
+      color: var(--primary-dark);font-weight:900;font-size: 11px;letter-spacing:.04em;text-transform:uppercase;
+      border:1px solid rgba(154,106,255,.18);
+    }
+    .result-date{font-size:11px;color:var(--text-3);display:flex;align-items:center;gap:6px}
+    .result-title{font-weight:900;font-size:14px;line-height:1.35;margin-bottom:6px}
+    .result-excerpt{font-size:13px;color:var(--text-2);line-height:1.45;margin-bottom:10px}
+    .result-link{display:inline-flex;align-items:center;gap:8px;color:var(--primary-dark);font-weight:900;font-size:13px}
+
+    .chat-input-container{
+      padding: 12px 14px calc(12px + var(--sab));
+      border-top:1px solid var(--border);
+      background:#fff;
+      display:flex;
+      gap:10px;
+      align-items:center;
+    }
+    .chat-input{
+      flex:1;
+      height:48px;
+      padding:0 14px;
+      border-radius:999px;
+      border:2px solid var(--border);
+      background: var(--bg-soft);
+      outline:none;
+    }
+    .chat-input:focus{border-color: var(--primary);box-shadow:0 0 0 3px rgba(154,106,255,.15);background:#fff}
+    .chat-send{
+      height:48px;
+      padding:0 14px;
+      border-radius:999px;
+      background: var(--primary-grad);
+      color:#fff;
+      border:1px solid rgba(124,58,237,.18);
+      font-weight:900;
+      display:inline-flex;align-items:center;gap:8px;
+      box-shadow: var(--shadow-primary);
+      cursor:pointer;
+    }
+
+    /* =========================
+       ✅ DESKTOP: menú normal + CTAs
+       ========================= */
+    @media (min-width: 960px){
+      :root{--header-h: 92px;}
+
+      .logo-box{height:56px;width:240px}
+
+      /* ocultar acciones móviles en desktop */
+      .header-actions{display:none;}
+
+      /* mostrar menú centrado y acciones desktop */
+      .nav-center{display:flex;}
+      .desktop-actions{display:flex;}
+
+      .search-bar{flex-direction:row}
+      .btn{height:52px}
+      .categories-grid{grid-template-columns: repeat(3, minmax(0,1fr))}
+      .search-results{grid-template-columns: repeat(2, minmax(0,1fr))}
+      .modal-overlay{align-items:center}
+      .chat-modal{max-width: 820px;border-radius: 22px;max-height: 80vh}
     }
   </style>
 </head>
 
 <body>
-
-<header id="main-header">
-  <div class="container">
-    <div class="nav">
-      <a class="brand" href="/" aria-label="Volver al inicio">
+  <!-- HEADER -->
+  <header role="banner">
+    <div class="header-inner">
+      <!-- Logo -->
+      <a href="/" class="brand" aria-label="Júristam - Inicio">
         <div class="logo-box">
-          <img src="https://i.postimg.cc/vHygbHxz/oie-transparent-(2).png" alt="Júristam">
+          <img src="https://i.postimg.cc/vHygbHxz/oie-transparent-(2).png" alt="Júristam Logo" loading="eager">
         </div>
       </a>
 
-      <div class="nav-center" aria-label="Menú">
+      <!-- ✅ Desktop: menú normal centrado -->
+      <nav class="nav-center" aria-label="Navegación principal">
         <div class="nav-pill">
-          <a class="nav-link" href="/#proceso">Proceso</a>
-          <a class="nav-link" href="/#servicios">Servicios</a>
-          <a class="nav-link" href="/casos-de-exito.html" target="_blank" rel="noopener">Casos de Éxito</a>
-          <a class="nav-link" href="/blog/">Guías</a>
-          <a class="nav-link" href="/#contacto">Contacto</a>
+          <a href="/#proceso" class="nav-link">Proceso</a>
+          <a href="/#servicios" class="nav-link">Servicios</a>
+          <a href="/casos-de-exito.html" class="nav-link" target="_blank" rel="noopener">Casos de Éxito</a>
+          <a href="/blog/" class="nav-link" aria-current="page">Guías</a>
+          <a href="/#contacto" class="nav-link">Contacto</a>
         </div>
-      </div>
+      </nav>
 
-      <div class="nav-right">
-        <a class="btn-primary" href="/#formulario" aria-label="Evaluar Caso">
-          <i class="fa-solid fa-clipboard-check"></i> Evaluar Caso
+      <!-- ✅ Desktop: Categorías + Evaluar Caso (como tu imagen 2) -->
+      <div class="desktop-actions" aria-label="Acciones principales">
+        <button class="btn btn-secondary" id="btnDesktopSearch" type="button">
+          <i class="fas fa-magnifying-glass"></i>
+          Buscador
+        </button>
+        <a href="#categorias" class="btn btn-secondary">
+          <i class="fas fa-layer-group"></i>
+          Categorías
+        </a>
+        <a href="/#formulario" class="btn btn-primary">
+          Evaluar Caso <i class="fas fa-arrow-right"></i>
         </a>
       </div>
+
+      <!-- ✅ Móvil: buscador + hamburguesa -->
+      <div class="header-actions">
+        <button class="btn-search-mobile" id="btnHeaderSearch" type="button" aria-label="Abrir buscador">
+          <i class="fas fa-magnifying-glass"></i>
+          <span>Buscador</span>
+        </button>
+
+        <button class="btn-burger" id="btnBurger" type="button" aria-label="Abrir menú">
+          <i class="fas fa-bars"></i>
+        </button>
+      </div>
     </div>
-  </div>
-</header>
+  </header>
 
-<!-- HERO SECTION -->
-<section class="parallax-section first-section" id="top">
-  <div class="parallax-layer background parallax-bg-1" data-speed="0.4"></div>
-  <div class="parallax-layer foreground pattern-1" data-speed="0.8"></div>
-  
-  <div class="parallax-content">
+  <!-- OFFCANVAS MENU (móvil) -->
+  <div class="menu-overlay" id="menuOverlay" aria-hidden="true"></div>
+  <aside class="offcanvas" id="offcanvas" aria-label="Menú principal" aria-hidden="true">
+    <div class="off-top">
+      <div class="off-title">Menú Júristam</div>
+      <button class="off-close" id="btnCloseMenu" aria-label="Cerrar menú" type="button">
+        <i class="fas fa-times"></i>
+      </button>
+    </div>
+
+    <nav class="off-links">
+      <a class="off-link" href="/#proceso"><span>Proceso</span> <i class="fas fa-chevron-right"></i></a>
+      <a class="off-link" href="/#servicios"><span>Servicios</span> <i class="fas fa-chevron-right"></i></a>
+      <a class="off-link" href="/casos-de-exito.html" target="_blank" rel="noopener"><span>Casos de Éxito</span> <i class="fas fa-arrow-up-right-from-square"></i></a>
+      <a class="off-link" href="/blog/"><span>Guías</span> <i class="fas fa-chevron-right"></i></a>
+      <a class="off-link" href="/#contacto"><span>Contacto</span> <i class="fas fa-chevron-right"></i></a>
+      <a class="off-link" href="#categorias" id="menuGoCategories"><span>Categorías</span> <i class="fas fa-layer-group"></i></a>
+      <a class="off-link" href="/#formulario"><span>Evaluar Caso</span> <i class="fas fa-bolt"></i></a>
+      <button class="off-link" id="menuOpenSearch" type="button">
+        <span>Buscador</span> <i class="fas fa-magnifying-glass"></i>
+      </button>
+    </nav>
+
+    <div class="off-ctas">
+      <a class="btn btn-secondary" href="#categorias"><i class="fas fa-layer-group"></i> Categorías</a>
+      <a class="btn btn-primary" href="/#formulario"><i class="fas fa-bolt"></i> Evaluar Caso</a>
+    </div>
+  </aside>
+
+  <!-- MAIN -->
+  <main role="main">
     <div class="container">
-      <div class="hero-wrap">
-        <div class="hero-card">
-          <div class="kicker"><i class="fa-solid fa-bolt"></i> Guías rápidas, sin humo</div>
-          <h1>Guías Júristam</h1>
-          <p class="sub">
-            Artículos directos y accionables. Nada de teoría inútil.
-            Si tu problema es real, aquí empiezas bien.
-          </p>
+      <section class="hero" aria-labelledby="hero-title">
+        <h1 id="hero-title">Guías Júristam</h1>
+        <p>Artículos directos y accionables por categorías. Si tu problema es real, aquí empiezas bien.</p>
 
-          <div class="hero-actions">
-            <a class="btn-primary" href="#categorias"><i class="fa-solid fa-layer-group"></i> Ver categorías</a>
-            <a class="btn-ghost" href="/#formulario"><i class="fa-solid fa-paper-plane"></i> Evaluar mi caso</a>
-          </div>
-
-          <div class="cat-grid" id="categorias">
-            <div class="cat">
-              <div class="cat-top">
-                <div class="cat-name">Aduanas</div>
-                <div class="chip"><i class="fa-solid fa-box"></i> SENAE</div>
-              </div>
-              <div class="cat-desc">Retenciones, liquidaciones, estrategias y errores comunes.</div>
-              <a href="#aduanas">Ver artículos <i class="fa-solid fa-arrow-right"></i></a>
-            </div>
-
-            <div class="cat">
-              <div class="cat-top">
-                <div class="cat-name">Coactiva</div>
-                <div class="chip"><i class="fa-solid fa-gavel"></i> Cobros</div>
-              </div>
-              <div class="cat-desc">Defensas rápidas: prescripción, nulidades y salario.</div>
-              <a href="#coactiva">Ver artículos <i class="fa-solid fa-arrow-right"></i></a>
-            </div>
-
-            <div class="cat">
-              <div class="cat-top">
-                <div class="cat-name">Laboral</div>
-                <div class="chip"><i class="fa-solid fa-briefcase"></i> Trabajo</div>
-              </div>
-              <div class="cat-desc">Embargos, fondos de reserva y reglas obligatorias.</div>
-              <a href="#laboral">Ver artículos <i class="fa-solid fa-arrow-right"></i></a>
-            </div>
-
-            <div class="cat">
-              <div class="cat-top">
-                <div class="cat-name">Inmobiliario</div>
-                <div class="chip"><i class="fa-solid fa-building"></i> Terrenos</div>
-              </div>
-              <div class="cat-desc">Identificación del inmueble, prescripción y reivindicación.</div>
-              <a href="#inmobiliario">Ver artículos <i class="fa-solid fa-arrow-right"></i></a>
-            </div>
-          </div>
+        <div class="hero-actions">
+          <a href="#categorias" class="btn btn-secondary"><i class="fas fa-compass"></i> Explorar categorías</a>
+          <button class="btn btn-secondary" id="btnOpenChat" type="button"><i class="fas fa-comment-dots"></i> Buscar tipo “chat”</button>
         </div>
 
-        <div class="hero-card">
-          <div class="kicker"><i class="fa-solid fa-circle-check"></i> Cómo usar estas guías</div>
-          <p class="sub" style="margin-bottom:1rem;">
-            1) Identifica tu categoría.<br>
-            2) Lee la guía y evita errores típicos.<br>
-            3) Si el caso es urgente o hay notificación: evalúalo con nosotros.
-          </p>
-
-          <div style="display:grid; gap:1rem; margin-top:1.5rem;">
-            <div style="padding:1.2rem; border-radius:20px; border:1px solid rgba(229,231,235,.95); background:rgba(255,255,255,.92); box-shadow:0 12px 26px rgba(17,24,39,.06); backdrop-filter: blur(8px); transition: transform 0.3s ease;">
-              <div style="font-weight:950; color:var(--secondary); margin-bottom:.5rem; display: flex; align-items: center; gap: .5rem;">
-                <i class="fa-solid fa-stopwatch" style="color:var(--primary-dark)"></i> Lectura rápida
-              </div>
-              <div style="color:var(--text-secondary); line-height:1.7;">
-                Diseñadas para actuar en minutos: qué hacer, qué NO hacer y el siguiente paso.
-              </div>
-            </div>
-
-            <div style="padding:1.2rem; border-radius:20px; border:1px solid rgba(229,231,235,.95); background:rgba(255,255,255,.92); box-shadow:0 12px 26px rgba(17,24,39,.06); backdrop-filter: blur(8px); transition: transform 0.3s ease;">
-              <div style="font-weight:950; color:var(--secondary); margin-bottom:.5rem; display: flex; align-items: center; gap: .5rem;">
-                <i class="fa-solid fa-shield-halved" style="color:var(--primary-dark)"></i> Enfoque práctico
-              </div>
-              <div style="color:var(--text-secondary); line-height:1.7;">
-                Menos teoría, más decisiones: rutas, riesgos, plazos y documentos clave.
-              </div>
-            </div>
-          </div>
-
+        <div class="search-bar" role="search">
+          <input
+            type="search"
+            class="search-input"
+            id="searchInput"
+            placeholder="Ej: 'me bloquearon la cuenta por coactiva', 'SENAE retuvo mercadería', 'alimentos salida del país'"
+            aria-label="Buscar artículos"
+            enterkeyhint="search"
+          >
+          <button class="btn btn-primary" id="searchBtn" type="button"><i class="fas fa-search"></i> Buscar</button>
         </div>
+
+        <p class="search-hint">
+          Tip: escribe tu problema en palabras normales. Te muestro los artículos más cercanos y la categoría.
+        </p>
+      </section>
+
+      <section class="section-title" id="categorias">
+        <h2>Categorías</h2>
+        <p>Toca una categoría y se abre su “ventana” (página) con todos sus artículos.</p>
+      </section>
+
+      <div class="categories-grid" id="categoriesGrid" aria-label="Lista de categorías"></div>
+    </div>
+  </main>
+
+  <footer role="contentinfo">
+    <div class="container">
+      © <span id="currentYear"></span> Júristam · <a href="/" style="text-decoration:underline;text-underline-offset:3px;color:var(--primary-dark)">Volver al inicio</a>
+    </div>
+  </footer>
+
+  <!-- CHAT MODAL -->
+  <div class="modal-overlay" id="chatModal" aria-hidden="true">
+    <div class="chat-modal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+      <div class="modal-header">
+        <div class="modal-title">
+          <div class="modal-icon"><i class="fas fa-scale-balanced"></i></div>
+          <div class="modal-text">
+            <h3 id="modalTitle">Buscador Júristam</h3>
+            <p>Escribe tu caso y te muestro artículos por relevancia</p>
+          </div>
+        </div>
+        <button class="close-btn" id="btnCloseChat" aria-label="Cerrar buscador" type="button"><i class="fas fa-times"></i></button>
+      </div>
+
+      <div class="chat-messages" id="chatMessages"></div>
+
+      <div class="chat-input-container">
+        <input
+          type="text"
+          class="chat-input"
+          id="chatInput"
+          placeholder="Ej: 'coactiva me bloquearon mi cuenta', 'SENAE me liquidó', 'embargo de sueldo'"
+          aria-label="Escribe tu consulta"
+          enterkeyhint="send"
+        >
+        <button class="chat-send" id="btnSendChat" type="button"><i class="fas fa-paper-plane"></i> Enviar</button>
       </div>
     </div>
   </div>
-</section>
 
-<!-- ADUANAS -->
-<section class="parallax-section" id="aduanas">
-  <div class="parallax-layer background parallax-bg-2" data-speed="0.3"></div>
-  <div class="parallax-layer foreground pattern-2" data-speed="0.7"></div>
-  
-  <div class="parallax-content">
-    <div class="container">
-      <div class="section-content">
-        <div class="section-head">
-          <div>
-            <div class="kicker"><i class="fa-solid fa-box"></i> Aduanas</div>
-            <div class="h2">SENAE · Retenciones y estrategia</div>
-          </div>
-          <div class="section-note">
-            Si hay liquidación o acta: el tiempo juega en tu contra. Esta categoría es para evitar el error caro.
-          </div>
-        </div>
-        <div class="grid" id="grid-aduanas"></div>
-      </div>
-    </div>
-  </div>
-</section>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      document.getElementById('currentYear').textContent = new Date().getFullYear();
+      renderCategories();
+      setupEvents();
+    });
 
-<!-- COACTIVA -->
-<section class="parallax-section" id="coactiva">
-  <div class="parallax-layer background parallax-bg-3" data-speed="0.35"></div>
-  <div class="parallax-layer foreground pattern-1" data-speed="0.75"></div>
-  
-  <div class="parallax-content">
-    <div class="container">
-      <div class="section-content">
-        <div class="section-head">
-          <div>
-            <div class="kicker"><i class="fa-solid fa-gavel"></i> Coactiva</div>
-            <div class="h2">Cobros, nulidades y salario</div>
-          </div>
-          <div class="section-note">
-            No todo se defiende "adentro" de la coactiva. Aquí te decimos dónde pegar para que sí sirva.
-          </div>
-        </div>
-        <div class="grid" id="grid-coactiva"></div>
-      </div>
-    </div>
-  </div>
-</section>
+    const posts = [
+      { tag:"Coactiva", date:"Corte Nacional · Nulidad por personería", title:"¿Te pueden cobrar una coactiva si ya no eres representante legal?", excerpt:"Muchas personas pagan coactivas que nunca debieron dirigirse contra ellas. La Corte Nacional aclaró que cobrar a un exrepresentante legal puede anular todo el proceso.", url:"/blog/coactiva-ex-representante-legal-nulidad-ecuador.html" },
+      { tag:"Coactiva", date:"Corte Nacional · Resolución 393-2023", title:"¿Te pueden cobrar en coactiva si la deuda es ilegal en Ecuador?", excerpt:"La Corte Nacional aclaró un error grave: no todo se defiende dentro de la coactiva. Conoce cuándo atacar el título de crédito, la prescripción y por qué el tiempo lo cambia todo.", url:"/blog/coactiva-deuda-ilegal-defensa-ecuador.html" },
+      { tag:"Laboral", date:"Guía práctica", title:"¿Me pueden embargar todo el sueldo en Ecuador?", excerpt:"Cuánto pueden retenerte legalmente, cuándo es ilegal y qué hacer si te bloquean todo el salario.", url:"/blog/embargo-sueldo-ecuador.html" },
+      { tag:"Inmuebles", date:"Jurisprudencia obligatoria", title:"Terrenos: la regla obligatoria de la Corte sobre identificación del inmueble", excerpt:"La Corte Nacional aclaró qué se exige en prescripción y qué en reivindicación. Explicado fácil, sin tecnicismos.", url:"/blog/regla-obligatoria-singularizacion-inmueble-prescripcion-reivindicacion.html" },
+      { tag:"Aduanas", date:"Guía práctica", title:"SENAE retuvo tu mercadería: qué hacer (sin empeorar el caso)", excerpt:"Pasos concretos, errores comunes y cómo ordenar tu estrategia para recuperar tu mercancía.", url:"/blog/senae-retencion-mercaderia.html" },
+      { tag:"Familia", date:"Guía práctica", title:"Prohibición de salida del país por alimentos: cómo levantarla si hay acuerdo", excerpt:"Qué revisar, qué pedir al juzgado y cómo acelerar el trámite cuando hay urgencia.", url:"/blog/prohibicion-salida-alimentos.html" },
+      { tag:"Coactiva", date:"Guía práctica", title:"Cuenta bloqueada por coactiva y es tu salario: cómo moverte rápido", excerpt:"Qué pruebas necesitas y cómo argumentar el origen del dinero para desbloqueo.", url:"/blog/cuenta-bloqueada-coactiva-salario.html" },
+      { tag:"Laboral", date:"Jurisprudencia obligatoria", title:"¿Tus fondos de reserva cuentan para la jubilación patronal en Ecuador?", excerpt:"La Corte Nacional dejó una regla obligatoria: cuándo los fondos de reserva cuentan, qué se puede descontar y qué ya no.", url:"/blog/fondos-reserva-jubilacion-patronal-ecuador.html" }
+    ];
 
-<!-- LABORAL -->
-<section class="parallax-section" id="laboral">
-  <div class="parallax-layer background parallax-bg-4" data-speed="0.4"></div>
-  <div class="parallax-layer foreground pattern-2" data-speed="0.8"></div>
-  
-  <div class="parallax-content">
-    <div class="container">
-      <div class="section-content">
-        <div class="section-head">
-          <div>
-            <div class="kicker"><i class="fa-solid fa-briefcase"></i> Laboral</div>
-            <div class="h2">Embargos y reglas obligatorias</div>
-          </div>
-          <div class="section-note">
-            Si te retienen de más, se puede corregir. Esta categoría te da la ruta rápida.
-          </div>
-        </div>
-        <div class="grid" id="grid-laboral"></div>
-      </div>
-    </div>
-  </div>
-</section>
+    const categories = [
+      { key:"coactiva", name:"Coactiva", icon:"fa-gavel", desc:"Cuenta bloqueada, medidas de cobro, prescripción, nulidades y estrategia rápida.", href:"/blog/categoria-coactiva.html", tags:["Coactiva"] },
+      { key:"senae", name:"SENAE / Aduanas", icon:"fa-boxes-stacked", desc:"Retención de mercadería, liquidaciones, multas y pasos para no empeorar el caso.", href:"/blog/categoria-senae-aduanas.html", tags:["Aduanas","SENAE","Aduana"] },
+      { key:"familia", name:"Familia", icon:"fa-people-roof", desc:"Alimentos, medidas como prohibición de salida, acuerdos y trámites urgentes.", href:"/blog/categoria-familia.html", tags:["Familia"] },
+      { key:"inmobiliario", name:"Inmobiliario", icon:"fa-house-chimney", desc:"Prescripción, reivindicación, escrituras, conflictos por terrenos y posesión.", href:"/blog/categoria-inmobiliario.html", tags:["Inmuebles","Inmobiliario"] },
+      { key:"laboral", name:"Laboral", icon:"fa-briefcase", desc:"Embargos, derechos del trabajador, liquidaciones y reglas obligatorias.", href:"/blog/categoria-laboral.html", tags:["Laboral"] }
+    ];
 
-<!-- INMOBILIARIO -->
-<section class="parallax-section" id="inmobiliario">
-  <div class="parallax-layer background parallax-bg-5" data-speed="0.3"></div>
-  <div class="parallax-layer foreground pattern-1" data-speed="0.7"></div>
-  
-  <div class="parallax-content">
-    <div class="container">
-      <div class="section-content">
-        <div class="section-head">
-          <div>
-            <div class="kicker"><i class="fa-solid fa-building"></i> Inmobiliario</div>
-            <div class="h2">Terrenos, prescripción y reivindicación</div>
-          </div>
-          <div class="section-note">
-            En inmuebles, un detalle mal hecho te tumba el caso. Aquí tienes la regla clara.
-          </div>
-        </div>
-        <div class="grid" id="grid-inmobiliario"></div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<footer>
-  <div class="container">
-    © <span id="y"></span> Júristam · <a href="/" style="color:inherit; font-weight:900;">Volver al inicio</a>
-  </div>
-</footer>
-
-<script>
-  document.getElementById('y').textContent = new Date().getFullYear();
-
-  // ✅ Header dinámico
-  const header = document.getElementById('main-header');
-  const syncHeaderVars = () => {
-    const fixedH = getComputedStyle(document.documentElement)
-      .getPropertyValue('--header-fixed-h')
-      .trim() || '92px';
-    document.documentElement.style.setProperty('--header-h', fixedH);
-  };
-  
-  window.addEventListener('load', syncHeaderVars);
-  window.addEventListener('resize', syncHeaderVars);
-  syncHeaderVars();
-
-  // Header scroll effect
-  window.addEventListener('scroll', () => {
-    if (window.scrollY > 50) {
-      header.classList.add('scrolled');
-    } else {
-      header.classList.remove('scrolled');
+    function normalize(text){
+      return String(text||"")
+        .toLowerCase()
+        .normalize("NFD").replace(/[\u0300-\u036f]/g,"")
+        .replace(/[^\p{L}\p{N}\s]/gu," ")
+        .replace(/\s+/g," ")
+        .trim();
     }
-  });
-
-  // ====== POSTS ======
-  const posts = [
-    // COACTIVA
-    {
-      category: "Coactiva",
-      tag: "Coactiva",
-      date: "Corte Nacional · Nulidad por personería",
-      title: "¿Te pueden cobrar una coactiva si ya no eres representante legal?",
-      excerpt: "Muchas personas pagan coactivas que nunca debieron dirigirse contra ellas. La Corte Nacional aclaró que cobrar a un exrepresentante legal puede anular el proceso.",
-      url: "/blog/coactiva-ex-representante-legal-nulidad-ecuador.html"
-    },
-    {
-      category: "Coactiva",
-      tag: "Coactiva",
-      date: "Corte Nacional · Resolución 393-2023",
-      title: "¿Te pueden cobrar en coactiva si la deuda es ilegal en Ecuador?",
-      excerpt: "La Corte Nacional aclaró un punto clave: no todo se defiende dentro de la coactiva. Conoce cuándo atacar el título, la prescripción y por qué el tiempo lo cambia todo.",
-      url: "/blog/coactiva-deuda-ilegal-defensa-ecuador.html"
-    },
-    {
-      category: "Coactiva",
-      tag: "Coactiva",
-      date: "Guía práctica",
-      title: "Cuenta bloqueada por coactiva y es tu salario: cómo moverte rápido",
-      excerpt: "Qué pruebas necesitas y cómo argumentar el origen del dinero para desbloqueo.",
-      url: "/blog/coactiva-cuenta-bloqueada-salario.html"
-    },
-
-    // LABORAL
-    {
-      category: "Laboral",
-      tag: "Laboral",
-      date: "Guía práctica",
-      title: "¿Me pueden embargar todo el sueldo en Ecuador?",
-      excerpt: "Cuánto pueden retenerte legalmente, cuándo es ilegal y qué hacer si te bloquean todo el salario.",
-      url: "/blog/embargo-sueldo-ecuador.html"
-    },
-    {
-      category: "Laboral",
-      tag: "Laboral",
-      date: "Jurisprudencia obligatoria",
-      title: "¿Tus fondos de reserva cuentan para la jubilación patronal en Ecuador?",
-      excerpt: "Regla obligatoria: cuándo los fondos de reserva cuentan, qué se puede descontar y qué ya no.",
-      url: "/blog/fondos-reserva-jubilacion-patronal-ecuador.html"
-    },
-
-    // INMOBILIARIO
-    {
-      category: "Inmobiliario",
-      tag: "Inmuebles",
-      date: "Jurisprudencia obligatoria",
-      title: "Terrenos: la regla obligatoria de la Corte sobre identificación del inmueble",
-      excerpt: "Qué se exige en prescripción y qué en reivindicación. Explicado fácil, sin tecnicismos.",
-      url: "/blog/regla-obligatoria-singularizacion-inmueble-prescripcion-reivindicacion.html"
-    },
-
-    // ADUANAS
-    {
-      category: "Aduanas",
-      tag: "Aduanas",
-      date: "Guía práctica",
-      title: "SENAE retuvo tu mercadería: qué hacer (sin empeorar el caso)",
-      excerpt: "Pasos concretos, errores comunes y cómo ordenar tu estrategia para recuperar tu mercancía.",
-      url: "/blog/senae-retencion-mercaderia.html"
-    },
-  ];
-
-  const renderCard = (p) => `
-    <article class="card">
-      <div class="meta">
-        <span class="tag">${p.tag}</span>
-        <span><i class="fa-regular fa-clock"></i> ${p.date}</span>
-      </div>
-      <div class="title">${p.title}</div>
-      <div class="excerpt">${p.excerpt}</div>
-      <a class="link" href="${p.url}" target="_blank" rel="noopener">
-        Leer artículo <i class="fa-solid fa-arrow-right"></i>
-      </a>
-    </article>
-  `;
-
-  const mount = (id, category) => {
-    const el = document.getElementById(id);
-    const list = posts.filter(p => p.category === category);
-    el.innerHTML = list.length
-      ? list.map(renderCard).join("")
-      : `<div class="card" style="min-height:auto;">
-           <div class="title">Todavía no hay artículos aquí</div>
-           <div class="excerpt">Agrega tus fichas de artículos en esta categoría y se mostrarán automáticamente.</div>
-         </div>`;
-  };
-
-  mount("grid-aduanas", "Aduanas");
-  mount("grid-coactiva", "Coactiva");
-  mount("grid-laboral", "Laboral");
-  mount("grid-inmobiliario", "Inmobiliario");
-
-  // =========================
-  // PARALLAX REAL - como en crisan-avocat.ro
-  // =========================
-  const parallaxLayers = document.querySelectorAll('.parallax-layer');
-  let ticking = false;
-  
-  // Configuración del efecto parallax
-  const parallaxConfig = {
-    intensity: 0.5, // Intensidad general del efecto
-    smoothness: 0.1 // Suavidad del movimiento
-  };
-
-  // Función principal de parallax
-  const updateParallax = () => {
-    const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
-    const windowHeight = window.innerHeight;
-    
-    parallaxLayers.forEach(layer => {
-      const speed = parseFloat(layer.getAttribute('data-speed')) || 0.5;
-      const layerRect = layer.parentElement.getBoundingClientRect();
-      const layerTop = layerRect.top + scrollTop;
-      const layerHeight = layerRect.height;
-      
-      // Calcular posición relativa del layer en la pantalla
-      const screenPosition = ((scrollTop + windowHeight) - layerTop) / (windowHeight + layerHeight);
-      
-      // Calcular el movimiento basado en la velocidad
-      const yPos = -(screenPosition * 100 * speed * parallaxConfig.intensity);
-      
-      // Aplicar transformación suave
-      layer.style.transform = `translate3d(0, ${yPos}px, 0)`;
-    });
-    
-    ticking = false;
-  };
-
-  // Optimización del scroll con requestAnimationFrame
-  const onScroll = () => {
-    if (!ticking) {
-      ticking = true;
-      requestAnimationFrame(updateParallax);
+    function escapeHtml(text){
+      const d=document.createElement("div");
+      d.textContent=text;
+      return d.innerHTML;
     }
-  };
 
-  // Event listeners
-  window.addEventListener('scroll', onScroll, { passive: true });
-  window.addEventListener('resize', updateParallax);
-  
-  // Inicializar
-  updateParallax();
-  
-  // Efecto adicional: parallax en tarjetas al pasar el mouse
-  document.querySelectorAll('.cat, .card').forEach(element => {
-    element.addEventListener('mousemove', (e) => {
-      const rect = element.getBoundingClientRect();
-      const x = e.clientX - rect.left;
-      const y = e.clientY - rect.top;
-      
-      const centerX = rect.width / 2;
-      const centerY = rect.height / 2;
-      
-      const moveX = (x - centerX) * 0.02;
-      const moveY = (y - centerY) * 0.02;
-      
-      element.style.transform = `translate3d(${moveX}px, ${moveY}px, 0) scale(1.02)`;
-    });
-    
-    element.addEventListener('mouseleave', () => {
-      element.style.transform = 'translate3d(0, 0, 0) scale(1)';
-    });
-  });
+    function renderCategories(){
+      const grid=document.getElementById("categoriesGrid");
+      grid.innerHTML = categories.map(c=>{
+        const count = posts.filter(p=> c.tags.some(t=> normalize(t)===normalize(p.tag))).length;
+        return `
+          <article class="category-card" data-category="${c.key}" tabindex="0" role="button" aria-label="${c.name} - ${count} artículos">
+            <div class="card-header">
+              <span class="category-chip"><i class="fas ${c.icon}"></i> ${escapeHtml(c.name)}</span>
+              <span class="article-count"><i class="far fa-file-lines"></i> ${count}</span>
+            </div>
+            <h3>${escapeHtml(c.name)}</h3>
+            <p>${escapeHtml(c.desc)}</p>
+            <div class="card-actions">
+              <a class="btn btn-secondary" href="${c.href}">Ver artículos <i class="fas fa-arrow-right"></i></a>
+              <button class="card-link" data-category-search="${escapeHtml(c.name)}" type="button">Buscar sobre ${escapeHtml(c.name)} <i class="far fa-comment-dots"></i></button>
+            </div>
+          </article>
+        `;
+      }).join("");
+    }
 
-  // Efecto de aparición suave para las secciones
-  const observerOptions = {
-    root: null,
-    rootMargin: '0px',
-    threshold: 0.1
-  };
+    function setupEvents(){
+      const btnBurger=document.getElementById("btnBurger");
+      const overlay=document.getElementById("menuOverlay");
+      const panel=document.getElementById("offcanvas");
+      const btnClose=document.getElementById("btnCloseMenu");
 
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        entry.target.style.opacity = '1';
-        entry.target.style.transform = 'translateY(0)';
+      function openMenu(){
+        overlay.classList.add("active");
+        panel.classList.add("active");
+        overlay.setAttribute("aria-hidden","false");
+        panel.setAttribute("aria-hidden","false");
+        document.body.style.overflow="hidden";
       }
-    });
-  }, observerOptions);
+      function closeMenu(){
+        overlay.classList.remove("active");
+        panel.classList.remove("active");
+        overlay.setAttribute("aria-hidden","true");
+        panel.setAttribute("aria-hidden","true");
+        document.body.style.overflow="";
+      }
 
-  // Observar todas las secciones parallax
-  document.querySelectorAll('.parallax-section').forEach(section => {
-    section.style.opacity = '0';
-    section.style.transform = 'translateY(20px)';
-    section.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
-    observer.observe(section);
-  });
-</script>
+      if(btnBurger) btnBurger.addEventListener("click", openMenu);
+      if(btnClose) btnClose.addEventListener("click", closeMenu);
+      if(overlay) overlay.addEventListener("click", closeMenu);
 
+      const goCats=document.getElementById("menuGoCategories");
+      if(goCats) goCats.addEventListener("click", ()=> closeMenu());
+
+      const menuSearch=document.getElementById("menuOpenSearch");
+      if(menuSearch) menuSearch.addEventListener("click", ()=>{ closeMenu(); openChatModal(); });
+
+      document.addEventListener("keydown",(e)=>{
+        if(e.key==="Escape"){ closeMenu(); closeChatModal(); }
+      });
+
+      // Chat open buttons (móvil + desktop)
+      const btnOpenChat=document.getElementById("btnOpenChat");
+      const btnHeaderSearch=document.getElementById("btnHeaderSearch");
+      const btnDesktopSearch=document.getElementById("btnDesktopSearch");
+      if(btnOpenChat) btnOpenChat.addEventListener("click", openChatModal);
+      if(btnHeaderSearch) btnHeaderSearch.addEventListener("click", openChatModal);
+      if(btnDesktopSearch) btnDesktopSearch.addEventListener("click", openChatModal);
+
+      document.getElementById("btnCloseChat").addEventListener("click", closeChatModal);
+      document.getElementById("chatModal").addEventListener("click", function(e){
+        if(e.target===this) closeChatModal();
+      });
+
+      // Search submit
+      document.getElementById("searchBtn").addEventListener("click", quickSearch);
+      document.getElementById("searchInput").addEventListener("keydown",(e)=>{
+        if(e.key==="Enter"){ e.preventDefault(); quickSearch(); }
+      });
+
+      // Chat send
+      document.getElementById("btnSendChat").addEventListener("click", sendChat);
+      document.getElementById("chatInput").addEventListener("keydown",(e)=>{
+        if(e.key==="Enter"){ e.preventDefault(); sendChat(); }
+      });
+
+      // Cards behavior
+      document.addEventListener("click",(e)=>{
+        const card=e.target.closest(".category-card");
+        if(card && !e.target.closest("a") && !e.target.closest("button")){
+          const key=card.getAttribute("data-category");
+          const cat=categories.find(x=>x.key===key);
+          if(cat) window.location.href=cat.href;
+        }
+
+        const catSearch=e.target.closest("[data-category-search]");
+        if(catSearch){
+          e.preventDefault();
+          const name=catSearch.getAttribute("data-category-search");
+          openChatModal();
+          setTimeout(()=> sendBotMessage(`Perfecto. Escribe tu pregunta sobre <strong>${escapeHtml(name)}</strong> y te muestro artículos.`), 220);
+        }
+      });
+    }
+
+    function openChatModal(){
+      const modal=document.getElementById("chatModal");
+      const messages=document.getElementById("chatMessages");
+
+      modal.classList.add("active");
+      modal.setAttribute("aria-hidden","false");
+      document.body.style.overflow="hidden";
+
+      if(messages.children.length===0){
+        sendBotMessage("Hola. Soy el buscador de guías de Júristam. Escribe tu problema y te mostraré los artículos más relevantes.");
+      }
+      setTimeout(()=> document.getElementById("chatInput").focus(), 240);
+    }
+    function closeChatModal(){
+      const modal=document.getElementById("chatModal");
+      modal.classList.remove("active");
+      modal.setAttribute("aria-hidden","true");
+      document.body.style.overflow="";
+      const i=document.getElementById("chatInput");
+      if(i) i.blur();
+    }
+
+    function sendUserMessage(text){
+      const wrap=document.getElementById("chatMessages");
+      const div=document.createElement("div");
+      div.className="message message-user";
+      div.textContent=text;
+      wrap.appendChild(div);
+      scrollBottom();
+    }
+    function sendBotMessage(html){
+      const wrap=document.getElementById("chatMessages");
+      const div=document.createElement("div");
+      div.className="message message-bot";
+      div.innerHTML=html;
+      wrap.appendChild(div);
+      scrollBottom();
+    }
+    function scrollBottom(){
+      const wrap=document.getElementById("chatMessages");
+      setTimeout(()=> wrap.scrollTop = wrap.scrollHeight, 80);
+    }
+
+    function sendChat(){
+      const input=document.getElementById("chatInput");
+      const q=input.value.trim();
+      if(!q) return;
+      sendUserMessage(q);
+      input.value="";
+      processQuery(q);
+    }
+
+    function quickSearch(){
+      const input=document.getElementById("searchInput");
+      const q=input.value.trim();
+      if(!q) return;
+      openChatModal();
+      setTimeout(()=>{
+        sendUserMessage(q);
+        processQuery(q);
+      }, 150);
+    }
+
+    function processQuery(query){
+      const results=searchPosts(normalize(query));
+      if(results.length===0){
+        sendBotMessage('No encontré artículos exactos. Prueba con: "coactiva", "SENAE", "alimentos", "terreno", "sueldo".');
+        return;
+      }
+
+      const inferred=inferCategory(normalize(query));
+      if(inferred){
+        const cat=categories.find(c => normalize(c.name)===normalize(inferred) || c.tags.some(t=> normalize(t)===normalize(inferred)));
+        if(cat){
+          sendBotMessage(`Esto suena a <strong>${escapeHtml(cat.name)}</strong>. Si quieres ver todos: <a href="${cat.href}" target="_blank">abrir ${escapeHtml(cat.name)}</a>.`);
+        }
+      }
+
+      sendBotMessage(`Artículos relevantes para: <strong>${escapeHtml(query)}</strong>`);
+      const block=document.createElement("div");
+      block.className="search-results";
+      block.innerHTML = results.map(p=>`
+        <div class="result-card">
+          <div class="result-header">
+            <span class="result-tag">${escapeHtml(p.tag)}</span>
+            <span class="result-date"><i class="far fa-clock"></i> ${escapeHtml(p.date)}</span>
+          </div>
+          <div class="result-title">${escapeHtml(p.title)}</div>
+          <div class="result-excerpt">${escapeHtml(p.excerpt)}</div>
+          <a class="result-link" href="${p.url}" target="_blank" rel="noopener">Leer artículo <i class="fas fa-arrow-right"></i></a>
+        </div>
+      `).join("");
+      document.getElementById("chatMessages").appendChild(block);
+      scrollBottom();
+    }
+
+    function searchPosts(q){
+      return posts
+        .map(p=>({...p, score:score(q,p)}))
+        .filter(p=>p.score>0)
+        .sort((a,b)=>b.score-a.score)
+        .slice(0,6);
+    }
+
+    function score(q,p){
+      let s=0;
+      const t=normalize([p.tag,p.title,p.excerpt].join(" "));
+      if(q.length>=5 && t.includes(q)) s+=18;
+      q.split(" ").filter(w=>w.length>=3).forEach(w=>{ if(t.includes(w)) s+=5; });
+      const cat=inferCategory(q);
+      if(cat && normalize(p.tag)===normalize(cat)) s+=10;
+      return s;
+    }
+
+    function inferCategory(q){
+      const groups=[
+        {keys:["coactiva","cobro coactivo","embargo","bloquearon","bloqueo","cuenta bloqueada","retencion de cuenta"], cat:"Coactiva"},
+        {keys:["senae","aduanas","aduana","retuvieron","mercaderia","mercadería","liquidacion","liquidación","aforo","multa aduanera"], cat:"Aduanas"},
+        {keys:["alimentos","familia","pension","pensión","prohibicion de salida","prohibición de salida","salida del pais","salida del país"], cat:"Familia"},
+        {keys:["terreno","inmueble","prescripcion","prescripción","posesion","posesión","reivindicacion","reivindicación","escritura"], cat:"Inmuebles"},
+        {keys:["laboral","sueldo","salario","despido","fondo de reserva","jubilacion patronal","jubilación patronal"], cat:"Laboral"}
+      ];
+      for(const g of groups){
+        for(const k of g.keys){
+          if(q.includes(normalize(k))) return g.cat;
+        }
+      }
+      return null;
+    }
+  </script>
 </body>
 </html>
