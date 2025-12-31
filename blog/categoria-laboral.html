@@ -4,22 +4,24 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
   <meta name="theme-color" content="#9a6aff">
-
-  <title>Familia · Guías Júristam</title>
-  <meta name="description" content="Guías legales de Familia en Ecuador: alimentos, prohibición de salida del país, acuerdos y trámites urgentes.">
-  <link rel="canonical" href="https://juristam.net/blog/categoria-familia.html">
+<!-- Favicons -->
+  <link rel="icon" type="image/png" href="https://i.postimg.cc/KjDB1NSM/Diseno-sin-titulo-(7).png">
+<link rel="apple-touch-icon" href="https://i.postimg.cc/KjDB1NSM/Diseno-sin-titulo-(7).png">
+<meta name="theme-color" content="#9a6aff">
+  <title>Laboral · Guías Júristam</title>
+  <meta name="description" content="Guías legales Laborales en Ecuador: despido, visto bueno, liquidación, contratos y estrategias rápidas para actuar bien.">
+  <link rel="canonical" href="https://juristam.net/blog/categoria-laboral.html">
   <meta name="robots" content="index,follow,max-image-preview:large">
 
   <!-- Open Graph -->
   <meta property="og:type" content="website">
-  <meta property="og:title" content="Familia · Guías Júristam">
-  <meta property="og:description" content="Guías legales de Familia en Ecuador: alimentos, prohibición de salida del país, acuerdos y trámites urgentes.">
-  <meta property="og:url" content="https://juristam.net/blog/categoria-familia.html">
+  <meta property="og:title" content="Laboral · Guías Júristam">
+  <meta property="og:description" content="Guías legales Laborales en Ecuador: despido, visto bueno, liquidación, contratos y estrategias rápidas para actuar bien.">
+  <meta property="og:url" content="https://juristam.net/blog/categoria-laboral.html">
 
   <!-- Favicon -->
-  <link rel="icon" type="image/png" href="https://i.postimg.cc/KjDB1NSM/Diseno-sin-titulo-(7).png">
-<link rel="apple-touch-icon" href="https://i.postimg.cc/KjDB1NSM/Diseno-sin-titulo-(7).png">
-<meta name="theme-color" content="#9a6aff">
+  <link rel="icon" type="image/png" href="https://i.postimg.cc/vHygbHxz/oie_transparent_(2).png">
+  <link rel="apple-touch-icon" href="https://i.postimg.cc/vHygbHxz/oie_transparent_(2).png">
 
   <!-- Fonts & Icons -->
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
@@ -30,18 +32,12 @@
   {
     "@context":"https://schema.org",
     "@type":"CollectionPage",
-    "name":"Familia · Guías Júristam",
-    "url":"https://juristam.net/blog/categoria-familia.html",
-    "description":"Guías legales de Familia en Ecuador: alimentos, prohibición de salida del país, acuerdos y trámites urgentes.",
+    "name":"Laboral · Guías Júristam",
+    "url":"https://juristam.net/blog/categoria-laboral.html",
+    "description":"Guías legales Laborales en Ecuador: despido, visto bueno, liquidación, contratos y estrategias rápidas para actuar bien.",
     "mainEntity":{
       "@type":"ItemList",
-      "itemListElement":[
-        {
-          "@type":"ListItem",
-          "position":1,
-          "url":"https://juristam.net/blog/prohibicion-salida-alimentos.html"
-        }
-      ]
+      "itemListElement":[]
     }
   }
   </script>
@@ -62,15 +58,11 @@
 
       --radius:18px;
 
-      /* ✅ MÓVIL: header compacto */
+      /* ✅ MÓVIL */
       --header-h:64px;
-
-      /* ✅ MÓVIL: botones pequeños */
       --btn-h:34px;
       --btn-px:10px;
       --btn-font:0.82rem;
-
-      /* ✅ MÓVIL: logo visible */
       --logo-h:42px;
     }
 
@@ -85,13 +77,8 @@
     a{text-decoration:none;color:inherit}
     img{max-width:100%;display:block}
 
-    .container{
-      width:min(1200px,100%);
-      margin:0 auto;
-      padding:0 16px;
-    }
+    .container{width:min(1200px,100%);margin:0 auto;padding:0 16px;}
 
-    /* HEADER */
     header{
       position:sticky; top:0; z-index:50;
       height:var(--header-h);
@@ -110,18 +97,8 @@
       min-width:0;
     }
 
-    .brand{
-      display:flex;
-      align-items:center;
-      flex:0 0 auto;
-      min-width:0;
-    }
-
-    .brand img{
-      height:var(--logo-h);
-      width:auto;
-      object-fit:contain;
-    }
+    .brand{display:flex;align-items:center;flex:0 0 auto;min-width:0;}
+    .brand img{height:var(--logo-h);width:auto;object-fit:contain;}
 
     .header-actions{
       display:flex;
@@ -151,7 +128,6 @@
       border:1px solid rgba(124,58,237,.18);
       user-select:none;
       -webkit-tap-highlight-color: transparent;
-
       min-width:0;
     }
     .btn i{font-size:0.92em}
@@ -168,15 +144,12 @@
       border:1px solid rgba(154,106,255,.22);
     }
 
-    /* ✅ textos responsivos */
     .txt-evaluar-full{display:none;}
     .txt-evaluar-short{display:inline;}
-    .txt-cat{display:none;} /* móvil: icon-only */
+    .txt-cat{display:none;}
 
-    /* MAIN */
     main{padding:12px 0 50px}
 
-    /* BREADCRUMB */
     .breadcrumb{
       margin-top:10px;
       display:flex;
@@ -187,13 +160,9 @@
       font-weight:900;
       font-size:.98rem;
     }
-    .breadcrumb a{
-      text-decoration:underline;
-      text-underline-offset:3px;
-    }
+    .breadcrumb a{text-decoration:underline;text-underline-offset:3px;}
     .breadcrumb .sep{opacity:.8}
 
-    /* HERO */
     .hero{
       margin:12px 0 18px;
       background:linear-gradient(135deg,#f8fafc 0%,#f2f3fb 100%);
@@ -207,18 +176,9 @@
       font-size:clamp(1.65rem,5.2vw,2.4rem);
       line-height:1.1;
     }
-    .hero p{
-      margin-top:10px;
-      color:var(--text-2);
-      line-height:1.65;
-    }
+    .hero p{margin-top:10px;color:var(--text-2);line-height:1.65;}
 
-    .chips{
-      margin-top:12px;
-      display:flex;
-      flex-wrap:wrap;
-      gap:10px;
-    }
+    .chips{margin-top:12px;display:flex;flex-wrap:wrap;gap:10px;}
     .chip{
       display:inline-flex;
       align-items:center;
@@ -232,7 +192,6 @@
       font-size:.84rem;
     }
 
-    /* GRID */
     .grid{
       display:grid;
       grid-template-columns:1fr;
@@ -246,14 +205,7 @@
       padding:18px;
       box-shadow:var(--shadow-sm);
     }
-    .meta{
-      display:flex;
-      flex-wrap:wrap;
-      gap:10px;
-      color:var(--text-3);
-      font-size:.9rem;
-      margin-bottom:10px;
-    }
+    .meta{display:flex;flex-wrap:wrap;gap:10px;color:var(--text-3);font-size:.9rem;margin-bottom:10px;}
     .tag{
       background:var(--primary-soft);
       color:var(--primary-dark);
@@ -265,61 +217,23 @@
       text-transform:uppercase;
       letter-spacing:.04em;
     }
-    .title{
-      font-weight:900;
-      font-size:clamp(1.1rem,3.8vw,1.28rem);
-      line-height:1.25;
-      margin-bottom:10px;
-    }
-    .excerpt{
-      color:var(--text-2);
-      line-height:1.7;
-      margin-bottom:12px;
-    }
-    .link{
-      display:inline-flex;
-      align-items:center;
-      gap:.55rem;
-      font-weight:900;
-      color:var(--primary-dark);
-    }
+    .title{font-weight:900;font-size:clamp(1.1rem,3.8vw,1.28rem);line-height:1.25;margin-bottom:10px;}
+    .excerpt{color:var(--text-2);line-height:1.7;margin-bottom:12px;}
+    .link{display:inline-flex;align-items:center;gap:.55rem;font-weight:900;color:var(--primary-dark);}
     .link:hover{text-decoration:underline}
 
-    footer{
-      border-top:1px solid var(--border);
-      padding:18px 0;
-      color:var(--text-3);
-      background:#fff;
-    }
+    footer{border-top:1px solid var(--border);padding:18px 0;color:var(--text-3);background:#fff;}
 
-    /* ✅ teléfonos muy pequeños */
     @media (max-width: 380px){
-      :root{
-        --header-h:62px;
-        --btn-h:32px;
-        --btn-px:9px;
-        --btn-font:0.80rem;
-        --logo-h:80px;
-      }
+      :root{--header-h:62px;--btn-h:32px;--btn-px:9px;--btn-font:0.80rem;--logo-h:80px;}
     }
 
-    /* ✅ tablet/desktop */
     @media (min-width: 900px){
-      :root{
-        --header-h:92px;
-        --btn-h:48px;
-        --btn-px:16px;
-        --btn-font:0.98rem;
-        --logo-h:140px;
-      }
-
+      :root{--header-h:92px;--btn-h:48px;--btn-px:16px;--btn-font:0.98rem;--logo-h:140px;}
       .container{padding:0 28px}
-
-      /* Desktop: texto visible */
       .txt-evaluar-full{display:inline;}
       .txt-evaluar-short{display:none;}
       .txt-cat{display:inline;}
-
       .grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:18px}
     }
 
@@ -351,28 +265,23 @@
 </header>
 
 <main class="container">
-
   <nav class="breadcrumb" aria-label="breadcrumb">
     <a href="/blog/">Guías</a>
     <span class="sep">/</span>
-    <span>Familia</span>
+    <span>Laboral</span>
   </nav>
 
   <section class="hero">
-    <h1>Familia</h1>
-    <p>
-      Alimentos, prohibición de salida del país, acuerdos y medidas urgentes.
-      Guías claras para actuar sin perder tiempo.
-    </p>
+    <h1>Laboral</h1>
+    <p>Despido, visto bueno, liquidación, contratos y vías rápidas. Guías claras para moverte sin perder tiempo.</p>
     <div class="chips">
-      <span class="chip"><i class="fa-solid fa-child"></i> Alimentos</span>
-      <span class="chip"><i class="fa-solid fa-plane-slash"></i> Prohibición de salida</span>
-      <span class="chip"><i class="fa-solid fa-file-signature"></i> Acuerdos</span>
+      <span class="chip"><i class="fa-solid fa-handshake"></i> Contratos</span>
+      <span class="chip"><i class="fa-solid fa-file-invoice"></i> Liquidación</span>
+      <span class="chip"><i class="fa-solid fa-triangle-exclamation"></i> Despido</span>
     </div>
   </section>
 
-  <section class="grid" id="grid" aria-label="Artículos de Familia"></section>
-
+  <section class="grid" id="grid" aria-label="Artículos de Laboral"></section>
 </main>
 
 <footer>
@@ -385,30 +294,46 @@
 <script>
   document.getElementById('year').textContent = new Date().getFullYear();
 
+  // ✅ Agrega aquí tus artículos cuando estén listos
   const posts = [
+    /*
     {
-      tag: "Familia",
+      tag: "Laboral",
       date: "Guía práctica",
-      title: "Prohibición de salida del país por alimentos: cómo levantarla si hay acuerdo",
-      excerpt: "Qué revisar, qué pedir al juzgado y cómo acelerar el trámite cuando hay urgencia.",
-      url: "/blog/prohibicion-salida-alimentos.html"
+      title: "Despido intempestivo: qué hacer y qué pruebas te convienen",
+      excerpt: "Pasos iniciales, errores que te perjudican y estrategia para reclamar bien.",
+      url: "/blog/xxxxx.html"
     }
+    */
   ];
 
   const grid = document.getElementById('grid');
-  grid.innerHTML = posts.map(p => `
-    <article class="card">
-      <div class="meta">
-        <span class="tag">${p.tag}</span>
-        <span><i class="fa-regular fa-clock"></i> ${p.date}</span>
-      </div>
-      <div class="title">${p.title}</div>
-      <div class="excerpt">${p.excerpt}</div>
-      <a class="link" href="${p.url}">
-        Leer artículo <i class="fa-solid fa-arrow-right"></i>
-      </a>
-    </article>
-  `).join("");
+
+  if (!posts.length) {
+    grid.innerHTML = `
+      <article class="card">
+        <div class="title">Próximamente</div>
+        <div class="excerpt">Estamos subiendo nuevas guías de Derecho Laboral. Vuelve en unas horas o revisa las otras categorías.</div>
+        <a class="link" href="/blog/">
+          Ver todas las categorías <i class="fa-solid fa-arrow-right"></i>
+        </a>
+      </article>
+    `;
+  } else {
+    grid.innerHTML = posts.map(p => `
+      <article class="card">
+        <div class="meta">
+          <span class="tag">${p.tag}</span>
+          <span><i class="fa-regular fa-clock"></i> ${p.date}</span>
+        </div>
+        <div class="title">${p.title}</div>
+        <div class="excerpt">${p.excerpt}</div>
+        <a class="link" href="${p.url}">
+          Leer artículo <i class="fa-solid fa-arrow-right"></i>
+        </a>
+      </article>
+    `).join("");
+  }
 </script>
 
 </body>
