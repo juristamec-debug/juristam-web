@@ -1,0 +1,415 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <meta name="theme-color" content="#9a6aff">
+
+  <title>Inmobiliario · Guías Júristam</title>
+  <meta name="description" content="Guías legales Inmobiliarias en Ecuador: prescripción, reivindicación, identificación del inmueble, escrituras y conflictos por terrenos.">
+  <link rel="canonical" href="https://juristam.net/blog/categoria-inmobiliario.html">
+  <meta name="robots" content="index,follow,max-image-preview:large">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Inmobiliario · Guías Júristam">
+  <meta property="og:description" content="Guías legales Inmobiliarias en Ecuador: prescripción, reivindicación, identificación del inmueble, escrituras y conflictos por terrenos.">
+  <meta property="og:url" content="https://juristam.net/blog/categoria-inmobiliario.html">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="https://i.postimg.cc/KjDB1NSM/Diseno-sin-titulo-(7).png">
+  <link rel="apple-touch-icon" href="https://i.postimg.cc/KjDB1NSM/Diseno-sin-titulo-(7).png">
+
+  <!-- Fonts & Icons -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+  <!-- JSON-LD: Category Page -->
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"CollectionPage",
+    "name":"Inmobiliario · Guías Júristam",
+    "url":"https://juristam.net/blog/categoria-inmobiliario.html",
+    "description":"Guías legales Inmobiliarias en Ecuador: prescripción, reivindicación, identificación del inmueble, escrituras y conflictos por terrenos.",
+    "mainEntity":{
+      "@type":"ItemList",
+      "itemListElement":[
+        {
+          "@type":"ListItem",
+          "position":1,
+          "url":"https://juristam.net/blog/regla-obligatoria-singularizacion-inmueble-prescripcion-reivindicacion.html"
+        }
+      ]
+    }
+  }
+  </script>
+
+  <style>
+    :root{
+      --primary:#9a6aff;
+      --primary-dark:#7c3aed;
+      --primary-soft:#efe8ff;
+      --bg:#ffffff;
+      --border:#e5e7eb;
+      --text:#0f172a;
+      --text-2:#334155;
+      --text-3:#64748b;
+
+      --shadow-sm:0 6px 16px rgba(15,23,42,.06);
+      --shadow-md:0 14px 28px rgba(15,23,42,.10);
+
+      --radius:18px;
+
+      /* ✅ MÓVIL: header compacto */
+      --header-h:64px;
+
+      /* ✅ MÓVIL: botones pequeños (pero usables) */
+      --btn-h:34px;
+      --btn-px:10px;
+      --btn-font:0.82rem;
+
+      /* ✅ MÓVIL: logo visible de verdad */
+      --logo-h:42px;
+    }
+
+    *{margin:0;padding:0;box-sizing:border-box}
+    html{-webkit-text-size-adjust:100%;text-size-adjust:100%}
+    body{
+      font-family:Inter,system-ui,-apple-system,Segoe UI,sans-serif;
+      background:var(--bg);
+      color:var(--text);
+      overflow-x:hidden;
+    }
+    a{text-decoration:none;color:inherit}
+    img{max-width:100%;display:block}
+
+    .container{
+      width:min(1200px,100%);
+      margin:0 auto;
+      padding:0 16px;
+    }
+
+    /* HEADER */
+    header{
+      position:sticky; top:0; z-index:50;
+      height:var(--header-h);
+      background:rgba(255,255,255,.95);
+      backdrop-filter:blur(12px);
+      border-bottom:1px solid var(--border);
+      box-shadow:var(--shadow-sm);
+    }
+
+    .header-inner{
+      height:100%;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:10px;
+      min-width:0;
+    }
+
+    .brand{
+      display:flex;
+      align-items:center;
+      flex:0 0 auto;
+      min-width:0;
+    }
+
+    .brand img{
+      height:var(--logo-h);
+      width:auto;
+      object-fit:contain;
+    }
+
+    .header-actions{
+      display:flex;
+      align-items:center;
+      justify-content:flex-end;
+      gap:8px;
+      flex:1 1 auto;
+      min-width:0;
+      flex-wrap:nowrap;
+    }
+
+    .btn{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      gap:.45rem;
+
+      height:var(--btn-h);
+      padding:0 var(--btn-px);
+
+      border-radius:999px;
+      font-weight:900;
+      white-space:nowrap;
+      line-height:1;
+      font-size:var(--btn-font);
+
+      border:1px solid rgba(124,58,237,.18);
+      user-select:none;
+      -webkit-tap-highlight-color: transparent;
+
+      min-width:0;
+    }
+
+    .btn i{font-size:0.92em}
+
+    .btn-primary{
+      background:linear-gradient(135deg,var(--primary),var(--primary-dark));
+      color:#fff;
+      box-shadow:0 10px 18px rgba(124,58,237,.14);
+    }
+
+    .btn-ghost{
+      background:var(--primary-soft);
+      color:var(--primary-dark);
+      border:1px solid rgba(154,106,255,.22);
+    }
+
+    /* ✅ textos responsivos */
+    .txt-evaluar-full{display:none;}
+    .txt-evaluar-short{display:inline;}
+    .txt-cat{display:none;} /* en móvil queda icon-only */
+
+    /* MAIN */
+    main{padding:12px 0 50px}
+
+    /* BREADCRUMB */
+    .breadcrumb{
+      margin-top:10px;
+      display:flex;
+      flex-wrap:wrap;
+      gap:8px;
+      align-items:center;
+      color:var(--text-3);
+      font-weight:900;
+      font-size:.98rem;
+    }
+    .breadcrumb a{
+      text-decoration:underline;
+      text-underline-offset:3px;
+    }
+    .breadcrumb .sep{opacity:.8}
+
+    /* HERO */
+    .hero{
+      margin:12px 0 18px;
+      background:linear-gradient(135deg,#f8fafc 0%,#f2f3fb 100%);
+      border:1px solid var(--border);
+      border-radius:calc(var(--radius) + 6px);
+      padding:20px 16px;
+      box-shadow:var(--shadow-md);
+    }
+    .hero h1{
+      font-family:"Playfair Display",serif;
+      font-size:clamp(1.65rem,5.2vw,2.4rem);
+      line-height:1.1;
+    }
+    .hero p{
+      margin-top:10px;
+      color:var(--text-2);
+      line-height:1.65;
+    }
+    .chips{
+      margin-top:12px;
+      display:flex;
+      flex-wrap:wrap;
+      gap:10px;
+    }
+    .chip{
+      display:inline-flex;
+      align-items:center;
+      gap:.5rem;
+      padding:.42rem .78rem;
+      background:#fff;
+      border:1px solid var(--border);
+      border-radius:999px;
+      font-weight:800;
+      color:var(--text-2);
+      font-size:.84rem;
+    }
+
+    /* GRID */
+    .grid{
+      display:grid;
+      grid-template-columns:1fr;
+      gap:14px;
+      margin:18px 0 50px;
+    }
+    .card{
+      background:#fff;
+      border:1px solid var(--border);
+      border-radius:calc(var(--radius) + 6px);
+      padding:18px;
+      box-shadow:var(--shadow-sm);
+    }
+    .meta{
+      display:flex;
+      flex-wrap:wrap;
+      gap:10px;
+      color:var(--text-3);
+      font-size:.9rem;
+      margin-bottom:10px;
+    }
+    .tag{
+      background:var(--primary-soft);
+      color:var(--primary-dark);
+      border:1px solid rgba(154,106,255,.22);
+      padding:.32rem .7rem;
+      border-radius:999px;
+      font-weight:900;
+      font-size:.75rem;
+      text-transform:uppercase;
+      letter-spacing:.04em;
+    }
+    .title{
+      font-weight:900;
+      font-size:clamp(1.1rem,3.8vw,1.28rem);
+      line-height:1.25;
+      margin-bottom:10px;
+    }
+    .excerpt{
+      color:var(--text-2);
+      line-height:1.7;
+      margin-bottom:12px;
+    }
+    .link{
+      display:inline-flex;
+      align-items:center;
+      gap:.55rem;
+      font-weight:900;
+      color:var(--primary-dark);
+    }
+    .link:hover{text-decoration:underline}
+
+    footer{
+      border-top:1px solid var(--border);
+      padding:18px 0;
+      color:var(--text-3);
+      background:#fff;
+    }
+
+    /* ✅ muy pequeño */
+    @media (max-width: 380px){
+      :root{
+        --header-h:62px;
+        --btn-h:32px;
+        --btn-px:9px;
+        --btn-font:0.80rem;
+        --logo-h:40px;
+      }
+    }
+
+    /* ✅ tablet/desktop */
+    @media (min-width: 900px){
+      :root{
+        --header-h:92px;
+        --btn-h:48px;
+        --btn-px:16px;
+        --btn-font:0.98rem;
+        --logo-h:52px;
+      }
+
+      .container{padding:0 28px}
+
+      .txt-evaluar-full{display:inline;}
+      .txt-evaluar-short{display:none;}
+      .txt-cat{display:inline;}
+
+      .grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:18px}
+    }
+
+    a:focus, button:focus { outline:2px solid rgba(154,106,255,.55); outline-offset:2px; }
+  </style>
+</head>
+
+<body>
+
+<header>
+  <div class="container header-inner">
+    <a class="brand" href="/blog/" aria-label="Volver a Guías">
+      <img src="https://i.postimg.cc/vHygbHxz/oie_transparent_(2).png" alt="Júristam · Guías legales en Ecuador">
+    </a>
+
+    <div class="header-actions" aria-label="Acciones">
+      <a href="/blog/" class="btn btn-ghost" aria-label="Volver a todas las categorías">
+        <i class="fa-solid fa-layer-group"></i>
+        <span class="txt-cat">Categorías</span>
+      </a>
+
+      <a href="/#formulario" class="btn btn-primary" aria-label="Evaluar caso con Júristam">
+        <span class="txt-evaluar-full">Evaluar Caso</span>
+        <span class="txt-evaluar-short">Evaluar</span>
+        <i class="fa-solid fa-arrow-right"></i>
+      </a>
+    </div>
+  </div>
+</header>
+
+<main class="container">
+
+  <nav class="breadcrumb" aria-label="breadcrumb">
+    <a href="/blog/">Guías</a>
+    <span class="sep">/</span>
+    <span>Inmobiliario</span>
+  </nav>
+
+  <section class="hero">
+    <h1>Inmobiliario</h1>
+    <p>
+      Prescripción, reivindicación, escrituras y conflictos por terrenos.
+      Guías claras para moverte sin perder tu derecho.
+    </p>
+
+    <div class="chips">
+      <span class="chip"><i class="fa-solid fa-house"></i> Terrenos</span>
+      <span class="chip"><i class="fa-solid fa-scale-balanced"></i> Prescripción / Reivindicación</span>
+      <span class="chip"><i class="fa-solid fa-file-signature"></i> Escrituras</span>
+    </div>
+  </section>
+
+  <section class="grid" id="grid" aria-label="Artículos de Inmobiliario"></section>
+
+</main>
+
+<footer>
+  <div class="container">
+    © <span id="year"></span> Júristam ·
+    <a href="/blog/" style="text-decoration:underline;text-underline-offset:3px;">Volver a Guías</a>
+  </div>
+</footer>
+
+<script>
+  document.getElementById('year').textContent = new Date().getFullYear();
+
+  const posts = [
+    {
+      tag: "Inmuebles",
+      date: "Jurisprudencia obligatoria",
+      title: "Terrenos: la regla obligatoria de la Corte sobre identificación del inmueble",
+      excerpt: "Qué exige la Corte en prescripción y qué en reivindicación. Explicado fácil, sin tecnicismos.",
+      url: "/blog/regla-obligatoria-singularizacion-inmueble-prescripcion-reivindicacion.html"
+    }
+  ];
+
+  const grid = document.getElementById('grid');
+  grid.innerHTML = posts.map(p => `
+    <article class="card">
+      <div class="meta">
+        <span class="tag">${p.tag}</span>
+        <span><i class="fa-regular fa-clock"></i> ${p.date}</span>
+      </div>
+      <div class="title">${p.title}</div>
+      <div class="excerpt">${p.excerpt}</div>
+      <a class="link" href="${p.url}">
+        Leer artículo <i class="fa-solid fa-arrow-right"></i>
+      </a>
+    </article>
+  `).join("");
+</script>
+
+</body>
+</html>
