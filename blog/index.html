@@ -5,16 +5,23 @@
 
   <!-- Favicons -->
   <link rel="icon" type="image/png" href="https://i.postimg.cc/KjDB1NSM/Diseno-sin-titulo-(7).png">
-<link rel="apple-touch-icon" href="https://i.postimg.cc/KjDB1NSM/Diseno-sin-titulo-(7).png">
-<meta name="theme-color" content="#9a6aff">
+  <link rel="apple-touch-icon" href="https://i.postimg.cc/KjDB1NSM/Diseno-sin-titulo-(7).png">
+  <meta name="theme-color" content="#9a6aff">
+
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover, maximum-scale=5.0" />
 
   <title>Guías Júristam · Blog Legal por Categorías</title>
   <meta name="description" content="Guías prácticas de Júristam organizadas por categorías: Coactiva, SENAE/Aduanas, Familia, Inmobiliario y Laboral. Encuentra soluciones reales en Ecuador." />
+
+  <!-- Canonical SIEMPRE con slash final -->
   <link rel="canonical" href="https://juristam.net/blog/" />
   <meta name="robots" content="index,follow,max-image-preview:large" />
 
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+
+  <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
   <style>
@@ -110,13 +117,19 @@
       min-width:0;flex:0 0 auto;
     }
     .logo-box{
-      height:50px;
+      height:100px;
       width:auto;
-      max-width:160px;
+      max-width:180px;
       display:flex;
       align-items:center;
     }
-    .logo-box img{height:200%;width:auto;object-fit:contain}
+
+    /* ✅ FIX: antes tenías height:200% (rompe el header). */
+    .logo-box img{
+      height:100%;
+      width:auto;
+      object-fit:contain;
+    }
 
     /* Actions (mobile): Buscador + Hamburguesa */
     .header-actions{
@@ -165,7 +178,7 @@
     .desktop-actions{display:none}
 
     /* =========================
-      MOBILE DRAWER (HAMBURGUESA)
+      MOBILE DRAWER
     ========================= */
     .drawer-overlay{
       position:fixed; inset:0;
@@ -332,6 +345,11 @@
       cursor:pointer;
     }
     .category-card:hover{box-shadow: var(--shadow-lg); transform: translateY(-2px)}
+    .category-card[aria-disabled="true"]{
+      opacity:.62;
+      cursor:not-allowed;
+      transform:none !important;
+    }
     .card-header{
       display:flex;
       align-items:flex-start;
@@ -561,8 +579,7 @@
     ========================= */
     @media (min-width: 980px){
       :root{ --header-h: 96px; }
-
-      .logo-box{height:56px;max-width:220px}
+      .logo-box{height:140px;max-width:240px}
 
       /* Hide mobile actions, show desktop */
       .header-actions{display:none}
@@ -632,9 +649,9 @@
   <!-- HEADER -->
   <header role="banner">
     <div class="header-inner">
-      <a href="/" class="brand" aria-label="Júristam - Inicio">
+      <!-- ✅ LINKS ABSOLUTOS (evita reportes de redirección por variantes) -->
+      <a href="https://juristam.net/" class="brand" aria-label="Júristam - Inicio">
         <div class="logo-box">
-          <!-- ✅ corregí el link del logo a tu versión original -->
           <img src="https://i.postimg.cc/vHygbHxz/oie-transparent-(2).png" alt="Júristam Logo" loading="eager">
         </div>
       </a>
@@ -642,11 +659,11 @@
       <!-- NAV DESKTOP -->
       <nav class="nav-center" aria-label="Navegación principal">
         <div class="nav-menu">
-          <a href="/#proceso" class="nav-link">Proceso</a>
-          <a href="/#servicios" class="nav-link">Servicios</a>
-          <a href="/casos-de-exito.html" class="nav-link" target="_blank" rel="noopener">Casos de Éxito</a>
-          <a href="/blog/" class="nav-link" aria-current="page">Guías</a>
-          <a href="/#contacto" class="nav-link">Contacto</a>
+          <a href="https://juristam.net/#proceso" class="nav-link">Proceso</a>
+          <a href="https://juristam.net/#servicios" class="nav-link">Servicios</a>
+          <a href="https://juristam.net/casos-de-exito.html" class="nav-link">Casos de Éxito</a>
+          <a href="https://juristam.net/blog/" class="nav-link" aria-current="page">Guías</a>
+          <a href="https://juristam.net/#contacto" class="nav-link">Contacto</a>
         </div>
       </nav>
 
@@ -660,7 +677,7 @@
           <i class="fas fa-layer-group"></i>
           <span>Categorías</span>
         </a>
-        <a href="/#formulario" class="btn btn-primary">
+        <a href="https://juristam.net/#formulario" class="btn btn-primary">
           <span>Evaluar Caso</span>
           <i class="fas fa-arrow-right"></i>
         </a>
@@ -690,16 +707,16 @@
       </div>
 
       <nav class="drawer-links" aria-label="Navegación">
-        <a href="/#proceso">Proceso <i class="fas fa-chevron-right"></i></a>
-        <a href="/#servicios">Servicios <i class="fas fa-chevron-right"></i></a>
-        <a href="/casos-de-exito.html" target="_blank" rel="noopener">Casos de Éxito <i class="fas fa-arrow-up-right-from-square"></i></a>
-        <a href="/blog/">Guías <i class="fas fa-chevron-right"></i></a>
-        <a href="/#contacto">Contacto <i class="fas fa-chevron-right"></i></a>
+        <a href="https://juristam.net/#proceso">Proceso <i class="fas fa-chevron-right"></i></a>
+        <a href="https://juristam.net/#servicios">Servicios <i class="fas fa-chevron-right"></i></a>
+        <a href="https://juristam.net/casos-de-exito.html">Casos de Éxito <i class="fas fa-chevron-right"></i></a>
+        <a href="https://juristam.net/blog/">Guías <i class="fas fa-chevron-right"></i></a>
+        <a href="https://juristam.net/#contacto">Contacto <i class="fas fa-chevron-right"></i></a>
         <a href="#categorias">Categorías <i class="fas fa-layer-group"></i></a>
       </nav>
 
       <div class="drawer-cta">
-        <a href="/#formulario" class="btn btn-primary">
+        <a href="https://juristam.net/#formulario" class="btn btn-primary">
           <span>Evaluar Caso</span>
           <i class="fas fa-arrow-right"></i>
         </a>
@@ -754,23 +771,23 @@
       <section class="section-title" id="categorias">
         <h2>Categorías</h2>
         <p class="section-subtitle">
-          Toca una categoría y se abre su "ventana" (página) con todos sus artículos.
+          Toca una categoría y se abre su página con todos sus artículos (si ya está publicada).
         </p>
       </section>
 
       <div class="categories-grid" id="categoriesGrid" aria-label="Lista de categorías"></div>
 
-      <!-- ✅ ENLACES INTERNOS (SEO) SIN CAMBIAR EL DISEÑO -->
+      <!-- ✅ ENLACES INTERNOS (SEO) -->
       <nav class="sr-only" aria-label="Enlaces internos a guías destacadas">
         <ul>
-          <li><a href="/blog/prohibicion-salida-alimentos.html">Prohibición de salida del país por alimentos: cómo levantarla si hay acuerdo</a></li>
-          <li><a href="/blog/senae-retencion-mercaderia.html">SENAE retuvo tu mercadería: qué hacer (sin empeorar el caso)</a></li>
-          <li><a href="/blog/cuenta-bloqueada-coactiva-salario.html">Cuenta bloqueada por coactiva y es tu salario: cómo moverte rápido</a></li>
-          <li><a href="/blog/coactiva-deuda-ilegal-defensa-ecuador.html">¿Te pueden cobrar en coactiva si la deuda es ilegal en Ecuador?</a></li>
-          <li><a href="/blog/embargo-sueldo-ecuador.html">¿Me pueden embargar todo el sueldo en Ecuador?</a></li>
-          <li><a href="/blog/regla-obligatoria-singularizacion-inmueble-prescripcion-reivindicacion.html">Terrenos: regla obligatoria sobre identificación del inmueble</a></li>
-          <li><a href="/blog/fondos-reserva-jubilacion-patronal-ecuador.html">¿Tus fondos de reserva cuentan para la jubilación patronal en Ecuador?</a></li>
-          <li><a href="/blog/coactiva-ex-representante-legal-nulidad-ecuador.html">¿Te pueden cobrar una coactiva si ya no eres representante legal?</a></li>
+          <li><a href="https://juristam.net/blog/prohibicion-salida-alimentos.html">Prohibición de salida del país por alimentos: cómo levantarla si hay acuerdo</a></li>
+          <li><a href="https://juristam.net/blog/senae-retencion-mercaderia.html">SENAE retuvo tu mercadería: qué hacer (sin empeorar el caso)</a></li>
+          <li><a href="https://juristam.net/blog/cuenta-bloqueada-coactiva-salario.html">Cuenta bloqueada por coactiva y es tu salario: cómo moverte rápido</a></li>
+          <li><a href="https://juristam.net/blog/coactiva-deuda-ilegal-defensa-ecuador.html">¿Te pueden cobrar en coactiva si la deuda es ilegal en Ecuador?</a></li>
+          <li><a href="https://juristam.net/blog/embargo-sueldo-ecuador.html">¿Me pueden embargar todo el sueldo en Ecuador?</a></li>
+          <li><a href="https://juristam.net/blog/regla-obligatoria-singularizacion-inmueble-prescripcion-reivindicacion.html">Terrenos: regla obligatoria sobre identificación del inmueble</a></li>
+          <li><a href="https://juristam.net/blog/fondos-reserva-jubilacion-patronal-ecuador.html">¿Tus fondos de reserva cuentan para la jubilación patronal en Ecuador?</a></li>
+          <li><a href="https://juristam.net/blog/coactiva-ex-representante-legal-nulidad-ecuador.html">¿Te pueden cobrar una coactiva si ya no eres representante legal?</a></li>
         </ul>
       </nav>
 
@@ -780,7 +797,8 @@
   <!-- FOOTER -->
   <footer role="contentinfo">
     <div class="container">
-      © <span id="currentYear"></span> Júristam · <a href="/" style="text-decoration:underline; text-underline-offset:3px;">Volver al inicio</a>
+      © <span id="currentYear"></span> Júristam ·
+      <a href="https://juristam.net/" style="text-decoration:underline; text-underline-offset:3px;">Volver al inicio</a>
     </div>
   </footer>
 
@@ -840,99 +858,106 @@
         date: "Corte Nacional · Nulidad por personería",
         title: "¿Te pueden cobrar una coactiva si ya no eres representante legal?",
         excerpt: "Muchas personas pagan coactivas que nunca debieron dirigirse contra ellas. La Corte Nacional aclaró que cobrar a un exrepresentante legal puede anular todo el proceso.",
-        url: "/blog/coactiva-ex-representante-legal-nulidad-ecuador.html"
+        url: "https://juristam.net/blog/coactiva-ex-representante-legal-nulidad-ecuador.html"
       },
       {
         tag: "Coactiva",
         date: "Corte Nacional · Resolución 393-2023",
         title: "¿Te pueden cobrar en coactiva si la deuda es ilegal en Ecuador?",
         excerpt: "La Corte Nacional aclaró un error grave: no todo se defiende dentro de la coactiva. Conoce cuándo atacar el título de crédito, la prescripción y por qué el tiempo lo cambia todo.",
-        url: "/blog/coactiva-deuda-ilegal-defensa-ecuador.html"
+        url: "https://juristam.net/blog/coactiva-deuda-ilegal-defensa-ecuador.html"
       },
       {
         tag: "Laboral",
         date: "Guía práctica",
         title: "¿Me pueden embargar todo el sueldo en Ecuador?",
         excerpt: "Cuánto pueden retenerte legalmente, cuándo es ilegal y qué hacer si te bloquean todo el salario.",
-        url: "/blog/embargo-sueldo-ecuador.html"
+        url: "https://juristam.net/blog/embargo-sueldo-ecuador.html"
       },
       {
         tag: "Inmuebles",
         date: "Jurisprudencia obligatoria",
         title: "Terrenos: la regla obligatoria de la Corte sobre identificación del inmueble",
         excerpt: "La Corte Nacional aclaró qué se exige en prescripción y qué en reivindicación. Explicado fácil, sin tecnicismos.",
-        url: "/blog/regla-obligatoria-singularizacion-inmueble-prescripcion-reivindicacion.html"
+        url: "https://juristam.net/blog/regla-obligatoria-singularizacion-inmueble-prescripcion-reivindicacion.html"
       },
       {
         tag: "Aduanas",
         date: "Guía práctica",
         title: "SENAE retuvo tu mercadería: qué hacer (sin empeorar el caso)",
         excerpt: "Pasos concretos, errores comunes y cómo ordenar tu estrategia para recuperar tu mercancía.",
-        url: "/blog/senae-retencion-mercaderia.html"
+        url: "https://juristam.net/blog/senae-retencion-mercaderia.html"
       },
       {
         tag: "Familia",
         date: "Guía práctica",
         title: "Prohibición de salida del país por alimentos: cómo levantarla si hay acuerdo",
         excerpt: "Qué revisar, qué pedir al juzgado y cómo acelerar el trámite cuando hay urgencia.",
-        url: "/blog/prohibicion-salida-alimentos.html"
+        url: "https://juristam.net/blog/prohibicion-salida-alimentos.html"
       },
       {
         tag: "Coactiva",
         date: "Guía práctica",
         title: "Cuenta bloqueada por coactiva y es tu salario: cómo moverte rápido",
         excerpt: "Qué pruebas necesitas y cómo argumentar el origen del dinero para desbloqueo.",
-        url: "/blog/cuenta-bloqueada-coactiva-salario.html"
+        url: "https://juristam.net/blog/cuenta-bloqueada-coactiva-salario.html"
       },
       {
         tag: "Laboral",
         date: "Jurisprudencia obligatoria",
         title: "¿Tus fondos de reserva cuentan para la jubilación patronal en Ecuador?",
         excerpt: "La Corte Nacional dejó una regla obligatoria: cuándo los fondos de reserva cuentan, qué se puede descontar y qué ya no.",
-        url: "/blog/fondos-reserva-jubilacion-patronal-ecuador.html"
+        url: "https://juristam.net/blog/fondos-reserva-jubilacion-patronal-ecuador.html"
       }
     ];
 
+    // ✅ IMPORTANTÍSIMO:
+    // enabled:true SOLO si esa categoría EXISTE y responde 200 OK.
     const categories = [
       {
         key: "coactiva",
         name: "Coactiva",
         icon: "fa-gavel",
         desc: "Cuenta bloqueada, medidas de cobro, prescripción, nulidades y estrategia rápida.",
-        href: "/blog/categoria-coactiva.html",
-        tags: ["Coactiva"]
+        href: "https://juristam.net/blog/categoria-coactiva.html",
+        tags: ["Coactiva"],
+        enabled: true
+      },
+      {
+        key: "familia",
+        name: "Familia",
+        icon: "fa-people-roof",
+        desc: "Alimentos, prohibición de salida, acuerdos y trámites urgentes.",
+        href: "https://juristam.net/blog/categoria-familia.html",
+        tags: ["Familia"],
+        enabled: true
       },
       {
         key: "senae",
         name: "SENAE / Aduanas",
         icon: "fa-boxes-stacked",
         desc: "Retención de mercadería, liquidaciones, multas y pasos para no empeorar el caso.",
-        href: "/blog/categoria-senae-aduanas.html",
-        tags: ["Aduanas", "SENAE", "Aduana"]
-      },
-      {
-        key: "familia",
-        name: "Familia",
-        icon: "fa-people-roof",
-        desc: "Alimentos, medidas como prohibición de salida, acuerdos y trámites urgentes.",
-        href: "/blog/categoria-familia.html",
-        tags: ["Familia"]
+        href: "https://juristam.net/blog/categoria-senae-aduanas.html",
+        tags: ["Aduanas", "SENAE", "Aduana"],
+        enabled: false
       },
       {
         key: "inmobiliario",
         name: "Inmobiliario",
         icon: "fa-house-chimney",
         desc: "Prescripción, reivindicación, escrituras, conflictos por terrenos y posesión.",
-        href: "/blog/categoria-inmobiliario.html",
-        tags: ["Inmuebles", "Inmobiliario"]
+        href: "https://juristam.net/blog/categoria-inmobiliario.html",
+        tags: ["Inmuebles", "Inmobiliario"],
+        enabled: false
       },
       {
         key: "laboral",
         name: "Laboral",
         icon: "fa-briefcase",
         desc: "Embargos, derechos del trabajador, liquidaciones y reglas obligatorias.",
-        href: "/blog/categoria-laboral.html",
-        tags: ["Laboral"]
+        href: "https://juristam.net/blog/categoria-laboral.html",
+        tags: ["Laboral"],
+        enabled: false
       }
     ];
 
@@ -966,8 +991,15 @@
           category.tags.some(tag => normalize(tag) === normalize(post.tag))
         ).length;
 
+        const disabled = !category.enabled;
+
         return `
-          <article class="category-card" data-category="${category.key}" tabindex="0" role="button" aria-label="${category.name} - ${articleCount} artículos">
+          <article class="category-card"
+            data-category="${category.key}"
+            tabindex="${disabled ? '-1' : '0'}"
+            role="button"
+            aria-disabled="${disabled ? 'true' : 'false'}"
+            aria-label="${escapeHtml(category.name)} - ${articleCount} artículos">
             <div class="card-header">
               <span class="category-chip">
                 <i class="fas ${category.icon}"></i>
@@ -981,12 +1013,17 @@
             <h3>${escapeHtml(category.name)}</h3>
             <p>${escapeHtml(category.desc)}</p>
             <div class="card-actions">
-              <a href="${category.href}" class="btn" aria-label="Ver artículos de ${category.name}">
-                Ver artículos
-                <i class="fas fa-arrow-right"></i>
-              </a>
-              <button class="card-link" data-category-search="${category.name}" type="button" aria-label="Buscar sobre ${category.name}">
-                Buscar sobre ${category.name}
+              ${
+                disabled
+                ? `<button class="btn" type="button" disabled style="opacity:.75;cursor:not-allowed">
+                     Próximamente
+                   </button>`
+                : `<a href="${category.href}" class="btn" aria-label="Ver artículos de ${escapeHtml(category.name)}">
+                     Ver artículos <i class="fas fa-arrow-right"></i>
+                   </a>`
+              }
+              <button class="card-link" data-category-search="${escapeHtml(category.name)}" type="button" aria-label="Buscar sobre ${escapeHtml(category.name)}">
+                Buscar sobre ${escapeHtml(category.name)}
                 <i class="far fa-comment-dots"></i>
               </button>
             </div>
@@ -1025,9 +1062,10 @@
       document.addEventListener('click', (e) => {
         const card = e.target.closest('.category-card');
         if (card && !e.target.closest('a') && !e.target.closest('button')) {
+          if (card.getAttribute('aria-disabled') === 'true') return;
           const key = card.getAttribute('data-category');
           const cat = categories.find(c => c.key === key);
-          if (cat) window.location.href = cat.href;
+          if (cat && cat.enabled) window.location.href = cat.href;
         }
 
         const catSearch = e.target.closest('[data-category-search]');
@@ -1161,7 +1199,7 @@
           normalize(c.name) === normalize(inferred) ||
           c.tags.some(t => normalize(t) === normalize(inferred))
         );
-        if (cat){
+        if (cat && cat.enabled){
           sendBotMessage(`Esto suena a <strong>${escapeHtml(cat.name)}</strong>. Si prefieres ver todos: <a href="${cat.href}" target="_blank" rel="noopener">abrir ${escapeHtml(cat.name)}</a>.`);
         }
       }
