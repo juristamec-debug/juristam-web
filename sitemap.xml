@@ -4,55 +4,79 @@
   <!-- Página principal -->
   <url>
     <loc>https://juristam.net/</loc>
+    <lastmod>2026-01-12</lastmod>
     <priority>1.0</priority>
   </url>
 
-  <!-- Blog -->
+  <!-- Blog principal -->
   <url>
     <loc>https://juristam.net/blog/</loc>
+    <lastmod>2026-01-12</lastmod>
     <priority>0.9</priority>
   </url>
 
-  <!-- Artículos -->
+  <!-- Categorías -->
   <url>
-    <loc>https://juristam.net/blog/senae-retencion-mercaderia.html</loc>
+    <loc>https://juristam.net/blog/categoria-familia.html</loc>
+    <lastmod>2026-01-12</lastmod>
+    <priority>0.85</priority>
+  </url>
+
+  <!-- Artículos Familia -->
+  <url>
+    <loc>https://juristam.net/blog/prohibicion-salida-alimentos.html</loc>
+    <lastmod>2025-12-31</lastmod>
     <priority>0.8</priority>
   </url>
 
   <url>
-    <loc>https://juristam.net/blog/prohibicion-salida-alimentos.html</loc>
+    <loc>https://juristam.net/blog/impugnacion-paternidad-alimentos-ecuador.html</loc>
+    <lastmod>2026-01-12</lastmod>
+    <priority>0.9</priority>
+  </url>
+
+  <!-- Artículos Coactiva / Público -->
+  <url>
+    <loc>https://juristam.net/blog/senae-retencion-mercaderia.html</loc>
+    <lastmod>2025-12-31</lastmod>
     <priority>0.8</priority>
   </url>
 
   <url>
     <loc>https://juristam.net/blog/cuenta-bloqueada-coactiva-salario.html</loc>
+    <lastmod>2025-12-31</lastmod>
     <priority>0.8</priority>
   </url>
 
   <url>
     <loc>https://juristam.net/blog/embargo-sueldo-ecuador.html</loc>
+    <lastmod>2025-12-31</lastmod>
     <priority>0.8</priority>
   </url>
+
   <url>
     <loc>https://juristam.net/blog/coactiva-ex-representante-legal-nulidad-ecuador.html</loc>
+    <lastmod>2025-12-31</lastmod>
     <priority>0.8</priority>
   </url>
-   <url>
-    <loc>https://juristam.net/blog/fondos-reserva-jubilacion-patronal-ecuador.html</loc>
-    <priority>0.8</priority>
-  </url>
-   <url>
-    <loc>https://juristam.net/blog/regla-obligatoria-singularizacion-inmueble-prescripcion-reivindicacion.html</loc>
-    <priority>0.8</priority>
-  </url>
+
   <url>
     <loc>https://juristam.net/blog/coactiva-deuda-ilegal-defensa-ecuador.html</loc>
+    <lastmod>2025-12-31</lastmod>
     <priority>0.8</priority>
   </url>
 
+  <!-- Otros -->
+  <url>
+    <loc>https://juristam.net/blog/fondos-reserva-jubilacion-patronal-ecuador.html</loc>
+    <lastmod>2025-12-31</lastmod>
+    <priority>0.7</priority>
+  </url>
 
-
+  <url>
+    <loc>https://juristam.net/blog/regla-obligatoria-singularizacion-inmueble-prescripcion-reivindicacion.html</loc>
+    <lastmod>2025-12-31</lastmod>
+    <priority>0.7</priority>
+  </url>
 
 </urlset>
-
-
