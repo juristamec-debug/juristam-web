@@ -649,7 +649,7 @@
   <!-- HEADER -->
   <header role="banner">
     <div class="header-inner">
-      <!-- ✅ LINKS ABSOLUTOS (evita reportes de redirección por variantes) -->
+      <!-- ✅ LINKS ABSOLUTOS -->
       <a href="https://juristam.net/" class="brand" aria-label="Júristam - Inicio">
         <div class="logo-box">
           <img src="https://i.postimg.cc/vHygbHxz/oie-transparent-(2).png" alt="Júristam Logo" loading="eager">
@@ -781,6 +781,9 @@
       <nav class="sr-only" aria-label="Enlaces internos a guías destacadas">
         <ul>
           <li><a href="https://juristam.net/blog/prohibicion-salida-alimentos.html">Prohibición de salida del país por alimentos: cómo levantarla si hay acuerdo</a></li>
+          <li><a href="https://juristam.net/blog/impugnacion-paternidad-alimentos-ecuador.html">¿Pagas alimentos y NO eres el padre biológico? Impugnación, alimentos y apellido en Ecuador</a></li>
+          <li><a href="https://juristam.net/blog/cambio-apellido-ecuador-cedula-identidad.html">¿Puedo cambiar mi apellido en Ecuador aunque en mi cédula conste otro?</a></li>
+
           <li><a href="https://juristam.net/blog/senae-retencion-mercaderia.html">SENAE retuvo tu mercadería: qué hacer (sin empeorar el caso)</a></li>
           <li><a href="https://juristam.net/blog/cuenta-bloqueada-coactiva-salario.html">Cuenta bloqueada por coactiva y es tu salario: cómo moverte rápido</a></li>
           <li><a href="https://juristam.net/blog/coactiva-deuda-ilegal-defensa-ecuador.html">¿Te pueden cobrar en coactiva si la deuda es ilegal en Ecuador?</a></li>
@@ -888,6 +891,8 @@
         excerpt: "Pasos concretos, errores comunes y cómo ordenar tu estrategia para recuperar tu mercancía.",
         url: "https://juristam.net/blog/senae-retencion-mercaderia.html"
       },
+
+      /* ✅ FAMILIA (ahora 3) */
       {
         tag: "Familia",
         date: "Guía práctica",
@@ -895,6 +900,21 @@
         excerpt: "Qué revisar, qué pedir al juzgado y cómo acelerar el trámite cuando hay urgencia.",
         url: "https://juristam.net/blog/prohibicion-salida-alimentos.html"
       },
+      {
+        tag: "Familia",
+        date: "Guía práctica",
+        title: "¿Pagas alimentos y NO eres el padre biológico? Impugnación, alimentos y apellido en Ecuador",
+        excerpt: "Qué pasa si el ADN te excluye, si la obligación de alimentos cesa hacia el futuro y por qué el apellido ≠ la obligación.",
+        url: "https://juristam.net/blog/impugnacion-paternidad-alimentos-ecuador.html"
+      },
+      {
+        tag: "Familia",
+        date: "Corte Nacional · Identidad y apellidos",
+        title: "¿Puedo cambiar mi apellido en Ecuador aunque en mi cédula conste otro?",
+        excerpt: "Cuándo sí procede si en la cédula tienes un apellido, pero en la vida real usas otro por años (prueba + continuidad).",
+        url: "https://juristam.net/blog/cambio-apellido-ecuador-cedula-identidad.html"
+      },
+
       {
         tag: "Coactiva",
         date: "Guía práctica",
@@ -1189,7 +1209,7 @@
       const results = searchPosts(q);
 
       if (!results.length){
-        sendBotMessage('No encontré artículos exactos con esas palabras. Prueba con: "coactiva", "SENAE", "alimentos", "terreno", "sueldo".');
+        sendBotMessage('No encontré artículos exactos con esas palabras. Prueba con: "coactiva", "SENAE", "alimentos", "apellidos", "Registro Civil", "terreno", "sueldo".');
         return;
       }
 
@@ -1254,7 +1274,7 @@
       const synonyms = [
         { keys: ["coactiva","cobro coactivo","embargo","bloquearon","bloqueo","cuenta bloqueada","retuvieron mi cuenta"], cat:"Coactiva" },
         { keys: ["senae","aduanas","aduana","retuvieron","mercaderia","mercadería","liquidacion","liquidación","aforo","multa"], cat:"Aduanas" },
-        { keys: ["alimentos","familia","pension","pensión","prohibicion de salida","prohibición de salida","salida del pais","salida del país"], cat:"Familia" },
+        { keys: ["alimentos","familia","pension","pensión","prohibicion de salida","prohibición de salida","salida del pais","salida del país","apellidos","apellido","registro civil","cambio de apellido","identidad"], cat:"Familia" },
         { keys: ["terreno","inmueble","prescripcion","prescripción","posesion","posesión","reivindicacion","reivindicación","escritura"], cat:"Inmuebles" },
         { keys: ["laboral","sueldo","salario","despido","fondo de reserva","fondos de reserva","jubilacion patronal","jubilación patronal"], cat:"Laboral" }
       ];
