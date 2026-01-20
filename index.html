@@ -127,6 +127,11 @@
       margin:0 auto;
       padding:0 var(--pad-x);
       box-sizing: border-box;
+
+      /* ✅ AJUSTE (solo visual): evita “doble padding” del header y centra mejor */
+      height: 100%;
+      display: flex;
+      align-items: center;
     }
 
     /* HEADER - OPTIMIZADO PARA MÓVILES */
@@ -140,7 +145,10 @@
       box-shadow:var(--shadow-sm);
       transition: background .2s ease, box-shadow .2s ease;
       width: 100%;
-      padding: 0 var(--pad-x); /* Añadido para consistencia */
+
+      /* ✅ AJUSTE (solo visual): quita padding duplicado (header ya tiene .header-container) */
+      padding: 0;
+
       box-sizing: border-box;
     }
     header.scrolled{
@@ -1106,15 +1114,10 @@
     @media (min-width: 1024px) {
       :root{ 
         --pad-x: 28px; 
-        --header-fixed-h: 104px; 
-        --header-h: 104px; 
+        --header-fixed-h: 75px; 
+        --header-h: 75px; 
         --sec-y: 86px; 
         --maxw: 1280px; /* Ancho máximo original */
-      }
-      
-      /* CORRECCIÓN: Aumentar padding-top del hero para escritorio */
-      .hero {
-        padding-top: calc(var(--header-h) + 30px); /* Aumentado de 20px a 30px */
       }
       
       /* RESTAURAR DISEÑO DE ESCRITORIO */
@@ -1134,8 +1137,8 @@
         width:200px; 
       }
       .logo-icon img {
-        max-height: 92px;
-        height: 100%;
+        max-height: none;
+        height: 140%; /* Restaurar valor original */
       }
 
       .nav-links{
