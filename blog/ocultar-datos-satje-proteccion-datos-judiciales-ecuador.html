@@ -1,0 +1,501 @@
+<!DOCTYPE html>
+<html lang="es-EC">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+
+  <!-- Favicons -->
+  <link rel="icon" type="image/png" href="https://i.postimg.cc/KjDB1NSM/Diseno-sin-titulo-(7).png">
+  <link rel="apple-touch-icon" href="https://i.postimg.cc/KjDB1NSM/Diseno-sin-titulo-(7).png">
+  <meta name="theme-color" content="#9a6aff">
+
+  <!-- Primary SEO -->
+  <title>“Cumplí la pena o fui sobreseído… pero nadie me contrata” | Júristam</title>
+  <meta name="description" content="Tus datos siguen visibles en SATJE aunque el proceso terminó. Qué se puede pedir (ocultamiento/rectificación), riesgos de no hacer nada y por qué una vía mal usada te hace perder. Basado en Res. CJ 043-2024 y criterios recientes de la Corte Constitucional." />
+  <link rel="canonical" href="https://juristam.net/blog/ocultar-datos-satje-proteccion-datos-judiciales-ecuador.html" />
+  <meta name="robots" content="index,follow,max-image-preview:large" />
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="article" />
+  <meta property="og:site_name" content="Júristam" />
+  <meta property="og:title" content="Cumplí la pena o fui sobreseído… pero nadie me contrata | Júristam" />
+  <meta property="og:description" content="Cómo proteger datos personales en procesos judiciales (SATJE) y evitar que un caso antiguo te cierre puertas. Guía clara, con riesgos reales y ruta correcta." />
+  <meta property="og:url" content="https://juristam.net/blog/ocultar-datos-satje-proteccion-datos-judiciales-ecuador.html" />
+  <meta property="og:image" content="https://i.postimg.cc/vHygbHxz/oie-transparent-(2).png" />
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Cumplí la pena o fui sobreseído… pero nadie me contrata | Júristam" />
+  <meta name="twitter:description" content="Tus datos siguen visibles en SATJE aunque el proceso terminó. Ruta correcta, riesgos de hacerlo mal y cómo ayudarte." />
+  <meta name="twitter:image" content="https://i.postimg.cc/vHygbHxz/oie-transparent-(2).png" />
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    :root{
+      --primary:#9a6aff;--primary-dark:#7c3aed;--primary-light:#efe8ff;
+      --secondary:#1e293b;--border:#e5e7eb;--text:#111827;--muted:#6b7280;--sub:#4b5563;
+      --shadow:0 18px 38px rgba(0,0,0,.10);--r:18px;
+      --warn-bg:#fffbeb;--warn-bd:#f59e0b;--warn-tx:#92400e;
+      --ok-bg:#ecfdf5;--ok-bd:#10b981;--ok-tx:#065f46;
+
+      --header-h:64px;
+      --container-pad:16px;
+
+      --logo-h-mobile:80px;
+      --logo-h-desktop:105px;
+      --logo-overflow:22px;
+
+      --wrap-pad:1.35rem;
+      --h1:2.05rem;
+
+      --btn-h:34px;
+      --btn-px:12px;
+      --btn-fs:.86rem;
+    }
+
+    *{margin:0;padding:0;box-sizing:border-box;}
+    html{-webkit-text-size-adjust:100%;text-size-adjust:100%;}
+    body{
+      font-family:Inter,system-ui,-apple-system,Segoe UI,sans-serif;
+      color:var(--text);
+      background:#fff;
+      line-height:1.85;
+      overflow-x:hidden;
+    }
+
+    a{color:inherit;}
+    a:focus{outline:2px solid rgba(154,106,255,.55);outline-offset:2px}
+    img{max-width:100%;height:auto;display:block;}
+
+    .container{max-width:980px;margin:0 auto;padding:0 var(--container-pad);}
+
+    header{
+      position:sticky;
+      top:0;
+      height:var(--header-h);
+      background:rgba(255,255,255,.97);
+      backdrop-filter:blur(10px);
+      border-bottom:1px solid rgba(229,231,235,.85);
+      z-index:50;
+      overflow:visible;
+    }
+    .top{
+      height:var(--header-h);
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:12px;
+      min-width:0;
+    }
+    .brand{
+      display:flex;
+      align-items:center;
+      text-decoration:none;
+      min-width:0;
+      flex:1 1 auto;
+    }
+    .brand-logo{
+      height:var(--logo-h-mobile);
+      width:auto;
+      object-fit:contain;
+      margin-top:calc(var(--logo-overflow) * -1);
+      margin-bottom:calc(var(--logo-overflow) * -1);
+      filter:drop-shadow(0 6px 16px rgba(124,58,237,.18));
+    }
+
+    .btn{
+      display:inline-flex;align-items:center;justify-content:center;
+      height:var(--btn-h);
+      padding:0 var(--btn-px);
+      border-radius:12px;
+      border:2px solid var(--primary);
+      color:var(--primary);
+      text-decoration:none;
+      font-weight:900;
+      font-size:var(--btn-fs);
+      transition:.18s ease;
+      background:#fff;
+      white-space:nowrap;
+      line-height:1;
+      flex:0 0 auto;
+    }
+    .btn:hover{background:var(--primary-light);}
+    .btn-solid{
+      background:linear-gradient(135deg,var(--primary),var(--primary-dark));
+      color:#fff;border:0;
+    }
+    .btn-solid:hover{filter:brightness(1.03);}
+
+    main{padding:1.8rem 0 4.2rem;}
+    .wrap{
+      border:1px solid var(--border);
+      border-radius:var(--r);
+      box-shadow:var(--shadow);
+      padding:var(--wrap-pad);
+      background:#fff;
+    }
+
+    .meta{
+      display:flex;gap:.6rem;flex-wrap:wrap;align-items:center;
+      margin-bottom:1rem;color:var(--muted);font-weight:800;
+    }
+    .tag{
+      background:var(--primary-light);color:var(--primary-dark);
+      border:1px solid rgba(154,106,255,.2);
+      padding:.25rem .65rem;border-radius:999px;
+      font-weight:900;font-size:.78rem;letter-spacing:.4px;text-transform:uppercase;
+    }
+
+    h1{
+      font-family:"Playfair Display",serif;
+      font-size:var(--h1);
+      line-height:1.15;
+      color:var(--secondary);
+      margin-bottom:.35rem;
+      overflow-wrap:anywhere;
+    }
+
+    .catline{
+      margin:.15rem 0 1rem;
+      color:var(--muted);
+      font-weight:800;
+      font-size:.95rem;
+    }
+    .catline a{
+      color:var(--primary-dark);
+      text-decoration:underline;
+      text-underline-offset:3px;
+    }
+
+    p{color:var(--sub);margin:.85rem 0;overflow-wrap:break-word;}
+    h2{margin-top:1.6rem;color:var(--secondary);font-size:1.28rem;overflow-wrap:anywhere;}
+    h3{margin-top:1.1rem;color:var(--secondary);font-size:1.06rem;overflow-wrap:anywhere;}
+    ul{margin:.75rem 0 .75rem 1.2rem;color:var(--sub);}
+    li{margin:.45rem 0;}
+
+    .divider{height:1px;background:var(--border);margin:1.6rem 0;}
+
+    .callout{
+      background:var(--warn-bg);
+      border:1px solid var(--warn-bd);
+      border-left:4px solid var(--warn-bd);
+      color:var(--warn-tx);
+      padding:1rem 1.1rem;border-radius:14px;margin:1.2rem 0;font-weight:900;
+    }
+    .good{
+      background:var(--ok-bg);
+      border:1px solid rgba(16,185,129,.35);
+      border-left:4px solid var(--ok-bd);
+      color:var(--ok-tx);
+      padding:1rem 1.1rem;border-radius:14px;margin:1.2rem 0;font-weight:900;
+    }
+
+    .summary{
+      margin:1.1rem 0 1.4rem;
+      padding:1.05rem 1.1rem;
+      border-radius:14px;
+      border:1px solid rgba(154,106,255,.25);
+      background:linear-gradient(180deg, rgba(239,232,255,.75), rgba(239,232,255,.45));
+    }
+    .summary strong{color:var(--primary-dark);}
+    .summary ul{margin:.7rem 0 0 1.2rem;}
+    .summary li{margin:.35rem 0;}
+
+    .cards{
+      display:grid;
+      grid-template-columns:1fr;
+      gap:1rem;
+      margin:1.1rem 0 1.4rem;
+    }
+    .card{
+      border:1px solid var(--border);
+      border-radius:14px;
+      padding:1rem 1.05rem;
+      background:#fff;
+      min-width:0;
+    }
+    .card h3{margin-top:0;font-size:1.02rem;color:var(--secondary);}
+    .muted{color:var(--muted);font-weight:800;font-size:.95rem;}
+
+    .checklist{
+      border:1px dashed rgba(154,106,255,.5);
+      border-radius:14px;
+      padding:1rem 1.05rem;
+      background:#faf7ff;
+      margin:1.1rem 0 1.4rem;
+    }
+    .checklist h3{margin-top:0;color:var(--secondary);}
+    .checks{
+      list-style:none;
+      padding-left:0;
+      margin:.7rem 0 0;
+      display:grid;
+      gap:12px;
+    }
+    .checks li{
+      display:grid;
+      grid-template-columns:22px minmax(0, 1fr);
+      gap:12px;
+      align-items:start;
+      color:var(--sub);
+    }
+    .tick{
+      width:22px;height:22px;border-radius:7px;
+      display:flex;align-items:center;justify-content:center;
+      background:rgba(154,106,255,.15);
+      border:1px solid rgba(154,106,255,.25);
+      color:var(--primary-dark);
+      font-weight:900;
+      line-height:1;
+      margin-top:2px;
+    }
+    .checktext{min-width:0;overflow-wrap:break-word;line-height:1.65;}
+
+    details{
+      border:1px solid var(--border);
+      border-radius:14px;
+      padding:.9rem 1rem;
+      margin:.65rem 0;
+      background:#fff;
+    }
+    summary{cursor:pointer;font-weight:900;color:var(--secondary);list-style:none;}
+    summary::-webkit-details-marker{display:none;}
+    details p{margin:.65rem 0 0;color:var(--sub);}
+
+    .cta{
+      margin-top:2rem;
+      padding:1.2rem;
+      border-radius:14px;
+      border:1px solid rgba(154,106,255,.25);
+      background:var(--primary-light);
+      display:flex;
+      flex-wrap:wrap;
+      gap:1rem;
+      align-items:center;
+      justify-content:space-between;
+    }
+    .cta strong{color:var(--primary-dark);}
+
+    @media (max-width: 767px){
+      main{padding:1.6rem 0 4rem;}
+      .btn{height:34px;padding:0 11px;font-size:.85rem;}
+      .brand-logo{height:var(--logo-h-mobile);}
+    }
+    @media (min-width: 768px){
+      :root{
+        --container-pad:22px;
+        --wrap-pad:1.8rem;
+        --h1:2.35rem;
+        --btn-h:38px;
+        --btn-fs:.92rem;
+        --header-h:66px;
+      }
+      .cards{grid-template-columns:1fr 1fr;}
+      main{padding:2.1rem 0 4.6rem;}
+      .brand-logo{height:var(--logo-h-desktop);}
+    }
+    @media (min-width: 1024px){
+      :root{
+        --container-pad:24px;
+        --wrap-pad:2.2rem;
+        --h1:2.55rem;
+        --btn-h:40px;
+        --btn-fs:.95rem;
+        --header-h:66px;
+      }
+      .cards{grid-template-columns:1fr 1fr;}
+      main{padding:2.5rem 0 5rem;}
+      .brand-logo{height:var(--logo-h-desktop);}
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <div class="container">
+      <div class="top">
+        <a class="brand" href="/blog/" aria-label="Ir al blog de Júristam">
+          <img class="brand-logo" src="https://i.postimg.cc/vHygbHxz/oie-transparent-(2).png" alt="Júristam" loading="eager" decoding="async" />
+        </a>
+        <a class="btn" href="/blog/" aria-label="Volver al blog">← Volver al blog</a>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <div class="container">
+      <article class="wrap" aria-label="Artículo Protección de datos Ecuador">
+
+        <div class="meta">
+          <span class="tag">Derechos</span>
+          <span>Protección de datos · SATJE · Reputación</span>
+        </div>
+
+        <h1>“Cumplí la pena, fui sobreseído… pero nadie me contrata”</h1>
+
+        <p class="catline">Categoría: <a href="/blog/categoria-familia.html">Familia</a> <span style="color:#9aa3af;">·</span> <a href="/blog/">Guías</a></p>
+
+        <p><strong>Si tu proceso terminó hace años y aun así sigues perdiendo trabajo, crédito o oportunidades porque tu nombre aparece en el SATJE, este artículo es para ti.</strong></p>
+
+        <div class="summary">
+          <p><strong>Resumen rápido (para entender en 30 segundos):</strong></p>
+          <ul>
+            <li>Que un proceso haya sido público <strong>no significa</strong> que tus datos deban quedar expuestos para siempre.</li>
+            <li>Si fuiste <strong>sobreseído</strong>, absuelto o cumpliste pena, existen rutas para <strong>proteger/ocultar datos personales</strong> en el SATJE (según el caso).</li>
+            <li>El mayor error es <strong>no hacer nada</strong>… o usar una vía equivocada y perder tiempo y oportunidades.</li>
+            <li>En Juristam no improvisamos: analizamos expediente + norma + vía correcta y solo avanzamos cuando hay ruta real.</li>
+          </ul>
+        </div>
+
+        <div class="callout">
+          La publicidad judicial tiene límites. El Consejo de la Judicatura expidió el <strong>Reglamento para el tratamiento de datos personales dentro de procesos judiciales (Res. 043-2024)</strong>, que permite solicitar <strong>modificación, rectificación u ocultamiento</strong> en el SATJE cuando corresponde.
+        </div>
+
+        <div class="divider"></div>
+
+        <h2>1) El problema real (el que nadie te explica)</h2>
+        <p>Muchas personas creen que el problema termina cuando termina el juicio. Pero el daño suele empezar después:</p>
+        <ul>
+          <li>Te “googlean” y aparece tu nombre en procesos antiguos.</li>
+          <li>Te descartan para trabajo, ascensos o contratos.</li>
+          <li>Te niegan crédito o te clasifican como “riesgo”.</li>
+          <li>Vives con la etiqueta de “culpable”, aunque legalmente el proceso haya terminado o no haya condena.</li>
+        </ul>
+
+        <div class="good">
+          No es que “la justicia no sirva”. A veces el problema es que nadie te explicó cómo proteger tus datos después del proceso.
+        </div>
+
+        <div class="divider"></div>
+
+        <h2>2) Qué permite el Reglamento 043-2024 (en simple)</h2>
+        <p>El Reglamento del Consejo de la Judicatura regula lo que se muestra al público en el módulo de consultas del SATJE. Y habilita a las partes legitimadas a solicitar:</p>
+
+        <div class="cards">
+          <div class="card">
+            <h3>✅ Qué se puede pedir</h3>
+            <ul>
+              <li><strong>Modificación</strong> (cuando hay datos mal registrados).</li>
+              <li><strong>Rectificación</strong> (cuando hay errores o datos incompletos).</li>
+              <li><strong>Ocultamiento</strong> (cuando mostrar el dato vulnera derechos, según el caso).</li>
+            </ul>
+          </div>
+          <div class="card">
+            <h3>⚠️ Qué NO es</h3>
+            <ul>
+              <li>No es “borrar la historia”.</li>
+              <li>No es “eliminar la sentencia”.</li>
+              <li>No es “ocultar procesos vigentes”.</li>
+              <li>Es proteger datos personales cuando la ley lo permite.</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="divider"></div>
+
+        <h2>3) La vía correcta importa (y perder por estrategia pasa de verdad)</h2>
+        <p>Hay casos recientes donde personas han intentado resolver esto con acciones equivocadas (por ejemplo, ir directo con una acción constitucional contra un auto que no es definitivo). ¿Qué pasa?</p>
+        <ul>
+          <li>La Corte ni siquiera analiza el fondo.</li>
+          <li>El trámite se inadmite por improcedente.</li>
+          <li>Pierdes tiempo, dinero y quedas frustrado.</li>
+        </ul>
+
+        <div class="callout">
+          Si usas la vía equivocada, aunque tengas razón, pierdes. Y quedas con la falsa sensación de que “la justicia no sirve”, cuando el problema fue la estrategia.
+        </div>
+
+        <div class="divider"></div>
+
+        <h2>4) Riesgos reales si no haces nada</h2>
+        <ul>
+          <li>Tu nombre sigue expuesto y el “daño reputacional” continúa.</li>
+          <li>Se multiplican rechazos sin explicación (empleo, crédito, contratos).</li>
+          <li>Se normaliza la discriminación por pasado judicial.</li>
+          <li>Más tiempo = más desgaste emocional y económico.</li>
+        </ul>
+
+        <div class="good">
+          El tiempo no siempre cura esto. A veces solo lo vuelve más costoso.
+        </div>
+
+        <div class="divider"></div>
+
+        <h2>5) Checklist de viabilidad (antes de iniciar)</h2>
+        <div class="checklist">
+          <h3>Guárdalo / tómale captura</h3>
+          <ul class="checks">
+            <li><span class="tick">✓</span><div class="checktext">¿El proceso ya terminó (archivo, sobreseimiento, absolución o pena cumplida)?</div></li>
+            <li><span class="tick">✓</span><div class="checktext">¿Tu nombre/datos siguen visibles en SATJE y te generan perjuicio real hoy?</div></li>
+            <li><span class="tick">✓</span><div class="checktext">¿Tienes documentos que acrediten el estado final del proceso?</div></li>
+            <li><span class="tick">✓</span><div class="checktext">¿Tu pedido es proporcional (proteger datos personales) y no “borrar” un proceso vigente?</div></li>
+            <li><span class="tick">✓</span><div class="checktext">¿Estás dispuesto a seguir la vía correcta (no atajos)?</div></li>
+          </ul>
+        </div>
+
+        <div class="divider"></div>
+
+        <h2>6) Cómo ayuda Juristam (método real, no improvisación)</h2>
+        <p>En Juristam no empezamos con promesas. Empezamos con diagnóstico:</p>
+        <ul>
+          <li>Revisamos el expediente y el estado jurídico del proceso.</li>
+          <li>Definimos si el caso tiene base para ocultamiento/rectificación.</li>
+          <li>Redactamos el pedido con sustento (norma + derechos + proporcionalidad).</li>
+          <li>Definimos en qué instancias corresponde pedirlo (si el caso pasó por varias instancias).</li>
+        </ul>
+
+        <div class="good">
+          No atendemos a cualquiera: solo tomamos casos donde existe ruta legal real y documentación mínima para sostener el pedido.
+        </div>
+
+        <div class="cta">
+          <div>
+            <strong>Quiero saber si mi caso tiene salida real</strong><br />
+            <span style="color:#5b6472">Revisión estratégica: estado del proceso + visibilidad SATJE + vía correcta. Si no conviene, te lo decimos directo.</span>
+          </div>
+          <a class="btn btn-solid" href="/#formulario">Evaluar mi caso</a>
+        </div>
+
+        <div class="divider"></div>
+
+        <h2 id="faq">Preguntas frecuentes</h2>
+
+        <details>
+          <summary>¿Se puede “borrar” un proceso del SATJE?</summary>
+          <p>No se trata de borrar la historia judicial. Se trata de proteger datos personales (modificar, rectificar u ocultar) cuando la ley lo permite y el pedido está bien fundamentado.</p>
+        </details>
+
+        <details>
+          <summary>¿Qué pasa si el proceso pasó por varias instancias?</summary>
+          <p>El Reglamento prevé que, si los datos aparecen en varias instancias, el pedido debe formularse a los juzgadores competentes para reflejar el tratamiento en cada una.</p>
+        </details>
+
+        <details>
+          <summary>¿Qué pasa si presento mal la solicitud?</summary>
+          <p>Lo más común es la negativa por falta de fundamentación o por usar una vía improcedente. Eso retrasa y puede complicar el caso.</p>
+        </details>
+
+        <div class="divider"></div>
+
+        <h2>7) Lo que debes recordar</h2>
+        <div class="callout">
+          Un proceso terminado no debería condenarte de por vida. Pero tampoco se arregla con atajos. La diferencia entre seguir bloqueado o recuperar oportunidades es usar la vía correcta con estrategia.
+        </div>
+
+        <div class="cta">
+          <div>
+            <strong>Confirmar si tienes ruta real</strong><br />
+            <span style="color:#5b6472">Te damos un “sí” o “no” honesto basado en documentos, no en promesas.</span>
+          </div>
+          <a class="btn btn-solid" href="/#formulario">Confirmar mi estrategia</a>
+        </div>
+
+      </article>
+    </div>
+  </main>
+</body>
+</html>
