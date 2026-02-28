@@ -11,9 +11,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover, maximum-scale=5.0" />
 
   <title>Guías Júristam · Blog Legal por Categorías</title>
-  <meta name="description" content="Guías prácticas de Júristam organizadas por categorías: Coactiva, SENAE/Aduanas, Familia, Inmobiliario y Laboral. Encuentra soluciones reales en Ecuador." />
+  <meta name="description" content="Guías prácticas de Júristam organizadas por categorías: Coactiva, SENAE/Aduanas, Familia, Inmobiliario, Laboral y Societario. Encuentra soluciones reales en Ecuador." />
 
-  <!-- Canonical SIEMPRE con slash final -->
   <link rel="canonical" href="https://juristam.net/blog/" />
   <meta name="robots" content="index,follow,max-image-preview:large" />
   <meta property="og:image" content="https://i.postimg.cc/vHygbHxz/oie-transparent-(2).png" />
@@ -27,9 +26,6 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
   <style>
-    /* =========================
-      RESET + BASE (MOBILE FIRST)
-    ========================= */
     *{margin:0;padding:0;box-sizing:border-box}
     html{scroll-behavior:smooth;-webkit-text-size-adjust:100%;text-size-adjust:100%}
     body{
@@ -42,7 +38,6 @@
     img{max-width:100%;display:block}
     button,input{font:inherit}
 
-    /* ✅ Enlaces internos SEO sin “basura visual” */
     .sr-only{
       position:absolute !important;
       width:1px !important;
@@ -77,7 +72,6 @@
       --radius-xl: 24px;
       --pill: 9999px;
 
-      /* Header mobile */
       --header-h: calc(66px + var(--sat));
       --touch: 44px;
     }
@@ -88,9 +82,6 @@
       padding:0 16px;
     }
 
-    /* =========================
-      HEADER (MOBILE FIRST)
-    ========================= */
     header{
       position:sticky; top:0; z-index:1000;
       height:var(--header-h);
@@ -114,428 +105,182 @@
       margin:0 auto;
     }
 
-    .brand{
-      display:flex;align-items:center;gap:10px;
-      min-width:0;flex:0 0 auto;
-    }
-    .logo-box{
-      height:100px;
-      width:auto;
-      max-width:180px;
-      display:flex;
-      align-items:center;
-    }
+    .brand{display:flex;align-items:center;gap:10px;min-width:0;flex:0 0 auto;}
+    .logo-box{height:100px;width:auto;max-width:180px;display:flex;align-items:center;}
+    .logo-box img{height:100%;width:auto;object-fit:contain;}
 
-    /* ✅ FIX: antes tenías height:200% (rompe el header). */
-    .logo-box img{
-      height:100%;
-      width:auto;
-      object-fit:contain;
-    }
-
-    /* Actions (mobile): Buscador + Hamburguesa */
-    .header-actions{
-      display:flex;align-items:center;gap:10px;flex:0 0 auto;
-    }
+    .header-actions{display:flex;align-items:center;gap:10px;flex:0 0 auto;}
 
     .btn{
-      display:inline-flex;
-      align-items:center;
-      justify-content:center;
-      gap:10px;
-      min-height: var(--touch);
-      padding: 10px 14px;
-      border-radius: var(--pill);
-      border: 1px solid rgba(154,106,255,.22);
-      background: var(--primary-soft);
-      color: var(--primary-dark);
-      font-weight: 900;
-      white-space: nowrap;
-      line-height: 1;
-      -webkit-tap-highlight-color: transparent;
-      cursor:pointer;
+      display:inline-flex;align-items:center;justify-content:center;gap:10px;
+      min-height: var(--touch);padding: 10px 14px;
+      border-radius: var(--pill);border: 1px solid rgba(154,106,255,.22);
+      background: var(--primary-soft);color: var(--primary-dark);
+      font-weight: 900;white-space: nowrap;line-height: 1;
+      -webkit-tap-highlight-color: transparent;cursor:pointer;
     }
     .btn i{font-size:14px}
-
     .btn-primary{
       background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
-      color:#fff;
-      border: 1px solid rgba(124,58,237,.18);
+      color:#fff;border: 1px solid rgba(124,58,237,.18);
       box-shadow: 0 18px 32px rgba(124,58,237,.18);
     }
-
     .icon-btn{
-      width: var(--touch);
-      height: var(--touch);
-      padding:0;
-      border-radius: 14px;
-      border: 1px solid rgba(226,232,240,1);
-      background:#fff;
-      box-shadow: 0 10px 18px rgba(15,23,42,.06);
+      width: var(--touch);height: var(--touch);padding:0;
+      border-radius: 14px;border: 1px solid rgba(226,232,240,1);
+      background:#fff;box-shadow: 0 10px 18px rgba(15,23,42,.06);
     }
     .icon-btn i{font-size:18px;color:#0f172a}
 
-    /* Desktop menu area hidden on mobile */
     .nav-center{display:none}
     .desktop-actions{display:none}
 
-    /* =========================
-      MOBILE DRAWER
-    ========================= */
     .drawer-overlay{
       position:fixed; inset:0;
       background: rgba(15,23,42,.60);
       backdrop-filter: blur(10px);
       -webkit-backdrop-filter: blur(10px);
-      display:none;
-      z-index:2000;
+      display:none;z-index:2000;
     }
     .drawer-overlay.active{display:block}
-
     .drawer{
-      position:absolute;
-      top:0; right:0;
-      width:min(380px, 92vw);
-      height:100%;
-      background:#fff;
-      border-left:1px solid rgba(226,232,240,.9);
+      position:absolute;top:0; right:0;
+      width:min(380px, 92vw);height:100%;
+      background:#fff;border-left:1px solid rgba(226,232,240,.9);
       box-shadow: -20px 0 60px rgba(15,23,42,.18);
       padding: 16px 16px calc(16px + var(--sab));
-      display:flex;
-      flex-direction:column;
-      gap:14px;
+      display:flex;flex-direction:column;gap:14px;
     }
-    .drawer-head{
-      display:flex;align-items:center;justify-content:space-between;
-      padding-top: max(0px, var(--sat));
-    }
-    .drawer-title{
-      font-weight:900;
-      font-size:1.05rem;
-      color:var(--text);
-    }
-    .drawer-close{
-      width:44px;height:44px;
-      border-radius:14px;
-      border:1px solid var(--border);
-      background:#fff;
-      cursor:pointer;
-    }
-
-    .drawer-links{
-      display:flex;flex-direction:column;gap:8px;
-      margin-top:4px;
-    }
+    .drawer-head{display:flex;align-items:center;justify-content:space-between;padding-top: max(0px, var(--sat));}
+    .drawer-title{font-weight:900;font-size:1.05rem;color:var(--text);}
+    .drawer-close{width:44px;height:44px;border-radius:14px;border:1px solid var(--border);background:#fff;cursor:pointer;}
+    .drawer-links{display:flex;flex-direction:column;gap:8px;margin-top:4px;}
     .drawer-links a{
       display:flex;align-items:center;justify-content:space-between;
-      padding:12px 14px;
-      border:1px solid var(--border);
-      border-radius: 16px;
-      background:#fff;
-      font-weight:800;
-      color:var(--text-2);
+      padding:12px 14px;border:1px solid var(--border);
+      border-radius: 16px;background:#fff;font-weight:800;color:var(--text-2);
     }
     .drawer-links a:active{transform:scale(.99)}
-    .drawer-cta{
-      margin-top:auto;
-      display:flex;
-      gap:10px;
-      flex-direction:column;
-    }
+    .drawer-cta{margin-top:auto;display:flex;gap:10px;flex-direction:column;}
     .drawer-cta .btn{width:100%}
 
-    /* =========================
-      HERO
-    ========================= */
-    main{
-      padding: 18px 0 60px;
-      background:#fff;
-    }
+    main{padding: 18px 0 60px;background:#fff;}
     .hero{
       background: linear-gradient(135deg, #f8fafc 0%, #f2f3fb 100%);
-      border:1px solid var(--border);
-      border-radius: var(--radius-xl);
-      padding: 20px 18px;
-      box-shadow: var(--shadow-md);
-      position:relative;
-      overflow:hidden;
+      border:1px solid var(--border);border-radius: var(--radius-xl);
+      padding: 20px 18px;box-shadow: var(--shadow-md);
+      position:relative;overflow:hidden;
     }
     .hero h1{
-      font-family:"Playfair Display", serif;
-      font-weight:700;
-      font-size: clamp(1.9rem, 6vw, 2.6rem);
-      line-height:1.08;
-      letter-spacing:-.02em;
-      margin-bottom:12px;
+      font-family:"Playfair Display", serif;font-weight:700;
+      font-size: clamp(1.9rem, 6vw, 2.6rem);line-height:1.08;
+      letter-spacing:-.02em;margin-bottom:12px;
     }
     .hero p{
-      color:var(--text-2);
-      font-size: clamp(1.02rem, 3.2vw, 1.15rem);
-      line-height:1.7;
-      max-width:60ch;
-      margin-bottom:14px;
+      color:var(--text-2);font-size: clamp(1.02rem, 3.2vw, 1.15rem);
+      line-height:1.7;max-width:60ch;margin-bottom:14px;
     }
-
-    .hero-actions{
-      display:flex;
-      flex-wrap:wrap;
-      gap:10px;
-      margin-bottom:14px;
-    }
+    .hero-actions{display:flex;flex-wrap:wrap;gap:10px;margin-bottom:14px;}
     .hero-actions .btn{flex:1 1 170px}
-
-    .search-bar{
-      display:flex;
-      flex-direction:column;
-      gap:10px;
-      margin-top:10px;
-    }
+    .search-bar{display:flex;flex-direction:column;gap:10px;margin-top:10px;}
     .search-input{
-      width:100%;
-      min-height: 48px;
-      padding: 14px 14px;
-      border:2px solid var(--border);
-      border-radius: 16px;
-      background:#fff;
-      font-size:16px;
-      outline:none;
+      width:100%;min-height: 48px;padding: 14px 14px;
+      border:2px solid var(--border);border-radius: 16px;
+      background:#fff;font-size:16px;outline:none;
     }
-    .search-input:focus{
-      border-color: var(--primary);
-      box-shadow: 0 0 0 3px rgba(154,106,255,.16);
-    }
-    .search-hint{
-      color:var(--text-3);
-      font-size:.92rem;
-      line-height:1.55;
-      margin-top:8px;
-      padding-left:4px;
-    }
+    .search-input:focus{border-color: var(--primary);box-shadow: 0 0 0 3px rgba(154,106,255,.16);}
+    .search-hint{color:var(--text-3);font-size:.92rem;line-height:1.55;margin-top:8px;padding-left:4px;}
 
-    /* =========================
-      CATEGORIES
-    ========================= */
-    .section-title{
-      margin: 22px 0 12px;
-    }
-    .section-title h2{
-      font-size: clamp(1.35rem, 4vw, 1.7rem);
-      font-weight: 900;
-      margin-bottom: 6px;
-    }
-    .section-subtitle{
-      color:var(--text-3);
-      line-height:1.55;
-    }
+    .section-title{margin: 22px 0 12px;}
+    .section-title h2{font-size: clamp(1.35rem, 4vw, 1.7rem);font-weight: 900;margin-bottom: 6px;}
+    .section-subtitle{color:var(--text-3);line-height:1.55;}
 
-    .categories-grid{
-      display:grid;
-      grid-template-columns:1fr;
-      gap:14px;
-      margin-top:14px;
-    }
+    .categories-grid{display:grid;grid-template-columns:1fr;gap:14px;margin-top:14px;}
 
     .category-card{
-      background:#fff;
-      border:1px solid var(--border);
-      border-radius: var(--radius-xl);
-      padding: 18px;
-      box-shadow: var(--shadow-sm);
-      display:flex;
-      flex-direction:column;
-      min-height: 190px;
-      cursor:pointer;
+      background:#fff;border:1px solid var(--border);
+      border-radius: var(--radius-xl);padding: 18px;
+      box-shadow: var(--shadow-sm);display:flex;
+      flex-direction:column;min-height: 190px;cursor:pointer;
+      transition: box-shadow .2s, transform .2s;
     }
     .category-card:hover{box-shadow: var(--shadow-lg); transform: translateY(-2px)}
-    .category-card[aria-disabled="true"]{
-      opacity:.62;
-      cursor:not-allowed;
-      transform:none !important;
-    }
+    .category-card[aria-disabled="true"]{opacity:.62;cursor:not-allowed;transform:none !important;}
     .card-header{
-      display:flex;
-      align-items:flex-start;
-      justify-content:space-between;
-      gap:10px;
-      flex-wrap:wrap;
-      margin-bottom:10px;
+      display:flex;align-items:flex-start;justify-content:space-between;
+      gap:10px;flex-wrap:wrap;margin-bottom:10px;
     }
     .category-chip{
-      display:inline-flex;
-      align-items:center;
-      gap:10px;
-      padding: 8px 12px;
-      border-radius: var(--pill);
-      background: var(--primary-soft);
-      border:1px solid rgba(154,106,255,.22);
-      font-weight:900;
-      color: var(--primary-dark);
-      white-space:nowrap;
+      display:inline-flex;align-items:center;gap:10px;
+      padding: 8px 12px;border-radius: var(--pill);
+      background: var(--primary-soft);border:1px solid rgba(154,106,255,.22);
+      font-weight:900;color: var(--primary-dark);white-space:nowrap;
     }
     .article-count{
-      display:inline-flex;
-      align-items:center;
-      gap:8px;
-      padding: 8px 10px;
-      border-radius: var(--pill);
-      background:#f8fafc;
-      border:1px solid var(--border);
-      color:var(--text-2);
-      font-weight:800;
-      font-size:.82rem;
-      white-space:nowrap;
+      display:inline-flex;align-items:center;gap:8px;
+      padding: 8px 10px;border-radius: var(--pill);
+      background:#f8fafc;border:1px solid var(--border);
+      color:var(--text-2);font-weight:800;font-size:.82rem;white-space:nowrap;
     }
-    .category-card h3{
-      font-size:1.2rem;
-      font-weight: 900;
-      margin: 6px 0 8px;
-      line-height:1.25;
-    }
-    .category-card p{
-      color:var(--text-2);
-      line-height:1.65;
-      margin-bottom:12px;
-    }
-    .card-actions{
-      display:flex;
-      flex-direction:column;
-      gap:10px;
-      margin-top:auto;
-    }
+    .category-card h3{font-size:1.2rem;font-weight: 900;margin: 6px 0 8px;line-height:1.25;}
+    .category-card p{color:var(--text-2);line-height:1.65;margin-bottom:12px;}
+    .card-actions{display:flex;flex-direction:column;gap:10px;margin-top:auto;}
     .card-actions .btn{width:100%}
     .card-link{
-      display:inline-flex;
-      align-items:center;
-      justify-content:center;
-      gap:10px;
-      padding: 10px 12px;
-      border-radius: 16px;
+      display:inline-flex;align-items:center;justify-content:center;gap:10px;
+      padding: 10px 12px;border-radius: 16px;
       border:1px dashed rgba(154,106,255,.35);
-      background: rgba(154,106,255,.08);
-      color: var(--primary-dark);
-      font-weight:900;
-      cursor:pointer;
+      background: rgba(154,106,255,.08);color: var(--primary-dark);
+      font-weight:900;cursor:pointer;
     }
 
-    /* =========================
-      CHAT MODAL
-    ========================= */
     .modal-overlay{
-      position:fixed; inset:0;
-      background: rgba(15,23,42,.70);
-      backdrop-filter: blur(10px);
-      -webkit-backdrop-filter: blur(10px);
-      display:none;
-      align-items:flex-end;
-      justify-content:center;
-      z-index:2500;
+      position:fixed; inset:0;background: rgba(15,23,42,.70);
+      backdrop-filter: blur(10px);-webkit-backdrop-filter: blur(10px);
+      display:none;align-items:flex-end;justify-content:center;z-index:2500;
     }
     .modal-overlay.active{display:flex}
     .chat-modal{
-      width:100%;
-      max-height: 88vh;
-      background:#fff;
+      width:100%;max-height: 88vh;background:#fff;
       border-radius: 22px 22px 0 0;
       box-shadow: 0 -20px 60px rgba(15,23,42,.25);
-      overflow:hidden;
-      display:flex;
-      flex-direction:column;
+      overflow:hidden;display:flex;flex-direction:column;
     }
     .modal-header{
-      display:flex;
-      align-items:center;
-      justify-content:space-between;
-      gap:12px;
-      padding: 14px 16px;
-      border-bottom:1px solid rgba(226,232,240,.9);
+      display:flex;align-items:center;justify-content:space-between;
+      gap:12px;padding: 14px 16px;border-bottom:1px solid rgba(226,232,240,.9);
     }
-    .modal-title{
-      display:flex;align-items:center;gap:12px;min-width:0;
-    }
+    .modal-title{display:flex;align-items:center;gap:12px;min-width:0;}
     .modal-icon{
       width:44px;height:44px;border-radius: 14px;
-      background: var(--primary-soft);
-      display:flex;align-items:center;justify-content:center;
-      color: var(--primary-dark);
-      flex:0 0 auto;
+      background: var(--primary-soft);display:flex;align-items:center;justify-content:center;
+      color: var(--primary-dark);flex:0 0 auto;
     }
     .modal-text h3{font-size:1.05rem;font-weight:900;line-height:1.2}
     .modal-text p{font-size:.9rem;color:var(--text-3);line-height:1.25}
-    .close-btn{
-      width:44px;height:44px;border-radius:14px;
-      border:1px solid var(--border);
-      background:#fff;cursor:pointer;
-    }
+    .close-btn{width:44px;height:44px;border-radius:14px;border:1px solid var(--border);background:#fff;cursor:pointer;}
 
     .chat-messages{
-      padding: 16px;
-      overflow:auto;
-      -webkit-overflow-scrolling: touch;
+      padding: 16px;overflow:auto;-webkit-overflow-scrolling: touch;
       background: linear-gradient(180deg, #fff 0%, #fbfbfe 100%);
-      display:flex;
-      flex-direction:column;
-      gap:12px;
+      display:flex;flex-direction:column;gap:12px;
     }
     .message{
-      max-width: 88%;
-      padding: 12px 14px;
-      border-radius: 18px;
-      box-shadow: var(--shadow-sm);
-      line-height:1.5;
-      word-break:break-word;
+      max-width: 88%;padding: 12px 14px;border-radius: 18px;
+      box-shadow: var(--shadow-sm);line-height:1.5;word-break:break-word;
     }
-    .message-bot{
-      align-self:flex-start;
-      background:#fff;
-      border:1px solid var(--border);
-      border-top-left-radius: 6px;
-    }
-    .message-user{
-      align-self:flex-end;
-      color:#fff;
-      background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
-      border-top-right-radius: 6px;
-    }
+    .message-bot{align-self:flex-start;background:#fff;border:1px solid var(--border);border-top-left-radius: 6px;}
+    .message-user{align-self:flex-end;color:#fff;background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);border-top-right-radius: 6px;}
 
-    .search-results{
-      display:grid;
-      grid-template-columns:1fr;
-      gap:12px;
-      margin-top:10px;
-    }
-    .result-card{
-      border:1px solid var(--border);
-      border-radius: 18px;
-      padding: 14px;
-      background:#fff;
-    }
-    .result-header{
-      display:flex;
-      justify-content:space-between;
-      gap:10px;
-      flex-wrap:wrap;
-      margin-bottom:8px;
-    }
+    .search-results{display:grid;grid-template-columns:1fr;gap:12px;margin-top:10px;}
+    .result-card{border:1px solid var(--border);border-radius: 18px;padding: 14px;background:#fff;}
+    .result-header{display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap;margin-bottom:8px;}
     .result-tag{
-      padding:6px 10px;
-      border-radius: var(--pill);
-      background: var(--primary-soft);
-      color: var(--primary-dark);
-      border:1px solid rgba(154,106,255,.22);
-      font-weight:900;
-      font-size:.75rem;
-      letter-spacing:.04em;
-      text-transform:uppercase;
-      white-space:nowrap;
+      padding:6px 10px;border-radius: var(--pill);background: var(--primary-soft);
+      color: var(--primary-dark);border:1px solid rgba(154,106,255,.22);
+      font-weight:900;font-size:.75rem;letter-spacing:.04em;text-transform:uppercase;white-space:nowrap;
     }
-    .result-date{
-      color:var(--text-3);
-      font-size:.78rem;
-      display:flex;
-      align-items:center;
-      gap:6px;
-      white-space:nowrap;
-    }
+    .result-date{color:var(--text-3);font-size:.78rem;display:flex;align-items:center;gap:6px;white-space:nowrap;}
     .result-title{font-weight:900;margin-bottom:6px;line-height:1.35}
     .result-excerpt{color:var(--text-2);line-height:1.6;font-size:.96rem;margin-bottom:10px}
     .result-link{display:inline-flex;align-items:center;gap:8px;font-weight:900;color:var(--primary-dark)}
@@ -543,92 +288,43 @@
     .chat-input-container{
       padding: 12px 12px calc(12px + var(--sab));
       border-top:1px solid rgba(226,232,240,.9);
-      display:flex;
-      gap:10px;
-      align-items:center;
-      background:#fff;
+      display:flex;gap:10px;align-items:center;background:#fff;
     }
     .chat-input{
-      flex:1; min-width:0;
-      min-height: 46px;
-      border-radius: var(--pill);
-      border:2px solid var(--border);
-      padding: 10px 14px;
-      background:#f8fafc;
-      font-size:16px;
-      outline:none;
+      flex:1; min-width:0;min-height: 46px;border-radius: var(--pill);
+      border:2px solid var(--border);padding: 10px 14px;
+      background:#f8fafc;font-size:16px;outline:none;
     }
-    .chat-input:focus{
-      border-color: var(--primary);
-      background:#fff;
-      box-shadow: 0 0 0 3px rgba(154,106,255,.16);
-    }
-    .chat-send-btn{
-      min-height:46px;
-      padding: 10px 14px;
-    }
+    .chat-input:focus{border-color: var(--primary);background:#fff;box-shadow: 0 0 0 3px rgba(154,106,255,.16);}
+    .chat-send-btn{min-height:46px;padding: 10px 14px;}
 
     footer{
-      border-top:1px solid var(--border);
-      padding: 18px 0 calc(18px + var(--sab));
-      color:var(--text-3);
-      text-align:center;
-      background:#fff;
+      border-top:1px solid var(--border);padding: 18px 0 calc(18px + var(--sab));
+      color:var(--text-3);text-align:center;background:#fff;
     }
 
-    /* =========================
-      DESKTOP
-    ========================= */
     @media (min-width: 980px){
       :root{ --header-h: 96px; }
       .logo-box{height:140px;max-width:240px}
-
-      /* Hide mobile actions, show desktop */
       .header-actions{display:none}
       .nav-center{display:flex;flex:1 1 auto;justify-content:center;min-width:0}
       .desktop-actions{display:flex;gap:12px;align-items:center;flex:0 0 auto}
-
       .nav-menu{
-        display:flex;
-        align-items:center;
-        gap: 8px;
-        padding: 8px;
-        border-radius: var(--pill);
-        background: rgba(243,244,246,.70);
+        display:flex;align-items:center;gap: 8px;padding: 8px;
+        border-radius: var(--pill);background: rgba(243,244,246,.70);
         border: 1px solid rgba(226,232,240,.95);
         box-shadow: 0 12px 24px rgba(15,23,42,.06);
-        flex-wrap: nowrap;
-        overflow: hidden;
-        max-width: 100%;
-        min-width: 0;
+        flex-wrap: nowrap;overflow: hidden;max-width: 100%;min-width: 0;
       }
-
       .nav-link{
-        display:inline-flex;
-        align-items:center;
-        justify-content:center;
-        white-space: nowrap;
-        padding: 10px 14px;
-        border-radius: var(--pill);
-        font-weight: 900;
-        color: var(--text-2);
-        flex: 0 1 auto;
-        min-width: 0;
+        display:inline-flex;align-items:center;justify-content:center;
+        white-space: nowrap;padding: 10px 14px;border-radius: var(--pill);
+        font-weight: 900;color: var(--text-2);flex: 0 1 auto;min-width: 0;
         font-size: clamp(.92rem, .95vw, 1.02rem);
       }
-      .nav-link:hover{
-        background:#fff;
-        color: var(--primary-dark);
-        box-shadow: 0 10px 20px rgba(15,23,42,.08);
-      }
-
-      .desktop-actions .btn{
-        padding: 12px 16px;
-        min-height: 48px;
-        font-size: .98rem;
-      }
+      .nav-link:hover{background:#fff;color: var(--primary-dark);box-shadow: 0 10px 20px rgba(15,23,42,.08);}
+      .desktop-actions .btn{padding: 12px 16px;min-height: 48px;font-size: .98rem;}
       .desktop-actions .btn-primary{padding: 12px 18px}
-
       .hero{padding: 34px}
       .search-bar{flex-direction:row}
       .search-input{flex:1}
@@ -648,17 +344,14 @@
 </head>
 
 <body>
-  <!-- HEADER -->
   <header role="banner">
     <div class="header-inner">
-      <!-- ✅ LINKS ABSOLUTOS -->
       <a href="https://juristam.net/" class="brand" aria-label="Júristam - Inicio">
         <div class="logo-box">
           <img src="https://i.postimg.cc/vHygbHxz/oie-transparent-(2).png" alt="Júristam Logo" loading="eager">
         </div>
       </a>
 
-      <!-- NAV DESKTOP -->
       <nav class="nav-center" aria-label="Navegación principal">
         <div class="nav-menu">
           <a href="https://juristam.net/#proceso" class="nav-link">Proceso</a>
@@ -669,7 +362,6 @@
         </div>
       </nav>
 
-      <!-- ACCIONES DESKTOP -->
       <div class="desktop-actions" aria-label="Acciones">
         <button class="btn" id="btnOpenChatDesktop" type="button">
           <i class="fas fa-magnifying-glass"></i>
@@ -685,7 +377,6 @@
         </a>
       </div>
 
-      <!-- ACCIONES MOBILE -->
       <div class="header-actions" aria-label="Acciones móviles">
         <button class="btn" id="btnOpenChat" type="button">
           <i class="fas fa-magnifying-glass"></i>
@@ -698,7 +389,6 @@
     </div>
   </header>
 
-  <!-- DRAWER MOBILE -->
   <div class="drawer-overlay" id="drawerOverlay" aria-hidden="true">
     <aside class="drawer" role="dialog" aria-modal="true" aria-label="Menú móvil">
       <div class="drawer-head">
@@ -707,7 +397,6 @@
           <i class="fas fa-times"></i>
         </button>
       </div>
-
       <nav class="drawer-links" aria-label="Navegación">
         <a href="https://juristam.net/#proceso">Proceso <i class="fas fa-chevron-right"></i></a>
         <a href="https://juristam.net/#servicios">Servicios <i class="fas fa-chevron-right"></i></a>
@@ -716,7 +405,6 @@
         <a href="https://juristam.net/#contacto">Contacto <i class="fas fa-chevron-right"></i></a>
         <a href="#categorias">Categorías <i class="fas fa-layer-group"></i></a>
       </nav>
-
       <div class="drawer-cta">
         <a href="https://juristam.net/#formulario" class="btn btn-primary">
           <span>Evaluar Caso</span>
@@ -726,17 +414,11 @@
     </aside>
   </div>
 
-  <!-- CONTENIDO PRINCIPAL -->
   <main role="main">
     <div class="container">
-      <!-- HERO -->
       <section class="hero" aria-labelledby="hero-title">
         <h1 id="hero-title">Guías Júristam</h1>
-        <p>
-          Artículos directos y accionables por categorías.
-          Si tu problema es real, aquí empiezas bien.
-        </p>
-
+        <p>Artículos directos y accionables por categorías. Si tu problema es real, aquí empiezas bien.</p>
         <div class="hero-actions">
           <a href="#categorias" class="btn">
             <i class="fas fa-compass"></i>
@@ -747,45 +429,33 @@
             <span>Buscar tipo "chat"</span>
           </button>
         </div>
-
         <div class="search-container">
           <div class="search-bar" role="search">
-            <input
-              type="search"
-              class="search-input"
-              id="searchInput"
-              placeholder="Ej: 'me bloquearon la cuenta por coactiva', 'SENAE retuvo mercadería', 'alimentos salida del país'"
-              aria-label="Buscar artículos"
-              enterkeyhint="search"
-            >
+            <input type="search" class="search-input" id="searchInput"
+              placeholder="Ej: 'me bloquearon la cuenta por coactiva', 'SENAE retuvo mercadería', 'inspección Superintendencia'"
+              aria-label="Buscar artículos" enterkeyhint="search">
             <button class="btn btn-primary" id="searchBtn" type="button">
               <i class="fas fa-search"></i>
               <span>Buscar</span>
             </button>
           </div>
-          <p class="search-hint">
-            Tip: escribe tu problema en palabras normales. Te muestro los artículos más cercanos y la categoría.
-          </p>
+          <p class="search-hint">Tip: escribe tu problema en palabras normales. Te muestro los artículos más cercanos y la categoría.</p>
         </div>
       </section>
 
-      <!-- CATEGORÍAS -->
       <section class="section-title" id="categorias">
         <h2>Categorías</h2>
-        <p class="section-subtitle">
-          Toca una categoría y se abre su página con todos sus artículos (si ya está publicada).
-        </p>
+        <p class="section-subtitle">Toca una categoría y se abre su página con todos sus artículos.</p>
       </section>
 
       <div class="categories-grid" id="categoriesGrid" aria-label="Lista de categorías"></div>
 
-      <!-- ✅ ENLACES INTERNOS (SEO) -->
+      <!-- ENLACES INTERNOS SEO -->
       <nav class="sr-only" aria-label="Enlaces internos a guías destacadas">
         <ul>
           <li><a href="https://juristam.net/blog/prohibicion-salida-alimentos.html">Prohibición de salida del país por alimentos: cómo levantarla si hay acuerdo</a></li>
-          <li><a href="https://juristam.net/blog/adn-negativo-impugnacion-paternidad-ecuador.html">¿Pagas alimentos y NO eres el padre biológico? Impugnación, alimentos y apellido en Ecuador</a></li>
+          <li><a href="https://juristam.net/blog/adn-negativo-impugnacion-paternidad-ecuador.html">¿Pagas alimentos y NO eres el padre biológico? Impugnación en Ecuador</a></li>
           <li><a href="https://juristam.net/blog/cambio-apellido-ecuador-cedula-identidad.html">¿Puedo cambiar mi apellido en Ecuador aunque en mi cédula conste otro?</a></li>
-
           <li><a href="https://juristam.net/blog/senae-retencion-mercaderia.html">SENAE retuvo tu mercadería: qué hacer (sin empeorar el caso)</a></li>
           <li><a href="https://juristam.net/blog/cuenta-bloqueada-coactiva-salario.html">Cuenta bloqueada por coactiva y es tu salario: cómo moverte rápido</a></li>
           <li><a href="https://juristam.net/blog/coactiva-deuda-ilegal-defensa-ecuador.html">¿Te pueden cobrar en coactiva si la deuda es ilegal en Ecuador?</a></li>
@@ -793,13 +463,13 @@
           <li><a href="https://juristam.net/blog/regla-obligatoria-singularizacion-inmueble-prescripcion-reivindicacion.html">Terrenos: regla obligatoria sobre identificación del inmueble</a></li>
           <li><a href="https://juristam.net/blog/fondos-reserva-jubilacion-patronal-ecuador.html">¿Tus fondos de reserva cuentan para la jubilación patronal en Ecuador?</a></li>
           <li><a href="https://juristam.net/blog/coactiva-ex-representante-legal-nulidad-ecuador.html">¿Te pueden cobrar una coactiva si ya no eres representante legal?</a></li>
+          <!-- NUEVOS SOCIETARIO -->
+          <li><a href="https://juristam.net/blog/inspeccion-superintendencia-companias-ecuador.html">Inspección de la Superintendencia de Compañías: qué revisan y cómo prepararse</a></li>
         </ul>
       </nav>
-
     </div>
   </main>
 
-  <!-- FOOTER -->
   <footer role="contentinfo">
     <div class="container">
       © <span id="currentYear"></span> Júristam ·
@@ -807,14 +477,11 @@
     </div>
   </footer>
 
-  <!-- MODAL CHAT -->
   <div class="modal-overlay" id="chatModal" aria-hidden="true">
     <div class="chat-modal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
       <div class="modal-header">
         <div class="modal-title">
-          <div class="modal-icon">
-            <i class="fas fa-scale-balanced"></i>
-          </div>
+          <div class="modal-icon"><i class="fas fa-scale-balanced"></i></div>
           <div class="modal-text">
             <h3 id="modalTitle">Buscador Júristam</h3>
             <p>Escribe tu caso y te muestro artículos por relevancia</p>
@@ -824,18 +491,11 @@
           <i class="fas fa-times"></i>
         </button>
       </div>
-
       <div class="chat-messages" id="chatMessages"></div>
-
       <div class="chat-input-container">
-        <input
-          type="text"
-          class="chat-input"
-          id="chatInput"
-          placeholder="Ej: 'coactiva me bloquearon mi cuenta', 'SENAE me liquidó', 'embargo de sueldo'"
-          aria-label="Escribe tu consulta"
-          enterkeyhint="send"
-        >
+        <input type="text" class="chat-input" id="chatInput"
+          placeholder="Ej: 'inspección Superintendencia', 'coactiva me bloquearon', 'SENAE me liquidó'"
+          aria-label="Escribe tu consulta" enterkeyhint="send">
         <button class="btn btn-primary chat-send-btn" id="btnSendChat" type="button">
           <i class="fas fa-paper-plane"></i>
           <span>Enviar</span>
@@ -845,9 +505,6 @@
   </div>
 
   <script>
-    // =========================
-    // INIT
-    // =========================
     document.addEventListener('DOMContentLoaded', () => {
       document.getElementById('currentYear').textContent = new Date().getFullYear();
       renderCategories();
@@ -855,9 +512,10 @@
     });
 
     // =========================
-    // DATA
+    // DATA — POSTS
     // =========================
     const posts = [
+      // COACTIVA
       {
         tag: "Coactiva",
         date: "Corte Nacional · Nulidad por personería",
@@ -873,6 +531,14 @@
         url: "https://juristam.net/blog/coactiva-deuda-ilegal-defensa-ecuador.html"
       },
       {
+        tag: "Coactiva",
+        date: "Guía práctica",
+        title: "Cuenta bloqueada por coactiva y es tu salario: cómo moverte rápido",
+        excerpt: "Qué pruebas necesitas y cómo argumentar el origen del dinero para desbloqueo.",
+        url: "https://juristam.net/blog/cuenta-bloqueada-coactiva-salario.html"
+      },
+      // LABORAL
+      {
         tag: "Laboral",
         date: "Guía práctica",
         title: "¿Me pueden embargar todo el sueldo en Ecuador?",
@@ -880,12 +546,21 @@
         url: "https://juristam.net/blog/embargo-sueldo-ecuador.html"
       },
       {
+        tag: "Laboral",
+        date: "Jurisprudencia obligatoria",
+        title: "¿Tus fondos de reserva cuentan para la jubilación patronal en Ecuador?",
+        excerpt: "La Corte Nacional dejó una regla obligatoria: cuándo los fondos de reserva cuentan, qué se puede descontar y qué ya no.",
+        url: "https://juristam.net/blog/fondos-reserva-jubilacion-patronal-ecuador.html"
+      },
+      // INMUEBLES
+      {
         tag: "Inmuebles",
         date: "Jurisprudencia obligatoria",
         title: "Terrenos: la regla obligatoria de la Corte sobre identificación del inmueble",
         excerpt: "La Corte Nacional aclaró qué se exige en prescripción y qué en reivindicación. Explicado fácil, sin tecnicismos.",
         url: "https://juristam.net/blog/regla-obligatoria-singularizacion-inmueble-prescripcion-reivindicacion.html"
       },
+      // ADUANAS
       {
         tag: "Aduanas",
         date: "Guía práctica",
@@ -893,13 +568,12 @@
         excerpt: "Pasos concretos, errores comunes y cómo ordenar tu estrategia para recuperar tu mercancía.",
         url: "https://juristam.net/blog/senae-retencion-mercaderia.html"
       },
-
-      /* ✅ FAMILIA (ahora 3) */
+      // FAMILIA
       {
         tag: "Familia",
         date: "Jurisprudencia · Corte Nacional",
         title: "¿Me enteré de que no soy el padre del niño… ¿siempre puedo impugnar la paternidad en Ecuador?",
-        excerpt: "El ADN negativo no siempre te libera. Todo depende de cómo nació la paternidad: presunción legal (se puede corregir) vs reconocimiento voluntario (hay que probar error, engaño o presión).",
+        excerpt: "El ADN negativo no siempre te libera. Todo depende de cómo nació la paternidad: presunción legal vs reconocimiento voluntario.",
         url: "https://juristam.net/blog/adn-negativo-impugnacion-paternidad-ecuador.html"
       },
       {
@@ -909,33 +583,26 @@
         excerpt: "Qué revisar, qué pedir al juzgado y cómo acelerar el trámite cuando hay urgencia.",
         url: "https://juristam.net/blog/prohibicion-salida-alimentos.html"
       },
-      
       {
         tag: "Familia",
         date: "Corte Nacional · Identidad y apellidos",
         title: "¿Puedo cambiar mi apellido en Ecuador aunque en mi cédula conste otro?",
-        excerpt: "Cuándo sí procede si en la cédula tienes un apellido, pero en la vida real usas otro por años (prueba + continuidad).",
+        excerpt: "Cuándo sí procede si en la cédula tienes un apellido, pero en la vida real usas otro por años.",
         url: "https://juristam.net/blog/cambio-apellido-ecuador-cedula-identidad.html"
       },
-
+      // ✅ SOCIETARIO — NUEVO
       {
-        tag: "Coactiva",
+        tag: "Societario",
         date: "Guía práctica",
-        title: "Cuenta bloqueada por coactiva y es tu salario: cómo moverte rápido",
-        excerpt: "Qué pruebas necesitas y cómo argumentar el origen del dinero para desbloqueo.",
-        url: "https://juristam.net/blog/cuenta-bloqueada-coactiva-salario.html"
-      },
-      {
-        tag: "Laboral",
-        date: "Jurisprudencia obligatoria",
-        title: "¿Tus fondos de reserva cuentan para la jubilación patronal en Ecuador?",
-        excerpt: "La Corte Nacional dejó una regla obligatoria: cuándo los fondos de reserva cuentan, qué se puede descontar y qué ya no.",
-        url: "https://juristam.net/blog/fondos-reserva-jubilacion-patronal-ecuador.html"
+        title: "Inspección de la Superintendencia de Compañías: qué revisan y cómo prepararte",
+        excerpt: "Si tu empresa recibió una carta credencial de inspección, esto es exactamente lo que revisa el inspector, los errores más comunes y cómo prepararte antes de la visita.",
+        url: "https://juristam.net/blog/inspeccion-superintendencia-companias-ecuador.html"
       }
     ];
 
-    // ✅ IMPORTANTÍSIMO:
-    // enabled:true SOLO si esa categoría EXISTE y responde 200 OK.
+    // =========================
+    // DATA — CATEGORIES
+    // =========================
     const categories = [
       {
         key: "coactiva",
@@ -981,6 +648,16 @@
         href: "https://juristam.net/blog/categoria-laboral.html",
         tags: ["Laboral"],
         enabled: true
+      },
+      // ✅ NUEVA CATEGORÍA SOCIETARIO
+      {
+        key: "societario",
+        name: "Societario",
+        icon: "fa-building-columns",
+        desc: "Inspecciones de la Superintendencia, aumentos de capital, cierres de compañía y cumplimiento societario.",
+        href: "https://juristam.net/blog/categoria-societario.html",
+        tags: ["Societario"],
+        enabled: true
       }
     ];
 
@@ -1013,7 +690,6 @@
         const articleCount = posts.filter(post =>
           category.tags.some(tag => normalize(tag) === normalize(post.tag))
         ).length;
-
         const disabled = !category.enabled;
 
         return `
@@ -1036,16 +712,14 @@
             <h3>${escapeHtml(category.name)}</h3>
             <p>${escapeHtml(category.desc)}</p>
             <div class="card-actions">
-              ${
-                disabled
-                ? `<button class="btn" type="button" disabled style="opacity:.75;cursor:not-allowed">
-                     Próximamente
-                   </button>`
+              ${disabled
+                ? `<button class="btn" type="button" disabled style="opacity:.75;cursor:not-allowed">Próximamente</button>`
                 : `<a href="${category.href}" class="btn" aria-label="Ver artículos de ${escapeHtml(category.name)}">
                      Ver artículos <i class="fas fa-arrow-right"></i>
                    </a>`
               }
-              <button class="card-link" data-category-search="${escapeHtml(category.name)}" type="button" aria-label="Buscar sobre ${escapeHtml(category.name)}">
+              <button class="card-link" data-category-search="${escapeHtml(category.name)}" type="button"
+                aria-label="Buscar sobre ${escapeHtml(category.name)}">
                 Buscar sobre ${escapeHtml(category.name)}
                 <i class="far fa-comment-dots"></i>
               </button>
@@ -1059,15 +733,12 @@
     // EVENTS
     // =========================
     function setupEventListeners() {
-      const openBtns = [
-        document.getElementById('btnOpenChat'),
-        document.getElementById('btnOpenChatHero'),
-        document.getElementById('btnOpenChatDesktop')
-      ].filter(Boolean);
-      openBtns.forEach(b => b.addEventListener('click', openChatModal));
+      [document.getElementById('btnOpenChat'),
+       document.getElementById('btnOpenChatHero'),
+       document.getElementById('btnOpenChatDesktop')
+      ].filter(Boolean).forEach(b => b.addEventListener('click', openChatModal));
 
       document.getElementById('btnCloseChat').addEventListener('click', closeChatModal);
-
       document.getElementById('chatModal').addEventListener('click', (e) => {
         if (e.target.id === 'chatModal') closeChatModal();
       });
@@ -1090,7 +761,6 @@
           const cat = categories.find(c => c.key === key);
           if (cat && cat.enabled) window.location.href = cat.href;
         }
-
         const catSearch = e.target.closest('[data-category-search]');
         if (catSearch) {
           e.preventDefault();
@@ -1114,7 +784,6 @@
       document.getElementById('drawerOverlay').addEventListener('click', (e) => {
         if (e.target.id === 'drawerOverlay') closeDrawer();
       });
-
       document.querySelectorAll('.drawer-links a').forEach(a => {
         a.addEventListener('click', () => closeDrawer());
       });
@@ -1144,15 +813,12 @@
       modal.classList.add('active');
       modal.setAttribute('aria-hidden','false');
       document.body.style.overflow='hidden';
-
       const messages = document.getElementById('chatMessages');
       if (messages.children.length === 0) {
         sendBotMessage('Hola. Soy el buscador de guías de Júristam. Escribe tu problema y te mostraré los artículos más relevantes.');
       }
-
       setTimeout(() => document.getElementById('chatInput').focus(), 200);
     }
-
     function closeChatModal(){
       const modal = document.getElementById('chatModal');
       modal.classList.remove('active');
@@ -1160,7 +826,6 @@
       document.body.style.overflow='';
       document.getElementById('chatInput').blur();
     }
-
     function sendChatMessage(){
       const input = document.getElementById('chatInput');
       const msg = input.value.trim();
@@ -1169,7 +834,6 @@
       input.value = '';
       processSearchQuery(msg);
     }
-
     function sendUserMessage(text){
       const messages = document.getElementById('chatMessages');
       const div = document.createElement('div');
@@ -1178,7 +842,6 @@
       messages.appendChild(div);
       scrollToBottom();
     }
-
     function sendBotMessage(html){
       const messages = document.getElementById('chatMessages');
       const div = document.createElement('div');
@@ -1187,7 +850,6 @@
       messages.appendChild(div);
       scrollToBottom();
     }
-
     function scrollToBottom(){
       const messages = document.getElementById('chatMessages');
       setTimeout(() => { messages.scrollTop = messages.scrollHeight; }, 80);
@@ -1206,16 +868,13 @@
         processSearchQuery(query);
       }, 150);
     }
-
     function processSearchQuery(queryRaw){
       const q = normalize(queryRaw);
       const results = searchPosts(q);
-
       if (!results.length){
-        sendBotMessage('No encontré artículos exactos con esas palabras. Prueba con: "coactiva", "SENAE", "alimentos", "apellidos", "Registro Civil", "terreno", "sueldo".');
+        sendBotMessage('No encontré artículos exactos. Prueba con: "coactiva", "SENAE", "alimentos", "apellidos", "terreno", "sueldo", "superintendencia", "compañía".');
         return;
       }
-
       const inferred = inferCategory(q);
       if (inferred){
         const cat = categories.find(c =>
@@ -1226,9 +885,7 @@
           sendBotMessage(`Esto suena a <strong>${escapeHtml(cat.name)}</strong>. Si prefieres ver todos: <a href="${cat.href}" target="_blank" rel="noopener">abrir ${escapeHtml(cat.name)}</a>.`);
         }
       }
-
       sendBotMessage(`Artículos relevantes para: <strong>${escapeHtml(queryRaw)}</strong>`);
-
       const container = document.createElement('div');
       container.className = 'search-results';
       container.innerHTML = results.map(post => `
@@ -1244,11 +901,9 @@
           </a>
         </div>
       `).join('');
-
       document.getElementById('chatMessages').appendChild(container);
       scrollToBottom();
     }
-
     function searchPosts(query){
       return posts
         .map(p => ({...p, score: calculateScore(query, p)}))
@@ -1256,30 +911,26 @@
         .sort((a,b) => b.score - a.score)
         .slice(0, 6);
     }
-
     function calculateScore(query, post){
       let score = 0;
       const text = normalize([post.tag, post.title, post.excerpt].join(' '));
-
       if (query.length >= 5 && text.includes(query)) score += 20;
-
       query.split(' ').filter(w => w.length >= 3).forEach(w => {
         if (text.includes(w)) score += 5;
       });
-
       const cat = inferCategory(query);
       if (cat && normalize(post.tag) === normalize(cat)) score += 10;
-
       return score;
     }
-
     function inferCategory(query){
       const synonyms = [
         { keys: ["coactiva","cobro coactivo","embargo","bloquearon","bloqueo","cuenta bloqueada","retuvieron mi cuenta"], cat:"Coactiva" },
         { keys: ["senae","aduanas","aduana","retuvieron","mercaderia","mercadería","liquidacion","liquidación","aforo","multa"], cat:"Aduanas" },
         { keys: ["alimentos","familia","pension","pensión","prohibicion de salida","prohibición de salida","salida del pais","salida del país","apellidos","apellido","registro civil","cambio de apellido","identidad"], cat:"Familia" },
         { keys: ["terreno","inmueble","prescripcion","prescripción","posesion","posesión","reivindicacion","reivindicación","escritura"], cat:"Inmuebles" },
-        { keys: ["laboral","sueldo","salario","despido","fondo de reserva","fondos de reserva","jubilacion patronal","jubilación patronal"], cat:"Laboral" }
+        { keys: ["laboral","sueldo","salario","despido","fondo de reserva","fondos de reserva","jubilacion patronal","jubilación patronal"], cat:"Laboral" },
+        // ✅ SOCIETARIO
+        { keys: ["superintendencia","companias","compañías","compañia","compañía","inspeccion","inspección","aumento de capital","accionista","societario","sas","cierre de compania","cierre de compañia","nombramiento","representante legal","balance","registro mercantil"], cat:"Societario" }
       ];
       for (const g of synonyms){
         for (const k of g.keys){
