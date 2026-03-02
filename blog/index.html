@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -206,7 +205,6 @@
       padding: 32px 24px 28px;
     }
 
-    /* Decorative background shape */
     .hero::before {
       content: '';
       position: absolute; top: -60px; right: -60px;
@@ -257,7 +255,6 @@
       margin-bottom: 24px;
     }
 
-    /* Stats row */
     .hero-stats {
       display: flex; flex-wrap: wrap; gap: 12px;
       margin-bottom: 24px;
@@ -273,13 +270,8 @@
     }
     .stat-pill i { color: var(--primary); font-size: .9em; }
 
-    /* Search */
-    .search-wrap {
-      display: flex; flex-direction: column; gap: 10px;
-    }
-    .search-row {
-      display: flex; gap: 10px; flex-direction: column;
-    }
+    .search-wrap { display: flex; flex-direction: column; gap: 10px; }
+    .search-row { display: flex; gap: 10px; flex-direction: column; }
     .search-input {
       flex: 1; min-height: 50px;
       padding: 14px 18px;
@@ -621,7 +613,6 @@
       .categories-grid { grid-template-columns: repeat(3, minmax(0,1fr)); }
     }
 
-    /* Staggered card animation */
     @keyframes fadeUp {
       from { opacity: 0; transform: translateY(16px); }
       to { opacity: 1; transform: translateY(0); }
@@ -766,6 +757,7 @@
         <li><a href="https://juristam.net/blog/fondos-reserva-jubilacion-patronal-ecuador.html">Fondos reserva jubilación patronal Ecuador</a></li>
         <li><a href="https://juristam.net/blog/coactiva-ex-representante-legal-nulidad-ecuador.html">Coactiva ex representante legal nulidad</a></li>
         <li><a href="https://juristam.net/blog/inspeccion-superintendencia-companias-ecuador.html">Inspección Superintendencia Compañías Ecuador</a></li>
+        <li><a href="https://juristam.net/blog/cierre-sas-ecuador.html">Cierre de SAS en Ecuador</a></li>
       </ul>
     </nav>
 
@@ -822,7 +814,7 @@
   });
 
   // ================================
-  // DATA — POSTS
+  // DATA — POSTS (✅ incluye Cierre de SAS)
   // ================================
   const posts = [
     { tag:"Coactiva", date:"Corte Nacional · Nulidad por personería",
@@ -868,7 +860,11 @@
     { tag:"Societario", date:"Guía práctica",
       title:"Inspección de la Superintendencia de Compañías: qué revisan y cómo prepararte",
       excerpt:"Si tu empresa recibió una carta credencial de inspección, esto es exactamente lo que revisa el inspector, los errores más comunes y cómo prepararte antes de la visita.",
-      url:"https://juristam.net/blog/inspeccion-superintendencia-companias-ecuador.html" }
+      url:"https://juristam.net/blog/inspeccion-superintendencia-companias-ecuador.html" },
+    { tag:"Societario", date:"Guía práctica",
+      title:"Cierre de SAS en Ecuador: etapas, bloqueos y riesgos que encarecen el proceso",
+      excerpt:"Cerrar una SAS no es dejarla sin movimiento: implica disolución, liquidación y cancelación. Conoce dónde se bloquea y por qué hacerlo mal sale caro.",
+      url:"https://juristam.net/blog/cierre-sas-ecuador.html" }
   ];
 
   // ================================
@@ -1095,7 +1091,7 @@
     const q = normalize(raw);
     const results = searchPosts(q);
     if (!results.length) {
-      sendBotMessage('No encontré artículos exactos. Prueba con: "coactiva", "SENAE", "alimentos", "terreno", "sueldo", "superintendencia".');
+      sendBotMessage('No encontré artículos exactos. Prueba con: "coactiva", "SENAE", "alimentos", "terreno", "sueldo", "superintendencia", "SAS", "cierre de SAS".');
       return;
     }
     const inferred = inferCategory(q);
@@ -1145,7 +1141,7 @@
       { keys:["alimentos","familia","pension","pensión","prohibicion de salida","salida del pais","apellidos","apellido","registro civil","identidad"], cat:"Familia" },
       { keys:["terreno","inmueble","prescripcion","prescripción","posesion","posesión","reivindicacion","reivindicación","escritura"], cat:"Inmuebles" },
       { keys:["laboral","sueldo","salario","despido","fondo de reserva","jubilacion patronal","jubilación patronal"], cat:"Laboral" },
-      { keys:["superintendencia","companias","compañías","compañia","compañía","inspeccion","inspección","aumento de capital","accionista","societario","sas","cierre de compania","nombramiento","representante legal","balance","registro mercantil"], cat:"Societario" }
+      { keys:["superintendencia","companias","compañías","compañia","compañía","inspeccion","inspección","aumento de capital","accionista","societario","sas","cierre de compania","cierre de compañía","nombramiento","representante legal","balance","registro mercantil","disolucion","disolución","liquidacion","liquidación","cancelacion","cancelación"], cat:"Societario" }
     ];
     for (const g of map)
       for (const k of g.keys)
