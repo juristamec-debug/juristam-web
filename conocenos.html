@@ -1,0 +1,494 @@
+<!DOCTYPE html>
+<html lang="es-EC">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+  <link rel="icon" type="image/png" href="/favicon.png">
+  <link rel="apple-touch-icon" href="/favicon.png">
+  <meta name="theme-color" content="#9a6aff">
+
+  <title>Conócenos · Juristam — Estudio jurídico en Ecuador</title>
+  <meta name="description" content="Conoce quiénes somos en Juristam: nuestro equipo, nuestra misión y los valores que guían cada caso legal que atendemos en Ecuador." />
+  <link rel="canonical" href="https://juristam.net/conocenos.html" />
+  <meta name="robots" content="index,follow" />
+
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Conócenos · Juristam" />
+  <meta property="og:description" content="Conoce quiénes somos en Juristam: nuestro equipo, nuestra misión y los valores que guían cada caso." />
+  <meta property="og:url" content="https://juristam.net/conocenos.html" />
+  <meta property="og:image" content="https://i.postimg.cc/vHygbHxz/oie-transparent-(2).png" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Playfair+Display:wght@400;600;700;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+  <style>
+    :root{
+      --primary:#9a6aff;
+      --primary-dark:#7c3aed;
+      --primary-light:#efe8ff;
+      --secondary:#1e293b;
+      --neutral:#374151;
+      --neutral-light:#f3f4f6;
+      --neutral-border:#e5e7eb;
+      --white:#ffffff;
+      --text-main:#111827;
+      --text-secondary:#4b5563;
+      --text-light:#6b7280;
+      --shadow-sm:0 2px 10px rgba(17,24,39,.06);
+      --shadow-md:0 18px 40px rgba(17,24,39,.10);
+      --header-h:70px;
+      --pad-x:16px;
+      --maxw:100%;
+    }
+    *{margin:0;padding:0;box-sizing:border-box;}
+    html{scroll-behavior:smooth;overflow-x:hidden;}
+    body{font-family:'Inter',system-ui,sans-serif;color:var(--text-main);background:var(--white);overflow-x:hidden;-webkit-font-smoothing:antialiased;}
+    img{max-width:100%;height:auto;display:block;}
+    a{-webkit-tap-highlight-color:transparent;text-decoration:none;color:inherit;}
+
+    .container{width:100%;max-width:var(--maxw);margin:0 auto;padding:0 var(--pad-x);box-sizing:border-box;}
+
+    /* ── HEADER ── */
+    header{
+      position:fixed;inset:0 0 auto 0;z-index:1000;
+      height:var(--header-h);
+      display:flex;align-items:center;
+      background:rgba(255,255,255,.95);
+      backdrop-filter:blur(14px);
+      border-bottom:1px solid var(--neutral-border);
+      box-shadow:var(--shadow-sm);
+    }
+    .header-inner{height:100%;width:100%;max-width:var(--maxw);margin:0 auto;padding:0 var(--pad-x);display:flex;align-items:center;justify-content:space-between;gap:12px;box-sizing:border-box;}
+    .logo-wrap{display:flex;align-items:center;}
+    .logo-wrap img{height:56px;width:auto;object-fit:contain;}
+    .header-actions{display:flex;align-items:center;gap:10px;}
+    .btn{display:inline-flex;align-items:center;justify-content:center;gap:.5rem;padding:.7rem 1.2rem;border-radius:999px;font-weight:800;font-size:.9rem;text-decoration:none;border:none;cursor:pointer;transition:all .18s ease;white-space:nowrap;}
+    .btn-ghost{background:var(--primary-light);color:var(--primary-dark);border:1px solid rgba(154,106,255,.25);}
+    .btn-ghost:hover{background:var(--primary);color:#fff;}
+    .btn-primary{background:linear-gradient(135deg,var(--primary),var(--primary-dark));color:#fff;box-shadow:0 8px 20px rgba(124,58,237,.22);}
+    .btn-primary:hover{transform:translateY(-1px);box-shadow:0 12px 28px rgba(124,58,237,.30);}
+
+    /* ── HERO OSCURO CON IMAGEN DE FONDO ── */
+    .hero{
+      padding-top:calc(var(--header-h) + 60px);
+      padding-bottom:70px;
+      position:relative;
+      overflow:hidden;
+      background:#1a1a2e;
+      /* 👉 REEMPLAZA esta URL por tu imagen real */
+      /* background-image: url('TU-IMAGEN-AQUI.jpg'); */
+      background-size:cover;
+      background-position:center;
+    }
+    /* Overlay oscuro sobre la imagen */
+    .hero::before{
+      content:'';
+      position:absolute;inset:0;
+      background:rgba(15,15,30,.70);
+      z-index:0;
+    }
+    .hero-content{position:relative;z-index:1;max-width:680px;}
+    .hero-kicker{
+      display:inline-flex;align-items:center;gap:8px;
+      padding:6px 14px;
+      background:rgba(154,106,255,.25);
+      border:1px solid rgba(154,106,255,.40);
+      border-radius:999px;
+      color:var(--primary-light);
+      font-size:.78rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em;
+      margin-bottom:20px;
+    }
+    .hero h1{
+      font-family:'Playfair Display',serif;
+      font-size:clamp(2rem,6vw,3.2rem);
+      font-weight:900;
+      line-height:1.15;
+      color:#ffffff;
+      margin-bottom:20px;
+    }
+    .hero h1 span{color:var(--primary);}
+    .hero-desc{
+      font-size:clamp(1rem,2.5vw,1.18rem);
+      color:rgba(255,255,255,.80);
+      line-height:1.75;
+      max-width:560px;
+    }
+
+    /* ── IMAGEN PLACEHOLDER ── */
+    .img-placeholder{
+      width:100%;
+      background:linear-gradient(135deg,var(--primary-light),rgba(154,106,255,.15));
+      border:2px dashed rgba(154,106,255,.35);
+      border-radius:18px;
+      display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px;
+      color:var(--primary-dark);
+      font-weight:700;font-size:.9rem;
+      text-align:center;
+      padding:20px;
+    }
+    .img-placeholder i{font-size:2rem;opacity:.5;}
+    .img-placeholder.tall{min-height:340px;}
+    .img-placeholder.medium{min-height:260px;}
+    .img-placeholder.wide{min-height:200px;}
+
+    /* ── SECCIÓN MISIÓN ── */
+    .mision-section{
+      padding:70px 0;
+      background:#fff;
+      text-align:center;
+    }
+    .section-kicker{
+      display:inline-block;
+      font-size:.78rem;font-weight:900;text-transform:uppercase;letter-spacing:2px;
+      color:var(--primary-dark);margin-bottom:14px;
+      position:relative;padding-bottom:10px;
+    }
+    .section-kicker::after{content:'';position:absolute;left:50%;bottom:0;transform:translateX(-50%);width:48px;height:3px;border-radius:999px;background:linear-gradient(to right,var(--primary),var(--primary-dark));}
+    .mision-title{
+      font-family:'Playfair Display',serif;
+      font-size:clamp(1.5rem,4vw,2.4rem);
+      font-weight:900;
+      color:var(--secondary);
+      margin-bottom:20px;
+      line-height:1.2;
+      max-width:720px;
+      margin-left:auto;margin-right:auto;
+    }
+    .mision-text{
+      font-size:clamp(.95rem,2.5vw,1.08rem);
+      color:var(--text-secondary);
+      line-height:1.8;
+      max-width:760px;
+      margin:0 auto;
+    }
+
+    /* ── SECCIÓN VALORES ── */
+    .valores-section{
+      padding:0;
+      background:#fff;
+    }
+    .valores-inner{
+      display:grid;
+      grid-template-columns:1fr;
+    }
+    .valores-content{
+      background:linear-gradient(135deg,var(--primary) 0%,var(--primary-dark) 100%);
+      padding:60px var(--pad-x);
+      display:flex;flex-direction:column;justify-content:center;
+    }
+    .valores-kicker{
+      display:inline-block;
+      font-size:.75rem;font-weight:800;text-transform:uppercase;letter-spacing:.1em;
+      color:rgba(255,255,255,.65);
+      margin-bottom:18px;
+    }
+    .valores-title{
+      font-family:'Playfair Display',serif;
+      font-size:clamp(1.6rem,4vw,2.4rem);
+      font-weight:900;
+      color:#fff;
+      line-height:1.2;
+      margin-bottom:20px;
+    }
+    .valores-title strong{
+      display:block;
+      color:#fff;
+    }
+    .valores-list{
+      list-style:none;
+      margin-bottom:28px;
+    }
+    .valores-list li{
+      display:flex;align-items:flex-start;gap:12px;
+      color:rgba(255,255,255,.88);
+      font-size:.95rem;line-height:1.6;
+      margin-bottom:14px;
+      font-weight:600;
+    }
+    .valores-list li i{color:rgba(255,255,255,.60);margin-top:3px;flex-shrink:0;}
+    .valores-desc{
+      color:rgba(255,255,255,.78);
+      font-size:.92rem;
+      line-height:1.75;
+      margin-bottom:28px;
+    }
+    .btn-white{
+      display:inline-flex;align-items:center;gap:8px;
+      padding:.75rem 1.6rem;
+      background:#fff;
+      color:var(--primary-dark);
+      border-radius:999px;
+      font-weight:800;font-size:.9rem;
+      border:none;cursor:pointer;
+      transition:all .18s ease;
+      width:fit-content;
+    }
+    .btn-white:hover{background:var(--primary-light);transform:translateY(-1px);}
+    .valores-image{
+      min-height:320px;
+      position:relative;
+      overflow:hidden;
+      background:#1a1a2e;
+      /* 👉 REEMPLAZA por tu imagen real */
+      /* background-image: url('TU-IMAGEN-AQUI.jpg'); */
+      background-size:cover;
+      background-position:center;
+    }
+    .valores-image-placeholder{
+      width:100%;height:100%;min-height:320px;
+      display:flex;flex-direction:column;align-items:center;justify-content:center;gap:12px;
+      background:linear-gradient(135deg,#1a1a2e,#2d1f5e);
+      color:rgba(255,255,255,.40);
+      font-size:.88rem;font-weight:600;
+      text-align:center;padding:20px;
+    }
+    .valores-image-placeholder i{font-size:2.5rem;}
+
+    /* ── SECCIÓN EQUIPO / STATS ── */
+    .stats-section{
+      padding:70px 0;
+      background:var(--neutral-light);
+    }
+    .stats-grid{
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:16px;
+      margin-top:40px;
+    }
+    .stat-card{
+      background:#fff;
+      border-radius:20px;
+      padding:28px 20px;
+      text-align:center;
+      border:1px solid var(--neutral-border);
+      box-shadow:var(--shadow-sm);
+    }
+    .stat-number{
+      font-family:'Playfair Display',serif;
+      font-size:clamp(2rem,6vw,3rem);
+      font-weight:900;
+      color:var(--primary-dark);
+      line-height:1;
+      margin-bottom:8px;
+    }
+    .stat-label{
+      color:var(--text-secondary);
+      font-size:.88rem;
+      font-weight:600;
+      line-height:1.4;
+    }
+
+    /* ── SECCIÓN PREVIEW INDEX ── */
+    .preview-section{
+      padding:60px 0;
+      background:#fff;
+    }
+    .preview-card{
+      background:linear-gradient(135deg,var(--primary-light),rgba(239,232,255,.40));
+      border:1.5px solid rgba(154,106,255,.25);
+      border-radius:24px;
+      padding:32px 24px;
+      display:flex;flex-direction:column;gap:20px;
+      align-items:flex-start;
+    }
+    .preview-card h3{
+      font-family:'Playfair Display',serif;
+      font-size:clamp(1.3rem,3.5vw,1.8rem);
+      font-weight:900;
+      color:var(--secondary);
+      line-height:1.25;
+    }
+    .preview-card p{
+      color:var(--text-secondary);
+      line-height:1.7;
+      font-size:.95rem;
+    }
+
+    /* ── FOOTER ── */
+    footer{background:linear-gradient(180deg,#0f172a,#0b1220);color:#fff;padding:40px 0 20px;}
+    .footer-inner{display:grid;grid-template-columns:1fr;gap:20px;margin-bottom:18px;}
+    .footer-heading{font-family:'Playfair Display',serif;font-weight:900;font-size:1rem;margin-bottom:10px;}
+    .footer-links{list-style:none;display:flex;flex-direction:column;gap:8px;}
+    .footer-links a{color:rgba(255,255,255,.70);font-size:.88rem;font-weight:600;transition:color .18s;}
+    .footer-links a:hover{color:#fff;}
+    .footer-bottom{text-align:center;padding-top:14px;border-top:1px solid rgba(255,255,255,.10);color:rgba(255,255,255,.50);font-size:.82rem;}
+
+    .wa-float{position:fixed;right:16px;bottom:16px;z-index:1500;width:56px;height:56px;border-radius:18px;background:#25D366;color:#fff;display:flex;align-items:center;justify-content:center;text-decoration:none;box-shadow:0 12px 35px rgba(0,0,0,.22);transition:transform .18s;}
+    .wa-float:hover{transform:translateY(-2px);}
+    .wa-float i{font-size:1.6rem;}
+
+    @media(min-width:640px){
+      :root{--pad-x:22px;--header-h:80px;--maxw:640px;}
+      .logo-wrap img{height:64px;}
+      .stats-grid{grid-template-columns:repeat(4,1fr);}
+    }
+    @media(min-width:1024px){
+      :root{--pad-x:28px;--header-h:80px;--maxw:1280px;}
+      .logo-wrap img{height:70px;}
+      .hero{padding-top:calc(var(--header-h) + 80px);padding-bottom:100px;}
+      .valores-inner{grid-template-columns:1fr 1fr;}
+      .valores-content{padding:80px 60px;}
+      .valores-image{min-height:500px;}
+      .valores-image-placeholder{min-height:500px;}
+      .preview-card{flex-direction:row;align-items:center;gap:40px;}
+      .preview-card > div{flex:1;}
+      .footer-inner{grid-template-columns:repeat(3,1fr);}
+    }
+  </style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header>
+  <div class="header-inner">
+    <a href="/" class="logo-wrap" aria-label="Juristam - Inicio">
+      <img src="https://i.postimg.cc/vHygbHxz/oie-transparent-(2).png" alt="Juristam" width="200" height="70">
+    </a>
+    <div class="header-actions">
+      <a href="/" class="btn btn-ghost"><i class="fas fa-arrow-left"></i> Volver</a>
+      <a href="/#formulario" class="btn btn-primary">Evaluar Caso <i class="fas fa-arrow-right"></i></a>
+    </div>
+  </div>
+</header>
+
+<!-- HERO -->
+<section class="hero">
+  <!-- 👉 Para agregar imagen de fondo: añade style="background-image:url('tu-foto.jpg')" al elemento .hero -->
+  <div class="container">
+    <div class="hero-content">
+      <div class="hero-kicker"><i class="fas fa-scale-balanced"></i> Juristam · Ecuador</div>
+      <h1>Juristam <span>Hoy</span></h1>
+      <p class="hero-desc">Ayudamos a las personas en su día a día, de una manera sencilla, accesible y eficaz, respondiendo más de quinientas consultas cada mes y resolviendo casos, a través de más de 50 abogados y una red nacional de 40 despachos por todo Ecuador.</p>
+    </div>
+  </div>
+</section>
+
+<!-- MISIÓN -->
+<section class="mision-section">
+  <div class="container">
+    <div class="section-kicker">Nuestra misión</div>
+    <h2 class="mision-title">Juristam, LegalTech líder en asesoramiento jurídico para familias, autónomos y pymes</h2>
+    <p class="mision-text">Utilizamos tecnología innovadora en beneficio de las personas, para que puedan acceder a un asesoramiento legal de calidad, omnicanal, en tiempo real, en cualquier momento y lugar; diseñando nuestros productos y servicios para, por y junto con los clientes. De esta manera, en un entorno plenamente digital, automatizamos y agilizamos los procesos, con inmediatez, aumentando la eficiencia de los abogados y, en consecuencia, mejorando la experiencia del cliente.</p>
+  </div>
+</section>
+
+<!-- VALORES -->
+<section class="valores-section">
+  <div class="valores-inner">
+
+    <div class="valores-content">
+      <span class="valores-kicker">Lo que nos define</span>
+      <h2 class="valores-title">
+        Nuestros valores
+        <strong style="margin-top:12px;font-size:.75em;color:rgba(255,255,255,.90);">
+          Somos INCONFORMISTAS,<br>
+          estamos COMPROMETIDOS,<br>
+          superamos las EXPECTATIVAS.
+        </strong>
+      </h2>
+      <ul class="valores-list">
+        <li><i class="fas fa-circle-check"></i>Inconformismo — siempre buscamos ir más allá, mejorar y superar lo establecido.</li>
+        <li><i class="fas fa-circle-check"></i>Compromiso — con cada cliente, con cada caso, con cada resultado.</li>
+        <li><i class="fas fa-circle-check"></i>Excelencia — no aceptamos menos que el mejor resultado posible.</li>
+      </ul>
+      <p class="valores-desc">En Juristam, somos un equipo, y estamos convencidos de que la historia de una gran compañía se escribe cada día. Contamos con talento e ilusión, marcando la diferencia a través de la innovación, la tecnología y una capacidad de adaptación constante.</p>
+      <a href="/#formulario" class="btn-white"><i class="fas fa-arrow-right"></i> Evaluar mi caso</a>
+    </div>
+
+    <div class="valores-image">
+      <!-- 👉 Para agregar imagen: añade style="background-image:url('tu-foto.jpg')" al elemento .valores-image -->
+      <div class="valores-image-placeholder">
+        <i class="fas fa-image"></i>
+        <span>Agrega aquí tu imagen del equipo<br>o de la oficina</span>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- STATS -->
+<section class="stats-section">
+  <div class="container">
+    <div class="section-header" style="text-align:center;margin-bottom:0;">
+      <div class="section-kicker">Juristam en números</div>
+      <h2 style="font-family:'Playfair Display',serif;font-size:clamp(1.4rem,4vw,2rem);font-weight:900;color:var(--secondary);margin-top:8px;">Lo que hemos construido</h2>
+    </div>
+    <div class="stats-grid">
+      <div class="stat-card">
+        <div class="stat-number">+500</div>
+        <div class="stat-label">Consultas atendidas al mes</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-number">+50</div>
+        <div class="stat-label">Abogados en la red</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-number">+40</div>
+        <div class="stat-label">Despachos en Ecuador</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-number">$45</div>
+        <div class="stat-label">Consulta virtual desde</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="preview-section">
+  <div class="container">
+    <div class="preview-card">
+      <div>
+        <h3>¿Tienes un problema legal?<br>Empieza hoy.</h3>
+        <p style="margin-top:12px;">Evaluamos tu caso, definimos la estrategia y te damos pasos claros. Atención virtual en todo Ecuador y presencial en Guayaquil. Consulta desde $45 — si decides contratarnos ese valor se descuenta de los honorarios.</p>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:12px;flex-shrink:0;">
+        <a href="/#formulario" class="btn btn-primary" style="width:100%;justify-content:center;"><i class="fas fa-clipboard-check"></i> Evaluar mi Caso</a>
+        <a href="https://wa.me/593994859814" target="_blank" rel="noopener" class="btn btn-ghost" style="width:100%;justify-content:center;"><i class="fab fa-whatsapp"></i> WhatsApp directo</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="container">
+    <div class="footer-inner">
+      <div>
+        <div class="footer-heading">Juristam</div>
+        <p style="opacity:.70;font-size:.88rem;line-height:1.6;">Estudio jurídico en Ecuador.<br>Estrategia legal, claridad y acción.</p>
+      </div>
+      <div>
+        <div class="footer-heading">Navegación</div>
+        <ul class="footer-links">
+          <li><a href="/">Inicio</a></li>
+          <li><a href="/conocenos.html">Conócenos</a></li>
+          <li><a href="/#servicios">Servicios</a></li>
+          <li><a href="/blog/">Guías</a></li>
+          <li><a href="/#formulario">Evaluar Caso</a></li>
+        </ul>
+      </div>
+      <div>
+        <div class="footer-heading">Contacto</div>
+        <ul class="footer-links">
+          <li><a href="tel:+593994859814"><i class="fas fa-phone"></i> +593 99 485 9814</a></li>
+          <li><a href="mailto:juristam.ec@gmail.com"><i class="fas fa-envelope"></i> juristam.ec@gmail.com</a></li>
+          <li><i class="fas fa-map-marker-alt"></i> Guayaquil, Ecuador</li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">© <span id="yr"></span> Juristam. Todos los derechos reservados. · <a href="https://juristam.net/" style="color:rgba(255,255,255,.45);">juristam.net</a></div>
+  </div>
+</footer>
+
+<a class="wa-float" href="https://wa.me/593994859814?text=Hola%20Juristam.%20Quiero%20una%20EVALUACI%C3%93N%20de%20mi%20caso." target="_blank" rel="noopener" aria-label="WhatsApp">
+  <i class="fab fa-whatsapp"></i>
+</a>
+
+<script>
+  document.getElementById('yr').textContent = new Date().getFullYear();
+</script>
+</body>
+</html>
