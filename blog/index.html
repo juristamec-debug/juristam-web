@@ -741,8 +741,8 @@
         <li><a href="https://juristam.net/blog/inspeccion-superintendencia-companias-ecuador.html">Inspección Superintendencia Compañías Ecuador</a></li>
         <li><a href="https://juristam.net/blog/cierre-sas-ecuador.html">Cierre de SAS en Ecuador</a></li>
         <li><a href="https://juristam.net/blog/posesion-efectiva-herencia-ecuador.html">Posesión efectiva herencia Ecuador sin testamento</a></li>
-        <li><a href="https://juristam.net/blog/ocultar-datos-satje-proteccion-datos-judiciales-ecuador.html">Ocultar datos en el sistema SATJE</a></li>
-        <li><a href="https://juristam.net/blog/reivindicacion-terreno-requisitos-dominio-posesion-singularizacion.html">Reivindicar terreno Ecuador</a></li>
+        <li><a href="https://juristam.net/blog/despido-intempestivo-ecuador.html">Despido intempestivo Ecuador liquidación</a></li>
+        <li><a href="https://juristam.net/blog/cheque-sin-fondos-ecuador.html">Cheque sin fondos Ecuador acción penal</a></li>
       </ul>
     </nav>
 
@@ -851,17 +851,14 @@
       title:"Cierre de SAS en Ecuador: etapas, bloqueos y riesgos que encarecen el proceso",
       excerpt:"Cerrar una SAS no es dejarla sin movimiento: implica disolución, liquidación y cancelación. Conoce dónde se bloquea y por qué hacerlo mal sale caro.",
       url:"https://juristam.net/blog/cierre-sas-ecuador.html" },
-    { tag: "Inmuebles", date: "Jurisprudencia obligatoria", 
-      title: "¿Puedes recuperar tu terreno cuando quieras? La regla de la Corte que hace perder casos", 
-      excerpt: "La Corte Nacional fijó tres requisitos obligatorios para la reivindicación. Si te falta uno, pierdes el terreno aunque tengas razón.", 
-      url: "https://juristam.net/blog/reivindicacion-terreno-requisitos-dominio-posesion-singularizacion.html"},
-      {
-  tag: "Laboral",
-  date: "Guía práctica",
-  title: "Te despidieron y te dijeron que no tienes derecho a nada: lo que el Código del Trabajo establece sobre el despido intempestivo",
-  excerpt: "Si te despidieron sin causa justificada y ya tienes la liquidación en la mano, antes de firmar necesitas saber exactamente a cuánto tienes derecho.",
-  url: "https://juristam.net/blog/despido-intempestivo-ecuador.html"
-}
+    { tag:"Laboral", date:"Guía práctica",
+      title:"Te despidieron y te dijeron que no tienes derecho a nada: lo que el Código del Trabajo establece sobre el despido intempestivo",
+      excerpt:"Si te despidieron sin causa justificada y ya tienes la liquidación en la mano, antes de firmar necesitas saber exactamente a cuánto tienes derecho.",
+      url:"https://juristam.net/blog/despido-intempestivo-ecuador.html" },
+    { tag:"Penal", date:"Guía práctica",
+      title:"Cheque sin fondos en Ecuador: acción penal, acción civil y plazos que no puedes dejar vencer",
+      excerpt:"En Ecuador el giro de cheque sin fondos es un delito. Tienes dos acciones disponibles — penal y civil — que pueden ejercerse al mismo tiempo. Los plazos corren desde el protesto y si vencen, las opciones se cierran.",
+      url:"https://juristam.net/blog/cheque-sin-fondos-ecuador.html" }
   ];
 
   const categories = [
@@ -882,13 +879,17 @@
       href:"https://juristam.net/blog/categoria-inmobiliario.html",
       tags:["Inmuebles","Inmobiliario"], enabled:true },
     { key:"laboral", name:"Laboral", icon:"fa-briefcase",
-      desc:"Embargos, derechos del trabajador, liquidaciones y reglas obligatorias, despido intempestivo",
+      desc:"Embargos, derechos del trabajador, liquidaciones y reglas obligatorias.",
       href:"https://juristam.net/blog/categoria-laboral.html",
       tags:["Laboral"], enabled:true },
     { key:"societario", name:"Societario", icon:"fa-building-columns",
       desc:"Inspecciones de la Superintendencia, aumentos de capital, cierres de compañía y cumplimiento societario.",
       href:"https://juristam.net/blog/categoria-societario.html",
-      tags:["Societario"], enabled:true }
+      tags:["Societario"], enabled:true },
+    { key:"penal", name:"Penal", icon:"fa-scale-balanced",
+      desc:"Cheques sin fondos, defensa ante Fiscalía, estafa y delitos patrimoniales. Acciones penales y civiles disponibles en Ecuador.",
+      href:"https://juristam.net/blog/categoria-penal.html",
+      tags:["Penal"], enabled:true }
   ];
 
   function normalize(text) {
@@ -1114,6 +1115,7 @@
       { keys:["alimentos","familia","pension","pensión","prohibicion de salida","salida del pais","apellidos","apellido","registro civil","identidad","herencia","posesion efectiva","posesión efectiva","herederos","testamento"], cat:"Familia" },
       { keys:["terreno","inmueble","prescripcion","prescripción","posesion","posesión","reivindicacion","reivindicación","escritura"], cat:"Inmuebles" },
       { keys:["laboral","sueldo","salario","despido","fondo de reserva","jubilacion patronal","jubilación patronal"], cat:"Laboral" },
+      { keys:["penal","cheque","cheque sin fondos","cheque rechazado","protesto","fiscalia","fiscalía","denuncia penal","estafa","delito"], cat:"Penal" },
       { keys:["superintendencia","companias","compañías","compañia","compañía","inspeccion","inspección","aumento de capital","accionista","societario","sas","cierre de compania","cierre de compañía","nombramiento","representante legal","balance","registro mercantil","disolucion","disolución","liquidacion","liquidación","cancelacion","cancelación"], cat:"Societario" }
     ];
     for (const g of map)
