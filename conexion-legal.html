@@ -2,6 +2,8 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8">
+  <link rel="icon" type="image/png" href="https://i.postimg.cc/MHtnYCtQ/Diseno-sin-titulo-(8).png">
+  <link rel="apple-touch-icon" href="https://i.postimg.cc/MHtnYCtQ/Diseno-sin-titulo-(8).png">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Juristam Conexión Legal EC — Red de Abogados Verificados en Ecuador</title>
   <meta name="description" content="Juristam Conexión Legal EC conecta abogados verificados en todo Ecuador. Solicita diligencias legales en cualquier ciudad, acepta trámites y gana dinero. Sin riesgos, sin estafas.">
@@ -10,7 +12,7 @@
   <meta property="og:description" content="Solicita trámites en cualquier ciudad o gana dinero aceptando diligencias. Abogados verificados, pago seguro, sin estafas. Únete gratis 30 días.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://juristam.net/conexion-legal.html">
-  <meta property="og:image" content="https://i.postimg.cc/hjNnRpj8/oie-transparent-(2).png">
+  <meta property="og:image" content="https://i.postimg.cc/MHtnYCtQ/Diseno-sin-titulo-(8).png">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
   <meta property="og:site_name" content="Juristam Conexión Legal EC">
@@ -18,9 +20,8 @@
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Juristam Conexión Legal EC">
   <meta name="twitter:description" content="Red profesional de abogados verificados en Ecuador. Solicita trámites o gana dinero aceptando diligencias.">
-  <meta name="twitter:image" content="https://i.postimg.cc/hjNnRpj8/oie-transparent-(2).png">
+  <meta name="twitter:image" content="https://i.postimg.cc/MHtnYCtQ/Diseno-sin-titulo-(8).png">
   <link rel="canonical" href="https://juristam.net/conexion-legal.html">
-  <link rel="icon" type="image/png" href="https://i.postimg.cc/MHtnYCtQ/Diseño_sin_título_(8).png">
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 
@@ -41,7 +42,9 @@
     }
 
     * { margin: 0; padding: 0; box-sizing: border-box; }
+
     html { scroll-behavior: smooth; }
+
     body {
       font-family: 'DM Sans', sans-serif;
       background: var(--off-white);
@@ -56,11 +59,13 @@
       z-index: 100;
       background: rgba(45, 16, 96, 0.95);
       backdrop-filter: blur(12px);
-      padding: 0.9rem 1.5rem;
+      padding: 0.5rem 1.5rem;
+      height: 64px;
       display: flex;
       align-items: center;
       justify-content: space-between;
       border-bottom: 1px solid rgba(154,106,255,0.2);
+      overflow: visible;
     }
     .nav-logo {
       display: flex;
@@ -69,8 +74,11 @@
       text-decoration: none;
     }
     .nav-logo img {
-      height: 130px;
+      height: 80px;
       width: auto;
+      position: relative;
+      top: 8px;
+      filter: drop-shadow(0 2px 8px rgba(0,0,0,0.3));
     }
     .nav-logo-text {
       font-family: 'Playfair Display', serif;
@@ -118,7 +126,7 @@
       background: linear-gradient(145deg, var(--purple-xdark) 0%, var(--purple-dark) 50%, #3d1580 100%);
       display: flex;
       align-items: center;
-      padding: 11rem 1.5rem 4rem;
+      padding: 7rem 1.5rem 4rem;
       position: relative;
       overflow: hidden;
     }
@@ -172,7 +180,10 @@
       margin-bottom: 1.25rem;
       font-weight: 900;
     }
-    .hero h1 em { font-style: italic; color: #c9b8ff; }
+    .hero h1 em {
+      font-style: italic;
+      color: #c9b8ff;
+    }
     .hero-desc {
       color: rgba(255,255,255,0.65);
       font-size: 1rem;
@@ -460,7 +471,12 @@
     .dual-card-envia p { color: rgba(255,255,255,0.7); }
     .dual-card-acepta p { color: var(--gray-600); }
     .dual-card ul { list-style: none; display: flex; flex-direction: column; gap: 0.5rem; margin-bottom: 1.5rem; }
-    .dual-card ul li { display: flex; align-items: flex-start; gap: 0.5rem; font-size: 0.88rem; }
+    .dual-card ul li {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.5rem;
+      font-size: 0.88rem;
+    }
     .dual-card-envia ul li { color: rgba(255,255,255,0.8); }
     .dual-card-acepta ul li { color: var(--gray-600); }
     .dual-card ul li i { margin-top: 3px; font-size: 0.75rem; }
@@ -527,7 +543,7 @@
     .beneficio-title { font-weight: 700; font-size: 0.95rem; margin-bottom: 0.4rem; color: var(--text); }
     .beneficio-desc { font-size: 0.84rem; color: var(--gray-600); line-height: 1.6; }
 
-    /* ── FAQ ── */
+    /* ── PREGUNTAS FRECUENTES ── */
     .faq { background: var(--off-white); }
     .faq-grid {
       display: grid;
@@ -567,7 +583,7 @@
     .faq-item.open .faq-question i { transform: rotate(180deg); }
     .faq-item.open .faq-question { color: var(--purple); }
 
-    /* ── BLOG ── */
+    /* ── BLOG SEO ── */
     .blog { background: var(--white); }
     .blog-grid {
       display: grid;
@@ -818,6 +834,7 @@
     }
   </style>
 
+  <!-- Schema.org SEO -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -841,7 +858,7 @@
   <!-- NAV -->
   <nav>
     <a href="#" class="nav-logo">
-      <img src="https://i.postimg.cc/hjNnRpj8/oie-transparent-(2).png" alt="Juristam Logo">
+      <img src="https://i.postimg.cc/wv6DzQtT/Diseno-sin-titulo-(7).png" alt="Juristam Logo">
       <span class="nav-logo-text">Juristam <span>Conexión</span> Legal EC</span>
     </a>
     <ul class="nav-links">
@@ -982,6 +999,8 @@
   <section style="background:var(--white);padding:5rem 1.5rem;" id="para-usted">
     <div class="section-inner">
       <div style="display:grid;grid-template-columns:1fr 1fr;gap:3rem;align-items:center;">
+
+        <!-- Columna izquierda: texto principal -->
         <div>
           <div class="section-label"><i class="fas fa-user-tie"></i> Para usted Abogado</div>
           <h2 class="section-title">En Juristam te conectamos con una red <span>rápida, segura y justa</span></h2>
@@ -1006,6 +1025,8 @@
           <p style="font-size:0.92rem;color:var(--gray-600);line-height:1.75;margin-bottom:0.75rem;">No te preocupes por lo legal, nosotros te respaldamos. Con Conexión Legal EC, tienes el poder de resolver tus trámites o crecer como abogado, <strong style="color:var(--text);">sin riesgos ni demoras.</strong></p>
           <p style="font-size:0.95rem;color:var(--purple);font-weight:700;font-family:'Playfair Display',serif;font-style:italic;">No te conformes, descubre el poder de Juristam siempre contigo.</p>
         </div>
+
+        <!-- Columna derecha: problema que resuelve -->
         <div style="background:linear-gradient(135deg,var(--purple-xdark),var(--purple-dark));border-radius:1.25rem;padding:2rem;color:var(--white);">
           <div style="display:flex;align-items:center;gap:0.75rem;margin-bottom:1.25rem;">
             <div style="width:44px;height:44px;background:rgba(255,255,255,0.12);border-radius:0.6rem;display:flex;align-items:center;justify-content:center;font-size:1.2rem;color:#c9b8ff;"><i class="fas fa-exclamation-triangle"></i></div>
@@ -1018,6 +1039,7 @@
             <i class="fas fa-arrow-right"></i> Quiero algo mejor
           </a>
         </div>
+
       </div>
     </div>
   </section>
@@ -1097,7 +1119,7 @@
     </div>
   </section>
 
-  <!-- BLOG -->
+  <!-- BLOG SEO -->
   <section class="blog" id="blog">
     <div class="section-inner">
       <div class="section-label"><i class="fas fa-newspaper"></i> Recursos legales</div>
@@ -1181,7 +1203,7 @@
         <p class="footer-desc">La red profesional de abogados verificados en Ecuador. Solicita trámites en cualquier ciudad o gana dinero aceptando diligencias cerca de ti.</p>
         <div class="footer-contact">
           <a href="https://wa.me/593994859814" target="_blank"><i class="fab fa-whatsapp"></i> +593 994 859 814</a>
-          <a href="mailto:info@juristam.net"><i class="fas fa-envelope"></i> info@juristam.net</a>
+          <a href="/cdn-cgi/l/email-protection#365c43445f4542575b18535576515b575f5a1855595b"><i class="fas fa-envelope"></i> <span class="__cf_email__" data-cfemail="19736c6b706a6d7874377c7a597e74787075377a7674">[email&#160;protected]</span></a>
           <a href="https://juristam.net" target="_blank"><i class="fas fa-globe"></i> juristam.net</a>
         </div>
       </div>
@@ -1224,7 +1246,7 @@
     <i class="fab fa-whatsapp"></i>
   </a>
 
-  <script>
+  <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
     function toggleFaq(el) {
       const item = el.parentElement;
       const isOpen = item.classList.contains('open');
@@ -1245,6 +1267,8 @@
       }
     }
 
+    // Scroll suave para nav activo
+    // Cerrar menú mobile al hacer click en un link
     document.querySelectorAll('.nav-links a').forEach(link => {
       link.addEventListener('click', () => {
         if (window.innerWidth <= 900) {
@@ -1253,7 +1277,7 @@
         }
       });
     });
-  </script>
+    </script>
 
 </body>
 </html>
