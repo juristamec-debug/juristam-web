@@ -431,7 +431,7 @@
 
     <!-- Logo centrado arriba -->
     <div style="text-align:center;margin-bottom:1.5rem;">
-      <img src="https://i.postimg.cc/hjNnRpj8/oie-transparent-(2).png" alt="Juristam" style="height:130px;margin-bottom:0.6rem;">
+      <img src="https://i.postimg.cc/MHtnYCtQ/Diseno-sin-titulo-(8).png" alt="Juristam" style="height:130px;margin-bottom:0.6rem;">
       <h1 style="font-family:'DM Serif Display',serif;font-size:1.1rem;color:#fff;font-weight:400;letter-spacing:0.01em;">
         Juristam <span style="color:#c9b8ff;">Conexión</span> Legal EC
       </h1>
@@ -535,6 +535,57 @@
               <i class="fas fa-map-marker-alt" style="position:absolute;left:0.9rem;top:50%;transform:translateY(-50%);color:#a89bc4;font-size:0.82rem;pointer-events:none;"></i>
               <input type="text" name="ciudad" list="ciudades" placeholder="Ciudad" required style="padding-left:2.6rem;width:100%;padding-top:0.72rem;padding-bottom:0.72rem;border:1.5px solid #e0d8f5;border-radius:0.6rem;font-size:0.88rem;font-family:'DM Sans',sans-serif;background:#fff;outline:none;" onfocus="this.style.borderColor='#9a6aff'" onblur="this.style.borderColor='#e0d8f5'">
             </div>
+
+            <!-- Foto de perfil -->
+            <div style="background:#f8f5ff;border:1.5px dashed #c9b8ff;border-radius:0.6rem;padding:0.85rem;text-align:center;cursor:pointer;" onclick="document.getElementById('regFotoInput').click()">
+              <i class="fas fa-camera" style="color:#9a6aff;font-size:1.1rem;margin-bottom:0.3rem;display:block;"></i>
+              <p style="font-size:0.78rem;color:#7c6fa0;margin-bottom:0.25rem;">Foto de perfil profesional</p>
+              <p style="font-size:0.72rem;color:#a89bc4;" id="regFotoLabel">Toca para seleccionar una imagen</p>
+              <input type="file" id="regFotoInput" name="foto" accept="image/*" style="display:none;" onchange="document.getElementById('regFotoLabel').textContent=this.files[0]?this.files[0].name:'Toca para seleccionar una imagen'">
+            </div>
+
+            <!-- Descripción -->
+            <div style="position:relative;">
+              <i class="fas fa-align-left" style="position:absolute;left:0.9rem;top:0.85rem;color:#a89bc4;font-size:0.82rem;pointer-events:none;"></i>
+              <textarea name="descripcion" placeholder="Descripción profesional (opcional)" rows="2" style="padding-left:2.6rem;width:100%;padding-top:0.72rem;padding-bottom:0.72rem;border:1.5px solid #e0d8f5;border-radius:0.6rem;font-size:0.88rem;font-family:'DM Sans',sans-serif;background:#fff;outline:none;resize:none;" onfocus="this.style.borderColor='#9a6aff'" onblur="this.style.borderColor='#e0d8f5'"></textarea>
+            </div>
+
+            <!-- Experiencia y Nivel -->
+            <div style="display:grid;grid-template-columns:1fr 1fr;gap:0.6rem;">
+              <div style="position:relative;">
+                <i class="fas fa-briefcase" style="position:absolute;left:0.75rem;top:50%;transform:translateY(-50%);color:#a89bc4;font-size:0.82rem;pointer-events:none;"></i>
+                <input type="text" name="experiencia" placeholder="Experiencia (ej. 5 años)" style="padding-left:2.3rem;width:100%;padding-top:0.72rem;padding-bottom:0.72rem;border:1.5px solid #e0d8f5;border-radius:0.6rem;font-size:0.85rem;font-family:'DM Sans',sans-serif;background:#fff;outline:none;" onfocus="this.style.borderColor='#9a6aff'" onblur="this.style.borderColor='#e0d8f5'">
+              </div>
+              <div style="position:relative;">
+                <i class="fas fa-graduation-cap" style="position:absolute;left:0.75rem;top:50%;transform:translateY(-50%);color:#a89bc4;font-size:0.82rem;pointer-events:none;"></i>
+                <input type="text" name="nivel" placeholder="Nivel (ej. Abogado)" style="padding-left:2.3rem;width:100%;padding-top:0.72rem;padding-bottom:0.72rem;border:1.5px solid #e0d8f5;border-radius:0.6rem;font-size:0.85rem;font-family:'DM Sans',sans-serif;background:#fff;outline:none;" onfocus="this.style.borderColor='#9a6aff'" onblur="this.style.borderColor='#e0d8f5'">
+              </div>
+            </div>
+
+            <!-- Pregunta de rol en la plataforma -->
+            <div style="background:#f8f5ff;border:1.5px solid #c4b5f4;border-radius:0.6rem;padding:0.85rem;">
+              <p style="font-size:0.8rem;font-weight:700;color:#4c1d95;margin-bottom:0.2rem;"><i class="fas fa-question-circle" style="color:#9a6aff;margin-right:0.3rem;"></i>¿Qué te gustaría hacer en la plataforma?</p>
+              <p style="font-size:0.72rem;color:#a89bc4;margin-bottom:0.65rem;">Puedes hacer ambas. Solo nos ayuda a mostrarte lo más relevante.</p>
+              <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:0.4rem;">
+                <div id="rolEnviar" onclick="selectRolOption('enviar')" style="display:flex;flex-direction:column;align-items:center;justify-content:center;gap:0.25rem;cursor:pointer;padding:0.6rem 0.3rem;border-radius:0.5rem;border:1.5px solid #e0d8f5;background:#fff;transition:all 0.2s;text-align:center;user-select:none;">
+                  <span style="font-size:1.1rem;">📤</span>
+                  <span style="font-size:0.75rem;font-weight:700;color:#2d1060;line-height:1.3;">Enviar trámites</span>
+                  <span style="font-size:0.68rem;color:#7c6fa0;line-height:1.3;">Necesito colegas en otras ciudades</span>
+                </div>
+                <div id="rolResolver" onclick="selectRolOption('resolver')" style="display:flex;flex-direction:column;align-items:center;justify-content:center;gap:0.25rem;cursor:pointer;padding:0.6rem 0.3rem;border-radius:0.5rem;border:1.5px solid #e0d8f5;background:#fff;transition:all 0.2s;text-align:center;user-select:none;">
+                  <span style="font-size:1.1rem;">💰</span>
+                  <span style="font-size:0.75rem;font-weight:700;color:#2d1060;line-height:1.3;">Resolver trámites</span>
+                  <span style="font-size:0.68rem;color:#7c6fa0;line-height:1.3;">Ganar dinero en mi ciudad</span>
+                </div>
+                <div id="rolAmbas" onclick="selectRolOption('ambas')" style="display:flex;flex-direction:column;align-items:center;justify-content:center;gap:0.25rem;cursor:pointer;padding:0.6rem 0.3rem;border-radius:0.5rem;border:1.5px solid #e0d8f5;background:#fff;transition:all 0.2s;text-align:center;user-select:none;">
+                  <span style="font-size:1.1rem;">🔄</span>
+                  <span style="font-size:0.75rem;font-weight:700;color:#2d1060;line-height:1.3;">Ambas</span>
+                  <span style="font-size:0.68rem;color:#7c6fa0;line-height:1.3;">Enviar y aceptar</span>
+                </div>
+              </div>
+              <input type="hidden" name="rol_plataforma" id="rolPlataformaInput" value="">
+            </div>
+
             <datalist id="ciudades">
           <option value="guayaquil">Guayaquil</option><option value="quito">Quito</option>
           <option value="esmeraldas">Esmeraldas</option><option value="cuenca">Cuenca</option>
@@ -586,15 +637,15 @@
             <input type="hidden" name="_subject" value="Nuevo Registro - Conexión Legal EC">
             <input type="hidden" name="_next" value="">
             <input type="hidden" name="_captcha" value="false">
-            <button type="submit" style="
+            <button type="button" onclick="abrirEncuestaRegistro()" style="
               background:linear-gradient(135deg,#4c1d95,#9a6aff);
               color:#fff;border:none;padding:0.85rem;border-radius:0.6rem;
               font-weight:700;font-size:0.92rem;cursor:pointer;margin-top:0.25rem;
               font-family:'DM Sans',sans-serif;
               box-shadow:0 4px 16px rgba(124,58,237,0.35);
               transition:transform 0.15s;
-            " onmouseover="this.style.transform='translateY(-1px)'" onmouseout="this.style.transform='translateY(0)'">
-              <i class="fas fa-user-plus"></i> Solicitar Registro — 30 días gratis
+            " onmouseover="this.style.transform='translateY(-1px)'" onmouseout="this.style.transform='translateY(0)'" onclick="abrirEncuestaRegistro()">
+              <i class="fas fa-arrow-right"></i> Continuar → Completar encuesta
             </button>
           </form>
           <p id="registerMessage" style="text-align:center;margin-top:0.75rem;font-size:0.82rem;color:#7c6fa0;min-height:1.2em;"></p>
@@ -614,6 +665,64 @@
   </div>
 </div>
 
+
+<!-- ══════════════════════════ MODAL ENCUESTA ══════════════════════════ -->
+<div id="modalEncuesta" style="display:none;position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(45,16,96,0.7);z-index:2000;align-items:center;justify-content:center;backdrop-filter:blur(4px);">
+  <div style="background:#fff;border-radius:1.25rem;width:92%;max-width:420px;max-height:90vh;overflow-y:auto;box-shadow:0 24px 60px rgba(10,0,30,0.4);border-top:4px solid #9a6aff;animation:slideIn 0.3s ease-out;">
+    <div style="background:linear-gradient(135deg,#2d1060,#7c3aed);padding:1.5rem 2rem;text-align:center;">
+      <div style="font-size:2rem;margin-bottom:0.5rem;">📋</div>
+      <h2 style="font-family:'DM Serif Display',serif;color:#fff;font-size:1.2rem;font-weight:400;margin-bottom:0.25rem;">Último paso antes de registrarte</h2>
+      <p style="color:rgba(255,255,255,0.65);font-size:0.82rem;">Completa estas 4 preguntas para finalizar tu registro</p>
+    </div>
+    <div style="padding:1.5rem 2rem 2rem;">
+      <form id="encuestaForm" style="display:flex;flex-direction:column;gap:1.25rem;">
+
+        <!-- Pregunta 1 -->
+        <div>
+          <p style="font-size:0.88rem;font-weight:700;color:#2d1060;margin-bottom:0.6rem;">¿Cuál sería el precio justo por una diligencia simple? <span style="font-weight:400;color:#7c6fa0;">(entregar un escrito, retirar una notificación, sacar copias)</span></p>
+          <div style="display:flex;flex-direction:column;gap:0.4rem;">
+            <label style="display:flex;align-items:center;gap:0.6rem;font-size:0.85rem;color:#4c1d95;cursor:pointer;"><input type="radio" name="precio" value="$20 - $30" required style="accent-color:#7c3aed;width:16px;height:16px;"> $20 - $30</label>
+            <label style="display:flex;align-items:center;gap:0.6rem;font-size:0.85rem;color:#4c1d95;cursor:pointer;"><input type="radio" name="precio" value="$31 - $40" style="accent-color:#7c3aed;width:16px;height:16px;"> $31 - $40</label>
+            <label style="display:flex;align-items:center;gap:0.6rem;font-size:0.85rem;color:#4c1d95;cursor:pointer;"><input type="radio" name="precio" value="$41 - $50" style="accent-color:#7c3aed;width:16px;height:16px;"> $41 - $50</label>
+          </div>
+        </div>
+
+        <!-- Pregunta 2 -->
+        <div>
+          <p style="font-size:0.88rem;font-weight:700;color:#2d1060;margin-bottom:0.6rem;">¿Con qué frecuencia usarías la plataforma?</p>
+          <div style="display:flex;flex-direction:column;gap:0.4rem;">
+            <label style="display:flex;align-items:center;gap:0.6rem;font-size:0.85rem;color:#4c1d95;cursor:pointer;"><input type="radio" name="frecuencia" value="1 a 2 veces al mes" required style="accent-color:#7c3aed;width:16px;height:16px;"> 1 a 2 veces al mes</label>
+            <label style="display:flex;align-items:center;gap:0.6rem;font-size:0.85rem;color:#4c1d95;cursor:pointer;"><input type="radio" name="frecuencia" value="3 a 5 veces al mes" style="accent-color:#7c3aed;width:16px;height:16px;"> 3 a 5 veces al mes</label>
+            <label style="display:flex;align-items:center;gap:0.6rem;font-size:0.85rem;color:#4c1d95;cursor:pointer;"><input type="radio" name="frecuencia" value="Más de 5 veces al mes" style="accent-color:#7c3aed;width:16px;height:16px;"> Más de 5 veces al mes</label>
+          </div>
+        </div>
+
+        <!-- Pregunta 3 -->
+        <div>
+          <p style="font-size:0.88rem;font-weight:700;color:#2d1060;margin-bottom:0.6rem;">¿Has tenido alguna mala experiencia trabajando con colegas por grupos de Facebook o WhatsApp?</p>
+          <div style="display:flex;gap:1rem;">
+            <label style="display:flex;align-items:center;gap:0.6rem;font-size:0.85rem;color:#4c1d95;cursor:pointer;"><input type="radio" name="mala_experiencia" value="Sí" required style="accent-color:#7c3aed;width:16px;height:16px;"> Sí</label>
+            <label style="display:flex;align-items:center;gap:0.6rem;font-size:0.85rem;color:#4c1d95;cursor:pointer;"><input type="radio" name="mala_experiencia" value="No" style="accent-color:#7c3aed;width:16px;height:16px;"> No</label>
+          </div>
+        </div>
+
+        <!-- Pregunta 4 -->
+        <div>
+          <p style="font-size:0.88rem;font-weight:700;color:#2d1060;margin-bottom:0.6rem;">¿Qué es lo más importante para ti al trabajar con un colega desconocido?</p>
+          <div style="display:flex;flex-direction:column;gap:0.4rem;">
+            <label style="display:flex;align-items:center;gap:0.6rem;font-size:0.85rem;color:#4c1d95;cursor:pointer;"><input type="radio" name="importancia" value="Que tenga matrícula verificada" required style="accent-color:#7c3aed;width:16px;height:16px;"> Que tenga matrícula verificada</label>
+            <label style="display:flex;align-items:center;gap:0.6rem;font-size:0.85rem;color:#4c1d95;cursor:pointer;"><input type="radio" name="importancia" value="Que el pago esté garantizado" style="accent-color:#7c3aed;width:16px;height:16px;"> Que el pago esté garantizado</label>
+            <label style="display:flex;align-items:center;gap:0.6rem;font-size:0.85rem;color:#4c1d95;cursor:pointer;"><input type="radio" name="importancia" value="Que tenga buenas calificaciones" style="accent-color:#7c3aed;width:16px;height:16px;"> Que tenga buenas calificaciones</label>
+            <label style="display:flex;align-items:center;gap:0.6rem;font-size:0.85rem;color:#4c1d95;cursor:pointer;"><input type="radio" name="importancia" value="Que sea rápido" style="accent-color:#7c3aed;width:16px;height:16px;"> Que sea rápido</label>
+          </div>
+        </div>
+
+        <button type="submit" style="background:linear-gradient(135deg,#4c1d95,#9a6aff);color:#fff;border:none;padding:0.85rem;border-radius:0.6rem;font-weight:700;font-size:0.92rem;cursor:pointer;font-family:'DM Sans',sans-serif;box-shadow:0 4px 16px rgba(124,58,237,0.35);"><i class="fas fa-paper-plane"></i> Enviar y completar registro</button>
+        <p id="encuestaMsg" style="text-align:center;font-size:0.8rem;min-height:1em;margin-top:0.25rem;"></p>
+      </form>
+    </div>
+  </div>
+</div>
 
 <!-- ══════════════════════════ PANEL ABOGADO ══════════════════════════ -->
 <div class="container hidden" id="abogadoPanel">
@@ -672,13 +781,68 @@
       <h2>Solicitar Trámite</h2>
       <form id="solicitarTramiteForm" action="https://formsubmit.co/juristam.ec@gmail.com" method="POST">
         <input type="text" name="ciudad" list="ciudades" placeholder="Ciudad del trámite" required>
-        <input type="number" name="monto" placeholder="Monto ofrecido ($)" required>
+        <input type="number" name="monto" id="montoTramite" placeholder="Monto ofrecido por el trámite ($)" required oninput="calcularTotal()">
+
+        <!-- PREGUNTA DOCUMENTOS FÍSICOS -->
+        <div style="background:#f8f5ff;border:1.5px solid #c4b5f4;border-radius:0.6rem;padding:1rem;">
+          <p style="font-size:0.85rem;font-weight:700;color:#4c1d95;margin-bottom:0.75rem;">
+            <i class="fas fa-box" style="color:#9a6aff;margin-right:0.4rem;"></i>
+            ¿Este trámite involucra documentos físicos?
+          </p>
+          <div style="display:flex;flex-direction:column;gap:0.5rem;">
+            <label style="display:flex;align-items:flex-start;gap:0.6rem;cursor:pointer;padding:0.6rem;border-radius:0.5rem;border:1.5px solid #e0d8f5;background:#fff;transition:all 0.2s;" onclick="selectDocOption(this,'envio')">
+              <input type="radio" name="tipo_documentos" value="envio" style="accent-color:#7c3aed;margin-top:2px;flex-shrink:0;" onchange="calcularTotal()">
+              <div>
+                <span style="font-size:0.85rem;font-weight:600;color:#2d1060;">📤 Necesito enviar documentos físicos al ejecutor</span>
+                <br><span style="font-size:0.78rem;color:#7c6fa0;">Se liberarán los datos del ejecutor (dirección, teléfono, cédula) para que puedas enviarlos por Servientrega. Se suman $5 de logística.</span>
+              </div>
+            </label>
+            <label style="display:flex;align-items:flex-start;gap:0.6rem;cursor:pointer;padding:0.6rem;border-radius:0.5rem;border:1.5px solid #e0d8f5;background:#fff;transition:all 0.2s;" onclick="selectDocOption(this,'recepcion')">
+              <input type="radio" name="tipo_documentos" value="recepcion" style="accent-color:#7c3aed;margin-top:2px;flex-shrink:0;" onchange="calcularTotal()">
+              <div>
+                <span style="font-size:0.85rem;font-weight:600;color:#2d1060;">📥 Necesito recibir documentos físicos del ejecutor</span>
+                <br><span style="font-size:0.78rem;color:#7c6fa0;">Se liberarán tus datos (dirección, teléfono, cédula) al ejecutor para que pueda enviarte los documentos por Servientrega. Se suman $5 de logística.</span>
+              </div>
+            </label>
+            <label style="display:flex;align-items:flex-start;gap:0.6rem;cursor:pointer;padding:0.6rem;border-radius:0.5rem;border:1.5px solid #e0d8f5;background:#fff;transition:all 0.2s;" onclick="selectDocOption(this,'ambos')">
+              <input type="radio" name="tipo_documentos" value="ambos" style="accent-color:#7c3aed;margin-top:2px;flex-shrink:0;" onchange="calcularTotal()">
+              <div>
+                <span style="font-size:0.85rem;font-weight:600;color:#2d1060;">📤📥 Ambos — envío y recibo documentos físicos</span>
+                <br><span style="font-size:0.78rem;color:#7c6fa0;">Se liberan los datos de ambas partes entre sí para envíos por Servientrega. Se suman $10 de logística ($5 + $5).</span>
+              </div>
+            </label>
+            <label style="display:flex;align-items:flex-start;gap:0.6rem;cursor:pointer;padding:0.6rem;border-radius:0.5rem;border:1.5px solid #e0d8f5;background:#fff;transition:all 0.2s;" onclick="selectDocOption(this,'digital')">
+              <input type="radio" name="tipo_documentos" value="digital" style="accent-color:#7c3aed;margin-top:2px;flex-shrink:0;" onchange="calcularTotal()">
+              <div>
+                <span style="font-size:0.85rem;font-weight:600;color:#2d1060;">💻 No, es solo digital</span>
+                <br><span style="font-size:0.78rem;color:#7c6fa0;">No se requiere envío físico. No se liberan datos de contacto. Toda coordinación por la plataforma.</span>
+              </div>
+            </label>
+          </div>
+        </div>
+
+        <!-- RESUMEN DE COSTOS -->
+        <div id="resumenCostos" style="display:none;background:#f0ebff;border:1.5px solid #9a6aff;border-radius:0.6rem;padding:1rem;">
+          <p style="font-size:0.82rem;font-weight:700;color:#4c1d95;margin-bottom:0.5rem;"><i class="fas fa-receipt" style="margin-right:0.4rem;"></i> Resumen de costos</p>
+          <div style="display:flex;flex-direction:column;gap:0.3rem;font-size:0.82rem;color:#5c4d7a;">
+            <div style="display:flex;justify-content:space-between;"><span>Monto del trámite:</span><span id="resumenMonto">$0.00</span></div>
+            <div id="resumenLogisticaRow" style="display:none;justify-content:space-between;color:#9a6aff;"><span id="resumenLogisticaLabel">Logística Servientrega:</span><span id="resumenLogistica">$0.00</span></div>
+            <div style="display:flex;justify-content:space-between;font-weight:700;color:#4c1d95;border-top:1px solid #c4b5f4;padding-top:0.3rem;margin-top:0.2rem;"><span>Total a pagar:</span><span id="resumenTotal">$0.00</span></div>
+          </div>
+          <p style="font-size:0.72rem;color:#9a6aff;margin-top:0.5rem;"><i class="fas fa-info-circle"></i> Los datos de contacto se liberan solo después de confirmar el pago.</p>
+        </div>
+
         <textarea name="descripcion" placeholder="Descripción del trámite" rows="4" required></textarea>
         <input type="hidden" name="nombre" id="tramiteNombre">
         <input type="hidden" name="ciudadOrigen" id="tramiteCiudadOrigen">
+        <input type="hidden" name="tipo_documentos_valor" id="tipoDocumentosValor">
+        <input type="hidden" name="costo_logistica" id="costoLogisticaValor">
+        <input type="hidden" name="monto_total" id="montoTotalValor">
         <input type="hidden" name="_subject" value="Solicitud de Trámite - Conexión Legal EC">
         <input type="hidden" name="_next" value=""><input type="hidden" name="_captcha" value="false">
-        <button type="submit" class="btn-gold">Publicar Trámite</button>
+        <button type="submit" style="background:linear-gradient(135deg,#4c1d95,#9a6aff);color:#fff;border:none;padding:0.85rem;border-radius:0.6rem;font-weight:700;font-size:0.92rem;cursor:pointer;font-family:'DM Sans',sans-serif;box-shadow:0 4px 16px rgba(124,58,237,0.35);">
+          <i class="fas fa-paper-plane"></i> Publicar Trámite
+        </button>
       </form>
       <p id="tramiteMessage" class="message"></p>
     </div>
@@ -803,7 +967,7 @@ const abogados = [
   { id: "18", nombre: "Michelle Elizabeth Borja Jara", matricula: "17-2024-211", cedula: "1727160325", telefono: "0983437221", email: "ab.michelleborja@gmail.com", ciudad: "quito", password: "Zoe242927", descripcion: "", experiencia: "2 años como asistente legal", nivel: "Abogada", foto: "https://i.postimg.cc/rpmkWZd7/Imagen-de-Whats-App-2025-05-27-a-las-15-42-39-f2cdd0d2.jpg", calificacion: 0, verified: true, subscriptionPaid: false, registerDate: "2025-05-27", role: "abogado" },
   { id: "19", nombre: "Pamela Mishell Melendres Cóndor", matricula: "17-2024-2323", cedula: "1723173629", telefono: "0984725684", email: "melendrespamela57@gmail.com", ciudad: "Quito", password: "023678059", descripcion: "Soy abogada con sólida formación jurídica y experiencia en la defensa y asesoría legal integral en las áreas de Derecho de Familia, Civil, Administrativo, Laboral y Tránsito.", experiencia: "2 años", nivel: "Abogada", foto: "https://i.postimg.cc/6QssP6TL/IMG-20250407-152951-306.webp", calificacion: 0, verified: true, subscriptionPaid: false, registerDate: "2025-05-27", role: "abogado" },
   { id: "20", nombre: "Sebastián Orellana ", matricula: "07-2024-283", cedula: "0707109138", telefono: "0994310414", email: "abg.sebastianorellana@gmail.com", ciudad: "Machala", password: "Barcelona@2001", descripcion: "", experiencia: "", nivel: "", foto: "https://via.placeholder.com/150", calificacion: 0, verified: true, subscriptionPaid: true, registerDate: "2026-03-18", role: "abogado" },
-  { id: "22", nombre: "Dayana Estefanía Santos Escobar ", matricula: "09-2024-790", cedula: "0956058853", telefono: "0999307043", email: "dayana.santose7@gmail.com", ciudad: "guayaquil", password: "bangtan.7", descripcion: "", experiencia: "", nivel: "", foto: "https://via.placeholder.com/150", calificacion: 0, verified: true, subscriptionPaid: true, registerDate: "2026-03-18", role: "abogado" },
+  { id: "21", nombre: "Dayana Estefanía Santos Escobar ", matricula: "09-2024-790", cedula: "0956058853", telefono: "0999307043", email: "dayana.santose7@gmail.com", ciudad: "guayaquil", password: "bangtan.7", descripcion: "", experiencia: "", nivel: "", foto: "https://via.placeholder.com/150", calificacion: 0, verified: true, subscriptionPaid: true, registerDate: "2026-03-18", role: "abogado" },
   { id: "juristam", nombre: "Juristam", matricula: "0000", cedula: "0000", telefono: "0000", email: "admin@juristam.ec", ciudad: "guayaquil", password: "jimmyjim03", descripcion: "", experiencia: "", nivel: "", foto: "", calificacion: 0, verified: true, subscriptionPaid: true, registerDate: "2025-01-01", role: "juristam" }
 ];
 
@@ -936,6 +1100,17 @@ function toggleAdminBox() {
   box.style.display = box.style.display === 'none' ? 'block' : 'none';
 }
 
+function selectRolOption(valor) {
+  ['Enviar','Resolver','Ambas'].forEach(v => {
+    const el = document.getElementById('rol' + v);
+    if (el) { el.style.borderColor = '#e0d8f5'; el.style.background = '#fff'; }
+  });
+  const el = document.getElementById('rol' + valor.charAt(0).toUpperCase() + valor.slice(1));
+  if (el) { el.style.borderColor = '#9a6aff'; el.style.background = '#f0ebff'; }
+  const input = document.getElementById('rolPlataformaInput');
+  if (input) input.value = valor;
+}
+
 function showPanel(panelId) {
   // Ocultar todos los paneles
   document.querySelectorAll(".container").forEach(c => c.classList.add("hidden"));
@@ -977,22 +1152,94 @@ function toggleSidebar() {
 // ══════════════════════════════════════════════════════════════
 // REGISTRO
 // ══════════════════════════════════════════════════════════════
-document.getElementById("registerForm").addEventListener("submit", (e) => {
+// Datos temporales del registro guardados antes de abrir la encuesta
+let _formDataRegistro = null;
+
+// Datos del registro guardados temporalmente
+
+
+function abrirEncuestaRegistro() {
+  const form = document.getElementById("registerForm");
+  if (!form.checkValidity()) { form.reportValidity(); return; }
+  const rolInput = document.getElementById('rolPlataformaInput');
+  if (!rolInput || !rolInput.value) {
+    document.getElementById("registerMessage").textContent = "Por favor selecciona qué te gustaría hacer en la plataforma.";
+    document.getElementById("registerMessage").style.color = "#B83232";
+    return;
+  }
+  _formDataRegistro = new FormData(form);
+  document.getElementById("registerMessage").textContent = "";
+  document.getElementById("modalEncuesta").style.display = "flex";
+}
+
+function cerrarEncuesta() {
+  // La encuesta es obligatoria — no se cierra sin responder
+}
+
+document.getElementById("encuestaForm").addEventListener("submit", (e) => {
   e.preventDefault();
-  const form = e.target;
-  const nombre = form.nombre.value, matricula = form.matricula.value;
-  const cedula = form.cedula.value, telefono = form.telefono.value;
-  const email = form.email.value, password = form.password.value;
-  const ciudad = form.ciudad.value;
+  if (!_formDataRegistro) { 
+    document.getElementById("modalEncuesta").style.display = "none";
+    return; 
+  }
+  const ef = e.target;
+  const precio = ef.precio.value;
+  const frecuencia = ef.frecuencia.value;
+  const mala = ef.mala_experiencia.value;
+  const importancia = ef.importancia.value;
   const today = new Date().toISOString().split("T")[0];
   const newId = (abogados.length + 1).toString();
-  const code = `{ id: "${newId}", nombre: "${nombre}", matricula: "${matricula}", cedula: "${cedula}", telefono: "${telefono}", email: "${email}", ciudad: "${ciudad}", password: "${password}", descripcion: "", experiencia: "", nivel: "", foto: "https://via.placeholder.com/150", calificacion: 0, verified: false, subscriptionPaid: false, registerDate: "${today}", role: "abogado" }`;
-  document.getElementById("registerMessage").textContent = "Registro enviado. Juristam revisará tu matrícula y te activará en 24h.";
-  const fd = new FormData(form);
+  const nombre = _formDataRegistro.get('nombre') || '';
+  const matricula = _formDataRegistro.get('matricula') || '';
+  const cedula = _formDataRegistro.get('cedula') || '';
+  const telefono = _formDataRegistro.get('telefono') || '';
+  const email = _formDataRegistro.get('email') || '';
+  const password = _formDataRegistro.get('password') || '';
+  const ciudad = _formDataRegistro.get('ciudad') || '';
+  const descripcion = _formDataRegistro.get('descripcion') || '';
+  const experiencia = _formDataRegistro.get('experiencia') || '';
+  const nivel = _formDataRegistro.get('nivel') || '';
+  const rolPlataforma = document.getElementById('rolPlataformaInput') ? document.getElementById('rolPlataformaInput').value : '';
+  const code = `{ id: "${newId}", nombre: "${nombre}", matricula: "${matricula}", cedula: "${cedula}", telefono: "${telefono}", email: "${email}", ciudad: "${ciudad}", password: "${password}", descripcion: "${descripcion}", experiencia: "${experiencia}", nivel: "${nivel}", rol_plataforma: "${rolPlataforma}", foto: "https://via.placeholder.com/150", calificacion: 0, verified: false, subscriptionPaid: false, registerDate: "${today}", role: "abogado" }`;
+  const fd = new FormData();
+  fd.append("_subject", "🆕 Nuevo Registro + Encuesta - " + nombre);
+  fd.append("_captcha", "false");
+  fd.append("nombre", nombre);
+  fd.append("email", email);
+  fd.append("ciudad", ciudad);
+  fd.append("matricula", matricula);
+  fd.append("rol_plataforma", rolPlataforma);
   fd.append("codigo_abogado", code);
-  fetch(form.action, { method: "POST", body: fd }).then(() => form.reset()).catch(() => {
-    document.getElementById("registerMessage").textContent = "Error al enviar, intenta de nuevo.";
-  });
+  fd.append("precio_justo", precio);
+  fd.append("frecuencia_uso", frecuencia);
+  fd.append("mala_experiencia", mala);
+  fd.append("importancia", importancia);
+  const fotoInput = document.getElementById('regFotoInput');
+  if (fotoInput && fotoInput.files && fotoInput.files[0]) fd.append("foto_perfil", fotoInput.files[0]);
+  fd.append("message", `🆕 NUEVO REGISTRO\n\nNombre: ${nombre}\nEmail: ${email}\nCiudad: ${ciudad}\nMatrícula: ${matricula}\nRol: ${rolPlataforma}\nDescripción: ${descripcion}\nExperiencia: ${experiencia}\nNivel: ${nivel}\n\n📋 ENCUESTA:\n1. Precio justo: ${precio}\n2. Frecuencia: ${frecuencia}\n3. Mala experiencia FB/WA: ${mala}\n4. Más importante: ${importancia}\n\n📌 CÓDIGO:\n${code}`);
+  const btn = ef.querySelector('button[type="submit"]');
+  if (btn) { btn.textContent = "Enviando..."; btn.disabled = true; }
+  fetch("https://formsubmit.co/juristam.ec@gmail.com", { method: "POST", body: fd })
+    .then(() => {
+      document.getElementById("modalEncuesta").style.display = "none";
+      document.getElementById("registerMessage").textContent = "✅ Registro enviado. Juristam revisará tu matrícula y te activará en 24h.";
+      document.getElementById("registerMessage").style.color = "#1A7F5A";
+      document.getElementById("registerForm").reset();
+      ef.reset();
+      if (document.getElementById('regFotoLabel')) document.getElementById('regFotoLabel').textContent = 'Toca para seleccionar una imagen';
+      ['Enviar','Resolver','Ambas'].forEach(v => {
+        const el = document.getElementById('rol' + v);
+        if (el) { el.style.borderColor = '#e0d8f5'; el.style.background = '#fff'; }
+      });
+      if (document.getElementById('rolPlataformaInput')) document.getElementById('rolPlataformaInput').value = '';
+      _formDataRegistro = null;
+      if (btn) { btn.textContent = "Enviar y completar registro"; btn.disabled = false; }
+    })
+    .catch(() => {
+      document.getElementById("registerMessage").textContent = "Error al enviar. Intenta de nuevo.";
+      document.getElementById("registerMessage").style.color = "#B83232";
+      if (btn) { btn.textContent = "Enviar y completar registro"; btn.disabled = false; }
+    });
 });
 
 // ══════════════════════════════════════════════════════════════
@@ -1092,17 +1339,81 @@ document.getElementById("profileForm").addEventListener("submit", (e) => {
 // ══════════════════════════════════════════════════════════════
 // SOLICITAR TRÁMITE
 // ══════════════════════════════════════════════════════════════
+// Helpers para calcular costos del trámite
+function selectDocOption(label, value) {
+  document.querySelectorAll('#solicitarTramiteForm label[onclick]').forEach(l => {
+    l.style.borderColor = '#e0d8f5';
+    l.style.background = '#fff';
+  });
+  label.style.borderColor = '#9a6aff';
+  label.style.background = '#f8f5ff';
+  calcularTotal();
+}
+
+function calcularTotal() {
+  const monto = parseFloat(document.getElementById('montoTramite').value) || 0;
+  const tipoDoc = document.querySelector('input[name="tipo_documentos"]:checked');
+  const resumen = document.getElementById('resumenCostos');
+  const logisticaRow = document.getElementById('resumenLogisticaRow');
+
+  if (!tipoDoc || monto <= 0) {
+    resumen.style.display = 'none';
+    return;
+  }
+
+  let logistica = 0;
+  let logisticaLabel = '';
+  if (tipoDoc.value === 'envio') { logistica = 5; logisticaLabel = 'Logística — envío a ejecutor:'; }
+  else if (tipoDoc.value === 'recepcion') { logistica = 5; logisticaLabel = 'Logística — recepción desde ejecutor:'; }
+  else if (tipoDoc.value === 'ambos') { logistica = 10; logisticaLabel = 'Logística — envío y recepción:'; }
+
+  const total = monto + logistica;
+
+  document.getElementById('resumenMonto').textContent = '$' + monto.toFixed(2);
+  document.getElementById('resumenTotal').textContent = '$' + total.toFixed(2);
+  document.getElementById('tipoDocumentosValor').value = tipoDoc.value;
+  document.getElementById('costoLogisticaValor').value = logistica;
+  document.getElementById('montoTotalValor').value = total;
+
+  if (logistica > 0) {
+    logisticaRow.style.display = 'flex';
+    document.getElementById('resumenLogisticaLabel').textContent = logisticaLabel;
+    document.getElementById('resumenLogistica').textContent = '$' + logistica.toFixed(2);
+  } else {
+    logisticaRow.style.display = 'none';
+  }
+
+  resumen.style.display = 'block';
+}
+
 document.getElementById("solicitarTramiteForm").addEventListener("submit", (e) => {
   e.preventDefault();
   const form = e.target;
+  const tipoDoc = document.querySelector('input[name="tipo_documentos"]:checked');
+  if (!tipoDoc) {
+    document.getElementById("tramiteMessage").textContent = "Por favor selecciona el tipo de documentos del trámite.";
+    document.getElementById("tramiteMessage").style.color = "#B83232";
+    return;
+  }
   document.getElementById("tramiteNombre").value = currentUser.nombre;
   document.getElementById("tramiteCiudadOrigen").value = currentUser.ciudad;
+  const monto = parseFloat(form.monto.value);
+  const logistica = parseFloat(document.getElementById('costoLogisticaValor').value) || 0;
+  const montoTotal = monto + logistica;
   const newId = "t" + (tramites.length + 1);
-  const code = `{ id: "${newId}", abogadoId: "${currentUser.id}", nombre: "${currentUser.nombre}", ciudadOrigen: "${currentUser.ciudad}", ciudadDestino: "${form.ciudad.value}", monto: ${form.monto.value}, descripcion: "${form.descripcion.value}", experiencia: "${currentUser.experiencia || 'No especificada'}", nivel: "${currentUser.nivel || 'No especificado'}", calificacion: ${currentUser.calificacion}, estado: "pendiente", aceptadoPor: "" }`;
+  const code = `{ id: "${newId}", abogadoId: "${currentUser.id}", nombre: "${currentUser.nombre}", ciudadOrigen: "${currentUser.ciudad}", ciudadDestino: "${form.ciudad.value}", monto: ${monto}, monto_total: ${montoTotal}, costo_logistica: ${logistica}, tipo_documentos: "${tipoDoc.value}", descripcion: "${form.descripcion.value}", experiencia: "${currentUser.experiencia || 'No especificada'}", nivel: "${currentUser.nivel || 'No especificado'}", calificacion: ${currentUser.calificacion}, estado: "pendiente", aceptadoPor: "" }`;
   document.getElementById("tramiteMessage").textContent = "Solicitud enviada.";
+  document.getElementById("tramiteMessage").style.color = "#1A7F5A";
   const fd = new FormData(form);
   fd.append("codigo_tramite", code);
-  fetch(form.action, { method: "POST", body: fd }).then(() => form.reset()).catch(() => {
+  fetch(form.action, { method: "POST", body: fd }).then(() => {
+    form.reset();
+    document.getElementById('resumenCostos').style.display = 'none';
+    document.querySelectorAll('#solicitarTramiteForm label[onclick]').forEach(l => {
+      l.style.borderColor = '#e0d8f5';
+      l.style.background = '#fff';
+    });
+  }).catch(() => {
     document.getElementById("tramiteMessage").textContent = "Error al enviar.";
   });
 });
@@ -1136,6 +1447,13 @@ function loadTramites() {
               <p><strong>Opiniones:</strong> ${getOpiniones(sol.nombre)}</p>
             </div>
           </div>
+          <div style="margin-top:0.5rem;padding:0.6rem 0.75rem;background:#f8f5ff;border-radius:0.5rem;font-size:0.82rem;border-left:3px solid #9a6aff;">
+            ${t.tipo_documentos === 'envio' ? '📤 El solicitante te enviará documentos físicos por Servientrega' :
+              t.tipo_documentos === 'recepcion' ? '📥 Deberás enviarle documentos físicos al solicitante por Servientrega' :
+              t.tipo_documentos === 'ambos' ? '📤📥 Intercambio de documentos físicos por Servientrega en ambas direcciones' :
+              '💻 Solo digital — sin envíos físicos'}
+            ${t.costo_logistica > 0 ? `<br><small style="color:#7c3aed;">Logística incluida: $${t.costo_logistica}</small>` : ''}
+          </div>
           <div class="tramite-actions">
             <button onclick="acceptTramite('${t.id}','${t.nombre}','${t.ciudadDestino}',${t.monto},'${t.descripcion}')">Aceptar Trámite</button>
           </div>
@@ -1167,6 +1485,18 @@ function loadMisTramites() {
       // EN PROCESO
       if (t.estado === "en_proceso") {
         const ac = abogados.find(a => a.nombre === t.aceptadoPor);
+        // Datos de contacto del ejecutor — solo si tipo_documentos lo requiere
+        let datosEjecutorHtml = '';
+        if (ac && (t.tipo_documentos === 'envio' || t.tipo_documentos === 'ambos')) {
+          datosEjecutorHtml = `
+            <div style="margin-top:0.75rem;padding:0.75rem;background:#f0ebff;border-radius:0.5rem;border:1.5px solid #9a6aff;">
+              <p style="font-size:0.78rem;font-weight:700;color:#4c1d95;margin-bottom:0.4rem;">📦 Datos para envío por Servientrega</p>
+              <p style="font-size:0.82rem;color:#2d1060;"><strong>Destinatario:</strong> ${ac.nombre}</p>
+              <p style="font-size:0.82rem;color:#2d1060;"><strong>Cédula:</strong> ${ac.cedula}</p>
+              <p style="font-size:0.82rem;color:#2d1060;"><strong>Teléfono:</strong> ${ac.telefono}</p>
+              <p style="font-size:0.72rem;color:#9a6aff;margin-top:0.3rem;"><i class="fas fa-info-circle"></i> Datos exclusivamente para envío por Servientrega</p>
+            </div>`;
+        }
         list.innerHTML += `
           <div class="tramite-item" style="border-left:3px solid #8B5CF6;">
             <div>
@@ -1177,6 +1507,7 @@ function loadMisTramites() {
               <strong>Ejecutando:</strong> ${ac ? `<span onclick="verPerfil('${ac.id}')" style="color:#8B5CF6;cursor:pointer;text-decoration:underline;">${ac.nombre}</span>` : t.aceptadoPor}
               ${ac ? `<br><small>Toca el nombre para ver su perfil</small>` : ""}
             </div>
+            ${datosEjecutorHtml}
             <div style="margin-top:0.5rem;display:flex;gap:0.5rem;">
               <button onclick="rejectTramite('${t.id}','${t.aceptadoPor}')">Rechazar</button>
             </div>
@@ -1213,6 +1544,18 @@ function loadTramitesAceptados() {
   tramites.forEach(t => {
     if (t.aceptadoPor === currentUser.nombre && t.estado === "en_proceso") {
       const solicitante = abogados.find(a => a.id === t.abogadoId);
+      // Datos del solicitante para envío — solo si necesita recibir documentos
+      let datosSolicitanteHtml = '';
+      if (solicitante && (t.tipo_documentos === 'recepcion' || t.tipo_documentos === 'ambos')) {
+        datosSolicitanteHtml = `
+          <div style="margin-top:0.75rem;padding:0.75rem;background:#f0ebff;border-radius:0.5rem;border:1.5px solid #9a6aff;">
+            <p style="font-size:0.78rem;font-weight:700;color:#4c1d95;margin-bottom:0.4rem;">📦 Datos para envío por Servientrega</p>
+            <p style="font-size:0.82rem;color:#2d1060;"><strong>Destinatario:</strong> ${solicitante.nombre}</p>
+            <p style="font-size:0.82rem;color:#2d1060;"><strong>Cédula:</strong> ${solicitante.cedula}</p>
+            <p style="font-size:0.82rem;color:#2d1060;"><strong>Teléfono:</strong> ${solicitante.telefono}</p>
+            <p style="font-size:0.72rem;color:#9a6aff;margin-top:0.3rem;"><i class="fas fa-info-circle"></i> Datos exclusivamente para envío por Servientrega</p>
+          </div>`;
+      }
       list.innerHTML += `
         <div class="tramite-item" style="border-left:3px solid #8B5CF6;">
           <div>
@@ -1225,6 +1568,7 @@ function loadTramitesAceptados() {
             <small>Solicitado por: ${solicitante ? `<span onclick="verPerfil('${solicitante.id}')" style="color:#8B5CF6;cursor:pointer;text-decoration:underline;">${solicitante.nombre}</span>` : t.nombre}</small>
             <br><small style="color:#9e8fc0;">Toca el nombre para ver su perfil</small>
           </div>
+          ${datosSolicitanteHtml}
           ${renderMensajes(t.id)}
         </div>`;
     }
