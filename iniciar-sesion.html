@@ -540,7 +540,7 @@
             <!-- Foto de perfil -->
             <div style="background:#f8f5ff;border:1.5px dashed #c9b8ff;border-radius:0.6rem;padding:0.85rem;text-align:center;cursor:pointer;" onclick="document.getElementById('regFotoInput').click()">
               <i class="fas fa-camera" style="color:#9a6aff;font-size:1.1rem;margin-bottom:0.3rem;display:block;"></i>
-              <p style="font-size:0.78rem;color:#7c6fa0;margin-bottom:0.25rem;">Foto de perfil profesional</p>
+              <p style="font-size:0.78rem;color:#7c6fa0;margin-bottom:0.25rem;">Foto tuya tipo pasaporte</p>
               <p style="font-size:0.72rem;color:#a89bc4;" id="regFotoLabel">Toca para seleccionar una imagen</p>
               <input type="file" id="regFotoInput" name="foto" accept="image/*" style="display:none;" onchange="document.getElementById('regFotoLabel').textContent=this.files[0]?this.files[0].name:'Toca para seleccionar una imagen'">
             </div>
@@ -1604,6 +1604,10 @@ document.getElementById("solicitarTramiteForm").addEventListener("submit", (e) =
   fd.append("codigo_tramite", code);
   const btnPublicar = form.querySelector('button[type="submit"]');
   if (btnPublicar) { btnPublicar.textContent = "Enviando..."; btnPublicar.disabled = true; }
+  // Guardar valores ANTES del fetch para usarlos después del reset
+  const _ciudadDestino = form.ciudad.value;
+  const _descripcion = form.descripcion.value;
+
   fetch(form.action, { method: "POST", body: fd }).then(() => {
     form.reset();
     document.getElementById('resumenCostos').style.display = 'none';
@@ -1612,6 +1616,29 @@ document.getElementById("solicitarTramiteForm").addEventListener("submit", (e) =
       l.style.background = '#fff';
     });
     if (btnPublicar) { btnPublicar.innerHTML = '<i class="fas fa-paper-plane"></i> Publicar Trámite'; btnPublicar.disabled = false; }
+    // Agregar el trámite en memoria para que aparezca inmediatamente
+    const nuevoTramite = {
+      id: newId,
+      abogadoId: currentUser.id,
+      nombre: currentUser.nombre,
+      ciudadOrigen: currentUser.ciudad,
+      ciudadDestino: _ciudadDestino,
+      monto: monto,
+      monto_total: montoTotal,
+      costo_logistica: logistica,
+      tipo_documentos: tipoDoc.value,
+      descripcion: _descripcion,
+      experiencia: currentUser.experiencia || "",
+      nivel: currentUser.nivel || "",
+      calificacion: currentUser.calificacion,
+      estado: "pendiente",
+      aceptadoPor: "",
+      asignadoA: "",
+      fechaLimite: "",
+      fechaLimitePago: "",
+      _temporal: true
+    };
+    tramites.push(nuevoTramite);
     mostrarModalConfirmacion(
       "✅ Trámite publicado",
       "Tu trámite fue enviado a Juristam. Una vez que un colega lo acepte recibirás una notificación y podrás ver el avance en <strong>Trámites Enviados</strong>.",
