@@ -390,6 +390,8 @@
       <li><a onclick="showJSection('jAsignarSection')"><i class="fas fa-map-marker-alt"></i> Asignar</a></li>
       <li><a onclick="showJSection('jPagosSection')"><i class="fas fa-money-bill"></i> Confirmar Pagos</a></li>
       <li><a onclick="showJSection('jMensajesSection')"><i class="fas fa-comments"></i> Conversaciones</a></li>
+      <li><a onclick="showJSection('jNotifJSection')"><i class="fas fa-bell"></i> Notificaciones</a></li>
+      <li><a onclick="showJSection('jPagosRegistroSection')"><i class="fas fa-file-invoice-dollar"></i> Registro Pagos</a></li>
       <li><a onclick="showJSection('jRotacionSection')"><i class="fas fa-sync-alt"></i> Rotación</a></li>
       <li><a onclick="doLogout()"><i class="fas fa-sign-out-alt"></i> Cerrar Sesión</a></li>
     </ul></nav>
@@ -401,6 +403,22 @@
     <div class="section hidden" id="jAsignarSection"><h2>Asignar Trámites</h2><p style="font-size:0.85rem;color:#6B5B95;margin-bottom:1rem;">Asigna cada trámite pendiente al abogado que le toca por rotación.</p><div id="jAsignarList"></div></div>
     <div class="section hidden" id="jPagosSection"><h2>Confirmar Pagos</h2><p style="font-size:0.85rem;color:#6B5B95;margin-bottom:1rem;">Revisa el comprobante y confirma el pago para activar el trámite.</p><div id="jPagosList"></div></div>
     <div class="section hidden" id="jRotacionSection"><h2>Rotación por Ciudad</h2><div id="jRotacionList"></div></div>
+    <div class="section hidden" id="jNotifJSection">
+      <h2>Notificaciones</h2>
+      <p style="font-size:0.85rem;color:#6B5B95;margin-bottom:1rem;">Actividad reciente en la plataforma.</p>
+      <div id="jNotifJList"></div>
+    </div>
+    <div class="section hidden" id="jPagosRegistroSection">
+      <h2>Registro de Pagos</h2>
+      <p style="font-size:0.85rem;color:#6B5B95;margin-bottom:1rem;">Historial de pagos confirmados en la plataforma.</p>
+      <div id="jPagosRegistroList"></div>
+    </div>
+    <div class="modal" id="detalleAbogadoModal" onclick="if(event.target===this)this.style.display='none'">
+      <div style="background:#fff;border-radius:1rem;width:92%;max-width:420px;max-height:80vh;overflow-y:auto;box-shadow:0 20px 50px rgba(10,0,30,0.4);border-top:4px solid #9a6aff;animation:slideIn 0.25s ease-out;">
+        <button onclick="document.getElementById('detalleAbogadoModal').style.display='none'" style="position:sticky;top:0.6rem;float:right;margin:0.6rem 0.6rem 0 0;background:rgba(124,58,237,0.1);border:none;border-radius:50%;width:28px;height:28px;font-size:1rem;color:#7c3aed;cursor:pointer;z-index:10;">×</button>
+        <div id="detalleAbogadoContenido" style="padding:1rem 1.25rem 1.25rem;clear:both;"></div>
+      </div>
+    </div>
     <div class="section hidden" id="jSuscripcionSection">
       <h2>Gestión de Suscripciones</h2>
       <p style="font-size:0.85rem;color:#6B5B95;margin-bottom:1rem;">Activa o desactiva el acceso de cada abogado. Los que tienen suscripción activa pueden usar la plataforma sin límite de tiempo.</p>
@@ -741,6 +759,8 @@ function showJSection(sectionId) {
   if (sectionId === 'jPagosSection') loadJPagos();
   if (sectionId === 'jMensajesSection') loadJMensajes();
   if (sectionId === 'jRotacionSection') loadJRotacion();
+  if (sectionId === 'jNotifJSection') loadJNotifJ();
+  if (sectionId === 'jPagosRegistroSection') loadJPagosRegistro();
   if (window.innerWidth < 1024) toggleSidebar();
 }
 
@@ -1991,7 +2011,8 @@ async function loadJMensajes() {
   var list = document.getElementById('jMensajesList');
   list.innerHTML = '<p style="color:#7c6fa0;padding:1rem;">Cargando...</p>';
   try {
-    var q = F.query(F.collection(F.db,'mensajes'), F.where('estado','==','aprobado'), F.orderBy('createdAt','desc'));
+    // Sin orderBy para evitar requerir índice compuesto
+    var q = F.query(F.collection(F.db,'mensajes'), F.where('estado','==','aprobado'));
     var snap = await F.getDocs(q);
     var msgs = [];
     snap.forEach(function(d){ msgs.push({ id: d.id, ...d.data() }); });
@@ -2035,6 +2056,186 @@ async function loadJMensajes() {
       list.innerHTML = '<p style="color:#B83232;padding:1rem;">Error: ' + err.message + '</p>';
     }
   }
+}
+
+
+// ══════════════════════════════════════════════════════════════
+// VER DETALLE ABOGADO — PANEL JURISTAM
+// ══════════════════════════════════════════════════════════════
+async function verDetalleAbogado(abogadoId) {
+  var F = window._firebase;
+  var snap = await F.getDoc(F.doc(F.db,'abogados',abogadoId));
+  if (!snap.exists()) return;
+  var a = snap.data();
+  var stars = '★'.repeat(Math.floor(a.calificacion||0)) + '☆'.repeat(5-Math.floor(a.calificacion||0));
+  var trialEnd = new Date(a.registerDate||'2025-01-01');
+  trialEnd.setDate(trialEnd.getDate()+30);
+  var trialActivo = new Date() <= trialEnd;
+  var tEjQ = F.query(F.collection(F.db,'tramites'), F.where('aceptadoPorId','==',abogadoId), F.where('estado','==','terminado'));
+  var tEjSnap = await F.getDocs(tEjQ);
+  var tSolQ = F.query(F.collection(F.db,'tramites'), F.where('abogadoId','==',abogadoId));
+  var tSolSnap = await F.getDocs(tSolQ);
+  var estadoSus = a.subscriptionPaid ? '✅ Pagada' : (trialActivo ? '⏳ Prueba hasta ' + trialEnd.toISOString().split('T')[0] : '🔒 Vencida');
+
+  var cont = document.getElementById('detalleAbogadoContenido');
+  cont.innerHTML =
+    '<div style="text-align:center;margin-bottom:1rem;">' +
+    '<img src="' + a.foto + '" style="width:80px;height:80px;border-radius:50%;object-fit:cover;border:3px solid #9a6aff;margin-bottom:0.5rem;">' +
+    '<h3 style="font-size:1.1rem;color:#2d1060;">' + a.nombre + '</h3>' +
+    '<div style="color:#F59E0B;">' + stars + '</div>' +
+    '</div>' +
+    '<div style="display:flex;flex-direction:column;gap:0;">' +
+    fila('Matrícula', a.matricula) +
+    fila('Cédula', a.cedula) +
+    fila('Teléfono', a.telefono) +
+    fila('Email', a.email) +
+    fila('Ciudad', a.ciudad) +
+    fila('Nivel', a.nivel||'No especificado') +
+    fila('Experiencia', a.experiencia||'No especificada') +
+    fila('Registro', a.registerDate) +
+    fila('Verificado', a.verified ? '✅ Sí' : '❌ No') +
+    fila('Suscripción', estadoSus) +
+    fila('Trámites ejecutados', String(tEjSnap.size)) +
+    fila('Trámites solicitados', String(tSolSnap.size)) +
+    '</div>' +
+    (a.descripcion ? '<div style="margin-top:0.75rem;padding:0.75rem;background:#f8f5ff;border-radius:0.5rem;font-size:0.85rem;color:#5c4d7a;">' + a.descripcion + '</div>' : '') +
+    '<div id="botonesDetalle" style="display:flex;gap:0.5rem;margin-top:1rem;flex-wrap:wrap;"></div>';
+
+  // Agregar botones programáticamente para evitar problemas con comillas
+  var botonesDiv = document.getElementById('botonesDetalle');
+  if (!a.verified) {
+    var btnVer = document.createElement('button');
+    btnVer.textContent = '✅ Verificar';
+    btnVer.style.cssText = 'background:#1A7F5A;color:#fff;border:none;padding:0.5rem 1rem;border-radius:0.5rem;font-size:0.82rem;font-weight:600;cursor:pointer;flex:1;';
+    btnVer.onclick = function() {
+      document.getElementById('detalleAbogadoModal').style.display = 'none';
+      verificarAbogado(abogadoId);
+    };
+    botonesDiv.appendChild(btnVer);
+  }
+  if (!a.subscriptionPaid) {
+    var btnAct = document.createElement('button');
+    btnAct.textContent = '💳 Activar suscripción';
+    btnAct.style.cssText = 'background:linear-gradient(135deg,#4c1d95,#9a6aff);color:#fff;border:none;padding:0.5rem 1rem;border-radius:0.5rem;font-size:0.82rem;font-weight:600;cursor:pointer;flex:1;';
+    btnAct.onclick = function() {
+      document.getElementById('detalleAbogadoModal').style.display = 'none';
+      activarSuscripcion(abogadoId);
+    };
+    botonesDiv.appendChild(btnAct);
+  } else {
+    var btnDes = document.createElement('button');
+    btnDes.textContent = '🔒 Desactivar';
+    btnDes.style.cssText = 'background:#f0ebff;color:#4c1d95;border:1.5px solid #C4B5F4;padding:0.5rem 1rem;border-radius:0.5rem;font-size:0.82rem;cursor:pointer;flex:1;';
+    btnDes.onclick = function() {
+      document.getElementById('detalleAbogadoModal').style.display = 'none';
+      desactivarSuscripcion(abogadoId);
+    };
+    botonesDiv.appendChild(btnDes);
+  }
+  document.getElementById('detalleAbogadoModal').style.display = 'flex';
+}
+
+
+function fila(label, valor) {
+  return '<div style="display:flex;justify-content:space-between;padding:0.4rem 0;border-bottom:1px solid #ede8f7;font-size:0.85rem;">' +
+    '<span style="color:#7c6fa0;font-size:0.8rem;font-weight:600;text-transform:uppercase;letter-spacing:0.03em;">' + label + '</span>' +
+    '<span style="color:#2d1060;font-weight:500;">' + (valor||'-') + '</span>' +
+    '</div>';
+}
+
+// ══════════════════════════════════════════════════════════════
+// NOTIFICACIONES JURISTAM
+// ══════════════════════════════════════════════════════════════
+async function loadJNotifJ() {
+  var F = window._firebase;
+  var list = document.getElementById('jNotifJList');
+  list.innerHTML = '<p style="color:#7c6fa0;padding:1rem;">Cargando...</p>';
+  try {
+    // Obtener todos los trámites recientes
+    var tSnap = await F.getDocs(F.collection(F.db,'tramites'));
+    var tramites = [];
+    tSnap.forEach(function(d){ tramites.push({ id: d.id, ...d.data() }); });
+    tramites.sort(function(a,b){ return (b.createdAt?.seconds||0)-(a.createdAt?.seconds||0); });
+    if (tramites.length === 0) { list.innerHTML = '<p style="color:#6B5B95;padding:1rem;text-align:center;">No hay actividad aún.</p>'; return; }
+    list.innerHTML = '<p style="font-size:0.82rem;color:#4c1d95;font-weight:600;margin-bottom:0.75rem;">Actividad reciente de la plataforma</p>';
+    tramites.slice(0,20).forEach(function(t){
+      var estadoColor = t.estado === 'terminado' ? '#1A7F5A' : t.estado === 'en_proceso' ? '#7c3aed' : t.estado === 'esperando_pago' ? '#C07C1A' : '#F59E0B';
+      var estadoLabel = t.estado === 'terminado' ? '✅ Completado' : t.estado === 'en_proceso' ? '🔄 En proceso' : t.estado === 'esperando_pago' ? '💳 Esperando pago' : '⏳ Pendiente';
+      list.innerHTML +=
+        '<div style="padding:0.75rem 1rem;border-bottom:1px solid #ede8f7;display:flex;align-items:center;gap:0.75rem;">' +
+        '<div style="width:8px;height:8px;border-radius:50%;background:' + estadoColor + ';flex-shrink:0;"></div>' +
+        '<div style="flex:1;">' +
+        '<p style="font-size:0.85rem;color:#2d1060;"><strong>' + t.nombre + '</strong> → ' + t.ciudadDestino + '</p>' +
+        '<p style="font-size:0.78rem;color:#7c6fa0;">' + (t.descripcion||'').substring(0,50) + '...</p>' +
+        '</div>' +
+        '<span style="font-size:0.75rem;color:' + estadoColor + ';font-weight:600;white-space:nowrap;">' + estadoLabel + '</span>' +
+        '</div>';
+    });
+  } catch(err) {
+    list.innerHTML = '<p style="color:#B83232;padding:1rem;">Error: ' + err.message + '</p>';
+  }
+}
+
+// ══════════════════════════════════════════════════════════════
+// REGISTRO DE PAGOS
+// ══════════════════════════════════════════════════════════════
+async function loadJPagosRegistro() {
+  var F = window._firebase;
+  var list = document.getElementById('jPagosRegistroList');
+  list.innerHTML = '<p style="color:#7c6fa0;padding:1rem;">Cargando...</p>';
+  try {
+    var q = F.query(F.collection(F.db,'tramites'), F.where('estado','==','en_proceso'));
+    var q2 = F.query(F.collection(F.db,'tramites'), F.where('estado','==','terminado'));
+    var snap1 = await F.getDocs(q);
+    var snap2 = await F.getDocs(q2);
+    var tramites = [];
+    snap1.forEach(function(d){ tramites.push({ id: d.id, ...d.data() }); });
+    snap2.forEach(function(d){ tramites.push({ id: d.id, ...d.data() }); });
+    tramites.sort(function(a,b){ return (b.createdAt?.seconds||0)-(a.createdAt?.seconds||0); });
+    if (tramites.length === 0) { list.innerHTML = '<p style="color:#6B5B95;padding:1rem;text-align:center;">No hay pagos registrados aún.</p>'; return; }
+    var totalComisiones = 0;
+    tramites.forEach(function(t){ totalComisiones += (t.monto||0) * 0.078; });
+    list.innerHTML =
+      '<div style="background:linear-gradient(135deg,#2d1060,#7c3aed);border-radius:0.6rem;padding:1rem;margin-bottom:1rem;display:flex;justify-content:space-between;align-items:center;">' +
+      '<div><p style="color:rgba(255,255,255,0.7);font-size:0.78rem;">Total comisiones acumuladas</p><p style="color:#fff;font-size:1.4rem;font-weight:700;">$' + totalComisiones.toFixed(2) + '</p></div>' +
+      '<div style="text-align:right;"><p style="color:rgba(255,255,255,0.7);font-size:0.78rem;">Trámites pagados</p><p style="color:#fff;font-size:1.4rem;font-weight:700;">' + tramites.length + '</p></div>' +
+      '</div>';
+    tramites.forEach(function(t){
+      var comision = (t.monto||0) * 0.078;
+      var ejecutorPago = (t.monto||0) * 0.922;
+      list.innerHTML +=
+        '<div style="border:1.5px solid #ede8f7;border-radius:0.6rem;margin-bottom:0.75rem;overflow:hidden;">' +
+        '<div style="padding:0.75rem 1rem;background:#f9f7ff;">' +
+        '<div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:0.4rem;">' +
+        '<div><strong style="font-size:0.88rem;color:#2d1060;">' + t.nombre + '</strong><br><small style="color:#7c6fa0;">' + t.ciudadOrigen + ' → ' + t.ciudadDestino + '</small></div>' +
+        '<span style="font-size:0.72rem;background:' + (t.estado==='terminado'?'#E6F4EF':'#efe8ff') + ';color:' + (t.estado==='terminado'?'#1A7F5A':'#7c3aed') + ';padding:0.15rem 0.5rem;border-radius:999px;font-weight:600;">' + (t.estado==='terminado'?'✅ Completado':'🔄 En proceso') + '</span>' +
+        '</div>' +
+        '<div style="display:flex;gap:0.75rem;font-size:0.82rem;">' +
+        '<div style="flex:1;background:#fff;border-radius:0.4rem;padding:0.4rem 0.6rem;border:1px solid #ede8f7;text-align:center;">' +
+        '<p style="color:#7c6fa0;font-size:0.7rem;">Total cobrado</p><p style="font-weight:700;color:#2d1060;">$' + (t.monto_total||t.monto) + '</p></div>' +
+        '<div style="flex:1;background:#fff;border-radius:0.4rem;padding:0.4rem 0.6rem;border:1px solid #ede8f7;text-align:center;">' +
+        '<p style="color:#7c6fa0;font-size:0.7rem;">Comisión Juristam</p><p style="font-weight:700;color:#7c3aed;">$' + comision.toFixed(2) + '</p></div>' +
+        '<div style="flex:1;background:#fff;border-radius:0.4rem;padding:0.4rem 0.6rem;border:1px solid #ede8f7;text-align:center;">' +
+        '<p style="color:#7c6fa0;font-size:0.7rem;">Pago al ejecutor</p><p style="font-weight:700;color:#1A7F5A;">$' + ejecutorPago.toFixed(2) + '</p></div>' +
+        '</div>' +
+        (t.aceptadoPor ? '<p style="font-size:0.75rem;color:#7c6fa0;margin-top:0.4rem;">Ejecutado por: <strong>' + t.aceptadoPor + '</strong></p>' : '') +
+        '</div></div>';
+    });
+  } catch(err) {
+    list.innerHTML = '<p style="color:#B83232;padding:1rem;">Error: ' + err.message + '</p>';
+  }
+}
+
+
+function verDetalleAbogadoDesde(btn) { verDetalleAbogado(btn.getAttribute('data-id')); }
+function verificarAbogadoDesde(btn) { verificarAbogado(btn.getAttribute('data-id')); }
+function accionDetalleAbogado(btn) {
+  var id = btn.getAttribute('data-id');
+  var accion = btn.getAttribute('data-accion');
+  document.getElementById('detalleAbogadoModal').style.display = 'none';
+  if (accion === 'verificar') verificarAbogado(id);
+  else if (accion === 'activar') activarSuscripcion(id);
+  else if (accion === 'desactivar') desactivarSuscripcion(id);
 }
 
 </script>
