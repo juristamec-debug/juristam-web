@@ -389,7 +389,7 @@
       <li><a onclick="showJSection('jTramitesSection')"><i class="fas fa-file-alt"></i> Trámites</a></li>
       <li><a onclick="showJSection('jAsignarSection')"><i class="fas fa-map-marker-alt"></i> Asignar</a></li>
       <li><a onclick="showJSection('jPagosSection')"><i class="fas fa-money-bill"></i> Confirmar Pagos</a></li>
-      <li><a onclick="showJSection('jMensajesSection')"><i class="fas fa-envelope"></i> Mensajes</a></li>
+      <li><a onclick="showJSection('jMensajesSection')"><i class="fas fa-comments"></i> Conversaciones</a></li>
       <li><a onclick="showJSection('jRotacionSection')"><i class="fas fa-sync-alt"></i> Rotación</a></li>
       <li><a onclick="doLogout()"><i class="fas fa-sign-out-alt"></i> Cerrar Sesión</a></li>
     </ul></nav>
@@ -407,8 +407,8 @@
       <div id="jSuscripcionList"></div>
     </div>
     <div class="section hidden" id="jMensajesSection">
-      <h2>Mensajes Pendientes</h2>
-      <p style="font-size:0.85rem;color:#6B5B95;margin-bottom:1rem;">Revisa y aprueba los mensajes entre abogados antes de que lleguen al destinatario.</p>
+      <h2>Conversaciones</h2>
+      <p style="font-size:0.85rem;color:#6B5B95;margin-bottom:1rem;">Monitorea en tiempo real las conversaciones entre abogados. Los mensajes con datos de contacto son bloqueados automáticamente.</p>
       <div id="jMensajesList"></div>
     </div>
   </div>
@@ -1182,45 +1182,153 @@ async function marcarCompletado(tramiteId, desc, ciudad, monto, solicitanteId) {
 // MENSAJES (simplificado — en Firebase se guarda en subcolección)
 // ══════════════════════════════════════════════════════════════
 function renderMensajesHtml(tramiteId) {
+  setTimeout(function(){ cargarMensajes(tramiteId); }, 100);
   return '<div class="mensajes-container">' +
     '<div class="mensajes-header"><i class="fas fa-comments"></i> Mensajes <small style="opacity:0.7;font-size:0.75rem;margin-left:auto;">Revisados por Juristam</small></div>' +
-    '<div class="mensajes-body" id="msgs-' + tramiteId + '"><div style="text-align:center;color:#7C6FA0;font-size:0.82rem;padding:1rem;">Sin mensajes aún.</div></div>' +
+    '<div class="mensajes-body" id="msgs-' + tramiteId + '"><div style="text-align:center;color:#7C6FA0;font-size:0.82rem;padding:1rem;">Cargando...</div></div>' +
     '<div class="mensajes-footer">' +
     '<textarea id="msgInput-' + tramiteId + '" placeholder="Escribe tu consulta... (sin teléfonos ni emails)" rows="1"></textarea>' +
-    '<button onclick="enviarMensaje(\'' + tramiteId + '\')" style="padding:0.5rem 0.85rem;font-size:0.82rem;border-radius:0.5rem;white-space:nowrap;"><i class="fas fa-paper-plane"></i></button>' +
+    '<button onclick="enviarMensajeDesde(this)" data-tramite="' + tramiteId + '" style="padding:0.5rem 0.85rem;font-size:0.82rem;border-radius:0.5rem;white-space:nowrap;"><i class="fas fa-paper-plane"></i></button>' +
     '</div></div>';
 }
 
-function enviarMensaje(tramiteId) {
+function contieneContacto(texto) {
+  // Números en dígitos
+  var patronesDigitos = [
+    /\b0\d{9}\b/,                          // teléfonos Ecuador 10 dígitos
+    /\b\+593\d{9}\b/,                     // con código país +593
+    /\b\+\d{10,13}\b/,                    // cualquier número internacional
+    /\b\d{7,10}\b/,                        // números largos genéricos
+    /[a-zA-Z0-9._%+\-]+@[a-zA-Z0-9.\-]+\.[a-zA-Z]{2,}/,  // emails
+    /whatsapp|wsp|ws\b|wa\.me/i,
+    /telegram|t\.me/i,
+    /instagram|ig\b|face\b|facebook/i,
+    /llám[ae]|escríbe[nm]e|contácta[nm]e/i
+  ];
+  if (patronesDigitos.some(function(p){ return p.test(texto); })) return true;
+
+  // Números escritos en letras (español)
+  var textoBajo = texto.toLowerCase();
+  var numerosLetras = [
+    'cero','uno','dos','tres','cuatro','cinco','seis','siete','ocho','nueve',
+    'diez','once','doce','trece','catorce','quince','veinte','treinta',
+    'cuarenta','cincuenta','sesenta','setenta','ochenta','noventa','cien'
+  ];
+  // Detectar si hay 4 o más números en letras seguidos (patrón de teléfono)
+  var contador = 0;
+  var palabras = textoBajo.split(/\s+/);
+  var maxConsecutivos = 0;
+  var consecutivos = 0;
+  for (var i = 0; i < palabras.length; i++) {
+    var pal = palabras[i].replace(/[^a-záéíóúñ]/g, '');
+    if (numerosLetras.indexOf(pal) !== -1) {
+      consecutivos++;
+      if (consecutivos > maxConsecutivos) maxConsecutivos = consecutivos;
+    } else {
+      consecutivos = 0;
+    }
+  }
+  if (maxConsecutivos >= 4) return true;
+
+  return false;
+}
+
+function enviarMensajeDesde(btn) {
+  enviarMensaje(btn.getAttribute('data-tramite'));
+}
+
+async function enviarMensaje(tramiteId) {
+  var F = window._firebase;
   var input = document.getElementById('msgInput-' + tramiteId);
   var texto = input ? input.value.trim() : '';
   if (!texto) return;
-  // Filtro de contacto
-  var patrones = [/\b0\d{9}\b/, /[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}/, /whatsapp|wsp|wa\.me/i, /telegram/i];
-  if (patrones.some(function(p){ return p.test(texto); })) {
-    var body = document.getElementById('msgs-' + tramiteId);
-    if (body) body.innerHTML += '<div style="background:#FFF0F0;color:#B83232;border:1px solid #F5C0C0;font-size:0.75rem;text-align:center;border-radius:0.4rem;padding:0.35rem 0.65rem;">⛔ Mensaje bloqueado — contiene datos de contacto.</div>';
+
+  var body = document.getElementById('msgs-' + tramiteId);
+
+  // FILTRO AUTOMÁTICO
+  if (contieneContacto(texto)) {
+    if (body) body.innerHTML += '<div style="background:#FFF0F0;color:#B83232;border:1px solid #F5C0C0;font-size:0.75rem;text-align:center;border-radius:0.4rem;padding:0.35rem 0.65rem;align-self:center;">⛔ Mensaje bloqueado — contiene datos de contacto. Juristam fue notificado.</div>';
     input.value = '';
+    if (body) body.scrollTop = body.scrollHeight;
+    // Notificar a Juristam del intento
+    var fdBlocked = new FormData();
+    fdBlocked.append('_subject', '⚠️ Intento de contacto bloqueado - ' + tramiteId);
+    fdBlocked.append('_captcha', 'false');
+    fdBlocked.append('message', '⚠️ MENSAJE BLOQUEADO\nDe: ' + currentUserData.nombre + '\nTrámite: ' + tramiteId + '\nTexto: ' + texto);
+    fetch('https://formsubmit.co/juristam.ec@gmail.com', {method:'POST', body:fdBlocked});
     return;
   }
-  // Enviar a Juristam para revisión
-  var fd = new FormData();
-  fd.append('_subject','📩 Mensaje pendiente - ' + tramiteId);
-  fd.append('_captcha','false');
-  fd.append('tramite',tramiteId);
-  fd.append('de',currentUserData.nombre);
-  fd.append('texto',texto);
-  fd.append('message','📩 MENSAJE PENDIENTE\nTrámite: ' + tramiteId + '\nDe: ' + currentUserData.nombre + '\nTexto: ' + texto);
-  fetch('https://formsubmit.co/juristam.ec@gmail.com',{method:'POST',body:fd});
-  var body = document.getElementById('msgs-' + tramiteId);
+
+  // Buscar el trámite para saber el destinatario
+  var tSnap = await F.getDoc(F.doc(F.db, 'tramites', tramiteId));
+  if (!tSnap.exists()) return;
+  var t = tSnap.data();
+  var destinatarioId = currentUser.uid === t.abogadoId ? t.aceptadoPorId : t.abogadoId;
+  var destinatarioNombre = currentUser.uid === t.abogadoId ? t.aceptadoPor : t.nombre;
+  var today = new Date().toISOString().split('T')[0];
+
+  // Guardar mensaje en Firestore directamente como aprobado
+  // El filtro automático ya bloqueó lo que no debe pasar
+  await F.addDoc(F.collection(F.db, 'mensajes'), {
+    tramiteId: tramiteId,
+    de: currentUserData.nombre,
+    deId: currentUser.uid,
+    para: destinatarioNombre,
+    paraId: destinatarioId,
+    texto: texto,
+    estado: 'aprobado',
+    fecha: today,
+    createdAt: F.serverTimestamp()
+  });
+
+  // Notificar al destinatario
+  await F.addDoc(F.collection(F.db, 'notificaciones'), {
+    abogadoId: destinatarioId,
+    mensaje: currentUserData.nombre + ' te envió un mensaje sobre el trámite.',
+    tramiteId: tramiteId,
+    fecha: today,
+    leida: false,
+    createdAt: F.serverTimestamp()
+  });
+
+  // Mostrar en pantalla inmediatamente
   if (body) {
-    var today = new Date().toISOString().split('T')[0];
     body.innerHTML += '<div class="msg-burbuja msg-enviado">' + texto + '<div class="msg-meta">Tú · ' + today + '</div></div>';
-    body.innerHTML += '<div class="msg-sistema">⏳ En revisión por Juristam.</div>';
     body.scrollTop = body.scrollHeight;
   }
   input.value = '';
 }
+
+// Cargar mensajes aprobados de un trámite desde Firestore
+async function cargarMensajes(tramiteId) {
+  var F = window._firebase;
+  var body = document.getElementById('msgs-' + tramiteId);
+  if (!body) return;
+  try {
+    var q = F.query(
+      F.collection(F.db, 'mensajes'),
+      F.where('tramiteId', '==', tramiteId),
+      F.where('estado', '==', 'aprobado'),
+      F.orderBy('createdAt', 'asc')
+    );
+    var snap = await F.getDocs(q);
+    var msgs = [];
+    snap.forEach(function(d){ msgs.push(d.data()); });
+    if (msgs.length === 0) {
+      body.innerHTML = '<div style="text-align:center;color:#7C6FA0;font-size:0.82rem;padding:1rem;">Sin mensajes aún.</div>';
+      return;
+    }
+    body.innerHTML = '';
+    msgs.forEach(function(m){
+      var esEnviado = m.deId === currentUser.uid;
+      body.innerHTML += '<div class="msg-burbuja ' + (esEnviado ? 'msg-enviado' : 'msg-recibido') + '">' + m.texto + '<div class="msg-meta">' + m.de + ' · ' + m.fecha + '</div></div>';
+    });
+    body.scrollTop = body.scrollHeight;
+  } catch(e) {
+    body.innerHTML = '<div style="text-align:center;color:#7C6FA0;font-size:0.82rem;padding:1rem;">Sin mensajes aún.</div>';
+  }
+}
+
 
 // ══════════════════════════════════════════════════════════════
 // COMPROBANTE DE PAGO
@@ -1794,49 +1902,42 @@ async function loadJMensajes() {
   var F = window._firebase;
   var list = document.getElementById('jMensajesList');
   list.innerHTML = '<p style="color:#7c6fa0;padding:1rem;">Cargando...</p>';
-  var q = F.query(F.collection(F.db,'mensajes'), F.where('estado','==','pendiente_revision'), F.orderBy('createdAt','asc'));
   try {
+    var q = F.query(F.collection(F.db,'mensajes'), F.where('estado','==','aprobado'), F.orderBy('createdAt','desc'));
     var snap = await F.getDocs(q);
     var msgs = [];
     snap.forEach(function(d){ msgs.push({ id: d.id, ...d.data() }); });
     if (msgs.length === 0) {
-      list.innerHTML = '<p style="color:#6B5B95;padding:1rem;text-align:center;">No hay mensajes pendientes de revisión. ✅</p>';
+      list.innerHTML = '<p style="color:#6B5B95;padding:1rem;text-align:center;">No hay conversaciones aún.</p>';
       return;
     }
-    list.innerHTML = '';
+    // Agrupar por tramiteId
+    var porTramite = {};
     msgs.forEach(function(m){
+      if (!porTramite[m.tramiteId]) porTramite[m.tramiteId] = [];
+      porTramite[m.tramiteId].push(m);
+    });
+    list.innerHTML = '<p style="font-size:0.82rem;color:#4c1d95;font-weight:600;margin-bottom:0.75rem;"><i class="fas fa-circle" style="color:#1A7F5A;font-size:0.5rem;margin-right:0.4rem;"></i>' + Object.keys(porTramite).length + ' conversaciones activas</p>';
+    Object.keys(porTramite).forEach(function(tramiteId){
+      var conv = porTramite[tramiteId];
+      conv.sort(function(a,b){ return (a.createdAt?.seconds||0)-(b.createdAt?.seconds||0); });
+      var ultimo = conv[conv.length-1];
+      var participantes = [...new Set(conv.map(function(m){ return m.de; }))].join(' ↔ ');
       list.innerHTML +=
-        '<div style="padding:0.85rem 1rem;border-bottom:1px solid #EDE9F8;display:flex;flex-direction:column;gap:0.4rem;">' +
-        '<div style="font-size:0.78rem;color:#6B5B95;"><strong>Trámite:</strong> ' + (m.tramiteId||'') + ' &nbsp;|&nbsp; <strong>De:</strong> ' + m.de + ' → <strong>Para:</strong> ' + m.para + ' &nbsp;|&nbsp; ' + (m.fecha||'') + '</div>' +
-        '<div style="font-size:0.88rem;color:#2d1060;background:#efe8ff;padding:0.5rem 0.75rem;border-radius:0.5rem;border-left:3px solid #9a6aff;">"' + m.texto + '"</div>' +
-        '<div style="display:flex;gap:0.5rem;margin-top:0.25rem;">' +
-        '<button onclick="gestionarMensaje(this,true)" data-id="' + m.id + '" style="background:#1A7F5A;color:#fff;border:none;padding:0.35rem 0.85rem;border-radius:0.4rem;font-size:0.78rem;cursor:pointer;"><i class="fas fa-check"></i> Aprobar</button>' +
-        '<button onclick="gestionarMensaje(this,false)" data-id="' + m.id + '" style="background:#B83232;color:#fff;border:none;padding:0.35rem 0.85rem;border-radius:0.4rem;font-size:0.78rem;cursor:pointer;"><i class="fas fa-times"></i> Rechazar</button>' +
+        '<div style="border:1.5px solid #ede8f7;border-radius:0.6rem;margin-bottom:1rem;overflow:hidden;">' +
+        '<div style="background:linear-gradient(135deg,#2d1060,#7c3aed);padding:0.6rem 1rem;display:flex;justify-content:space-between;align-items:center;">' +
+        '<span style="color:#fff;font-size:0.82rem;font-weight:600;"><i class="fas fa-comments" style="margin-right:0.4rem;color:#c9b8ff;"></i>' + participantes + '</span>' +
+        '<span style="color:rgba(255,255,255,0.6);font-size:0.72rem;">' + conv.length + ' mensajes · ' + (ultimo.fecha||'') + '</span>' +
+        '</div>' +
+        '<div style="padding:0.75rem;background:#f9f7ff;max-height:250px;overflow-y:auto;display:flex;flex-direction:column;gap:0.5rem;">' +
+        conv.map(function(m){
+          return '<div style="background:#fff;border:1px solid #ede8f7;border-radius:0.5rem;padding:0.5rem 0.75rem;font-size:0.82rem;color:#2d1060;">' +
+            '<span style="font-size:0.72rem;color:#9a6aff;font-weight:600;">' + m.de + ' · ' + (m.fecha||'') + '</span><br>' + m.texto +
+            '</div>';
+        }).join('') +
         '</div></div>';
     });
   } catch(err) {
-    list.innerHTML = '<p style="color:#B83232;padding:1rem;">Error al cargar mensajes. Puede que el índice de Firestore no esté creado aún.</p>';
+    list.innerHTML = '<p style="color:#B83232;padding:1rem;">Error al cargar. Verifica que los índices de Firestore estén creados.</p>';
   }
 }
-
-function gestionarMensaje(btn, aprobar) {
-  var id = btn.getAttribute('data-id');
-  if (aprobar) aprobarMensaje(id);
-  else rechazarMensaje(id);
-}
-
-async function aprobarMensaje(msgId) {
-  var F = window._firebase;
-  await F.updateDoc(F.doc(F.db,'mensajes',msgId), { estado: 'aprobado' });
-  mostrarModalConf('✅ Mensaje aprobado', 'El mensaje llegará al destinatario en su próximo acceso.', function(){ loadJMensajes(); });
-}
-
-async function rechazarMensaje(msgId) {
-  var F = window._firebase;
-  await F.updateDoc(F.doc(F.db,'mensajes',msgId), { estado: 'rechazado' });
-  mostrarModalConf('Mensaje rechazado', 'El remitente no será notificado del motivo.', function(){ loadJMensajes(); });
-}
-
-</script>
-</body>
-</html>
