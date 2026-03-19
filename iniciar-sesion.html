@@ -432,7 +432,7 @@
 
     <!-- Logo centrado arriba -->
     <div style="text-align:center;margin-bottom:1.5rem;">
-      <img src="https://i.postimg.cc/MHtnYCtQ/Diseno-sin-titulo-(8).png" alt="Juristam" style="height:130px;margin-bottom:0.6rem;">
+      <img src="https://i.postimg.cc/hjNnRpj8/oie_transparent_(2).png" alt="Juristam" style="height:130px;margin-bottom:0.6rem;">
       <h1 style="font-family:'DM Serif Display',serif;font-size:1.1rem;color:#fff;font-weight:400;letter-spacing:0.01em;">
         Juristam <span style="color:#c9b8ff;">Conexión</span> Legal EC
       </h1>
@@ -958,6 +958,7 @@
             <textarea id="ratingOpinion" name="opinion" rows="4" placeholder="Escribe tu opinión aquí" required></textarea>
             <input type="hidden" name="abogado" id="ratingAbogado">
             <input type="hidden" name="evaluador" id="ratingEvaluador">
+            <input type="hidden" name="tramite_id" id="ratingTramiteId">
             <input type="hidden" name="_subject" value="Calificación de Abogado - Conexión Legal EC">
             <input type="hidden" name="_next" value=""><input type="hidden" name="_captcha" value="false">
             <button type="submit">Enviar Calificación</button>
@@ -1052,8 +1053,8 @@
 // DATOS
 // ══════════════════════════════════════════════════════════════
 const abogados = [
-  { id: "1", nombre: "Juan Pérez", matricula: "12345", cedula: "0912345678", telefono: "0991234567", email: "juan@example.com", ciudad: "guayaquil", password: "juan123", descripcion: "Abogado penalista", experiencia: "5 años", nivel: "Abogado", foto: "https://i.postimg.cc/NfpqxnZJ/images.png", calificacion: 4.5, verified: true, subscriptionPaid: true, registerDate: "2025-03-01", role: "abogado" },
-  { id: "2", nombre: "María López", matricula: "67890", cedula: "1712345678", telefono: "0987654321", email: "maria@example.com", ciudad: "esmeraldas", password: "maria123", descripcion: "Especialista en familia", experiencia: "8 años", nivel: "Magíster", foto: "https://i.postimg.cc/NfpqxnZJ/images.png", calificacion: 4.8, verified: true, subscriptionPaid: true, registerDate: "2025-03-15", role: "abogado" },
+  { id: "1", nombre: "Juan Pérez", matricula: "17-2018-4521", cedula: "0912345678", telefono: "0991234567", email: "juan@example.com", ciudad: "guayaquil", password: "juan123", descripcion: "Abogado en libre ejercicio con especialización en derecho penal y civil. Manejo causas en Guayaquil y coordino diligencias a nivel nacional a través de Juristam Conexión Legal.", experiencia: "5 años", nivel: "Abogado", foto: "https://i.postimg.cc/NfpqxnZJ/images.png", calificacion: 4.7, verified: true, subscriptionPaid: true, registerDate: "2025-03-01", role: "abogado" },
+  { id: "2", nombre: "María López", matricula: "06-2015-892", cedula: "1712345678", telefono: "0987654321", email: "maria@example.com", ciudad: "esmeraldas", password: "maria123", descripcion: "Abogada con Maestría en Derecho de Familia y Civil. Ejercicio activo en Esmeraldas con amplia experiencia en diligencias judiciales, notariales y administrativas. Disponible para trámites urgentes.", experiencia: "8 años", nivel: "Magíster", foto: "https://i.postimg.cc/NfpqxnZJ/images.png", calificacion: 4.8, verified: true, subscriptionPaid: true, registerDate: "2025-03-15", role: "abogado" },
   { id: "3", nombre: "Carlos Gómez", matricula: "54321", cedula: "1012345678", telefono: "0998765432", email: "carlos@example.com", ciudad: "quito", password: "carlos123", descripcion: "Experto en laboral", experiencia: "6 años", nivel: "Abogado", foto: "https://via.placeholder.com/150", calificacion: 4.3, verified: true, subscriptionPaid: true, registerDate: "2025-02-20", role: "abogado" },
   { id: "4", nombre: "Ana Torres", matricula: "98765", cedula: "0812345678", telefono: "0995551234", email: "ana@example.com", ciudad: "cuenca", password: "ana123", descripcion: "Civil y mercantil", experiencia: "10 años", nivel: "Doctora", foto: "https://via.placeholder.com/150", calificacion: 4.7, verified: true, subscriptionPaid: true, registerDate: "2025-02-10", role: "abogado" },
   { id: "5", nombre: "Luis Martínez", matricula: "45678", cedula: "1312345678", telefono: "0981234567", email: "luis@example.com", ciudad: "manta", password: "luis123", descripcion: "Abogado penal", experiencia: "4 años", nivel: "Abogado", foto: "https://via.placeholder.com/150", calificacion: 4.2, verified: true, subscriptionPaid: true, registerDate: "2025-03-05", role: "abogado" },
@@ -1078,30 +1079,45 @@ const abogados = [
 ];
 
 const tramites = [
-  // ── Trámites de Juan Pérez (id:1) como SOLICITANTE ──
-  { id: "t1", abogadoId: "1", nombre: "Juan Pérez", ciudadOrigen: "guayaquil", ciudadDestino: "esmeraldas", monto: 50, monto_total: 50, costo_logistica: 0, tipo_documentos: "digital", descripcion: "Ingresar escrito en Fiscalía de Esmeraldas y obtener sello de recibido", experiencia: "5 años", nivel: "Abogado", calificacion: 4.5, estado: "terminado", aceptadoPor: "María López", asignadoA: "2", fechaLimite: "", fechaLimitePago: "" },
-  { id: "t2", abogadoId: "1", nombre: "Juan Pérez", ciudadOrigen: "guayaquil", ciudadDestino: "quito", monto: 60, monto_total: 65, costo_logistica: 5, tipo_documentos: "recepcion", descripcion: "Retirar notificación en Juzgado Civil de Quito y enviar documentos originales", experiencia: "5 años", nivel: "Abogado", calificacion: 4.5, estado: "terminado", aceptadoPor: "Carlos Gómez", asignadoA: "3", fechaLimite: "", fechaLimitePago: "" },
-  { id: "t3", abogadoId: "1", nombre: "Juan Pérez", ciudadOrigen: "guayaquil", ciudadDestino: "esmeraldas", monto: 35, monto_total: 35, costo_logistica: 0, tipo_documentos: "digital", descripcion: "Presentar demanda laboral en Juzgado del Trabajo de Esmeraldas", experiencia: "5 años", nivel: "Abogado", calificacion: 4.5, estado: "en_proceso", aceptadoPor: "María López", asignadoA: "2", fechaLimite: "2026-03-20T10:00:00.000Z", fechaLimitePago: "" },
-  { id: "t4", abogadoId: "1", nombre: "Juan Pérez", ciudadOrigen: "guayaquil", ciudadDestino: "cuenca", monto: 45, monto_total: 45, costo_logistica: 0, tipo_documentos: "digital", descripcion: "Verificar estado de causa en Tribunal de Garantías Penales de Cuenca", experiencia: "5 años", nivel: "Abogado", calificacion: 4.5, estado: "esperando_pago", aceptadoPor: "Ana Torres", asignadoA: "4", fechaLimite: "", fechaLimitePago: "2026-03-19T20:00:00.000Z" },
-  { id: "t5", abogadoId: "1", nombre: "Juan Pérez", ciudadOrigen: "guayaquil", ciudadDestino: "ambato", monto: 30, monto_total: 30, costo_logistica: 0, tipo_documentos: "digital", descripcion: "Entregar poder notarial en Notaría Segunda de Ambato", experiencia: "5 años", nivel: "Abogado", calificacion: 4.5, estado: "pendiente", aceptadoPor: "", asignadoA: "", fechaLimite: "", fechaLimitePago: "" },
 
-  // ── Trámites donde María López (id:2) es EJECUTORA ──
+  // ══ JUAN PÉREZ (id:1) como SOLICITANTE — ve esto en "Trámites Enviados" ══
+  // Completado - puede calificar
+  { id: "t1", abogadoId: "1", nombre: "Juan Pérez", ciudadOrigen: "guayaquil", ciudadDestino: "esmeraldas", monto: 50, monto_total: 50, costo_logistica: 0, tipo_documentos: "digital", descripcion: "Ingresar escrito en Fiscalía de Esmeraldas y obtener sello de recibido", experiencia: "5 años", nivel: "Abogado", calificacion: 4.7, estado: "terminado", aceptadoPor: "María López", asignadoA: "2", fechaLimite: "", fechaLimitePago: "" },
+  // Completado - ya calificado
+  { id: "t2", abogadoId: "1", nombre: "Juan Pérez", ciudadOrigen: "guayaquil", ciudadDestino: "quito", monto: 60, monto_total: 65, costo_logistica: 5, tipo_documentos: "recepcion", descripcion: "Retirar notificación en Juzgado Civil de Quito y enviar documentos originales", experiencia: "5 años", nivel: "Abogado", calificacion: 4.7, estado: "terminado", aceptadoPor: "Carlos Gómez", asignadoA: "3", fechaLimite: "", fechaLimitePago: "" },
+  // En proceso - ejecutor está trabajando
+  { id: "t3", abogadoId: "1", nombre: "Juan Pérez", ciudadOrigen: "guayaquil", ciudadDestino: "esmeraldas", monto: 35, monto_total: 35, costo_logistica: 0, tipo_documentos: "digital", descripcion: "Presentar demanda laboral en Juzgado del Trabajo de Esmeraldas", experiencia: "5 años", nivel: "Abogado", calificacion: 4.7, estado: "en_proceso", aceptadoPor: "María López", asignadoA: "2", fechaLimite: "2026-03-20T10:00:00.000Z", fechaLimitePago: "" },
+  // Esperando pago - Juan debe pagar ahora
+  { id: "t4", abogadoId: "1", nombre: "Juan Pérez", ciudadOrigen: "guayaquil", ciudadDestino: "cuenca", monto: 45, monto_total: 45, costo_logistica: 0, tipo_documentos: "digital", descripcion: "Verificar estado de causa en Tribunal de Garantías Penales de Cuenca", experiencia: "5 años", nivel: "Abogado", calificacion: 4.7, estado: "esperando_pago", aceptadoPor: "Ana Torres", asignadoA: "4", fechaLimite: "", fechaLimitePago: "2026-03-20T20:00:00.000Z" },
+  // Pendiente - esperando que alguien acepte
+  { id: "t5", abogadoId: "1", nombre: "Juan Pérez", ciudadOrigen: "guayaquil", ciudadDestino: "ambato", monto: 30, monto_total: 30, costo_logistica: 0, tipo_documentos: "digital", descripcion: "Entregar poder notarial en Notaría Segunda de Ambato", experiencia: "5 años", nivel: "Abogado", calificacion: 4.7, estado: "pendiente", aceptadoPor: "", asignadoA: "", fechaLimite: "", fechaLimitePago: "" },
+
+  // ══ MARÍA LÓPEZ (id:2) como EJECUTORA — ve esto en "Trámites Aceptados" ══
+  // Esperando pago del solicitante - banner naranja
+  { id: "t9", abogadoId: "1", nombre: "Juan Pérez", ciudadOrigen: "guayaquil", ciudadDestino: "esmeraldas", monto: 20, monto_total: 20, costo_logistica: 0, tipo_documentos: "digital", descripcion: "Ingresar escrito urgente en Juzgado Penal de Esmeraldas", experiencia: "5 años", nivel: "Abogado", calificacion: 4.7, estado: "esperando_pago", aceptadoPor: "María López", asignadoA: "2", fechaLimite: "", fechaLimitePago: "2026-03-20T20:30:00.000Z" },
+  // En proceso - María está ejecutando con contador activo
+  { id: "t8", abogadoId: "5", nombre: "Luis Martínez", ciudadOrigen: "manta", ciudadDestino: "esmeraldas", monto: 35, monto_total: 40, costo_logistica: 5, tipo_documentos: "recepcion", descripcion: "Retirar documentos apostillados en Cancillería de Esmeraldas y enviarlos a Manta", experiencia: "4 años", nivel: "Abogado", calificacion: 4.2, estado: "en_proceso", aceptadoPor: "María López", asignadoA: "2", fechaLimite: "2026-03-20T14:00:00.000Z", fechaLimitePago: "" },
+  // Completado - aparece en sección completados
   { id: "t6", abogadoId: "3", nombre: "Carlos Gómez", ciudadOrigen: "quito", ciudadDestino: "esmeraldas", monto: 40, monto_total: 40, costo_logistica: 0, tipo_documentos: "digital", descripcion: "Ingresar recurso de apelación en Sala de lo Civil de Esmeraldas", experiencia: "6 años", nivel: "Abogado", calificacion: 4.3, estado: "terminado", aceptadoPor: "María López", asignadoA: "2", fechaLimite: "", fechaLimitePago: "" },
   { id: "t7", abogadoId: "4", nombre: "Ana Torres", ciudadOrigen: "cuenca", ciudadDestino: "esmeraldas", monto: 55, monto_total: 55, costo_logistica: 0, tipo_documentos: "digital", descripcion: "Presentar escrito ante el Registro de la Propiedad de Esmeraldas", experiencia: "10 años", nivel: "Doctora", calificacion: 4.7, estado: "terminado", aceptadoPor: "María López", asignadoA: "2", fechaLimite: "", fechaLimitePago: "" },
-  { id: "t8", abogadoId: "5", nombre: "Luis Martínez", ciudadOrigen: "manta", ciudadDestino: "esmeraldas", monto: 35, monto_total: 40, costo_logistica: 5, tipo_documentos: "recepcion", descripcion: "Retirar documentos apostillados en Cancillería de Esmeraldas y enviarlos a Manta", experiencia: "4 años", nivel: "Abogado", calificacion: 4.2, estado: "en_proceso", aceptadoPor: "María López", asignadoA: "2", fechaLimite: "2026-03-20T14:00:00.000Z", fechaLimitePago: "" },
-  { id: "t9", abogadoId: "1", nombre: "Juan Pérez", ciudadOrigen: "guayaquil", ciudadDestino: "esmeraldas", monto: 20, monto_total: 20, costo_logistica: 0, tipo_documentos: "digital", descripcion: "Ingresar escrito urgente en Juzgado Penal de Esmeraldas", experiencia: "5 años", nivel: "Abogado", calificacion: 4.5, estado: "esperando_pago", aceptadoPor: "María López", asignadoA: "2", fechaLimite: "", fechaLimitePago: "2026-03-19T20:30:00.000Z" },
 
-  // ── Otros trámites del sistema ──
-  { id: "t10", abogadoId: "5", nombre: "Luis Martínez", ciudadOrigen: "manta", ciudadDestino: "ambato", monto: 40, monto_total: 40, costo_logistica: 0, tipo_documentos: "digital", descripcion: "Demanda laboral en Juzgado de Trabajo de Ambato", experiencia: "4 años", nivel: "Abogado", calificacion: 4.2, estado: "en_proceso", aceptadoPor: "Sofía Ramírez", asignadoA: "6", fechaLimite: "2026-03-20T09:00:00.000Z", fechaLimitePago: "" },
-  { id: "t11", abogadoId: "7", nombre: "Pedro Castillo", ciudadOrigen: "loja", ciudadDestino: "cuenca", monto: 65, monto_total: 65, costo_logistica: 0, tipo_documentos: "digital", descripcion: "Asesoría en Tribunal Contencioso Administrativo de Cuenca", experiencia: "9 años", nivel: "Abogado", calificacion: 4.4, estado: "terminado", aceptadoPor: "Ana Torres", asignadoA: "4", fechaLimite: "", fechaLimitePago: "" }
+  // ══ TRÁMITE DISPONIBLE — María lo ve en "Trámites Disponibles" ══
+  // Este trámite está en esmeraldas (ciudad de María) y asignado a ella (id:2)
+  { id: "t10", abogadoId: "1", nombre: "Juan Pérez", ciudadOrigen: "guayaquil", ciudadDestino: "esmeraldas", monto: 40, monto_total: 45, costo_logistica: 5, tipo_documentos: "recepcion", descripcion: "Obtener copia certificada de sentencia en Juzgado Segundo de lo Civil de Esmeraldas y enviar por Servientrega", experiencia: "5 años", nivel: "Abogado", calificacion: 4.7, estado: "pendiente", aceptadoPor: "", asignadoA: "2", fechaLimite: "", fechaLimitePago: "" },
+
+  // ══ OTROS TRÁMITES DEL SISTEMA ══
+  { id: "t11", abogadoId: "5", nombre: "Luis Martínez", ciudadOrigen: "manta", ciudadDestino: "ambato", monto: 40, monto_total: 40, costo_logistica: 0, tipo_documentos: "digital", descripcion: "Demanda laboral en Juzgado de Trabajo de Ambato", experiencia: "4 años", nivel: "Abogado", calificacion: 4.2, estado: "en_proceso", aceptadoPor: "Sofía Ramírez", asignadoA: "6", fechaLimite: "2026-03-20T09:00:00.000Z", fechaLimitePago: "" },
+  { id: "t12", abogadoId: "7", nombre: "Pedro Castillo", ciudadOrigen: "loja", ciudadDestino: "cuenca", monto: 65, monto_total: 65, costo_logistica: 0, tipo_documentos: "digital", descripcion: "Asesoría en Tribunal Contencioso Administrativo de Cuenca", experiencia: "9 años", nivel: "Abogado", calificacion: 4.4, estado: "terminado", aceptadoPor: "Ana Torres", asignadoA: "4", fechaLimite: "", fechaLimitePago: "" }
 ];
 
 const opiniones = [
-  { abogado: "María López", evaluador: "Juan Pérez", puntaje: 5.0, opinion: "Excelente colega. Ingresó el escrito el mismo día, me mandó foto del sello de recibido en menos de 2 horas. Muy recomendada." },
-  { abogado: "María López", evaluador: "Carlos Gómez", puntaje: 4.5, opinion: "Muy profesional y puntual. El recurso fue ingresado sin problemas. Volvería a trabajar con ella." },
-  { abogado: "Juan Pérez", evaluador: "María López", puntaje: 4.8, opinion: "Colega muy serio, las instrucciones del trámite llegaron claras y el pago fue liberado de inmediato. Muy buena experiencia." },
-  { abogado: "Carlos Gómez", evaluador: "Juan Pérez", puntaje: 4.5, opinion: "Cumplió perfectamente con el trámite en Quito. Envió los documentos a tiempo." },
-  { abogado: "Ana Torres", evaluador: "Pedro Castillo", puntaje: 4.8, opinion: "Gran profesional en temas administrativos." }
+  { abogado: "María López", evaluador: "Juan Pérez", puntaje: 5.0, tramiteId: "t1", opinion: "Excelente colega. Ingresó el escrito el mismo día y me mandó foto del sello de recibido en menos de 2 horas. Muy recomendada, volvería a trabajar con ella sin dudarlo." },
+  { abogado: "María López", evaluador: "Carlos Gómez", puntaje: 4.5, tramiteId: "t6", opinion: "Muy profesional y puntual. El recurso fue ingresado sin ningún problema. Respondió rápido los mensajes y mantuvo comunicación durante todo el proceso." },
+  { abogado: "María López", evaluador: "Ana Torres", puntaje: 4.8, tramiteId: "t7", opinion: "Excelente trabajo. Presentó el escrito ante el Registro de la Propiedad el mismo día que recibió los documentos. Totalmente confiable." },
+  { abogado: "Juan Pérez", evaluador: "María López", puntaje: 4.8, tramiteId: "t1", opinion: "Colega muy serio y organizado. Las instrucciones del trámite llegaron claras y completas, el pago fue liberado de inmediato al confirmar. Muy buena experiencia." },
+  { abogado: "Juan Pérez", evaluador: "Carlos Gómez", puntaje: 4.5, tramiteId: "t2", opinion: "Buen colega, el trámite estuvo bien explicado y no hubo contratiempos. Lo recomiendo para diligencias en Guayaquil." },
+  { abogado: "Carlos Gómez", evaluador: "Juan Pérez", puntaje: 4.5, tramiteId: "t2", opinion: "Cumplió perfectamente con el trámite en Quito. Retiró la notificación y envió los documentos a tiempo por Servientrega." },
+  { abogado: "Ana Torres", evaluador: "Pedro Castillo", puntaje: 4.8, tramiteId: "t11", opinion: "Gran profesional en temas administrativos. Muy recomendada para trámites en Cuenca." }
 ];
 
 const notificaciones = [
@@ -1334,7 +1350,8 @@ document.getElementById("encuestaForm").addEventListener("submit", (e) => {
   const mala = ef.mala_experiencia.value;
   const importancia = ef.importancia.value;
   const today = new Date().toISOString().split("T")[0];
-  const newId = (abogados.length + 1).toString();
+  // Generar id único basado en timestamp para evitar duplicados
+  const newId = Date.now().toString().slice(-6);
   const nombre = _formDataRegistro.get('nombre') || '';
   const matricula = _formDataRegistro.get('matricula') || '';
   const cedula = _formDataRegistro.get('cedula') || '';
@@ -1552,10 +1569,10 @@ document.getElementById("solicitarTramiteForm").addEventListener("submit", (e) =
   const montoTotal = monto + logistica;
   const newId = "t" + (tramites.length + 1);
   const code = `{ id: "${newId}", abogadoId: "${currentUser.id}", nombre: "${currentUser.nombre}", ciudadOrigen: "${currentUser.ciudad}", ciudadDestino: "${form.ciudad.value}", monto: ${monto}, monto_total: ${montoTotal}, costo_logistica: ${logistica}, tipo_documentos: "${tipoDoc.value}", descripcion: "${form.descripcion.value}", experiencia: "${currentUser.experiencia || 'No especificada'}", nivel: "${currentUser.nivel || 'No especificado'}", calificacion: ${currentUser.calificacion}, estado: "pendiente", aceptadoPor: "", asignadoA: "" }`;
-  document.getElementById("tramiteMessage").textContent = "Solicitud enviada.";
-  document.getElementById("tramiteMessage").style.color = "#1A7F5A";
   const fd = new FormData(form);
   fd.append("codigo_tramite", code);
+  const btnPublicar = form.querySelector('button[type="submit"]');
+  if (btnPublicar) { btnPublicar.textContent = "Enviando..."; btnPublicar.disabled = true; }
   fetch(form.action, { method: "POST", body: fd }).then(() => {
     form.reset();
     document.getElementById('resumenCostos').style.display = 'none';
@@ -1563,8 +1580,16 @@ document.getElementById("solicitarTramiteForm").addEventListener("submit", (e) =
       l.style.borderColor = '#e0d8f5';
       l.style.background = '#fff';
     });
+    if (btnPublicar) { btnPublicar.innerHTML = '<i class="fas fa-paper-plane"></i> Publicar Trámite'; btnPublicar.disabled = false; }
+    mostrarModalConfirmacion(
+      "✅ Trámite publicado",
+      "Tu trámite fue enviado a Juristam. Una vez que un colega lo acepte recibirás una notificación y podrás ver el avance en <strong>Trámites Enviados</strong>.",
+      () => showSection('misTramitesSection')
+    );
   }).catch(() => {
-    document.getElementById("tramiteMessage").textContent = "Error al enviar.";
+    document.getElementById("tramiteMessage").textContent = "Error al enviar. Intenta de nuevo.";
+    document.getElementById("tramiteMessage").style.color = "#B83232";
+    if (btnPublicar) { btnPublicar.innerHTML = '<i class="fas fa-paper-plane"></i> Publicar Trámite'; btnPublicar.disabled = false; }
   });
 });
 
@@ -1592,13 +1617,18 @@ function loadTramites() {
             <strong>${t.nombre}</strong>
             <span>${t.descripcion}</span>
             <span>Monto: $${t.monto} | Tu ganancia neta: $${(t.monto * 0.922).toFixed(2)} (comisión Juristam 7.8%: $${(t.monto * 0.078).toFixed(2)})</span>
-            <div>
-              <h3>Perfil del Solicitante</h3>
-              <img src="${sol.foto}" class="profile-pic" alt="${sol.nombre}">
-              <p><strong>Nombre:</strong> ${sol.nombre}</p>
-              <p><strong>Experiencia:</strong> ${sol.experiencia || "No especificada"}</p>
-              <p><strong>Nivel:</strong> ${sol.nivel || "No especificado"}</p>
-              <p><strong>Opiniones:</strong> ${getOpiniones(sol.nombre)}</p>
+            <div style="margin-top:0.75rem;padding:0.75rem;background:#f8f5ff;border-radius:0.6rem;border:1px solid #ede8f7;">
+              <div style="display:flex;align-items:center;gap:0.75rem;">
+                <img src="${sol.foto}" style="width:44px;height:44px;border-radius:50%;object-fit:cover;border:2px solid #9a6aff;flex-shrink:0;">
+                <div style="flex:1;">
+                  <p style="font-size:0.85rem;font-weight:700;color:#2d1060;">${sol.nombre}</p>
+                  <p style="font-size:0.78rem;color:#7c6fa0;">${sol.nivel || "Abogado"} · ${sol.experiencia || "Sin especificar"}</p>
+                  <p style="font-size:0.78rem;color:#F59E0B;">${"★".repeat(Math.floor(sol.calificacion))}${"☆".repeat(5-Math.floor(sol.calificacion))} (${sol.calificacion})</p>
+                </div>
+                <button onclick="verPerfil('${sol.id}')" style="background:#7c3aed;color:#fff;border:none;padding:0.35rem 0.75rem;border-radius:999px;font-size:0.75rem;font-weight:600;cursor:pointer;flex-shrink:0;">
+                  Ver perfil
+                </button>
+              </div>
             </div>
           </div>
           <div style="margin-top:0.5rem;padding:0.6rem 0.75rem;background:#f8f5ff;border-radius:0.5rem;font-size:0.82rem;border-left:3px solid #9a6aff;">
@@ -1614,7 +1644,15 @@ function loadTramites() {
         </div>`;
     }
   });
-  if (list.innerHTML === "") list.innerHTML = "<p style='color:#6B5B95;padding:1rem;'>No hay trámites disponibles en tu ciudad por ahora.</p>";
+  if (list.innerHTML === "") {
+    list.innerHTML = "<p style='color:#6B5B95;padding:1rem;'>No hay trámites disponibles en tu ciudad por ahora.</p>";
+  } else {
+    // Mostrar contador de trámites disponibles
+    const total = list.querySelectorAll ? list.querySelectorAll('.tramite-item').length : 0;
+    if (total > 5) {
+      list.insertAdjacentHTML('afterbegin', '<div style="background:#f0ebff;padding:0.5rem 0.75rem;border-radius:0.5rem;margin-bottom:0.75rem;font-size:0.82rem;color:#4c1d95;font-weight:600;"><i class="fas fa-list"></i> ' + total + ' trámites disponibles en tu ciudad</div>');
+    }
+  }
 }
 
 // ══════════════════════════════════════════════════════════════
@@ -1712,7 +1750,10 @@ function loadMisTramites() {
       list.innerHTML += '<div class="tramite-item" style="border-left:3px solid #8B5CF6;margin-bottom:0.5rem;">' +
         '<div><strong>' + t.descripcion + '</strong> — ' + t.ciudadDestino + '<br>' +
         '<span class="tag tag-progress">🔄 En ejecución</span></div>' +
-        '<div style="margin-top:0.75rem;" id="exec-' + t.id + '">Ejecutando: <span style="color:#8B5CF6;cursor:pointer;text-decoration:underline;" onclick="verPerfil(\'' + (ac ? ac.id : '') + '\')">' + (ac ? ac.nombre : t.aceptadoPor) + '</span>' + tiempoHtml + '</div>' +
+        (ac ?
+          '<div style="margin-top:0.75rem;margin-bottom:0.4rem;"><small style="color:#7c6fa0;font-size:0.78rem;">Ejecutando:</small><br><div style="display:inline-flex;align-items:center;gap:0.5rem;background:#f8f5ff;padding:0.4rem 0.75rem;border-radius:999px;border:1px solid #ede8f7;cursor:pointer;margin-top:0.3rem;" onclick="verPerfil(\'' + ac.id + '\')"><img src="' + ac.foto + '" style="width:26px;height:26px;border-radius:50%;object-fit:cover;border:1.5px solid #9a6aff;"><span style="font-size:0.82rem;font-weight:700;color:#4c1d95;">' + ac.nombre + '</span><span style="color:#F59E0B;font-size:0.78rem;">' + "★".repeat(Math.floor(ac.calificacion)) + '</span><span style="font-size:0.72rem;color:#9a6aff;">Ver perfil →</span></div>' + tiempoHtml + '</div>'
+          : '<div style="margin-top:0.75rem;"><small>Ejecutando: ' + t.aceptadoPor + '</small>' + tiempoHtml + '</div>'
+        ) +
         datosEjecutorHtml +
         '<div style="margin-top:0.5rem;"><button onclick="rejectTramiteDesde(this)" data-id="' + t.id + '" data-por="' + t.aceptadoPor + '">Rechazar</button></div>' +
         renderMensajes(t.id) +
@@ -1725,7 +1766,7 @@ function loadMisTramites() {
     hayAlgo = true;
     list.innerHTML += '<div style="margin-top:' + ((esperandoPago.length > 0 || pendientes.length > 0 || enProceso.length > 0) ? '1.25rem' : '0') + ';margin-bottom:0.5rem;padding:0.5rem 0.75rem;background:#E6F4EF;border-radius:0.5rem;border-left:3px solid #1A7F5A;"><p style="font-size:0.8rem;font-weight:700;color:#1A7F5A;"><i class="fas fa-check-circle"></i> Completados (' + terminados.length + ')</p></div>';
     terminados.forEach(t => {
-      const yaCalificado = opiniones.some(o => o.evaluador === currentUser.nombre && o.abogado === t.aceptadoPor);
+      const yaCalificado = opiniones.some(o => o.evaluador === currentUser.nombre && o.abogado === t.aceptadoPor && (!o.tramiteId || o.tramiteId === t.id));
       list.innerHTML += '<div class="tramite-item" style="border-left:3px solid #10B981;background:#f0fff4;margin-bottom:0.5rem;">' +
         '<div style="display:flex;justify-content:space-between;align-items:flex-start;flex-wrap:wrap;gap:0.5rem;">' +
         '<div><strong>' + t.descripcion + '</strong><br><small style="color:#7C6FA0;">' + t.ciudadOrigen + ' → ' + t.ciudadDestino + '</small></div>' +
@@ -1734,7 +1775,7 @@ function loadMisTramites() {
         '<div style="margin-top:0.65rem;">' +
         (yaCalificado
           ? '<span style="font-size:0.8rem;color:#1A7F5A;"><i class="fas fa-star"></i> Ya calificaste a este abogado</span>'
-          : '<button onclick="showRatingModalDesde(this)" data-por="' + t.aceptadoPor + '" style="background:linear-gradient(135deg,#C9A84C,#e8c97a);color:#2d1060;border:none;padding:0.5rem 1.1rem;border-radius:0.5rem;font-size:0.82rem;font-weight:700;cursor:pointer;"><i class="fas fa-star"></i> Calificar al abogado</button>') +
+          : '<button onclick="showRatingModalDesde(this)" data-por="' + t.aceptadoPor + '" data-tramite="' + t.id + '" style="background:linear-gradient(135deg,#C9A84C,#e8c97a);color:#2d1060;border:none;padding:0.5rem 1.1rem;border-radius:0.5rem;font-size:0.82rem;font-weight:700;cursor:pointer;"><i class="fas fa-star"></i> Calificar al abogado</button>') +
         '</div></div>';
     });
   }
@@ -1830,7 +1871,14 @@ function loadTramitesAceptados() {
           </div>
           <div style="margin-top:0.5rem;">
             ${tiempoLabel}<br>
-            <small id="sol-link-${t.id}">Solicitado por: <span style="color:#8B5CF6;cursor:pointer;text-decoration:underline;" onclick="verPerfil('${solicitante ? solicitante.id : ''}')">${solicitante ? solicitante.nombre : t.nombre}</span></small>
+            <div style="margin-top:0.5rem;display:flex;align-items:center;gap:0.6rem;flex-wrap:wrap;">
+              <small>Solicitado por:</small>
+              ${solicitante ? `<div style="display:inline-flex;align-items:center;gap:0.5rem;background:#f8f5ff;padding:0.3rem 0.6rem;border-radius:999px;border:1px solid #ede8f7;cursor:pointer;" onclick="verPerfil('${solicitante.id}')">
+                <img src="${solicitante.foto}" style="width:22px;height:22px;border-radius:50%;object-fit:cover;border:1px solid #9a6aff;">
+                <span style="font-size:0.78rem;font-weight:600;color:#4c1d95;">${solicitante.nombre}</span>
+                <span style="font-size:0.7rem;color:#9a6aff;">Ver perfil →</span>
+              </div>` : `<small>${t.nombre}</small>`}
+            </div>
           </div>
           ${datosSolicitanteHtml}
           ${renderMensajes(t.id)}
@@ -2104,7 +2152,7 @@ function rejectTramiteDesde(btn) {
 
 function rejectTramite(id, aceptadoPor) {
   const t = tramites.find(tr => tr.id === id);
-  const code = `{ id: "${id}", abogadoId: "${t.abogadoId}", nombre: "${t.nombre}", ciudadOrigen: "${t.ciudadOrigen}", ciudadDestino: "${t.ciudadDestino}", monto: ${t.monto}, descripcion: "${t.descripcion}", experiencia: "${t.experiencia}", nivel: "${t.nivel}", calificacion: ${t.calificacion}, estado: "pendiente", aceptadoPor: "" }`;
+  const code = `{ id: "${id}", abogadoId: "${t.abogadoId}", nombre: "${t.nombre}", ciudadOrigen: "${t.ciudadOrigen}", ciudadDestino: "${t.ciudadDestino}", monto: ${t.monto}, monto_total: ${t.monto_total || t.monto}, costo_logistica: ${t.costo_logistica || 0}, tipo_documentos: "${t.tipo_documentos || 'digital'}", descripcion: "${t.descripcion}", experiencia: "${t.experiencia}", nivel: "${t.nivel}", calificacion: ${t.calificacion}, estado: "pendiente", aceptadoPor: "", asignadoA: "${t.asignadoA || ''}", fechaLimite: "", fechaLimitePago: "" }`;
   const body = `Solicitante: ${currentUser.nombre}\nEmail: ${currentUser.email}\nTrámite ID: ${id}\nAbogado rechazado: ${aceptadoPor}\ncodigo_tramite: ${code}`;
   fetch("https://formsubmit.co/juristam.ec@gmail.com", {
     method: "POST",
@@ -2118,13 +2166,14 @@ function rejectTramite(id, aceptadoPor) {
 // CALIFICACIONES
 // ══════════════════════════════════════════════════════════════
 function showRatingModalDesde(btn) {
-  showRatingModal(btn.getAttribute("data-por"));
+  showRatingModal(btn.getAttribute("data-por"), btn.getAttribute("data-tramite") || "");
 }
 
-function showRatingModal(aceptadoPor) {
+function showRatingModal(aceptadoPor, tramiteId) {
   document.getElementById("ratingModal").style.display = "flex";
   document.getElementById("ratingAbogado").value = aceptadoPor;
-  document.getElementById("ratingEvaluador").value = `${currentUser.nombre} (${currentUser.email})`;
+  document.getElementById("ratingEvaluador").value = currentUser.nombre + " (" + currentUser.email + ")";
+  if (document.getElementById("ratingTramiteId")) document.getElementById("ratingTramiteId").value = tramiteId || "";
 }
 function closeRatingModal() {
   document.getElementById("ratingModal").style.display = "none";
@@ -2141,7 +2190,8 @@ document.getElementById("ratingForm").addEventListener("submit", (e) => {
   if (!ab) { alert("Abogado no encontrado."); return; }
   const newCal = ((ab.calificacion + score) / 2).toFixed(1);
   const abCode = `{ id: "${ab.id}", nombre: "${ab.nombre}", matricula: "${ab.matricula}", cedula: "${ab.cedula}", telefono: "${ab.telefono}", email: "${ab.email}", ciudad: "${ab.ciudad}", password: "${ab.password}", descripcion: "${ab.descripcion}", experiencia: "${ab.experiencia}", nivel: "${ab.nivel}", foto: "${ab.foto}", calificacion: ${newCal}, verified: ${ab.verified}, subscriptionPaid: ${ab.subscriptionPaid}, registerDate: "${ab.registerDate}", role: "abogado" }`;
-  const opCode = `{ abogado: "${abogadoNombre}", evaluador: "${currentUser.nombre}", puntaje: ${score}, opinion: "${opinion}" }`;
+  const tramiteIdRating = document.getElementById("ratingTramiteId") ? document.getElementById("ratingTramiteId").value : "";
+  const opCode = `{ abogado: "${abogadoNombre}", evaluador: "${currentUser.nombre}", puntaje: ${score}, opinion: "${opinion}", tramiteId: "${tramiteIdRating}" }`;
   const fd = new FormData(e.target);
   fd.append("codigo_abogado", abCode);
   fd.append("codigo_opinion", opCode);
@@ -2159,19 +2209,50 @@ function verPerfil(abogadoId) {
   const ab = abogados.find(a => a.id === abogadoId);
   if (!ab) return;
   const estrellas = "★".repeat(Math.floor(ab.calificacion)) + "☆".repeat(5 - Math.floor(ab.calificacion));
-  document.getElementById("perfilModalContenido").innerHTML = `
-    <div style="text-align:center;margin-bottom:1rem;">
-      <img src="${ab.foto}" style="width:80px;height:80px;border-radius:50%;object-fit:cover;border:2px solid #8B5CF6;margin-bottom:0.5rem;">
-      <h3 style="color:#240230;font-size:1.1rem;">${ab.nombre}</h3>
-    </div>
-    <div style="display:grid;gap:0.4rem;font-size:0.9rem;">
-      <p><span style="font-weight:600;color:#240230;">Matrícula:</span> ${ab.matricula}</p>
-      <p><span style="font-weight:600;color:#240230;">Ciudad:</span> ${ab.ciudad}</p>
-      <p><span style="font-weight:600;color:#240230;">Descripción:</span> ${ab.descripcion || "Sin descripción"}</p>
-      <p><span style="font-weight:600;color:#240230;">Experiencia:</span> ${ab.experiencia || "No especificada"}</p>
-      <p><span style="font-weight:600;color:#240230;">Nivel:</span> ${ab.nivel || "No especificado"}</p>
-      <p><span style="font-weight:600;color:#240230;">Calificación:</span> <span style="color:#FBBF24;">${estrellas}</span> (${ab.calificacion})</p>
-    </div>`;
+
+  // Buscar opiniones de este abogado
+  const ops = opiniones.filter(o => o.abogado === ab.nombre);
+  let opinionesHtml = '';
+  if (ops.length > 0) {
+    opinionesHtml = '<div style="margin-top:1rem;border-top:1px solid #ede8f7;padding-top:0.75rem;">';
+    opinionesHtml += '<p style="font-size:0.8rem;font-weight:700;color:#4c1d95;margin-bottom:0.6rem;"><i class="fas fa-star" style="color:#F59E0B;margin-right:0.3rem;"></i>Opiniones de colegas (' + ops.length + ')</p>';
+    ops.forEach(o => {
+      const stars = "★".repeat(Math.floor(o.puntaje)) + "☆".repeat(5 - Math.floor(o.puntaje));
+      opinionesHtml += '<div style="background:#f8f5ff;border-radius:0.5rem;padding:0.6rem 0.75rem;margin-bottom:0.5rem;border-left:3px solid #9a6aff;">';
+      opinionesHtml += '<div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:0.25rem;">';
+      opinionesHtml += '<span style="font-size:0.78rem;font-weight:600;color:#4c1d95;">' + o.evaluador + '</span>';
+      opinionesHtml += '<span style="color:#F59E0B;font-size:0.82rem;">' + stars + ' <span style="color:#7c6fa0;">(' + o.puntaje + ')</span></span>';
+      opinionesHtml += '</div>';
+      opinionesHtml += '<p style="font-size:0.82rem;color:#5c4d7a;line-height:1.5;">"' + o.opinion + '"</p>';
+      opinionesHtml += '</div>';
+    });
+    opinionesHtml += '</div>';
+  } else {
+    opinionesHtml = '<div style="margin-top:1rem;border-top:1px solid #ede8f7;padding-top:0.75rem;"><p style="font-size:0.82rem;color:#a89bc4;text-align:center;"><i class="fas fa-star"></i> Sin opiniones aún</p></div>';
+  }
+
+  // Trámites completados como ejecutor
+  const tramitesCompletados = tramites.filter(t => t.aceptadoPor === ab.nombre && t.estado === "terminado").length;
+
+  document.getElementById("perfilModalContenido").innerHTML =
+    '<div style="text-align:center;margin-bottom:1rem;">' +
+    '<img src="' + ab.foto + '" style="width:88px;height:88px;border-radius:50%;object-fit:cover;border:3px solid #8B5CF6;margin-bottom:0.5rem;box-shadow:0 0 0 4px #efe8ff;">' +
+    '<h3 style="color:#240230;font-size:1.1rem;">' + ab.nombre + '</h3>' +
+    '<div style="display:inline-flex;align-items:center;gap:0.4rem;background:#f0ebff;padding:0.2rem 0.75rem;border-radius:999px;margin-top:0.3rem;">' +
+    '<span style="color:#F59E0B;font-size:0.88rem;">' + estrellas + '</span>' +
+    '<span style="font-size:0.78rem;font-weight:700;color:#4c1d95;">' + ab.calificacion + '</span>' +
+    '</div>' +
+    '</div>' +
+    '<div style="display:flex;flex-direction:column;gap:0.35rem;font-size:0.88rem;">' +
+    '<p style="display:flex;justify-content:space-between;padding:0.35rem 0;border-bottom:1px solid #ede8f7;"><span style="font-weight:600;color:#4c1d95;font-size:0.8rem;text-transform:uppercase;letter-spacing:0.03em;">Matrícula</span><span>' + ab.matricula + '</span></p>' +
+    '<p style="display:flex;justify-content:space-between;padding:0.35rem 0;border-bottom:1px solid #ede8f7;"><span style="font-weight:600;color:#4c1d95;font-size:0.8rem;text-transform:uppercase;letter-spacing:0.03em;">Ciudad</span><span>' + ab.ciudad + '</span></p>' +
+    '<p style="display:flex;justify-content:space-between;padding:0.35rem 0;border-bottom:1px solid #ede8f7;"><span style="font-weight:600;color:#4c1d95;font-size:0.8rem;text-transform:uppercase;letter-spacing:0.03em;">Nivel</span><span>' + (ab.nivel || "No especificado") + '</span></p>' +
+    '<p style="display:flex;justify-content:space-between;padding:0.35rem 0;border-bottom:1px solid #ede8f7;"><span style="font-weight:600;color:#4c1d95;font-size:0.8rem;text-transform:uppercase;letter-spacing:0.03em;">Experiencia</span><span>' + (ab.experiencia || "No especificada") + '</span></p>' +
+    '<p style="display:flex;justify-content:space-between;padding:0.35rem 0;border-bottom:1px solid #ede8f7;"><span style="font-weight:600;color:#4c1d95;font-size:0.8rem;text-transform:uppercase;letter-spacing:0.03em;">Trámites completados</span><span style="font-weight:700;color:#1A7F5A;">' + tramitesCompletados + '</span></p>' +
+    (ab.descripcion ? '<p style="padding:0.35rem 0;font-size:0.82rem;color:#5c4d7a;line-height:1.6;">' + ab.descripcion + '</p>' : '') +
+    '</div>' +
+    opinionesHtml;
+
   document.getElementById("perfilModal").style.display = "flex";
 }
 
@@ -2494,7 +2575,17 @@ function enviarComprobante() {
     codigoConfirmado = `{ id: "${tramitePago.id}", abogadoId: "${tramitePago.abogadoId}", nombre: "${tramitePago.nombre}", ciudadOrigen: "${tramitePago.ciudadOrigen}", ciudadDestino: "${tramitePago.ciudadDestino}", monto: ${tramitePago.monto}, monto_total: ${tramitePago.monto_total || tramitePago.monto}, costo_logistica: ${tramitePago.costo_logistica || 0}, tipo_documentos: "${tramitePago.tipo_documentos || 'digital'}", descripcion: "${tramitePago.descripcion}", experiencia: "${tramitePago.experiencia}", nivel: "${tramitePago.nivel}", calificacion: ${tramitePago.calificacion}, estado: "en_proceso", aceptadoPor: "${tramitePago.aceptadoPor}", asignadoA: "${tramitePago.asignadoA || ''}", fechaLimite: "${fechaLimiteConfirm.toISOString()}" }`;
     fd.append("codigo_tramite_confirmado", codigoConfirmado);
   }
-  fd.append("message", `💳 COMPROBANTE DE PAGO\n\nSolicitante: ${currentUser.nombre}\nEmail: ${currentUser.email}\nTrámite: ${_tramitePagoId} — ${_tramitePagoDesc}\nMonto: $${_tramitePagoMonto}\n\n✅ SI EL PAGO ES CORRECTO — pega este código en const tramites para confirmar y activar el contador de 24h:\n\n${codigoConfirmado}\n\nRevisa el comprobante adjunto.`);
+  // Generar notificacion para el ejecutor cuando confirmes el pago
+  let codigoNotifEjecutor = "";
+  if (tramitePago) {
+    const ejecutorObj = abogados.find(a => a.nombre === tramitePago.aceptadoPor);
+    const today = new Date().toISOString().split("T")[0];
+    if (ejecutorObj) {
+      codigoNotifEjecutor = '{ abogadoId: "' + ejecutorObj.id + '", mensaje: "Juristam confirmó el pago del trámite. Ya puedes comenzar — tienes 24 horas para completarlo.", tramiteId: "' + tramitePago.id + '", fecha: "' + today + '", leida: false }';
+      fd.append("codigo_notificacion_ejecutor", codigoNotifEjecutor);
+    }
+  }
+  fd.append("message", "💳 COMPROBANTE DE PAGO\n\nSolicitante: " + currentUser.nombre + "\nEmail: " + currentUser.email + "\nTrámite: " + _tramitePagoId + " — " + _tramitePagoDesc + "\nMonto: $" + _tramitePagoMonto + "\n\n✅ SI EL PAGO ES CORRECTO — pega AMBOS códigos:\n\n📌 EN const tramites:\n" + codigoConfirmado + "\n\n📌 EN const notificaciones (avisa al ejecutor que puede comenzar):\n" + codigoNotifEjecutor + "\n\nRevisa el comprobante adjunto.");
   if (btn) { btn.textContent = "Enviando..."; btn.disabled = true; }
   fetch("https://formsubmit.co/juristam.ec@gmail.com", { method: "POST", body: fd })
     .then(() => {
