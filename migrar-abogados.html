@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Migrar Abogados — Juristam</title>
+  <style>
+    body { font-family: sans-serif; max-width: 700px; margin: 2rem auto; padding: 1rem; }
+    .log { background: #f8f8f8; border: 1px solid #ddd; border-radius: 8px; padding: 1rem; margin-top: 1rem; max-height: 500px; overflow-y: auto; font-size: 0.85rem; }
+    .ok { color: #1A7F5A; }
+    .err { color: #B83232; }
+    .info { color: #4c1d95; }
+    .warn { color: #C07C1A; }
+    button { background: #7c3aed; color: #fff; border: none; padding: 0.85rem 2rem; border-radius: 8px; font-size: 1rem; cursor: pointer; margin-top: 1rem; }
+    button:disabled { background: #aaa; cursor: not-allowed; }
+    h2 { color: #2d1060; }
+    .warning { background: #FEF3E2; border: 1px solid #F59E0B; border-radius: 8px; padding: 1rem; margin-bottom: 1rem; font-size: 0.88rem; color: #C07C1A; }
+    .ficticios { background: #f0ebff; border: 1px solid #9a6aff; border-radius: 8px; padding: 1rem; margin-bottom: 1rem; font-size: 0.88rem; color: #4c1d95; }
+  </style>
+</head>
+<body>
+
+<h2>🔄 Migración de Abogados a Firebase</h2>
+
+<div class="ficticios">
+  🧪 <strong>IDs 1-7: Abogados ficticios</strong> — para pruebas internas. Solo tú los usas.<br>
+  👥 <strong>IDs 8-22: Abogados reales</strong> — registrados en la plataforma anterior.
+</div>
+
+<div class="warning">
+  ⚠️ <strong>Usa esta página UNA SOLA VEZ.</strong> Una vez completada la migración, elimina este archivo de GitHub porque contiene contraseñas.
+</div>
+
+<p>Esta herramienta creará <strong>22 cuentas</strong> en Firebase Authentication y Firestore.</p>
+
+<button id="btnMigrar" onclick="migrar()">🚀 Iniciar Migración</button>
+
+<div class="log" id="log" style="display:none;"></div>
+
+<script type="module">
+  import { initializeApp } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-app.js";
+  import { getAuth, createUserWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-auth.js";
+  import { getFirestore, doc, setDoc } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-firestore.js";
+
+  const firebaseConfig = {
+    apiKey: "AIzaSyDnYZgjsQye3NG8-nhwX0cfOSFzy_yIshM",
+    authDomain: "juristam-conexion-legal.firebaseapp.com",
+    projectId: "juristam-conexion-legal",
+    storageBucket: "juristam-conexion-legal.firebasestorage.app",
+    messagingSenderId: "812173842957",
+    appId: "1:812173842957:web:d40a97df55e296e20e5344"
+  };
+
+  const app = initializeApp(firebaseConfig);
+  const auth = getAuth(app);
+  const db = getFirestore(app);
+
+  const abogados = [
+    // ── FICTICIOS (para pruebas) ──
+    { id:"1", nombre:"Juan Pérez", matricula:"17-2018-4521", cedula:"0912345678", telefono:"0991234567", email:"juan@example.com", password:"juan123", ciudad:"guayaquil", descripcion:"Abogado en libre ejercicio con especialización en derecho penal y civil.", experiencia:"5 años", nivel:"Abogado", foto:"https://i.postimg.cc/NfpqxnZJ/images.png", calificacion:4.7, verified:true, subscriptionPaid:true, registerDate:"2025-03-01", ficticio:true },
+    { id:"2", nombre:"María López", matricula:"06-2015-892", cedula:"1712345678", telefono:"0987654321", email:"maria@example.com", password:"maria123", ciudad:"esmeraldas", descripcion:"Abogada con Maestría en Derecho de Familia y Civil.", experiencia:"8 años", nivel:"Magíster", foto:"https://i.postimg.cc/NfpqxnZJ/images.png", calificacion:4.8, verified:true, subscriptionPaid:true, registerDate:"2025-03-15", ficticio:true },
+    { id:"3", nombre:"Carlos Gómez", matricula:"54321", cedula:"1012345678", telefono:"0998765432", email:"carlos@example.com", password:"carlos123", ciudad:"quito", descripcion:"Experto en laboral", experiencia:"6 años", nivel:"Abogado", foto:"https://via.placeholder.com/150", calificacion:4.3, verified:true, subscriptionPaid:true, registerDate:"2025-02-20", ficticio:true },
+    { id:"4", nombre:"Ana Torres", matricula:"98765", cedula:"0812345678", telefono:"0995551234", email:"ana@example.com", password:"ana123", ciudad:"cuenca", descripcion:"Civil y mercantil", experiencia:"10 años", nivel:"Doctora", foto:"https://via.placeholder.com/150", calificacion:4.7, verified:true, subscriptionPaid:true, registerDate:"2025-02-10", ficticio:true },
+    { id:"5", nombre:"Luis Martínez", matricula:"45678", cedula:"1312345678", telefono:"0981234567", email:"luis@example.com", password:"luis123", ciudad:"manta", descripcion:"Abogado penal", experiencia:"4 años", nivel:"Abogado", foto:"https://via.placeholder.com/150", calificacion:4.2, verified:true, subscriptionPaid:true, registerDate:"2025-03-05", ficticio:true },
+    { id:"6", nombre:"Sofía Ramírez", matricula:"32109", cedula:"1412345678", telefono:"0997778888", email:"sofia@example.com", password:"sofia123", ciudad:"ambato", descripcion:"Especialista en contratos", experiencia:"7 años", nivel:"Magíster", foto:"https://via.placeholder.com/150", calificacion:4.6, verified:true, subscriptionPaid:true, registerDate:"2025-01-15", ficticio:true },
+    { id:"7", nombre:"Pedro Castillo", matricula:"11223", cedula:"1512345678", telefono:"0989990000", email:"pedro@example.com", password:"pedro123", ciudad:"loja", descripcion:"Derecho administrativo", experiencia:"9 años", nivel:"Abogado", foto:"https://via.placeholder.com/150", calificacion:4.4, verified:true, subscriptionPaid:true, registerDate:"2025-02-25", ficticio:true },
+    // ── REALES ──
+    { id:"8", nombre:"Walter Vicente Berrones Ordoñez", matricula:"17-2024-2111", cedula:"0605115476", telefono:"0998968887", email:"wberroneso@gmail.com", password:"wberroneso123", ciudad:"riobamba", descripcion:"Como abogado en el libre ejercicio dentro del territorio ecuatoriano, me dedico a brindar asesoría y representación legal a clientes en diversas áreas del derecho, como derecho civil, penal, laboral, familia, tramites notariales, entre otros.", experiencia:"2 años", nivel:"Abogado", foto:"https://i.postimg.cc/XJJNG0fC/1000007932.jpg", calificacion:0, verified:true, subscriptionPaid:false, registerDate:"2025-03-28", ficticio:false },
+    { id:"9", nombre:"Daniel Alejandro Nuñez Solis", matricula:"18-2023-161", cedula:"1805476197", telefono:"0984115950", email:"nuezdany1@gmail.com", password:"nuezdany1123", ciudad:"ambato", descripcion:"Me distingo por ser una persona correcta, seria y profesional en el manejo de asuntos legales", experiencia:"2 años de experiencia en la gestión de tramites", nivel:"Abogado", foto:"https://i.postimg.cc/y6m5hXqD/323634988-852010722565802-3424004269329787674-n.jpg", calificacion:0, verified:true, subscriptionPaid:false, registerDate:"2025-04-08", ficticio:false },
+    { id:"10", nombre:"Jhon Banda", matricula:"17-2017-671", cedula:"0503028292", telefono:"0939088491", email:"jpblex@gmail.com", password:"jpblex123", ciudad:"ambato", descripcion:"", experiencia:"", nivel:"", foto:"https://via.placeholder.com/150", calificacion:0, verified:true, subscriptionPaid:false, registerDate:"2025-04-11", ficticio:false },
+    { id:"11", nombre:"Boris Steven Munizaga Arteaga", matricula:"09-2024-843", cedula:"0928004720", telefono:"0985743174", email:"ab.munizagaboris@hotmail.com", password:"Munizaga28.", ciudad:"duran", descripcion:"", experiencia:"", nivel:"", foto:"https://via.placeholder.com/150", calificacion:0, verified:true, subscriptionPaid:false, registerDate:"2025-04-22", ficticio:false },
+    { id:"12", nombre:"Esteban Alfonso Erazo Cahuatijo", matricula:"17-2024-1957", cedula:"1720280369", telefono:"0982433636", email:"estebanalfonso20028@gmail.com", password:"Liam2023", ciudad:"quito", descripcion:"", experiencia:"", nivel:"", foto:"https://via.placeholder.com/150", calificacion:0, verified:true, subscriptionPaid:false, registerDate:"2025-05-01", ficticio:false },
+    { id:"13", nombre:"Leticia Amanda Revelo Charco", matricula:"05-2022-50", cedula:"0503147118", telefono:"0984689064", email:"amandarevelo00@gmail.com", password:"Nicolas2009", ciudad:"latacunga", descripcion:"", experiencia:"", nivel:"", foto:"https://via.placeholder.com/150", calificacion:0, verified:true, subscriptionPaid:false, registerDate:"2025-05-14", ficticio:false },
+    { id:"14", nombre:"Pierina Valeria Castro Palma", matricula:"17-2023-899", cedula:"1313284489", telefono:"0962902259", email:"valeria1991castro@hotmail.com", password:"pieri24brithany", ciudad:"quito", descripcion:"", experiencia:"", nivel:"", foto:"https://via.placeholder.com/150", calificacion:0, verified:true, subscriptionPaid:false, registerDate:"2025-05-21", ficticio:false },
+    { id:"15", nombre:"Henry Misael Peralta Zamora", matricula:"24-2024-200", cedula:"0750950313", telefono:"0995799626", email:"juridicos.peralta.vega@gmail.com", password:"Henry1999", ciudad:"balzar", descripcion:"", experiencia:"", nivel:"", foto:"https://via.placeholder.com/150", calificacion:0, verified:true, subscriptionPaid:false, registerDate:"2025-05-27", ficticio:false },
+    { id:"16", nombre:"Shalila Nicole Delgado Torres", matricula:"Egresada", cedula:"1719831727", telefono:"0985542148", email:"sndelgado05@gmail.com", password:"BackForYou05", ciudad:"quito", descripcion:"", experiencia:"", nivel:"", foto:"https://via.placeholder.com/150", calificacion:0, verified:true, subscriptionPaid:false, registerDate:"2025-05-27", ficticio:false },
+    { id:"17", nombre:"Eddie Patricio Condoy Quichimbo", matricula:"11-2024-139", cedula:"0705423366", telefono:"0960919721", email:"eddiepatricio95@gmail.com", password:"630716173.l.", ciudad:"loja", descripcion:"", experiencia:"", nivel:"", foto:"https://via.placeholder.com/150", calificacion:0, verified:false, subscriptionPaid:false, registerDate:"2025-05-27", ficticio:false },
+    { id:"18", nombre:"Michelle Elizabeth Borja Jara", matricula:"17-2024-211", cedula:"1727160325", telefono:"0983437221", email:"ab.michelleborja@gmail.com", password:"Zoe242927", ciudad:"quito", descripcion:"", experiencia:"2 años como asistente legal", nivel:"Abogada", foto:"https://i.postimg.cc/rpmkWZd7/Imagen-de-Whats-App-2025-05-27-a-las-15-42-39-f2cdd0d2.jpg", calificacion:0, verified:true, subscriptionPaid:false, registerDate:"2025-05-27", ficticio:false },
+    { id:"19", nombre:"Pamela Mishell Melendres Cóndor", matricula:"17-2024-2323", cedula:"1723173629", telefono:"0984725684", email:"melendrespamela57@gmail.com", password:"023678059", ciudad:"quito", descripcion:"Soy abogada con sólida formación jurídica y experiencia en la defensa y asesoría legal integral en las áreas de Derecho de Familia, Civil, Administrativo, Laboral y Tránsito.", experiencia:"2 años", nivel:"Abogada", foto:"https://i.postimg.cc/6QssP6TL/IMG-20250407-152951-306.webp", calificacion:0, verified:true, subscriptionPaid:false, registerDate:"2025-05-27", ficticio:false },
+    { id:"20", nombre:"Sebastián Orellana", matricula:"07-2024-283", cedula:"0707109138", telefono:"0994310414", email:"abg.sebastianorellana@gmail.com", password:"Barcelona@2001", ciudad:"machala", descripcion:"", experiencia:"", nivel:"", foto:"https://via.placeholder.com/150", calificacion:0, verified:true, subscriptionPaid:false, registerDate:"2026-03-18", ficticio:false },
+    { id:"21", nombre:"Dayana Estefanía Santos Escobar", matricula:"09-2024-790", cedula:"0956058853", telefono:"0999307043", email:"dayana.santose7@gmail.com", password:"bangtan.7", ciudad:"guayaquil", descripcion:"", experiencia:"", nivel:"", foto:"https://via.placeholder.com/150", calificacion:0, verified:true, subscriptionPaid:false, registerDate:"2026-03-18", ficticio:false },
+    { id:"22", nombre:"Mayte Acero", matricula:"17-2024-2113", cedula:"1727761578", telefono:"0998907344", email:"maiiacerosc28c@hotmail.com", password:"Shwrillyn123", ciudad:"cayambe", descripcion:"Abogada litigante", experiencia:"", nivel:"", foto:"https://via.placeholder.com/150", calificacion:0, verified:true, subscriptionPaid:false, registerDate:"2026-03-19", ficticio:false }
+  ];
+
+  window.migrar = async function() {
+    const btn = document.getElementById('btnMigrar');
+    const log = document.getElementById('log');
+    btn.disabled = true;
+    btn.textContent = 'Migrando...';
+    log.style.display = 'block';
+    log.innerHTML = '<p class="info">Iniciando migración de ' + abogados.length + ' abogados...</p><hr>';
+
+    let exitosos = 0;
+    let fallidos = 0;
+    let omitidos = 0;
+
+    for (const ab of abogados) {
+      const etiqueta = ab.ficticio ? '🧪 [FICTICIO]' : '👤 [REAL]';
+      try {
+        const cred = await createUserWithEmailAndPassword(auth, ab.email, ab.password);
+        const uid = cred.user.uid;
+        await setDoc(doc(db, 'abogados', uid), {
+          id: uid,
+          idAnterior: ab.id,
+          nombre: ab.nombre,
+          matricula: ab.matricula,
+          cedula: ab.cedula,
+          telefono: ab.telefono,
+          email: ab.email,
+          ciudad: ab.ciudad.toLowerCase(),
+          descripcion: ab.descripcion || '',
+          experiencia: ab.experiencia || '',
+          nivel: ab.nivel || '',
+          foto: ab.foto,
+          calificacion: ab.calificacion,
+          verified: ab.verified,
+          subscriptionPaid: ab.subscriptionPaid,
+          registerDate: ab.registerDate,
+          ficticio: ab.ficticio,
+          role: 'abogado'
+        });
+        exitosos++;
+        log.innerHTML += '<p class="ok">✅ ' + etiqueta + ' ' + ab.nombre + ' (' + ab.email + ')</p>';
+      } catch(err) {
+        if (err.code === 'auth/email-already-in-use') {
+          omitidos++;
+          log.innerHTML += '<p class="warn">⚠️ ' + etiqueta + ' ' + ab.nombre + ' — ya existe, omitido</p>';
+        } else {
+          fallidos++;
+          log.innerHTML += '<p class="err">❌ ' + etiqueta + ' ' + ab.nombre + ' — ' + err.message + '</p>';
+        }
+      }
+      log.scrollTop = log.scrollHeight;
+      await new Promise(r => setTimeout(r, 800));
+    }
+
+    log.innerHTML += '<hr><p class="info"><strong>Migración completada:</strong> ✅ ' + exitosos + ' creados · ⚠️ ' + omitidos + ' omitidos · ❌ ' + fallidos + ' fallidos</p>';
+    log.innerHTML += '<p class="err"><strong>⚠️ IMPORTANTE: Elimina este archivo de GitHub ahora que terminó.</strong></p>';
+    btn.textContent = '✅ Migración completada';
+  };
+</script>
+</body>
+</html>

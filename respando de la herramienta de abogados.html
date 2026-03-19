@@ -1,0 +1,2857 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <link rel="icon" type="image/png" href="https://i.postimg.cc/MHtnYCtQ/Diseno-sin-titulo-(8).png">
+  <link rel="apple-touch-icon" href="https://i.postimg.cc/MHtnYCtQ/Diseno-sin-titulo-(8).png">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Juristam Conexión Legal EC</title>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <style>
+  /* ── VARIABLES JURISTAM ── */
+  :root {
+    --purple: #7c3aed;
+    --purple-mid: #9a6aff;
+    --purple-light: #efe8ff;
+    --purple-dark: #4c1d95;
+    --purple-xdark: #2d1060;
+    --white: #FFFFFF;
+    --off-white: #F9F7FF;
+    --gray-100: #EDE9F8;
+    --gray-300: #C4B5F4;
+    --gray-500: #7C6FA0;
+    --gray-700: #3D2F6B;
+    --success: #1A7F5A;
+    --warning: #C07C1A;
+    --danger: #B83232;
+    --accent: #C9A84C;
+    --radius: 0.75rem;
+    --shadow-sm: 0 1px 4px rgba(76,29,149,0.08);
+    --shadow-md: 0 4px 16px rgba(76,29,149,0.14);
+    --shadow-lg: 0 8px 32px rgba(76,29,149,0.2);
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
+
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: var(--off-white);
+    color: var(--purple-xdark);
+    line-height: 1.6;
+    overflow-x: hidden;
+    font-size: 15px;
+  }
+
+  h1, h2, h3 { font-family: 'DM Serif Display', serif; font-weight: 400; }
+
+  /* ── CONTENEDORES ── */
+  .container { max-width: 1440px; margin: 0 auto; padding: 1rem; display: grid; gap: 1rem; }
+
+  /* ── HEADER LOGIN ── */
+  .main-header {
+    background: linear-gradient(135deg, var(--purple-xdark) 0%, var(--purple) 100%);
+    color: var(--white);
+    padding: 2.5rem 1.5rem 2rem;
+    text-align: center;
+    border-radius: var(--radius);
+    position: relative;
+    overflow: hidden;
+  }
+  .main-header::before {
+    content: '';
+    position: absolute;
+    top: -50px; right: -50px;
+    width: 200px; height: 200px;
+    background: var(--purple-mid);
+    opacity: 0.2;
+    border-radius: 50%;
+  }
+  .main-header::after {
+    content: '';
+    position: absolute;
+    bottom: -70px; left: -40px;
+    width: 240px; height: 240px;
+    background: var(--purple-dark);
+    opacity: 0.15;
+    border-radius: 50%;
+  }
+  .main-header h1 {
+    font-size: clamp(1.6rem, 5vw, 2.4rem);
+    letter-spacing: -0.02em;
+    color: var(--white);
+    margin-bottom: 0.25rem;
+    position: relative;
+    z-index: 1;
+  }
+  .main-header h1 span { color: #C9B8FF; }
+  .main-header p { font-size: 0.88rem; opacity: 0.7; letter-spacing: 0.03em; position: relative; z-index: 1; }
+
+  /* ── SECCIONES ── */
+  .main { display: flex; flex-direction: column; gap: 1rem; }
+  .section {
+    background: var(--white);
+    padding: 1.5rem;
+    border-radius: var(--radius);
+    box-shadow: var(--shadow-sm);
+    border: 1px solid var(--gray-100);
+  }
+  h2 {
+    font-size: 1.3rem;
+    color: var(--purple-dark);
+    margin-bottom: 1.25rem;
+    padding-bottom: 0.6rem;
+    border-bottom: 2px solid var(--purple-mid);
+    display: inline-block;
+  }
+
+  /* ── FORMULARIOS ── */
+  form { display: grid; gap: 0.75rem; }
+  input, textarea, select {
+    padding: 0.75rem 1rem;
+    border: 1.5px solid var(--gray-300);
+    border-radius: 0.5rem;
+    font-size: 0.9rem;
+    font-family: 'DM Sans', sans-serif;
+    background: var(--white);
+    color: var(--purple-xdark);
+    transition: border-color 0.2s, box-shadow 0.2s;
+    width: 100%;
+  }
+  input:focus, textarea:focus, select:focus {
+    border-color: var(--purple-mid);
+    box-shadow: 0 0 0 3px rgba(154,106,255,0.15);
+    outline: none;
+  }
+  input::placeholder, textarea::placeholder { color: var(--gray-500); font-size: 0.88rem; }
+  input[type=radio], input[type=checkbox] { width: auto; flex-shrink: 0; }
+
+  /* ── BOTONES ── */
+  button {
+    background: var(--purple);
+    color: var(--white);
+    border: none;
+    padding: 0.75rem 1.5rem;
+    border-radius: 0.5rem;
+    font-weight: 600;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.9rem;
+    cursor: pointer;
+    transition: background 0.2s, transform 0.15s, box-shadow 0.2s;
+    letter-spacing: 0.01em;
+  }
+  button:hover { background: var(--purple-dark); box-shadow: var(--shadow-md); transform: translateY(-1px); }
+  button:active { transform: translateY(0); }
+
+  .btn-primary {
+    background: linear-gradient(135deg, var(--purple) 0%, var(--purple-mid) 100%);
+    color: var(--white);
+  }
+  .btn-primary:hover { background: linear-gradient(135deg, var(--purple-dark) 0%, var(--purple) 100%); }
+
+  .edit-button {
+    background: var(--purple-light);
+    color: var(--purple-dark);
+    border: 1.5px solid var(--gray-300);
+    padding: 0.6rem 1.2rem;
+    border-radius: 0.5rem;
+    font-weight: 500;
+  }
+  .edit-button:hover { background: var(--gray-300); box-shadow: none; transform: none; }
+
+  .message { text-align: center; margin-top: 0.5rem; font-size: 0.85rem; color: var(--gray-500); }
+
+  /* ── SIDEBAR ── */
+  .sidebar {
+    background: linear-gradient(180deg, var(--purple-xdark) 0%, var(--purple-dark) 100%);
+    border-radius: var(--radius);
+    padding: 0.75rem 0.5rem;
+    display: flex;
+    flex-direction: column;
+    box-shadow: var(--shadow-md);
+  }
+  .sidebar .header {
+    padding: 1rem 0.75rem 0.85rem;
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+    margin-bottom: 0.5rem;
+  }
+  .sidebar .header h1 {
+    font-size: 0.92rem;
+    color: var(--white);
+    line-height: 1.4;
+    font-family: 'DM Serif Display', serif;
+  }
+  .sidebar .header h1 span { color: #C9B8FF; }
+  .sidebar nav ul { list-style: none; display: flex; flex-direction: column; gap: 0.15rem; }
+  .sidebar nav ul li a {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    color: rgba(255,255,255,0.6);
+    font-weight: 500;
+    padding: 0.6rem 0.75rem;
+    border-radius: 0.5rem;
+    transition: all 0.2s;
+    font-size: 0.84rem;
+    cursor: pointer;
+    text-decoration: none;
+  }
+  .sidebar nav ul li a:hover {
+    background: rgba(154,106,255,0.2);
+    color: var(--white);
+    transform: translateX(3px);
+  }
+  .sidebar nav ul li a i {
+    font-size: 0.88rem;
+    width: 16px;
+    text-align: center;
+    color: var(--purple-mid);
+  }
+  .sidebar nav ul li a:hover i { color: #C9B8FF; }
+
+  /* ── HAMBURGER ── */
+  .menu-toggle {
+    display: none;
+    background: var(--purple);
+    color: var(--white);
+    border: none;
+    padding: 0.65rem 0.8rem;
+    font-size: 1.1rem;
+    border-radius: 0.5rem;
+    cursor: pointer;
+    position: fixed;
+    top: 0.75rem;
+    left: 0.75rem;
+    z-index: 1001;
+    box-shadow: var(--shadow-md);
+  }
+
+  /* ── PERFIL ── */
+  .profile-pic {
+    width: clamp(70px,15vw,88px);
+    height: clamp(70px,15vw,88px);
+    border-radius: 50%;
+    object-fit: cover;
+    border: 3px solid var(--purple-mid);
+    margin: 0 auto 0.75rem;
+    display: block;
+    box-shadow: 0 0 0 4px var(--purple-light);
+  }
+  .profile-header { text-align: center; padding-bottom: 1rem; border-bottom: 1px solid var(--gray-100); margin-bottom: 1rem; }
+  .profile-header h3 { font-size: 1.1rem; color: var(--purple-dark); margin-top: 0.25rem; }
+  .profile-info { display: grid; gap: 0.4rem; font-size: 0.88rem; }
+  .profile-info p { display: flex; gap: 0.5rem; padding: 0.45rem 0; border-bottom: 1px solid var(--gray-100); }
+  .profile-info p span:first-child { font-weight: 600; color: var(--purple); min-width: 100px; font-size: 0.82rem; text-transform: uppercase; letter-spacing: 0.04em; }
+
+  #editProfileForm, #editProfileModal { display: none; position: absolute; top: 0; left: 0; width: 100%; height: 100%; }
+  #editProfileForm.hidden, #editProfileModal.hidden { display: none !important; }
+
+  /* ── ITEMS ── */
+  .tramite-item {
+    padding: 1rem;
+    border-bottom: 1px solid var(--gray-100);
+    transition: background 0.15s;
+  }
+  .tramite-item:last-child { border-bottom: none; }
+  .tramite-item:hover { background: var(--off-white); }
+  .abogado-item { padding: 0.85rem 1rem; border-bottom: 1px solid var(--gray-100); font-size: 0.88rem; }
+  .notificacion-item { padding: 1rem; border-bottom: 1px solid var(--gray-100); font-size: 0.88rem; cursor: pointer; transition: background 0.2s; }
+  .notificacion-item:hover { background: var(--purple-light); }
+  .notificacion-item.nueva { background: #F0EBFF; border-left: 3px solid var(--purple-mid); }
+  .notificacion-item.nueva:hover { background: #E8E0FF; }
+  .notificacion-item .notif-fecha { font-size: 0.72rem; color: var(--gray-500); margin-top: 0.2rem; }
+  .notificacion-item .notif-ir { font-size: 0.75rem; color: var(--purple); font-weight: 600; margin-top: 0.3rem; }
+
+  .tramite-details, .tramite-actions { display: flex; flex-direction: column; gap: 0.5rem; }
+  .tramite-actions { align-items: flex-start; margin-top: 0.75rem; }
+  .rating { color: #F59E0B; font-size: 1rem; }
+
+  /* ── ESTADOS / TAGS ── */
+  .status-pending { color: var(--warning); font-weight: 600; font-size: 0.85rem; }
+  .status-in-progress { color: var(--purple); font-weight: 600; font-size: 0.85rem; }
+  .status-completed { color: var(--success); font-weight: 600; font-size: 0.85rem; }
+  .hidden { display: none; }
+
+  .tag {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.3rem;
+    padding: 0.2rem 0.65rem;
+    border-radius: 999px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.02em;
+  }
+  .tag-pending { background: #FEF3E2; color: var(--warning); }
+  .tag-progress { background: var(--purple-light); color: var(--purple); }
+  .tag-done { background: #E6F4EF; color: var(--success); }
+
+  /* ── MODAL ── */
+  .modal {
+    display: none;
+    position: fixed;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    background: rgba(45,16,96,0.6);
+    z-index: 1000;
+    align-items: center;
+    justify-content: center;
+    backdrop-filter: blur(3px);
+  }
+  .modal-content {
+    background: var(--white);
+    padding: 1.75rem;
+    border-radius: var(--radius);
+    width: 92%;
+    max-width: 420px;
+    box-shadow: var(--shadow-lg);
+    animation: slideIn 0.25s ease-out;
+    position: relative;
+    border-top: 4px solid var(--purple-mid);
+  }
+  @keyframes slideIn { from { transform: translateY(-16px); opacity: 0; } to { transform: translateY(0); opacity: 1; } }
+  .modal-content h3 { font-size: 1.2rem; margin-bottom: 1rem; color: var(--purple-dark); }
+  .close-modal {
+    position: absolute;
+    top: 1rem; right: 1rem;
+    font-size: 1.3rem;
+    color: var(--gray-500);
+    cursor: pointer;
+    background: none;
+    border: none;
+    box-shadow: none;
+    padding: 0;
+    line-height: 1;
+  }
+  .close-modal:hover { color: var(--purple); background: none; transform: none; box-shadow: none; }
+
+  /* ── MENSAJES ── */
+  .mensajes-container { margin-top: 1rem; border: 1.5px solid var(--gray-100); border-radius: 0.75rem; overflow: hidden; }
+  .mensajes-header {
+    background: linear-gradient(135deg, var(--purple-xdark), var(--purple));
+    color: var(--white);
+    padding: 0.6rem 1rem;
+    font-size: 0.82rem;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+  .mensajes-header i { color: #C9B8FF; }
+  .mensajes-body {
+    max-height: 200px;
+    overflow-y: auto;
+    padding: 0.75rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    background: var(--off-white);
+  }
+  .msg-burbuja { padding: 0.5rem 0.75rem; border-radius: 0.6rem; font-size: 0.85rem; max-width: 82%; line-height: 1.5; }
+  .msg-enviado { background: var(--purple); color: var(--white); align-self: flex-end; border-bottom-right-radius: 2px; }
+  .msg-recibido { background: var(--white); color: var(--purple-xdark); align-self: flex-start; border-bottom-left-radius: 2px; border: 1px solid var(--gray-100); }
+  .msg-sistema { background: #FFFBEA; color: #7A5C00; border: 1px solid #F0D88A; align-self: center; font-size: 0.75rem; text-align: center; border-radius: 0.4rem; padding: 0.35rem 0.65rem; }
+  .msg-bloqueado { background: #FFF0F0; color: var(--danger); border: 1px solid #F5C0C0; align-self: center; font-size: 0.75rem; text-align: center; border-radius: 0.4rem; padding: 0.35rem 0.65rem; }
+  .msg-meta { font-size: 0.65rem; opacity: 0.55; margin-top: 3px; }
+  .msg-sin-mensajes { text-align: center; color: var(--gray-500); font-size: 0.82rem; padding: 1rem; }
+  .mensajes-footer { padding: 0.6rem; background: var(--white); border-top: 1px solid var(--gray-100); display: flex; gap: 0.5rem; align-items: flex-end; }
+  .mensajes-footer textarea { flex: 1; padding: 0.5rem 0.75rem; font-size: 0.85rem; border-radius: 0.5rem; border: 1.5px solid var(--gray-300); background: var(--white); resize: none; min-height: 38px; max-height: 80px; font-family: 'DM Sans', sans-serif; }
+  .mensajes-footer button { padding: 0.5rem 0.85rem; font-size: 0.82rem; border-radius: 0.5rem; white-space: nowrap; background: var(--purple); }
+  .mensajes-footer button:hover { background: var(--purple-dark); }
+
+  /* ── BADGE ── */
+  .nav-badge {
+    background: #E53E3E;
+    color: var(--white);
+    font-size: 0.62rem;
+    font-weight: 700;
+    border-radius: 999px;
+    padding: 0.1rem 0.4rem;
+    margin-left: auto;
+    min-width: 18px;
+    text-align: center;
+    display: inline-block;
+  }
+
+  /* ── PANEL JURISTAM MENSAJES ── */
+  .msg-revision-item { padding: 0.85rem 1rem; border-bottom: 1px solid var(--gray-100); display: flex; flex-direction: column; gap: 0.4rem; }
+  .msg-revision-item .msg-texto { font-size: 0.88rem; color: var(--purple-xdark); background: var(--purple-light); padding: 0.5rem 0.75rem; border-radius: 0.5rem; border-left: 3px solid var(--purple-mid); }
+  .msg-revision-acciones { display: flex; gap: 0.5rem; margin-top: 0.25rem; }
+  .btn-aprobar { background: var(--success) !important; font-size: 0.78rem; padding: 0.35rem 0.85rem; border-radius: 0.4rem; }
+  .btn-aprobar:hover { background: #155C42 !important; }
+  .btn-rechazar { background: var(--danger) !important; font-size: 0.78rem; padding: 0.35rem 0.85rem; border-radius: 0.4rem; }
+  .btn-rechazar:hover { background: #8C2020 !important; }
+
+  /* ── RESPONSIVE ── */
+  @media (min-width: 1024px) {
+    #abogadoPanel.container { grid-template-columns: 200px 1fr; align-items: start; padding-top: 0.75rem; }
+    .sidebar { position: sticky; top: 0.75rem; align-self: start; }
+    .main { padding-left: 0.5rem; padding-top: 0; }
+    /* form grid eliminado para evitar columnas en formularios complejos */
+    .profile-info { grid-template-columns: 1fr 2fr; }
+    .tramite-details { flex-direction: row; justify-content: space-between; align-items: flex-start; }
+  }
+  @media (max-width: 1023px) {
+    .container { grid-template-columns: 1fr; padding-top: 0.5rem; }
+    .menu-toggle { display: flex; align-items: center; justify-content: center; }
+    .sidebar {
+      position: fixed;
+      top: 0; left: -100%;
+      width: 220px;
+      height: 100vh;
+      border-radius: 0;
+      z-index: 1000;
+      padding: 1rem 0.5rem;
+      overflow-y: auto;
+      transition: left 0.25s ease;
+    }
+    .sidebar.active { left: 0; }
+    .main { padding: 3.5rem 0 1rem; }
+  }
+  @media (max-width: 640px) {
+    .section { padding: 1rem; }
+    .profile-pic { width: 72px; height: 72px; }
+    button { padding: 0.7rem 1rem; }
+    .modal-content { padding: 1.25rem; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ══════════════════════════ PANTALLA PRINCIPAL ══════════════════════════ -->
+<div id="mainScreen" style="
+  min-height:100vh;
+  background:linear-gradient(135deg, #2d1060 0%, #4c1d95 50%, #3d1580 100%);
+  display:flex; align-items:center; justify-content:center;
+  padding:1.5rem; position:relative; overflow:hidden;
+">
+  <div style="position:absolute;top:-100px;right:-100px;width:400px;height:400px;background:radial-gradient(circle,rgba(154,106,255,0.12) 0%,transparent 70%);border-radius:50%;pointer-events:none;"></div>
+  <div style="position:absolute;bottom:-120px;left:-80px;width:500px;height:500px;background:radial-gradient(circle,rgba(124,58,237,0.08) 0%,transparent 70%);border-radius:50%;pointer-events:none;"></div>
+
+  <div style="width:100%;max-width:440px;position:relative;z-index:1;">
+
+    <!-- Logo centrado arriba -->
+    <div style="text-align:center;margin-bottom:1.5rem;">
+      <img src="https://i.postimg.cc/hjNnRpj8/oie_transparent_(2).png" alt="Juristam" style="height:130px;margin-bottom:0.6rem;">
+      <h1 style="font-family:'DM Serif Display',serif;font-size:1.1rem;color:#fff;font-weight:400;letter-spacing:0.01em;">
+        Juristam <span style="color:#c9b8ff;">Conexión</span> Legal EC
+      </h1>
+      <p style="color:rgba(255,255,255,0.45);font-size:0.75rem;letter-spacing:0.05em;text-transform:uppercase;margin-top:0.2rem;">Red profesional de abogados · Ecuador</p>
+    </div>
+
+    <!-- CARD -->
+    <div style="background:#fff;border-radius:1.25rem;box-shadow:0 24px 60px rgba(10,0,30,0.4);overflow:hidden;">
+
+      <!-- TABS -->
+      <div style="display:flex;background:#f8f5ff;border-bottom:1px solid #ede8f7;">
+        <button id="tabLoginBtn" onclick="showTab('login')" style="
+          flex:1;padding:1rem;border:none;background:transparent;
+          font-family:'DM Sans',sans-serif;font-size:0.88rem;font-weight:700;
+          color:#7c3aed;cursor:pointer;border-bottom:2px solid #7c3aed;
+          transition:all 0.2s;
+        ">Iniciar Sesión</button>
+        <button id="tabRegisterBtn" onclick="showTab('register')" style="
+          flex:1;padding:1rem;border:none;background:transparent;
+          font-family:'DM Sans',sans-serif;font-size:0.88rem;font-weight:600;
+          color:#a89bc4;cursor:pointer;border-bottom:2px solid transparent;
+          transition:all 0.2s;
+        ">Registrarse</button>
+      </div>
+
+      <!-- CUERPO -->
+      <div style="padding:1.75rem 2rem 2rem;">
+
+        <!-- ── LOGIN ── -->
+        <div id="tabLogin">
+          <p style="font-size:0.82rem;color:#7c6fa0;margin-bottom:1.25rem;text-align:center;">Ingresa con tu correo y contraseña</p>
+          <form id="loginForm" style="display:flex;flex-direction:column;gap:0.85rem;">
+            <div style="position:relative;">
+              <i class="fas fa-envelope" style="position:absolute;left:0.9rem;top:50%;transform:translateY(-50%);color:#a89bc4;font-size:0.82rem;pointer-events:none;"></i>
+              <input type="email" id="emailLogin" placeholder="Correo electrónico" required style="padding-left:2.6rem;width:100%;padding-top:0.75rem;padding-bottom:0.75rem;border:1.5px solid #e0d8f5;border-radius:0.6rem;font-size:0.9rem;font-family:'DM Sans',sans-serif;background:#fff;color:#1a0f35;outline:none;transition:border-color 0.2s;" onfocus="this.style.borderColor='#9a6aff'" onblur="this.style.borderColor='#e0d8f5'">
+            </div>
+            <div style="position:relative;">
+              <i class="fas fa-lock" style="position:absolute;left:0.9rem;top:50%;transform:translateY(-50%);color:#a89bc4;font-size:0.82rem;pointer-events:none;"></i>
+              <input type="password" id="password" placeholder="Contraseña" required style="padding-left:2.6rem;width:100%;padding-top:0.75rem;padding-bottom:0.75rem;border:1.5px solid #e0d8f5;border-radius:0.6rem;font-size:0.9rem;font-family:'DM Sans',sans-serif;background:#fff;color:#1a0f35;outline:none;transition:border-color 0.2s;" onfocus="this.style.borderColor='#9a6aff'" onblur="this.style.borderColor='#e0d8f5'">
+            </div>
+            <button type="submit" style="
+              background:linear-gradient(135deg,#4c1d95,#9a6aff);
+              color:#fff;border:none;padding:0.85rem;border-radius:0.6rem;
+              font-weight:700;font-size:0.95rem;cursor:pointer;
+              font-family:'DM Sans',sans-serif;
+              box-shadow:0 4px 16px rgba(124,58,237,0.35);
+              transition:transform 0.15s,box-shadow 0.15s;
+            " onmouseover="this.style.transform='translateY(-1px)';this.style.boxShadow='0 6px 20px rgba(124,58,237,0.45)'" onmouseout="this.style.transform='translateY(0)';this.style.boxShadow='0 4px 16px rgba(124,58,237,0.35)'">
+              Iniciar Sesión
+            </button>
+          </form>
+          <p id="loginMessage" style="text-align:center;margin-top:0.85rem;font-size:0.82rem;color:#7c6fa0;min-height:1.2em;"></p>
+          <p style="text-align:center;margin-top:0.6rem;font-size:0.82rem;color:#7c6fa0;">
+            ¿Sin cuenta? <a onclick="showTab('register')" style="color:#7c3aed;font-weight:700;cursor:pointer;text-decoration:none;">Regístrate gratis →</a>
+          </p>
+          <!-- Acceso admin oculto -->
+          <div style="text-align:center;margin-top:1.5rem;">
+            <span onclick="toggleAdminBox()" style="font-size:0.65rem;color:#d8d0ea;cursor:pointer;user-select:none;">⚙</span>
+          </div>
+          <div id="adminBox" style="display:none;margin-top:0.75rem;padding:1rem;background:#f8f5ff;border-radius:0.75rem;border:1px solid #ede8f7;">
+            <p style="font-size:0.72rem;color:#a89bc4;text-align:center;margin-bottom:0.75rem;text-transform:uppercase;letter-spacing:0.05em;">Acceso Juristam</p>
+            <form id="juristamLoginForm" style="display:flex;flex-direction:column;gap:0.6rem;">
+              <input type="email" id="juristamEmailLogin" placeholder="Email administrador" style="padding:0.6rem 0.75rem;border:1.5px solid #e0d8f5;border-radius:0.5rem;font-size:0.82rem;font-family:'DM Sans',sans-serif;width:100%;outline:none;">
+              <input type="password" id="juristamPassword" placeholder="Contraseña" style="padding:0.6rem 0.75rem;border:1.5px solid #e0d8f5;border-radius:0.5rem;font-size:0.82rem;font-family:'DM Sans',sans-serif;width:100%;outline:none;">
+              <button type="submit" style="background:#ede8f7;color:#4c1d95;border:1px solid #d8d0ea;padding:0.55rem;border-radius:0.5rem;font-size:0.82rem;font-weight:600;font-family:'DM Sans',sans-serif;cursor:pointer;">Entrar como admin</button>
+            </form>
+          </div>
+        </div>
+
+        <!-- ── REGISTRO ── -->
+        <div id="tabRegister" style="display:none;">
+          <p style="font-size:0.82rem;color:#7c6fa0;margin-bottom:1.25rem;text-align:center;">Crea tu cuenta · 30 días completamente gratis</p>
+          <form id="registerForm" action="https://formsubmit.co/juristam.ec@gmail.com" method="POST" style="display:flex;flex-direction:column;gap:0.7rem;">
+            <div style="position:relative;">
+              <i class="fas fa-user" style="position:absolute;left:0.9rem;top:50%;transform:translateY(-50%);color:#a89bc4;font-size:0.82rem;pointer-events:none;"></i>
+              <input type="text" name="nombre" placeholder="Nombre completo" required style="padding-left:2.6rem;width:100%;padding-top:0.72rem;padding-bottom:0.72rem;border:1.5px solid #e0d8f5;border-radius:0.6rem;font-size:0.88rem;font-family:'DM Sans',sans-serif;background:#fff;outline:none;" onfocus="this.style.borderColor='#9a6aff'" onblur="this.style.borderColor='#e0d8f5'">
+            </div>
+            <div style="position:relative;">
+              <i class="fas fa-id-card" style="position:absolute;left:0.9rem;top:50%;transform:translateY(-50%);color:#a89bc4;font-size:0.82rem;pointer-events:none;"></i>
+              <input type="text" name="matricula" placeholder="Número de matrícula" required style="padding-left:2.6rem;width:100%;padding-top:0.72rem;padding-bottom:0.72rem;border:1.5px solid #e0d8f5;border-radius:0.6rem;font-size:0.88rem;font-family:'DM Sans',sans-serif;background:#fff;outline:none;" onfocus="this.style.borderColor='#9a6aff'" onblur="this.style.borderColor='#e0d8f5'">
+            </div>
+            <div style="display:grid;grid-template-columns:1fr 1fr;gap:0.6rem;">
+              <div style="position:relative;">
+                <i class="fas fa-fingerprint" style="position:absolute;left:0.75rem;top:50%;transform:translateY(-50%);color:#a89bc4;font-size:0.82rem;pointer-events:none;"></i>
+                <input type="text" name="cedula" placeholder="Cédula" required style="padding-left:2.3rem;width:100%;padding-top:0.72rem;padding-bottom:0.72rem;border:1.5px solid #e0d8f5;border-radius:0.6rem;font-size:0.85rem;font-family:'DM Sans',sans-serif;background:#fff;outline:none;" onfocus="this.style.borderColor='#9a6aff'" onblur="this.style.borderColor='#e0d8f5'">
+              </div>
+              <div style="position:relative;">
+                <i class="fas fa-phone" style="position:absolute;left:0.75rem;top:50%;transform:translateY(-50%);color:#a89bc4;font-size:0.82rem;pointer-events:none;"></i>
+                <input type="tel" name="telefono" placeholder="Teléfono" required style="padding-left:2.3rem;width:100%;padding-top:0.72rem;padding-bottom:0.72rem;border:1.5px solid #e0d8f5;border-radius:0.6rem;font-size:0.85rem;font-family:'DM Sans',sans-serif;background:#fff;outline:none;" onfocus="this.style.borderColor='#9a6aff'" onblur="this.style.borderColor='#e0d8f5'">
+              </div>
+            </div>
+            <div style="position:relative;">
+              <i class="fas fa-envelope" style="position:absolute;left:0.9rem;top:50%;transform:translateY(-50%);color:#a89bc4;font-size:0.82rem;pointer-events:none;"></i>
+              <input type="email" name="email" placeholder="Correo electrónico" required style="padding-left:2.6rem;width:100%;padding-top:0.72rem;padding-bottom:0.72rem;border:1.5px solid #e0d8f5;border-radius:0.6rem;font-size:0.88rem;font-family:'DM Sans',sans-serif;background:#fff;outline:none;" onfocus="this.style.borderColor='#9a6aff'" onblur="this.style.borderColor='#e0d8f5'">
+            </div>
+            <div style="position:relative;">
+              <i class="fas fa-lock" style="position:absolute;left:0.9rem;top:50%;transform:translateY(-50%);color:#a89bc4;font-size:0.82rem;pointer-events:none;"></i>
+              <input type="password" name="password" placeholder="Contraseña" required style="padding-left:2.6rem;width:100%;padding-top:0.72rem;padding-bottom:0.72rem;border:1.5px solid #e0d8f5;border-radius:0.6rem;font-size:0.88rem;font-family:'DM Sans',sans-serif;background:#fff;outline:none;" onfocus="this.style.borderColor='#9a6aff'" onblur="this.style.borderColor='#e0d8f5'">
+            </div>
+            <div style="position:relative;">
+              <i class="fas fa-map-marker-alt" style="position:absolute;left:0.9rem;top:50%;transform:translateY(-50%);color:#a89bc4;font-size:0.82rem;pointer-events:none;"></i>
+              <input type="text" name="ciudad" list="ciudades" placeholder="Ciudad" required style="padding-left:2.6rem;width:100%;padding-top:0.72rem;padding-bottom:0.72rem;border:1.5px solid #e0d8f5;border-radius:0.6rem;font-size:0.88rem;font-family:'DM Sans',sans-serif;background:#fff;outline:none;" onfocus="this.style.borderColor='#9a6aff'" onblur="this.style.borderColor='#e0d8f5'">
+            </div>
+
+            <!-- Foto de perfil -->
+            <div style="background:#f8f5ff;border:1.5px dashed #c9b8ff;border-radius:0.6rem;padding:0.85rem;text-align:center;cursor:pointer;" onclick="document.getElementById('regFotoInput').click()">
+              <i class="fas fa-camera" style="color:#9a6aff;font-size:1.1rem;margin-bottom:0.3rem;display:block;"></i>
+              <p style="font-size:0.78rem;color:#7c6fa0;margin-bottom:0.25rem;">Foto tuya tipo pasaporte</p>
+              <p style="font-size:0.72rem;color:#a89bc4;" id="regFotoLabel">Toca para seleccionar una imagen</p>
+              <input type="file" id="regFotoInput" name="foto" accept="image/*" style="display:none;" onchange="document.getElementById('regFotoLabel').textContent=this.files[0]?this.files[0].name:'Toca para seleccionar una imagen'">
+            </div>
+
+            <!-- Descripción -->
+            <div style="position:relative;">
+              <i class="fas fa-align-left" style="position:absolute;left:0.9rem;top:0.85rem;color:#a89bc4;font-size:0.82rem;pointer-events:none;"></i>
+              <textarea name="descripcion" placeholder="Descripción profesional (opcional)" rows="2" style="padding-left:2.6rem;width:100%;padding-top:0.72rem;padding-bottom:0.72rem;border:1.5px solid #e0d8f5;border-radius:0.6rem;font-size:0.88rem;font-family:'DM Sans',sans-serif;background:#fff;outline:none;resize:none;" onfocus="this.style.borderColor='#9a6aff'" onblur="this.style.borderColor='#e0d8f5'"></textarea>
+            </div>
+
+            <!-- Experiencia y Nivel -->
+            <div style="display:grid;grid-template-columns:1fr 1fr;gap:0.6rem;">
+              <div style="position:relative;">
+                <i class="fas fa-briefcase" style="position:absolute;left:0.75rem;top:50%;transform:translateY(-50%);color:#a89bc4;font-size:0.82rem;pointer-events:none;"></i>
+                <input type="text" name="experiencia" placeholder="Experiencia (ej. 5 años)" style="padding-left:2.3rem;width:100%;padding-top:0.72rem;padding-bottom:0.72rem;border:1.5px solid #e0d8f5;border-radius:0.6rem;font-size:0.85rem;font-family:'DM Sans',sans-serif;background:#fff;outline:none;" onfocus="this.style.borderColor='#9a6aff'" onblur="this.style.borderColor='#e0d8f5'">
+              </div>
+              <div style="position:relative;">
+                <i class="fas fa-graduation-cap" style="position:absolute;left:0.75rem;top:50%;transform:translateY(-50%);color:#a89bc4;font-size:0.82rem;pointer-events:none;"></i>
+                <input type="text" name="nivel" placeholder="Nivel (ej. Abogado)" style="padding-left:2.3rem;width:100%;padding-top:0.72rem;padding-bottom:0.72rem;border:1.5px solid #e0d8f5;border-radius:0.6rem;font-size:0.85rem;font-family:'DM Sans',sans-serif;background:#fff;outline:none;" onfocus="this.style.borderColor='#9a6aff'" onblur="this.style.borderColor='#e0d8f5'">
+              </div>
+            </div>
+
+            <!-- Pregunta de rol en la plataforma -->
+            <div style="background:#f8f5ff;border:1.5px solid #c4b5f4;border-radius:0.6rem;padding:0.85rem;">
+              <p style="font-size:0.8rem;font-weight:700;color:#4c1d95;margin-bottom:0.2rem;"><i class="fas fa-question-circle" style="color:#9a6aff;margin-right:0.3rem;"></i>¿Qué te gustaría hacer en la plataforma?</p>
+              <p style="font-size:0.72rem;color:#a89bc4;margin-bottom:0.65rem;">Puedes hacer ambas. Solo nos ayuda a mostrarte lo más relevante.</p>
+              <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:0.4rem;">
+                <div id="rolEnviar" onclick="selectRolOption('enviar')" style="display:flex;flex-direction:column;align-items:center;justify-content:center;gap:0.25rem;cursor:pointer;padding:0.6rem 0.3rem;border-radius:0.5rem;border:1.5px solid #e0d8f5;background:#fff;transition:all 0.2s;text-align:center;user-select:none;">
+                  <span style="font-size:1.1rem;">📤</span>
+                  <span style="font-size:0.75rem;font-weight:700;color:#2d1060;line-height:1.3;">Enviar trámites</span>
+                  <span style="font-size:0.68rem;color:#7c6fa0;line-height:1.3;">Necesito colegas en otras ciudades</span>
+                </div>
+                <div id="rolResolver" onclick="selectRolOption('resolver')" style="display:flex;flex-direction:column;align-items:center;justify-content:center;gap:0.25rem;cursor:pointer;padding:0.6rem 0.3rem;border-radius:0.5rem;border:1.5px solid #e0d8f5;background:#fff;transition:all 0.2s;text-align:center;user-select:none;">
+                  <span style="font-size:1.1rem;">💰</span>
+                  <span style="font-size:0.75rem;font-weight:700;color:#2d1060;line-height:1.3;">Resolver trámites</span>
+                  <span style="font-size:0.68rem;color:#7c6fa0;line-height:1.3;">Ganar dinero en mi ciudad</span>
+                </div>
+                <div id="rolAmbas" onclick="selectRolOption('ambas')" style="display:flex;flex-direction:column;align-items:center;justify-content:center;gap:0.25rem;cursor:pointer;padding:0.6rem 0.3rem;border-radius:0.5rem;border:1.5px solid #e0d8f5;background:#fff;transition:all 0.2s;text-align:center;user-select:none;">
+                  <span style="font-size:1.1rem;">🔄</span>
+                  <span style="font-size:0.75rem;font-weight:700;color:#2d1060;line-height:1.3;">Ambas</span>
+                  <span style="font-size:0.68rem;color:#7c6fa0;line-height:1.3;">Enviar y aceptar</span>
+                </div>
+              </div>
+              <input type="hidden" name="rol_plataforma" id="rolPlataformaInput" value="">
+            </div>
+
+            <datalist id="ciudades">
+          <option value="guayaquil">Guayaquil</option><option value="quito">Quito</option>
+          <option value="esmeraldas">Esmeraldas</option><option value="cuenca">Cuenca</option>
+          <option value="manta">Manta</option><option value="ambato">Ambato</option>
+          <option value="loja">Loja</option><option value="riobamba">Riobamba</option>
+          <option value="alausi">Alausí</option><option value="archidona">Archidona</option>
+          <option value="atacames">Atacames</option><option value="atuntaqui">Atuntaqui</option>
+          <option value="azogues">Azogues</option><option value="babahoyo">Babahoyo</option>
+          <option value="bahia_de_caraquez">Bahía de Caráquez</option><option value="balzar">Balzar</option>
+          <option value="banos">Baños</option><option value="biblian">Biblián</option>
+          <option value="cariamanga">Cariamanga</option><option value="catamayo">Catamayo</option>
+          <option value="cayambe">Cayambe</option><option value="celica">Celica</option>
+          <option value="chambo">Chambo</option><option value="chone">Chone</option>
+          <option value="chordeleg">Chordeleg</option><option value="coca">Puerto Francisco de Orellana (Coca)</option>
+          <option value="cotacachi">Cotacachi</option><option value="daule">Daule</option>
+          <option value="duran">Durán</option><option value="el_angel">El Ángel</option>
+          <option value="el_empalme">El Empalme</option><option value="guano">Guano</option>
+          <option value="guaranda">Guaranda</option><option value="gualaceo">Gualaceo</option>
+          <option value="gualaquiza">Gualaquiza</option><option value="huaquillas">Huaquillas</option>
+          <option value="ibarra">Ibarra</option><option value="jipijapa">Jipijapa</option>
+          <option value="joya_de_los_sachas">Joya de los Sachas</option><option value="la_libertad">La Libertad</option>
+          <option value="la_troncal">La Troncal</option><option value="latacunga">Latacunga</option>
+          <option value="loreto">Loreto</option><option value="macara">Macará</option>
+          <option value="macas">Macas</option><option value="machachi">Machachi</option>
+          <option value="machala">Machala</option><option value="mera">Mera</option>
+          <option value="milagro">Milagro</option><option value="montalvo">Montalvo</option>
+          <option value="montecristi">Montecristi</option><option value="naranjal">Naranjal</option>
+          <option value="nueva_loja">Nueva Loja (Lago Agrio)</option><option value="otavalo">Otavalo</option>
+          <option value="pasaje">Pasaje</option><option value="patate">Patate</option>
+          <option value="paute">Paute</option><option value="pedernales">Pedernales</option>
+          <option value="pelileo">Pelileo</option><option value="pinas">Piñas</option>
+          <option value="playas">Playas</option><option value="portoviejo">Portoviejo</option>
+          <option value="puerto_ayora">Puerto Ayora</option><option value="puerto_baquerizo_moreno">Puerto Baquerizo Moreno</option>
+          <option value="puerto_villamil">Puerto Villamil</option><option value="pujili">Pujilí</option>
+          <option value="puyo">Puyo</option><option value="quevedo">Quevedo</option>
+          <option value="quininde">Quinindé</option><option value="rocafuerte">Rocafuerte</option>
+          <option value="salcedo">Salcedo</option><option value="salinas">Salinas</option>
+          <option value="samborondon">Samborondón</option><option value="san_gabriel">San Gabriel</option>
+          <option value="san_lorenzo">San Lorenzo</option><option value="san_miguel">San Miguel</option>
+          <option value="sangolqui">Sangolquí</option><option value="santa_elena">Santa Elena</option>
+          <option value="santa_rosa">Santa Rosa</option><option value="santo_domingo">Santo Domingo</option>
+          <option value="saquisili">Saquisilí</option><option value="shushufindi">Shushufindi</option>
+          <option value="sucua">Sucúa</option><option value="tabacundo">Pedro Moncayo (Tabacundo)</option>
+          <option value="tena">Tena</option><option value="tulcan">Tulcán</option>
+          <option value="urcuqui">Urcuquí</option><option value="ventanas">Ventanas</option>
+          <option value="vinces">Vinces</option><option value="yantzaza">Yantzaza</option>
+          <option value="zamora">Zamora</option>
+        </datalist>
+            <input type="hidden" name="_subject" value="Nuevo Registro - Conexión Legal EC">
+            <input type="hidden" name="_next" value="">
+            <input type="hidden" name="_captcha" value="false">
+            <button type="button" onclick="abrirEncuestaRegistro()" style="
+              background:linear-gradient(135deg,#4c1d95,#9a6aff);
+              color:#fff;border:none;padding:0.85rem;border-radius:0.6rem;
+              font-weight:700;font-size:0.92rem;cursor:pointer;margin-top:0.25rem;
+              font-family:'DM Sans',sans-serif;
+              box-shadow:0 4px 16px rgba(124,58,237,0.35);
+              transition:transform 0.15s;
+            " onmouseover="this.style.transform='translateY(-1px)'" onmouseout="this.style.transform='translateY(0)'" onclick="abrirEncuestaRegistro()">
+              <i class="fas fa-arrow-right"></i> Continuar → Completar encuesta
+            </button>
+          </form>
+          <p id="registerMessage" style="text-align:center;margin-top:0.75rem;font-size:0.82rem;color:#7c6fa0;min-height:1.2em;"></p>
+          <p style="text-align:center;margin-top:0.6rem;font-size:0.82rem;color:#7c6fa0;">
+            ¿Ya tienes cuenta? <a onclick="showTab('login')" style="color:#7c3aed;font-weight:700;cursor:pointer;text-decoration:none;">Iniciar sesión →</a>
+          </p>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- Pie de card -->
+    <div style="text-align:center;margin-top:1rem;">
+      <a href="conexion-legal.html" style="display:inline-flex;align-items:center;gap:0.5rem;background:rgba(255,255,255,0.1);border:1px solid rgba(255,255,255,0.2);color:#fff;text-decoration:none;font-size:0.82rem;font-family:'DM Sans',sans-serif;padding:0.5rem 1.25rem;border-radius:999px;transition:all 0.2s;margin-bottom:0.75rem;" onmouseover="this.style.background='rgba(255,255,255,0.2)'" onmouseout="this.style.background='rgba(255,255,255,0.1)'">
+        <i class="fas fa-arrow-left" style="font-size:0.75rem;"></i> Volver al inicio
+      </a>
+      <p style="font-size:0.75rem;color:rgba(255,255,255,0.3);">
+        By <a href="https://juristam.net" style="color:rgba(255,255,255,0.4);text-decoration:none;">Juristam</a> · Red verificada de abogados en Ecuador
+      </p>
+    </div>
+
+  </div>
+</div>
+
+
+<!-- ══════════════════════════ BANNER AVISO SUSCRIPCIÓN ══════════════════════════ -->
+<div id="bannerAviso" style="display:none;position:fixed;bottom:0;left:0;right:0;z-index:999;padding:0.85rem 1.5rem;align-items:center;justify-content:space-between;gap:1rem;flex-wrap:wrap;"></div>
+
+<!-- ══════════════════════════ MODAL ENCUESTA ══════════════════════════ -->
+<div id="modalEncuesta" style="display:none;position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(45,16,96,0.7);z-index:2000;align-items:center;justify-content:center;backdrop-filter:blur(4px);">
+  <div style="background:#fff;border-radius:1.25rem;width:92%;max-width:420px;max-height:90vh;overflow-y:auto;box-shadow:0 24px 60px rgba(10,0,30,0.4);border-top:4px solid #9a6aff;animation:slideIn 0.3s ease-out;">
+    <div style="background:linear-gradient(135deg,#2d1060,#7c3aed);padding:1.5rem 2rem;text-align:center;">
+      <div style="font-size:2rem;margin-bottom:0.5rem;">📋</div>
+      <h2 style="font-family:'DM Serif Display',serif;color:#fff;font-size:1.2rem;font-weight:400;margin-bottom:0.25rem;">Último paso antes de registrarte</h2>
+      <p style="color:rgba(255,255,255,0.65);font-size:0.82rem;">Completa estas 4 preguntas para finalizar tu registro</p>
+    </div>
+    <div style="padding:1.5rem 2rem 2rem;">
+      <form id="encuestaForm" style="display:flex;flex-direction:column;gap:1.25rem;">
+
+        <!-- Pregunta 1 -->
+        <div>
+          <p style="font-size:0.88rem;font-weight:700;color:#2d1060;margin-bottom:0.6rem;">¿Cuál sería el precio justo por una diligencia simple? <span style="font-weight:400;color:#7c6fa0;">(entregar un escrito, retirar una notificación, sacar copias)</span></p>
+          <div style="display:flex;flex-direction:column;gap:0.4rem;">
+            <label style="display:flex;align-items:center;gap:0.6rem;font-size:0.85rem;color:#4c1d95;cursor:pointer;"><input type="radio" name="precio" value="$20 - $30" required style="accent-color:#7c3aed;width:16px;height:16px;"> $20 - $30</label>
+            <label style="display:flex;align-items:center;gap:0.6rem;font-size:0.85rem;color:#4c1d95;cursor:pointer;"><input type="radio" name="precio" value="$31 - $40" style="accent-color:#7c3aed;width:16px;height:16px;"> $31 - $40</label>
+            <label style="display:flex;align-items:center;gap:0.6rem;font-size:0.85rem;color:#4c1d95;cursor:pointer;"><input type="radio" name="precio" value="$41 - $50" style="accent-color:#7c3aed;width:16px;height:16px;"> $41 - $50</label>
+          </div>
+        </div>
+
+        <!-- Pregunta 2 -->
+        <div>
+          <p style="font-size:0.88rem;font-weight:700;color:#2d1060;margin-bottom:0.6rem;">¿Con qué frecuencia usarías la plataforma?</p>
+          <div style="display:flex;flex-direction:column;gap:0.4rem;">
+            <label style="display:flex;align-items:center;gap:0.6rem;font-size:0.85rem;color:#4c1d95;cursor:pointer;"><input type="radio" name="frecuencia" value="1 a 2 veces al mes" required style="accent-color:#7c3aed;width:16px;height:16px;"> 1 a 2 veces al mes</label>
+            <label style="display:flex;align-items:center;gap:0.6rem;font-size:0.85rem;color:#4c1d95;cursor:pointer;"><input type="radio" name="frecuencia" value="3 a 5 veces al mes" style="accent-color:#7c3aed;width:16px;height:16px;"> 3 a 5 veces al mes</label>
+            <label style="display:flex;align-items:center;gap:0.6rem;font-size:0.85rem;color:#4c1d95;cursor:pointer;"><input type="radio" name="frecuencia" value="Más de 5 veces al mes" style="accent-color:#7c3aed;width:16px;height:16px;"> Más de 5 veces al mes</label>
+          </div>
+        </div>
+
+        <!-- Pregunta 3 -->
+        <div>
+          <p style="font-size:0.88rem;font-weight:700;color:#2d1060;margin-bottom:0.6rem;">¿Has tenido alguna mala experiencia trabajando con colegas por grupos de Facebook o WhatsApp?</p>
+          <div style="display:flex;gap:1rem;">
+            <label style="display:flex;align-items:center;gap:0.6rem;font-size:0.85rem;color:#4c1d95;cursor:pointer;"><input type="radio" name="mala_experiencia" value="Sí" required style="accent-color:#7c3aed;width:16px;height:16px;"> Sí</label>
+            <label style="display:flex;align-items:center;gap:0.6rem;font-size:0.85rem;color:#4c1d95;cursor:pointer;"><input type="radio" name="mala_experiencia" value="No" style="accent-color:#7c3aed;width:16px;height:16px;"> No</label>
+          </div>
+        </div>
+
+        <!-- Pregunta 4 -->
+        <div>
+          <p style="font-size:0.88rem;font-weight:700;color:#2d1060;margin-bottom:0.6rem;">¿Qué es lo más importante para ti al trabajar con un colega desconocido?</p>
+          <div style="display:flex;flex-direction:column;gap:0.4rem;">
+            <label style="display:flex;align-items:center;gap:0.6rem;font-size:0.85rem;color:#4c1d95;cursor:pointer;"><input type="radio" name="importancia" value="Que tenga matrícula verificada" required style="accent-color:#7c3aed;width:16px;height:16px;"> Que tenga matrícula verificada</label>
+            <label style="display:flex;align-items:center;gap:0.6rem;font-size:0.85rem;color:#4c1d95;cursor:pointer;"><input type="radio" name="importancia" value="Que el pago esté garantizado" style="accent-color:#7c3aed;width:16px;height:16px;"> Que el pago esté garantizado</label>
+            <label style="display:flex;align-items:center;gap:0.6rem;font-size:0.85rem;color:#4c1d95;cursor:pointer;"><input type="radio" name="importancia" value="Que tenga buenas calificaciones" style="accent-color:#7c3aed;width:16px;height:16px;"> Que tenga buenas calificaciones</label>
+            <label style="display:flex;align-items:center;gap:0.6rem;font-size:0.85rem;color:#4c1d95;cursor:pointer;"><input type="radio" name="importancia" value="Que sea rápido" style="accent-color:#7c3aed;width:16px;height:16px;"> Que sea rápido</label>
+          </div>
+        </div>
+
+        <button type="submit" style="background:linear-gradient(135deg,#4c1d95,#9a6aff);color:#fff;border:none;padding:0.85rem;border-radius:0.6rem;font-weight:700;font-size:0.92rem;cursor:pointer;font-family:'DM Sans',sans-serif;box-shadow:0 4px 16px rgba(124,58,237,0.35);"><i class="fas fa-paper-plane"></i> Enviar y completar registro</button>
+        <p id="encuestaMsg" style="text-align:center;font-size:0.8rem;min-height:1em;margin-top:0.25rem;"></p>
+      </form>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════════════════ BANNER AVISO SUSCRIPCIÓN ══════════════════════════ -->
+<div id="bannerAviso" style="display:none;position:fixed;bottom:0;left:0;right:0;z-index:999;padding:0.85rem 1.5rem;display:none;align-items:center;justify-content:space-between;gap:1rem;flex-wrap:wrap;">
+</div>
+
+<!-- ══════════════════════════ MODAL PAGO ══════════════════════════ -->
+<div id="modalPago" style="display:none;position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(45,16,96,0.7);z-index:2000;align-items:center;justify-content:center;backdrop-filter:blur(4px);">
+  <div style="background:#fff;border-radius:1.25rem;width:92%;max-width:440px;max-height:90vh;overflow-y:auto;box-shadow:0 24px 60px rgba(10,0,30,0.4);border-top:4px solid #9a6aff;animation:slideIn 0.3s ease-out;">
+    <div style="background:linear-gradient(135deg,#2d1060,#7c3aed);padding:1.5rem 2rem;text-align:center;">
+      <div style="font-size:2rem;margin-bottom:0.5rem;">💳</div>
+      <h2 style="font-family:'DM Serif Display',serif;color:#fff;font-size:1.2rem;font-weight:400;margin-bottom:0.25rem;">Confirmar pago del trámite</h2>
+      <p style="color:rgba(255,255,255,0.65);font-size:0.82rem;">Tu trámite fue aceptado. Realiza la transferencia para que el ejecutor pueda comenzar.</p>
+    </div>
+    <div style="padding:1.5rem 2rem 2rem;">
+
+      <!-- Datos bancarios -->
+      <div style="background:#f8f5ff;border:1.5px solid #c4b5f4;border-radius:0.75rem;padding:1.25rem;margin-bottom:1.25rem;">
+        <p style="font-size:0.78rem;font-weight:700;color:#4c1d95;text-transform:uppercase;letter-spacing:0.05em;margin-bottom:0.85rem;"><i class="fas fa-university" style="color:#9a6aff;margin-right:0.4rem;"></i>Datos de transferencia</p>
+        <div style="display:flex;flex-direction:column;gap:0.5rem;font-size:0.88rem;">
+          <div style="display:flex;justify-content:space-between;padding:0.4rem 0;border-bottom:1px solid #ede8f7;">
+            <span style="color:#7c6fa0;font-size:0.82rem;">Banco</span>
+            <span style="font-weight:700;color:#2d1060;">Banco Pichincha</span>
+          </div>
+          <div style="display:flex;justify-content:space-between;padding:0.4rem 0;border-bottom:1px solid #ede8f7;">
+            <span style="color:#7c6fa0;font-size:0.82rem;">Tipo de cuenta</span>
+            <span style="font-weight:700;color:#2d1060;">Cuenta de ahorros</span>
+          </div>
+          <div style="display:flex;justify-content:space-between;padding:0.4rem 0;border-bottom:1px solid #ede8f7;">
+            <span style="color:#7c6fa0;font-size:0.82rem;">Número de cuenta</span>
+            <span style="font-weight:700;color:#2d1060;font-size:1rem;letter-spacing:0.05em;">2208128370</span>
+          </div>
+          <div style="display:flex;justify-content:space-between;padding:0.4rem 0;border-bottom:1px solid #ede8f7;">
+            <span style="color:#7c6fa0;font-size:0.82rem;">Nombre</span>
+            <span style="font-weight:700;color:#2d1060;">Noemí Jiménez</span>
+          </div>
+          <div style="display:flex;justify-content:space-between;padding:0.4rem 0;">
+            <span style="color:#7c6fa0;font-size:0.82rem;">Cédula</span>
+            <span style="font-weight:700;color:#2d1060;">0929476489</span>
+          </div>
+        </div>
+        <div style="margin-top:0.85rem;background:#f0ebff;border-radius:0.5rem;padding:0.65rem 0.85rem;display:flex;justify-content:space-between;align-items:center;">
+          <span style="font-size:0.82rem;color:#4c1d95;font-weight:600;">Total a transferir:</span>
+          <span id="modalPagoMonto" style="font-size:1.2rem;font-weight:900;color:#7c3aed;">$0.00</span>
+        </div>
+      </div>
+
+      <!-- Subir comprobante -->
+      <form id="pagoForm" style="display:flex;flex-direction:column;gap:0.85rem;">
+        <div style="background:#f8f5ff;border:1.5px dashed #c9b8ff;border-radius:0.6rem;padding:0.85rem;text-align:center;cursor:pointer;" onclick="document.getElementById('comprobantePago').click()">
+          <i class="fas fa-cloud-upload-alt" style="color:#9a6aff;font-size:1.3rem;margin-bottom:0.3rem;display:block;"></i>
+          <p style="font-size:0.82rem;color:#7c6fa0;margin-bottom:0.2rem;font-weight:600;">Subir comprobante de pago</p>
+          <p style="font-size:0.72rem;color:#a89bc4;" id="comprobanteLabel">Toca para seleccionar imagen o PDF</p>
+          <input type="file" id="comprobantePago" accept="image/*,application/pdf" style="display:none;" onchange="document.getElementById('comprobanteLabel').textContent=this.files[0]?this.files[0].name:'Toca para seleccionar imagen o PDF'">
+        </div>
+        <button type="button" onclick="enviarComprobante()" style="background:linear-gradient(135deg,#4c1d95,#9a6aff);color:#fff;border:none;padding:0.85rem;border-radius:0.6rem;font-weight:700;font-size:0.92rem;cursor:pointer;font-family:'DM Sans',sans-serif;box-shadow:0 4px 16px rgba(124,58,237,0.35);">
+          <i class="fas fa-paper-plane"></i> Enviar comprobante a Juristam
+        </button>
+        <p style="font-size:0.75rem;color:#a89bc4;text-align:center;line-height:1.5;">Una vez que Juristam confirme tu pago, el ejecutor podrá comenzar el trámite. Recibirás una notificación.</p>
+        <button type="button" onclick="cerrarModalPago()" style="background:transparent;color:#a89bc4;border:none;padding:0.4rem;font-size:0.82rem;cursor:pointer;font-family:'DM Sans',sans-serif;box-shadow:none;">Cerrar — pagaré más tarde</button>
+      </form>
+      <p id="pagoMsg" style="text-align:center;font-size:0.82rem;margin-top:0.5rem;min-height:1em;"></p>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════════════════ MODAL CONFIRMACION ══════════════════════════ -->
+<div id="modalConfirmacion" style="display:none;position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(45,16,96,0.7);z-index:3000;align-items:center;justify-content:center;backdrop-filter:blur(4px);">
+  <div style="background:#fff;border-radius:1.25rem;width:92%;max-width:380px;box-shadow:0 24px 60px rgba(10,0,30,0.4);border-top:4px solid #9a6aff;animation:slideIn 0.25s ease-out;overflow:hidden;">
+    <div style="padding:2rem 2rem 1.5rem;text-align:center;">
+      <div id="modalConfIcon" style="font-size:2.5rem;margin-bottom:0.75rem;">✅</div>
+      <h3 id="modalConfTitulo" style="font-family:'DM Serif Display',serif;font-size:1.3rem;color:#2d1060;margin-bottom:0.85rem;font-weight:400;"></h3>
+      <p id="modalConfTexto" style="font-size:0.88rem;color:#5c4d7a;line-height:1.75;"></p>
+    </div>
+    <div style="padding:0 2rem 2rem;">
+      <button id="modalConfBtn" onclick="cerrarModalConfirmacion()" style="width:100%;background:linear-gradient(135deg,#4c1d95,#9a6aff);color:#fff;border:none;padding:0.85rem;border-radius:0.6rem;font-weight:700;font-size:0.95rem;cursor:pointer;font-family:'DM Sans',sans-serif;box-shadow:0 4px 16px rgba(124,58,237,0.35);">
+        Entendido
+      </button>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════════════════ PANEL ABOGADO ══════════════════════════ -->
+<div class="container hidden" id="abogadoPanel">
+  <button class="menu-toggle" onclick="toggleSidebar()"><i class="fas fa-bars"></i></button>
+  <div class="sidebar" id="sidebar">
+    <div class="header"><h1>Juristam <span>Conexión</span><br>Legal EC</h1></div>
+    <nav>
+      <ul>
+        <li><a onclick="showSection('profileSection')"><i class="fas fa-user"></i> Mi Perfil</a></li>
+        <li><a onclick="showSection('solicitarTramiteSection')"><i class="fas fa-file-alt"></i> Solicitar Trámite</a></li>
+        <li><a onclick="showSection('tramitesDisponiblesSection')"><i class="fas fa-briefcase"></i> Trámites Disponibles</a></li>
+        <li><a onclick="showSection('misTramitesSection')"><i class="fas fa-paper-plane"></i> Trámites Enviados</a></li>
+        <li><a onclick="showSection('tramitesAceptadosSection')"><i class="fas fa-tasks"></i> Trámites Aceptados</a></li>
+        <li><a onclick="showSection('opinionesSection')"><i class="fas fa-star"></i> Opiniones</a></li>
+        <li><a onclick="showSection('notificacionesSection')" id="navNotificaciones"><i class="fas fa-bell"></i> Notificaciones <span id="notifBadge" class="nav-badge hidden"></span></a></li>
+        <li><a onclick="logout()"><i class="fas fa-sign-out-alt"></i> Cerrar Sesión</a></li>
+      </ul>
+    </nav>
+  </div>
+
+  <div class="main">
+    <!-- PERFIL -->
+    <div class="section" id="profileSection">
+      <h2>Mi Perfil</h2>
+      <div id="profileView" class="profile-header"></div>
+      <div class="profile-info" id="profileInfo"></div>
+      <div style="text-align:center;margin-top:1rem;">
+        <button class="edit-button" onclick="showEditProfileForm()">Editar Perfil</button>
+      </div>
+      <div class="profile-edit hidden" id="profileEditForm">
+        <form id="profileForm" action="https://formsubmit.co/juristam.ec@gmail.com" method="POST" enctype="multipart/form-data">
+          <input type="text" id="profileNombre" name="nombre" placeholder="Nombre completo" required>
+          <input type="text" id="profileMatricula" name="matricula" placeholder="Número de matrícula" required>
+          <input type="text" id="profileCedula" name="cedula" placeholder="Cédula" required>
+          <input type="tel" id="profileTelefono" name="telefono" placeholder="Teléfono" required>
+          <input type="email" id="profileEmail" name="email" placeholder="Correo electrónico" required>
+          <input type="text" id="profileCiudad" name="ciudad" list="ciudades" placeholder="Ciudad" required>
+          <textarea id="profileDescripcion" name="descripcion" placeholder="Descripción" rows="3"></textarea>
+          <input type="text" id="profileExperiencia" name="experiencia" placeholder="Experiencia (ej. 5 años)">
+          <input type="text" id="profileNivel" name="nivel" placeholder="Nivel académico (ej. Abogado)">
+          <input type="file" id="profileFotoFile" name="foto" accept="image/*">
+          <input type="hidden" name="_subject" value="Solicitud de Cambio de Perfil - Conexión Legal EC">
+          <input type="hidden" name="_next" value=""><input type="hidden" name="_captcha" value="false">
+          <input type="hidden" name="id" id="profileId">
+          <div style="display:flex;gap:0.75rem;justify-content:center;">
+            <button type="submit">Guardar Cambios</button>
+            <button type="button" class="edit-button" onclick="hideEditProfileForm()">Cancelar</button>
+          </div>
+        </form>
+        <p id="profileMessage" class="message"></p>
+      </div>
+    </div>
+
+    <!-- SOLICITAR TRÁMITE -->
+    <div class="section hidden" id="solicitarTramiteSection">
+      <h2>Solicitar Trámite</h2>
+      <form id="solicitarTramiteForm" action="https://formsubmit.co/juristam.ec@gmail.com" method="POST" style="display:flex;flex-direction:column;gap:0.75rem;">
+        <input type="text" name="ciudad" list="ciudades" placeholder="Ciudad del trámite" required>
+        <input type="number" name="monto" id="montoTramite" placeholder="Monto ofrecido por el trámite ($)" required oninput="calcularTotal()">
+
+        <!-- PREGUNTA DOCUMENTOS FÍSICOS -->
+        <div style="background:#f8f5ff;border:1.5px solid #c4b5f4;border-radius:0.6rem;padding:1rem;">
+          <p style="font-size:0.85rem;font-weight:700;color:#4c1d95;margin-bottom:0.75rem;">
+            <i class="fas fa-box" style="color:#9a6aff;margin-right:0.4rem;"></i>
+            ¿Este trámite involucra documentos físicos?
+          </p>
+          <div style="display:flex;flex-direction:column;gap:0.4rem;">
+            <label style="display:flex;align-items:center;gap:0.65rem;cursor:pointer;padding:0.6rem 0.85rem;border-radius:0.5rem;border:1.5px solid #e0d8f5;background:#fff;transition:all 0.2s;width:100%;box-sizing:border-box;" onclick="selectDocOption(this,'envio')">
+              <input type="radio" name="tipo_documentos" value="envio" style="accent-color:#7c3aed;flex-shrink:0;" onchange="calcularTotal()">
+              <div>
+                <span style="font-size:0.85rem;font-weight:600;color:#2d1060;">📤 Sí, enviaré documentos al abogado</span>
+                <br><span style="font-size:0.78rem;color:#7c6fa0;">Por tu cuenta corre el precio que cobra Servientrega para que el abogado reciba los documentos. (+$5 logística)</span>
+              </div>
+            </label>
+            <label style="display:flex;align-items:center;gap:0.65rem;cursor:pointer;padding:0.6rem 0.85rem;border-radius:0.5rem;border:1.5px solid #e0d8f5;background:#fff;transition:all 0.2s;width:100%;box-sizing:border-box;" onclick="selectDocOption(this,'recepcion')">
+              <input type="radio" name="tipo_documentos" value="recepcion" style="accent-color:#7c3aed;flex-shrink:0;" onchange="calcularTotal()">
+              <div>
+                <span style="font-size:0.85rem;font-weight:600;color:#2d1060;">📥 No, el abogado debe enviarme documentos</span>
+                <br><span style="font-size:0.78rem;color:#7c6fa0;">Se te cobrarán los $5 del envío que Servientrega cobra para que el abogado te haga llegar los documentos. (+$5 logística)</span>
+              </div>
+            </label>
+            <label style="display:flex;align-items:center;gap:0.65rem;cursor:pointer;padding:0.6rem 0.85rem;border-radius:0.5rem;border:1.5px solid #e0d8f5;background:#fff;transition:all 0.2s;width:100%;box-sizing:border-box;" onclick="selectDocOption(this,'ambos')">
+              <input type="radio" name="tipo_documentos" value="ambos" style="accent-color:#7c3aed;flex-shrink:0;" onchange="calcularTotal()">
+              <div>
+                <span style="font-size:0.85rem;font-weight:600;color:#2d1060;">📤📥 Ambos — envío y recepción</span>
+                <br><span style="font-size:0.78rem;color:#7c6fa0;">Pagas el envío para que el abogado reciba tus documentos, y también el envío de vuelta para que te haga llegar los resultados. (+$10 logística)</span>
+              </div>
+            </label>
+            <label style="display:flex;align-items:center;gap:0.65rem;cursor:pointer;padding:0.6rem 0.85rem;border-radius:0.5rem;border:1.5px solid #e0d8f5;background:#fff;transition:all 0.2s;width:100%;box-sizing:border-box;" onclick="selectDocOption(this,'digital')">
+              <input type="radio" name="tipo_documentos" value="digital" style="accent-color:#7c3aed;flex-shrink:0;" onchange="calcularTotal()">
+              <div>
+                <span style="font-size:0.85rem;font-weight:600;color:#2d1060;">💻 Solo digital</span>
+                <br><span style="font-size:0.78rem;color:#7c6fa0;">Sin envíos físicos. No se liberan datos de contacto.</span>
+              </div>
+            </label>
+          </div>
+        </div>
+
+        <!-- RESUMEN DE COSTOS -->
+        <div id="resumenCostos" style="display:none;background:#f0ebff;border:1.5px solid #9a6aff;border-radius:0.6rem;padding:1rem;">
+          <p style="font-size:0.82rem;font-weight:700;color:#4c1d95;margin-bottom:0.5rem;"><i class="fas fa-receipt" style="margin-right:0.4rem;"></i> Resumen de costos</p>
+          <div style="display:flex;flex-direction:column;gap:0.3rem;font-size:0.82rem;color:#5c4d7a;">
+            <div style="display:flex;justify-content:space-between;"><span>Monto del trámite:</span><span id="resumenMonto">$0.00</span></div>
+            <div id="resumenLogisticaRow" style="display:none;justify-content:space-between;color:#9a6aff;"><span id="resumenLogisticaLabel">Logística Servientrega:</span><span id="resumenLogistica">$0.00</span></div>
+            <div style="display:flex;justify-content:space-between;font-weight:700;color:#4c1d95;border-top:1px solid #c4b5f4;padding-top:0.3rem;margin-top:0.2rem;"><span>Total a pagar:</span><span id="resumenTotal">$0.00</span></div>
+          </div>
+          <p style="font-size:0.72rem;color:#9a6aff;margin-top:0.5rem;"><i class="fas fa-info-circle"></i> Los datos de contacto se liberan solo después de confirmar el pago.</p>
+        </div>
+
+        <textarea name="descripcion" placeholder="Descripción del trámite" rows="4" required></textarea>
+        <input type="hidden" name="nombre" id="tramiteNombre">
+        <input type="hidden" name="ciudadOrigen" id="tramiteCiudadOrigen">
+        <input type="hidden" name="tipo_documentos_valor" id="tipoDocumentosValor">
+        <input type="hidden" name="costo_logistica" id="costoLogisticaValor">
+        <input type="hidden" name="monto_total" id="montoTotalValor">
+        <input type="hidden" name="_subject" value="Solicitud de Trámite - Conexión Legal EC">
+        <input type="hidden" name="_next" value=""><input type="hidden" name="_captcha" value="false">
+        <button type="submit" style="background:linear-gradient(135deg,#4c1d95,#9a6aff);color:#fff;border:none;padding:0.85rem;border-radius:0.6rem;font-weight:700;font-size:0.92rem;cursor:pointer;font-family:'DM Sans',sans-serif;box-shadow:0 4px 16px rgba(124,58,237,0.35);">
+          <i class="fas fa-paper-plane"></i> Publicar Trámite
+        </button>
+      </form>
+      <p id="tramiteMessage" class="message"></p>
+    </div>
+
+    <!-- TRÁMITES DISPONIBLES -->
+    <div class="section hidden" id="tramitesDisponiblesSection">
+      <h2>Trámites Disponibles en mi Ciudad</h2>
+      <div id="tramitesList"></div>
+    </div>
+
+    <!-- TRÁMITES ENVIADOS -->
+    <div class="section hidden" id="misTramitesSection">
+      <h2>Trámites Enviados</h2>
+      <p style="font-size:0.85rem;color:#6B5B95;margin-bottom:1rem;">Trámites que tú has solicitado a colegas en otras ciudades.</p>
+      <div id="misTramitesList"></div>
+      <div class="modal" id="ratingModal">
+        <div class="modal-content">
+          <button class="close-modal" onclick="closeRatingModal()">×</button>
+          <h3>Califica al Abogado</h3>
+          <form id="ratingForm" action="https://formsubmit.co/juristam.ec@gmail.com" method="POST">
+            <label for="ratingScore">Puntaje (1 a 5):</label>
+            <input type="number" id="ratingScore" name="puntaje" min="1" max="5" step="0.1" required placeholder="Ej. 4.5">
+            <label for="ratingOpinion">Opinión:</label>
+            <textarea id="ratingOpinion" name="opinion" rows="4" placeholder="Escribe tu opinión aquí" required></textarea>
+            <input type="hidden" name="abogado" id="ratingAbogado">
+            <input type="hidden" name="evaluador" id="ratingEvaluador">
+            <input type="hidden" name="tramite_id" id="ratingTramiteId">
+            <input type="hidden" name="_subject" value="Calificación de Abogado - Conexión Legal EC">
+            <input type="hidden" name="_next" value=""><input type="hidden" name="_captcha" value="false">
+            <button type="submit">Enviar Calificación</button>
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <!-- MODAL PERFIL ABOGADO -->
+    <div class="modal" id="perfilModal" onclick="if(event.target===this)cerrarPerfilModal()">
+      <div style="
+        background:#fff;
+        border-radius:1rem;
+        width:92%;
+        max-width:340px;
+        max-height:75vh;
+        overflow-y:auto;
+        box-shadow:0 20px 50px rgba(10,0,30,0.4);
+        border-top:4px solid #9a6aff;
+        animation:slideIn 0.25s ease-out;
+        position:relative;
+      ">
+        <!-- Botón X fijo arriba -->
+        <button onclick="cerrarPerfilModal()" style="
+          position:sticky;
+          top:0.6rem;
+          float:right;
+          margin:0.6rem 0.6rem 0 0;
+          background:rgba(124,58,237,0.1);
+          border:none;
+          border-radius:50%;
+          width:28px;
+          height:28px;
+          font-size:1rem;
+          color:#7c3aed;
+          cursor:pointer;
+          display:flex;
+          align-items:center;
+          justify-content:center;
+          line-height:1;
+          z-index:10;
+          flex-shrink:0;
+        ">×</button>
+        <div id="perfilModalContenido" style="padding:1rem 1.25rem 1.25rem;clear:both;"></div>
+      </div>
+    </div>
+
+    <!-- TRÁMITES ACEPTADOS -->
+    <div class="section hidden" id="tramitesAceptadosSection">
+      <h2>Trámites Aceptados</h2>
+      <p style="font-size:0.85rem;color:#6B5B95;margin-bottom:1rem;">Trámites que tú has aceptado ejecutar para colegas en tu ciudad.</p>
+      <div id="tramitesAceptadosList"></div>
+    </div>
+
+    <!-- OPINIONES -->
+    <div class="section hidden" id="opinionesSection">
+      <h2>Mis Opiniones</h2>
+      <div id="opinionesList"></div>
+    </div>
+
+    <!-- NOTIFICACIONES -->
+    <div class="section hidden" id="notificacionesSection">
+      <h2>Notificaciones</h2>
+      <div id="notificacionesList"></div>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════════════════ PANEL JURISTAM ══════════════════════════ -->
+<div class="container hidden" id="juristamPanel">
+  <div class="sidebar">
+    <div class="header"><h1>Panel de Juristam</h1></div>
+    <nav>
+      <ul>
+        <li><a onclick="showSection('juristamAbogadosSection')"><i class="fas fa-users"></i> Abogados</a></li>
+        <li><a onclick="showSection('juristamPruebaSection')"><i class="fas fa-user-clock"></i> Abogados Prueba</a></li>
+        <li><a onclick="showSection('juristamTramitesSection')"><i class="fas fa-file-alt"></i> Trámites</a></li>
+        <li><a onclick="showSection('juristamMensajesSection')"><i class="fas fa-envelope"></i> Mensajes Pendientes</a></li>
+        <li><a onclick="showSection('juristamAsignacionSection')"><i class="fas fa-user-check"></i> Asignar Trámites</a></li>
+        <li><a onclick="showSection('juristamRotacionSection')"><i class="fas fa-sync-alt"></i> Rotación</a></li>
+        <li><a onclick="logout()"><i class="fas fa-sign-out-alt"></i> Cerrar Sesión</a></li>
+      </ul>
+    </nav>
+  </div>
+  <div class="main">
+    <div class="section" id="juristamAbogadosSection">
+      <h2>Abogados Registrados</h2>
+      <div id="juristamAbogadosList"></div>
+    </div>
+    <div class="section hidden" id="juristamPruebaSection">
+      <h2>Abogados en Prueba</h2>
+      <div id="juristamPruebaList"></div>
+    </div>
+    <div class="section hidden" id="juristamTramitesSection">
+      <h2>Trámites Registrados</h2>
+      <div id="juristamTramitesList"></div>
+    </div>
+    <!-- SECCIÓN: Rotación de abogados por ciudad -->
+    <div class="section hidden" id="juristamRotacionSection">
+      <h2>Rotación de Abogados por Ciudad</h2>
+      <p style="font-size:0.85rem;color:#6B5B95;margin-bottom:1.25rem;">Consulta cuántos trámites ha completado cada abogado por ciudad para saber a quién le toca el siguiente turno.</p>
+      <div id="juristamRotacionList"></div>
+    </div>
+
+    <!-- SECCIÓN: Asignación de trámites -->
+    <div class="section hidden" id="juristamAsignacionSection">
+      <h2>Asignar Trámites</h2>
+      <p style="font-size:0.85rem;color:#6B5B95;margin-bottom:1.25rem;">Asigna cada trámite pendiente al abogado que le corresponde por turno de rotación. Solo ese abogado verá el trámite en su lista.</p>
+      <div id="juristamAsignacionList"></div>
+    </div>
+
+    <!-- NUEVA SECCIÓN: Mensajes pendientes de revisión -->
+    <div class="section hidden" id="juristamMensajesSection">
+      <h2>Mensajes Pendientes de Revisión</h2>
+      <p style="font-size:0.85rem;color:#6B5B95;margin-bottom:1rem;">Revisa cada mensaje antes de que llegue al destinatario. Aprueba si es sobre el trámite, rechaza si contiene datos de contacto.</p>
+      <div id="juristamMensajesList"></div>
+    </div>
+  </div>
+</div>
+
+<script>
+// ══════════════════════════════════════════════════════════════
+// DATOS
+// ══════════════════════════════════════════════════════════════
+const abogados = [
+  { id: "1", nombre: "Juan Pérez", matricula: "17-2018-4521", cedula: "0912345678", telefono: "0991234567", email: "juan@example.com", ciudad: "guayaquil", password: "juan123", descripcion: "Abogado en libre ejercicio con especialización en derecho penal y civil. Manejo causas en Guayaquil y coordino diligencias a nivel nacional a través de Juristam Conexión Legal.", experiencia: "5 años", nivel: "Abogado", foto: "https://i.postimg.cc/NfpqxnZJ/images.png", calificacion: 4.7, verified: true, subscriptionPaid: true, registerDate: "2025-03-01", role: "abogado" },
+  { id: "2", nombre: "María López", matricula: "06-2015-892", cedula: "1712345678", telefono: "0987654321", email: "maria@example.com", ciudad: "esmeraldas", password: "maria123", descripcion: "Abogada con Maestría en Derecho de Familia y Civil. Ejercicio activo en Esmeraldas con amplia experiencia en diligencias judiciales, notariales y administrativas. Disponible para trámites urgentes.", experiencia: "8 años", nivel: "Magíster", foto: "https://i.postimg.cc/NfpqxnZJ/images.png", calificacion: 4.8, verified: true, subscriptionPaid: true, registerDate: "2025-03-15", role: "abogado" },
+  { id: "3", nombre: "Carlos Gómez", matricula: "54321", cedula: "1012345678", telefono: "0998765432", email: "carlos@example.com", ciudad: "quito", password: "carlos123", descripcion: "Experto en laboral", experiencia: "6 años", nivel: "Abogado", foto: "https://via.placeholder.com/150", calificacion: 4.3, verified: true, subscriptionPaid: true, registerDate: "2025-02-20", role: "abogado" },
+  { id: "4", nombre: "Ana Torres", matricula: "98765", cedula: "0812345678", telefono: "0995551234", email: "ana@example.com", ciudad: "cuenca", password: "ana123", descripcion: "Civil y mercantil", experiencia: "10 años", nivel: "Doctora", foto: "https://via.placeholder.com/150", calificacion: 4.7, verified: true, subscriptionPaid: true, registerDate: "2025-02-10", role: "abogado" },
+  { id: "5", nombre: "Luis Martínez", matricula: "45678", cedula: "1312345678", telefono: "0981234567", email: "luis@example.com", ciudad: "manta", password: "luis123", descripcion: "Abogado penal", experiencia: "4 años", nivel: "Abogado", foto: "https://via.placeholder.com/150", calificacion: 4.2, verified: true, subscriptionPaid: true, registerDate: "2025-03-05", role: "abogado" },
+  { id: "6", nombre: "Sofía Ramírez", matricula: "32109", cedula: "1412345678", telefono: "0997778888", email: "sofia@example.com", ciudad: "ambato", password: "sofia123", descripcion: "Especialista en contratos", experiencia: "7 años", nivel: "Magíster", foto: "https://via.placeholder.com/150", calificacion: 4.6, verified: true, subscriptionPaid: true, registerDate: "2025-01-15", role: "abogado" },
+  { id: "7", nombre: "Pedro Castillo", matricula: "11223", cedula: "1512345678", telefono: "0989990000", email: "pedro@example.com", ciudad: "loja", password: "pedro123", descripcion: "Derecho administrativo", experiencia: "9 años", nivel: "Abogado", foto: "https://via.placeholder.com/150", calificacion: 4.4, verified: true, subscriptionPaid: true, registerDate: "2025-02-25", role: "abogado" },
+  { id: "8", nombre: "Walter Vicente Berrones Ordoñez", matricula: "17-2024-2111", cedula: "0605115476", telefono: "0998968887", email: "wberroneso@gmail.com", ciudad: "Riobamba", password: "wberroneso123", descripcion: "Como abogado en el libre ejercicio dentro del territorio ecuatoriano, me dedico a brindar asesoría y representación legal a clientes en diversas áreas del derecho, como derecho civil, penal, laboral, familia, tramites notariales, entre otros.", experiencia: "2 años", nivel: "Abogado", foto: "https://i.postimg.cc/XJJNG0fC/1000007932.jpg", calificacion: 0, verified: true, subscriptionPaid: false, registerDate: "2025-03-28", role: "abogado" },
+  { id: "9", nombre: "Daniel Alejandro Nuñez Solis", matricula: "18-2023-161", cedula: "1805476197", telefono: "0984115950", email: "nuezdany1@gmail.com", ciudad: "Ambato", password: "nuezdany1123", descripcion: "Me distingo por ser una persona correcta, seria y profesional en el manejo de asuntos legales", experiencia: "2 años de experiencia en la gestión de tramites", nivel: "Abogado", foto: "https://i.postimg.cc/y6m5hXqD/323634988-852010722565802-3424004269329787674-n.jpg", calificacion: 0, verified: true, subscriptionPaid: false, registerDate: "2025-04-08", role: "abogado" },
+  { id: "10", nombre: "Jhon Banda", matricula: "17-2017-671", cedula: "0503028292", telefono: "0939088491", email: "jpblex@gmail.com", ciudad: "ambato", password: "jpblex123", descripcion: "", experiencia: "", nivel: "", foto: "https://via.placeholder.com/150", calificacion: 0, verified: true, subscriptionPaid: false, registerDate: "2025-04-11", role: "abogado" },
+  { id: "11", nombre: "Boris Steven Munizaga Arteaga", matricula: "09-2024-843", cedula: "0928004720", telefono: "0985743174", email: "ab.munizagaboris@hotmail.com", ciudad: "duran", password: "Munizaga28.", descripcion: "", experiencia: "", nivel: "", foto: "https://via.placeholder.com/150", calificacion: 0, verified: true, subscriptionPaid: false, registerDate: "2025-04-22", role: "abogado" },
+  { id: "12", nombre: "Esteban Alfonso Erazo Cahuatijo", matricula: "17-2024-1957", cedula: "1720280369", telefono: "0982433636", email: "estebanalfonso20028@gmail.com", ciudad: "quito", password: "Liam2023", descripcion: "", experiencia: "", nivel: "", foto: "https://via.placeholder.com/150", calificacion: 0, verified: true, subscriptionPaid: false, registerDate: "2025-05-01", role: "abogado" },
+  { id: "13", nombre: "Leticia Amanda Revelo Charco", matricula: "05-2022-50", cedula: "0503147118", telefono: "0984689064", email: "amandarevelo00@gmail.com", ciudad: "latacunga", password: "Nicolas2009", descripcion: "", experiencia: "", nivel: "", foto: "https://via.placeholder.com/150", calificacion: 0, verified: true, subscriptionPaid: false, registerDate: "2025-05-14", role: "abogado" },
+  { id: "14", nombre: "Pierina Valeria Castro Palma", matricula: "17-2023-899", cedula: "1313284489", telefono: "0962902259", email: "valeria1991castro@hotmail.com", ciudad: "quito", password: "pieri24brithany", descripcion: "", experiencia: "", nivel: "", foto: "https://via.placeholder.com/150", calificacion: 0, verified: true, subscriptionPaid: false, registerDate: "2025-05-21", role: "abogado" },
+  { id: "15", nombre: "Henry Misael Peralta Zamora", matricula: "24-2024-200", cedula: "0750950313", telefono: "0995799626", email: "juridicos.peralta.vega@gmail.com", ciudad: "balzar", password: "Henry1999", descripcion: "", experiencia: "", nivel: "", foto: "https://via.placeholder.com/150", calificacion: 0, verified: true, subscriptionPaid: false, registerDate: "2025-05-27", role: "abogado" },
+  { id: "16", nombre: "Shalila Nicole Delgado Torres", matricula: "Egresada", cedula: "1719831727", telefono: "0985542148", email: "sndelgado05@gmail.com", ciudad: "quito", password: "BackForYou05", descripcion: "", experiencia: "", nivel: "", foto: "https://via.placeholder.com/150", calificacion: 0, verified: true, subscriptionPaid: false, registerDate: "2025-05-27", role: "abogado" },
+  { id: "17", nombre: "Eddie Patricio Condoy Quichimbo", matricula: "11-2024-139", cedula: "0705423366", telefono: "0960919721", email: "eddiepatricio95@gmail.com", ciudad: "loja", password: "630716173.l.", descripcion: "", experiencia: "", nivel: "", foto: "https://via.placeholder.com/150", calificacion: 0, verified: false, subscriptionPaid: false, registerDate: "2025-05-27", role: "abogado" },
+  { id: "18", nombre: "Michelle Elizabeth Borja Jara", matricula: "17-2024-211", cedula: "1727160325", telefono: "0983437221", email: "ab.michelleborja@gmail.com", ciudad: "quito", password: "Zoe242927", descripcion: "", experiencia: "2 años como asistente legal", nivel: "Abogada", foto: "https://i.postimg.cc/rpmkWZd7/Imagen-de-Whats-App-2025-05-27-a-las-15-42-39-f2cdd0d2.jpg", calificacion: 0, verified: true, subscriptionPaid: false, registerDate: "2025-05-27", role: "abogado" },
+  { id: "19", nombre: "Pamela Mishell Melendres Cóndor", matricula: "17-2024-2323", cedula: "1723173629", telefono: "0984725684", email: "melendrespamela57@gmail.com", ciudad: "Quito", password: "023678059", descripcion: "Soy abogada con sólida formación jurídica y experiencia en la defensa y asesoría legal integral en las áreas de Derecho de Familia, Civil, Administrativo, Laboral y Tránsito.", experiencia: "2 años", nivel: "Abogada", foto: "https://i.postimg.cc/6QssP6TL/IMG-20250407-152951-306.webp", calificacion: 0, verified: true, subscriptionPaid: false, registerDate: "2025-05-27", role: "abogado" },
+  { id: "20", nombre: "Sebastián Orellana ", matricula: "07-2024-283", cedula: "0707109138", telefono: "0994310414", email: "abg.sebastianorellana@gmail.com", ciudad: "Machala", password: "Barcelona@2001", descripcion: "", experiencia: "", nivel: "", foto: "https://via.placeholder.com/150", calificacion: 0, verified: true, subscriptionPaid: true, registerDate: "2026-03-18", role: "abogado" },
+  { id: "21", nombre: "Dayana Estefanía Santos Escobar ", matricula: "09-2024-790", cedula: "0956058853", telefono: "0999307043", email: "dayana.santose7@gmail.com", ciudad: "guayaquil", password: "bangtan.7", descripcion: "", experiencia: "", nivel: "", foto: "https://via.placeholder.com/150", calificacion: 0, verified: true, subscriptionPaid: true, registerDate: "2026-03-18", role: "abogado" },
+  { id: "22", nombre: "Mayte Acero ", matricula: "17-2024-2113", cedula: "1727761578", telefono: "0998907344", email: "maiiacerosc28c@hotmail.com", ciudad: "cayambe", password: "Shwrillyn123", descripcion: "Abogada litigante", experiencia: "", nivel: "", rol_plataforma: "ambas", foto: "https://via.placeholder.com/150", calificacion: 0, verified: true, subscriptionPaid: true, registerDate: "2026-03-19", role: "abogado" },
+  { id: "juristam", nombre: "Juristam", matricula: "0000", cedula: "0000", telefono: "0000", email: "admin@juristam.ec", ciudad: "guayaquil", password: "jimmyjim03", descripcion: "", experiencia: "", nivel: "", foto: "", calificacion: 0, verified: true, subscriptionPaid: true, registerDate: "2025-01-01", role: "juristam" }
+];
+
+const tramites = [
+
+  // ══ JUAN PÉREZ (id:1) como SOLICITANTE — ve esto en "Trámites Enviados" ══
+  // Completado - puede calificar
+  { id: "t1", abogadoId: "1", nombre: "Juan Pérez", ciudadOrigen: "guayaquil", ciudadDestino: "esmeraldas", monto: 50, monto_total: 50, costo_logistica: 0, tipo_documentos: "digital", descripcion: "Ingresar escrito en Fiscalía de Esmeraldas y obtener sello de recibido", experiencia: "5 años", nivel: "Abogado", calificacion: 4.7, estado: "terminado", aceptadoPor: "María López", asignadoA: "2", fechaLimite: "", fechaLimitePago: "" },
+  // Completado - ya calificado
+  { id: "t2", abogadoId: "1", nombre: "Juan Pérez", ciudadOrigen: "guayaquil", ciudadDestino: "quito", monto: 60, monto_total: 65, costo_logistica: 5, tipo_documentos: "recepcion", descripcion: "Retirar notificación en Juzgado Civil de Quito y enviar documentos originales", experiencia: "5 años", nivel: "Abogado", calificacion: 4.7, estado: "terminado", aceptadoPor: "Carlos Gómez", asignadoA: "3", fechaLimite: "", fechaLimitePago: "" },
+  // En proceso - ejecutor está trabajando
+  { id: "t3", abogadoId: "1", nombre: "Juan Pérez", ciudadOrigen: "guayaquil", ciudadDestino: "esmeraldas", monto: 35, monto_total: 35, costo_logistica: 0, tipo_documentos: "digital", descripcion: "Presentar demanda laboral en Juzgado del Trabajo de Esmeraldas", experiencia: "5 años", nivel: "Abogado", calificacion: 4.7, estado: "en_proceso", aceptadoPor: "María López", asignadoA: "2", fechaLimite: "2026-03-20T10:00:00.000Z", fechaLimitePago: "" },
+  // Esperando pago - Juan debe pagar ahora
+  { id: "t4", abogadoId: "1", nombre: "Juan Pérez", ciudadOrigen: "guayaquil", ciudadDestino: "cuenca", monto: 45, monto_total: 45, costo_logistica: 0, tipo_documentos: "digital", descripcion: "Verificar estado de causa en Tribunal de Garantías Penales de Cuenca", experiencia: "5 años", nivel: "Abogado", calificacion: 4.7, estado: "esperando_pago", aceptadoPor: "Ana Torres", asignadoA: "4", fechaLimite: "", fechaLimitePago: "2026-03-19T14:52:51.000Z" },
+  // Pendiente - esperando que alguien acepte
+  { id: "t5", abogadoId: "1", nombre: "Juan Pérez", ciudadOrigen: "guayaquil", ciudadDestino: "ambato", monto: 30, monto_total: 30, costo_logistica: 0, tipo_documentos: "digital", descripcion: "Entregar poder notarial en Notaría Segunda de Ambato", experiencia: "5 años", nivel: "Abogado", calificacion: 4.7, estado: "pendiente", aceptadoPor: "", asignadoA: "", fechaLimite: "", fechaLimitePago: "" },
+
+  // ══ MARÍA LÓPEZ (id:2) como EJECUTORA — ve esto en "Trámites Aceptados" ══
+  // Esperando pago del solicitante - banner naranja
+  { id: "t9", abogadoId: "5", nombre: "Luis Martínez", ciudadOrigen: "manta", ciudadDestino: "esmeraldas", monto: 20, monto_total: 20, costo_logistica: 0, tipo_documentos: "digital", descripcion: "Ingresar escrito urgente en Juzgado Penal de Esmeraldas", experiencia: "4 años", nivel: "Abogado", calificacion: 4.2, estado: "esperando_pago", aceptadoPor: "María López", asignadoA: "2", fechaLimite: "", fechaLimitePago: "2026-03-19T11:52:51.000Z" },
+  // En proceso - María está ejecutando con contador activo
+  { id: "t8", abogadoId: "5", nombre: "Luis Martínez", ciudadOrigen: "manta", ciudadDestino: "esmeraldas", monto: 35, monto_total: 40, costo_logistica: 5, tipo_documentos: "recepcion", descripcion: "Retirar documentos apostillados en Cancillería de Esmeraldas y enviarlos a Manta", experiencia: "4 años", nivel: "Abogado", calificacion: 4.2, estado: "en_proceso", aceptadoPor: "María López", asignadoA: "2", fechaLimite: "2026-03-20T14:00:00.000Z", fechaLimitePago: "" },
+  // Completado - aparece en sección completados
+  { id: "t6", abogadoId: "3", nombre: "Carlos Gómez", ciudadOrigen: "quito", ciudadDestino: "esmeraldas", monto: 40, monto_total: 40, costo_logistica: 0, tipo_documentos: "digital", descripcion: "Ingresar recurso de apelación en Sala de lo Civil de Esmeraldas", experiencia: "6 años", nivel: "Abogado", calificacion: 4.3, estado: "terminado", aceptadoPor: "María López", asignadoA: "2", fechaLimite: "", fechaLimitePago: "" },
+  { id: "t7", abogadoId: "4", nombre: "Ana Torres", ciudadOrigen: "cuenca", ciudadDestino: "esmeraldas", monto: 55, monto_total: 55, costo_logistica: 0, tipo_documentos: "digital", descripcion: "Presentar escrito ante el Registro de la Propiedad de Esmeraldas", experiencia: "10 años", nivel: "Doctora", calificacion: 4.7, estado: "terminado", aceptadoPor: "María López", asignadoA: "2", fechaLimite: "", fechaLimitePago: "" },
+
+  // ══ TRÁMITE DISPONIBLE — María lo ve en "Trámites Disponibles" ══
+  // Este trámite está en esmeraldas (ciudad de María) y asignado a ella (id:2)
+  { id: "t10", abogadoId: "1", nombre: "Juan Pérez", ciudadOrigen: "guayaquil", ciudadDestino: "esmeraldas", monto: 40, monto_total: 45, costo_logistica: 5, tipo_documentos: "recepcion", descripcion: "Obtener copia certificada de sentencia en Juzgado Segundo de lo Civil de Esmeraldas y enviar por Servientrega", experiencia: "5 años", nivel: "Abogado", calificacion: 4.7, estado: "pendiente", aceptadoPor: "", asignadoA: "2", fechaLimite: "", fechaLimitePago: "" },
+
+  // ══ OTROS TRÁMITES DEL SISTEMA ══
+  { id: "t11", abogadoId: "5", nombre: "Luis Martínez", ciudadOrigen: "manta", ciudadDestino: "ambato", monto: 40, monto_total: 40, costo_logistica: 0, tipo_documentos: "digital", descripcion: "Demanda laboral en Juzgado de Trabajo de Ambato", experiencia: "4 años", nivel: "Abogado", calificacion: 4.2, estado: "en_proceso", aceptadoPor: "Sofía Ramírez", asignadoA: "6", fechaLimite: "2026-03-20T09:00:00.000Z", fechaLimitePago: "" },
+  { id: "t12", abogadoId: "7", nombre: "Pedro Castillo", ciudadOrigen: "loja", ciudadDestino: "cuenca", monto: 65, monto_total: 65, costo_logistica: 0, tipo_documentos: "digital", descripcion: "Asesoría en Tribunal Contencioso Administrativo de Cuenca", experiencia: "9 años", nivel: "Abogado", calificacion: 4.4, estado: "terminado", aceptadoPor: "Ana Torres", asignadoA: "4", fechaLimite: "", fechaLimitePago: "" }
+];
+
+const opiniones = [
+  { abogado: "María López", evaluador: "Juan Pérez", puntaje: 5.0, tramiteId: "t1", opinion: "Excelente colega. Ingresó el escrito el mismo día y me mandó foto del sello de recibido en menos de 2 horas. Muy recomendada, volvería a trabajar con ella sin dudarlo." },
+  { abogado: "María López", evaluador: "Carlos Gómez", puntaje: 4.5, tramiteId: "t6", opinion: "Muy profesional y puntual. El recurso fue ingresado sin ningún problema. Respondió rápido los mensajes y mantuvo comunicación durante todo el proceso." },
+  { abogado: "María López", evaluador: "Ana Torres", puntaje: 4.8, tramiteId: "t7", opinion: "Excelente trabajo. Presentó el escrito ante el Registro de la Propiedad el mismo día que recibió los documentos. Totalmente confiable." },
+  { abogado: "Juan Pérez", evaluador: "María López", puntaje: 4.8, tramiteId: "t1", opinion: "Colega muy serio y organizado. Las instrucciones del trámite llegaron claras y completas, el pago fue liberado de inmediato al confirmar. Muy buena experiencia." },
+  { abogado: "Juan Pérez", evaluador: "Carlos Gómez", puntaje: 4.5, tramiteId: "t2", opinion: "Buen colega, el trámite estuvo bien explicado y no hubo contratiempos. Lo recomiendo para diligencias en Guayaquil." },
+  { abogado: "Carlos Gómez", evaluador: "Juan Pérez", puntaje: 4.5, tramiteId: "t2", opinion: "Cumplió perfectamente con el trámite en Quito. Retiró la notificación y envió los documentos a tiempo por Servientrega." },
+  { abogado: "Ana Torres", evaluador: "Pedro Castillo", puntaje: 4.8, tramiteId: "t11", opinion: "Gran profesional en temas administrativos. Muy recomendada para trámites en Cuenca." }
+];
+
+const notificaciones = [
+  { abogadoId: "1", mensaje: "María López aceptó tu trámite 'Ingresar escrito en Fiscalía de Esmeraldas' el 2026-03-15.", tramiteId: "t1", fecha: "2026-03-15", leida: true },
+  { abogadoId: "1", mensaje: "María López completó tu trámite 'Ingresar escrito en Fiscalía de Esmeraldas'. Por favor califica al abogado.", tramiteId: "t1", fecha: "2026-03-15", leida: true },
+  { abogadoId: "1", mensaje: "Carlos Gómez completó tu trámite 'Retirar notificación en Juzgado Civil de Quito'. Por favor califica al abogado.", tramiteId: "t2", fecha: "2026-03-16", leida: true },
+  { abogadoId: "1", mensaje: "María López aceptó tu trámite 'Presentar demanda laboral en Juzgado del Trabajo de Esmeraldas' el 2026-03-18.", tramiteId: "t3", fecha: "2026-03-18", leida: true },
+  { abogadoId: "1", mensaje: "Ana Torres aceptó tu trámite 'Verificar estado de causa en Tribunal de Garantías Penales de Cuenca' el 2026-03-19.", tramiteId: "t4", fecha: "2026-03-19", leida: false },
+  { abogadoId: "2", mensaje: "Carlos Gómez te asignó un trámite en Esmeraldas: 'Ingresar recurso de apelación'. Revisa Trámites Disponibles.", tramiteId: "t6", fecha: "2026-03-14", leida: true },
+  { abogadoId: "2", mensaje: "Ana Torres te asignó un trámite en Esmeraldas: 'Presentar escrito ante el Registro de la Propiedad'. Revisa Trámites Disponibles.", tramiteId: "t7", fecha: "2026-03-16", leida: true },
+  { abogadoId: "2", mensaje: "Luis Martínez te asignó un trámite en Esmeraldas: 'Retirar documentos apostillados en Cancillería'. Revisa Trámites Disponibles.", tramiteId: "t8", fecha: "2026-03-18", leida: true },
+  { abogadoId: "2", mensaje: "Juan Pérez te asignó un trámite en Esmeraldas: 'Ingresar escrito urgente en Juzgado Penal'. Revisa Trámites Disponibles.", tramiteId: "t9", fecha: "2026-03-19", leida: false }
+];
+
+// ══════════════════════════════════════════════════════════════
+// SISTEMA DE MENSAJES
+// mensajes = { tramiteId: [ { de, para, texto, estado, fecha } ] }
+// estado: 'pendiente_revision' | 'aprobado' | 'rechazado'
+// ══════════════════════════════════════════════════════════════
+const mensajes = {
+  "t3": [
+    { de: "Juan Pérez", para: "María López", texto: "El escrito debe presentarse en la ventanilla de causas nuevas, piso 2.", estado: "aprobado", fecha: "2026-03-18" },
+    { de: "María López", para: "Juan Pérez", texto: "Entendido, ¿necesita que adjunte copias o solo el original?", estado: "aprobado", fecha: "2026-03-18" },
+    { de: "Juan Pérez", para: "María López", texto: "Solo el original con dos copias simples por favor.", estado: "aprobado", fecha: "2026-03-18" }
+  ],
+  "t8": [
+    { de: "Luis Martínez", para: "María López", texto: "Los documentos están listos para retirar, son 3 hojas apostilladas.", estado: "aprobado", fecha: "2026-03-18" },
+    { de: "María López", para: "Luis Martínez", texto: "Perfecto, los retiro mañana en la mañana y los envío ese mismo día por Servientrega.", estado: "aprobado", fecha: "2026-03-18" }
+  ]
+};
+
+// Patrones que detectan datos de contacto
+function contieneContacto(texto) {
+  const patrones = [
+    /\b0\d{9}\b/,                          // teléfonos Ecuador 10 dígitos
+    /\b\+593\d{9}\b/,                      // con código país
+    /\b\d{7,10}\b/,                        // números largos genéricos
+    /[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}/,  // email
+    /whatsapp|wsp|ws\b|wa\.me/i,          // menciones a WhatsApp
+    /telegram|t\.me/i,                     // Telegram
+    /instagram|ig\b|face\b|facebook/i,    // redes sociales
+    /llám[ae]|llama[mr]e|escríbe[nm]e|contácta[nm]e/i, // invitaciones directas
+  ];
+  return patrones.some(p => p.test(texto));
+}
+
+let currentUser = null;
+
+// ══════════════════════════════════════════════════════════════
+// NAVEGACIÓN
+// ══════════════════════════════════════════════════════════════
+function showAdminLogin() {
+  const box = document.getElementById('adminLoginBox');
+  box.style.display = box.style.display === 'none' ? 'block' : 'none';
+}
+
+function submitAdminLogin() {
+  const email = document.getElementById('juristamEmailLogin').value.trim().toLowerCase();
+  const password = document.getElementById('juristamPassword').value;
+  const user = abogados.find(a => a.email.toLowerCase() === email && a.password === password && a.role === "juristam");
+  if (user) {
+    currentUser = user;
+    showPanel("juristamPanel");
+    showSection("juristamAbogadosSection");
+  } else {
+    alert("Credenciales incorrectas.");
+  }
+}
+
+function showTab(tab) {
+  const loginTab = document.getElementById('tabLogin');
+  const registerTab = document.getElementById('tabRegister');
+  const loginBtn = document.getElementById('tabLoginBtn');
+  const registerBtn = document.getElementById('tabRegisterBtn');
+  if (tab === 'login') {
+    loginTab.style.display = 'block';
+    registerTab.style.display = 'none';
+    loginBtn.style.background = 'var(--white)';
+    loginBtn.style.color = 'var(--purple-dark)';
+    registerBtn.style.background = 'transparent';
+    registerBtn.style.color = 'rgba(255,255,255,0.65)';
+  } else {
+    loginTab.style.display = 'none';
+    registerTab.style.display = 'block';
+    registerBtn.style.background = 'var(--white)';
+    registerBtn.style.color = 'var(--purple-dark)';
+    loginBtn.style.background = 'transparent';
+    loginBtn.style.color = 'rgba(255,255,255,0.65)';
+  }
+}
+
+function showTab(tab) {
+  const loginTab = document.getElementById('tabLogin');
+  const registerTab = document.getElementById('tabRegister');
+  const loginBtn = document.getElementById('tabLoginBtn');
+  const registerBtn = document.getElementById('tabRegisterBtn');
+  if (tab === 'login') {
+    loginTab.style.display = 'block';
+    registerTab.style.display = 'none';
+    loginBtn.style.borderBottomColor = '#7c3aed';
+    loginBtn.style.color = '#7c3aed';
+    loginBtn.style.fontWeight = '700';
+    registerBtn.style.borderBottomColor = 'transparent';
+    registerBtn.style.color = '#a89bc4';
+    registerBtn.style.fontWeight = '600';
+  } else {
+    loginTab.style.display = 'none';
+    registerTab.style.display = 'block';
+    registerBtn.style.borderBottomColor = '#7c3aed';
+    registerBtn.style.color = '#7c3aed';
+    registerBtn.style.fontWeight = '700';
+    loginBtn.style.borderBottomColor = 'transparent';
+    loginBtn.style.color = '#a89bc4';
+    loginBtn.style.fontWeight = '600';
+  }
+}
+
+function toggleAdminBox() {
+  const box = document.getElementById('adminBox');
+  box.style.display = box.style.display === 'none' ? 'block' : 'none';
+}
+
+function selectRolOption(valor) {
+  ['Enviar','Resolver','Ambas'].forEach(v => {
+    const el = document.getElementById('rol' + v);
+    if (el) { el.style.borderColor = '#e0d8f5'; el.style.background = '#fff'; }
+  });
+  const el = document.getElementById('rol' + valor.charAt(0).toUpperCase() + valor.slice(1));
+  if (el) { el.style.borderColor = '#9a6aff'; el.style.background = '#f0ebff'; }
+  const input = document.getElementById('rolPlataformaInput');
+  if (input) input.value = valor;
+}
+
+// ══════════════════════════════════════════════════════════════
+// MODAL CONFIRMACIÓN GENÉRICO
+// ══════════════════════════════════════════════════════════════
+let _modalConfCallback = null;
+
+function mostrarModalConfirmacion(titulo, texto, callback) {
+  document.getElementById("modalConfTitulo").textContent = titulo;
+  document.getElementById("modalConfTexto").innerHTML = texto;
+  _modalConfCallback = callback || null;
+  document.getElementById("modalConfirmacion").style.display = "flex";
+}
+
+function cerrarModalConfirmacion() {
+  document.getElementById("modalConfirmacion").style.display = "none";
+  if (_modalConfCallback) {
+    _modalConfCallback();
+    _modalConfCallback = null;
+  }
+}
+
+function showPanel(panelId) {
+  // Ocultar todos los paneles
+  document.querySelectorAll(".container").forEach(c => c.classList.add("hidden"));
+  // Ocultar mainScreen (que no tiene clase container)
+  const ms = document.getElementById("mainScreen");
+  if (ms) ms.style.display = "none";
+  // Mostrar el panel correcto
+  const target = document.getElementById(panelId);
+  if (target) {
+    if (panelId === "mainScreen") {
+      target.style.display = "flex";
+    } else {
+      target.classList.remove("hidden");
+    }
+  }
+}
+
+function showSection(sectionId) {
+  const sections = document.querySelectorAll("#abogadoPanel .section, #juristamPanel .section");
+  sections.forEach(s => s.classList.add("hidden"));
+  document.getElementById(sectionId).classList.remove("hidden");
+  if (sectionId === "tramitesDisponiblesSection") loadTramites();
+  if (sectionId === "misTramitesSection") loadMisTramites();
+  if (sectionId === "tramitesAceptadosSection") loadTramitesAceptados();
+  if (sectionId === "profileSection") loadProfile();
+  if (sectionId === "opinionesSection") loadOpiniones();
+  if (sectionId === "notificacionesSection") loadNotificaciones();
+  if (sectionId === "juristamAbogadosSection") loadJuristamAbogados();
+  if (sectionId === "juristamPruebaSection") loadJuristamPrueba();
+  if (sectionId === "juristamTramitesSection") loadJuristamTramites();
+  if (sectionId === "juristamMensajesSection") loadJuristamMensajes();
+  if (sectionId === "juristamAsignacionSection") loadJuristamAsignacion();
+  if (sectionId === "juristamRotacionSection") loadJuristamRotacion();
+  if (window.innerWidth < 1024) toggleSidebar();
+}
+
+function toggleSidebar() {
+  document.getElementById("sidebar").classList.toggle("active");
+}
+
+// ══════════════════════════════════════════════════════════════
+// REGISTRO
+// ══════════════════════════════════════════════════════════════
+// Datos temporales del registro guardados antes de abrir la encuesta
+let _formDataRegistro = null;
+
+// Datos del registro guardados temporalmente
+
+
+function abrirEncuestaRegistro() {
+  const form = document.getElementById("registerForm");
+  if (!form.checkValidity()) { form.reportValidity(); return; }
+  const rolInput = document.getElementById('rolPlataformaInput');
+  if (!rolInput || !rolInput.value) {
+    document.getElementById("registerMessage").textContent = "Por favor selecciona qué te gustaría hacer en la plataforma.";
+    document.getElementById("registerMessage").style.color = "#B83232";
+    return;
+  }
+  _formDataRegistro = new FormData(form);
+  document.getElementById("registerMessage").textContent = "";
+  document.getElementById("modalEncuesta").style.display = "flex";
+}
+
+function cerrarEncuesta() {
+  // La encuesta es obligatoria — no se cierra sin responder
+}
+
+document.getElementById("encuestaForm").addEventListener("submit", (e) => {
+  e.preventDefault();
+  if (!_formDataRegistro) { 
+    document.getElementById("modalEncuesta").style.display = "none";
+    return; 
+  }
+  const ef = e.target;
+  const precio = ef.precio.value;
+  const frecuencia = ef.frecuencia.value;
+  const mala = ef.mala_experiencia.value;
+  const importancia = ef.importancia.value;
+  const today = new Date().toISOString().split("T")[0];
+  // Generar id único basado en timestamp para evitar duplicados
+  const newId = Date.now().toString().slice(-6);
+  const nombre = _formDataRegistro.get('nombre') || '';
+  const matricula = _formDataRegistro.get('matricula') || '';
+  const cedula = _formDataRegistro.get('cedula') || '';
+  const telefono = _formDataRegistro.get('telefono') || '';
+  const email = _formDataRegistro.get('email') || '';
+  const password = _formDataRegistro.get('password') || '';
+  const ciudad = _formDataRegistro.get('ciudad') || '';
+  const descripcion = _formDataRegistro.get('descripcion') || '';
+  const experiencia = _formDataRegistro.get('experiencia') || '';
+  const nivel = _formDataRegistro.get('nivel') || '';
+  const rolPlataforma = document.getElementById('rolPlataformaInput') ? document.getElementById('rolPlataformaInput').value : '';
+  const code = `{ id: "${newId}", nombre: "${nombre}", matricula: "${matricula}", cedula: "${cedula}", telefono: "${telefono}", email: "${email}", ciudad: "${ciudad}", password: "${password}", descripcion: "${descripcion}", experiencia: "${experiencia}", nivel: "${nivel}", rol_plataforma: "${rolPlataforma}", foto: "https://via.placeholder.com/150", calificacion: 0, verified: false, subscriptionPaid: false, registerDate: "${today}", role: "abogado" }`;
+  const fd = new FormData();
+  fd.append("_subject", "🆕 Nuevo Registro + Encuesta - " + nombre);
+  fd.append("_captcha", "false");
+  fd.append("nombre", nombre);
+  fd.append("email", email);
+  fd.append("ciudad", ciudad);
+  fd.append("matricula", matricula);
+  fd.append("rol_plataforma", rolPlataforma);
+  fd.append("codigo_abogado", code);
+  fd.append("precio_justo", precio);
+  fd.append("frecuencia_uso", frecuencia);
+  fd.append("mala_experiencia", mala);
+  fd.append("importancia", importancia);
+  const fotoInput = document.getElementById('regFotoInput');
+  if (fotoInput && fotoInput.files && fotoInput.files[0]) fd.append("foto_perfil", fotoInput.files[0]);
+  fd.append("message", `🆕 NUEVO REGISTRO\n\nNombre: ${nombre}\nEmail: ${email}\nCiudad: ${ciudad}\nMatrícula: ${matricula}\nRol: ${rolPlataforma}\nDescripción: ${descripcion}\nExperiencia: ${experiencia}\nNivel: ${nivel}\n\n📋 ENCUESTA:\n1. Precio justo: ${precio}\n2. Frecuencia: ${frecuencia}\n3. Mala experiencia FB/WA: ${mala}\n4. Más importante: ${importancia}\n\n📌 CÓDIGO:\n${code}`);
+  const btn = ef.querySelector('button[type="submit"]');
+  if (btn) { btn.textContent = "Enviando..."; btn.disabled = true; }
+  fetch("https://formsubmit.co/juristam.ec@gmail.com", { method: "POST", body: fd })
+    .then(() => {
+      document.getElementById("modalEncuesta").style.display = "none";
+      document.getElementById("registerMessage").textContent = "✅ Registro enviado. Juristam revisará tu matrícula y te activará en 24h.";
+      document.getElementById("registerMessage").style.color = "#1A7F5A";
+      document.getElementById("registerForm").reset();
+      ef.reset();
+      if (document.getElementById('regFotoLabel')) document.getElementById('regFotoLabel').textContent = 'Toca para seleccionar una imagen';
+      ['Enviar','Resolver','Ambas'].forEach(v => {
+        const el = document.getElementById('rol' + v);
+        if (el) { el.style.borderColor = '#e0d8f5'; el.style.background = '#fff'; }
+      });
+      if (document.getElementById('rolPlataformaInput')) document.getElementById('rolPlataformaInput').value = '';
+      _formDataRegistro = null;
+      if (btn) { btn.textContent = "Enviar y completar registro"; btn.disabled = false; }
+    })
+    .catch(() => {
+      document.getElementById("registerMessage").textContent = "Error al enviar. Intenta de nuevo.";
+      document.getElementById("registerMessage").style.color = "#B83232";
+      if (btn) { btn.textContent = "Enviar y completar registro"; btn.disabled = false; }
+    });
+});
+
+// ══════════════════════════════════════════════════════════════
+// LOGIN
+// ══════════════════════════════════════════════════════════════
+function calculateTrialEndDate(registerDate) {
+  const d = new Date(registerDate);
+  d.setDate(d.getDate() + 30);
+  return d.toISOString().split("T")[0];
+}
+function isTrialActive(registerDate) {
+  const today = new Date();
+  return today <= new Date(calculateTrialEndDate(registerDate));
+}
+
+document.getElementById("loginForm").addEventListener("submit", (e) => {
+  e.preventDefault();
+  const email = document.getElementById("emailLogin").value.trim().toLowerCase();
+  const password = document.getElementById("password").value;
+  const user = abogados.find(a => a.email.toLowerCase() === email && a.password === password && a.role === "abogado");
+  if (user) {
+    if (user.verified) {
+      if (user.subscriptionPaid || isTrialActive(user.registerDate)) {
+        currentUser = user;
+        showPanel("abogadoPanel");
+        showSection("profileSection");
+        document.getElementById("loginMessage").textContent = "Inicio de sesión exitoso.";
+        updateNotifBadge();
+        verificarAviso();
+        verificarAviso();
+      } else {
+        document.getElementById("loginMessage").textContent = "Período de prueba finalizado. Paga la suscripción para continuar.";
+      }
+    } else {
+      document.getElementById("loginMessage").textContent = "Cuenta no verificada. Espera la activación de Juristam.";
+    }
+  } else {
+    document.getElementById("loginMessage").textContent = "Correo o contraseña incorrectos.";
+  }
+});
+
+document.getElementById("juristamLoginForm").addEventListener("submit", (e) => {
+  e.preventDefault();
+  const email = document.getElementById("juristamEmailLogin").value.trim().toLowerCase();
+  const password = document.getElementById("juristamPassword").value;
+  const user = abogados.find(a => a.email.toLowerCase() === email && a.password === password && a.role === "juristam");
+  if (user) {
+    currentUser = user;
+    showPanel("juristamPanel");
+    showSection("juristamAbogadosSection");
+  } else {
+    document.getElementById("loginMessage").textContent = "Correo o contraseña incorrectos.";
+  }
+});
+
+// ══════════════════════════════════════════════════════════════
+// PERFIL
+// ══════════════════════════════════════════════════════════════
+function loadProfile() {
+  const view = document.getElementById("profileView");
+  const info = document.getElementById("profileInfo");
+  view.innerHTML = `<img src="${currentUser.foto}" class="profile-pic" alt="Foto"><h3>${currentUser.nombre}</h3>`;
+  info.innerHTML = `
+    <p><span>Matrícula:</span> ${currentUser.matricula}</p>
+    <p><span>Cédula:</span> ${currentUser.cedula}</p>
+    <p><span>Teléfono:</span> ${currentUser.telefono}</p>
+    <p><span>Email:</span> ${currentUser.email}</p>
+    <p><span>Ciudad:</span> ${currentUser.ciudad}</p>
+    <p><span>Descripción:</span> ${currentUser.descripcion || "Sin descripción"}</p>
+    <p><span>Experiencia:</span> ${currentUser.experiencia || "No especificada"}</p>
+    <p><span>Nivel:</span> ${currentUser.nivel || "No especificado"}</p>
+    <p><span>Calificación:</span> <span class="rating">${"★".repeat(Math.floor(currentUser.calificacion))}${"☆".repeat(5 - Math.floor(currentUser.calificacion))}</span> (${currentUser.calificacion})</p>`;
+  document.getElementById("profileNombre").value = currentUser.nombre;
+  document.getElementById("profileMatricula").value = currentUser.matricula;
+  document.getElementById("profileCedula").value = currentUser.cedula;
+  document.getElementById("profileTelefono").value = currentUser.telefono;
+  document.getElementById("profileEmail").value = currentUser.email;
+  document.getElementById("profileCiudad").value = currentUser.ciudad;
+  document.getElementById("profileDescripcion").value = currentUser.descripcion || "";
+  document.getElementById("profileExperiencia").value = currentUser.experiencia || "";
+  document.getElementById("profileNivel").value = currentUser.nivel || "";
+  document.getElementById("profileId").value = currentUser.id;
+}
+function showEditProfileForm() { document.getElementById("profileEditForm").classList.remove("hidden"); }
+function hideEditProfileForm() { document.getElementById("profileEditForm").classList.add("hidden"); document.getElementById("profileMessage").textContent = ""; }
+
+document.getElementById("profileForm").addEventListener("submit", (e) => {
+  e.preventDefault();
+  const form = e.target;
+  const code = `{ id: "${form.id.value}", nombre: "${form.nombre.value}", matricula: "${form.matricula.value}", cedula: "${form.cedula.value}", telefono: "${form.telefono.value}", email: "${form.email.value}", ciudad: "${form.ciudad.value}", password: "${currentUser.password}", descripcion: "${form.descripcion.value}", experiencia: "${form.experiencia.value}", nivel: "${form.nivel.value}", foto: "${currentUser.foto}", calificacion: ${currentUser.calificacion}, verified: ${currentUser.verified}, subscriptionPaid: ${currentUser.subscriptionPaid}, registerDate: "${currentUser.registerDate}", role: "abogado" }`;
+  const fd = new FormData(form);
+  fd.append("codigo_abogado", code);
+  fetch(form.action, { method: "POST", body: fd }).then(() => {
+    document.getElementById("profileMessage").textContent = "Solicitud enviada a Juristam.";
+    hideEditProfileForm();
+  }).catch(() => document.getElementById("profileMessage").textContent = "Error al enviar.");
+});
+
+// ══════════════════════════════════════════════════════════════
+// SOLICITAR TRÁMITE
+// ══════════════════════════════════════════════════════════════
+// Helpers para calcular costos del trámite
+function selectDocOption(label, value) {
+  document.querySelectorAll('#solicitarTramiteForm label[onclick]').forEach(l => {
+    l.style.borderColor = '#e0d8f5';
+    l.style.background = '#fff';
+  });
+  label.style.borderColor = '#9a6aff';
+  label.style.background = '#f8f5ff';
+  calcularTotal();
+}
+
+function calcularTotal() {
+  const monto = parseFloat(document.getElementById('montoTramite').value) || 0;
+  const tipoDoc = document.querySelector('input[name="tipo_documentos"]:checked');
+  const resumen = document.getElementById('resumenCostos');
+  const logisticaRow = document.getElementById('resumenLogisticaRow');
+
+  if (!tipoDoc || monto <= 0) {
+    resumen.style.display = 'none';
+    return;
+  }
+
+  let logistica = 0;
+  let logisticaLabel = '';
+  // Solo se cobra logística cuando el solicitante RECIBE documentos del ejecutor
+  // El envío que el solicitante hace al ejecutor corre por su cuenta (ya avisado en el label)
+  if (tipoDoc.value === 'envio') { logistica = 0; logisticaLabel = ''; }
+  else if (tipoDoc.value === 'recepcion') { logistica = 5; logisticaLabel = 'Logística — el ejecutor te envía documentos:'; }
+  else if (tipoDoc.value === 'ambos') { logistica = 5; logisticaLabel = 'Logística — el ejecutor te envía documentos:'; }
+
+  const total = monto + logistica;
+
+  document.getElementById('resumenMonto').textContent = '$' + monto.toFixed(2);
+  document.getElementById('resumenTotal').textContent = '$' + total.toFixed(2);
+  document.getElementById('tipoDocumentosValor').value = tipoDoc.value;
+  document.getElementById('costoLogisticaValor').value = logistica;
+  document.getElementById('montoTotalValor').value = total;
+
+  if (logistica > 0) {
+    logisticaRow.style.display = 'flex';
+    document.getElementById('resumenLogisticaLabel').textContent = logisticaLabel;
+    document.getElementById('resumenLogistica').textContent = '$' + logistica.toFixed(2);
+  } else {
+    logisticaRow.style.display = 'none';
+  }
+
+  resumen.style.display = 'block';
+}
+
+document.getElementById("solicitarTramiteForm").addEventListener("submit", (e) => {
+  e.preventDefault();
+  const form = e.target;
+  const tipoDoc = document.querySelector('input[name="tipo_documentos"]:checked');
+  if (!tipoDoc) {
+    document.getElementById("tramiteMessage").textContent = "Por favor selecciona el tipo de documentos del trámite.";
+    document.getElementById("tramiteMessage").style.color = "#B83232";
+    return;
+  }
+  document.getElementById("tramiteNombre").value = currentUser.nombre;
+  document.getElementById("tramiteCiudadOrigen").value = currentUser.ciudad;
+  const monto = parseFloat(form.monto.value);
+  const logistica = parseFloat(document.getElementById('costoLogisticaValor').value) || 0;
+  const montoTotal = monto + logistica;
+  const newId = "t" + (tramites.length + 1);
+  const code = `{ id: "${newId}", abogadoId: "${currentUser.id}", nombre: "${currentUser.nombre}", ciudadOrigen: "${currentUser.ciudad}", ciudadDestino: "${form.ciudad.value}", monto: ${monto}, monto_total: ${montoTotal}, costo_logistica: ${logistica}, tipo_documentos: "${tipoDoc.value}", descripcion: "${form.descripcion.value}", experiencia: "${currentUser.experiencia || 'No especificada'}", nivel: "${currentUser.nivel || 'No especificado'}", calificacion: ${currentUser.calificacion}, estado: "pendiente", aceptadoPor: "", asignadoA: "" }`;
+  const fd = new FormData(form);
+  fd.append("codigo_tramite", code);
+  const btnPublicar = form.querySelector('button[type="submit"]');
+  if (btnPublicar) { btnPublicar.textContent = "Enviando..."; btnPublicar.disabled = true; }
+  // Guardar valores ANTES del fetch para usarlos después del reset
+  const _ciudadDestino = form.ciudad.value;
+  const _descripcion = form.descripcion.value;
+
+  fetch(form.action, { method: "POST", body: fd }).then(() => {
+    form.reset();
+    document.getElementById('resumenCostos').style.display = 'none';
+    document.querySelectorAll('#solicitarTramiteForm label[onclick]').forEach(l => {
+      l.style.borderColor = '#e0d8f5';
+      l.style.background = '#fff';
+    });
+    if (btnPublicar) { btnPublicar.innerHTML = '<i class="fas fa-paper-plane"></i> Publicar Trámite'; btnPublicar.disabled = false; }
+    // Agregar el trámite en memoria para que aparezca inmediatamente
+    const nuevoTramite = {
+      id: newId,
+      abogadoId: currentUser.id,
+      nombre: currentUser.nombre,
+      ciudadOrigen: currentUser.ciudad,
+      ciudadDestino: _ciudadDestino,
+      monto: monto,
+      monto_total: montoTotal,
+      costo_logistica: logistica,
+      tipo_documentos: tipoDoc.value,
+      descripcion: _descripcion,
+      experiencia: currentUser.experiencia || "",
+      nivel: currentUser.nivel || "",
+      calificacion: currentUser.calificacion,
+      estado: "pendiente",
+      aceptadoPor: "",
+      asignadoA: "",
+      fechaLimite: "",
+      fechaLimitePago: "",
+      _temporal: true
+    };
+    tramites.push(nuevoTramite);
+    mostrarModalConfirmacion(
+      "✅ Trámite publicado",
+      "Tu trámite fue enviado a Juristam. Una vez que un colega lo acepte recibirás una notificación y podrás ver el avance en <strong>Trámites Enviados</strong>.",
+      () => showSection('misTramitesSection')
+    );
+  }).catch(() => {
+    document.getElementById("tramiteMessage").textContent = "Error al enviar. Intenta de nuevo.";
+    document.getElementById("tramiteMessage").style.color = "#B83232";
+    if (btnPublicar) { btnPublicar.innerHTML = '<i class="fas fa-paper-plane"></i> Publicar Trámite'; btnPublicar.disabled = false; }
+  });
+});
+
+// ══════════════════════════════════════════════════════════════
+// TRÁMITES DISPONIBLES
+// ══════════════════════════════════════════════════════════════
+function getOpiniones(nombre) {
+  const ops = opiniones.filter(o => o.abogado === nombre);
+  return ops.length > 0 ? ops.map(o => `<p><strong>${o.evaluador} (${o.puntaje}/5):</strong> ${o.opinion}</p>`).join("") : "<p>Sin opiniones aún.</p>";
+}
+
+function loadTramites() {
+  const list = document.getElementById("tramitesList");
+  list.innerHTML = "";
+  tramites.forEach(t => {
+    // Si el trámite tiene asignadoA, solo mostrarlo al abogado asignado
+    const asignadoA = t.asignadoA || "";
+    const puedeVer = asignadoA === "" || asignadoA === currentUser.id;
+    // Solo mostrar tramites confirmados (pendiente), no los que esperan pago
+    if (t.ciudadDestino.toLowerCase() === currentUser.ciudad.toLowerCase() && t.estado === "pendiente" && puedeVer) {
+      const sol = abogados.find(a => a.id === t.abogadoId);
+      list.innerHTML += `
+        <div class="tramite-item">
+          <div class="tramite-details">
+            <strong>${t.nombre}</strong>
+            <span>${t.descripcion}</span>
+            <span>Monto: $${t.monto} | Tu ganancia neta: $${(t.monto * 0.922).toFixed(2)} (comisión Juristam 7.8%: $${(t.monto * 0.078).toFixed(2)})</span>
+            <div style="margin-top:0.75rem;padding:0.75rem;background:#f8f5ff;border-radius:0.6rem;border:1px solid #ede8f7;">
+              <div style="display:flex;align-items:center;gap:0.75rem;">
+                <img src="${sol.foto}" style="width:44px;height:44px;border-radius:50%;object-fit:cover;border:2px solid #9a6aff;flex-shrink:0;">
+                <div style="flex:1;">
+                  <p style="font-size:0.85rem;font-weight:700;color:#2d1060;">${sol.nombre}</p>
+                  <p style="font-size:0.78rem;color:#7c6fa0;">${sol.nivel || "Abogado"} · ${sol.experiencia || "Sin especificar"}</p>
+                  <p style="font-size:0.78rem;color:#F59E0B;">${"★".repeat(Math.floor(sol.calificacion))}${"☆".repeat(5-Math.floor(sol.calificacion))} (${sol.calificacion})</p>
+                </div>
+                <button onclick="verPerfil('${sol.id}')" style="background:#7c3aed;color:#fff;border:none;padding:0.35rem 0.75rem;border-radius:999px;font-size:0.75rem;font-weight:600;cursor:pointer;flex-shrink:0;">
+                  Ver perfil
+                </button>
+              </div>
+            </div>
+          </div>
+          <div style="margin-top:0.5rem;padding:0.6rem 0.75rem;background:#f8f5ff;border-radius:0.5rem;font-size:0.82rem;border-left:3px solid #9a6aff;">
+            ${t.tipo_documentos === 'envio' ? '📤 El solicitante te enviará documentos físicos por Servientrega' :
+              t.tipo_documentos === 'recepcion' ? '📥 Deberás enviarle documentos físicos al solicitante por Servientrega' :
+              t.tipo_documentos === 'ambos' ? '📤📥 Intercambio de documentos físicos por Servientrega en ambas direcciones' :
+              '💻 Solo digital — sin envíos físicos'}
+            ${t.costo_logistica > 0 ? `<br><small style="color:#7c3aed;">Logística incluida: $${t.costo_logistica}</small>` : ''}
+          </div>
+          <div class="tramite-actions" id="btn-accept-${t.id}">
+            <button onclick="acceptTramiteYOcultar('${t.id}','${t.nombre}','${t.ciudadDestino}',${t.monto},'${t.descripcion}')">Aceptar Trámite</button>
+          </div>
+        </div>`;
+    }
+  });
+  if (list.innerHTML === "") {
+    list.innerHTML = "<p style='color:#6B5B95;padding:1rem;'>No hay trámites disponibles en tu ciudad por ahora.</p>";
+  } else {
+    // Mostrar contador de trámites disponibles
+    const total = list.querySelectorAll ? list.querySelectorAll('.tramite-item').length : 0;
+    if (total > 5) {
+      list.insertAdjacentHTML('afterbegin', '<div style="background:#f0ebff;padding:0.5rem 0.75rem;border-radius:0.5rem;margin-bottom:0.75rem;font-size:0.82rem;color:#4c1d95;font-weight:600;"><i class="fas fa-list"></i> ' + total + ' trámites disponibles en tu ciudad</div>');
+    }
+  }
+}
+
+// ══════════════════════════════════════════════════════════════
+// MIS TRÁMITES + MENSAJES
+// ══════════════════════════════════════════════════════════════
+// Helpers para tiempo límite de pago
+function tiempoLimitePagoSolicitante(t) {
+  if (!t.fechaLimitePago) return '<div style=margin-top:.4rem;font-size:.8rem;color:#7C6FA0>El abogado aceptó tu trámite. Realiza el pago para que pueda comenzar.</div>';
+  var ahora = new Date();
+  var limPago = new Date(t.fechaLimitePago);
+  var vencPago = ahora > limPago;
+  var hrsPago = Math.max(0, Math.floor((limPago - ahora) / 3600000));
+  var minsPago = Math.max(0, Math.floor(((limPago - ahora) % 3600000) / 60000));
+  if (vencPago) return '<div style=margin-top:.5rem;background:#FEE2E2;color:#B83232;padding:.5rem .75rem;border-radius:.5rem;font-size:.82rem;font-weight:600>⚠️ Tiempo de pago vencido. Paga ahora para mantener el trámite activo.</div>';
+  return '<div style=margin-top:.4rem;font-size:.8rem;color:#C07C1A;font-weight:600>⏱ Tienes ' + hrsPago + 'h ' + minsPago + 'm para realizar el pago.</div>';
+}
+
+function tiempoLimitePagoEjecutor(t) {
+  if (!t.fechaLimitePago) return '';
+  var ahora = new Date();
+  var limPago = new Date(t.fechaLimitePago);
+  var vencPago = ahora > limPago;
+  var hrsPago = Math.max(0, Math.floor((limPago - ahora) / 3600000));
+  var minsPago = Math.max(0, Math.floor(((limPago - ahora) % 3600000) / 60000));
+  if (vencPago) return '<div style=margin-top:.4rem;background:#FEE2E2;color:#B83232;padding:.4rem .65rem;border-radius:.4rem;font-size:.78rem;font-weight:600>⚠️ Tiempo de pago venció. Juristam evaluará si cancelar.</div>';
+  return '<div style=margin-top:.4rem;font-size:.78rem;color:#C07C1A;font-weight:600>⏱ El solicitante tiene ' + hrsPago + 'h ' + minsPago + 'm para pagar.</div>';
+}
+
+function loadMisTramites() {
+  const list = document.getElementById("misTramitesList");
+  list.innerHTML = "";
+
+  const esperandoPago = [...tramites].filter(t => t.abogadoId === currentUser.id && t.estado === "esperando_pago").reverse();
+  const pendientes    = [...tramites].filter(t => t.abogadoId === currentUser.id && t.estado === "pendiente").reverse();
+  const enProceso     = [...tramites].filter(t => t.abogadoId === currentUser.id && t.estado === "en_proceso").reverse();
+  const terminados    = [...tramites].filter(t => t.abogadoId === currentUser.id && t.estado === "terminado").reverse();
+
+  let hayAlgo = false;
+
+  // ── GRUPO 1: ESPERANDO PAGO ──
+  if (esperandoPago.length > 0) {
+    hayAlgo = true;
+    list.innerHTML += '<div style="margin-bottom:0.5rem;padding:0.5rem 0.75rem;background:#FEF3E2;border-radius:0.5rem;border-left:3px solid #C07C1A;"><p style="font-size:0.8rem;font-weight:700;color:#C07C1A;"><i class="fas fa-credit-card"></i> Pendiente de pago (' + esperandoPago.length + ')</p></div>';
+    esperandoPago.forEach(t => {
+      list.innerHTML += '<div class="tramite-item" style="border-left:3px solid #C07C1A;background:#fffbf0;margin-bottom:0.5rem;">' +
+        '<div><strong>' + t.descripcion + '</strong> — ' + t.ciudadDestino + '</div>' +
+        '<div style="margin-top:0.5rem;display:flex;align-items:center;gap:0.75rem;flex-wrap:wrap;">' +
+        '<span style="background:#FEF3E2;color:#C07C1A;padding:0.2rem 0.65rem;border-radius:999px;font-size:0.75rem;font-weight:600;">🤝 Aceptado — pendiente de pago</span>' +
+        '<button onclick="abrirModalPagoDesde(this)" data-id="' + t.id + '" data-monto="' + (t.monto_total || t.monto) + '" data-desc="' + t.descripcion.substring(0,30).replace(/"/g,"") + '" style="background:linear-gradient(135deg,#4c1d95,#9a6aff);color:#fff;border:none;padding:0.35rem 0.85rem;border-radius:999px;font-size:0.78rem;font-weight:700;cursor:pointer;">💳 Pagar ahora</button>' +
+        '</div>' +
+        tiempoLimitePagoSolicitante(t) +
+        '</div>';
+    });
+  }
+
+  // ── GRUPO 2: PENDIENTES ──
+  if (pendientes.length > 0) {
+    hayAlgo = true;
+    list.innerHTML += '<div style="margin-top:' + (esperandoPago.length > 0 ? '1.25rem' : '0') + ';margin-bottom:0.5rem;padding:0.5rem 0.75rem;background:#FEF3E2;border-radius:0.5rem;border-left:3px solid #F59E0B;"><p style="font-size:0.8rem;font-weight:700;color:#C07C1A;"><i class="fas fa-hourglass-half"></i> Esperando aceptación (' + pendientes.length + ')</p></div>';
+    pendientes.forEach(t => {
+      list.innerHTML += '<div class="tramite-item" style="border-left:3px solid #F59E0B;margin-bottom:0.5rem;">' +
+        '<div><strong>' + t.descripcion + '</strong> — ' + t.ciudadDestino + '</div>' +
+        '<div style="margin-top:0.5rem;">$' + t.monto + ' &nbsp;|&nbsp; <span class="tag tag-pending">⏳ Esperando que un abogado acepte</span></div>' +
+        '</div>';
+    });
+  }
+
+  // ── GRUPO 3: EN PROCESO ──
+  if (enProceso.length > 0) {
+    hayAlgo = true;
+    list.innerHTML += '<div style="margin-top:' + ((esperandoPago.length > 0 || pendientes.length > 0) ? '1.25rem' : '0') + ';margin-bottom:0.5rem;padding:0.5rem 0.75rem;background:#efe8ff;border-radius:0.5rem;border-left:3px solid #7c3aed;"><p style="font-size:0.8rem;font-weight:700;color:#7c3aed;"><i class="fas fa-spinner fa-spin"></i> En ejecución (' + enProceso.length + ')</p></div>';
+    enProceso.forEach(t => {
+      const ac = abogados.find(a => a.nombre === t.aceptadoPor);
+      let datosEjecutorHtml = '';
+      if (ac && (t.tipo_documentos === 'envio' || t.tipo_documentos === 'ambos')) {
+        datosEjecutorHtml = '<div style="margin-top:0.75rem;padding:0.75rem;background:#f0ebff;border-radius:0.5rem;border:1.5px solid #9a6aff;">' +
+          '<p style="font-size:0.78rem;font-weight:700;color:#4c1d95;margin-bottom:0.4rem;">📦 Datos para envío por Servientrega</p>' +
+          '<p style="font-size:0.82rem;color:#2d1060;"><strong>Destinatario:</strong> ' + ac.nombre + '</p>' +
+          '<p style="font-size:0.82rem;color:#2d1060;"><strong>Cédula:</strong> ' + ac.cedula + '</p>' +
+          '<p style="font-size:0.82rem;color:#2d1060;"><strong>Teléfono:</strong> ' + ac.telefono + '</p>' +
+          '<p style="font-size:0.72rem;color:#9a6aff;margin-top:0.3rem;"><i class="fas fa-info-circle"></i> Datos exclusivamente para envío por Servientrega</p>' +
+          '</div>';
+      }
+      let tiempoHtml = '';
+      if (t.fechaLimite) {
+        const lim = new Date(t.fechaLimite);
+        const ahora = new Date();
+        const venc = ahora > lim;
+        const hrs = Math.max(0, Math.floor((lim - ahora) / 3600000));
+        const mins = Math.max(0, Math.floor(((lim - ahora) % 3600000) / 60000));
+        tiempoHtml = venc
+          ? '<br><span style="color:#B83232;font-size:0.78rem;font-weight:700;">⚠️ El ejecutor superó el tiempo límite — Juristam fue notificado</span>'
+          : '<br><span style="color:#1A7F5A;font-size:0.78rem;">⏱ El ejecutor tiene ' + hrs + 'h ' + mins + 'm para completar</span>';
+      }
+      list.innerHTML += '<div class="tramite-item" style="border-left:3px solid #8B5CF6;margin-bottom:0.5rem;">' +
+        '<div><strong>' + t.descripcion + '</strong> — ' + t.ciudadDestino + '<br>' +
+        '<span class="tag tag-progress">🔄 En ejecución</span></div>' +
+        (ac ?
+          '<div style="margin-top:0.75rem;margin-bottom:0.4rem;"><small style="color:#7c6fa0;font-size:0.78rem;">Ejecutando:</small><br><div style="display:inline-flex;align-items:center;gap:0.5rem;background:#f8f5ff;padding:0.4rem 0.75rem;border-radius:999px;border:1px solid #ede8f7;cursor:pointer;margin-top:0.3rem;" onclick="verPerfil(\'' + ac.id + '\')"><img src="' + ac.foto + '" style="width:26px;height:26px;border-radius:50%;object-fit:cover;border:1.5px solid #9a6aff;"><span style="font-size:0.82rem;font-weight:700;color:#4c1d95;">' + ac.nombre + '</span><span style="color:#F59E0B;font-size:0.78rem;">' + "★".repeat(Math.floor(ac.calificacion)) + '</span><span style="font-size:0.72rem;color:#9a6aff;">Ver perfil →</span></div>' + tiempoHtml + '</div>'
+          : '<div style="margin-top:0.75rem;"><small>Ejecutando: ' + t.aceptadoPor + '</small>' + tiempoHtml + '</div>'
+        ) +
+        datosEjecutorHtml +
+        '<div style="margin-top:0.5rem;"><button onclick="rejectTramiteDesde(this)" data-id="' + t.id + '" data-por="' + t.aceptadoPor + '">Rechazar</button></div>' +
+        renderMensajes(t.id) +
+        '</div>';
+    });
+  }
+
+  // ── GRUPO 4: COMPLETADOS ──
+  if (terminados.length > 0) {
+    hayAlgo = true;
+    list.innerHTML += '<div style="margin-top:' + ((esperandoPago.length > 0 || pendientes.length > 0 || enProceso.length > 0) ? '1.25rem' : '0') + ';margin-bottom:0.5rem;padding:0.5rem 0.75rem;background:#E6F4EF;border-radius:0.5rem;border-left:3px solid #1A7F5A;"><p style="font-size:0.8rem;font-weight:700;color:#1A7F5A;"><i class="fas fa-check-circle"></i> Completados (' + terminados.length + ')</p></div>';
+    terminados.forEach(t => {
+      const yaCalificado = opiniones.some(o => o.evaluador === currentUser.nombre && o.abogado === t.aceptadoPor && (!o.tramiteId || o.tramiteId === t.id));
+      list.innerHTML += '<div class="tramite-item" style="border-left:3px solid #10B981;background:#f0fff4;margin-bottom:0.5rem;">' +
+        '<div style="display:flex;justify-content:space-between;align-items:flex-start;flex-wrap:wrap;gap:0.5rem;">' +
+        '<div><strong>' + t.descripcion + '</strong><br><small style="color:#7C6FA0;">' + t.ciudadOrigen + ' → ' + t.ciudadDestino + '</small></div>' +
+        '<span class="tag tag-done">✅ Completado</span></div>' +
+        '<div style="margin-top:0.5rem;font-size:0.85rem;color:#5c4d7a;">Realizado por: <strong>' + t.aceptadoPor + '</strong> · $' + t.monto + '</div>' +
+        '<div style="margin-top:0.65rem;">' +
+        (yaCalificado
+          ? '<span style="font-size:0.8rem;color:#1A7F5A;"><i class="fas fa-star"></i> Ya calificaste a este abogado</span>'
+          : '<button onclick="showRatingModalDesde(this)" data-por="' + t.aceptadoPor + '" data-tramite="' + t.id + '" style="background:linear-gradient(135deg,#C9A84C,#e8c97a);color:#2d1060;border:none;padding:0.5rem 1.1rem;border-radius:0.5rem;font-size:0.82rem;font-weight:700;cursor:pointer;"><i class="fas fa-star"></i> Calificar al abogado</button>') +
+        '</div></div>';
+    });
+  }
+
+  if (!hayAlgo) {
+    list.innerHTML = "<p style='color:#6B5B95;padding:1rem;'>No has enviado trámites aún. Ve a <strong>Solicitar Trámite</strong> para empezar.</p>";
+  }
+}
+
+
+// ══════════════════════════════════════════════════════════════
+// TRÁMITES ACEPTADOS (los que el usuario ejecuta para otros)
+// ══════════════════════════════════════════════════════════════
+function loadTramitesAceptados() {
+  const list = document.getElementById("tramitesAceptadosList");
+  list.innerHTML = "";
+
+  const esperandoPago = [...tramites].filter(t => t.aceptadoPor === currentUser.nombre && t.estado === "esperando_pago").reverse();
+  const enProceso    = [...tramites].filter(t => t.aceptadoPor === currentUser.nombre && t.estado === "en_proceso").reverse();
+  const terminados   = [...tramites].filter(t => t.aceptadoPor === currentUser.nombre && t.estado === "terminado").reverse();
+
+  let hayAlgo = false;
+
+  // ── GRUPO 1: ESPERANDO PAGO ──
+  if (esperandoPago.length > 0) {
+    hayAlgo = true;
+    list.innerHTML += `<div style="margin-bottom:0.5rem;padding:0.5rem 0.75rem;background:#FEF3E2;border-radius:0.5rem;border-left:3px solid #C07C1A;">
+      <p style="font-size:0.8rem;font-weight:700;color:#C07C1A;"><i class="fas fa-clock"></i> Esperando pago del solicitante (${esperandoPago.length})</p>
+    </div>`;
+    esperandoPago.forEach(t => {
+      list.innerHTML += `
+        <div class="tramite-item" style="border-left:3px solid #C07C1A;background:#fffbf0;margin-bottom:0.5rem;">
+          <div style="background:#C07C1A;color:#fff;padding:0.4rem 0.75rem;border-radius:0.4rem;font-size:0.78rem;font-weight:700;margin-bottom:0.75rem;">
+            💳 Esperando confirmación de pago
+          </div>
+          <div>
+            <strong>${t.descripcion}</strong><br>
+            Ciudad: <strong>${t.ciudadDestino}</strong><br>
+            Monto que recibirás: <strong>$${(t.monto * 0.922).toFixed(2)}</strong>
+          </div>
+          <div style="margin-top:0.65rem;font-size:0.82rem;color:#7C6FA0;line-height:1.6;">
+            Una vez confirmado el pago tendrás <strong>24 horas</strong> para completarlo.
+          </div>
+          ${tiempoLimitePagoEjecutor(t)}
+        </div>`;
+    });
+  }
+
+  // ── GRUPO 2: EN EJECUCIÓN ──
+  if (enProceso.length > 0) {
+    hayAlgo = true;
+    list.innerHTML += `<div style="margin-top:${esperandoPago.length > 0 ? '1.25rem' : '0'};margin-bottom:0.5rem;padding:0.5rem 0.75rem;background:#efe8ff;border-radius:0.5rem;border-left:3px solid #7c3aed;">
+      <p style="font-size:0.8rem;font-weight:700;color:#7c3aed;"><i class="fas fa-spinner fa-spin"></i> En ejecución (${enProceso.length})</p>
+    </div>`;
+    enProceso.forEach(t => {
+      const solicitante = abogados.find(a => a.id === t.abogadoId);
+      let datosSolicitanteHtml = '';
+      if (solicitante && (t.tipo_documentos === 'recepcion' || t.tipo_documentos === 'ambos')) {
+        datosSolicitanteHtml = `
+          <div style="margin-top:0.75rem;padding:0.75rem;background:#f0ebff;border-radius:0.5rem;border:1.5px solid #9a6aff;">
+            <p style="font-size:0.78rem;font-weight:700;color:#4c1d95;margin-bottom:0.4rem;">📦 Datos para envío por Servientrega</p>
+            <p style="font-size:0.82rem;color:#2d1060;"><strong>Destinatario:</strong> ${solicitante.nombre}</p>
+            <p style="font-size:0.82rem;color:#2d1060;"><strong>Cédula:</strong> ${solicitante.cedula}</p>
+            <p style="font-size:0.82rem;color:#2d1060;"><strong>Teléfono:</strong> ${solicitante.telefono}</p>
+            <p style="font-size:0.72rem;color:#9a6aff;margin-top:0.3rem;"><i class="fas fa-info-circle"></i> Datos exclusivamente para envío por Servientrega</p>
+          </div>`;
+      }
+      const ahora = new Date();
+      const limite = t.fechaLimite ? new Date(t.fechaLimite) : null;
+      const vencido = limite && ahora > limite;
+      const horasRestantes = limite ? Math.max(0, Math.floor((limite - ahora) / 3600000)) : null;
+      const minutosRestantes = limite ? Math.max(0, Math.floor(((limite - ahora) % 3600000) / 60000)) : null;
+      const tiempoLabel = limite
+        ? (vencido
+            ? '<span style="color:#B83232;font-weight:700;font-size:0.8rem;">⚠️ Tiempo vencido — completa el trámite o notifica a Juristam</span>'
+            : '<span style="color:' + (horasRestantes < 4 ? '#C07C1A' : '#1A7F5A') + ';font-size:0.8rem;font-weight:600;">⏱ Tiempo restante: ' + horasRestantes + 'h ' + minutosRestantes + 'm</span>')
+        : '';
+      if (vencido && !t._alertaEnviada) {
+        t._alertaEnviada = true;
+        const fdAlerta = new FormData();
+        fdAlerta.append("_subject", "⚠️ TRÁMITE VENCIDO - " + t.id + " - " + currentUser.nombre);
+        fdAlerta.append("_captcha", "false");
+        fdAlerta.append("message", "⚠️ ALERTA TRÁMITE VENCIDO\n\nEjecutor: " + currentUser.nombre + "\nTrámite: " + t.id + " — " + t.descripcion + "\nCiudad: " + t.ciudadDestino + "\nFecha límite: " + t.fechaLimite);
+        fetch("https://formsubmit.co/juristam.ec@gmail.com", { method: "POST", body: fdAlerta });
+      }
+      list.innerHTML += `
+        <div class="tramite-item" style="border-left:3px solid ${vencido ? '#B83232' : '#8B5CF6'};${vencido ? 'background:#fff5f5;' : ''}margin-bottom:0.5rem;">
+          ${vencido ? '<div style="background:#B83232;color:#fff;padding:0.4rem 0.75rem;border-radius:0.4rem;font-size:0.78rem;font-weight:700;margin-bottom:0.75rem;">⚠️ Plazo vencido — Juristam notificado.</div>' : ''}
+          <div>
+            <strong>${t.descripcion}</strong><br>
+            Ciudad: <strong>${t.ciudadDestino}</strong><br>
+            Monto que recibirás: <strong>$${(t.monto * 0.922).toFixed(2)}</strong> <small style="color:#6B5B95;">(comisión $${(t.monto * 0.078).toFixed(2)})</small>
+          </div>
+          <div style="margin-top:0.5rem;">
+            ${tiempoLabel}<br>
+            <div style="margin-top:0.5rem;display:flex;align-items:center;gap:0.6rem;flex-wrap:wrap;">
+              <small>Solicitado por:</small>
+              ${solicitante ? `<div style="display:inline-flex;align-items:center;gap:0.5rem;background:#f8f5ff;padding:0.3rem 0.6rem;border-radius:999px;border:1px solid #ede8f7;cursor:pointer;" onclick="verPerfil('${solicitante.id}')">
+                <img src="${solicitante.foto}" style="width:22px;height:22px;border-radius:50%;object-fit:cover;border:1px solid #9a6aff;">
+                <span style="font-size:0.78rem;font-weight:600;color:#4c1d95;">${solicitante.nombre}</span>
+                <span style="font-size:0.7rem;color:#9a6aff;">Ver perfil →</span>
+              </div>` : `<small>${t.nombre}</small>`}
+            </div>
+          </div>
+          ${datosSolicitanteHtml}
+          ${renderMensajes(t.id)}
+          <div style="margin-top:0.75rem;padding:0.85rem;background:#f0fff4;border:1.5px solid #68D391;border-radius:0.6rem;">
+            <p style="font-size:0.82rem;font-weight:700;color:#1A7F5A;margin-bottom:0.5rem;"><i class="fas fa-check-circle"></i> ¿Completaste el trámite?</p>
+            <textarea id="evidencia-${t.id}" placeholder="Describe brevemente cómo lo completaste (opcional)" rows="2" style="width:100%;padding:0.5rem 0.75rem;border:1.5px solid #68D391;border-radius:0.5rem;font-size:0.82rem;font-family:'DM Sans',sans-serif;resize:none;margin-bottom:0.5rem;"></textarea>
+            <button onclick="marcarCompletado('${t.id}','${t.descripcion}','${t.ciudadDestino}',${t.monto})" style="background:linear-gradient(135deg,#1A7F5A,#38A169);color:#fff;border:none;padding:0.6rem 1.25rem;border-radius:0.5rem;font-size:0.85rem;font-weight:700;cursor:pointer;width:100%;">
+              <i class="fas fa-flag-checkered"></i> Marcar como completado
+            </button>
+          </div>
+        </div>`;
+    });
+  }
+
+  // ── GRUPO 3: COMPLETADOS ──
+  if (terminados.length > 0) {
+    hayAlgo = true;
+    list.innerHTML += `<div style="margin-top:${(esperandoPago.length > 0 || enProceso.length > 0) ? '1.25rem' : '0'};margin-bottom:0.5rem;padding:0.5rem 0.75rem;background:#E6F4EF;border-radius:0.5rem;border-left:3px solid #1A7F5A;">
+      <p style="font-size:0.8rem;font-weight:700;color:#1A7F5A;"><i class="fas fa-check-circle"></i> Completados (${terminados.length})</p>
+    </div>`;
+    terminados.forEach(t => {
+      list.innerHTML += `
+        <div class="tramite-item" style="border-left:3px solid #10B981;background:#f0fff4;margin-bottom:0.5rem;">
+          <div style="display:flex;justify-content:space-between;align-items:flex-start;flex-wrap:wrap;gap:0.5rem;">
+            <div>
+              <strong>${t.descripcion}</strong><br>
+              <small style="color:#7C6FA0;">${t.ciudadOrigen} → ${t.ciudadDestino}</small>
+            </div>
+            <span class="tag tag-done">✅ Completado</span>
+          </div>
+          <div style="margin-top:0.4rem;font-size:0.85rem;color:#5c4d7a;">
+            Monto cobrado: <strong>$${(t.monto * 0.922).toFixed(2)}</strong>
+          </div>
+        </div>`;
+    });
+  }
+
+  if (!hayAlgo) {
+    list.innerHTML = "<p style='color:#6B5B95;padding:1rem;'>No has aceptado trámites aún. Ve a <strong>Trámites Disponibles</strong> para ver los de tu ciudad.</p>";
+  }
+}
+
+
+// ══════════════════════════════════════════════════════════════
+// RENDERIZAR MENSAJES DE UN TRÁMITE
+// ══════════════════════════════════════════════════════════════
+function renderMensajes(tramiteId) {
+  const msgs = mensajes[tramiteId] || [];
+  const aprobados = msgs.filter(m => m.estado === "aprobado");
+
+  let burbujas = aprobados.length > 0
+    ? aprobados.map(m => {
+        const esEnviado = m.de === currentUser.nombre;
+        return `<div class="msg-burbuja ${esEnviado ? 'msg-enviado' : 'msg-recibido'}">
+          ${m.texto}
+          <div class="msg-meta">${m.de} · ${m.fecha}</div>
+        </div>`;
+      }).join("")
+    : `<div class="msg-sin-mensajes">Sin mensajes aún. Puedes hacer una consulta sobre el trámite.</div>`;
+
+  return `
+    <div class="mensajes-container">
+      <div class="mensajes-header"><i class="fas fa-comments"></i> Mensajes del trámite <small style="opacity:0.7;font-size:0.75rem;margin-left:auto;">Revisados por Juristam antes de enviarse</small></div>
+      <div class="mensajes-body" id="msgs-${tramiteId}">${burbujas}</div>
+      <div class="mensajes-footer">
+        <textarea id="msgInput-${tramiteId}" placeholder="Escribe tu consulta sobre el trámite... (sin teléfonos ni emails)" rows="1"></textarea>
+        <button onclick="enviarMensaje('${tramiteId}')"><i class="fas fa-paper-plane"></i> Enviar</button>
+      </div>
+    </div>`;
+}
+
+// ══════════════════════════════════════════════════════════════
+// ENVIAR MENSAJE — con filtro automático
+// ══════════════════════════════════════════════════════════════
+function enviarMensaje(tramiteId) {
+  const input = document.getElementById(`msgInput-${tramiteId}`);
+  const texto = input.value.trim();
+  if (!texto) return;
+
+  const tramite = tramites.find(t => t.id === tramiteId);
+  const solicitante = abogados.find(a => a.id === tramite.abogadoId);
+  const ejecutor = abogados.find(a => a.nombre === tramite.aceptadoPor);
+  const destinatario = currentUser.nombre === solicitante.nombre ? (ejecutor ? ejecutor.nombre : "") : solicitante.nombre;
+  const today = new Date().toISOString().split("T")[0];
+
+  // FILTRO AUTOMÁTICO
+  if (contieneContacto(texto)) {
+    // Bloquear y notificar a Juristam
+    const msgBody = `⚠️ MENSAJE BLOQUEADO\nTrámite: ${tramiteId}\nDe: ${currentUser.nombre}\nPara: ${destinatario}\nTexto: ${texto}\nFecha: ${today}`;
+    const fdBlocked = new FormData();
+    fdBlocked.append("_subject", "⚠️ Mensaje bloqueado - datos de contacto detectados");
+    fdBlocked.append("_captcha", "false");
+    fdBlocked.append("message", msgBody);
+    fetch("https://formsubmit.co/juristam.ec@gmail.com", { method: "POST", body: fdBlocked });
+
+    // Mostrar aviso al usuario
+    const body = document.getElementById(`msgs-${tramiteId}`);
+    body.innerHTML += `<div class="msg-bloqueado">⛔ Tu mensaje fue bloqueado porque contiene datos de contacto (teléfono, email o redes sociales). Toda comunicación debe hacerse dentro de la plataforma. Juristam ha sido notificado.</div>`;
+    input.value = "";
+    body.scrollTop = body.scrollHeight;
+    return;
+  }
+
+  // Mensaje válido — enviar a revisión de Juristam
+  if (!mensajes[tramiteId]) mensajes[tramiteId] = [];
+  const nuevoMsg = { de: currentUser.nombre, para: destinatario, texto, estado: "pendiente_revision", fecha: today };
+  mensajes[tramiteId].push(nuevoMsg);
+
+  // Notificar a Juristam para revisión
+  // Incluir historial completo: mensajes aprobados anteriores + el nuevo
+  const historialAprobados = (mensajes[tramiteId] || []).filter(m => m.estado === "aprobado");
+  const todosLosMensajes = [
+    ...historialAprobados,
+    { de: currentUser.nombre, para: destinatario, texto: texto, estado: "aprobado", fecha: today }
+  ];
+  const mensajesStr = todosLosMensajes.map(m => `    { de: "${m.de}", para: "${m.para}", texto: "${m.texto.replace(/"/g, "'")}", estado: "aprobado", fecha: "${m.fecha}" }`).join(",\n");
+  const codigoMensaje = `"${tramiteId}": [\n${mensajesStr}\n  ]`
+  const destinatarioObj = abogados.find(a => a.nombre === destinatario);
+  const destinatarioId = destinatarioObj ? destinatarioObj.id : "";
+  const seccion = destinatarioObj && tramite.abogadoId === destinatarioObj.id ? "Trámites Enviados" : "Trámites Aceptados";
+  const codigoNotificacion = `{ abogadoId: "${destinatarioId}", mensaje: "${currentUser.nombre} te envió un mensaje sobre el trámite '${tramite.descripcion}'. Revisa tu sección ${seccion}.", tramiteId: "${tramiteId}", fecha: "${today}", leida: false }`;
+  const msgBody = `📩 MENSAJE PENDIENTE DE REVISIÓN\nTrámite: ${tramiteId}\nDe: ${currentUser.nombre}\nPara: ${destinatario}\nTexto: ${texto}\nFecha: ${today}\n\n— SI APRUEBAS — pega ambos códigos:\n\ncodigo_mensaje: ${codigoMensaje}\n\ncodigo_notificacion: ${codigoNotificacion}\n\n— SI RECHAZAS — no hagas nada.`;
+  const fdMsg = new FormData();
+  fdMsg.append("_subject", "📩 Nuevo mensaje pendiente de revisión - " + tramiteId);
+  fdMsg.append("_captcha", "false");
+  fdMsg.append("tramiteId", tramiteId);
+  fdMsg.append("de", currentUser.nombre);
+  fdMsg.append("para", destinatario);
+  fdMsg.append("texto", texto);
+  fdMsg.append("fecha", today);
+  fdMsg.append("codigo_mensaje", codigoMensaje);
+  fdMsg.append("codigo_notificacion", codigoNotificacion);
+  fdMsg.append("message", msgBody);
+  fetch("https://formsubmit.co/juristam.ec@gmail.com", { method: "POST", body: fdMsg });
+
+  const body = document.getElementById(`msgs-${tramiteId}`);
+  body.innerHTML += `<div class="msg-burbuja msg-enviado">${texto}<div class="msg-meta">Tú · ${today}</div></div>
+    <div class="msg-sistema">⏳ Mensaje enviado — en revisión por Juristam antes de llegar al destinatario.</div>`;
+  input.value = "";
+  body.scrollTop = body.scrollHeight;
+}
+
+// ══════════════════════════════════════════════════════════════
+// PANEL JURISTAM — MENSAJES PENDIENTES
+// ══════════════════════════════════════════════════════════════
+function loadJuristamMensajes() {
+  const list = document.getElementById("juristamMensajesList");
+  list.innerHTML = "";
+  let hayPendientes = false;
+
+  Object.keys(mensajes).forEach(tramiteId => {
+    mensajes[tramiteId].forEach((msg, idx) => {
+      if (msg.estado === "pendiente_revision") {
+        hayPendientes = true;
+        const tramite = tramites.find(t => t.id === tramiteId);
+        list.innerHTML += `
+          <div class="msg-revision-item">
+            <div style="font-size:0.78rem;color:#6B5B95;">
+              <strong>Trámite:</strong> ${tramiteId} — ${tramite ? tramite.descripcion : ""}
+              &nbsp;|&nbsp; <strong>De:</strong> ${msg.de} → <strong>Para:</strong> ${msg.para}
+              &nbsp;|&nbsp; ${msg.fecha}
+            </div>
+            <div class="msg-texto">"${msg.texto}"</div>
+            <div class="msg-revision-acciones">
+              <button class="btn-aprobar" onclick="aprobarMensaje('${tramiteId}',${idx})"><i class="fas fa-check"></i> Aprobar y enviar</button>
+              <button class="btn-rechazar" onclick="rechazarMensaje('${tramiteId}',${idx})"><i class="fas fa-times"></i> Rechazar</button>
+            </div>
+          </div>`;
+      }
+    });
+  });
+
+  if (!hayPendientes) {
+    list.innerHTML = "<p style='color:#6B5B95;padding:1rem;text-align:center;'>No hay mensajes pendientes de revisión. ✅</p>";
+  }
+}
+
+function aprobarMensaje(tramiteId, idx) {
+  mensajes[tramiteId][idx].estado = "aprobado";
+  const msg = mensajes[tramiteId][idx];
+  // Notificar al destinatario por email
+  const body = `✅ Mensaje aprobado y enviado\nTrámite: ${tramiteId}\nDe: ${msg.de}\nPara: ${msg.para}\nTexto: ${msg.texto}`;
+  const fdAprobar = new FormData();
+  fdAprobar.append("_subject", "✅ Mensaje aprobado - " + tramiteId);
+  fdAprobar.append("_captcha", "false");
+  fdAprobar.append("message", body);
+  fetch("https://formsubmit.co/juristam.ec@gmail.com", { method: "POST", body: fdAprobar });
+  alert(`Mensaje aprobado. "${msg.para}" recibirá el mensaje en su próximo acceso.`);
+  loadJuristamMensajes();
+}
+
+function rechazarMensaje(tramiteId, idx) {
+  mensajes[tramiteId][idx].estado = "rechazado";
+  const msg = mensajes[tramiteId][idx];
+  const body = `❌ Mensaje rechazado por Juristam\nTrámite: ${tramiteId}\nDe: ${msg.de}\nTexto: ${msg.texto}\nMotivo: Juristam consideró que el mensaje no es apropiado o intenta evadir la plataforma.`;
+  const fdRechazar = new FormData();
+  fdRechazar.append("_subject", "❌ Mensaje rechazado - " + tramiteId);
+  fdRechazar.append("_captcha", "false");
+  fdRechazar.append("message", body);
+  fetch("https://formsubmit.co/juristam.ec@gmail.com", { method: "POST", body: fdRechazar });
+  alert("Mensaje rechazado. El remitente no será notificado del motivo.");
+  loadJuristamMensajes();
+}
+
+// ══════════════════════════════════════════════════════════════
+// ACEPTAR / RECHAZAR TRÁMITE
+// ══════════════════════════════════════════════════════════════
+function acceptTramiteYOcultar(id, nombre, ciudad, monto, descripcion) {
+  const btnDiv = document.getElementById('btn-accept-' + id);
+  // Si ya fue clicado antes, no hacer nada
+  if (btnDiv && btnDiv.dataset.enviado === "true") return;
+  // Marcar como enviado y deshabilitar
+  if (btnDiv) {
+    btnDiv.dataset.enviado = "true";
+    btnDiv.innerHTML = '<span style="color:#9a6aff;font-size:0.82rem;"><i class="fas fa-spinner fa-spin"></i> Enviando...</span>';
+  }
+  acceptTramite(id, nombre, ciudad, monto, descripcion);
+}
+
+function acceptTramite(id, nombre, ciudad, monto, descripcion) {
+  const sol = abogados.find(a => a.nombre === nombre);
+  const t = tramites.find(tr => tr.id === id);
+  const today = new Date().toISOString().split("T")[0];
+  // Calcular fecha límite: 24 horas desde ahora
+  // Al aceptar → esperando_pago con 4h de límite para que el solicitante pague
+  const fechaPagoDate = new Date();
+  fechaPagoDate.setHours(fechaPagoDate.getHours() + 4);
+  const fechaLimitePago = fechaPagoDate.toISOString();
+  const code = `{ id: "${id}", abogadoId: "${t.abogadoId}", nombre: "${t.nombre}", ciudadOrigen: "${t.ciudadOrigen}", ciudadDestino: "${t.ciudadDestino}", monto: ${t.monto}, monto_total: ${t.monto_total || t.monto}, costo_logistica: ${t.costo_logistica || 0}, tipo_documentos: "${t.tipo_documentos || 'digital'}", descripcion: "${t.descripcion}", experiencia: "${t.experiencia}", nivel: "${t.nivel}", calificacion: ${t.calificacion}, estado: "esperando_pago", aceptadoPor: "${currentUser.nombre}", asignadoA: "${t.asignadoA || ''}", fechaLimite: "", fechaLimitePago: "${fechaLimitePago}" }`;
+  const notif = `{ abogadoId: "${sol.id}", mensaje: "${currentUser.nombre} aceptó tu trámite '${descripcion}' el ${today}.", tramiteId: "${id}", fecha: "${today}", leida: false }`;
+  const body = `Abogado: ${currentUser.nombre}\nEmail: ${currentUser.email}\nTrámite ID: ${id}\nSolicitante: ${nombre}\nCiudad: ${ciudad}\nMonto: $${monto}\nDescripción: ${descripcion}\n\n⚠️ El solicitante tiene 4 horas para pagar. Si no paga, el trámite vuelve a pendiente.\n\ncodigo_tramite: ${code}\ncodigo_notificacion: ${notif}`;
+  const fdAccept = new FormData();
+  fdAccept.append("_subject", "Aceptación de Trámite - " + currentUser.nombre);
+  fdAccept.append("_captcha", "false");
+  fdAccept.append("message", body);
+  fdAccept.append("abogado", currentUser.nombre);
+  fdAccept.append("tramite_id", id);
+  fdAccept.append("codigo_tramite", code);
+  fdAccept.append("codigo_notificacion", notif);
+  fetch("https://formsubmit.co/juristam.ec@gmail.com", { method: "POST", body: fdAccept })
+  .then(() => {
+    // Actualizar el trámite en memoria para que no vuelva a aparecer
+    const tAceptado = tramites.find(tr => tr.id === id);
+    if (tAceptado) {
+      tAceptado.estado = "esperando_pago";
+      tAceptado.aceptadoPor = currentUser.nombre;
+    }
+    mostrarModalConfirmacion(
+      "✅ Trámite aceptado",
+      "⏱️ Tienes <strong>24 horas</strong> para completarlo y marcarlo como completado en la plataforma.<br><br>Si no lo completas en ese plazo, Juristam será notificado automáticamente.",
+      () => loadTramites()
+    );
+  }).catch(() => {
+    // Aún si falla el email, actualizar en memoria y mostrar modal
+    const tAceptado = tramites.find(tr => tr.id === id);
+    if (tAceptado) {
+      tAceptado.estado = "esperando_pago";
+      tAceptado.aceptadoPor = currentUser.nombre;
+    }
+    mostrarModalConfirmacion(
+      "✅ Trámite aceptado",
+      "⏱️ Tienes <strong>24 horas</strong> para completarlo y marcarlo como completado en la plataforma.<br><br>Si no lo completas en ese plazo, Juristam será notificado automáticamente.",
+      () => loadTramites()
+    );
+  });
+}
+
+function rejectTramiteDesde(btn) {
+  rejectTramite(btn.getAttribute("data-id"), btn.getAttribute("data-por"));
+}
+
+function rejectTramite(id, aceptadoPor) {
+  const t = tramites.find(tr => tr.id === id);
+  const code = `{ id: "${id}", abogadoId: "${t.abogadoId}", nombre: "${t.nombre}", ciudadOrigen: "${t.ciudadOrigen}", ciudadDestino: "${t.ciudadDestino}", monto: ${t.monto}, monto_total: ${t.monto_total || t.monto}, costo_logistica: ${t.costo_logistica || 0}, tipo_documentos: "${t.tipo_documentos || 'digital'}", descripcion: "${t.descripcion}", experiencia: "${t.experiencia}", nivel: "${t.nivel}", calificacion: ${t.calificacion}, estado: "pendiente", aceptadoPor: "", asignadoA: "${t.asignadoA || ''}", fechaLimite: "", fechaLimitePago: "" }`;
+  const body = `Solicitante: ${currentUser.nombre}\nEmail: ${currentUser.email}\nTrámite ID: ${id}\nAbogado rechazado: ${aceptadoPor}\ncodigo_tramite: ${code}`;
+  fetch("https://formsubmit.co/juristam.ec@gmail.com", {
+    method: "POST",
+    headers: { "Content-Type": "application/x-www-form-urlencoded" },
+    body: `_subject=${encodeURIComponent("Rechazo de Trámite - " + currentUser.nombre)}&_captcha=false&message=${encodeURIComponent(body)}`
+  }).then(() => { alert("Trámite rechazado."); loadMisTramites(); })
+    .catch(() => alert("Error. Intenta de nuevo."));
+}
+
+// ══════════════════════════════════════════════════════════════
+// CALIFICACIONES
+// ══════════════════════════════════════════════════════════════
+function showRatingModalDesde(btn) {
+  showRatingModal(btn.getAttribute("data-por"), btn.getAttribute("data-tramite") || "");
+}
+
+function showRatingModal(aceptadoPor, tramiteId) {
+  document.getElementById("ratingModal").style.display = "flex";
+  document.getElementById("ratingAbogado").value = aceptadoPor;
+  document.getElementById("ratingEvaluador").value = currentUser.nombre + " (" + currentUser.email + ")";
+  if (document.getElementById("ratingTramiteId")) document.getElementById("ratingTramiteId").value = tramiteId || "";
+}
+function closeRatingModal() {
+  document.getElementById("ratingModal").style.display = "none";
+  document.getElementById("ratingForm").reset();
+}
+
+document.getElementById("ratingForm").addEventListener("submit", (e) => {
+  e.preventDefault();
+  const score = parseFloat(document.getElementById("ratingScore").value);
+  const opinion = document.getElementById("ratingOpinion").value;
+  const abogadoNombre = document.getElementById("ratingAbogado").value;
+  if (score < 1 || score > 5) { alert("El puntaje debe estar entre 1 y 5."); return; }
+  const ab = abogados.find(a => a.nombre === abogadoNombre);
+  if (!ab) { alert("Abogado no encontrado."); return; }
+  const newCal = ((ab.calificacion + score) / 2).toFixed(1);
+  const abCode = `{ id: "${ab.id}", nombre: "${ab.nombre}", matricula: "${ab.matricula}", cedula: "${ab.cedula}", telefono: "${ab.telefono}", email: "${ab.email}", ciudad: "${ab.ciudad}", password: "${ab.password}", descripcion: "${ab.descripcion}", experiencia: "${ab.experiencia}", nivel: "${ab.nivel}", foto: "${ab.foto}", calificacion: ${newCal}, verified: ${ab.verified}, subscriptionPaid: ${ab.subscriptionPaid}, registerDate: "${ab.registerDate}", role: "abogado" }`;
+  const tramiteIdRating = document.getElementById("ratingTramiteId") ? document.getElementById("ratingTramiteId").value : "";
+  const opCode = `{ abogado: "${abogadoNombre}", evaluador: "${currentUser.nombre}", puntaje: ${score}, opinion: "${opinion}", tramiteId: "${tramiteIdRating}" }`;
+  const fd = new FormData(e.target);
+  fd.append("codigo_abogado", abCode);
+  fd.append("codigo_opinion", opCode);
+  fetch(e.target.action, { method: "POST", body: fd }).then(() => {
+    alert("Calificación enviada a Juristam.");
+    closeRatingModal();
+    loadMisTramites();
+  }).catch(() => alert("Error al enviar."));
+});
+
+// ══════════════════════════════════════════════════════════════
+// OPINIONES Y NOTIFICACIONES
+// ══════════════════════════════════════════════════════════════
+function verPerfil(abogadoId) {
+  const ab = abogados.find(a => a.id === abogadoId);
+  if (!ab) return;
+  const estrellas = "★".repeat(Math.floor(ab.calificacion)) + "☆".repeat(5 - Math.floor(ab.calificacion));
+
+  // Buscar opiniones de este abogado
+  const ops = opiniones.filter(o => o.abogado === ab.nombre);
+  let opinionesHtml = '';
+  if (ops.length > 0) {
+    opinionesHtml = '<div style="margin-top:1rem;border-top:1px solid #ede8f7;padding-top:0.75rem;">';
+    opinionesHtml += '<p style="font-size:0.8rem;font-weight:700;color:#4c1d95;margin-bottom:0.6rem;"><i class="fas fa-star" style="color:#F59E0B;margin-right:0.3rem;"></i>Opiniones de colegas (' + ops.length + ')</p>';
+    ops.forEach(o => {
+      const stars = "★".repeat(Math.floor(o.puntaje)) + "☆".repeat(5 - Math.floor(o.puntaje));
+      opinionesHtml += '<div style="background:#f8f5ff;border-radius:0.5rem;padding:0.6rem 0.75rem;margin-bottom:0.5rem;border-left:3px solid #9a6aff;">';
+      opinionesHtml += '<div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:0.25rem;">';
+      opinionesHtml += '<span style="font-size:0.78rem;font-weight:600;color:#4c1d95;">' + o.evaluador + '</span>';
+      opinionesHtml += '<span style="color:#F59E0B;font-size:0.82rem;">' + stars + ' <span style="color:#7c6fa0;">(' + o.puntaje + ')</span></span>';
+      opinionesHtml += '</div>';
+      opinionesHtml += '<p style="font-size:0.82rem;color:#5c4d7a;line-height:1.5;">"' + o.opinion + '"</p>';
+      opinionesHtml += '</div>';
+    });
+    opinionesHtml += '</div>';
+  } else {
+    opinionesHtml = '<div style="margin-top:1rem;border-top:1px solid #ede8f7;padding-top:0.75rem;"><p style="font-size:0.82rem;color:#a89bc4;text-align:center;"><i class="fas fa-star"></i> Sin opiniones aún</p></div>';
+  }
+
+  // Trámites completados — como ejecutor + como solicitante
+  const tramitesComoEjecutor = tramites.filter(t => t.aceptadoPor === ab.nombre && t.estado === "terminado").length;
+  const tramitesComoSolicitante = tramites.filter(t => t.abogadoId === ab.id && t.estado === "terminado").length;
+  const tramitesCompletados = tramitesComoEjecutor + tramitesComoSolicitante;
+
+  document.getElementById("perfilModalContenido").innerHTML =
+    '<div style="text-align:center;margin-bottom:1rem;">' +
+    '<img src="' + ab.foto + '" style="width:88px;height:88px;border-radius:50%;object-fit:cover;border:3px solid #8B5CF6;margin-bottom:0.5rem;box-shadow:0 0 0 4px #efe8ff;">' +
+    '<h3 style="color:#240230;font-size:1.1rem;">' + ab.nombre + '</h3>' +
+    '<div style="display:inline-flex;align-items:center;gap:0.4rem;background:#f0ebff;padding:0.2rem 0.75rem;border-radius:999px;margin-top:0.3rem;">' +
+    '<span style="color:#F59E0B;font-size:0.88rem;">' + estrellas + '</span>' +
+    '<span style="font-size:0.78rem;font-weight:700;color:#4c1d95;">' + ab.calificacion + '</span>' +
+    '</div>' +
+    '</div>' +
+    '<div style="display:flex;flex-direction:column;gap:0.35rem;font-size:0.88rem;">' +
+    '<p style="display:flex;justify-content:space-between;padding:0.35rem 0;border-bottom:1px solid #ede8f7;"><span style="font-weight:600;color:#4c1d95;font-size:0.8rem;text-transform:uppercase;letter-spacing:0.03em;">Matrícula</span><span>' + ab.matricula + '</span></p>' +
+    '<p style="display:flex;justify-content:space-between;padding:0.35rem 0;border-bottom:1px solid #ede8f7;"><span style="font-weight:600;color:#4c1d95;font-size:0.8rem;text-transform:uppercase;letter-spacing:0.03em;">Ciudad</span><span>' + ab.ciudad + '</span></p>' +
+    '<p style="display:flex;justify-content:space-between;padding:0.35rem 0;border-bottom:1px solid #ede8f7;"><span style="font-weight:600;color:#4c1d95;font-size:0.8rem;text-transform:uppercase;letter-spacing:0.03em;">Nivel</span><span>' + (ab.nivel || "No especificado") + '</span></p>' +
+    '<p style="display:flex;justify-content:space-between;padding:0.35rem 0;border-bottom:1px solid #ede8f7;"><span style="font-weight:600;color:#4c1d95;font-size:0.8rem;text-transform:uppercase;letter-spacing:0.03em;">Experiencia</span><span>' + (ab.experiencia || "No especificada") + '</span></p>' +
+    '<p style="display:flex;justify-content:space-between;padding:0.35rem 0;border-bottom:1px solid #ede8f7;"><span style="font-weight:600;color:#4c1d95;font-size:0.8rem;text-transform:uppercase;letter-spacing:0.03em;">Trámites completados</span><span style="font-weight:700;color:#1A7F5A;">' + tramitesCompletados + '</span> <small style="color:#a89bc4;font-size:0.72rem;">(' + tramitesComoEjecutor + ' ejecutados · ' + tramitesComoSolicitante + ' solicitados)</small></p>' +
+    (ab.descripcion ? '<p style="padding:0.35rem 0;font-size:0.82rem;color:#5c4d7a;line-height:1.6;">' + ab.descripcion + '</p>' : '') +
+    '</div>' +
+    opinionesHtml;
+
+  document.getElementById("perfilModal").style.display = "flex";
+}
+
+function cerrarPerfilModal() {
+  document.getElementById("perfilModal").style.display = "none";
+}
+
+function loadOpiniones() {
+  const list = document.getElementById("opinionesList");
+  list.innerHTML = "";
+  const ops = opiniones.filter(o => o.abogado === currentUser.nombre);
+  if (ops.length > 0) {
+    ops.forEach(o => {
+      list.innerHTML += `<div class="tramite-item"><p><strong>Evaluador:</strong> ${o.evaluador}</p><p><strong>Puntaje:</strong> ${o.puntaje}/5</p><p><strong>Opinión:</strong> ${o.opinion}</p></div>`;
+    });
+  } else {
+    list.innerHTML = "<p style='color:#6B5B95;padding:1rem;'>No tienes opiniones aún.</p>";
+  }
+}
+
+function updateNotifBadge() {
+  const badge = document.getElementById("notifBadge");
+  if (!badge || !currentUser) return;
+  const noLeidas = notificaciones.filter(n => n.abogadoId === currentUser.id && !n.leida).length;
+  if (noLeidas > 0) {
+    badge.textContent = noLeidas > 9 ? "9+" : noLeidas;
+    badge.classList.remove("hidden");
+  } else {
+    badge.classList.add("hidden");
+  }
+}
+
+function getSeccionDestino(n) {
+  if (!n.tramiteId) return null;
+  const t = tramites.find(tr => tr.id === n.tramiteId);
+  if (!t) return null;
+  // Si el usuario es quien envió el trámite → Trámites Enviados
+  if (t.abogadoId === currentUser.id) return { seccion: "misTramitesSection", label: "→ Ver en Trámites Enviados" };
+  // Si el usuario es quien lo aceptó → Trámites Aceptados
+  if (t.aceptadoPor === currentUser.nombre) return { seccion: "tramitesAceptadosSection", label: "→ Ver en Trámites Aceptados" };
+  return null;
+}
+
+function loadNotificaciones() {
+  const list = document.getElementById("notificacionesList");
+  list.innerHTML = "";
+  const notifs = notificaciones.filter(n => n.abogadoId === currentUser.id);
+  // Marcar todas como leídas al abrir
+  notifs.forEach(n => n.leida = true);
+  updateNotifBadge();
+  if (notifs.length > 0) {
+    // Más recientes primero
+    const ordenadas = [...notifs].reverse();
+    ordenadas.forEach(n => {
+      const destino = getSeccionDestino(n);
+      const onclick = destino ? `onclick="showSection('${destino.seccion}')"` : "";
+      const linkLabel = destino ? `<div class="notif-ir">${destino.label}</div>` : "";
+      list.innerHTML += `<div class="notificacion-item ${n.leida ? '' : 'nueva'}" ${onclick}>
+        <p>${n.mensaje}</p>
+        ${n.fecha ? `<div class="notif-fecha">${n.fecha}</div>` : ""}
+        ${linkLabel}
+      </div>`;
+    });
+  } else {
+    list.innerHTML = "<p style='color:#6B5B95;padding:1rem;'>No hay notificaciones.</p>";
+  }
+}
+
+// ══════════════════════════════════════════════════════════════
+// PANEL JURISTAM
+// ══════════════════════════════════════════════════════════════
+// ══════════════════════════════════════════════════════════════
+// PANEL JURISTAM — ASIGNACIÓN DE TRÁMITES
+// ══════════════════════════════════════════════════════════════
+function loadJuristamAsignacion() {
+  const list = document.getElementById("juristamAsignacionList");
+  list.innerHTML = "";
+
+  const tramitesPendientes = tramites.filter(t => t.estado === "pendiente");
+
+  if (tramitesPendientes.length === 0) {
+    list.innerHTML = "<p style='color:#6B5B95;padding:1rem;text-align:center;'>No hay trámites pendientes de asignación. ✅</p>";
+    return;
+  }
+
+  tramitesPendientes.forEach(t => {
+    // Abogados disponibles en la ciudad destino
+    const abogadosCiudad = abogados.filter(a =>
+      a.role === "abogado" &&
+      a.verified &&
+      (a.subscriptionPaid || isTrialActive(a.registerDate)) &&
+      a.ciudad.toLowerCase() === t.ciudadDestino.toLowerCase()
+    );
+
+    // Contar trámites completados por cada abogado (para rotación)
+    const tramitesCompletados = {};
+    abogadosCiudad.forEach(a => {
+      tramitesCompletados[a.nombre] = tramites.filter(tr =>
+        tr.aceptadoPor === a.nombre && tr.estado === "terminado" && tr.ciudadDestino.toLowerCase() === t.ciudadDestino.toLowerCase()
+      ).length;
+    });
+
+    // Ordenar por menos tramites completados (rotación justa)
+    const ordenados = [...abogadosCiudad].sort((a, b) =>
+      (tramitesCompletados[a.nombre] || 0) - (tramitesCompletados[b.nombre] || 0)
+    );
+
+    const opciones = ordenados.length > 0
+      ? ordenados.map(a => `<option value="${a.nombre}" ${t.asignadoA === a.nombre ? 'selected' : ''}>${a.nombre} (${tramitesCompletados[a.nombre] || 0} trámites completados)</option>`).join("")
+      : `<option value="">— Sin abogados verificados en ${t.ciudadDestino} —</option>`;
+
+    const asignadoLabel = t.asignadoA
+      ? `<span style="color:#1A7F5A;font-size:0.78rem;font-weight:600;">✓ Asignado a: ${t.asignadoA}</span>`
+      : `<span style="color:#C07C1A;font-size:0.78rem;font-weight:600;">⏳ Sin asignar — visible para todos en ${t.ciudadDestino}</span>`;
+
+    list.innerHTML += `
+      <div style="padding:1rem;border-bottom:1px solid #EDE9F8;background:#fff;">
+        <div style="display:flex;justify-content:space-between;align-items:flex-start;flex-wrap:wrap;gap:0.5rem;margin-bottom:0.75rem;">
+          <div>
+            <strong style="color:#4c1d95;">${t.descripcion}</strong>
+            <br><small style="color:#7C6FA0;">${t.ciudadOrigen} → ${t.ciudadDestino} · $${t.monto}</small>
+            <br><small style="color:#7C6FA0;">ID: ${t.id} · Solicitante: ${t.nombre}</small>
+          </div>
+          ${asignadoLabel}
+        </div>
+        ${abogadosCiudad.length > 0 ? `
+        <div style="display:flex;gap:0.5rem;align-items:center;flex-wrap:wrap;">
+          <select id="select-${t.id}" style="flex:1;padding:0.5rem 0.75rem;border:1.5px solid #C4B5F4;border-radius:0.5rem;font-size:0.85rem;font-family:'DM Sans',sans-serif;background:#fff;min-width:200px;">
+            <option value="">— Seleccionar abogado —</option>
+            ${opciones}
+          </select>
+          <button onclick="asignarTramite('${t.id}')" style="background:linear-gradient(135deg,#4c1d95,#9a6aff);color:#fff;border:none;padding:0.5rem 1rem;border-radius:0.5rem;font-size:0.82rem;font-weight:600;cursor:pointer;white-space:nowrap;">
+            <i class="fas fa-user-check"></i> Asignar
+          </button>
+          ${t.asignadoA ? `<button onclick="desasignarTramite('${t.id}')" style="background:#f0ebff;color:#4c1d95;border:1.5px solid #C4B5F4;padding:0.5rem 0.85rem;border-radius:0.5rem;font-size:0.82rem;cursor:pointer;">
+            <i class="fas fa-times"></i> Desasignar
+          </button>` : ''}
+        </div>` : `<p style="font-size:0.82rem;color:#B83232;">⚠️ No hay abogados verificados registrados en ${t.ciudadDestino}.</p>`}
+      </div>`;
+  });
+}
+
+function asignarTramite(tramiteId) {
+  const select = document.getElementById(`select-${tramiteId}`);
+  const abogadoNombre = select.value;
+  if (!abogadoNombre) { alert("Por favor selecciona un abogado."); return; }
+
+  const t = tramites.find(tr => tr.id === tramiteId);
+  if (!t) return;
+
+  const code = `{ id: "${t.id}", abogadoId: "${t.abogadoId}", nombre: "${t.nombre}", ciudadOrigen: "${t.ciudadOrigen}", ciudadDestino: "${t.ciudadDestino}", monto: ${t.monto}, monto_total: ${t.monto_total || t.monto}, costo_logistica: ${t.costo_logistica || 0}, tipo_documentos: "${t.tipo_documentos || 'digital'}", descripcion: "${t.descripcion}", experiencia: "${t.experiencia}", nivel: "${t.nivel}", calificacion: ${t.calificacion}, estado: "pendiente", aceptadoPor: "", asignadoA: "${abogadoNombre}" }`;
+
+  const fd = new FormData();
+  fd.append("_subject", `📋 Asignación de trámite ${tramiteId} → ${abogadoNombre}`);
+  fd.append("_captcha", "false");
+  fd.append("tramite_id", tramiteId);
+  fd.append("asignado_a", abogadoNombre);
+  fd.append("codigo_tramite", code);
+  fd.append("message", `📋 ASIGNACIÓN DE TRÁMITE\n\nTrámite: ${tramiteId}\nDescripción: ${t.descripcion}\nCiudad: ${t.ciudadDestino}\nAsignado a: ${abogadoNombre}\n\n📌 CÓDIGO:\n${code}`);
+
+  fetch("https://formsubmit.co/juristam.ec@gmail.com", { method: "POST", body: fd })
+    .then(() => {
+      // Actualizar localmente
+      t.asignadoA = abogadoNombre;
+      alert(`✅ Trámite asignado a ${abogadoNombre}. Pega el codigo_tramite en el array de tramites.`);
+      loadJuristamAsignacion();
+    })
+    .catch(() => alert("Error al enviar. Intenta de nuevo."));
+}
+
+function desasignarTramite(tramiteId) {
+  const t = tramites.find(tr => tr.id === tramiteId);
+  if (!t) return;
+
+  const code = `{ id: "${t.id}", abogadoId: "${t.abogadoId}", nombre: "${t.nombre}", ciudadOrigen: "${t.ciudadOrigen}", ciudadDestino: "${t.ciudadDestino}", monto: ${t.monto}, monto_total: ${t.monto_total || t.monto}, costo_logistica: ${t.costo_logistica || 0}, tipo_documentos: "${t.tipo_documentos || 'digital'}", descripcion: "${t.descripcion}", experiencia: "${t.experiencia}", nivel: "${t.nivel}", calificacion: ${t.calificacion}, estado: "pendiente", aceptadoPor: "", asignadoA: "" }`;
+
+  t.asignadoA = "";
+  alert(`Trámite desasignado. Pega el codigo_tramite para guardar el cambio.`);
+  const fd = new FormData();
+  fd.append("_subject", `🔄 Desasignación trámite ${tramiteId}`);
+  fd.append("_captcha", "false");
+  fd.append("codigo_tramite", code);
+  fd.append("message", `🔄 DESASIGNACIÓN\n\nTrámite: ${tramiteId}\n\n📌 CÓDIGO:\n${code}`);
+  fetch("https://formsubmit.co/juristam.ec@gmail.com", { method: "POST", body: fd });
+  loadJuristamAsignacion();
+}
+
+function loadJuristamAbogados() {
+  const list = document.getElementById("juristamAbogadosList");
+  list.innerHTML = "";
+  abogados.forEach(a => {
+    if (a.role !== "juristam" && a.subscriptionPaid) {
+      list.innerHTML += `<div class="abogado-item"><strong>${a.nombre}</strong> (${a.email})<br>Ciudad: ${a.ciudad} | Verificado: ${a.verified ? "Sí" : "No"} | Suscripción: Pagada</div>`;
+    }
+  });
+}
+
+function loadJuristamPrueba() {
+  const list = document.getElementById("juristamPruebaList");
+  list.innerHTML = "";
+  abogados.forEach(a => {
+    if (a.role !== "juristam" && !a.subscriptionPaid) {
+      const trialEnd = calculateTrialEndDate(a.registerDate);
+      const active = isTrialActive(a.registerDate) ? "✅ Activa" : "⛔ Expirada";
+      list.innerHTML += `<div class="abogado-item"><strong>${a.nombre}</strong> (${a.email})<br>Ciudad: ${a.ciudad} | Registro: ${a.registerDate} | Prueba: ${trialEnd} (${active})</div>`;
+    }
+  });
+}
+
+function loadJuristamRotacion() {
+  const list = document.getElementById("juristamRotacionList");
+  list.innerHTML = "";
+
+  // Agrupar abogados por ciudad
+  const ciudades = {};
+  abogados.forEach(a => {
+    if (a.role === "juristam") return;
+    const ciudad = a.ciudad.toLowerCase();
+    if (!ciudades[ciudad]) ciudades[ciudad] = [];
+    ciudades[ciudad].push(a);
+  });
+
+  // Para cada ciudad con más de un abogado, mostrar la tabla de rotación
+  Object.keys(ciudades).sort().forEach(ciudad => {
+    const abogadosCiudad = ciudades[ciudad];
+    // Contar trámites completados por cada abogado
+    const conTramites = abogadosCiudad.map(a => {
+      const completados = tramites.filter(t => t.aceptadoPor === a.nombre && t.estado === "terminado").length;
+      const enProceso = tramites.filter(t => t.aceptadoPor === a.nombre && t.estado === "en_proceso").length;
+      return { ...a, completados, enProceso };
+    }).sort((a, b) => a.completados - b.completados); // Menor cantidad = le toca primero
+
+    list.innerHTML += `
+      <div style="margin-bottom:1.5rem;">
+        <h3 style="font-size:0.95rem;color:#4c1d95;margin-bottom:0.75rem;text-transform:capitalize;border-bottom:1px solid #ede8f7;padding-bottom:0.4rem;">
+          <i class="fas fa-map-marker-alt" style="color:#9a6aff;margin-right:0.4rem;"></i>${ciudad}
+        </h3>
+        <div style="display:flex;flex-direction:column;gap:0.4rem;">
+          ${conTramites.map((a, idx) => `
+            <div style="display:flex;align-items:center;gap:0.75rem;padding:0.65rem 0.85rem;background:${idx === 0 ? '#f0ebff' : '#f9f7ff'};border:1.5px solid ${idx === 0 ? '#9a6aff' : '#ede8f7'};border-radius:0.5rem;">
+              <span style="font-size:0.78rem;font-weight:700;color:${idx === 0 ? '#7c3aed' : '#a89bc4'};min-width:20px;">${idx === 0 ? '👑' : (idx + 1) + '°'}</span>
+              <div style="flex:1;">
+                <span style="font-size:0.88rem;font-weight:600;color:#2d1060;">${a.nombre}</span>
+                ${idx === 0 ? '<span style="font-size:0.7rem;background:#7c3aed;color:#fff;padding:0.1rem 0.5rem;border-radius:999px;margin-left:0.4rem;">Le toca</span>' : ''}
+              </div>
+              <div style="text-align:right;font-size:0.78rem;color:#7c6fa0;">
+                <span style="font-weight:600;color:#1A7F5A;">${a.completados} completados</span>
+                ${a.enProceso > 0 ? `<br><span style="color:#9a6aff;">${a.enProceso} en proceso</span>` : ''}
+              </div>
+            </div>
+          `).join('')}
+        </div>
+      </div>`;
+  });
+
+  if (list.innerHTML === "") {
+    list.innerHTML = "<p style='color:#6B5B95;padding:1rem;'>No hay abogados registrados por ciudad aún.</p>";
+  }
+}
+
+function loadJuristamTramites() {
+  const list = document.getElementById("juristamTramitesList");
+  list.innerHTML = "";
+  tramites.forEach(t => {
+    const estado = t.estado === "pendiente" ? "⏳ Pendiente" : t.estado === "en_proceso" ? `🔄 En Proceso (${t.aceptadoPor})` : `✅ Terminado (${t.aceptadoPor})`;
+    list.innerHTML += `<div class="tramite-item"><strong>${t.nombre}</strong><br>${t.ciudadOrigen} → ${t.ciudadDestino} | $${t.monto} (comisión: $${(t.monto*0.078).toFixed(2)})<br>${t.descripcion}<br>${estado}</div>`;
+  });
+}
+
+// ══════════════════════════════════════════════════════════════
+// MODAL DE PAGO
+// ══════════════════════════════════════════════════════════════
+let _tramitePagoId = "";
+let _tramitePagoMonto = 0;
+let _tramitePagoDesc = "";
+
+function abrirModalPagoDesde(btn) {
+  var id = btn.getAttribute("data-id");
+  var monto = parseFloat(btn.getAttribute("data-monto"));
+  var desc = btn.getAttribute("data-desc");
+  abrirModalPago(id, desc, monto);
+}
+
+function abrirModalPago(tramiteId, descripcion, monto) {
+  _tramitePagoId = tramiteId;
+  _tramitePagoMonto = monto;
+  _tramitePagoDesc = descripcion;
+  document.getElementById("modalPagoMonto").textContent = "$" + parseFloat(monto).toFixed(2);
+  document.getElementById("comprobanteLabel").textContent = "Toca para seleccionar imagen o PDF";
+  document.getElementById("comprobantePago").value = "";
+  document.getElementById("pagoMsg").textContent = "";
+  document.getElementById("modalPago").style.display = "flex";
+}
+
+function cerrarModalPago() {
+  document.getElementById("modalPago").style.display = "none";
+}
+
+function enviarComprobante() {
+  const fileInput = document.getElementById("comprobantePago");
+  const btn = document.querySelector("#pagoForm button[onclick='enviarComprobante()']");
+  const msg = document.getElementById("pagoMsg");
+  const fd = new FormData();
+  fd.append("_subject", `💳 Comprobante de pago - Trámite ${_tramitePagoId} - ${currentUser.nombre}`);
+  fd.append("_captcha", "false");
+  fd.append("solicitante", currentUser.nombre);
+  fd.append("email_solicitante", currentUser.email);
+  fd.append("tramite_id", _tramitePagoId);
+  fd.append("descripcion", _tramitePagoDesc);
+  fd.append("monto", _tramitePagoMonto);
+  if (fileInput && fileInput.files && fileInput.files[0]) {
+    fd.append("comprobante", fileInput.files[0]);
+  }
+  // Generar codigo_tramite con estado en_proceso + fechaLimite para que lo pegues al confirmar
+  const tramitePago = tramites.find(tr => tr.id === _tramitePagoId);
+  let codigoConfirmado = "";
+  if (tramitePago) {
+    const fechaLimiteConfirm = new Date();
+    fechaLimiteConfirm.setHours(fechaLimiteConfirm.getHours() + 24);
+    codigoConfirmado = `{ id: "${tramitePago.id}", abogadoId: "${tramitePago.abogadoId}", nombre: "${tramitePago.nombre}", ciudadOrigen: "${tramitePago.ciudadOrigen}", ciudadDestino: "${tramitePago.ciudadDestino}", monto: ${tramitePago.monto}, monto_total: ${tramitePago.monto_total || tramitePago.monto}, costo_logistica: ${tramitePago.costo_logistica || 0}, tipo_documentos: "${tramitePago.tipo_documentos || 'digital'}", descripcion: "${tramitePago.descripcion}", experiencia: "${tramitePago.experiencia}", nivel: "${tramitePago.nivel}", calificacion: ${tramitePago.calificacion}, estado: "en_proceso", aceptadoPor: "${tramitePago.aceptadoPor}", asignadoA: "${tramitePago.asignadoA || ''}", fechaLimite: "${fechaLimiteConfirm.toISOString()}" }`;
+    fd.append("codigo_tramite_confirmado", codigoConfirmado);
+  }
+  // Generar notificacion para el ejecutor cuando confirmes el pago
+  let codigoNotifEjecutor = "";
+  if (tramitePago) {
+    const ejecutorObj = abogados.find(a => a.nombre === tramitePago.aceptadoPor);
+    const today = new Date().toISOString().split("T")[0];
+    if (ejecutorObj) {
+      codigoNotifEjecutor = '{ abogadoId: "' + ejecutorObj.id + '", mensaje: "Juristam confirmó el pago del trámite. Ya puedes comenzar — tienes 24 horas para completarlo.", tramiteId: "' + tramitePago.id + '", fecha: "' + today + '", leida: false }';
+      fd.append("codigo_notificacion_ejecutor", codigoNotifEjecutor);
+    }
+  }
+  fd.append("message", "💳 COMPROBANTE DE PAGO\n\nSolicitante: " + currentUser.nombre + "\nEmail: " + currentUser.email + "\nTrámite: " + _tramitePagoId + " — " + _tramitePagoDesc + "\nMonto: $" + _tramitePagoMonto + "\n\n✅ SI EL PAGO ES CORRECTO — pega AMBOS códigos:\n\n📌 EN const tramites:\n" + codigoConfirmado + "\n\n📌 EN const notificaciones (avisa al ejecutor que puede comenzar):\n" + codigoNotifEjecutor + "\n\nRevisa el comprobante adjunto.");
+  if (btn) { btn.textContent = "Enviando..."; btn.disabled = true; }
+  fetch("https://formsubmit.co/juristam.ec@gmail.com", { method: "POST", body: fd })
+    .then(() => {
+      msg.textContent = "✅ Comprobante enviado. Juristam confirmará tu pago en breve.";
+      msg.style.color = "#1A7F5A";
+      if (btn) { btn.textContent = "Enviar comprobante a Juristam"; btn.disabled = false; }
+      setTimeout(() => cerrarModalPago(), 3000);
+    })
+    .catch(() => {
+      msg.textContent = "Error al enviar. Intenta de nuevo.";
+      msg.style.color = "#B83232";
+      if (btn) { btn.textContent = "Enviar comprobante a Juristam"; btn.disabled = false; }
+    });
+}
+
+// ══════════════════════════════════════════════════════════════
+// MARCAR TRÁMITE COMO COMPLETADO
+// ══════════════════════════════════════════════════════════════
+function marcarCompletado(tramiteId, descripcion, ciudad, monto) {
+  if (!confirm(`¿Confirmas que completaste el trámite "${descripcion}" en ${ciudad}?`)) return;
+  const evidencia = document.getElementById(`evidencia-${tramiteId}`).value.trim();
+  const t = tramites.find(tr => tr.id === tramiteId);
+  if (!t) return;
+  const today = new Date().toISOString().split("T")[0];
+  // Generar codigo_tramite con estado terminado
+  const code = `{ id: "${t.id}", abogadoId: "${t.abogadoId}", nombre: "${t.nombre}", ciudadOrigen: "${t.ciudadOrigen}", ciudadDestino: "${t.ciudadDestino}", monto: ${t.monto}, monto_total: ${t.monto_total || t.monto}, costo_logistica: ${t.costo_logistica || 0}, tipo_documentos: "${t.tipo_documentos || 'digital'}", descripcion: "${t.descripcion}", experiencia: "${t.experiencia}", nivel: "${t.nivel}", calificacion: ${t.calificacion}, estado: "terminado", aceptadoPor: "${currentUser.nombre}", asignadoA: "${t.asignadoA || ''}" }`;
+  // Generar codigo_notificacion para el solicitante
+  const solicitante = abogados.find(a => a.id === t.abogadoId);
+  const notif = solicitante ? `{ abogadoId: "${solicitante.id}", mensaje: "${currentUser.nombre} completó tu trámite '${t.descripcion}' en ${t.ciudadDestino}. Por favor califica al abogado.", tramiteId: "${t.id}", fecha: "${today}", leida: false }` : "";
+  const fd = new FormData();
+  fd.append("_subject", `✅ Trámite completado - ${tramiteId} - ${currentUser.nombre}`);
+  fd.append("_captcha", "false");
+  fd.append("ejecutor", currentUser.nombre);
+  fd.append("tramite_id", tramiteId);
+  fd.append("descripcion", descripcion);
+  fd.append("ciudad", ciudad);
+  fd.append("monto_ejecutor", (monto * 0.922).toFixed(2));
+  fd.append("evidencia", evidencia || "Sin descripción adicional");
+  fd.append("codigo_tramite", code);
+  if (notif) fd.append("codigo_notificacion", notif);
+  fd.append("message", `✅ TRÁMITE COMPLETADO\n\nEjecutor: ${currentUser.nombre}\nTrámite: ${tramiteId} — ${descripcion}\nCiudad: ${ciudad}\nFecha: ${today}\nEvidencia: ${evidencia || 'Sin descripción adicional'}\nMonto a pagar al ejecutor: $${(monto * 0.922).toFixed(2)}\n\n📌 PEGA ESTE CÓDIGO EN tramites:\n${code}\n\n📌 PEGA ESTE CÓDIGO EN notificaciones:\n${notif}`);
+  fetch("https://formsubmit.co/juristam.ec@gmail.com", { method: "POST", body: fd })
+    .then(() => {
+      alert("✅ Notificación enviada a Juristam. Una vez confirmado recibirás tu pago de $" + (monto * 0.922).toFixed(2));
+      loadTramitesAceptados();
+    })
+    .catch(() => alert("Error al enviar. Intenta de nuevo."));
+}
+
+// ══════════════════════════════════════════════════════════════
+// BANNER AVISO SUSCRIPCIÓN + CIERRE AUTOMÁTICO
+// ══════════════════════════════════════════════════════════════
+function verificarAviso() {
+  if (!currentUser || currentUser.subscriptionPaid) return;
+
+  const hoy = new Date();
+  const fechaFin = new Date(calculateTrialEndDate(currentUser.registerDate));
+  const diffMs = fechaFin - hoy;
+  const diasRestantes = Math.ceil(diffMs / (1000 * 60 * 60 * 24));
+
+  const banner = document.getElementById("bannerAviso");
+  if (!banner) return;
+
+  if (diasRestantes <= 0) {
+    // Período vencido — mostrar aviso de cierre y cerrar sesión
+    banner.style.display = "flex";
+    banner.style.background = "linear-gradient(135deg,#B83232,#8C2020)";
+    banner.innerHTML = `
+      <div style="display:flex;align-items:center;gap:0.75rem;flex:1;">
+        <i class="fas fa-lock" style="color:#fff;font-size:1.1rem;flex-shrink:0;"></i>
+        <div>
+          <p style="color:#fff;font-weight:700;font-size:0.9rem;margin-bottom:0.15rem;">Tu período de prueba ha finalizado</p>
+          <p style="color:rgba(255,255,255,0.75);font-size:0.78rem;">Para continuar usando Juristam Conexión Legal EC escríbenos a juristam.ec@gmail.com o al 0994859814.</p>
+        </div>
+      </div>
+      <button onclick="logout()" style="background:rgba(255,255,255,0.2);color:#fff;border:1px solid rgba(255,255,255,0.3);padding:0.5rem 1.1rem;border-radius:999px;font-size:0.82rem;font-weight:600;cursor:pointer;white-space:nowrap;flex-shrink:0;">
+        Cerrar sesión
+      </button>`;
+    // Bloquear navegación — redirigir a perfil con mensaje
+    setTimeout(() => {
+      showSection("profileSection");
+      // Oscurecer el panel con overlay
+      const overlay = document.createElement("div");
+      overlay.id = "trialOverlay";
+      overlay.style.cssText = "position:fixed;inset:0;background:rgba(45,16,96,0.65);z-index:998;display:flex;align-items:center;justify-content:center;backdrop-filter:blur(4px);";
+      overlay.innerHTML = `
+        <div style="background:#fff;border-radius:1.25rem;padding:2rem;max-width:380px;width:90%;text-align:center;box-shadow:0 24px 60px rgba(10,0,30,0.4);border-top:4px solid #B83232;">
+          <div style="font-size:2.5rem;margin-bottom:0.75rem;">🔒</div>
+          <h2 style="font-family:'DM Serif Display',serif;font-size:1.4rem;color:#2d1060;margin-bottom:0.5rem;">Período de prueba finalizado</h2>
+          <p style="color:#7c6fa0;font-size:0.88rem;line-height:1.7;margin-bottom:1.5rem;">Tu acceso gratuito de 30 días ha terminado. Para continuar usando la plataforma activa tu suscripción.</p>
+          <p style="font-size:0.85rem;color:#4c1d95;font-weight:600;margin-bottom:0.5rem;">📞 0994859814</p>
+          <p style="font-size:0.85rem;color:#4c1d95;font-weight:600;margin-bottom:1.5rem;">✉️ juristam.ec@gmail.com</p>
+          <button onclick="logout()" style="background:linear-gradient(135deg,#4c1d95,#9a6aff);color:#fff;border:none;padding:0.75rem 2rem;border-radius:999px;font-weight:700;font-size:0.9rem;cursor:pointer;width:100%;">
+            Cerrar sesión
+          </button>
+        </div>`;
+      document.body.appendChild(overlay);
+    }, 500);
+    return;
+  }
+
+  if (diasRestantes <= 5) {
+    // Aviso 5 días antes
+    banner.style.display = "flex";
+    banner.style.background = "linear-gradient(135deg,#C07C1A,#a86010)";
+    banner.innerHTML = `
+      <div style="display:flex;align-items:center;gap:0.75rem;flex:1;">
+        <i class="fas fa-exclamation-triangle" style="color:#fff;font-size:1.1rem;flex-shrink:0;"></i>
+        <div>
+          <p style="color:#fff;font-weight:700;font-size:0.9rem;margin-bottom:0.15rem;">Tu período de prueba vence en ${diasRestantes} día${diasRestantes === 1 ? '' : 's'}</p>
+          <p style="color:rgba(255,255,255,0.8);font-size:0.78rem;">Escríbenos para activar tu suscripción y no perder el acceso · 0994859814</p>
+        </div>
+      </div>
+      <button onclick="document.getElementById('bannerAviso').style.display='none'" style="background:rgba(255,255,255,0.2);color:#fff;border:1px solid rgba(255,255,255,0.3);padding:0.4rem 0.85rem;border-radius:999px;font-size:0.78rem;cursor:pointer;white-space:nowrap;flex-shrink:0;">
+        Entendido
+      </button>`;
+  }
+}
+
+// ══════════════════════════════════════════════════════════════
+// BANNER AVISO SUSCRIPCIÓN
+// ══════════════════════════════════════════════════════════════
+function verificarAviso() {
+  if (!currentUser || currentUser.subscriptionPaid) return;
+  var hoy = new Date();
+  var fechaFin = new Date(calculateTrialEndDate(currentUser.registerDate));
+  var diasRestantes = Math.ceil((fechaFin - hoy) / (1000 * 60 * 60 * 24));
+  var banner = document.getElementById("bannerAviso");
+  if (!banner) return;
+  if (diasRestantes <= 0) {
+    banner.style.display = "flex";
+    banner.style.background = "linear-gradient(135deg,#B83232,#8C2020)";
+    var btnSalir = document.createElement("button");
+    btnSalir.textContent = "Cerrar sesión";
+    btnSalir.onclick = logout;
+    btnSalir.style.cssText = "background:rgba(255,255,255,0.2);color:#fff;border:1px solid rgba(255,255,255,0.3);padding:0.5rem 1.1rem;border-radius:999px;font-size:0.82rem;font-weight:600;cursor:pointer;flex-shrink:0;";
+    var msgDiv = document.createElement("div");
+    msgDiv.style.cssText = "display:flex;align-items:center;gap:0.75rem;flex:1;";
+    msgDiv.innerHTML = "<i class='fas fa-lock' style='color:#fff;font-size:1.1rem;flex-shrink:0;'></i><div><p style='color:#fff;font-weight:700;font-size:0.9rem;margin-bottom:0.15rem;'>Tu período de prueba ha finalizado</p><p style='color:rgba(255,255,255,0.75);font-size:0.78rem;'>Para continuar escríbenos a juristam.ec@gmail.com o al 0994859814.</p></div>";
+    banner.innerHTML = "";
+    banner.appendChild(msgDiv);
+    banner.appendChild(btnSalir);
+    setTimeout(function() {
+      showSection("profileSection");
+      var overlay = document.createElement("div");
+      overlay.id = "trialOverlay";
+      overlay.style.cssText = "position:fixed;inset:0;background:rgba(45,16,96,0.65);z-index:998;display:flex;align-items:center;justify-content:center;backdrop-filter:blur(4px);";
+      var box = document.createElement("div");
+      box.style.cssText = "background:#fff;border-radius:1.25rem;padding:2rem;max-width:380px;width:90%;text-align:center;box-shadow:0 24px 60px rgba(10,0,30,0.4);border-top:4px solid #B83232;";
+      box.innerHTML = "<div style='font-size:2.5rem;margin-bottom:0.75rem;'>🔒</div><h2 style='font-family:DM Serif Display,serif;font-size:1.4rem;color:#2d1060;margin-bottom:0.5rem;'>Período de prueba finalizado</h2><p style='color:#7c6fa0;font-size:0.88rem;line-height:1.7;margin-bottom:1.5rem;'>Tu acceso gratuito de 30 días ha terminado. Para continuar activa tu suscripción.</p><p style='font-size:0.85rem;color:#4c1d95;font-weight:600;margin-bottom:0.5rem;'>📞 0994859814</p><p style='font-size:0.85rem;color:#4c1d95;font-weight:600;margin-bottom:1.5rem;'>✉️ juristam.ec@gmail.com</p>";
+      var btnLogout = document.createElement("button");
+      btnLogout.textContent = "Cerrar sesión";
+      btnLogout.onclick = logout;
+      btnLogout.style.cssText = "background:linear-gradient(135deg,#4c1d95,#9a6aff);color:#fff;border:none;padding:0.75rem 2rem;border-radius:999px;font-weight:700;font-size:0.9rem;cursor:pointer;width:100%;";
+      box.appendChild(btnLogout);
+      overlay.appendChild(box);
+      document.body.appendChild(overlay);
+    }, 500);
+    return;
+  }
+  if (diasRestantes <= 5) {
+    banner.style.display = "flex";
+    banner.style.background = "linear-gradient(135deg,#C07C1A,#a86010)";
+    var btnCerrar = document.createElement("button");
+    btnCerrar.textContent = "Entendido";
+    btnCerrar.onclick = function() { banner.style.display = "none"; };
+    btnCerrar.style.cssText = "background:rgba(255,255,255,0.2);color:#fff;border:1px solid rgba(255,255,255,0.3);padding:0.4rem 0.85rem;border-radius:999px;font-size:0.78rem;cursor:pointer;flex-shrink:0;";
+    var msgDiv2 = document.createElement("div");
+    msgDiv2.style.cssText = "display:flex;align-items:center;gap:0.75rem;flex:1;";
+    msgDiv2.innerHTML = "<i class='fas fa-exclamation-triangle' style='color:#fff;font-size:1.1rem;flex-shrink:0;'></i><div><p style='color:#fff;font-weight:700;font-size:0.9rem;margin-bottom:0.15rem;'>Tu período de prueba vence en " + diasRestantes + " día" + (diasRestantes === 1 ? "" : "s") + "</p><p style='color:rgba(255,255,255,0.8);font-size:0.78rem;'>Escríbenos para activar tu suscripción · 0994859814</p></div>";
+    banner.innerHTML = "";
+    banner.appendChild(msgDiv2);
+    banner.appendChild(btnCerrar);
+  }
+}
+
+// ══════════════════════════════════════════════════════════════
+// LOGOUT
+// ══════════════════════════════════════════════════════════════
+function logout() {
+  currentUser = null;
+  var trialOv = document.getElementById("trialOverlay");
+  if (trialOv) trialOv.remove();
+  var bannerEl = document.getElementById("bannerAviso");
+  if (bannerEl) bannerEl.style.display = "none";
+  // Limpiar overlay de trial si existe
+  const overlay = document.getElementById("trialOverlay");
+  if (overlay) overlay.remove();
+  const banner = document.getElementById("bannerAviso");
+  if (banner) banner.style.display = "none";
+  const ms = document.getElementById("mainScreen");
+  if (ms) ms.style.display = "flex";
+  document.querySelectorAll(".container").forEach(c => c.classList.add("hidden"));
+  document.getElementById("loginMessage").textContent = "Sesión cerrada.";
+  document.getElementById("registerMessage").textContent = "";
+  document.getElementById("tramiteMessage").textContent = "";
+  document.getElementById("profileMessage").textContent = "";
+}
+
+showPanel("mainScreen");
+
+  // Si viene desde la landing con ?tab=register, abrir tab registro automáticamente
+  const urlParams = new URLSearchParams(window.location.search);
+  if (urlParams.get('tab') === 'register') {
+    showTab('register');
+  }
+</script>
+</body>
+</html>
