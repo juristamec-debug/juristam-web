@@ -431,7 +431,7 @@
 
     <!-- Logo centrado arriba -->
     <div style="text-align:center;margin-bottom:1.5rem;">
-      <img src="https://i.postimg.cc/hjNnRpj8/oie_transparent_(2).png" alt="Juristam" style="height:130px;margin-bottom:0.6rem;">
+      <img src="https://i.postimg.cc/MHtnYCtQ/Diseno-sin-titulo-(8).png" alt="Juristam" style="height:130px;margin-bottom:0.6rem;">
       <h1 style="font-family:'DM Serif Display',serif;font-size:1.1rem;color:#fff;font-weight:400;letter-spacing:0.01em;">
         Juristam <span style="color:#c9b8ff;">Conexión</span> Legal EC
       </h1>
@@ -921,6 +921,8 @@
         <li><a onclick="showSection('juristamPruebaSection')"><i class="fas fa-user-clock"></i> Abogados Prueba</a></li>
         <li><a onclick="showSection('juristamTramitesSection')"><i class="fas fa-file-alt"></i> Trámites</a></li>
         <li><a onclick="showSection('juristamMensajesSection')"><i class="fas fa-envelope"></i> Mensajes Pendientes</a></li>
+        <li><a onclick="showSection('juristamAsignacionSection')"><i class="fas fa-user-check"></i> Asignar Trámites</a></li>
+        <li><a onclick="showSection('juristamRotacionSection')"><i class="fas fa-sync-alt"></i> Rotación</a></li>
         <li><a onclick="logout()"><i class="fas fa-sign-out-alt"></i> Cerrar Sesión</a></li>
       </ul>
     </nav>
@@ -938,6 +940,20 @@
       <h2>Trámites Registrados</h2>
       <div id="juristamTramitesList"></div>
     </div>
+    <!-- SECCIÓN: Rotación de abogados por ciudad -->
+    <div class="section hidden" id="juristamRotacionSection">
+      <h2>Rotación de Abogados por Ciudad</h2>
+      <p style="font-size:0.85rem;color:#6B5B95;margin-bottom:1.25rem;">Consulta cuántos trámites ha completado cada abogado por ciudad para saber a quién le toca el siguiente turno.</p>
+      <div id="juristamRotacionList"></div>
+    </div>
+
+    <!-- SECCIÓN: Asignación de trámites -->
+    <div class="section hidden" id="juristamAsignacionSection">
+      <h2>Asignar Trámites</h2>
+      <p style="font-size:0.85rem;color:#6B5B95;margin-bottom:1.25rem;">Asigna cada trámite pendiente al abogado que le corresponde por turno de rotación. Solo ese abogado verá el trámite en su lista.</p>
+      <div id="juristamAsignacionList"></div>
+    </div>
+
     <!-- NUEVA SECCIÓN: Mensajes pendientes de revisión -->
     <div class="section hidden" id="juristamMensajesSection">
       <h2>Mensajes Pendientes de Revisión</h2>
@@ -971,7 +987,7 @@ const abogados = [
   { id: "17", nombre: "Eddie Patricio Condoy Quichimbo", matricula: "11-2024-139", cedula: "0705423366", telefono: "0960919721", email: "eddiepatricio95@gmail.com", ciudad: "loja", password: "630716173.l.", descripcion: "", experiencia: "", nivel: "", foto: "https://via.placeholder.com/150", calificacion: 0, verified: false, subscriptionPaid: false, registerDate: "2025-05-27", role: "abogado" },
   { id: "18", nombre: "Michelle Elizabeth Borja Jara", matricula: "17-2024-211", cedula: "1727160325", telefono: "0983437221", email: "ab.michelleborja@gmail.com", ciudad: "quito", password: "Zoe242927", descripcion: "", experiencia: "2 años como asistente legal", nivel: "Abogada", foto: "https://i.postimg.cc/rpmkWZd7/Imagen-de-Whats-App-2025-05-27-a-las-15-42-39-f2cdd0d2.jpg", calificacion: 0, verified: true, subscriptionPaid: false, registerDate: "2025-05-27", role: "abogado" },
   { id: "19", nombre: "Pamela Mishell Melendres Cóndor", matricula: "17-2024-2323", cedula: "1723173629", telefono: "0984725684", email: "melendrespamela57@gmail.com", ciudad: "Quito", password: "023678059", descripcion: "Soy abogada con sólida formación jurídica y experiencia en la defensa y asesoría legal integral en las áreas de Derecho de Familia, Civil, Administrativo, Laboral y Tránsito.", experiencia: "2 años", nivel: "Abogada", foto: "https://i.postimg.cc/6QssP6TL/IMG-20250407-152951-306.webp", calificacion: 0, verified: true, subscriptionPaid: false, registerDate: "2025-05-27", role: "abogado" },
-  { id: "20", nombre: "Sebastián Orellana ", matricula: "07-2024-283", cedula: "0707109138", telefono: "0994310414", email: "abg.sebastianorellana@gmail.com", ciudad: "Machala", password: "Barcelona@2001", descripcion: "", experiencia: "", nivel: "", foto: "https://via.placeholder.com/150", calificacion: 0, verified: true, subscriptionPaid: true, registerDate: "2026-03-18", role: "abogado" },
+  { id: "20", nombre: "Sebastián Orellana ", matricula: "07-2024-283", cedula: "0707109138", telefono: "0994310414", email: "abg.sebastianorellana@gmail.com", ciudad: "Machala", password: "Barcelona@2001", descripcion: "", experiencia: "", nivel: "", foto: "https://via.placeholder.com/150", calificacion: 0, verified: false, subscriptionPaid: false, registerDate: "2026-03-18", role: "abogado" },
   { id: "21", nombre: "Dayana Estefanía Santos Escobar ", matricula: "09-2024-790", cedula: "0956058853", telefono: "0999307043", email: "dayana.santose7@gmail.com", ciudad: "guayaquil", password: "bangtan.7", descripcion: "", experiencia: "", nivel: "", foto: "https://via.placeholder.com/150", calificacion: 0, verified: true, subscriptionPaid: true, registerDate: "2026-03-18", role: "abogado" },
   { id: "juristam", nombre: "Juristam", matricula: "0000", cedula: "0000", telefono: "0000", email: "admin@juristam.ec", ciudad: "guayaquil", password: "jimmyjim03", descripcion: "", experiencia: "", nivel: "", foto: "", calificacion: 0, verified: true, subscriptionPaid: true, registerDate: "2025-01-01", role: "juristam" }
 ];
@@ -979,9 +995,9 @@ const abogados = [
 const tramites = [
   { id: "t1", abogadoId: "1", nombre: "Juan Pérez", ciudadOrigen: "guayaquil", ciudadDestino: "esmeraldas", monto: 50, descripcion: "Trámite penal urgente", experiencia: "5 años", nivel: "Abogado", calificacion: 4.5, estado: "en_proceso", aceptadoPor: "María López" },
   { id: "t2", abogadoId: "1", nombre: "Juan Pérez", ciudadOrigen: "guayaquil", ciudadDestino: "quito", monto: 60, descripcion: "Herencia familiar", experiencia: "5 años", nivel: "Abogado", calificacion: 4.4, estado: "terminado", aceptadoPor: "Carlos Gómez" },
-  { id: "t3", abogadoId: "4", nombre: "Ana Torres", ciudadOrigen: "cuenca", ciudadDestino: "guayaquil", monto: 75, descripcion: "Contrato comercial", experiencia: "10 años", nivel: "Doctora", calificacion: 4.7, estado: "pendiente", aceptadoPor: "" },
+  { id: "t3", abogadoId: "4", nombre: "Ana Torres", ciudadOrigen: "cuenca", ciudadDestino: "guayaquil", monto: 75, descripcion: "Contrato comercial", experiencia: "10 años", nivel: "Doctora", calificacion: 4.7, estado: "pendiente", aceptadoPor: "", asignadoA: "" },
   { id: "t4", abogadoId: "5", nombre: "Luis Martínez", ciudadOrigen: "manta", ciudadDestino: "ambato", monto: 40, descripcion: "Demanda laboral", experiencia: "4 años", nivel: "Abogado", calificacion: 4.2, estado: "en_proceso", aceptadoPor: "Sofía Ramírez" },
-  { id: "t5", abogadoId: "6", nombre: "Sofía Ramírez", ciudadOrigen: "ambato", ciudadDestino: "loja", monto: 55, descripcion: "Revisión de contrato", experiencia: "7 años", nivel: "Magíster", calificacion: 4.6, estado: "pendiente", aceptadoPor: "" },
+  { id: "t5", abogadoId: "6", nombre: "Sofía Ramírez", ciudadOrigen: "ambato", ciudadDestino: "loja", monto: 55, descripcion: "Revisión de contrato", experiencia: "7 años", nivel: "Magíster", calificacion: 4.6, estado: "pendiente", aceptadoPor: "", asignadoA: "" },
   { id: "t6", abogadoId: "7", nombre: "Pedro Castillo", ciudadOrigen: "loja", ciudadDestino: "cuenca", monto: 65, descripcion: "Asesoría administrativa", experiencia: "9 años", nivel: "Abogado", calificacion: 4.4, estado: "terminado", aceptadoPor: "Ana Torres" }
 ];
 
@@ -1147,6 +1163,8 @@ function showSection(sectionId) {
   if (sectionId === "juristamPruebaSection") loadJuristamPrueba();
   if (sectionId === "juristamTramitesSection") loadJuristamTramites();
   if (sectionId === "juristamMensajesSection") loadJuristamMensajes();
+  if (sectionId === "juristamAsignacionSection") loadJuristamAsignacion();
+  if (sectionId === "juristamRotacionSection") loadJuristamRotacion();
   if (window.innerWidth < 1024) toggleSidebar();
 }
 
@@ -1406,7 +1424,7 @@ document.getElementById("solicitarTramiteForm").addEventListener("submit", (e) =
   const logistica = parseFloat(document.getElementById('costoLogisticaValor').value) || 0;
   const montoTotal = monto + logistica;
   const newId = "t" + (tramites.length + 1);
-  const code = `{ id: "${newId}", abogadoId: "${currentUser.id}", nombre: "${currentUser.nombre}", ciudadOrigen: "${currentUser.ciudad}", ciudadDestino: "${form.ciudad.value}", monto: ${monto}, monto_total: ${montoTotal}, costo_logistica: ${logistica}, tipo_documentos: "${tipoDoc.value}", descripcion: "${form.descripcion.value}", experiencia: "${currentUser.experiencia || 'No especificada'}", nivel: "${currentUser.nivel || 'No especificado'}", calificacion: ${currentUser.calificacion}, estado: "pendiente", aceptadoPor: "" }`;
+  const code = `{ id: "${newId}", abogadoId: "${currentUser.id}", nombre: "${currentUser.nombre}", ciudadOrigen: "${currentUser.ciudad}", ciudadDestino: "${form.ciudad.value}", monto: ${monto}, monto_total: ${montoTotal}, costo_logistica: ${logistica}, tipo_documentos: "${tipoDoc.value}", descripcion: "${form.descripcion.value}", experiencia: "${currentUser.experiencia || 'No especificada'}", nivel: "${currentUser.nivel || 'No especificado'}", calificacion: ${currentUser.calificacion}, estado: "pendiente", aceptadoPor: "", asignadoA: "" }`;
   document.getElementById("tramiteMessage").textContent = "Solicitud enviada.";
   document.getElementById("tramiteMessage").style.color = "#1A7F5A";
   const fd = new FormData(form);
@@ -1435,7 +1453,10 @@ function loadTramites() {
   const list = document.getElementById("tramitesList");
   list.innerHTML = "";
   tramites.forEach(t => {
-    if (t.ciudadDestino === currentUser.ciudad && t.estado === "pendiente") {
+    // Si el trámite tiene asignadoA, solo mostrarlo al abogado asignado
+    const asignadoA = t.asignadoA || "";
+    const puedeVer = asignadoA === "" || asignadoA === currentUser.id;
+    if (t.ciudadDestino === currentUser.ciudad && t.estado === "pendiente" && puedeVer) {
       const sol = abogados.find(a => a.id === t.abogadoId);
       list.innerHTML += `
         <div class="tramite-item">
@@ -1909,6 +1930,122 @@ function loadNotificaciones() {
 // ══════════════════════════════════════════════════════════════
 // PANEL JURISTAM
 // ══════════════════════════════════════════════════════════════
+// ══════════════════════════════════════════════════════════════
+// PANEL JURISTAM — ASIGNACIÓN DE TRÁMITES
+// ══════════════════════════════════════════════════════════════
+function loadJuristamAsignacion() {
+  const list = document.getElementById("juristamAsignacionList");
+  list.innerHTML = "";
+
+  const tramitesPendientes = tramites.filter(t => t.estado === "pendiente");
+
+  if (tramitesPendientes.length === 0) {
+    list.innerHTML = "<p style='color:#6B5B95;padding:1rem;text-align:center;'>No hay trámites pendientes de asignación. ✅</p>";
+    return;
+  }
+
+  tramitesPendientes.forEach(t => {
+    // Abogados disponibles en la ciudad destino
+    const abogadosCiudad = abogados.filter(a =>
+      a.role === "abogado" &&
+      a.verified &&
+      (a.subscriptionPaid || isTrialActive(a.registerDate)) &&
+      a.ciudad.toLowerCase() === t.ciudadDestino.toLowerCase()
+    );
+
+    // Contar trámites completados por cada abogado (para rotación)
+    const tramitesCompletados = {};
+    abogadosCiudad.forEach(a => {
+      tramitesCompletados[a.nombre] = tramites.filter(tr =>
+        tr.aceptadoPor === a.nombre && tr.estado === "terminado" && tr.ciudadDestino.toLowerCase() === t.ciudadDestino.toLowerCase()
+      ).length;
+    });
+
+    // Ordenar por menos tramites completados (rotación justa)
+    const ordenados = [...abogadosCiudad].sort((a, b) =>
+      (tramitesCompletados[a.nombre] || 0) - (tramitesCompletados[b.nombre] || 0)
+    );
+
+    const opciones = ordenados.length > 0
+      ? ordenados.map(a => `<option value="${a.nombre}" ${t.asignadoA === a.nombre ? 'selected' : ''}>${a.nombre} (${tramitesCompletados[a.nombre] || 0} trámites completados)</option>`).join("")
+      : `<option value="">— Sin abogados verificados en ${t.ciudadDestino} —</option>`;
+
+    const asignadoLabel = t.asignadoA
+      ? `<span style="color:#1A7F5A;font-size:0.78rem;font-weight:600;">✓ Asignado a: ${t.asignadoA}</span>`
+      : `<span style="color:#C07C1A;font-size:0.78rem;font-weight:600;">⏳ Sin asignar — visible para todos en ${t.ciudadDestino}</span>`;
+
+    list.innerHTML += `
+      <div style="padding:1rem;border-bottom:1px solid #EDE9F8;background:#fff;">
+        <div style="display:flex;justify-content:space-between;align-items:flex-start;flex-wrap:wrap;gap:0.5rem;margin-bottom:0.75rem;">
+          <div>
+            <strong style="color:#4c1d95;">${t.descripcion}</strong>
+            <br><small style="color:#7C6FA0;">${t.ciudadOrigen} → ${t.ciudadDestino} · $${t.monto}</small>
+            <br><small style="color:#7C6FA0;">ID: ${t.id} · Solicitante: ${t.nombre}</small>
+          </div>
+          ${asignadoLabel}
+        </div>
+        ${abogadosCiudad.length > 0 ? `
+        <div style="display:flex;gap:0.5rem;align-items:center;flex-wrap:wrap;">
+          <select id="select-${t.id}" style="flex:1;padding:0.5rem 0.75rem;border:1.5px solid #C4B5F4;border-radius:0.5rem;font-size:0.85rem;font-family:'DM Sans',sans-serif;background:#fff;min-width:200px;">
+            <option value="">— Seleccionar abogado —</option>
+            ${opciones}
+          </select>
+          <button onclick="asignarTramite('${t.id}')" style="background:linear-gradient(135deg,#4c1d95,#9a6aff);color:#fff;border:none;padding:0.5rem 1rem;border-radius:0.5rem;font-size:0.82rem;font-weight:600;cursor:pointer;white-space:nowrap;">
+            <i class="fas fa-user-check"></i> Asignar
+          </button>
+          ${t.asignadoA ? `<button onclick="desasignarTramite('${t.id}')" style="background:#f0ebff;color:#4c1d95;border:1.5px solid #C4B5F4;padding:0.5rem 0.85rem;border-radius:0.5rem;font-size:0.82rem;cursor:pointer;">
+            <i class="fas fa-times"></i> Desasignar
+          </button>` : ''}
+        </div>` : `<p style="font-size:0.82rem;color:#B83232;">⚠️ No hay abogados verificados registrados en ${t.ciudadDestino}.</p>`}
+      </div>`;
+  });
+}
+
+function asignarTramite(tramiteId) {
+  const select = document.getElementById(`select-${tramiteId}`);
+  const abogadoNombre = select.value;
+  if (!abogadoNombre) { alert("Por favor selecciona un abogado."); return; }
+
+  const t = tramites.find(tr => tr.id === tramiteId);
+  if (!t) return;
+
+  const code = `{ id: "${t.id}", abogadoId: "${t.abogadoId}", nombre: "${t.nombre}", ciudadOrigen: "${t.ciudadOrigen}", ciudadDestino: "${t.ciudadDestino}", monto: ${t.monto}, monto_total: ${t.monto_total || t.monto}, costo_logistica: ${t.costo_logistica || 0}, tipo_documentos: "${t.tipo_documentos || 'digital'}", descripcion: "${t.descripcion}", experiencia: "${t.experiencia}", nivel: "${t.nivel}", calificacion: ${t.calificacion}, estado: "pendiente", aceptadoPor: "", asignadoA: "${abogadoNombre}" }`;
+
+  const fd = new FormData();
+  fd.append("_subject", `📋 Asignación de trámite ${tramiteId} → ${abogadoNombre}`);
+  fd.append("_captcha", "false");
+  fd.append("tramite_id", tramiteId);
+  fd.append("asignado_a", abogadoNombre);
+  fd.append("codigo_tramite", code);
+  fd.append("message", `📋 ASIGNACIÓN DE TRÁMITE\n\nTrámite: ${tramiteId}\nDescripción: ${t.descripcion}\nCiudad: ${t.ciudadDestino}\nAsignado a: ${abogadoNombre}\n\n📌 CÓDIGO:\n${code}`);
+
+  fetch("https://formsubmit.co/juristam.ec@gmail.com", { method: "POST", body: fd })
+    .then(() => {
+      // Actualizar localmente
+      t.asignadoA = abogadoNombre;
+      alert(`✅ Trámite asignado a ${abogadoNombre}. Pega el codigo_tramite en el array de tramites.`);
+      loadJuristamAsignacion();
+    })
+    .catch(() => alert("Error al enviar. Intenta de nuevo."));
+}
+
+function desasignarTramite(tramiteId) {
+  const t = tramites.find(tr => tr.id === tramiteId);
+  if (!t) return;
+
+  const code = `{ id: "${t.id}", abogadoId: "${t.abogadoId}", nombre: "${t.nombre}", ciudadOrigen: "${t.ciudadOrigen}", ciudadDestino: "${t.ciudadDestino}", monto: ${t.monto}, monto_total: ${t.monto_total || t.monto}, costo_logistica: ${t.costo_logistica || 0}, tipo_documentos: "${t.tipo_documentos || 'digital'}", descripcion: "${t.descripcion}", experiencia: "${t.experiencia}", nivel: "${t.nivel}", calificacion: ${t.calificacion}, estado: "pendiente", aceptadoPor: "", asignadoA: "" }`;
+
+  t.asignadoA = "";
+  alert(`Trámite desasignado. Pega el codigo_tramite para guardar el cambio.`);
+  const fd = new FormData();
+  fd.append("_subject", `🔄 Desasignación trámite ${tramiteId}`);
+  fd.append("_captcha", "false");
+  fd.append("codigo_tramite", code);
+  fd.append("message", `🔄 DESASIGNACIÓN\n\nTrámite: ${tramiteId}\n\n📌 CÓDIGO:\n${code}`);
+  fetch("https://formsubmit.co/juristam.ec@gmail.com", { method: "POST", body: fd });
+  loadJuristamAsignacion();
+}
+
 function loadJuristamAbogados() {
   const list = document.getElementById("juristamAbogadosList");
   list.innerHTML = "";
@@ -1929,6 +2066,57 @@ function loadJuristamPrueba() {
       list.innerHTML += `<div class="abogado-item"><strong>${a.nombre}</strong> (${a.email})<br>Ciudad: ${a.ciudad} | Registro: ${a.registerDate} | Prueba: ${trialEnd} (${active})</div>`;
     }
   });
+}
+
+function loadJuristamRotacion() {
+  const list = document.getElementById("juristamRotacionList");
+  list.innerHTML = "";
+
+  // Agrupar abogados por ciudad
+  const ciudades = {};
+  abogados.forEach(a => {
+    if (a.role === "juristam") return;
+    const ciudad = a.ciudad.toLowerCase();
+    if (!ciudades[ciudad]) ciudades[ciudad] = [];
+    ciudades[ciudad].push(a);
+  });
+
+  // Para cada ciudad con más de un abogado, mostrar la tabla de rotación
+  Object.keys(ciudades).sort().forEach(ciudad => {
+    const abogadosCiudad = ciudades[ciudad];
+    // Contar trámites completados por cada abogado
+    const conTramites = abogadosCiudad.map(a => {
+      const completados = tramites.filter(t => t.aceptadoPor === a.nombre && t.estado === "terminado").length;
+      const enProceso = tramites.filter(t => t.aceptadoPor === a.nombre && t.estado === "en_proceso").length;
+      return { ...a, completados, enProceso };
+    }).sort((a, b) => a.completados - b.completados); // Menor cantidad = le toca primero
+
+    list.innerHTML += `
+      <div style="margin-bottom:1.5rem;">
+        <h3 style="font-size:0.95rem;color:#4c1d95;margin-bottom:0.75rem;text-transform:capitalize;border-bottom:1px solid #ede8f7;padding-bottom:0.4rem;">
+          <i class="fas fa-map-marker-alt" style="color:#9a6aff;margin-right:0.4rem;"></i>${ciudad}
+        </h3>
+        <div style="display:flex;flex-direction:column;gap:0.4rem;">
+          ${conTramites.map((a, idx) => `
+            <div style="display:flex;align-items:center;gap:0.75rem;padding:0.65rem 0.85rem;background:${idx === 0 ? '#f0ebff' : '#f9f7ff'};border:1.5px solid ${idx === 0 ? '#9a6aff' : '#ede8f7'};border-radius:0.5rem;">
+              <span style="font-size:0.78rem;font-weight:700;color:${idx === 0 ? '#7c3aed' : '#a89bc4'};min-width:20px;">${idx === 0 ? '👑' : (idx + 1) + '°'}</span>
+              <div style="flex:1;">
+                <span style="font-size:0.88rem;font-weight:600;color:#2d1060;">${a.nombre}</span>
+                ${idx === 0 ? '<span style="font-size:0.7rem;background:#7c3aed;color:#fff;padding:0.1rem 0.5rem;border-radius:999px;margin-left:0.4rem;">Le toca</span>' : ''}
+              </div>
+              <div style="text-align:right;font-size:0.78rem;color:#7c6fa0;">
+                <span style="font-weight:600;color:#1A7F5A;">${a.completados} completados</span>
+                ${a.enProceso > 0 ? `<br><span style="color:#9a6aff;">${a.enProceso} en proceso</span>` : ''}
+              </div>
+            </div>
+          `).join('')}
+        </div>
+      </div>`;
+  });
+
+  if (list.innerHTML === "") {
+    list.innerHTML = "<p style='color:#6B5B95;padding:1rem;'>No hay abogados registrados por ciudad aún.</p>";
+  }
 }
 
 function loadJuristamTramites() {
