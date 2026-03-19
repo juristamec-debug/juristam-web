@@ -117,7 +117,7 @@
 <div id="loadingScreen" style="position:fixed;inset:0;background:linear-gradient(135deg,#2d1060,#4c1d95);display:flex;align-items:center;justify-content:center;z-index:9999;">
   <div style="text-align:center;">
     <img src="https://i.postimg.cc/MHtnYCtQ/Diseno-sin-titulo-(8).png" style="height:100px;margin-bottom:1rem;">
-    <div style="color:rgba(255,255,255,0.7);font-size:0.85rem;font-family:'DM Sans',sans-serif;">Cargando...</div>
+    <div style="color:rgba(255,255,255,0.7);font-size:0.85rem;font-family:'DM Sans',sans-serif;" id="loadingMsg">Cargando...</div>
   </div>
 </div>
 
@@ -438,6 +438,22 @@ function waitFirebase(cb) {
 // ══════════════════════════════════════════════════════════════
 // INIT
 // ══════════════════════════════════════════════════════════════
+// Timeout de seguridad — si Firebase no responde en 8s mostrar login
+setTimeout(function() {
+  var ls = document.getElementById('loadingScreen');
+  if (ls && ls.style.display !== 'none') {
+    var msg = document.getElementById('loadingMsg');
+    if (msg) msg.textContent = 'Conectando...';
+    setTimeout(function() {
+      var ls2 = document.getElementById('loadingScreen');
+      if (ls2 && ls2.style.display !== 'none') {
+        ls2.style.display = 'none';
+        mostrarLogin();
+      }
+    }, 5000);
+  }
+}, 8000);
+
 waitFirebase(function() {
   var F = window._firebase;
   F.onAuthStateChanged(F.auth, async function(user) {
@@ -447,6 +463,7 @@ waitFirebase(function() {
       if (snap.exists()) {
         currentUser = user;
         currentUserData = snap.data();
+        updateNotifBadge();
         if (currentUserData.role === 'juristam') {
           showPanel('juristamPanel');
           showJSection('jAbogadosSection');
@@ -1941,3 +1958,7 @@ async function loadJMensajes() {
     list.innerHTML = '<p style="color:#B83232;padding:1rem;">Error al cargar. Verifica que los índices de Firestore estén creados.</p>';
   }
 }
+
+</script>
+</body>
+</html>
