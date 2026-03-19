@@ -385,9 +385,11 @@
     <nav><ul>
       <li><a onclick="showJSection('jAbogadosSection')"><i class="fas fa-users"></i> Abogados</a></li>
       <li><a onclick="showJSection('jVerificarSection')"><i class="fas fa-user-check"></i> Verificar</a></li>
+      <li><a onclick="showJSection('jSuscripcionSection')"><i class="fas fa-crown"></i> Suscripciones</a></li>
       <li><a onclick="showJSection('jTramitesSection')"><i class="fas fa-file-alt"></i> Trámites</a></li>
       <li><a onclick="showJSection('jAsignarSection')"><i class="fas fa-map-marker-alt"></i> Asignar</a></li>
       <li><a onclick="showJSection('jPagosSection')"><i class="fas fa-money-bill"></i> Confirmar Pagos</a></li>
+      <li><a onclick="showJSection('jMensajesSection')"><i class="fas fa-envelope"></i> Mensajes</a></li>
       <li><a onclick="showJSection('jRotacionSection')"><i class="fas fa-sync-alt"></i> Rotación</a></li>
       <li><a onclick="doLogout()"><i class="fas fa-sign-out-alt"></i> Cerrar Sesión</a></li>
     </ul></nav>
@@ -399,6 +401,16 @@
     <div class="section hidden" id="jAsignarSection"><h2>Asignar Trámites</h2><p style="font-size:0.85rem;color:#6B5B95;margin-bottom:1rem;">Asigna cada trámite pendiente al abogado que le toca por rotación.</p><div id="jAsignarList"></div></div>
     <div class="section hidden" id="jPagosSection"><h2>Confirmar Pagos</h2><p style="font-size:0.85rem;color:#6B5B95;margin-bottom:1rem;">Revisa el comprobante y confirma el pago para activar el trámite.</p><div id="jPagosList"></div></div>
     <div class="section hidden" id="jRotacionSection"><h2>Rotación por Ciudad</h2><div id="jRotacionList"></div></div>
+    <div class="section hidden" id="jSuscripcionSection">
+      <h2>Gestión de Suscripciones</h2>
+      <p style="font-size:0.85rem;color:#6B5B95;margin-bottom:1rem;">Activa o desactiva el acceso de cada abogado. Los que tienen suscripción activa pueden usar la plataforma sin límite de tiempo.</p>
+      <div id="jSuscripcionList"></div>
+    </div>
+    <div class="section hidden" id="jMensajesSection">
+      <h2>Mensajes Pendientes</h2>
+      <p style="font-size:0.85rem;color:#6B5B95;margin-bottom:1rem;">Revisa y aprueba los mensajes entre abogados antes de que lleguen al destinatario.</p>
+      <div id="jMensajesList"></div>
+    </div>
   </div>
 </div>
 
@@ -439,9 +451,39 @@ waitFirebase(function() {
           showPanel('juristamPanel');
           showJSection('jAbogadosSection');
         } else {
+          // Verificar si puede acceder
+          var puedeAcceder = currentUserData.subscriptionPaid || isTrialActive(currentUserData.registerDate);
+          if (!puedeAcceder) {
+            // Período vencido — mostrar pantalla de bloqueo y cerrar sesión
+            mostrarLogin();
+            document.getElementById('mainScreen').style.display = 'flex';
+            setTimeout(function() {
+              var overlay = document.createElement('div');
+              overlay.style.cssText = 'position:fixed;inset:0;background:rgba(45,16,96,0.85);z-index:9998;display:flex;align-items:center;justify-content:center;backdrop-filter:blur(4px);';
+              var box = document.createElement('div');
+              box.style.cssText = 'background:#fff;border-radius:1.25rem;padding:2rem;max-width:380px;width:90%;text-align:center;box-shadow:0 24px 60px rgba(10,0,30,0.4);border-top:4px solid #B83232;';
+              box.innerHTML = '<div style="font-size:2.5rem;margin-bottom:0.75rem;">🔒</div><h2 style="font-family:DM Serif Display,serif;font-size:1.4rem;color:#2d1060;margin-bottom:0.5rem;">Período de prueba finalizado</h2><p style="color:#7c6fa0;font-size:0.88rem;line-height:1.7;margin-bottom:1.5rem;">Tu acceso gratuito de 30 días ha terminado. Para continuar usando la plataforma activa tu suscripción.</p><p style="font-size:0.85rem;color:#4c1d95;font-weight:600;margin-bottom:0.5rem;">📞 0994859814</p><p style="font-size:0.85rem;color:#4c1d95;font-weight:600;margin-bottom:1.5rem;">✉️ juristam.ec@gmail.com</p>';
+              var btnLogout = document.createElement('button');
+              btnLogout.textContent = 'Cerrar sesión';
+              btnLogout.onclick = doLogout;
+              btnLogout.style.cssText = 'background:linear-gradient(135deg,#4c1d95,#9a6aff);color:#fff;border:none;padding:0.75rem 2rem;border-radius:999px;font-weight:700;font-size:0.9rem;cursor:pointer;width:100%;';
+              box.appendChild(btnLogout);
+              overlay.appendChild(box);
+              document.body.appendChild(overlay);
+            }, 300);
+            return;
+          }
+          if (!currentUserData.verified) {
+            mostrarLogin();
+            document.getElementById('loginMessage').textContent = 'Cuenta no verificada. Espera la activación de Juristam.';
+            document.getElementById('loginMessage').style.color = '#B83232';
+            await window._firebase.signOut(window._firebase.auth);
+            return;
+          }
           showPanel('abogadoPanel');
           showSection('profileSection');
           verificarAviso();
+          updateNotifBadge();
         }
       } else {
         mostrarLogin();
@@ -451,6 +493,13 @@ waitFirebase(function() {
     }
   });
 });
+
+function isTrialActive(registerDate) {
+  if (!registerDate) return false;
+  var d = new Date(registerDate);
+  d.setDate(d.getDate() + 30);
+  return new Date() <= d;
+}
 
 function mostrarLogin() {
   document.getElementById('loadingScreen').style.display = 'none';
@@ -669,9 +718,11 @@ function showJSection(sectionId) {
   if (el) el.classList.remove('hidden');
   if (sectionId === 'jAbogadosSection') loadJAbogados();
   if (sectionId === 'jVerificarSection') loadJVerificar();
+  if (sectionId === 'jSuscripcionSection') loadJSuscripcion();
   if (sectionId === 'jTramitesSection') loadJTramites();
   if (sectionId === 'jAsignarSection') loadJAsignar();
   if (sectionId === 'jPagosSection') loadJPagos();
+  if (sectionId === 'jMensajesSection') loadJMensajes();
   if (sectionId === 'jRotacionSection') loadJRotacion();
   if (window.innerWidth < 1024) toggleSidebar();
 }
@@ -1647,6 +1698,145 @@ async function loadJRotacion() {
   });
   if (list.innerHTML === '') list.innerHTML = '<p style="color:#6B5B95;padding:1rem;">No hay abogados registrados aún.</p>';
 }
+
+// ══════════════════════════════════════════════════════════════
+// PANEL JURISTAM — SUSCRIPCIONES
+// ══════════════════════════════════════════════════════════════
+async function loadJSuscripcion() {
+  var F = window._firebase;
+  var list = document.getElementById('jSuscripcionList');
+  list.innerHTML = '<p style="color:#7c6fa0;padding:1rem;">Cargando...</p>';
+  var snap = await F.getDocs(F.collection(F.db,'abogados'));
+  var abs = [];
+  snap.forEach(function(d){ abs.push({ id: d.id, ...d.data() }); });
+  abs = abs.filter(function(a){ return a.role !== 'juristam' && !a.ficticio; });
+  abs.sort(function(a,b){ return a.nombre.localeCompare(b.nombre); });
+  if (abs.length === 0) { list.innerHTML = '<p style="color:#6B5B95;padding:1rem;">No hay abogados.</p>'; return; }
+
+  // Separar activos y vencidos
+  var activos = abs.filter(function(a){ return a.subscriptionPaid || isTrialActive(a.registerDate); });
+  var vencidos = abs.filter(function(a){ return !a.subscriptionPaid && !isTrialActive(a.registerDate); });
+
+  list.innerHTML = '';
+
+  // Vencidos primero — requieren acción
+  if (vencidos.length > 0) {
+    list.innerHTML += '<div style="margin-bottom:0.5rem;padding:0.5rem 0.75rem;background:#FEE2E2;border-radius:0.5rem;border-left:3px solid #B83232;"><p style="font-size:0.8rem;font-weight:700;color:#B83232;"><i class="fas fa-lock"></i> Período vencido — sin acceso (' + vencidos.length + ')</p></div>';
+    vencidos.forEach(function(a){
+      var trialEnd = new Date(a.registerDate);
+      trialEnd.setDate(trialEnd.getDate() + 30);
+      list.innerHTML += renderAbogadoSuscripcion(a, false, trialEnd.toISOString().split('T')[0]);
+    });
+  }
+
+  // Activos
+  if (activos.length > 0) {
+    list.innerHTML += '<div style="margin-top:' + (vencidos.length>0?'1.25rem':'0') + ';margin-bottom:0.5rem;padding:0.5rem 0.75rem;background:#E6F4EF;border-radius:0.5rem;border-left:3px solid #1A7F5A;"><p style="font-size:0.8rem;font-weight:700;color:#1A7F5A;"><i class="fas fa-unlock"></i> Con acceso activo (' + activos.length + ')</p></div>';
+    activos.forEach(function(a){
+      var trialEnd = new Date(a.registerDate);
+      trialEnd.setDate(trialEnd.getDate() + 30);
+      list.innerHTML += renderAbogadoSuscripcion(a, true, trialEnd.toISOString().split('T')[0]);
+    });
+  }
+}
+
+function renderAbogadoSuscripcion(a, activo, trialEnd) {
+  var estadoLabel = a.subscriptionPaid
+    ? '<span style="background:#E6F4EF;color:#1A7F5A;padding:0.15rem 0.5rem;border-radius:999px;font-size:0.75rem;font-weight:600;">✅ Suscripción pagada</span>'
+    : (isTrialActive(a.registerDate)
+        ? '<span style="background:#FEF3E2;color:#C07C1A;padding:0.15rem 0.5rem;border-radius:999px;font-size:0.75rem;font-weight:600;">⏳ Prueba — vence: ' + trialEnd + '</span>'
+        : '<span style="background:#FEE2E2;color:#B83232;padding:0.15rem 0.5rem;border-radius:999px;font-size:0.75rem;font-weight:600;">🔒 Vencido: ' + trialEnd + '</span>');
+  return '<div style="padding:0.85rem 1rem;border-bottom:1px solid #EDE9F8;display:flex;align-items:center;gap:0.75rem;flex-wrap:wrap;">' +
+    '<img src="' + a.foto + '" style="width:38px;height:38px;border-radius:50%;object-fit:cover;border:1.5px solid #C4B5F4;flex-shrink:0;">' +
+    '<div style="flex:1;min-width:150px;">' +
+    '<strong style="font-size:0.88rem;">' + a.nombre + '</strong><br>' +
+    '<small style="color:#7c6fa0;">' + a.ciudad + ' · ' + a.email + '</small><br>' +
+    estadoLabel +
+    '</div>' +
+    '<div style="display:flex;gap:0.5rem;flex-shrink:0;">' +
+    (!a.subscriptionPaid
+      ? '<button onclick="gestionarSuscripcion(this,true)" data-id="'+ a.id +'" style="background:linear-gradient(135deg,#1A7F5A,#38A169);color:#fff;border:none;padding:0.4rem 0.85rem;border-radius:0.5rem;font-size:0.78rem;font-weight:600;cursor:pointer;"><i class="fas fa-unlock"></i> Activar</button>'
+      : '<button onclick="gestionarSuscripcion(this,false)" data-id="'+ a.id +'" style="background:#f0ebff;color:#4c1d95;border:1.5px solid #C4B5F4;padding:0.4rem 0.85rem;border-radius:0.5rem;font-size:0.78rem;cursor:pointer;"><i class="fas fa-lock"></i> Desactivar</button>') +
+    '</div></div>';
+}
+
+function gestionarSuscripcion(btn, activar) {
+  var id = btn.getAttribute('data-id');
+  if (activar) activarSuscripcion(id);
+  else desactivarSuscripcion(id);
+}
+
+async function activarSuscripcion(abogadoId) {
+  var F = window._firebase;
+  await F.updateDoc(F.doc(F.db,'abogados',abogadoId), { subscriptionPaid: true });
+  // Notificar al abogado
+  await F.addDoc(F.collection(F.db,'notificaciones'), {
+    abogadoId: abogadoId,
+    mensaje: '✅ Tu suscripción fue activada por Juristam. Ya tienes acceso completo a la plataforma.',
+    fecha: new Date().toISOString().split('T')[0],
+    leida: false,
+    createdAt: F.serverTimestamp()
+  });
+  mostrarModalConf('✅ Suscripción activada', 'El abogado ya tiene acceso completo a la plataforma y fue notificado.', function(){ loadJSuscripcion(); });
+}
+
+async function desactivarSuscripcion(abogadoId) {
+  if (!confirm('¿Desactivar acceso a este abogado?')) return;
+  var F = window._firebase;
+  await F.updateDoc(F.doc(F.db,'abogados',abogadoId), { subscriptionPaid: false });
+  mostrarModalConf('Suscripción desactivada', 'El abogado ya no tiene acceso a la plataforma.', function(){ loadJSuscripcion(); });
+}
+
+// ══════════════════════════════════════════════════════════════
+// PANEL JURISTAM — MENSAJES PENDIENTES
+// ══════════════════════════════════════════════════════════════
+async function loadJMensajes() {
+  var F = window._firebase;
+  var list = document.getElementById('jMensajesList');
+  list.innerHTML = '<p style="color:#7c6fa0;padding:1rem;">Cargando...</p>';
+  var q = F.query(F.collection(F.db,'mensajes'), F.where('estado','==','pendiente_revision'), F.orderBy('createdAt','asc'));
+  try {
+    var snap = await F.getDocs(q);
+    var msgs = [];
+    snap.forEach(function(d){ msgs.push({ id: d.id, ...d.data() }); });
+    if (msgs.length === 0) {
+      list.innerHTML = '<p style="color:#6B5B95;padding:1rem;text-align:center;">No hay mensajes pendientes de revisión. ✅</p>';
+      return;
+    }
+    list.innerHTML = '';
+    msgs.forEach(function(m){
+      list.innerHTML +=
+        '<div style="padding:0.85rem 1rem;border-bottom:1px solid #EDE9F8;display:flex;flex-direction:column;gap:0.4rem;">' +
+        '<div style="font-size:0.78rem;color:#6B5B95;"><strong>Trámite:</strong> ' + (m.tramiteId||'') + ' &nbsp;|&nbsp; <strong>De:</strong> ' + m.de + ' → <strong>Para:</strong> ' + m.para + ' &nbsp;|&nbsp; ' + (m.fecha||'') + '</div>' +
+        '<div style="font-size:0.88rem;color:#2d1060;background:#efe8ff;padding:0.5rem 0.75rem;border-radius:0.5rem;border-left:3px solid #9a6aff;">"' + m.texto + '"</div>' +
+        '<div style="display:flex;gap:0.5rem;margin-top:0.25rem;">' +
+        '<button onclick="gestionarMensaje(this,true)" data-id="' + m.id + '" style="background:#1A7F5A;color:#fff;border:none;padding:0.35rem 0.85rem;border-radius:0.4rem;font-size:0.78rem;cursor:pointer;"><i class="fas fa-check"></i> Aprobar</button>' +
+        '<button onclick="gestionarMensaje(this,false)" data-id="' + m.id + '" style="background:#B83232;color:#fff;border:none;padding:0.35rem 0.85rem;border-radius:0.4rem;font-size:0.78rem;cursor:pointer;"><i class="fas fa-times"></i> Rechazar</button>' +
+        '</div></div>';
+    });
+  } catch(err) {
+    list.innerHTML = '<p style="color:#B83232;padding:1rem;">Error al cargar mensajes. Puede que el índice de Firestore no esté creado aún.</p>';
+  }
+}
+
+function gestionarMensaje(btn, aprobar) {
+  var id = btn.getAttribute('data-id');
+  if (aprobar) aprobarMensaje(id);
+  else rechazarMensaje(id);
+}
+
+async function aprobarMensaje(msgId) {
+  var F = window._firebase;
+  await F.updateDoc(F.doc(F.db,'mensajes',msgId), { estado: 'aprobado' });
+  mostrarModalConf('✅ Mensaje aprobado', 'El mensaje llegará al destinatario en su próximo acceso.', function(){ loadJMensajes(); });
+}
+
+async function rechazarMensaje(msgId) {
+  var F = window._firebase;
+  await F.updateDoc(F.doc(F.db,'mensajes',msgId), { estado: 'rechazado' });
+  mostrarModalConf('Mensaje rechazado', 'El remitente no será notificado del motivo.', function(){ loadJMensajes(); });
+}
+
 </script>
 </body>
 </html>
