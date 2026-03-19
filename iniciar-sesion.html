@@ -1672,14 +1672,42 @@ async function loadJAbogados() {
   if (abs.length === 0) { list.innerHTML = '<p style="color:#6B5B95;padding:1rem;">No hay abogados registrados.</p>'; return; }
   list.innerHTML = '';
   abs.forEach(function(a){
-    list.innerHTML += '<div style="padding:0.85rem 1rem;border-bottom:1px solid #EDE9F8;font-size:0.88rem;display:flex;align-items:center;gap:0.75rem;">' +
-      '<img src="' + a.foto + '" style="width:36px;height:36px;border-radius:50%;object-fit:cover;border:1.5px solid #9a6aff;flex-shrink:0;">' +
+    var trialEnd = new Date(a.registerDate || '2025-01-01');
+    trialEnd.setDate(trialEnd.getDate() + 30);
+    var trialActivo = new Date() <= trialEnd;
+    var acceso = a.subscriptionPaid ? '💳 Pagada' : (trialActivo ? '⏳ Prueba' : '🔒 Vencida');
+    var colorAcceso = a.subscriptionPaid ? '#1A7F5A' : (trialActivo ? '#C07C1A' : '#B83232');
+    var div = document.createElement('div');
+    div.style.cssText = 'border:1.5px solid #ede8f7;border-radius:0.6rem;margin-bottom:0.75rem;overflow:hidden;';
+    div.innerHTML =
+      '<div style="padding:0.85rem 1rem;display:flex;align-items:center;gap:0.75rem;">' +
+      '<img src="' + a.foto + '" style="width:48px;height:48px;border-radius:50%;object-fit:cover;border:2px solid #9a6aff;flex-shrink:0;">' +
       '<div style="flex:1;">' +
-      '<strong>' + a.nombre + '</strong> <span style="font-size:0.75rem;background:' + (a.verified?'#E6F4EF':'#FEF3E2') + ';color:' + (a.verified?'#1A7F5A':'#C07C1A') + ';padding:0.1rem 0.5rem;border-radius:999px;">' + (a.verified?'✅ Verificado':'⏳ Sin verificar') + '</span>' +
-      '<br><small style="color:#7c6fa0;">' + a.email + ' · ' + a.ciudad + ' · Mat: ' + a.matricula + '</small>' +
+      '<strong>' + a.nombre + '</strong> ' +
+      '<span style="font-size:0.72rem;background:' + (a.verified?'#E6F4EF':'#FEF3E2') + ';color:' + (a.verified?'#1A7F5A':'#C07C1A') + ';padding:0.1rem 0.5rem;border-radius:999px;">' + (a.verified?'✅':'⏳ Sin verificar') + '</span>' +
+      '<br><small style="color:#7c6fa0;">' + a.ciudad + ' · ' + a.email + '</small>' +
+      '<br><small style="color:' + colorAcceso + ';font-weight:600;">' + acceso + '</small>' +
       '</div>' +
-      (!a.verified ? '<button onclick="verificarAbogado(\'' + a.id + '\')" style="background:linear-gradient(135deg,#1A7F5A,#38A169);color:#fff;border:none;padding:0.4rem 0.85rem;border-radius:0.5rem;font-size:0.78rem;font-weight:600;cursor:pointer;flex-shrink:0;">Verificar</button>' : '') +
+      '</div>' +
+      '<div style="padding:0.5rem 1rem;background:#f9f7ff;border-top:1px solid #ede8f7;display:flex;gap:0.5rem;flex-wrap:wrap;align-items:center;">' +
+      '<span style="font-size:0.75rem;color:#5c4d7a;background:#fff;padding:0.2rem 0.6rem;border-radius:999px;border:1px solid #ede8f7;">📋 ' + a.matricula + '</span>' +
+      '<span style="font-size:0.75rem;color:#5c4d7a;background:#fff;padding:0.2rem 0.6rem;border-radius:999px;border:1px solid #ede8f7;">📞 ' + (a.telefono||'Sin tel') + '</span>' +
       '</div>';
+    // Botones usando createElement
+    var bDiv = div.querySelector('div:last-child');
+    var btnDetalle = document.createElement('button');
+    btnDetalle.textContent = 'Ver detalle';
+    btnDetalle.style.cssText = 'background:#7c3aed;color:#fff;border:none;padding:0.3rem 0.75rem;border-radius:999px;font-size:0.75rem;font-weight:600;cursor:pointer;margin-left:auto;';
+    btnDetalle.onclick = (function(id){ return function(){ verDetalleAbogado(id); }; })(a.id);
+    bDiv.appendChild(btnDetalle);
+    if (!a.verified) {
+      var btnVer = document.createElement('button');
+      btnVer.textContent = '✅ Verificar';
+      btnVer.style.cssText = 'background:#1A7F5A;color:#fff;border:none;padding:0.3rem 0.75rem;border-radius:999px;font-size:0.75rem;font-weight:600;cursor:pointer;';
+      btnVer.onclick = (function(id){ return function(){ verificarAbogado(id); }; })(a.id);
+      bDiv.appendChild(btnVer);
+    }
+    list.appendChild(div);
   });
 }
 
@@ -2011,52 +2039,48 @@ async function loadJMensajes() {
   var list = document.getElementById('jMensajesList');
   list.innerHTML = '<p style="color:#7c6fa0;padding:1rem;">Cargando...</p>';
   try {
-    // Sin orderBy para evitar requerir índice compuesto
     var q = F.query(F.collection(F.db,'mensajes'), F.where('estado','==','aprobado'));
-    var snap = await F.getDocs(q);
-    var msgs = [];
-    snap.forEach(function(d){ msgs.push({ id: d.id, ...d.data() }); });
-    if (msgs.length === 0) {
-      list.innerHTML = '<p style="color:#6B5B95;padding:1rem;text-align:center;">No hay conversaciones aún.</p>';
-      return;
-    }
-    // Agrupar por tramiteId
-    var porTramite = {};
-    msgs.forEach(function(m){
-      if (!porTramite[m.tramiteId]) porTramite[m.tramiteId] = [];
-      porTramite[m.tramiteId].push(m);
-    });
-    list.innerHTML = '<p style="font-size:0.82rem;color:#4c1d95;font-weight:600;margin-bottom:0.75rem;"><i class="fas fa-circle" style="color:#1A7F5A;font-size:0.5rem;margin-right:0.4rem;"></i>' + Object.keys(porTramite).length + ' conversaciones activas</p>';
-    Object.keys(porTramite).forEach(function(tramiteId){
-      var conv = porTramite[tramiteId];
-      conv.sort(function(a,b){ return (a.createdAt?.seconds||0)-(b.createdAt?.seconds||0); });
-      var ultimo = conv[conv.length-1];
-      var participantes = [...new Set(conv.map(function(m){ return m.de; }))].join(' ↔ ');
-      list.innerHTML +=
-        '<div style="border:1.5px solid #ede8f7;border-radius:0.6rem;margin-bottom:1rem;overflow:hidden;">' +
-        '<div style="background:linear-gradient(135deg,#2d1060,#7c3aed);padding:0.6rem 1rem;display:flex;justify-content:space-between;align-items:center;">' +
-        '<span style="color:#fff;font-size:0.82rem;font-weight:600;"><i class="fas fa-comments" style="margin-right:0.4rem;color:#c9b8ff;"></i>' + participantes + '</span>' +
-        '<span style="color:rgba(255,255,255,0.6);font-size:0.72rem;">' + conv.length + ' mensajes · ' + (ultimo.fecha||'') + '</span>' +
-        '</div>' +
-        '<div style="padding:0.75rem;background:#f9f7ff;max-height:250px;overflow-y:auto;display:flex;flex-direction:column;gap:0.5rem;">' +
-        conv.map(function(m){
-          return '<div style="background:#fff;border:1px solid #ede8f7;border-radius:0.5rem;padding:0.5rem 0.75rem;font-size:0.82rem;color:#2d1060;">' +
-            '<span style="font-size:0.72rem;color:#9a6aff;font-weight:600;">' + m.de + ' · ' + (m.fecha||'') + '</span><br>' + m.texto +
-            '</div>';
-        }).join('') +
-        '</div></div>';
-    });
-  } catch(err) {
-    console.error('Error loadJMensajes:', err);
-    if (err.code === 'failed-precondition' || err.message.includes('index')) {
-      list.innerHTML = '<p style="color:#B83232;padding:1rem;">Índice de Firestore pendiente. Espera 2-3 minutos y recarga.</p>';
-    } else if (err.code === 'not-found' || msgs.length === 0) {
-      list.innerHTML = '<p style="color:#6B5B95;padding:1rem;text-align:center;">No hay conversaciones aún. Cuando los abogados intercambien mensajes aparecerán aquí.</p>';
-    } else {
+    var unsubJ = F.onSnapshot(q, function(snap) {
+      var msgs = [];
+      snap.forEach(function(d){ msgs.push({ id: d.id, ...d.data() }); });
+      msgs.sort(function(a,b){ return (a.createdAt?.seconds||0)-(b.createdAt?.seconds||0); });
+      if (msgs.length === 0) {
+        list.innerHTML = '<p style="color:#6B5B95;padding:1rem;text-align:center;">No hay conversaciones aún.</p>';
+        return;
+      }
+      var porTramite = {};
+      msgs.forEach(function(m){
+        if (!porTramite[m.tramiteId]) porTramite[m.tramiteId] = [];
+        porTramite[m.tramiteId].push(m);
+      });
+      list.innerHTML = '<p style="font-size:0.82rem;color:#4c1d95;font-weight:600;margin-bottom:0.75rem;">' + Object.keys(porTramite).length + ' conversaciones activas</p>';
+      Object.keys(porTramite).forEach(function(tramiteId){
+        var conv = porTramite[tramiteId];
+        var ultimo = conv[conv.length-1];
+        var participantes = [...new Set(conv.map(function(m){ return m.de; }))].join(' ↔ ');
+        list.innerHTML +=
+          '<div style="border:1.5px solid #ede8f7;border-radius:0.6rem;margin-bottom:1rem;overflow:hidden;">' +
+          '<div style="background:linear-gradient(135deg,#2d1060,#7c3aed);padding:0.6rem 1rem;display:flex;justify-content:space-between;align-items:center;">' +
+          '<span style="color:#fff;font-size:0.82rem;font-weight:600;"><i class="fas fa-comments" style="margin-right:0.4rem;color:#c9b8ff;"></i>' + participantes + '</span>' +
+          '<span style="color:rgba(255,255,255,0.6);font-size:0.72rem;">' + conv.length + ' msgs · ' + (ultimo.fecha||'') + '</span>' +
+          '</div>' +
+          '<div style="padding:0.75rem;background:#f9f7ff;max-height:250px;overflow-y:auto;display:flex;flex-direction:column;gap:0.5rem;">' +
+          conv.map(function(m){
+            return '<div style="background:#fff;border:1px solid #ede8f7;border-radius:0.5rem;padding:0.5rem 0.75rem;font-size:0.82rem;color:#2d1060;">' +
+              '<span style="font-size:0.72rem;color:#9a6aff;font-weight:600;">' + m.de + ' · ' + (m.fecha||'') + '</span><br>' + m.texto +
+              '</div>';
+          }).join('') +
+          '</div></div>';
+      });
+    }, function(err) {
       list.innerHTML = '<p style="color:#B83232;padding:1rem;">Error: ' + err.message + '</p>';
-    }
+    });
+    _unsubscribers.push(unsubJ);
+  } catch(err) {
+    list.innerHTML = '<p style="color:#B83232;padding:1rem;">Error al cargar conversaciones.</p>';
   }
 }
+
 
 
 // ══════════════════════════════════════════════════════════════
