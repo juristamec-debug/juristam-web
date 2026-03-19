@@ -729,6 +729,10 @@
   </div>
 </div>
 
+<!-- ══════════════════════════ BANNER AVISO SUSCRIPCIÓN ══════════════════════════ -->
+<div id="bannerAviso" style="display:none;position:fixed;bottom:0;left:0;right:0;z-index:999;padding:0.85rem 1.5rem;display:none;align-items:center;justify-content:space-between;gap:1rem;flex-wrap:wrap;">
+</div>
+
 <!-- ══════════════════════════ PANEL ABOGADO ══════════════════════════ -->
 <div class="container hidden" id="abogadoPanel">
   <button class="menu-toggle" onclick="toggleSidebar()"><i class="fas fa-bars"></i></button>
@@ -1291,6 +1295,7 @@ document.getElementById("loginForm").addEventListener("submit", (e) => {
         showSection("profileSection");
         document.getElementById("loginMessage").textContent = "Inicio de sesión exitoso.";
         updateNotifBadge();
+        verificarAviso();
       } else {
         document.getElementById("loginMessage").textContent = "Período de prueba finalizado. Paga la suscripción para continuar.";
       }
@@ -1424,7 +1429,7 @@ document.getElementById("solicitarTramiteForm").addEventListener("submit", (e) =
   const logistica = parseFloat(document.getElementById('costoLogisticaValor').value) || 0;
   const montoTotal = monto + logistica;
   const newId = "t" + (tramites.length + 1);
-  const code = `{ id: "${newId}", abogadoId: "${currentUser.id}", nombre: "${currentUser.nombre}", ciudadOrigen: "${currentUser.ciudad}", ciudadDestino: "${form.ciudad.value}", monto: ${monto}, monto_total: ${montoTotal}, costo_logistica: ${logistica}, tipo_documentos: "${tipoDoc.value}", descripcion: "${form.descripcion.value}", experiencia: "${currentUser.experiencia || 'No especificada'}", nivel: "${currentUser.nivel || 'No especificado'}", calificacion: ${currentUser.calificacion}, estado: "pendiente", aceptadoPor: "", asignadoA: "" }`;
+  const code = `{ id: "${newId}", abogadoId: "${currentUser.id}", nombre: "${currentUser.nombre}", ciudadOrigen: "${currentUser.ciudad}", ciudadDestino: "${form.ciudad.value}", monto: ${monto}, monto_total: ${montoTotal}, costo_logistica: ${logistica}, tipo_documentos: "${tipoDoc.value}", descripcion: "${form.descripcion.value}", experiencia: "${currentUser.experiencia || 'No especificada'}", nivel: "${currentUser.nivel || 'No especificado'}", calificacion: ${currentUser.calificacion}, estado: "esperando_pago", aceptadoPor: "", asignadoA: "" }`;
   document.getElementById("tramiteMessage").textContent = "Solicitud enviada.";
   document.getElementById("tramiteMessage").style.color = "#1A7F5A";
   const fd = new FormData(form);
@@ -1456,6 +1461,7 @@ function loadTramites() {
     // Si el trámite tiene asignadoA, solo mostrarlo al abogado asignado
     const asignadoA = t.asignadoA || "";
     const puedeVer = asignadoA === "" || asignadoA === currentUser.id;
+    // Solo mostrar tramites confirmados (pendiente), no los que esperan pago
     if (t.ciudadDestino === currentUser.ciudad && t.estado === "pendiente" && puedeVer) {
       const sol = abogados.find(a => a.id === t.abogadoId);
       list.innerHTML += `
@@ -1497,6 +1503,17 @@ function loadMisTramites() {
   list.innerHTML = "";
   tramites.forEach(t => {
     if (t.abogadoId === currentUser.id) {
+
+      // ESPERANDO PAGO
+      if (t.estado === "esperando_pago") {
+        list.innerHTML += `
+          <div class="tramite-item" style="border-left:3px solid #E53E3E;">
+            <div><strong>${t.descripcion}</strong> — Ciudad destino: ${t.ciudadDestino}</div>
+            <div style="margin-top:0.5rem;">$${t.monto_total || t.monto} &nbsp;|&nbsp; <span style="background:#FEE2E2;color:#B83232;padding:0.2rem 0.65rem;border-radius:999px;font-size:0.75rem;font-weight:600;">💳 Esperando confirmación de pago</span></div>
+            <div style="margin-top:0.5rem;font-size:0.82rem;color:#7C6FA0;">Realiza la transferencia a Juristam para activar el trámite. Una vez confirmado, aparecerá un ejecutor disponible en ${t.ciudadDestino}.</div>
+          </div>`;
+        return;
+      }
 
       // PENDIENTE
       if (t.estado === "pendiente") {
@@ -1596,6 +1613,13 @@ function loadTramitesAceptados() {
           </div>
           ${datosSolicitanteHtml}
           ${renderMensajes(t.id)}
+          <div style="margin-top:0.75rem;padding:0.85rem;background:#f0fff4;border:1.5px solid #68D391;border-radius:0.6rem;">
+            <p style="font-size:0.82rem;font-weight:700;color:#1A7F5A;margin-bottom:0.5rem;"><i class="fas fa-check-circle"></i> ¿Completaste el trámite?</p>
+            <textarea id="evidencia-${t.id}" placeholder="Describe brevemente cómo lo completaste (opcional — ej: ingresé el escrito en ventanilla 3, me entregaron sello de recibido)" rows="2" style="width:100%;padding:0.5rem 0.75rem;border:1.5px solid #68D391;border-radius:0.5rem;font-size:0.82rem;font-family:'DM Sans',sans-serif;resize:none;margin-bottom:0.5rem;"></textarea>
+            <button onclick="marcarCompletado('${t.id}','${t.descripcion}','${t.ciudadDestino}',${t.monto})" style="background:linear-gradient(135deg,#1A7F5A,#38A169);color:#fff;border:none;padding:0.6rem 1.25rem;border-radius:0.5rem;font-size:0.85rem;font-weight:700;cursor:pointer;width:100%;">
+              <i class="fas fa-flag-checkered"></i> Marcar como completado
+            </button>
+          </div>
         </div>`;
     }
     if (t.aceptadoPor === currentUser.nombre && t.estado === "terminado") {
@@ -2129,10 +2153,119 @@ function loadJuristamTramites() {
 }
 
 // ══════════════════════════════════════════════════════════════
+// MARCAR TRÁMITE COMO COMPLETADO
+// ══════════════════════════════════════════════════════════════
+function marcarCompletado(tramiteId, descripcion, ciudad, monto) {
+  if (!confirm(`¿Confirmas que completaste el trámite "${descripcion}" en ${ciudad}?`)) return;
+  const evidencia = document.getElementById(`evidencia-${tramiteId}`).value.trim();
+  const t = tramites.find(tr => tr.id === tramiteId);
+  if (!t) return;
+  const today = new Date().toISOString().split("T")[0];
+  // Generar codigo_tramite con estado terminado
+  const code = `{ id: "${t.id}", abogadoId: "${t.abogadoId}", nombre: "${t.nombre}", ciudadOrigen: "${t.ciudadOrigen}", ciudadDestino: "${t.ciudadDestino}", monto: ${t.monto}, monto_total: ${t.monto_total || t.monto}, costo_logistica: ${t.costo_logistica || 0}, tipo_documentos: "${t.tipo_documentos || 'digital'}", descripcion: "${t.descripcion}", experiencia: "${t.experiencia}", nivel: "${t.nivel}", calificacion: ${t.calificacion}, estado: "terminado", aceptadoPor: "${currentUser.nombre}", asignadoA: "${t.asignadoA || ''}" }`;
+  // Generar codigo_notificacion para el solicitante
+  const solicitante = abogados.find(a => a.id === t.abogadoId);
+  const notif = solicitante ? `{ abogadoId: "${solicitante.id}", mensaje: "${currentUser.nombre} completó tu trámite '${t.descripcion}' en ${t.ciudadDestino}. Por favor califica al abogado.", tramiteId: "${t.id}", fecha: "${today}", leida: false }` : "";
+  const fd = new FormData();
+  fd.append("_subject", `✅ Trámite completado - ${tramiteId} - ${currentUser.nombre}`);
+  fd.append("_captcha", "false");
+  fd.append("ejecutor", currentUser.nombre);
+  fd.append("tramite_id", tramiteId);
+  fd.append("descripcion", descripcion);
+  fd.append("ciudad", ciudad);
+  fd.append("monto_ejecutor", (monto * 0.922).toFixed(2));
+  fd.append("evidencia", evidencia || "Sin descripción adicional");
+  fd.append("codigo_tramite", code);
+  if (notif) fd.append("codigo_notificacion", notif);
+  fd.append("message", `✅ TRÁMITE COMPLETADO\n\nEjecutor: ${currentUser.nombre}\nTrámite: ${tramiteId} — ${descripcion}\nCiudad: ${ciudad}\nFecha: ${today}\nEvidencia: ${evidencia || 'Sin descripción adicional'}\nMonto a pagar al ejecutor: $${(monto * 0.922).toFixed(2)}\n\n📌 PEGA ESTE CÓDIGO EN tramites:\n${code}\n\n📌 PEGA ESTE CÓDIGO EN notificaciones:\n${notif}`);
+  fetch("https://formsubmit.co/juristam.ec@gmail.com", { method: "POST", body: fd })
+    .then(() => {
+      alert("✅ Notificación enviada a Juristam. Una vez confirmado recibirás tu pago de $" + (monto * 0.922).toFixed(2));
+      loadTramitesAceptados();
+    })
+    .catch(() => alert("Error al enviar. Intenta de nuevo."));
+}
+
+// ══════════════════════════════════════════════════════════════
+// BANNER AVISO SUSCRIPCIÓN + CIERRE AUTOMÁTICO
+// ══════════════════════════════════════════════════════════════
+function verificarAviso() {
+  if (!currentUser || currentUser.subscriptionPaid) return;
+
+  const hoy = new Date();
+  const fechaFin = new Date(calculateTrialEndDate(currentUser.registerDate));
+  const diffMs = fechaFin - hoy;
+  const diasRestantes = Math.ceil(diffMs / (1000 * 60 * 60 * 24));
+
+  const banner = document.getElementById("bannerAviso");
+  if (!banner) return;
+
+  if (diasRestantes <= 0) {
+    // Período vencido — mostrar aviso de cierre y cerrar sesión
+    banner.style.display = "flex";
+    banner.style.background = "linear-gradient(135deg,#B83232,#8C2020)";
+    banner.innerHTML = `
+      <div style="display:flex;align-items:center;gap:0.75rem;flex:1;">
+        <i class="fas fa-lock" style="color:#fff;font-size:1.1rem;flex-shrink:0;"></i>
+        <div>
+          <p style="color:#fff;font-weight:700;font-size:0.9rem;margin-bottom:0.15rem;">Tu período de prueba ha finalizado</p>
+          <p style="color:rgba(255,255,255,0.75);font-size:0.78rem;">Para continuar usando Juristam Conexión Legal EC escríbenos a juristam.ec@gmail.com o al 0994859814.</p>
+        </div>
+      </div>
+      <button onclick="logout()" style="background:rgba(255,255,255,0.2);color:#fff;border:1px solid rgba(255,255,255,0.3);padding:0.5rem 1.1rem;border-radius:999px;font-size:0.82rem;font-weight:600;cursor:pointer;white-space:nowrap;flex-shrink:0;">
+        Cerrar sesión
+      </button>`;
+    // Bloquear navegación — redirigir a perfil con mensaje
+    setTimeout(() => {
+      showSection("profileSection");
+      // Oscurecer el panel con overlay
+      const overlay = document.createElement("div");
+      overlay.id = "trialOverlay";
+      overlay.style.cssText = "position:fixed;inset:0;background:rgba(45,16,96,0.65);z-index:998;display:flex;align-items:center;justify-content:center;backdrop-filter:blur(4px);";
+      overlay.innerHTML = `
+        <div style="background:#fff;border-radius:1.25rem;padding:2rem;max-width:380px;width:90%;text-align:center;box-shadow:0 24px 60px rgba(10,0,30,0.4);border-top:4px solid #B83232;">
+          <div style="font-size:2.5rem;margin-bottom:0.75rem;">🔒</div>
+          <h2 style="font-family:'DM Serif Display',serif;font-size:1.4rem;color:#2d1060;margin-bottom:0.5rem;">Período de prueba finalizado</h2>
+          <p style="color:#7c6fa0;font-size:0.88rem;line-height:1.7;margin-bottom:1.5rem;">Tu acceso gratuito de 30 días ha terminado. Para continuar usando la plataforma activa tu suscripción.</p>
+          <p style="font-size:0.85rem;color:#4c1d95;font-weight:600;margin-bottom:0.5rem;">📞 0994859814</p>
+          <p style="font-size:0.85rem;color:#4c1d95;font-weight:600;margin-bottom:1.5rem;">✉️ juristam.ec@gmail.com</p>
+          <button onclick="logout()" style="background:linear-gradient(135deg,#4c1d95,#9a6aff);color:#fff;border:none;padding:0.75rem 2rem;border-radius:999px;font-weight:700;font-size:0.9rem;cursor:pointer;width:100%;">
+            Cerrar sesión
+          </button>
+        </div>`;
+      document.body.appendChild(overlay);
+    }, 500);
+    return;
+  }
+
+  if (diasRestantes <= 5) {
+    // Aviso 5 días antes
+    banner.style.display = "flex";
+    banner.style.background = "linear-gradient(135deg,#C07C1A,#a86010)";
+    banner.innerHTML = `
+      <div style="display:flex;align-items:center;gap:0.75rem;flex:1;">
+        <i class="fas fa-exclamation-triangle" style="color:#fff;font-size:1.1rem;flex-shrink:0;"></i>
+        <div>
+          <p style="color:#fff;font-weight:700;font-size:0.9rem;margin-bottom:0.15rem;">Tu período de prueba vence en ${diasRestantes} día${diasRestantes === 1 ? '' : 's'}</p>
+          <p style="color:rgba(255,255,255,0.8);font-size:0.78rem;">Escríbenos para activar tu suscripción y no perder el acceso · 0994859814</p>
+        </div>
+      </div>
+      <button onclick="document.getElementById('bannerAviso').style.display='none'" style="background:rgba(255,255,255,0.2);color:#fff;border:1px solid rgba(255,255,255,0.3);padding:0.4rem 0.85rem;border-radius:999px;font-size:0.78rem;cursor:pointer;white-space:nowrap;flex-shrink:0;">
+        Entendido
+      </button>`;
+  }
+}
+
+// ══════════════════════════════════════════════════════════════
 // LOGOUT
 // ══════════════════════════════════════════════════════════════
 function logout() {
   currentUser = null;
+  // Limpiar overlay de trial si existe
+  const overlay = document.getElementById("trialOverlay");
+  if (overlay) overlay.remove();
+  const banner = document.getElementById("bannerAviso");
+  if (banner) banner.style.display = "none";
   const ms = document.getElementById("mainScreen");
   if (ms) ms.style.display = "flex";
   document.querySelectorAll(".container").forEach(c => c.classList.add("hidden"));
