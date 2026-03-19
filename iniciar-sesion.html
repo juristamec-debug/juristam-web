@@ -124,6 +124,7 @@
     outline: none;
   }
   input::placeholder, textarea::placeholder { color: var(--gray-500); font-size: 0.88rem; }
+  input[type=radio], input[type=checkbox] { width: auto; flex-shrink: 0; }
 
   /* ── BOTONES ── */
   button {
@@ -386,7 +387,7 @@
     #abogadoPanel.container { grid-template-columns: 200px 1fr; align-items: start; padding-top: 0.75rem; }
     .sidebar { position: sticky; top: 0.75rem; align-self: start; }
     .main { padding-left: 0.5rem; padding-top: 0; }
-    form { grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); }
+    /* form grid eliminado para evitar columnas en formularios complejos */
     .profile-info { grid-template-columns: 1fr 2fr; }
     .tramite-details { flex-direction: row; justify-content: space-between; align-items: flex-start; }
   }
@@ -431,7 +432,7 @@
 
     <!-- Logo centrado arriba -->
     <div style="text-align:center;margin-bottom:1.5rem;">
-      <img src="https://i.postimg.cc/hjNnRpj8/oie_transparent_(2).png" alt="Juristam" style="height:130px;margin-bottom:0.6rem;">
+      <img src="https://i.postimg.cc/MHtnYCtQ/Diseno-sin-titulo-(8).png" alt="Juristam" style="height:130px;margin-bottom:0.6rem;">
       <h1 style="font-family:'DM Serif Display',serif;font-size:1.1rem;color:#fff;font-weight:400;letter-spacing:0.01em;">
         Juristam <span style="color:#c9b8ff;">Conexión</span> Legal EC
       </h1>
@@ -671,6 +672,9 @@
 </div>
 
 
+<!-- ══════════════════════════ BANNER AVISO SUSCRIPCIÓN ══════════════════════════ -->
+<div id="bannerAviso" style="display:none;position:fixed;bottom:0;left:0;right:0;z-index:999;padding:0.85rem 1.5rem;align-items:center;justify-content:space-between;gap:1rem;flex-wrap:wrap;"></div>
+
 <!-- ══════════════════════════ MODAL ENCUESTA ══════════════════════════ -->
 <div id="modalEncuesta" style="display:none;position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(45,16,96,0.7);z-index:2000;align-items:center;justify-content:center;backdrop-filter:blur(4px);">
   <div style="background:#fff;border-radius:1.25rem;width:92%;max-width:420px;max-height:90vh;overflow-y:auto;box-shadow:0 24px 60px rgba(10,0,30,0.4);border-top:4px solid #9a6aff;animation:slideIn 0.3s ease-out;">
@@ -733,6 +737,82 @@
 <div id="bannerAviso" style="display:none;position:fixed;bottom:0;left:0;right:0;z-index:999;padding:0.85rem 1.5rem;display:none;align-items:center;justify-content:space-between;gap:1rem;flex-wrap:wrap;">
 </div>
 
+<!-- ══════════════════════════ MODAL PAGO ══════════════════════════ -->
+<div id="modalPago" style="display:none;position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(45,16,96,0.7);z-index:2000;align-items:center;justify-content:center;backdrop-filter:blur(4px);">
+  <div style="background:#fff;border-radius:1.25rem;width:92%;max-width:440px;max-height:90vh;overflow-y:auto;box-shadow:0 24px 60px rgba(10,0,30,0.4);border-top:4px solid #9a6aff;animation:slideIn 0.3s ease-out;">
+    <div style="background:linear-gradient(135deg,#2d1060,#7c3aed);padding:1.5rem 2rem;text-align:center;">
+      <div style="font-size:2rem;margin-bottom:0.5rem;">💳</div>
+      <h2 style="font-family:'DM Serif Display',serif;color:#fff;font-size:1.2rem;font-weight:400;margin-bottom:0.25rem;">Confirmar pago del trámite</h2>
+      <p style="color:rgba(255,255,255,0.65);font-size:0.82rem;">Tu trámite fue aceptado. Realiza la transferencia para que el ejecutor pueda comenzar.</p>
+    </div>
+    <div style="padding:1.5rem 2rem 2rem;">
+
+      <!-- Datos bancarios -->
+      <div style="background:#f8f5ff;border:1.5px solid #c4b5f4;border-radius:0.75rem;padding:1.25rem;margin-bottom:1.25rem;">
+        <p style="font-size:0.78rem;font-weight:700;color:#4c1d95;text-transform:uppercase;letter-spacing:0.05em;margin-bottom:0.85rem;"><i class="fas fa-university" style="color:#9a6aff;margin-right:0.4rem;"></i>Datos de transferencia</p>
+        <div style="display:flex;flex-direction:column;gap:0.5rem;font-size:0.88rem;">
+          <div style="display:flex;justify-content:space-between;padding:0.4rem 0;border-bottom:1px solid #ede8f7;">
+            <span style="color:#7c6fa0;font-size:0.82rem;">Banco</span>
+            <span style="font-weight:700;color:#2d1060;">Banco Pichincha</span>
+          </div>
+          <div style="display:flex;justify-content:space-between;padding:0.4rem 0;border-bottom:1px solid #ede8f7;">
+            <span style="color:#7c6fa0;font-size:0.82rem;">Tipo de cuenta</span>
+            <span style="font-weight:700;color:#2d1060;">Cuenta de ahorros</span>
+          </div>
+          <div style="display:flex;justify-content:space-between;padding:0.4rem 0;border-bottom:1px solid #ede8f7;">
+            <span style="color:#7c6fa0;font-size:0.82rem;">Número de cuenta</span>
+            <span style="font-weight:700;color:#2d1060;font-size:1rem;letter-spacing:0.05em;">2208128370</span>
+          </div>
+          <div style="display:flex;justify-content:space-between;padding:0.4rem 0;border-bottom:1px solid #ede8f7;">
+            <span style="color:#7c6fa0;font-size:0.82rem;">Nombre</span>
+            <span style="font-weight:700;color:#2d1060;">Noemí Jiménez</span>
+          </div>
+          <div style="display:flex;justify-content:space-between;padding:0.4rem 0;">
+            <span style="color:#7c6fa0;font-size:0.82rem;">Cédula</span>
+            <span style="font-weight:700;color:#2d1060;">0929476489</span>
+          </div>
+        </div>
+        <div style="margin-top:0.85rem;background:#f0ebff;border-radius:0.5rem;padding:0.65rem 0.85rem;display:flex;justify-content:space-between;align-items:center;">
+          <span style="font-size:0.82rem;color:#4c1d95;font-weight:600;">Total a transferir:</span>
+          <span id="modalPagoMonto" style="font-size:1.2rem;font-weight:900;color:#7c3aed;">$0.00</span>
+        </div>
+      </div>
+
+      <!-- Subir comprobante -->
+      <form id="pagoForm" style="display:flex;flex-direction:column;gap:0.85rem;">
+        <div style="background:#f8f5ff;border:1.5px dashed #c9b8ff;border-radius:0.6rem;padding:0.85rem;text-align:center;cursor:pointer;" onclick="document.getElementById('comprobantePago').click()">
+          <i class="fas fa-cloud-upload-alt" style="color:#9a6aff;font-size:1.3rem;margin-bottom:0.3rem;display:block;"></i>
+          <p style="font-size:0.82rem;color:#7c6fa0;margin-bottom:0.2rem;font-weight:600;">Subir comprobante de pago</p>
+          <p style="font-size:0.72rem;color:#a89bc4;" id="comprobanteLabel">Toca para seleccionar imagen o PDF</p>
+          <input type="file" id="comprobantePago" accept="image/*,application/pdf" style="display:none;" onchange="document.getElementById('comprobanteLabel').textContent=this.files[0]?this.files[0].name:'Toca para seleccionar imagen o PDF'">
+        </div>
+        <button type="button" onclick="enviarComprobante()" style="background:linear-gradient(135deg,#4c1d95,#9a6aff);color:#fff;border:none;padding:0.85rem;border-radius:0.6rem;font-weight:700;font-size:0.92rem;cursor:pointer;font-family:'DM Sans',sans-serif;box-shadow:0 4px 16px rgba(124,58,237,0.35);">
+          <i class="fas fa-paper-plane"></i> Enviar comprobante a Juristam
+        </button>
+        <p style="font-size:0.75rem;color:#a89bc4;text-align:center;line-height:1.5;">Una vez que Juristam confirme tu pago, el ejecutor podrá comenzar el trámite. Recibirás una notificación.</p>
+        <button type="button" onclick="cerrarModalPago()" style="background:transparent;color:#a89bc4;border:none;padding:0.4rem;font-size:0.82rem;cursor:pointer;font-family:'DM Sans',sans-serif;box-shadow:none;">Cerrar — pagaré más tarde</button>
+      </form>
+      <p id="pagoMsg" style="text-align:center;font-size:0.82rem;margin-top:0.5rem;min-height:1em;"></p>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════════════════ MODAL CONFIRMACION ══════════════════════════ -->
+<div id="modalConfirmacion" style="display:none;position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(45,16,96,0.7);z-index:3000;align-items:center;justify-content:center;backdrop-filter:blur(4px);">
+  <div style="background:#fff;border-radius:1.25rem;width:92%;max-width:380px;box-shadow:0 24px 60px rgba(10,0,30,0.4);border-top:4px solid #9a6aff;animation:slideIn 0.25s ease-out;overflow:hidden;">
+    <div style="padding:2rem 2rem 1.5rem;text-align:center;">
+      <div id="modalConfIcon" style="font-size:2.5rem;margin-bottom:0.75rem;">✅</div>
+      <h3 id="modalConfTitulo" style="font-family:'DM Serif Display',serif;font-size:1.3rem;color:#2d1060;margin-bottom:0.85rem;font-weight:400;"></h3>
+      <p id="modalConfTexto" style="font-size:0.88rem;color:#5c4d7a;line-height:1.75;"></p>
+    </div>
+    <div style="padding:0 2rem 2rem;">
+      <button id="modalConfBtn" onclick="cerrarModalConfirmacion()" style="width:100%;background:linear-gradient(135deg,#4c1d95,#9a6aff);color:#fff;border:none;padding:0.85rem;border-radius:0.6rem;font-weight:700;font-size:0.95rem;cursor:pointer;font-family:'DM Sans',sans-serif;box-shadow:0 4px 16px rgba(124,58,237,0.35);">
+        Entendido
+      </button>
+    </div>
+  </div>
+</div>
+
 <!-- ══════════════════════════ PANEL ABOGADO ══════════════════════════ -->
 <div class="container hidden" id="abogadoPanel">
   <button class="menu-toggle" onclick="toggleSidebar()"><i class="fas fa-bars"></i></button>
@@ -788,7 +868,7 @@
     <!-- SOLICITAR TRÁMITE -->
     <div class="section hidden" id="solicitarTramiteSection">
       <h2>Solicitar Trámite</h2>
-      <form id="solicitarTramiteForm" action="https://formsubmit.co/juristam.ec@gmail.com" method="POST">
+      <form id="solicitarTramiteForm" action="https://formsubmit.co/juristam.ec@gmail.com" method="POST" style="display:flex;flex-direction:column;gap:0.75rem;">
         <input type="text" name="ciudad" list="ciudades" placeholder="Ciudad del trámite" required>
         <input type="number" name="monto" id="montoTramite" placeholder="Monto ofrecido por el trámite ($)" required oninput="calcularTotal()">
 
@@ -798,33 +878,33 @@
             <i class="fas fa-box" style="color:#9a6aff;margin-right:0.4rem;"></i>
             ¿Este trámite involucra documentos físicos?
           </p>
-          <div style="display:flex;flex-direction:column;gap:0.5rem;">
-            <label style="display:flex;align-items:flex-start;gap:0.6rem;cursor:pointer;padding:0.6rem;border-radius:0.5rem;border:1.5px solid #e0d8f5;background:#fff;transition:all 0.2s;" onclick="selectDocOption(this,'envio')">
-              <input type="radio" name="tipo_documentos" value="envio" style="accent-color:#7c3aed;margin-top:2px;flex-shrink:0;" onchange="calcularTotal()">
+          <div style="display:flex;flex-direction:column;gap:0.4rem;">
+            <label style="display:flex;align-items:center;gap:0.65rem;cursor:pointer;padding:0.6rem 0.85rem;border-radius:0.5rem;border:1.5px solid #e0d8f5;background:#fff;transition:all 0.2s;width:100%;box-sizing:border-box;" onclick="selectDocOption(this,'envio')">
+              <input type="radio" name="tipo_documentos" value="envio" style="accent-color:#7c3aed;flex-shrink:0;" onchange="calcularTotal()">
               <div>
-                <span style="font-size:0.85rem;font-weight:600;color:#2d1060;">📤 Necesito enviar documentos físicos al ejecutor</span>
-                <br><span style="font-size:0.78rem;color:#7c6fa0;">Se liberarán los datos del ejecutor (dirección, teléfono, cédula) para que puedas enviarlos por Servientrega. Se suman $5 de logística.</span>
+                <span style="font-size:0.85rem;font-weight:600;color:#2d1060;">📤 Sí, enviaré documentos al abogado</span>
+                <br><span style="font-size:0.78rem;color:#7c6fa0;">Por tu cuenta corre el precio que cobra Servientrega para que el abogado reciba los documentos. (+$5 logística)</span>
               </div>
             </label>
-            <label style="display:flex;align-items:flex-start;gap:0.6rem;cursor:pointer;padding:0.6rem;border-radius:0.5rem;border:1.5px solid #e0d8f5;background:#fff;transition:all 0.2s;" onclick="selectDocOption(this,'recepcion')">
-              <input type="radio" name="tipo_documentos" value="recepcion" style="accent-color:#7c3aed;margin-top:2px;flex-shrink:0;" onchange="calcularTotal()">
+            <label style="display:flex;align-items:center;gap:0.65rem;cursor:pointer;padding:0.6rem 0.85rem;border-radius:0.5rem;border:1.5px solid #e0d8f5;background:#fff;transition:all 0.2s;width:100%;box-sizing:border-box;" onclick="selectDocOption(this,'recepcion')">
+              <input type="radio" name="tipo_documentos" value="recepcion" style="accent-color:#7c3aed;flex-shrink:0;" onchange="calcularTotal()">
               <div>
-                <span style="font-size:0.85rem;font-weight:600;color:#2d1060;">📥 Necesito recibir documentos físicos del ejecutor</span>
-                <br><span style="font-size:0.78rem;color:#7c6fa0;">Se liberarán tus datos (dirección, teléfono, cédula) al ejecutor para que pueda enviarte los documentos por Servientrega. Se suman $5 de logística.</span>
+                <span style="font-size:0.85rem;font-weight:600;color:#2d1060;">📥 No, el abogado debe enviarme documentos</span>
+                <br><span style="font-size:0.78rem;color:#7c6fa0;">Se te cobrarán los $5 del envío que Servientrega cobra para que el abogado te haga llegar los documentos. (+$5 logística)</span>
               </div>
             </label>
-            <label style="display:flex;align-items:flex-start;gap:0.6rem;cursor:pointer;padding:0.6rem;border-radius:0.5rem;border:1.5px solid #e0d8f5;background:#fff;transition:all 0.2s;" onclick="selectDocOption(this,'ambos')">
-              <input type="radio" name="tipo_documentos" value="ambos" style="accent-color:#7c3aed;margin-top:2px;flex-shrink:0;" onchange="calcularTotal()">
+            <label style="display:flex;align-items:center;gap:0.65rem;cursor:pointer;padding:0.6rem 0.85rem;border-radius:0.5rem;border:1.5px solid #e0d8f5;background:#fff;transition:all 0.2s;width:100%;box-sizing:border-box;" onclick="selectDocOption(this,'ambos')">
+              <input type="radio" name="tipo_documentos" value="ambos" style="accent-color:#7c3aed;flex-shrink:0;" onchange="calcularTotal()">
               <div>
-                <span style="font-size:0.85rem;font-weight:600;color:#2d1060;">📤📥 Ambos — envío y recibo documentos físicos</span>
-                <br><span style="font-size:0.78rem;color:#7c6fa0;">Se liberan los datos de ambas partes entre sí para envíos por Servientrega. Se suman $10 de logística ($5 + $5).</span>
+                <span style="font-size:0.85rem;font-weight:600;color:#2d1060;">📤📥 Ambos — envío y recepción</span>
+                <br><span style="font-size:0.78rem;color:#7c6fa0;">Pagas el envío para que el abogado reciba tus documentos, y también el envío de vuelta para que te haga llegar los resultados. (+$10 logística)</span>
               </div>
             </label>
-            <label style="display:flex;align-items:flex-start;gap:0.6rem;cursor:pointer;padding:0.6rem;border-radius:0.5rem;border:1.5px solid #e0d8f5;background:#fff;transition:all 0.2s;" onclick="selectDocOption(this,'digital')">
-              <input type="radio" name="tipo_documentos" value="digital" style="accent-color:#7c3aed;margin-top:2px;flex-shrink:0;" onchange="calcularTotal()">
+            <label style="display:flex;align-items:center;gap:0.65rem;cursor:pointer;padding:0.6rem 0.85rem;border-radius:0.5rem;border:1.5px solid #e0d8f5;background:#fff;transition:all 0.2s;width:100%;box-sizing:border-box;" onclick="selectDocOption(this,'digital')">
+              <input type="radio" name="tipo_documentos" value="digital" style="accent-color:#7c3aed;flex-shrink:0;" onchange="calcularTotal()">
               <div>
-                <span style="font-size:0.85rem;font-weight:600;color:#2d1060;">💻 No, es solo digital</span>
-                <br><span style="font-size:0.78rem;color:#7c6fa0;">No se requiere envío físico. No se liberan datos de contacto. Toda coordinación por la plataforma.</span>
+                <span style="font-size:0.85rem;font-weight:600;color:#2d1060;">💻 Solo digital</span>
+                <br><span style="font-size:0.78rem;color:#7c6fa0;">Sin envíos físicos. No se liberan datos de contacto.</span>
               </div>
             </label>
           </div>
@@ -973,7 +1053,7 @@
 // ══════════════════════════════════════════════════════════════
 const abogados = [
   { id: "1", nombre: "Juan Pérez", matricula: "12345", cedula: "0912345678", telefono: "0991234567", email: "juan@example.com", ciudad: "guayaquil", password: "juan123", descripcion: "Abogado penalista", experiencia: "5 años", nivel: "Abogado", foto: "https://i.postimg.cc/NfpqxnZJ/images.png", calificacion: 4.5, verified: true, subscriptionPaid: true, registerDate: "2025-03-01", role: "abogado" },
-  { id: "2", nombre: "María López", matricula: "67890", cedula: "1712345678", telefono: "0987654321", email: "maria@example.com", ciudad: "esmeraldas", password: "maria123", descripcion: "Especialista en familia", experiencia: "8 años", nivel: "Magíster", foto: "https://i.postimg.cc/NfpqxnZJ/images.png", calificacion: 4.8, verified: true, subscriptionPaid: false, registerDate: "2025-03-15", role: "abogado" },
+  { id: "2", nombre: "María López", matricula: "67890", cedula: "1712345678", telefono: "0987654321", email: "maria@example.com", ciudad: "esmeraldas", password: "maria123", descripcion: "Especialista en familia", experiencia: "8 años", nivel: "Magíster", foto: "https://i.postimg.cc/NfpqxnZJ/images.png", calificacion: 4.8, verified: true, subscriptionPaid: true, registerDate: "2025-03-15", role: "abogado" },
   { id: "3", nombre: "Carlos Gómez", matricula: "54321", cedula: "1012345678", telefono: "0998765432", email: "carlos@example.com", ciudad: "quito", password: "carlos123", descripcion: "Experto en laboral", experiencia: "6 años", nivel: "Abogado", foto: "https://via.placeholder.com/150", calificacion: 4.3, verified: true, subscriptionPaid: true, registerDate: "2025-02-20", role: "abogado" },
   { id: "4", nombre: "Ana Torres", matricula: "98765", cedula: "0812345678", telefono: "0995551234", email: "ana@example.com", ciudad: "cuenca", password: "ana123", descripcion: "Civil y mercantil", experiencia: "10 años", nivel: "Doctora", foto: "https://via.placeholder.com/150", calificacion: 4.7, verified: true, subscriptionPaid: true, registerDate: "2025-02-10", role: "abogado" },
   { id: "5", nombre: "Luis Martínez", matricula: "45678", cedula: "1312345678", telefono: "0981234567", email: "luis@example.com", ciudad: "manta", password: "luis123", descripcion: "Abogado penal", experiencia: "4 años", nivel: "Abogado", foto: "https://via.placeholder.com/150", calificacion: 4.2, verified: true, subscriptionPaid: true, registerDate: "2025-03-05", role: "abogado" },
@@ -991,32 +1071,49 @@ const abogados = [
   { id: "17", nombre: "Eddie Patricio Condoy Quichimbo", matricula: "11-2024-139", cedula: "0705423366", telefono: "0960919721", email: "eddiepatricio95@gmail.com", ciudad: "loja", password: "630716173.l.", descripcion: "", experiencia: "", nivel: "", foto: "https://via.placeholder.com/150", calificacion: 0, verified: false, subscriptionPaid: false, registerDate: "2025-05-27", role: "abogado" },
   { id: "18", nombre: "Michelle Elizabeth Borja Jara", matricula: "17-2024-211", cedula: "1727160325", telefono: "0983437221", email: "ab.michelleborja@gmail.com", ciudad: "quito", password: "Zoe242927", descripcion: "", experiencia: "2 años como asistente legal", nivel: "Abogada", foto: "https://i.postimg.cc/rpmkWZd7/Imagen-de-Whats-App-2025-05-27-a-las-15-42-39-f2cdd0d2.jpg", calificacion: 0, verified: true, subscriptionPaid: false, registerDate: "2025-05-27", role: "abogado" },
   { id: "19", nombre: "Pamela Mishell Melendres Cóndor", matricula: "17-2024-2323", cedula: "1723173629", telefono: "0984725684", email: "melendrespamela57@gmail.com", ciudad: "Quito", password: "023678059", descripcion: "Soy abogada con sólida formación jurídica y experiencia en la defensa y asesoría legal integral en las áreas de Derecho de Familia, Civil, Administrativo, Laboral y Tránsito.", experiencia: "2 años", nivel: "Abogada", foto: "https://i.postimg.cc/6QssP6TL/IMG-20250407-152951-306.webp", calificacion: 0, verified: true, subscriptionPaid: false, registerDate: "2025-05-27", role: "abogado" },
-  { id: "20", nombre: "Sebastián Orellana ", matricula: "07-2024-283", cedula: "0707109138", telefono: "0994310414", email: "abg.sebastianorellana@gmail.com", ciudad: "Machala", password: "Barcelona@2001", descripcion: "", experiencia: "", nivel: "", foto: "https://via.placeholder.com/150", calificacion: 0, verified: false, subscriptionPaid: false, registerDate: "2026-03-18", role: "abogado" },
+  { id: "20", nombre: "Sebastián Orellana ", matricula: "07-2024-283", cedula: "0707109138", telefono: "0994310414", email: "abg.sebastianorellana@gmail.com", ciudad: "Machala", password: "Barcelona@2001", descripcion: "", experiencia: "", nivel: "", foto: "https://via.placeholder.com/150", calificacion: 0, verified: true, subscriptionPaid: true, registerDate: "2026-03-18", role: "abogado" },
   { id: "21", nombre: "Dayana Estefanía Santos Escobar ", matricula: "09-2024-790", cedula: "0956058853", telefono: "0999307043", email: "dayana.santose7@gmail.com", ciudad: "guayaquil", password: "bangtan.7", descripcion: "", experiencia: "", nivel: "", foto: "https://via.placeholder.com/150", calificacion: 0, verified: true, subscriptionPaid: true, registerDate: "2026-03-18", role: "abogado" },
+  { id: "22", nombre: "Mayte Acero ", matricula: "17-2024-2113", cedula: "1727761578", telefono: "0998907344", email: "maiiacerosc28c@hotmail.com", ciudad: "cayambe", password: "Shwrillyn123", descripcion: "Abogada litigante", experiencia: "", nivel: "", rol_plataforma: "ambas", foto: "https://via.placeholder.com/150", calificacion: 0, verified: true, subscriptionPaid: true, registerDate: "2026-03-19", role: "abogado" },
   { id: "juristam", nombre: "Juristam", matricula: "0000", cedula: "0000", telefono: "0000", email: "admin@juristam.ec", ciudad: "guayaquil", password: "jimmyjim03", descripcion: "", experiencia: "", nivel: "", foto: "", calificacion: 0, verified: true, subscriptionPaid: true, registerDate: "2025-01-01", role: "juristam" }
 ];
 
 const tramites = [
-  { id: "t1", abogadoId: "1", nombre: "Juan Pérez", ciudadOrigen: "guayaquil", ciudadDestino: "esmeraldas", monto: 50, descripcion: "Trámite penal urgente", experiencia: "5 años", nivel: "Abogado", calificacion: 4.5, estado: "en_proceso", aceptadoPor: "María López" },
-  { id: "t2", abogadoId: "1", nombre: "Juan Pérez", ciudadOrigen: "guayaquil", ciudadDestino: "quito", monto: 60, descripcion: "Herencia familiar", experiencia: "5 años", nivel: "Abogado", calificacion: 4.4, estado: "terminado", aceptadoPor: "Carlos Gómez" },
-  { id: "t3", abogadoId: "4", nombre: "Ana Torres", ciudadOrigen: "cuenca", ciudadDestino: "guayaquil", monto: 75, descripcion: "Contrato comercial", experiencia: "10 años", nivel: "Doctora", calificacion: 4.7, estado: "pendiente", aceptadoPor: "", asignadoA: "" },
-  { id: "t4", abogadoId: "5", nombre: "Luis Martínez", ciudadOrigen: "manta", ciudadDestino: "ambato", monto: 40, descripcion: "Demanda laboral", experiencia: "4 años", nivel: "Abogado", calificacion: 4.2, estado: "en_proceso", aceptadoPor: "Sofía Ramírez" },
-  { id: "t5", abogadoId: "6", nombre: "Sofía Ramírez", ciudadOrigen: "ambato", ciudadDestino: "loja", monto: 55, descripcion: "Revisión de contrato", experiencia: "7 años", nivel: "Magíster", calificacion: 4.6, estado: "pendiente", aceptadoPor: "", asignadoA: "" },
-  { id: "t6", abogadoId: "7", nombre: "Pedro Castillo", ciudadOrigen: "loja", ciudadDestino: "cuenca", monto: 65, descripcion: "Asesoría administrativa", experiencia: "9 años", nivel: "Abogado", calificacion: 4.4, estado: "terminado", aceptadoPor: "Ana Torres" }
+  // ── Trámites de Juan Pérez (id:1) como SOLICITANTE ──
+  { id: "t1", abogadoId: "1", nombre: "Juan Pérez", ciudadOrigen: "guayaquil", ciudadDestino: "esmeraldas", monto: 50, monto_total: 50, costo_logistica: 0, tipo_documentos: "digital", descripcion: "Ingresar escrito en Fiscalía de Esmeraldas y obtener sello de recibido", experiencia: "5 años", nivel: "Abogado", calificacion: 4.5, estado: "terminado", aceptadoPor: "María López", asignadoA: "2", fechaLimite: "", fechaLimitePago: "" },
+  { id: "t2", abogadoId: "1", nombre: "Juan Pérez", ciudadOrigen: "guayaquil", ciudadDestino: "quito", monto: 60, monto_total: 65, costo_logistica: 5, tipo_documentos: "recepcion", descripcion: "Retirar notificación en Juzgado Civil de Quito y enviar documentos originales", experiencia: "5 años", nivel: "Abogado", calificacion: 4.5, estado: "terminado", aceptadoPor: "Carlos Gómez", asignadoA: "3", fechaLimite: "", fechaLimitePago: "" },
+  { id: "t3", abogadoId: "1", nombre: "Juan Pérez", ciudadOrigen: "guayaquil", ciudadDestino: "esmeraldas", monto: 35, monto_total: 35, costo_logistica: 0, tipo_documentos: "digital", descripcion: "Presentar demanda laboral en Juzgado del Trabajo de Esmeraldas", experiencia: "5 años", nivel: "Abogado", calificacion: 4.5, estado: "en_proceso", aceptadoPor: "María López", asignadoA: "2", fechaLimite: "2026-03-20T10:00:00.000Z", fechaLimitePago: "" },
+  { id: "t4", abogadoId: "1", nombre: "Juan Pérez", ciudadOrigen: "guayaquil", ciudadDestino: "cuenca", monto: 45, monto_total: 45, costo_logistica: 0, tipo_documentos: "digital", descripcion: "Verificar estado de causa en Tribunal de Garantías Penales de Cuenca", experiencia: "5 años", nivel: "Abogado", calificacion: 4.5, estado: "esperando_pago", aceptadoPor: "Ana Torres", asignadoA: "4", fechaLimite: "", fechaLimitePago: "2026-03-19T20:00:00.000Z" },
+  { id: "t5", abogadoId: "1", nombre: "Juan Pérez", ciudadOrigen: "guayaquil", ciudadDestino: "ambato", monto: 30, monto_total: 30, costo_logistica: 0, tipo_documentos: "digital", descripcion: "Entregar poder notarial en Notaría Segunda de Ambato", experiencia: "5 años", nivel: "Abogado", calificacion: 4.5, estado: "pendiente", aceptadoPor: "", asignadoA: "", fechaLimite: "", fechaLimitePago: "" },
+
+  // ── Trámites donde María López (id:2) es EJECUTORA ──
+  { id: "t6", abogadoId: "3", nombre: "Carlos Gómez", ciudadOrigen: "quito", ciudadDestino: "esmeraldas", monto: 40, monto_total: 40, costo_logistica: 0, tipo_documentos: "digital", descripcion: "Ingresar recurso de apelación en Sala de lo Civil de Esmeraldas", experiencia: "6 años", nivel: "Abogado", calificacion: 4.3, estado: "terminado", aceptadoPor: "María López", asignadoA: "2", fechaLimite: "", fechaLimitePago: "" },
+  { id: "t7", abogadoId: "4", nombre: "Ana Torres", ciudadOrigen: "cuenca", ciudadDestino: "esmeraldas", monto: 55, monto_total: 55, costo_logistica: 0, tipo_documentos: "digital", descripcion: "Presentar escrito ante el Registro de la Propiedad de Esmeraldas", experiencia: "10 años", nivel: "Doctora", calificacion: 4.7, estado: "terminado", aceptadoPor: "María López", asignadoA: "2", fechaLimite: "", fechaLimitePago: "" },
+  { id: "t8", abogadoId: "5", nombre: "Luis Martínez", ciudadOrigen: "manta", ciudadDestino: "esmeraldas", monto: 35, monto_total: 40, costo_logistica: 5, tipo_documentos: "recepcion", descripcion: "Retirar documentos apostillados en Cancillería de Esmeraldas y enviarlos a Manta", experiencia: "4 años", nivel: "Abogado", calificacion: 4.2, estado: "en_proceso", aceptadoPor: "María López", asignadoA: "2", fechaLimite: "2026-03-20T14:00:00.000Z", fechaLimitePago: "" },
+  { id: "t9", abogadoId: "1", nombre: "Juan Pérez", ciudadOrigen: "guayaquil", ciudadDestino: "esmeraldas", monto: 20, monto_total: 20, costo_logistica: 0, tipo_documentos: "digital", descripcion: "Ingresar escrito urgente en Juzgado Penal de Esmeraldas", experiencia: "5 años", nivel: "Abogado", calificacion: 4.5, estado: "esperando_pago", aceptadoPor: "María López", asignadoA: "2", fechaLimite: "", fechaLimitePago: "2026-03-19T20:30:00.000Z" },
+
+  // ── Otros trámites del sistema ──
+  { id: "t10", abogadoId: "5", nombre: "Luis Martínez", ciudadOrigen: "manta", ciudadDestino: "ambato", monto: 40, monto_total: 40, costo_logistica: 0, tipo_documentos: "digital", descripcion: "Demanda laboral en Juzgado de Trabajo de Ambato", experiencia: "4 años", nivel: "Abogado", calificacion: 4.2, estado: "en_proceso", aceptadoPor: "Sofía Ramírez", asignadoA: "6", fechaLimite: "2026-03-20T09:00:00.000Z", fechaLimitePago: "" },
+  { id: "t11", abogadoId: "7", nombre: "Pedro Castillo", ciudadOrigen: "loja", ciudadDestino: "cuenca", monto: 65, monto_total: 65, costo_logistica: 0, tipo_documentos: "digital", descripcion: "Asesoría en Tribunal Contencioso Administrativo de Cuenca", experiencia: "9 años", nivel: "Abogado", calificacion: 4.4, estado: "terminado", aceptadoPor: "Ana Torres", asignadoA: "4", fechaLimite: "", fechaLimitePago: "" }
 ];
 
 const opiniones = [
-  { abogado: "Carlos Gómez", evaluador: "Juan Pérez", puntaje: 4.5, opinion: "Excelente trabajo en la herencia familiar." },
+  { abogado: "María López", evaluador: "Juan Pérez", puntaje: 5.0, opinion: "Excelente colega. Ingresó el escrito el mismo día, me mandó foto del sello de recibido en menos de 2 horas. Muy recomendada." },
+  { abogado: "María López", evaluador: "Carlos Gómez", puntaje: 4.5, opinion: "Muy profesional y puntual. El recurso fue ingresado sin problemas. Volvería a trabajar con ella." },
+  { abogado: "Juan Pérez", evaluador: "María López", puntaje: 4.8, opinion: "Colega muy serio, las instrucciones del trámite llegaron claras y el pago fue liberado de inmediato. Muy buena experiencia." },
+  { abogado: "Carlos Gómez", evaluador: "Juan Pérez", puntaje: 4.5, opinion: "Cumplió perfectamente con el trámite en Quito. Envió los documentos a tiempo." },
   { abogado: "Ana Torres", evaluador: "Pedro Castillo", puntaje: 4.8, opinion: "Gran profesional en temas administrativos." }
 ];
 
 const notificaciones = [
-  { abogadoId: "1", mensaje: "María López aceptó tu trámite 'Trámite penal urgente' el 2025-03-22.", tramiteId: "t1", fecha: "2025-03-22", leida: true },
-  { abogadoId: "5", mensaje: "Sofía Ramírez aceptó tu trámite 'Demanda laboral' el 2025-03-22.", tramiteId: "t4", fecha: "2025-03-22", leida: true },
-  { abogadoId: "7", mensaje: "Ana Torres aceptó tu trámite 'Asesoría administrativa' el 2025-03-20.", tramiteId: "t6", fecha: "2025-03-20", leida: true },
-  { abogadoId: "10", mensaje: "Juan Pérez aceptó tu trámite 'ingresar un documento en la judicial norte ' el 2026-03-17.", tramiteId: "t7", fecha: "2026-03-17", leida: true },
-  { abogadoId: "10", mensaje: "Juan Pérez te envió un mensaje sobre el trámite 'ingresar un documento en la judicial norte '. Revisa tu sección Trámites Enviados.", tramiteId: "t7", fecha: "2026-03-17", leida: true },
-  { abogadoId: "1", mensaje: "Jhon Banda te envió un mensaje sobre el trámite 'ingresar un documento en la judicial norte '. Revisa tu sección Trámites Aceptados.", tramiteId: "t7", fecha: "2026-03-17", leida: false }
+  { abogadoId: "1", mensaje: "María López aceptó tu trámite 'Ingresar escrito en Fiscalía de Esmeraldas' el 2026-03-15.", tramiteId: "t1", fecha: "2026-03-15", leida: true },
+  { abogadoId: "1", mensaje: "María López completó tu trámite 'Ingresar escrito en Fiscalía de Esmeraldas'. Por favor califica al abogado.", tramiteId: "t1", fecha: "2026-03-15", leida: true },
+  { abogadoId: "1", mensaje: "Carlos Gómez completó tu trámite 'Retirar notificación en Juzgado Civil de Quito'. Por favor califica al abogado.", tramiteId: "t2", fecha: "2026-03-16", leida: true },
+  { abogadoId: "1", mensaje: "María López aceptó tu trámite 'Presentar demanda laboral en Juzgado del Trabajo de Esmeraldas' el 2026-03-18.", tramiteId: "t3", fecha: "2026-03-18", leida: true },
+  { abogadoId: "1", mensaje: "Ana Torres aceptó tu trámite 'Verificar estado de causa en Tribunal de Garantías Penales de Cuenca' el 2026-03-19.", tramiteId: "t4", fecha: "2026-03-19", leida: false },
+  { abogadoId: "2", mensaje: "Carlos Gómez te asignó un trámite en Esmeraldas: 'Ingresar recurso de apelación'. Revisa Trámites Disponibles.", tramiteId: "t6", fecha: "2026-03-14", leida: true },
+  { abogadoId: "2", mensaje: "Ana Torres te asignó un trámite en Esmeraldas: 'Presentar escrito ante el Registro de la Propiedad'. Revisa Trámites Disponibles.", tramiteId: "t7", fecha: "2026-03-16", leida: true },
+  { abogadoId: "2", mensaje: "Luis Martínez te asignó un trámite en Esmeraldas: 'Retirar documentos apostillados en Cancillería'. Revisa Trámites Disponibles.", tramiteId: "t8", fecha: "2026-03-18", leida: true },
+  { abogadoId: "2", mensaje: "Juan Pérez te asignó un trámite en Esmeraldas: 'Ingresar escrito urgente en Juzgado Penal'. Revisa Trámites Disponibles.", tramiteId: "t9", fecha: "2026-03-19", leida: false }
 ];
 
 // ══════════════════════════════════════════════════════════════
@@ -1025,12 +1122,14 @@ const notificaciones = [
 // estado: 'pendiente_revision' | 'aprobado' | 'rechazado'
 // ══════════════════════════════════════════════════════════════
 const mensajes = {
-  "t1": [
-    { de: "María López", para: "Juan Pérez", texto: "¿El escrito hay que presentarlo en la Fiscalía o en el Juzgado?", estado: "aprobado", fecha: "2025-03-22" }
+  "t3": [
+    { de: "Juan Pérez", para: "María López", texto: "El escrito debe presentarse en la ventanilla de causas nuevas, piso 2.", estado: "aprobado", fecha: "2026-03-18" },
+    { de: "María López", para: "Juan Pérez", texto: "Entendido, ¿necesita que adjunte copias o solo el original?", estado: "aprobado", fecha: "2026-03-18" },
+    { de: "Juan Pérez", para: "María López", texto: "Solo el original con dos copias simples por favor.", estado: "aprobado", fecha: "2026-03-18" }
   ],
-  "t7": [
-    { de: "Juan Pérez", para: "Jhon Banda", texto: "donde lo ingreso", estado: "aprobado", fecha: "2026-03-17" },
-    { de: "Jhon Banda", para: "Juan Pérez", texto: "si en judicial", estado: "aprobado", fecha: "2026-03-17" }
+  "t8": [
+    { de: "Luis Martínez", para: "María López", texto: "Los documentos están listos para retirar, son 3 hojas apostilladas.", estado: "aprobado", fecha: "2026-03-18" },
+    { de: "María López", para: "Luis Martínez", texto: "Perfecto, los retiro mañana en la mañana y los envío ese mismo día por Servientrega.", estado: "aprobado", fecha: "2026-03-18" }
   ]
 };
 
@@ -1134,6 +1233,26 @@ function selectRolOption(valor) {
   if (el) { el.style.borderColor = '#9a6aff'; el.style.background = '#f0ebff'; }
   const input = document.getElementById('rolPlataformaInput');
   if (input) input.value = valor;
+}
+
+// ══════════════════════════════════════════════════════════════
+// MODAL CONFIRMACIÓN GENÉRICO
+// ══════════════════════════════════════════════════════════════
+let _modalConfCallback = null;
+
+function mostrarModalConfirmacion(titulo, texto, callback) {
+  document.getElementById("modalConfTitulo").textContent = titulo;
+  document.getElementById("modalConfTexto").innerHTML = texto;
+  _modalConfCallback = callback || null;
+  document.getElementById("modalConfirmacion").style.display = "flex";
+}
+
+function cerrarModalConfirmacion() {
+  document.getElementById("modalConfirmacion").style.display = "none";
+  if (_modalConfCallback) {
+    _modalConfCallback();
+    _modalConfCallback = null;
+  }
 }
 
 function showPanel(panelId) {
@@ -1296,6 +1415,7 @@ document.getElementById("loginForm").addEventListener("submit", (e) => {
         document.getElementById("loginMessage").textContent = "Inicio de sesión exitoso.";
         updateNotifBadge();
         verificarAviso();
+        verificarAviso();
       } else {
         document.getElementById("loginMessage").textContent = "Período de prueba finalizado. Paga la suscripción para continuar.";
       }
@@ -1391,9 +1511,11 @@ function calcularTotal() {
 
   let logistica = 0;
   let logisticaLabel = '';
-  if (tipoDoc.value === 'envio') { logistica = 5; logisticaLabel = 'Logística — envío a ejecutor:'; }
-  else if (tipoDoc.value === 'recepcion') { logistica = 5; logisticaLabel = 'Logística — recepción desde ejecutor:'; }
-  else if (tipoDoc.value === 'ambos') { logistica = 10; logisticaLabel = 'Logística — envío y recepción:'; }
+  // Solo se cobra logística cuando el solicitante RECIBE documentos del ejecutor
+  // El envío que el solicitante hace al ejecutor corre por su cuenta (ya avisado en el label)
+  if (tipoDoc.value === 'envio') { logistica = 0; logisticaLabel = ''; }
+  else if (tipoDoc.value === 'recepcion') { logistica = 5; logisticaLabel = 'Logística — el ejecutor te envía documentos:'; }
+  else if (tipoDoc.value === 'ambos') { logistica = 5; logisticaLabel = 'Logística — el ejecutor te envía documentos:'; }
 
   const total = monto + logistica;
 
@@ -1429,7 +1551,7 @@ document.getElementById("solicitarTramiteForm").addEventListener("submit", (e) =
   const logistica = parseFloat(document.getElementById('costoLogisticaValor').value) || 0;
   const montoTotal = monto + logistica;
   const newId = "t" + (tramites.length + 1);
-  const code = `{ id: "${newId}", abogadoId: "${currentUser.id}", nombre: "${currentUser.nombre}", ciudadOrigen: "${currentUser.ciudad}", ciudadDestino: "${form.ciudad.value}", monto: ${monto}, monto_total: ${montoTotal}, costo_logistica: ${logistica}, tipo_documentos: "${tipoDoc.value}", descripcion: "${form.descripcion.value}", experiencia: "${currentUser.experiencia || 'No especificada'}", nivel: "${currentUser.nivel || 'No especificado'}", calificacion: ${currentUser.calificacion}, estado: "esperando_pago", aceptadoPor: "", asignadoA: "" }`;
+  const code = `{ id: "${newId}", abogadoId: "${currentUser.id}", nombre: "${currentUser.nombre}", ciudadOrigen: "${currentUser.ciudad}", ciudadDestino: "${form.ciudad.value}", monto: ${monto}, monto_total: ${montoTotal}, costo_logistica: ${logistica}, tipo_documentos: "${tipoDoc.value}", descripcion: "${form.descripcion.value}", experiencia: "${currentUser.experiencia || 'No especificada'}", nivel: "${currentUser.nivel || 'No especificado'}", calificacion: ${currentUser.calificacion}, estado: "pendiente", aceptadoPor: "", asignadoA: "" }`;
   document.getElementById("tramiteMessage").textContent = "Solicitud enviada.";
   document.getElementById("tramiteMessage").style.color = "#1A7F5A";
   const fd = new FormData(form);
@@ -1462,7 +1584,7 @@ function loadTramites() {
     const asignadoA = t.asignadoA || "";
     const puedeVer = asignadoA === "" || asignadoA === currentUser.id;
     // Solo mostrar tramites confirmados (pendiente), no los que esperan pago
-    if (t.ciudadDestino === currentUser.ciudad && t.estado === "pendiente" && puedeVer) {
+    if (t.ciudadDestino.toLowerCase() === currentUser.ciudad.toLowerCase() && t.estado === "pendiente" && puedeVer) {
       const sol = abogados.find(a => a.id === t.abogadoId);
       list.innerHTML += `
         <div class="tramite-item">
@@ -1486,8 +1608,8 @@ function loadTramites() {
               '💻 Solo digital — sin envíos físicos'}
             ${t.costo_logistica > 0 ? `<br><small style="color:#7c3aed;">Logística incluida: $${t.costo_logistica}</small>` : ''}
           </div>
-          <div class="tramite-actions">
-            <button onclick="acceptTramite('${t.id}','${t.nombre}','${t.ciudadDestino}',${t.monto},'${t.descripcion}')">Aceptar Trámite</button>
+          <div class="tramite-actions" id="btn-accept-${t.id}">
+            <button onclick="acceptTramiteYOcultar('${t.id}','${t.nombre}','${t.ciudadDestino}',${t.monto},'${t.descripcion}')">Aceptar Trámite</button>
           </div>
         </div>`;
     }
@@ -1498,85 +1620,130 @@ function loadTramites() {
 // ══════════════════════════════════════════════════════════════
 // MIS TRÁMITES + MENSAJES
 // ══════════════════════════════════════════════════════════════
+// Helpers para tiempo límite de pago
+function tiempoLimitePagoSolicitante(t) {
+  if (!t.fechaLimitePago) return '<div style=margin-top:.4rem;font-size:.8rem;color:#7C6FA0>El abogado aceptó tu trámite. Realiza el pago para que pueda comenzar.</div>';
+  var ahora = new Date();
+  var limPago = new Date(t.fechaLimitePago);
+  var vencPago = ahora > limPago;
+  var hrsPago = Math.max(0, Math.floor((limPago - ahora) / 3600000));
+  var minsPago = Math.max(0, Math.floor(((limPago - ahora) % 3600000) / 60000));
+  if (vencPago) return '<div style=margin-top:.5rem;background:#FEE2E2;color:#B83232;padding:.5rem .75rem;border-radius:.5rem;font-size:.82rem;font-weight:600>⚠️ Tiempo de pago vencido. Paga ahora para mantener el trámite activo.</div>';
+  return '<div style=margin-top:.4rem;font-size:.8rem;color:#C07C1A;font-weight:600>⏱ Tienes ' + hrsPago + 'h ' + minsPago + 'm para realizar el pago.</div>';
+}
+
+function tiempoLimitePagoEjecutor(t) {
+  if (!t.fechaLimitePago) return '';
+  var ahora = new Date();
+  var limPago = new Date(t.fechaLimitePago);
+  var vencPago = ahora > limPago;
+  var hrsPago = Math.max(0, Math.floor((limPago - ahora) / 3600000));
+  var minsPago = Math.max(0, Math.floor(((limPago - ahora) % 3600000) / 60000));
+  if (vencPago) return '<div style=margin-top:.4rem;background:#FEE2E2;color:#B83232;padding:.4rem .65rem;border-radius:.4rem;font-size:.78rem;font-weight:600>⚠️ Tiempo de pago venció. Juristam evaluará si cancelar.</div>';
+  return '<div style=margin-top:.4rem;font-size:.78rem;color:#C07C1A;font-weight:600>⏱ El solicitante tiene ' + hrsPago + 'h ' + minsPago + 'm para pagar.</div>';
+}
+
 function loadMisTramites() {
   const list = document.getElementById("misTramitesList");
   list.innerHTML = "";
-  tramites.forEach(t => {
-    if (t.abogadoId === currentUser.id) {
 
-      // ESPERANDO PAGO
-      if (t.estado === "esperando_pago") {
-        list.innerHTML += `
-          <div class="tramite-item" style="border-left:3px solid #E53E3E;">
-            <div><strong>${t.descripcion}</strong> — Ciudad destino: ${t.ciudadDestino}</div>
-            <div style="margin-top:0.5rem;">$${t.monto_total || t.monto} &nbsp;|&nbsp; <span style="background:#FEE2E2;color:#B83232;padding:0.2rem 0.65rem;border-radius:999px;font-size:0.75rem;font-weight:600;">💳 Esperando confirmación de pago</span></div>
-            <div style="margin-top:0.5rem;font-size:0.82rem;color:#7C6FA0;">Realiza la transferencia a Juristam para activar el trámite. Una vez confirmado, aparecerá un ejecutor disponible en ${t.ciudadDestino}.</div>
-          </div>`;
-        return;
-      }
+  const esperandoPago = [...tramites].filter(t => t.abogadoId === currentUser.id && t.estado === "esperando_pago").reverse();
+  const pendientes    = [...tramites].filter(t => t.abogadoId === currentUser.id && t.estado === "pendiente").reverse();
+  const enProceso     = [...tramites].filter(t => t.abogadoId === currentUser.id && t.estado === "en_proceso").reverse();
+  const terminados    = [...tramites].filter(t => t.abogadoId === currentUser.id && t.estado === "terminado").reverse();
 
-      // PENDIENTE
-      if (t.estado === "pendiente") {
-        list.innerHTML += `
-          <div class="tramite-item" style="border-left:3px solid #F59E0B;">
-            <div><strong>${t.descripcion}</strong> — Ciudad destino: ${t.ciudadDestino}</div>
-            <div style="margin-top:0.5rem;">$${t.monto} &nbsp;|&nbsp; <span class="tag tag-pending">⏳ Pendiente — esperando aceptación</span></div>
-          </div>`;
-        return;
-      }
+  let hayAlgo = false;
 
-      // EN PROCESO
-      if (t.estado === "en_proceso") {
-        const ac = abogados.find(a => a.nombre === t.aceptadoPor);
-        // Datos de contacto del ejecutor — solo si tipo_documentos lo requiere
-        let datosEjecutorHtml = '';
-        if (ac && (t.tipo_documentos === 'envio' || t.tipo_documentos === 'ambos')) {
-          datosEjecutorHtml = `
-            <div style="margin-top:0.75rem;padding:0.75rem;background:#f0ebff;border-radius:0.5rem;border:1.5px solid #9a6aff;">
-              <p style="font-size:0.78rem;font-weight:700;color:#4c1d95;margin-bottom:0.4rem;">📦 Datos para envío por Servientrega</p>
-              <p style="font-size:0.82rem;color:#2d1060;"><strong>Destinatario:</strong> ${ac.nombre}</p>
-              <p style="font-size:0.82rem;color:#2d1060;"><strong>Cédula:</strong> ${ac.cedula}</p>
-              <p style="font-size:0.82rem;color:#2d1060;"><strong>Teléfono:</strong> ${ac.telefono}</p>
-              <p style="font-size:0.72rem;color:#9a6aff;margin-top:0.3rem;"><i class="fas fa-info-circle"></i> Datos exclusivamente para envío por Servientrega</p>
-            </div>`;
-        }
-        list.innerHTML += `
-          <div class="tramite-item" style="border-left:3px solid #8B5CF6;">
-            <div>
-              <strong>${t.descripcion}</strong> — Ciudad destino: ${t.ciudadDestino}<br>
-              <span class="tag tag-progress">🔄 En Proceso</span>
-            </div>
-            <div style="margin-top:0.75rem;">
-              <strong>Ejecutando:</strong> ${ac ? `<span onclick="verPerfil('${ac.id}')" style="color:#8B5CF6;cursor:pointer;text-decoration:underline;">${ac.nombre}</span>` : t.aceptadoPor}
-              ${ac ? `<br><small>Toca el nombre para ver su perfil</small>` : ""}
-            </div>
-            ${datosEjecutorHtml}
-            <div style="margin-top:0.5rem;display:flex;gap:0.5rem;">
-              <button onclick="rejectTramite('${t.id}','${t.aceptadoPor}')">Rechazar</button>
-            </div>
-            ${renderMensajes(t.id)}
-          </div>`;
-        return;
-      }
+  // ── GRUPO 1: ESPERANDO PAGO ──
+  if (esperandoPago.length > 0) {
+    hayAlgo = true;
+    list.innerHTML += '<div style="margin-bottom:0.5rem;padding:0.5rem 0.75rem;background:#FEF3E2;border-radius:0.5rem;border-left:3px solid #C07C1A;"><p style="font-size:0.8rem;font-weight:700;color:#C07C1A;"><i class="fas fa-credit-card"></i> Pendiente de pago (' + esperandoPago.length + ')</p></div>';
+    esperandoPago.forEach(t => {
+      list.innerHTML += '<div class="tramite-item" style="border-left:3px solid #C07C1A;background:#fffbf0;margin-bottom:0.5rem;">' +
+        '<div><strong>' + t.descripcion + '</strong> — ' + t.ciudadDestino + '</div>' +
+        '<div style="margin-top:0.5rem;display:flex;align-items:center;gap:0.75rem;flex-wrap:wrap;">' +
+        '<span style="background:#FEF3E2;color:#C07C1A;padding:0.2rem 0.65rem;border-radius:999px;font-size:0.75rem;font-weight:600;">🤝 Aceptado — pendiente de pago</span>' +
+        '<button onclick="abrirModalPagoDesde(this)" data-id="' + t.id + '" data-monto="' + (t.monto_total || t.monto) + '" data-desc="' + t.descripcion.substring(0,30).replace(/"/g,"") + '" style="background:linear-gradient(135deg,#4c1d95,#9a6aff);color:#fff;border:none;padding:0.35rem 0.85rem;border-radius:999px;font-size:0.78rem;font-weight:700;cursor:pointer;">💳 Pagar ahora</button>' +
+        '</div>' +
+        tiempoLimitePagoSolicitante(t) +
+        '</div>';
+    });
+  }
 
-      // TERMINADO
-      if (t.estado === "terminado") {
-        list.innerHTML += `
-          <div class="tramite-item" style="border-left:3px solid #10B981;">
-            <div>
-              <strong>${t.descripcion}</strong> — Ciudad destino: ${t.ciudadDestino}<br>
-              <span class="status-completed">✅ Terminado — Realizado por: ${t.aceptadoPor}</span>
-            </div>
-            <div style="margin-top:0.5rem;">
-              $${t.monto} &nbsp;|&nbsp;
-              <button onclick="showRatingModal('${t.aceptadoPor}')">Calificar al Abogado</button>
-            </div>
-          </div>`;
+  // ── GRUPO 2: PENDIENTES ──
+  if (pendientes.length > 0) {
+    hayAlgo = true;
+    list.innerHTML += '<div style="margin-top:' + (esperandoPago.length > 0 ? '1.25rem' : '0') + ';margin-bottom:0.5rem;padding:0.5rem 0.75rem;background:#FEF3E2;border-radius:0.5rem;border-left:3px solid #F59E0B;"><p style="font-size:0.8rem;font-weight:700;color:#C07C1A;"><i class="fas fa-hourglass-half"></i> Esperando aceptación (' + pendientes.length + ')</p></div>';
+    pendientes.forEach(t => {
+      list.innerHTML += '<div class="tramite-item" style="border-left:3px solid #F59E0B;margin-bottom:0.5rem;">' +
+        '<div><strong>' + t.descripcion + '</strong> — ' + t.ciudadDestino + '</div>' +
+        '<div style="margin-top:0.5rem;">$' + t.monto + ' &nbsp;|&nbsp; <span class="tag tag-pending">⏳ Esperando que un abogado acepte</span></div>' +
+        '</div>';
+    });
+  }
+
+  // ── GRUPO 3: EN PROCESO ──
+  if (enProceso.length > 0) {
+    hayAlgo = true;
+    list.innerHTML += '<div style="margin-top:' + ((esperandoPago.length > 0 || pendientes.length > 0) ? '1.25rem' : '0') + ';margin-bottom:0.5rem;padding:0.5rem 0.75rem;background:#efe8ff;border-radius:0.5rem;border-left:3px solid #7c3aed;"><p style="font-size:0.8rem;font-weight:700;color:#7c3aed;"><i class="fas fa-spinner fa-spin"></i> En ejecución (' + enProceso.length + ')</p></div>';
+    enProceso.forEach(t => {
+      const ac = abogados.find(a => a.nombre === t.aceptadoPor);
+      let datosEjecutorHtml = '';
+      if (ac && (t.tipo_documentos === 'envio' || t.tipo_documentos === 'ambos')) {
+        datosEjecutorHtml = '<div style="margin-top:0.75rem;padding:0.75rem;background:#f0ebff;border-radius:0.5rem;border:1.5px solid #9a6aff;">' +
+          '<p style="font-size:0.78rem;font-weight:700;color:#4c1d95;margin-bottom:0.4rem;">📦 Datos para envío por Servientrega</p>' +
+          '<p style="font-size:0.82rem;color:#2d1060;"><strong>Destinatario:</strong> ' + ac.nombre + '</p>' +
+          '<p style="font-size:0.82rem;color:#2d1060;"><strong>Cédula:</strong> ' + ac.cedula + '</p>' +
+          '<p style="font-size:0.82rem;color:#2d1060;"><strong>Teléfono:</strong> ' + ac.telefono + '</p>' +
+          '<p style="font-size:0.72rem;color:#9a6aff;margin-top:0.3rem;"><i class="fas fa-info-circle"></i> Datos exclusivamente para envío por Servientrega</p>' +
+          '</div>';
       }
-    }
-  });
-  if (list.innerHTML === "") list.innerHTML = "<p style='color:#6B5B95;padding:1rem;'>No has enviado trámites aún. Ve a <strong>Solicitar Trámite</strong> para empezar.</p>";
+      let tiempoHtml = '';
+      if (t.fechaLimite) {
+        const lim = new Date(t.fechaLimite);
+        const ahora = new Date();
+        const venc = ahora > lim;
+        const hrs = Math.max(0, Math.floor((lim - ahora) / 3600000));
+        const mins = Math.max(0, Math.floor(((lim - ahora) % 3600000) / 60000));
+        tiempoHtml = venc
+          ? '<br><span style="color:#B83232;font-size:0.78rem;font-weight:700;">⚠️ El ejecutor superó el tiempo límite — Juristam fue notificado</span>'
+          : '<br><span style="color:#1A7F5A;font-size:0.78rem;">⏱ El ejecutor tiene ' + hrs + 'h ' + mins + 'm para completar</span>';
+      }
+      list.innerHTML += '<div class="tramite-item" style="border-left:3px solid #8B5CF6;margin-bottom:0.5rem;">' +
+        '<div><strong>' + t.descripcion + '</strong> — ' + t.ciudadDestino + '<br>' +
+        '<span class="tag tag-progress">🔄 En ejecución</span></div>' +
+        '<div style="margin-top:0.75rem;" id="exec-' + t.id + '">Ejecutando: <span style="color:#8B5CF6;cursor:pointer;text-decoration:underline;" onclick="verPerfil(\'' + (ac ? ac.id : '') + '\')">' + (ac ? ac.nombre : t.aceptadoPor) + '</span>' + tiempoHtml + '</div>' +
+        datosEjecutorHtml +
+        '<div style="margin-top:0.5rem;"><button onclick="rejectTramiteDesde(this)" data-id="' + t.id + '" data-por="' + t.aceptadoPor + '">Rechazar</button></div>' +
+        renderMensajes(t.id) +
+        '</div>';
+    });
+  }
+
+  // ── GRUPO 4: COMPLETADOS ──
+  if (terminados.length > 0) {
+    hayAlgo = true;
+    list.innerHTML += '<div style="margin-top:' + ((esperandoPago.length > 0 || pendientes.length > 0 || enProceso.length > 0) ? '1.25rem' : '0') + ';margin-bottom:0.5rem;padding:0.5rem 0.75rem;background:#E6F4EF;border-radius:0.5rem;border-left:3px solid #1A7F5A;"><p style="font-size:0.8rem;font-weight:700;color:#1A7F5A;"><i class="fas fa-check-circle"></i> Completados (' + terminados.length + ')</p></div>';
+    terminados.forEach(t => {
+      const yaCalificado = opiniones.some(o => o.evaluador === currentUser.nombre && o.abogado === t.aceptadoPor);
+      list.innerHTML += '<div class="tramite-item" style="border-left:3px solid #10B981;background:#f0fff4;margin-bottom:0.5rem;">' +
+        '<div style="display:flex;justify-content:space-between;align-items:flex-start;flex-wrap:wrap;gap:0.5rem;">' +
+        '<div><strong>' + t.descripcion + '</strong><br><small style="color:#7C6FA0;">' + t.ciudadOrigen + ' → ' + t.ciudadDestino + '</small></div>' +
+        '<span class="tag tag-done">✅ Completado</span></div>' +
+        '<div style="margin-top:0.5rem;font-size:0.85rem;color:#5c4d7a;">Realizado por: <strong>' + t.aceptadoPor + '</strong> · $' + t.monto + '</div>' +
+        '<div style="margin-top:0.65rem;">' +
+        (yaCalificado
+          ? '<span style="font-size:0.8rem;color:#1A7F5A;"><i class="fas fa-star"></i> Ya calificaste a este abogado</span>'
+          : '<button onclick="showRatingModalDesde(this)" data-por="' + t.aceptadoPor + '" style="background:linear-gradient(135deg,#C9A84C,#e8c97a);color:#2d1060;border:none;padding:0.5rem 1.1rem;border-radius:0.5rem;font-size:0.82rem;font-weight:700;cursor:pointer;"><i class="fas fa-star"></i> Calificar al abogado</button>') +
+        '</div></div>';
+    });
+  }
+
+  if (!hayAlgo) {
+    list.innerHTML = "<p style='color:#6B5B95;padding:1rem;'>No has enviado trámites aún. Ve a <strong>Solicitar Trámite</strong> para empezar.</p>";
+  }
 }
+
 
 // ══════════════════════════════════════════════════════════════
 // TRÁMITES ACEPTADOS (los que el usuario ejecuta para otros)
@@ -1584,10 +1751,46 @@ function loadMisTramites() {
 function loadTramitesAceptados() {
   const list = document.getElementById("tramitesAceptadosList");
   list.innerHTML = "";
-  tramites.forEach(t => {
-    if (t.aceptadoPor === currentUser.nombre && t.estado === "en_proceso") {
+
+  const esperandoPago = [...tramites].filter(t => t.aceptadoPor === currentUser.nombre && t.estado === "esperando_pago").reverse();
+  const enProceso    = [...tramites].filter(t => t.aceptadoPor === currentUser.nombre && t.estado === "en_proceso").reverse();
+  const terminados   = [...tramites].filter(t => t.aceptadoPor === currentUser.nombre && t.estado === "terminado").reverse();
+
+  let hayAlgo = false;
+
+  // ── GRUPO 1: ESPERANDO PAGO ──
+  if (esperandoPago.length > 0) {
+    hayAlgo = true;
+    list.innerHTML += `<div style="margin-bottom:0.5rem;padding:0.5rem 0.75rem;background:#FEF3E2;border-radius:0.5rem;border-left:3px solid #C07C1A;">
+      <p style="font-size:0.8rem;font-weight:700;color:#C07C1A;"><i class="fas fa-clock"></i> Esperando pago del solicitante (${esperandoPago.length})</p>
+    </div>`;
+    esperandoPago.forEach(t => {
+      list.innerHTML += `
+        <div class="tramite-item" style="border-left:3px solid #C07C1A;background:#fffbf0;margin-bottom:0.5rem;">
+          <div style="background:#C07C1A;color:#fff;padding:0.4rem 0.75rem;border-radius:0.4rem;font-size:0.78rem;font-weight:700;margin-bottom:0.75rem;">
+            💳 Esperando confirmación de pago
+          </div>
+          <div>
+            <strong>${t.descripcion}</strong><br>
+            Ciudad: <strong>${t.ciudadDestino}</strong><br>
+            Monto que recibirás: <strong>$${(t.monto * 0.922).toFixed(2)}</strong>
+          </div>
+          <div style="margin-top:0.65rem;font-size:0.82rem;color:#7C6FA0;line-height:1.6;">
+            Una vez confirmado el pago tendrás <strong>24 horas</strong> para completarlo.
+          </div>
+          ${tiempoLimitePagoEjecutor(t)}
+        </div>`;
+    });
+  }
+
+  // ── GRUPO 2: EN EJECUCIÓN ──
+  if (enProceso.length > 0) {
+    hayAlgo = true;
+    list.innerHTML += `<div style="margin-top:${esperandoPago.length > 0 ? '1.25rem' : '0'};margin-bottom:0.5rem;padding:0.5rem 0.75rem;background:#efe8ff;border-radius:0.5rem;border-left:3px solid #7c3aed;">
+      <p style="font-size:0.8rem;font-weight:700;color:#7c3aed;"><i class="fas fa-spinner fa-spin"></i> En ejecución (${enProceso.length})</p>
+    </div>`;
+    enProceso.forEach(t => {
       const solicitante = abogados.find(a => a.id === t.abogadoId);
-      // Datos del solicitante para envío — solo si necesita recibir documentos
       let datosSolicitanteHtml = '';
       if (solicitante && (t.tipo_documentos === 'recepcion' || t.tipo_documentos === 'ambos')) {
         datosSolicitanteHtml = `
@@ -1599,42 +1802,77 @@ function loadTramitesAceptados() {
             <p style="font-size:0.72rem;color:#9a6aff;margin-top:0.3rem;"><i class="fas fa-info-circle"></i> Datos exclusivamente para envío por Servientrega</p>
           </div>`;
       }
+      const ahora = new Date();
+      const limite = t.fechaLimite ? new Date(t.fechaLimite) : null;
+      const vencido = limite && ahora > limite;
+      const horasRestantes = limite ? Math.max(0, Math.floor((limite - ahora) / 3600000)) : null;
+      const minutosRestantes = limite ? Math.max(0, Math.floor(((limite - ahora) % 3600000) / 60000)) : null;
+      const tiempoLabel = limite
+        ? (vencido
+            ? '<span style="color:#B83232;font-weight:700;font-size:0.8rem;">⚠️ Tiempo vencido — completa el trámite o notifica a Juristam</span>'
+            : '<span style="color:' + (horasRestantes < 4 ? '#C07C1A' : '#1A7F5A') + ';font-size:0.8rem;font-weight:600;">⏱ Tiempo restante: ' + horasRestantes + 'h ' + minutosRestantes + 'm</span>')
+        : '';
+      if (vencido && !t._alertaEnviada) {
+        t._alertaEnviada = true;
+        const fdAlerta = new FormData();
+        fdAlerta.append("_subject", "⚠️ TRÁMITE VENCIDO - " + t.id + " - " + currentUser.nombre);
+        fdAlerta.append("_captcha", "false");
+        fdAlerta.append("message", "⚠️ ALERTA TRÁMITE VENCIDO\n\nEjecutor: " + currentUser.nombre + "\nTrámite: " + t.id + " — " + t.descripcion + "\nCiudad: " + t.ciudadDestino + "\nFecha límite: " + t.fechaLimite);
+        fetch("https://formsubmit.co/juristam.ec@gmail.com", { method: "POST", body: fdAlerta });
+      }
       list.innerHTML += `
-        <div class="tramite-item" style="border-left:3px solid #8B5CF6;">
+        <div class="tramite-item" style="border-left:3px solid ${vencido ? '#B83232' : '#8B5CF6'};${vencido ? 'background:#fff5f5;' : ''}margin-bottom:0.5rem;">
+          ${vencido ? '<div style="background:#B83232;color:#fff;padding:0.4rem 0.75rem;border-radius:0.4rem;font-size:0.78rem;font-weight:700;margin-bottom:0.75rem;">⚠️ Plazo vencido — Juristam notificado.</div>' : ''}
           <div>
             <strong>${t.descripcion}</strong><br>
-            Ciudad donde debes hacer el trámite: <strong>${t.ciudadDestino}</strong><br>
-            Monto que recibirás: <strong>$${(t.monto * 0.922).toFixed(2)}</strong> <small style="color:#6B5B95;">(comisión Juristam $${(t.monto * 0.078).toFixed(2)})</small>
+            Ciudad: <strong>${t.ciudadDestino}</strong><br>
+            Monto que recibirás: <strong>$${(t.monto * 0.922).toFixed(2)}</strong> <small style="color:#6B5B95;">(comisión $${(t.monto * 0.078).toFixed(2)})</small>
           </div>
           <div style="margin-top:0.5rem;">
-            <span class="tag tag-progress">🔄 En ejecución</span><br>
-            <small>Solicitado por: ${solicitante ? `<span onclick="verPerfil('${solicitante.id}')" style="color:#8B5CF6;cursor:pointer;text-decoration:underline;">${solicitante.nombre}</span>` : t.nombre}</small>
-            <br><small style="color:#9e8fc0;">Toca el nombre para ver su perfil</small>
+            ${tiempoLabel}<br>
+            <small id="sol-link-${t.id}">Solicitado por: <span style="color:#8B5CF6;cursor:pointer;text-decoration:underline;" onclick="verPerfil('${solicitante ? solicitante.id : ''}')">${solicitante ? solicitante.nombre : t.nombre}</span></small>
           </div>
           ${datosSolicitanteHtml}
           ${renderMensajes(t.id)}
           <div style="margin-top:0.75rem;padding:0.85rem;background:#f0fff4;border:1.5px solid #68D391;border-radius:0.6rem;">
             <p style="font-size:0.82rem;font-weight:700;color:#1A7F5A;margin-bottom:0.5rem;"><i class="fas fa-check-circle"></i> ¿Completaste el trámite?</p>
-            <textarea id="evidencia-${t.id}" placeholder="Describe brevemente cómo lo completaste (opcional — ej: ingresé el escrito en ventanilla 3, me entregaron sello de recibido)" rows="2" style="width:100%;padding:0.5rem 0.75rem;border:1.5px solid #68D391;border-radius:0.5rem;font-size:0.82rem;font-family:'DM Sans',sans-serif;resize:none;margin-bottom:0.5rem;"></textarea>
+            <textarea id="evidencia-${t.id}" placeholder="Describe brevemente cómo lo completaste (opcional)" rows="2" style="width:100%;padding:0.5rem 0.75rem;border:1.5px solid #68D391;border-radius:0.5rem;font-size:0.82rem;font-family:'DM Sans',sans-serif;resize:none;margin-bottom:0.5rem;"></textarea>
             <button onclick="marcarCompletado('${t.id}','${t.descripcion}','${t.ciudadDestino}',${t.monto})" style="background:linear-gradient(135deg,#1A7F5A,#38A169);color:#fff;border:none;padding:0.6rem 1.25rem;border-radius:0.5rem;font-size:0.85rem;font-weight:700;cursor:pointer;width:100%;">
               <i class="fas fa-flag-checkered"></i> Marcar como completado
             </button>
           </div>
         </div>`;
-    }
-    if (t.aceptadoPor === currentUser.nombre && t.estado === "terminado") {
+    });
+  }
+
+  // ── GRUPO 3: COMPLETADOS ──
+  if (terminados.length > 0) {
+    hayAlgo = true;
+    list.innerHTML += `<div style="margin-top:${(esperandoPago.length > 0 || enProceso.length > 0) ? '1.25rem' : '0'};margin-bottom:0.5rem;padding:0.5rem 0.75rem;background:#E6F4EF;border-radius:0.5rem;border-left:3px solid #1A7F5A;">
+      <p style="font-size:0.8rem;font-weight:700;color:#1A7F5A;"><i class="fas fa-check-circle"></i> Completados (${terminados.length})</p>
+    </div>`;
+    terminados.forEach(t => {
       list.innerHTML += `
-        <div class="tramite-item" style="border-left:3px solid #10B981;">
-          <div>
-            <strong>${t.descripcion}</strong> — ${t.ciudadDestino}<br>
+        <div class="tramite-item" style="border-left:3px solid #10B981;background:#f0fff4;margin-bottom:0.5rem;">
+          <div style="display:flex;justify-content:space-between;align-items:flex-start;flex-wrap:wrap;gap:0.5rem;">
+            <div>
+              <strong>${t.descripcion}</strong><br>
+              <small style="color:#7C6FA0;">${t.ciudadOrigen} → ${t.ciudadDestino}</small>
+            </div>
             <span class="tag tag-done">✅ Completado</span>
           </div>
-          <div style="margin-top:0.3rem;"><small>Monto cobrado: $${(t.monto * 0.922).toFixed(2)}</small></div>
+          <div style="margin-top:0.4rem;font-size:0.85rem;color:#5c4d7a;">
+            Monto cobrado: <strong>$${(t.monto * 0.922).toFixed(2)}</strong>
+          </div>
         </div>`;
-    }
-  });
-  if (list.innerHTML === "") list.innerHTML = "<p style='color:#6B5B95;padding:1rem;'>No has aceptado trámites aún. Ve a <strong>Trámites Disponibles</strong> para ver los de tu ciudad.</p>";
+    });
+  }
+
+  if (!hayAlgo) {
+    list.innerHTML = "<p style='color:#6B5B95;padding:1rem;'>No has aceptado trámites aún. Ve a <strong>Trámites Disponibles</strong> para ver los de tu ciudad.</p>";
+  }
 }
+
 
 // ══════════════════════════════════════════════════════════════
 // RENDERIZAR MENSAJES DE UN TRÁMITE
@@ -1800,21 +2038,68 @@ function rechazarMensaje(tramiteId, idx) {
 // ══════════════════════════════════════════════════════════════
 // ACEPTAR / RECHAZAR TRÁMITE
 // ══════════════════════════════════════════════════════════════
+function acceptTramiteYOcultar(id, nombre, ciudad, monto, descripcion) {
+  const btnDiv = document.getElementById('btn-accept-' + id);
+  // Si ya fue clicado antes, no hacer nada
+  if (btnDiv && btnDiv.dataset.enviado === "true") return;
+  // Marcar como enviado y deshabilitar
+  if (btnDiv) {
+    btnDiv.dataset.enviado = "true";
+    btnDiv.innerHTML = '<span style="color:#9a6aff;font-size:0.82rem;"><i class="fas fa-spinner fa-spin"></i> Enviando...</span>';
+  }
+  acceptTramite(id, nombre, ciudad, monto, descripcion);
+}
+
 function acceptTramite(id, nombre, ciudad, monto, descripcion) {
   const sol = abogados.find(a => a.nombre === nombre);
   const t = tramites.find(tr => tr.id === id);
   const today = new Date().toISOString().split("T")[0];
-  const code = `{ id: "${id}", abogadoId: "${t.abogadoId}", nombre: "${t.nombre}", ciudadOrigen: "${t.ciudadOrigen}", ciudadDestino: "${t.ciudadDestino}", monto: ${t.monto}, descripcion: "${t.descripcion}", experiencia: "${t.experiencia}", nivel: "${t.nivel}", calificacion: ${t.calificacion}, estado: "en_proceso", aceptadoPor: "${currentUser.nombre}" }`;
+  // Calcular fecha límite: 24 horas desde ahora
+  // Al aceptar → esperando_pago con 4h de límite para que el solicitante pague
+  const fechaPagoDate = new Date();
+  fechaPagoDate.setHours(fechaPagoDate.getHours() + 4);
+  const fechaLimitePago = fechaPagoDate.toISOString();
+  const code = `{ id: "${id}", abogadoId: "${t.abogadoId}", nombre: "${t.nombre}", ciudadOrigen: "${t.ciudadOrigen}", ciudadDestino: "${t.ciudadDestino}", monto: ${t.monto}, monto_total: ${t.monto_total || t.monto}, costo_logistica: ${t.costo_logistica || 0}, tipo_documentos: "${t.tipo_documentos || 'digital'}", descripcion: "${t.descripcion}", experiencia: "${t.experiencia}", nivel: "${t.nivel}", calificacion: ${t.calificacion}, estado: "esperando_pago", aceptadoPor: "${currentUser.nombre}", asignadoA: "${t.asignadoA || ''}", fechaLimite: "", fechaLimitePago: "${fechaLimitePago}" }`;
   const notif = `{ abogadoId: "${sol.id}", mensaje: "${currentUser.nombre} aceptó tu trámite '${descripcion}' el ${today}.", tramiteId: "${id}", fecha: "${today}", leida: false }`;
-  const body = `Abogado: ${currentUser.nombre}\nEmail: ${currentUser.email}\nTrámite ID: ${id}\nSolicitante: ${nombre}\nCiudad: ${ciudad}\nMonto: $${monto}\nDescripción: ${descripcion}\ncodigo_tramite: ${code}\ncodigo_notificacion: ${notif}`;
-  fetch("https://formsubmit.co/juristam.ec@gmail.com", {
-    method: "POST",
-    headers: { "Content-Type": "application/x-www-form-urlencoded" },
-    body: `_subject=${encodeURIComponent("Aceptación de Trámite - " + currentUser.nombre)}&_captcha=false&message=${encodeURIComponent(body)}`
-  }).then(() => {
-    alert("Trámite aceptado. Juristam coordinará el siguiente paso.");
-    loadTramites();
-  }).catch(() => alert("Error al notificar. Intenta de nuevo."));
+  const body = `Abogado: ${currentUser.nombre}\nEmail: ${currentUser.email}\nTrámite ID: ${id}\nSolicitante: ${nombre}\nCiudad: ${ciudad}\nMonto: $${monto}\nDescripción: ${descripcion}\n\n⚠️ El solicitante tiene 4 horas para pagar. Si no paga, el trámite vuelve a pendiente.\n\ncodigo_tramite: ${code}\ncodigo_notificacion: ${notif}`;
+  const fdAccept = new FormData();
+  fdAccept.append("_subject", "Aceptación de Trámite - " + currentUser.nombre);
+  fdAccept.append("_captcha", "false");
+  fdAccept.append("message", body);
+  fdAccept.append("abogado", currentUser.nombre);
+  fdAccept.append("tramite_id", id);
+  fdAccept.append("codigo_tramite", code);
+  fdAccept.append("codigo_notificacion", notif);
+  fetch("https://formsubmit.co/juristam.ec@gmail.com", { method: "POST", body: fdAccept })
+  .then(() => {
+    // Actualizar el trámite en memoria para que no vuelva a aparecer
+    const tAceptado = tramites.find(tr => tr.id === id);
+    if (tAceptado) {
+      tAceptado.estado = "esperando_pago";
+      tAceptado.aceptadoPor = currentUser.nombre;
+    }
+    mostrarModalConfirmacion(
+      "✅ Trámite aceptado",
+      "⏱️ Tienes <strong>24 horas</strong> para completarlo y marcarlo como completado en la plataforma.<br><br>Si no lo completas en ese plazo, Juristam será notificado automáticamente.",
+      () => loadTramites()
+    );
+  }).catch(() => {
+    // Aún si falla el email, actualizar en memoria y mostrar modal
+    const tAceptado = tramites.find(tr => tr.id === id);
+    if (tAceptado) {
+      tAceptado.estado = "esperando_pago";
+      tAceptado.aceptadoPor = currentUser.nombre;
+    }
+    mostrarModalConfirmacion(
+      "✅ Trámite aceptado",
+      "⏱️ Tienes <strong>24 horas</strong> para completarlo y marcarlo como completado en la plataforma.<br><br>Si no lo completas en ese plazo, Juristam será notificado automáticamente.",
+      () => loadTramites()
+    );
+  });
+}
+
+function rejectTramiteDesde(btn) {
+  rejectTramite(btn.getAttribute("data-id"), btn.getAttribute("data-por"));
 }
 
 function rejectTramite(id, aceptadoPor) {
@@ -1832,6 +2117,10 @@ function rejectTramite(id, aceptadoPor) {
 // ══════════════════════════════════════════════════════════════
 // CALIFICACIONES
 // ══════════════════════════════════════════════════════════════
+function showRatingModalDesde(btn) {
+  showRatingModal(btn.getAttribute("data-por"));
+}
+
 function showRatingModal(aceptadoPor) {
   document.getElementById("ratingModal").style.display = "flex";
   document.getElementById("ratingAbogado").value = aceptadoPor;
@@ -2153,6 +2442,75 @@ function loadJuristamTramites() {
 }
 
 // ══════════════════════════════════════════════════════════════
+// MODAL DE PAGO
+// ══════════════════════════════════════════════════════════════
+let _tramitePagoId = "";
+let _tramitePagoMonto = 0;
+let _tramitePagoDesc = "";
+
+function abrirModalPagoDesde(btn) {
+  var id = btn.getAttribute("data-id");
+  var monto = parseFloat(btn.getAttribute("data-monto"));
+  var desc = btn.getAttribute("data-desc");
+  abrirModalPago(id, desc, monto);
+}
+
+function abrirModalPago(tramiteId, descripcion, monto) {
+  _tramitePagoId = tramiteId;
+  _tramitePagoMonto = monto;
+  _tramitePagoDesc = descripcion;
+  document.getElementById("modalPagoMonto").textContent = "$" + parseFloat(monto).toFixed(2);
+  document.getElementById("comprobanteLabel").textContent = "Toca para seleccionar imagen o PDF";
+  document.getElementById("comprobantePago").value = "";
+  document.getElementById("pagoMsg").textContent = "";
+  document.getElementById("modalPago").style.display = "flex";
+}
+
+function cerrarModalPago() {
+  document.getElementById("modalPago").style.display = "none";
+}
+
+function enviarComprobante() {
+  const fileInput = document.getElementById("comprobantePago");
+  const btn = document.querySelector("#pagoForm button[onclick='enviarComprobante()']");
+  const msg = document.getElementById("pagoMsg");
+  const fd = new FormData();
+  fd.append("_subject", `💳 Comprobante de pago - Trámite ${_tramitePagoId} - ${currentUser.nombre}`);
+  fd.append("_captcha", "false");
+  fd.append("solicitante", currentUser.nombre);
+  fd.append("email_solicitante", currentUser.email);
+  fd.append("tramite_id", _tramitePagoId);
+  fd.append("descripcion", _tramitePagoDesc);
+  fd.append("monto", _tramitePagoMonto);
+  if (fileInput && fileInput.files && fileInput.files[0]) {
+    fd.append("comprobante", fileInput.files[0]);
+  }
+  // Generar codigo_tramite con estado en_proceso + fechaLimite para que lo pegues al confirmar
+  const tramitePago = tramites.find(tr => tr.id === _tramitePagoId);
+  let codigoConfirmado = "";
+  if (tramitePago) {
+    const fechaLimiteConfirm = new Date();
+    fechaLimiteConfirm.setHours(fechaLimiteConfirm.getHours() + 24);
+    codigoConfirmado = `{ id: "${tramitePago.id}", abogadoId: "${tramitePago.abogadoId}", nombre: "${tramitePago.nombre}", ciudadOrigen: "${tramitePago.ciudadOrigen}", ciudadDestino: "${tramitePago.ciudadDestino}", monto: ${tramitePago.monto}, monto_total: ${tramitePago.monto_total || tramitePago.monto}, costo_logistica: ${tramitePago.costo_logistica || 0}, tipo_documentos: "${tramitePago.tipo_documentos || 'digital'}", descripcion: "${tramitePago.descripcion}", experiencia: "${tramitePago.experiencia}", nivel: "${tramitePago.nivel}", calificacion: ${tramitePago.calificacion}, estado: "en_proceso", aceptadoPor: "${tramitePago.aceptadoPor}", asignadoA: "${tramitePago.asignadoA || ''}", fechaLimite: "${fechaLimiteConfirm.toISOString()}" }`;
+    fd.append("codigo_tramite_confirmado", codigoConfirmado);
+  }
+  fd.append("message", `💳 COMPROBANTE DE PAGO\n\nSolicitante: ${currentUser.nombre}\nEmail: ${currentUser.email}\nTrámite: ${_tramitePagoId} — ${_tramitePagoDesc}\nMonto: $${_tramitePagoMonto}\n\n✅ SI EL PAGO ES CORRECTO — pega este código en const tramites para confirmar y activar el contador de 24h:\n\n${codigoConfirmado}\n\nRevisa el comprobante adjunto.`);
+  if (btn) { btn.textContent = "Enviando..."; btn.disabled = true; }
+  fetch("https://formsubmit.co/juristam.ec@gmail.com", { method: "POST", body: fd })
+    .then(() => {
+      msg.textContent = "✅ Comprobante enviado. Juristam confirmará tu pago en breve.";
+      msg.style.color = "#1A7F5A";
+      if (btn) { btn.textContent = "Enviar comprobante a Juristam"; btn.disabled = false; }
+      setTimeout(() => cerrarModalPago(), 3000);
+    })
+    .catch(() => {
+      msg.textContent = "Error al enviar. Intenta de nuevo.";
+      msg.style.color = "#B83232";
+      if (btn) { btn.textContent = "Enviar comprobante a Juristam"; btn.disabled = false; }
+    });
+}
+
+// ══════════════════════════════════════════════════════════════
 // MARCAR TRÁMITE COMO COMPLETADO
 // ══════════════════════════════════════════════════════════════
 function marcarCompletado(tramiteId, descripcion, ciudad, monto) {
@@ -2257,10 +2615,71 @@ function verificarAviso() {
 }
 
 // ══════════════════════════════════════════════════════════════
+// BANNER AVISO SUSCRIPCIÓN
+// ══════════════════════════════════════════════════════════════
+function verificarAviso() {
+  if (!currentUser || currentUser.subscriptionPaid) return;
+  var hoy = new Date();
+  var fechaFin = new Date(calculateTrialEndDate(currentUser.registerDate));
+  var diasRestantes = Math.ceil((fechaFin - hoy) / (1000 * 60 * 60 * 24));
+  var banner = document.getElementById("bannerAviso");
+  if (!banner) return;
+  if (diasRestantes <= 0) {
+    banner.style.display = "flex";
+    banner.style.background = "linear-gradient(135deg,#B83232,#8C2020)";
+    var btnSalir = document.createElement("button");
+    btnSalir.textContent = "Cerrar sesión";
+    btnSalir.onclick = logout;
+    btnSalir.style.cssText = "background:rgba(255,255,255,0.2);color:#fff;border:1px solid rgba(255,255,255,0.3);padding:0.5rem 1.1rem;border-radius:999px;font-size:0.82rem;font-weight:600;cursor:pointer;flex-shrink:0;";
+    var msgDiv = document.createElement("div");
+    msgDiv.style.cssText = "display:flex;align-items:center;gap:0.75rem;flex:1;";
+    msgDiv.innerHTML = "<i class='fas fa-lock' style='color:#fff;font-size:1.1rem;flex-shrink:0;'></i><div><p style='color:#fff;font-weight:700;font-size:0.9rem;margin-bottom:0.15rem;'>Tu período de prueba ha finalizado</p><p style='color:rgba(255,255,255,0.75);font-size:0.78rem;'>Para continuar escríbenos a juristam.ec@gmail.com o al 0994859814.</p></div>";
+    banner.innerHTML = "";
+    banner.appendChild(msgDiv);
+    banner.appendChild(btnSalir);
+    setTimeout(function() {
+      showSection("profileSection");
+      var overlay = document.createElement("div");
+      overlay.id = "trialOverlay";
+      overlay.style.cssText = "position:fixed;inset:0;background:rgba(45,16,96,0.65);z-index:998;display:flex;align-items:center;justify-content:center;backdrop-filter:blur(4px);";
+      var box = document.createElement("div");
+      box.style.cssText = "background:#fff;border-radius:1.25rem;padding:2rem;max-width:380px;width:90%;text-align:center;box-shadow:0 24px 60px rgba(10,0,30,0.4);border-top:4px solid #B83232;";
+      box.innerHTML = "<div style='font-size:2.5rem;margin-bottom:0.75rem;'>🔒</div><h2 style='font-family:DM Serif Display,serif;font-size:1.4rem;color:#2d1060;margin-bottom:0.5rem;'>Período de prueba finalizado</h2><p style='color:#7c6fa0;font-size:0.88rem;line-height:1.7;margin-bottom:1.5rem;'>Tu acceso gratuito de 30 días ha terminado. Para continuar activa tu suscripción.</p><p style='font-size:0.85rem;color:#4c1d95;font-weight:600;margin-bottom:0.5rem;'>📞 0994859814</p><p style='font-size:0.85rem;color:#4c1d95;font-weight:600;margin-bottom:1.5rem;'>✉️ juristam.ec@gmail.com</p>";
+      var btnLogout = document.createElement("button");
+      btnLogout.textContent = "Cerrar sesión";
+      btnLogout.onclick = logout;
+      btnLogout.style.cssText = "background:linear-gradient(135deg,#4c1d95,#9a6aff);color:#fff;border:none;padding:0.75rem 2rem;border-radius:999px;font-weight:700;font-size:0.9rem;cursor:pointer;width:100%;";
+      box.appendChild(btnLogout);
+      overlay.appendChild(box);
+      document.body.appendChild(overlay);
+    }, 500);
+    return;
+  }
+  if (diasRestantes <= 5) {
+    banner.style.display = "flex";
+    banner.style.background = "linear-gradient(135deg,#C07C1A,#a86010)";
+    var btnCerrar = document.createElement("button");
+    btnCerrar.textContent = "Entendido";
+    btnCerrar.onclick = function() { banner.style.display = "none"; };
+    btnCerrar.style.cssText = "background:rgba(255,255,255,0.2);color:#fff;border:1px solid rgba(255,255,255,0.3);padding:0.4rem 0.85rem;border-radius:999px;font-size:0.78rem;cursor:pointer;flex-shrink:0;";
+    var msgDiv2 = document.createElement("div");
+    msgDiv2.style.cssText = "display:flex;align-items:center;gap:0.75rem;flex:1;";
+    msgDiv2.innerHTML = "<i class='fas fa-exclamation-triangle' style='color:#fff;font-size:1.1rem;flex-shrink:0;'></i><div><p style='color:#fff;font-weight:700;font-size:0.9rem;margin-bottom:0.15rem;'>Tu período de prueba vence en " + diasRestantes + " día" + (diasRestantes === 1 ? "" : "s") + "</p><p style='color:rgba(255,255,255,0.8);font-size:0.78rem;'>Escríbenos para activar tu suscripción · 0994859814</p></div>";
+    banner.innerHTML = "";
+    banner.appendChild(msgDiv2);
+    banner.appendChild(btnCerrar);
+  }
+}
+
+// ══════════════════════════════════════════════════════════════
 // LOGOUT
 // ══════════════════════════════════════════════════════════════
 function logout() {
   currentUser = null;
+  var trialOv = document.getElementById("trialOverlay");
+  if (trialOv) trialOv.remove();
+  var bannerEl = document.getElementById("bannerAviso");
+  if (bannerEl) bannerEl.style.display = "none";
   // Limpiar overlay de trial si existe
   const overlay = document.getElementById("trialOverlay");
   if (overlay) overlay.remove();
