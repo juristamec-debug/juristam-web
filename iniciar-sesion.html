@@ -666,7 +666,11 @@ document.getElementById('encuestaForm').addEventListener('submit', function(e) {
       var uid = cred.user.uid;
       var fotoInput = document.getElementById('regFotoInput');
       var fotoUrl = 'https://via.placeholder.com/150';
-      // Si hay foto la subimos via formsubmit y usamos placeholder por ahora
+      // Subir foto a Cloudinary si existe
+      if (fotoInput && fotoInput.files && fotoInput.files[0]) {
+        var urlSubida = await subirImagenCloudinary(fotoInput.files[0], 'juristam/perfiles');
+        if (urlSubida) fotoUrl = urlSubida;
+      }
       await F.setDoc(F.doc(F.db, 'abogados', uid), {
         id: uid,
         nombre: nombre,
@@ -1438,32 +1442,40 @@ async function enviarComprobante() {
   var btn = document.querySelector('#modalPago button[onclick="enviarComprobante()"]');
   var msg = document.getElementById('pagoMsg');
   var fileInput = document.getElementById('comprobantePago');
-  var fd = new FormData();
-  fd.append('_subject','💳 Comprobante - ' + _tramitePagoId + ' - ' + currentUserData.nombre);
-  fd.append('_captcha','false');
-  fd.append('solicitante',currentUserData.nombre);
-  fd.append('tramite_id',_tramitePagoId);
-  fd.append('monto',_tramitePagoMonto);
-  if (fileInput && fileInput.files && fileInput.files[0]) fd.append('comprobante',fileInput.files[0]);
-  // Generar código con fechaLimite de 24h
-  var tSnap = await F.getDoc(F.doc(F.db, 'tramites', _tramitePagoId));
-  var tData = tSnap.exists() ? tSnap.data() : {};
-  var fechaLim = new Date();
-  fechaLim.setHours(fechaLim.getHours() + 24);
-  fd.append('message','💳 COMPROBANTE DE PAGO\n\nSolicitante: ' + currentUserData.nombre + '\nTrámite: ' + _tramitePagoId + '\nMonto: $' + _tramitePagoMonto + '\n\n✅ SI EL PAGO ES CORRECTO confirma en el panel Juristam → Confirmar Pagos.\nEl trámite pasará a en_proceso automáticamente.');
-  if (btn) { btn.textContent = 'Enviando...'; btn.disabled = true; }
-  fetch('https://formsubmit.co/juristam.ec@gmail.com',{method:'POST',body:fd})
-    .then(function(){
-      msg.textContent = '✅ Comprobante enviado. Juristam confirmará tu pago en breve.';
-      msg.style.color = '#1A7F5A';
-      if (btn) { btn.textContent = 'Enviar comprobante a Juristam'; btn.disabled = false; }
-      setTimeout(cerrarModalPago, 3000);
-    })
-    .catch(function(){
-      msg.textContent = 'Error al enviar. Intenta de nuevo.';
+  if (btn) { btn.textContent = 'Subiendo...'; btn.disabled = true; }
+  msg.textContent = '';
+
+  // Subir comprobante a Cloudinary
+  var comprobanteUrl = null;
+  if (fileInput && fileInput.files && fileInput.files[0]) {
+    msg.textContent = 'Subiendo comprobante...';
+    comprobanteUrl = await subirImagenCloudinary(fileInput.files[0], 'juristam/comprobantes');
+    if (!comprobanteUrl) {
+      msg.textContent = 'Error al subir el comprobante. Intenta de nuevo.';
       msg.style.color = '#B83232';
       if (btn) { btn.textContent = 'Enviar comprobante a Juristam'; btn.disabled = false; }
-    });
+      return;
+    }
+  }
+
+  // Guardar comprobante en Firestore
+  await F.updateDoc(F.doc(F.db, 'tramites', _tramitePagoId), {
+    comprobanteUrl: comprobanteUrl || '',
+    comprobanteFecha: new Date().toISOString(),
+    comprobanteEnviado: true
+  });
+
+  // Notificar a Juristam por email con link al comprobante
+  var fd = new FormData();
+  fd.append('_subject', 'Comprobante - ' + _tramitePagoId + ' - ' + currentUserData.nombre);
+  fd.append('_captcha', 'false');
+  fd.append('message', 'COMPROBANTE DE PAGO - Solicitante: ' + currentUserData.nombre + ' - Tramite: ' + _tramitePagoId + ' - Monto: $' + _tramitePagoMonto + (comprobanteUrl ? ' - Ver: ' + comprobanteUrl : '') + ' - Confirmar en panel Juristam.');
+  fetch('https://formsubmit.co/juristam.ec@gmail.com', {method:'POST', body:fd});
+
+  msg.textContent = '✅ Comprobante enviado. Juristam confirmará tu pago en breve.';
+  msg.style.color = '#1A7F5A';
+  if (btn) { btn.textContent = 'Enviar comprobante a Juristam'; btn.disabled = false; }
+  setTimeout(cerrarModalPago, 3000);
 }
 
 // ══════════════════════════════════════════════════════════════
@@ -1876,6 +1888,7 @@ async function loadJPagos() {
       '<div style="background:#FEF3E2;border-radius:0.5rem;padding:0.6rem 0.75rem;font-size:0.82rem;color:#C07C1A;margin-bottom:0.75rem;">' +
       '<i class="fas fa-info-circle"></i> Revisa en tu banco que el pago llegó antes de confirmar.' +
       '</div>' +
+      (t.comprobanteUrl ? '<div style="margin-bottom:0.75rem;"><a href="' + t.comprobanteUrl + '" target="_blank" style="display:inline-flex;align-items:center;gap:0.5rem;background:#f0ebff;color:#4c1d95;padding:0.5rem 1rem;border-radius:0.5rem;font-size:0.82rem;font-weight:600;text-decoration:none;border:1.5px solid #C4B5F4;"><i class="fas fa-image"></i> Ver comprobante</a></div>' : '<div style="margin-bottom:0.75rem;background:#fff3f3;padding:0.5rem 0.75rem;border-radius:0.5rem;font-size:0.78rem;color:#B83232;">⚠️ Sin comprobante</div>') +
       '<div style="display:flex;gap:0.5rem;">' +
       '<button onclick="confirmarPago(\'' + t.id + '\',\'' + t.aceptadoPorId + '\',\'' + t.abogadoId + '\')" style="background:linear-gradient(135deg,#1A7F5A,#38A169);color:#fff;border:none;padding:0.5rem 1rem;border-radius:0.5rem;font-size:0.82rem;font-weight:600;cursor:pointer;flex:1;"><i class="fas fa-check"></i> Confirmar pago</button>' +
       '<button onclick="rechazarPago(\'' + t.id + '\')" style="background:linear-gradient(135deg,#B83232,#8C2020);color:#fff;border:none;padding:0.5rem 1rem;border-radius:0.5rem;font-size:0.82rem;font-weight:600;cursor:pointer;flex:1;"><i class="fas fa-times"></i> Rechazar</button>' +
@@ -2277,6 +2290,30 @@ function accionDetalleAbogado(btn) {
   if (accion === 'verificar') verificarAbogado(id);
   else if (accion === 'activar') activarSuscripcion(id);
   else if (accion === 'desactivar') desactivarSuscripcion(id);
+}
+
+
+// ══════════════════════════════════════════════════════════════
+// CLOUDINARY — SUBIDA DE IMÁGENES
+// ══════════════════════════════════════════════════════════════
+async function subirImagenCloudinary(file, carpeta) {
+  var formData = new FormData();
+  formData.append('file', file);
+  formData.append('upload_preset', 'juristam_unsigned');
+  formData.append('folder', carpeta || 'juristam');
+  try {
+    var res = await fetch('https://api.cloudinary.com/v1_1/dy8ckdjlf/image/upload', {
+      method: 'POST',
+      body: formData
+    });
+    var data = await res.json();
+    if (data.secure_url) return data.secure_url;
+    console.error('Cloudinary error:', data);
+    return null;
+  } catch(err) {
+    console.error('Error subiendo imagen:', err);
+    return null;
+  }
 }
 
 </script>
