@@ -1316,11 +1316,19 @@ async function enviarMensaje(tramiteId) {
   input.value = '';
 }
 
-// Cargar mensajes aprobados de un trámite desde Firestore
-async function cargarMensajes(tramiteId) {
+// Escucha en tiempo real de mensajes — se actualiza sin recargar
+var _msgListeners = {};
+
+function cargarMensajes(tramiteId) {
   var F = window._firebase;
   var body = document.getElementById('msgs-' + tramiteId);
   if (!body) return;
+
+  // Si ya hay un listener activo para este trámite, no crear otro
+  if (_msgListeners[tramiteId]) return;
+
+  body.innerHTML = '<div style="text-align:center;color:#7C6FA0;font-size:0.82rem;padding:1rem;">Cargando...</div>';
+
   try {
     var q = F.query(
       F.collection(F.db, 'mensajes'),
@@ -1328,20 +1336,42 @@ async function cargarMensajes(tramiteId) {
       F.where('estado', '==', 'aprobado'),
       F.orderBy('createdAt', 'asc')
     );
-    var snap = await F.getDocs(q);
-    var msgs = [];
-    snap.forEach(function(d){ msgs.push(d.data()); });
-    if (msgs.length === 0) {
-      body.innerHTML = '<div style="text-align:center;color:#7C6FA0;font-size:0.82rem;padding:1rem;">Sin mensajes aún.</div>';
-      return;
-    }
-    body.innerHTML = '';
-    msgs.forEach(function(m){
-      var esEnviado = m.deId === currentUser.uid;
-      body.innerHTML += '<div class="msg-burbuja ' + (esEnviado ? 'msg-enviado' : 'msg-recibido') + '">' + m.texto + '<div class="msg-meta">' + m.de + ' · ' + m.fecha + '</div></div>';
+
+    // onSnapshot — escucha cambios en tiempo real
+    var unsubscribe = F.onSnapshot(q, function(snap) {
+      var bodyEl = document.getElementById('msgs-' + tramiteId);
+      if (!bodyEl) {
+        // El elemento ya no existe — cancelar listener
+        if (_msgListeners[tramiteId]) {
+          _msgListeners[tramiteId]();
+          delete _msgListeners[tramiteId];
+        }
+        return;
+      }
+      if (snap.empty) {
+        bodyEl.innerHTML = '<div style="text-align:center;color:#7C6FA0;font-size:0.82rem;padding:1rem;">Sin mensajes aún.</div>';
+        return;
+      }
+      bodyEl.innerHTML = '';
+      snap.forEach(function(d) {
+        var m = d.data();
+        var esEnviado = m.deId === currentUser.uid;
+        bodyEl.innerHTML += '<div class="msg-burbuja ' + (esEnviado ? 'msg-enviado' : 'msg-recibido') + '">' +
+          m.texto + '<div class="msg-meta">' + m.de + ' · ' + (m.fecha||'') + '</div></div>';
+      });
+      bodyEl.scrollTop = bodyEl.scrollHeight;
+    }, function(err) {
+      console.error('Error mensajes:', err);
+      var bodyEl = document.getElementById('msgs-' + tramiteId);
+      if (bodyEl) bodyEl.innerHTML = '<div style="text-align:center;color:#7C6FA0;font-size:0.82rem;padding:1rem;">Sin mensajes aún.</div>';
     });
-    body.scrollTop = body.scrollHeight;
+
+    // Guardar el unsubscribe para poder cancelarlo después
+    _msgListeners[tramiteId] = unsubscribe;
+    _unsubscribers.push(unsubscribe);
+
   } catch(e) {
+    console.error('cargarMensajes error:', e);
     body.innerHTML = '<div style="text-align:center;color:#7C6FA0;font-size:0.82rem;padding:1rem;">Sin mensajes aún.</div>';
   }
 }
@@ -1453,33 +1483,58 @@ async function loadNotificaciones() {
   var F = window._firebase;
   var list = document.getElementById('notificacionesList');
   list.innerHTML = '<p style="color:#7c6fa0;padding:1rem;">Cargando...</p>';
-  var q = F.query(F.collection(F.db,'notificaciones'), F.where('abogadoId','==',currentUser.uid), F.orderBy('createdAt','desc'));
-  var snap = await F.getDocs(q);
-  var notifs = [];
-  snap.forEach(function(d){ notifs.push({ id: d.id, ...d.data() }); });
-  if (notifs.length === 0) { list.innerHTML = '<p style="color:#6B5B95;padding:1rem;">No hay notificaciones.</p>'; return; }
-  list.innerHTML = '';
-  notifs.forEach(function(n){
-    list.innerHTML += '<div style="padding:1rem;border-bottom:1px solid #EDE9F8;font-size:0.88rem;' + (!n.leida ? 'background:#F0EBFF;border-left:3px solid #9a6aff;' : '') + '">' +
-      '<p>' + n.mensaje + '</p>' +
-      (n.fecha ? '<div style="font-size:0.72rem;color:#7C6FA0;margin-top:0.2rem;">' + n.fecha + '</div>' : '') +
-      '</div>';
-    // Marcar como leída
-    if (!n.leida) F.updateDoc(F.doc(F.db,'notificaciones',n.id),{leida:true});
-  });
-  updateNotifBadge();
+  try {
+    var q = F.query(
+      F.collection(F.db,'notificaciones'),
+      F.where('abogadoId','==',currentUser.uid),
+      F.orderBy('createdAt','desc')
+    );
+    var snap = await F.getDocs(q);
+    var notifs = [];
+    snap.forEach(function(d){ notifs.push({ id: d.id, ...d.data() }); });
+    if (notifs.length === 0) {
+      list.innerHTML = '<p style="color:#6B5B95;padding:1rem;">No hay notificaciones.</p>';
+      return;
+    }
+    list.innerHTML = '';
+    notifs.forEach(function(n){
+      list.innerHTML += '<div style="padding:1rem;border-bottom:1px solid #EDE9F8;font-size:0.88rem;' + (!n.leida ? 'background:#F0EBFF;border-left:3px solid #9a6aff;' : '') + '">' +
+        '<p>' + n.mensaje + '</p>' +
+        (n.fecha ? '<div style="font-size:0.72rem;color:#7C6FA0;margin-top:0.2rem;">' + n.fecha + '</div>' : '') +
+        '</div>';
+      if (!n.leida) F.updateDoc(F.doc(F.db,'notificaciones',n.id), {leida:true});
+    });
+    updateNotifBadge();
+  } catch(err) {
+    console.error('Error notificaciones:', err);
+    list.innerHTML = '<p style="color:#B83232;padding:1rem;">Error al cargar notificaciones: ' + err.message + '</p>';
+  }
 }
 
-async function updateNotifBadge() {
+
+function updateNotifBadge() {
   var F = window._firebase;
   if (!currentUser) return;
-  var q = F.query(F.collection(F.db,'notificaciones'), F.where('abogadoId','==',currentUser.uid), F.where('leida','==',false));
-  var snap = await F.getDocs(q);
-  var badge = document.getElementById('notifBadge');
-  if (!badge) return;
-  var count = snap.size;
-  if (count > 0) { badge.textContent = count > 9 ? '9+' : count; badge.classList.remove('hidden'); }
-  else badge.classList.add('hidden');
+  try {
+    var q = F.query(
+      F.collection(F.db,'notificaciones'),
+      F.where('abogadoId','==',currentUser.uid),
+      F.where('leida','==',false)
+    );
+    // onSnapshot para badge en tiempo real
+    var unsubBadge = F.onSnapshot(q, function(snap) {
+      var badge = document.getElementById('notifBadge');
+      if (!badge) return;
+      var count = snap.size;
+      if (count > 0) { badge.textContent = count > 9 ? '9+' : count; badge.classList.remove('hidden'); }
+      else badge.classList.add('hidden');
+    }, function(err) {
+      console.error('Badge error:', err);
+    });
+    _unsubscribers.push(unsubBadge);
+  } catch(err) {
+    console.error('Badge error:', err);
+  }
 }
 
 // ══════════════════════════════════════════════════════════════
