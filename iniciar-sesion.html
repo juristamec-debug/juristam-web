@@ -1955,7 +1955,14 @@ async function loadJMensajes() {
         '</div></div>';
     });
   } catch(err) {
-    list.innerHTML = '<p style="color:#B83232;padding:1rem;">Error al cargar. Verifica que los índices de Firestore estén creados.</p>';
+    console.error('Error loadJMensajes:', err);
+    if (err.code === 'failed-precondition' || err.message.includes('index')) {
+      list.innerHTML = '<p style="color:#B83232;padding:1rem;">Índice de Firestore pendiente. Espera 2-3 minutos y recarga.</p>';
+    } else if (err.code === 'not-found' || msgs.length === 0) {
+      list.innerHTML = '<p style="color:#6B5B95;padding:1rem;text-align:center;">No hay conversaciones aún. Cuando los abogados intercambien mensajes aparecerán aquí.</p>';
+    } else {
+      list.innerHTML = '<p style="color:#B83232;padding:1rem;">Error: ' + err.message + '</p>';
+    }
   }
 }
 
