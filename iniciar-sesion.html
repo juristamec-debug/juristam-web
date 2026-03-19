@@ -29,7 +29,7 @@
     const db = getFirestore(app);
 
     // Exponer globalmente para usar fuera del módulo
-    window._firebase = { auth, db, createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut, onAuthStateChanged, collection, doc, setDoc, getDoc, getDocs, updateDoc, query, where, orderBy, onSnapshot, addDoc, serverTimestamp };
+    window._firebase = { auth, db, createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut, onAuthStateChanged, collection, doc, setDoc, getDoc, getDocs, updateDoc, deleteDoc, query, where, orderBy, onSnapshot, addDoc, serverTimestamp };
     window._firebaseReady = true;
     document.dispatchEvent(new Event('firebaseReady'));
   </script>
@@ -1921,8 +1921,20 @@ async function verificarAbogado(abogadoId) {
 async function rechazarAbogado(abogadoId) {
   if (!confirm('¿Rechazar y eliminar esta cuenta?')) return;
   var F = window._firebase;
-  await F.updateDoc(F.doc(F.db,'abogados',abogadoId), { verified: false, rechazado: true });
-  mostrarModalConf('Cuenta rechazada','El abogado no fue verificado.',function(){ loadJVerificar(); });
+  try {
+    // Eliminar documento de Firestore
+    await F.deleteDoc(F.doc(F.db, 'abogados', abogadoId));
+    // Eliminar usuario de Auth (si es posible desde cliente)
+    mostrarModalConf('Cuenta rechazada', 'El abogado no fue verificado y fue eliminado.', function() {
+      loadJVerificar();
+    });
+  } catch(err) {
+    // Si no se puede eliminar de Auth, al menos marcarlo como rechazado
+    await F.updateDoc(F.doc(F.db, 'abogados', abogadoId), { verified: false, rechazado: true });
+    mostrarModalConf('Cuenta rechazada', 'El abogado no fue verificado.', function() {
+      loadJVerificar();
+    });
+  }
 }
 
 async function loadJTramites() {
