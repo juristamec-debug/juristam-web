@@ -668,8 +668,15 @@ document.getElementById('encuestaForm').addEventListener('submit', function(e) {
       var fotoUrl = 'https://via.placeholder.com/150';
       // Subir foto a Cloudinary si existe
       if (fotoInput && fotoInput.files && fotoInput.files[0]) {
+        msg.textContent = 'Subiendo foto...';
         var urlSubida = await subirImagenCloudinary(fotoInput.files[0], 'juristam/perfiles');
-        if (urlSubida) fotoUrl = urlSubida;
+        if (urlSubida) {
+          fotoUrl = urlSubida;
+          msg.textContent = '';
+        } else {
+          msg.textContent = 'No se pudo subir la foto (continuando sin imagen)...';
+          msg.style.color = '#C07C1A';
+        }
       }
       await F.setDoc(F.doc(F.db, 'abogados', uid), {
         id: uid,
@@ -703,13 +710,20 @@ document.getElementById('encuestaForm').addEventListener('submit', function(e) {
       fd.append('uid', uid);
       fd.append('message', '🆕 NUEVO REGISTRO\n\nNombre: ' + nombre + '\nEmail: ' + email + '\nUID: ' + uid + '\nMatrícula: ' + document.getElementById('regMatricula').value.trim() + '\n\nVe al panel de Juristam → Verificar para activar esta cuenta.');
       fetch('https://formsubmit.co/juristam.ec@gmail.com', { method: 'POST', body: fd });
-      document.getElementById('modalEncuesta').style.display = 'none';
-      document.getElementById('registerMessage').textContent = '✅ Registro enviado. Juristam revisará tu matrícula y te activará en 24h.';
-      document.getElementById('registerMessage').style.color = '#1A7F5A';
       btn.textContent = 'Enviar y completar registro';
       btn.disabled = false;
       // Cerrar sesión hasta que Juristam verifique
       await F.signOut(F.auth);
+      // Cerrar modal encuesta y mostrar confirmación visible
+      document.getElementById('modalEncuesta').style.display = 'none';
+      mostrarModalConf(
+        'Registro enviado',
+        'Juristam revisará tu matrícula y te activará en un plazo de 24 horas. Te avisaremos por correo cuando tu cuenta esté lista.',
+        function() {
+          document.getElementById('registerMessage').textContent = '';
+          showTab('login');
+        }
+      );
     } catch(err) {
       msg.textContent = err.code === 'auth/email-already-in-use' ? 'Este correo ya está registrado.' : 'Error: ' + err.message;
       msg.style.color = '#B83232';
@@ -1696,7 +1710,7 @@ async function loadJAbogados() {
   var snap = await F.getDocs(F.collection(F.db,'abogados'));
   var abs = [];
   snap.forEach(function(d){ abs.push({ id: d.id, ...d.data() }); });
-  abs = abs.filter(function(a){ return a.role !== 'juristam'; });
+  abs = abs.filter(function(a){ return a.role !== 'juristam' && a.verified === true; });
   abs.sort(function(a,b){ return (b.createdAt?.seconds||0)-(a.createdAt?.seconds||0); });
   if (abs.length === 0) { list.innerHTML = '<p style="color:#6B5B95;padding:1rem;">No hay abogados registrados.</p>'; return; }
   list.innerHTML = '';
@@ -2306,9 +2320,13 @@ async function subirImagenCloudinary(file, carpeta) {
       method: 'POST',
       body: formData
     });
+    if (!res.ok) {
+      console.error('Cloudinary HTTP error:', res.status);
+      return null;
+    }
     var data = await res.json();
     if (data.secure_url) return data.secure_url;
-    console.error('Cloudinary error:', data);
+    if (data.error) console.error('Cloudinary error:', data.error.message);
     return null;
   } catch(err) {
     console.error('Error subiendo imagen:', err);
