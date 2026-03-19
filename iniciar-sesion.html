@@ -837,25 +837,145 @@ function loadProfile() {
   var stars = '★'.repeat(Math.floor(d.calificacion || 0)) + '☆'.repeat(5 - Math.floor(d.calificacion || 0));
   var trialEnd = new Date(d.registerDate);
   trialEnd.setDate(trialEnd.getDate() + 30);
+  var editando = document.getElementById('profileContent').dataset.editando === 'true';
+
+  if (editando) {
+    // MODO EDICIÓN
+    document.getElementById('profileContent').innerHTML =
+      '<h3 style="font-size:1rem;color:#4c1d95;margin-bottom:1rem;">Editar Perfil</h3>' +
+      '<div style="display:flex;flex-direction:column;gap:0.75rem;">' +
+      '<div style="text-align:center;">' +
+      '<img src="' + (d.foto||'https://via.placeholder.com/80') + '" style="width:80px;height:80px;border-radius:50%;object-fit:cover;border:3px solid #9a6aff;margin-bottom:0.5rem;" id="previewFotoPerfil">' +
+      '<div style="background:#f8f5ff;border:1.5px dashed #c9b8ff;border-radius:0.6rem;padding:0.65rem;cursor:pointer;" id="clickFotoBtn">' +
+      '<p style="font-size:0.78rem;color:#7c6fa0;margin:0;">Cambiar foto de perfil</p>' +
+      '<input type="file" id="inputFotoPerfil" accept="image/*" style="display:none;">' +
+      '</div></div>' +
+      '<input type="text" id="editNombre" value="' + (d.nombre||'') + '" placeholder="Nombre completo">' +
+      '<input type="text" id="editTelefono" value="' + (d.telefono||'') + '" placeholder="Telefono">' +
+      '<input type="text" id="editCiudad" value="' + (d.ciudad||'') + '" list="ciudades" placeholder="Ciudad">' +
+      '<input type="text" id="editNivel" value="' + (d.nivel||'') + '" placeholder="Nivel (Abogado, Magister, Doctor...)">' +
+      '<input type="text" id="editExperiencia" value="' + (d.experiencia||'') + '" placeholder="Anos de experiencia">' +
+      '<textarea id="editDescripcion" rows="3" placeholder="Descripcion profesional" style="resize:none;">' + (d.descripcion||'') + '</textarea>' +
+      '<div style="display:flex;gap:0.5rem;">' +
+      '<button id="btnGuardarPerfil" style="flex:1;background:linear-gradient(135deg,#4c1d95,#9a6aff);padding:0.75rem;border-radius:0.5rem;font-weight:700;">Guardar cambios</button>' +
+      '<button id="btnCancelarEdicion" style="flex:1;background:#f0ebff;color:#4c1d95;border:1.5px solid #C4B5F4;padding:0.75rem;border-radius:0.5rem;font-weight:600;">Cancelar</button>' +
+      '</div>' +
+      '<p id="editPerfilMsg" style="text-align:center;font-size:0.82rem;min-height:1em;"></p>' +
+      '</div>';
+    // Agregar listeners por JS (sin onclick inline)
+    setTimeout(function() {
+      var clickBtn = document.getElementById('clickFotoBtn');
+      var fotoInp = document.getElementById('inputFotoPerfil');
+      var btnGuardar = document.getElementById('btnGuardarPerfil');
+      var btnCancelar = document.getElementById('btnCancelarEdicion');
+      if (clickBtn && fotoInp) {
+        clickBtn.onclick = function() { fotoInp.click(); };
+        fotoInp.onchange = function() { previewFotoPerfil(this); };
+      }
+      if (btnGuardar) btnGuardar.onclick = guardarPerfil;
+      if (btnCancelar) btnCancelar.onclick = cancelarEdicion;
+    }, 30);
+    return;
+  }
+
+  // MODO VISTA
   document.getElementById('profileContent').innerHTML =
     '<div style="text-align:center;padding-bottom:1rem;border-bottom:1px solid #EDE9F8;margin-bottom:1rem;">' +
     '<img src="' + d.foto + '" class="profile-pic">' +
     '<h3 style="font-size:1.1rem;color:#4c1d95;margin-top:0.25rem;">' + d.nombre + '</h3>' +
     '<div style="color:#F59E0B;">' + stars + ' <span style="color:#7c6fa0;font-size:0.82rem;">(' + (d.calificacion || 0) + ')</span></div>' +
+    '<button onclick="activarEdicion()" style="background:#f0ebff;color:#4c1d95;border:1.5px solid #C4B5F4;padding:0.4rem 1.25rem;border-radius:999px;font-size:0.8rem;font-weight:600;margin-top:0.75rem;cursor:pointer;"><i class="fas fa-pencil-alt" style="margin-right:0.35rem;font-size:0.75rem;"></i>Editar perfil</button>' +
     '</div>' +
     '<div style="display:grid;gap:0.4rem;font-size:0.88rem;">' +
     '<p style="display:flex;gap:0.5rem;padding:0.45rem 0;border-bottom:1px solid #EDE9F8;"><span style="font-weight:600;color:#7c3aed;min-width:100px;font-size:0.82rem;text-transform:uppercase;">Matrícula</span>' + d.matricula + '</p>' +
-    '<p style="display:flex;gap:0.5rem;padding:0.45rem 0;border-bottom:1px solid #EDE9F8;"><span style="font-weight:600;color:#7c3aed;min-width:100px;font-size:0.82rem;text-transform:uppercase;">Ciudad</span>' + d.ciudad + '</p>' +
+    '<p style="display:flex;gap:0.5rem;padding:0.45rem 0;border-bottom:1px solid #EDE9F8;"><span style="font-weight:600;color:#7c3aed;min-width:100px;font-size:0.82rem;text-transform:uppercase;">Ciudad</span>' + (d.ciudad||'-') + '</p>' +
     '<p style="display:flex;gap:0.5rem;padding:0.45rem 0;border-bottom:1px solid #EDE9F8;"><span style="font-weight:600;color:#7c3aed;min-width:100px;font-size:0.82rem;text-transform:uppercase;">Email</span>' + d.email + '</p>' +
-    '<p style="display:flex;gap:0.5rem;padding:0.45rem 0;border-bottom:1px solid #EDE9F8;"><span style="font-weight:600;color:#7c3aed;min-width:100px;font-size:0.82rem;text-transform:uppercase;">Teléfono</span>' + d.telefono + '</p>' +
-    '<p style="display:flex;gap:0.5rem;padding:0.45rem 0;"><span style="font-weight:600;color:#7c3aed;min-width:100px;font-size:0.82rem;text-transform:uppercase;">Descripción</span>' + (d.descripcion || 'Sin descripción') + '</p>' +
+    '<p style="display:flex;gap:0.5rem;padding:0.45rem 0;border-bottom:1px solid #EDE9F8;"><span style="font-weight:600;color:#7c3aed;min-width:100px;font-size:0.82rem;text-transform:uppercase;">Teléfono</span>' + (d.telefono||'-') + '</p>' +
+    '<p style="display:flex;gap:0.5rem;padding:0.45rem 0;border-bottom:1px solid #EDE9F8;"><span style="font-weight:600;color:#7c3aed;min-width:100px;font-size:0.82rem;text-transform:uppercase;">Nivel</span>' + (d.nivel||'No especificado') + '</p>' +
+    '<p style="display:flex;gap:0.5rem;padding:0.45rem 0;border-bottom:1px solid #EDE9F8;"><span style="font-weight:600;color:#7c3aed;min-width:100px;font-size:0.82rem;text-transform:uppercase;">Experiencia</span>' + (d.experiencia||'No especificada') + '</p>' +
+    '<p style="display:flex;gap:0.5rem;padding:0.45rem 0;"><span style="font-weight:600;color:#7c3aed;min-width:100px;font-size:0.82rem;text-transform:uppercase;">Descripción</span>' + (d.descripcion||'Sin descripción') + '</p>' +
     '</div>' +
     (!d.subscriptionPaid ? '<div style="margin-top:1rem;background:#FEF3E2;border-radius:0.5rem;padding:0.75rem;font-size:0.82rem;color:#C07C1A;"><i class="fas fa-clock"></i> Período de prueba — vence: ' + trialEnd.toISOString().split("T")[0] + '</div>' : '');
 }
 
-// ══════════════════════════════════════════════════════════════
-// SOLICITAR TRÁMITE
-// ══════════════════════════════════════════════════════════════
+function activarEdicion() {
+  document.getElementById('profileContent').dataset.editando = 'true';
+  loadProfile();
+  // Agregar listeners después de renderizar el HTML
+  setTimeout(function() {
+    var clickBtn = document.getElementById('clickFotoBtn');
+    var fotoInp = document.getElementById('inputFotoPerfil');
+    if (clickBtn && fotoInp) {
+      clickBtn.onclick = function() { fotoInp.click(); };
+      fotoInp.onchange = function() { previewFotoPerfil(this); };
+    }
+  }, 50);
+}
+
+function cancelarEdicion() {
+  document.getElementById('profileContent').dataset.editando = 'false';
+  loadProfile();
+}
+
+function previewFotoPerfil(input) {
+  if (input.files && input.files[0]) {
+    var reader = new FileReader();
+    reader.onload = function(e) {
+      var preview = document.getElementById('previewFotoPerfil');
+      if (preview) preview.src = e.target.result;
+    };
+    reader.readAsDataURL(input.files[0]);
+  }
+}
+
+async function guardarPerfil() {
+  var F = window._firebase;
+  var btn = document.getElementById('btnGuardarPerfil');
+  var msg = document.getElementById('editPerfilMsg');
+  if (btn) { btn.textContent = 'Guardando...'; btn.disabled = true; }
+
+  try {
+    var updates = {
+      nombre: document.getElementById('editNombre').value.trim(),
+      telefono: document.getElementById('editTelefono').value.trim(),
+      ciudad: document.getElementById('editCiudad').value.trim().toLowerCase(),
+      nivel: document.getElementById('editNivel').value.trim(),
+      experiencia: document.getElementById('editExperiencia').value.trim(),
+      descripcion: document.getElementById('editDescripcion').value.trim()
+    };
+
+    // Subir nueva foto si se seleccionó
+    var fotoInput = document.getElementById('inputFotoPerfil');
+    if (fotoInput && fotoInput.files && fotoInput.files[0]) {
+      if (msg) { msg.textContent = 'Subiendo foto...'; msg.style.color = '#7c6fa0'; }
+      var urlFoto = await subirImagenCloudinary(fotoInput.files[0], 'juristam/perfiles');
+      if (urlFoto) {
+        updates.foto = urlFoto;
+      } else {
+        if (msg) { msg.textContent = 'Error al subir la foto. Verifica tu conexión.'; msg.style.color = '#B83232'; }
+        if (btn) { btn.textContent = 'Guardar cambios'; btn.disabled = false; }
+        return;
+      }
+    }
+
+    // Guardar en Firestore
+    await F.updateDoc(F.doc(F.db, 'abogados', currentUser.uid), updates);
+
+    // Actualizar currentUserData local
+    Object.assign(currentUserData, updates);
+
+    // Volver a vista
+    document.getElementById('profileContent').dataset.editando = 'false';
+    loadProfile();
+
+    mostrarModalConf('Perfil actualizado', 'Tus datos han sido guardados correctamente.', null);
+  } catch(err) {
+    if (msg) { msg.textContent = 'Error al guardar: ' + err.message; msg.style.color = '#B83232'; }
+    if (btn) { btn.textContent = 'Guardar cambios'; btn.disabled = false; }
+  }
+}
+
+
 function renderSolicitarForm() {
   document.getElementById('solicitarContent').innerHTML =
     '<form id="solicitarForm" style="display:flex;flex-direction:column;gap:0.75rem;">' +
