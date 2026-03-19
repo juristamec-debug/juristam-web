@@ -1210,11 +1210,16 @@ function renderMensajesHtml(tramiteId) {
 }
 
 function contieneContacto(texto) {
-  // Números en dígitos
+  // Eliminar espacios para detectar números con espacios: "09 40 49 33 56"
+  var textoSinEspacios = texto.replace(/\s+/g, '');
+  var textoBajo = texto.toLowerCase();
+  var textoSinEspaciosBajo = textoSinEspacios.toLowerCase();
+
+  // Números en dígitos — revisar tanto con espacios como sin espacios
   var patronesDigitos = [
     /\b0\d{9}\b/,                          // teléfonos Ecuador 10 dígitos
     /\b\+593\d{9}\b/,                     // con código país +593
-    /\b\+\d{10,13}\b/,                    // cualquier número internacional
+    /\b\+\d{10,13}\b/,                    // número internacional
     /\b\d{7,10}\b/,                        // números largos genéricos
     /[a-zA-Z0-9._%+\-]+@[a-zA-Z0-9.\-]+\.[a-zA-Z]{2,}/,  // emails
     /whatsapp|wsp|ws\b|wa\.me/i,
@@ -1222,17 +1227,28 @@ function contieneContacto(texto) {
     /instagram|ig\b|face\b|facebook/i,
     /llám[ae]|escríbe[nm]e|contácta[nm]e/i
   ];
+
+  // Verificar en texto original
   if (patronesDigitos.some(function(p){ return p.test(texto); })) return true;
 
+  // Verificar en texto sin espacios (detecta "09 40 49 33 56" → "0940493356")
+  var patronesSinEspacio = [
+    /0\d{9}/,       // teléfono Ecuador sin espacios
+    /\+593\d{9}/,  // +593 sin espacios
+    /\d{10,13}/     // cualquier secuencia larga de dígitos
+  ];
+  if (patronesSinEspacio.some(function(p){ return p.test(textoSinEspacios); })) return true;
+
+  // Detectar números separados por guiones: "09-40-49-33-56"
+  var textoSinGuiones = texto.replace(/[\s\-\.]/g, '');
+  if (/0\d{9}/.test(textoSinGuiones) || /\d{10,13}/.test(textoSinGuiones)) return true;
+
   // Números escritos en letras (español)
-  var textoBajo = texto.toLowerCase();
   var numerosLetras = [
     'cero','uno','dos','tres','cuatro','cinco','seis','siete','ocho','nueve',
     'diez','once','doce','trece','catorce','quince','veinte','treinta',
     'cuarenta','cincuenta','sesenta','setenta','ochenta','noventa','cien'
   ];
-  // Detectar si hay 4 o más números en letras seguidos (patrón de teléfono)
-  var contador = 0;
   var palabras = textoBajo.split(/\s+/);
   var maxConsecutivos = 0;
   var consecutivos = 0;
