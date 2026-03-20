@@ -414,6 +414,7 @@
     <div class="section hidden" id="jAsignarSection"><h2>Asignar Trámites</h2><p style="font-size:0.85rem;color:#6B5B95;margin-bottom:1rem;">Asigna cada trámite pendiente al abogado que le toca por rotación.</p><div id="jAsignarList"></div></div>
     <div class="section hidden" id="jPagosSection"><h2>Confirmar Pagos</h2><p style="font-size:0.85rem;color:#6B5B95;margin-bottom:1rem;">Revisa el comprobante y confirma el pago para activar el trámite.</p><div id="jPagosList"></div></div>
     <div class="section hidden" id="jRotacionSection"><h2>Rotación por Ciudad</h2><div id="jRotacionList"></div></div>
+    <div class="section hidden" id="jOpinionesJSection"><h2>Opiniones pendientes</h2><div id="jOpinionesList"></div></div>
     <div class="section hidden" id="jNotifJSection">
       <h2>Notificaciones</h2>
       <p style="font-size:0.85rem;color:#6B5B95;margin-bottom:1rem;">Actividad reciente en la plataforma.</p>
@@ -699,17 +700,7 @@ document.getElementById('encuestaForm').addEventListener('submit', function(e) {
         encuesta: { precio: precio, frecuencia: frecuencia, mala_exp: malaExp, importancia: importancia },
         createdAt: F.serverTimestamp()
       });
-      // Notificar a Juristam por email
-      var fd = new FormData();
-      fd.append('_subject', '🆕 Nuevo Registro - ' + nombre);
-      fd.append('_captcha', 'false');
-      fd.append('nombre', nombre);
-      fd.append('email', email);
-      fd.append('ciudad', document.getElementById('regCiudad').value.trim());
-      fd.append('matricula', document.getElementById('regMatricula').value.trim());
-      fd.append('uid', uid);
-      fd.append('message', '🆕 NUEVO REGISTRO\n\nNombre: ' + nombre + '\nEmail: ' + email + '\nUID: ' + uid + '\nMatrícula: ' + document.getElementById('regMatricula').value.trim() + '\n\nVe al panel de Juristam → Verificar para activar esta cuenta.');
-      fetch('https://formsubmit.co/juristam.ec@gmail.com', { method: 'POST', body: fd });
+      // Datos guardados en Firebase — visibles en panel Verificar
       btn.textContent = 'Enviar y completar registro';
       btn.disabled = false;
       // Cerrar sesión hasta que Juristam verifique
@@ -788,6 +779,7 @@ function showJSection(sectionId) {
   if (sectionId === 'jPagosSection') loadJPagos();
   if (sectionId === 'jMensajesSection') loadJMensajes();
   if (sectionId === 'jRotacionSection') loadJRotacion();
+  if (sectionId === 'jOpinionesJSection') loadJOpiniones();
   if (sectionId === 'jNotifJSection') loadJNotifJ();
   if (sectionId === 'jPagosRegistroSection') loadJPagosRegistro();
   if (window.innerWidth < 1024) toggleSidebar();
@@ -1076,6 +1068,10 @@ async function publicarTramite() {
       createdAt: F.serverTimestamp()
     });
     if (btn) { btn.innerHTML = '<i class="fas fa-paper-plane"></i> Publicar Trámite'; btn.disabled = false; }
+    notificarJuristam(
+      'Nuevo tramite publicado - ' + currentUserData.nombre,
+      'Tramite publicado.\nSolicitante: ' + currentUserData.nombre + '\nEmail: ' + currentUserData.email + '\nDescripcion: ' + desc + '\nMonto: $' + monto + '\nVe al panel Asignar.'
+    );
     mostrarModalConf('✅ Trámite publicado', 'Tu trámite fue enviado. Una vez asignado y aceptado recibirás una notificación.', function() {
       showSection('enviadosSection');
     });
@@ -1651,7 +1647,7 @@ async function enviarCalificacion() {
   if (!score || score < 1 || score > 5) { alert('El puntaje debe ser entre 1 y 5.'); return; }
   if (!opinion) { alert('Por favor escribe una opinión.'); return; }
   try {
-    // Guardar opinión
+    // Guardar opinion con estado pendiente de aprobacion
     await F.addDoc(F.collection(F.db,'opiniones'), {
       abogadoId: abogadoId,
       evaluadorId: currentUser.uid,
@@ -1659,8 +1655,13 @@ async function enviarCalificacion() {
       puntaje: score,
       opinion: opinion,
       tramiteId: tramiteId,
+      estado: 'pendiente',
       createdAt: F.serverTimestamp()
     });
+    notificarJuristam(
+      'Nueva opinion pendiente - ' + currentUserData.nombre,
+      'Nueva opinion para aprobar.\nDe: ' + currentUserData.nombre + '\nPara abogado ID: ' + abogadoId + '\nPuntaje: ' + score + '/5\nOpinion: ' + opinion + '\nVe al panel Opiniones para aprobarla.'
+    );
     // Actualizar calificación promedio del abogado
     var abSnap = await F.getDoc(F.doc(F.db,'abogados',abogadoId));
     if (abSnap.exists()) {
@@ -2077,6 +2078,53 @@ async function rechazarPago(tramiteId) {
   var F = window._firebase;
   await F.updateDoc(F.doc(F.db,'tramites',tramiteId), { estado: 'esperando_pago' });
   mostrarModalConf('Pago rechazado','El solicitante debe volver a enviar el comprobante.',function(){ loadJPagos(); });
+}
+
+async function loadJOpiniones() {
+  var F = window._firebase;
+  var list = document.getElementById('jOpinionesList');
+  list.innerHTML = '<p style="color:#7c6fa0;padding:1rem;">Cargando...</p>';
+  try {
+    var snap = await F.getDocs(F.query(F.collection(F.db,'opiniones'), F.where('estado','==','pendiente'), F.orderBy('createdAt','desc')));
+    if (snap.empty) { list.innerHTML = '<p style="color:#1A7F5A;padding:1rem;">No hay opiniones pendientes.</p>'; return; }
+    var html2 = '';
+    snap.forEach(function(docSnap) {
+      var o = docSnap.data();
+      var oid = docSnap.id;
+      var stars = '★'.repeat(o.puntaje) + '☆'.repeat(5 - o.puntaje);
+      html2 += '<div style="background:#fff;border:1px solid #EDE9F8;border-radius:0.75rem;padding:1rem;margin-bottom:0.75rem;">' +
+        '<div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:0.5rem;">' +
+        '<span style="font-weight:600;color:#4c1d95;">' + (o.evaluador||'Anónimo') + '</span>' +
+        '<span style="color:#F59E0B;font-size:1rem;">' + stars + '</span>' +
+        '</div>' +
+        '<p style="font-size:0.88rem;color:#4c1d95;margin-bottom:0.75rem;">' + (o.opinion||'Sin texto') + '</p>' +
+        '<div style="display:flex;gap:0.5rem;">' +
+        '<div style="display:flex;gap:0.5rem;">' +
+        '<button class="btn-apr" data-oid="' + oid + '" data-aid="' + (o.abogadoId||'') + '" data-pts="' + o.puntaje + '" style="background:linear-gradient(135deg,#1A7F5A,#34d399);color:#fff;padding:0.4rem 0.9rem;border-radius:0.4rem;font-size:0.82rem;font-weight:600;cursor:pointer;">Aprobar</button>' +
+        '<button class="btn-rec" data-oid="' + oid + '" style="background:linear-gradient(135deg,#B83232,#ef4444);color:#fff;padding:0.4rem 0.9rem;border-radius:0.4rem;font-size:0.82rem;font-weight:600;cursor:pointer;">Rechazar</button>' +
+        '</div></div>';
+    });
+    list.innerHTML = html2;
+  } catch(err) {
+    list.innerHTML = '<p style="color:#B83232;padding:1rem;">Error: ' + err.message + '</p>';
+  }
+}
+
+async function aprobarOpinion(opinionId, abogadoId, puntaje) {
+  var F = window._firebase;
+  await F.updateDoc(F.doc(F.db,'opiniones',opinionId), { estado: 'aprobada' });
+  // Actualizar calificacion promedio del abogado
+  var snap = await F.getDocs(F.query(F.collection(F.db,'opiniones'), F.where('abogadoId','==',abogadoId), F.where('estado','==','aprobada')));
+  var total = 0; var count = 0;
+  snap.forEach(function(d){ total += (d.data().puntaje||0); count++; });
+  if (count > 0) await F.updateDoc(F.doc(F.db,'abogados',abogadoId), { calificacion: Math.round((total/count)*10)/10 });
+  mostrarModalConf('Opinion aprobada', 'La opinion ya es visible en el perfil del abogado.', function(){ loadJOpiniones(); });
+}
+
+async function rechazarOpinion(opinionId) {
+  var F = window._firebase;
+  await F.updateDoc(F.doc(F.db,'opiniones',opinionId), { estado: 'rechazada' });
+  mostrarModalConf('Opinion rechazada', 'La opinion fue eliminada.', function(){ loadJOpiniones(); });
 }
 
 async function loadJRotacion() {
