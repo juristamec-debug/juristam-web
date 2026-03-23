@@ -205,10 +205,29 @@
               <input type="hidden" id="rolInput" value="">
             </div>
             <datalist id="ciudades">
-              <option value="guayaquil"><option value="quito"><option value="cuenca"><option value="esmeraldas">
-              <option value="manta"><option value="ambato"><option value="loja"><option value="riobamba">
-              <option value="machala"><option value="babahoyo"><option value="portoviejo"><option value="latacunga">
-              <option value="ibarra"><option value="santo_domingo"><option value="duran"><option value="milagro">
+              <option value="Guayaquil"><option value="Quito"><option value="Cuenca"><option value="Esmeraldas">
+              <option value="Manta"><option value="Ambato"><option value="Loja"><option value="Riobamba">
+              <option value="Alausí"><option value="Archidona"><option value="Atacames"><option value="Atuntaqui">
+              <option value="Azogues"><option value="Babahoyo"><option value="Bahía de Caráquez"><option value="Balzar">
+              <option value="Baños"><option value="Biblián"><option value="Cariamanga"><option value="Catamayo">
+              <option value="Cayambe"><option value="Celica"><option value="Chambo"><option value="Chone">
+              <option value="Chordeleg"><option value="Puerto Francisco de Orellana (Coca)"><option value="Cotacachi"><option value="Daule">
+              <option value="Durán"><option value="El Ángel"><option value="El Empalme"><option value="Guano">
+              <option value="Guaranda"><option value="Gualaceo"><option value="Gualaquiza"><option value="Huaquillas">
+              <option value="Ibarra"><option value="Jipijapa"><option value="Joya de los Sachas"><option value="La Libertad">
+              <option value="La Troncal"><option value="Latacunga"><option value="Loreto"><option value="Macará">
+              <option value="Macas"><option value="Machachi"><option value="Machala"><option value="Mera">
+              <option value="Milagro"><option value="Montalvo"><option value="Montecristi"><option value="Naranjal">
+              <option value="Nueva Loja (Lago Agrio)"><option value="Otavalo"><option value="Pasaje"><option value="Patate">
+              <option value="Paute"><option value="Pedernales"><option value="Pelileo"><option value="Piñas">
+              <option value="Playas"><option value="Portoviejo"><option value="Puerto Ayora"><option value="Puerto Baquerizo Moreno">
+              <option value="Puerto Villamil"><option value="Pujilí"><option value="Puyo"><option value="Quevedo">
+              <option value="Quinindé"><option value="Rocafuerte"><option value="Salcedo"><option value="Salinas">
+              <option value="Samborondón"><option value="San Gabriel"><option value="San Lorenzo"><option value="San Miguel">
+              <option value="Sangolquí"><option value="Santa Elena"><option value="Santa Rosa"><option value="Santo Domingo">
+              <option value="Saquisilí"><option value="Shushufindi"><option value="Sucúa"><option value="Pedro Moncayo (Tabacundo)">
+              <option value="Tena"><option value="Tulcán"><option value="Urcuquí"><option value="Ventanas">
+              <option value="Vinces"><option value="Yantzaza"><option value="Zamora">
             </datalist>
             <button type="button" onclick="abrirEncuesta()" style="background:linear-gradient(135deg,#4c1d95,#9a6aff);padding:0.85rem;border-radius:0.6rem;font-weight:700;font-size:0.92rem;box-shadow:0 4px 16px rgba(124,58,237,0.35);">
               <i class="fas fa-arrow-right"></i> Continuar → Completar encuesta
@@ -405,6 +424,7 @@
       <li><a onclick="showJSection('jPagosRegistroSection')"><i class="fas fa-file-invoice-dollar"></i> Registro Pagos</a></li>
       <li><a onclick="showJSection('jRotacionSection')"><i class="fas fa-sync-alt"></i> Rotación</a></li>
       <li><a onclick="showJSection('jOpinionesJSection')"><i class="fas fa-star"></i> Opiniones <span id="badge-opiniones" style="display:none;background:#e53e3e;color:#fff;border-radius:999px;font-size:0.65rem;font-weight:700;padding:1px 6px;margin-left:4px;vertical-align:middle;"></span></a></li>
+      <li><a onclick="showJSection('jEncuestasSection')"><i class="fas fa-poll"></i> Encuestas</a></li>
       <li><a onclick="doLogout()"><i class="fas fa-sign-out-alt"></i> Cerrar Sesión</a></li>
     </ul></nav>
   </div>
@@ -416,6 +436,7 @@
     <div class="section hidden" id="jPagosSection"><h2>Confirmar Pagos</h2><p style="font-size:0.85rem;color:#6B5B95;margin-bottom:1rem;">Revisa el comprobante y confirma el pago para activar el trámite.</p><div id="jPagosList"></div></div>
     <div class="section hidden" id="jRotacionSection"><h2>Rotación por Ciudad</h2><div id="jRotacionList"></div></div>
     <div class="section hidden" id="jOpinionesJSection"><h2>Opiniones pendientes</h2><div id="jOpinionesList"></div></div>
+    <div class="section hidden" id="jEncuestasSection"><h2>Encuestas de registro</h2><div id="jEncuestasList"></div></div>
     <div class="section hidden" id="jNotifJSection">
       <h2>Notificaciones</h2>
       <p style="font-size:0.85rem;color:#6B5B95;margin-bottom:1rem;">Actividad reciente en la plataforma.</p>
@@ -834,6 +855,7 @@ function showJSection(sectionId) {
   if (sectionId === 'jMensajesSection') loadJMensajes();
   if (sectionId === 'jRotacionSection') loadJRotacion();
   if (sectionId === 'jOpinionesJSection') loadJOpiniones();
+  if (sectionId === 'jEncuestasSection') loadJEncuestas();
   if (sectionId === 'jNotifJSection') loadJNotifJ();
   if (sectionId === 'jPagosRegistroSection') loadJPagosRegistro();
   if (window.innerWidth < 1024) toggleSidebar();
@@ -2178,6 +2200,46 @@ async function rechazarPago(tramiteId) {
   var F = window._firebase;
   await F.updateDoc(F.doc(F.db,'tramites',tramiteId), { estado: 'esperando_pago' });
   mostrarModalConf('Pago rechazado','El solicitante debe volver a enviar el comprobante.',function(){ loadJPagos(); });
+}
+
+async function loadJEncuestas() {
+  var F = window._firebase;
+  var list = document.getElementById('jEncuestasList');
+  list.innerHTML = '<p style="color:#7c6fa0;padding:1rem;">Cargando...</p>';
+  try {
+    var snap = await F.getDocs(F.query(
+      F.collection(F.db,'abogados'),
+      F.where('role','==','abogado')
+    ));
+    if (snap.empty) { list.innerHTML = '<p style="color:#6B5B95;padding:1rem;text-align:center;">No hay encuestas aun.</p>'; return; }
+    var abs = [];
+    snap.forEach(function(d){ abs.push({id: d.id, ...d.data()}); });
+    abs.sort(function(a,b){ return (b.createdAt?.seconds||0)-(a.createdAt?.seconds||0); });
+    var html2 = '';
+    abs.forEach(function(a) {
+      var enc = a.encuesta || {};
+      var tieneDatos = enc.precio || enc.frecuencia || enc.mala_exp || enc.importancia;
+      html2 += '<div style="background:#fff;border:1px solid #EDE9F8;border-radius:0.75rem;padding:1rem;margin-bottom:0.75rem;">' +
+        '<div style="display:flex;align-items:center;gap:0.65rem;margin-bottom:0.75rem;">' +
+        '<img src="' + (a.foto||'https://via.placeholder.com/40') + '" style="width:40px;height:40px;border-radius:50%;object-fit:cover;border:2px solid #9a6aff;flex-shrink:0;">' +
+        '<div><p style="font-weight:700;color:#4c1d95;font-size:0.9rem;margin:0;">' + (a.nombre||'Sin nombre') + '</p>' +
+        '<p style="font-size:0.75rem;color:#7c6fa0;margin:0;">' + (a.email||'') + ' · ' + (a.ciudad||'') + ' · ' + (a.registerDate||'') + '</p></div>' +
+        '</div>' +
+        (tieneDatos ?
+          '<div style="background:#f8f5ff;border-radius:0.5rem;padding:0.65rem;display:grid;grid-template-columns:1fr 1fr;gap:0.35rem;font-size:0.82rem;">' +
+          '<p><span style="font-weight:600;color:#7c3aed;">Precio justo:</span> ' + (enc.precio||'—') + '</p>' +
+          '<p><span style="font-weight:600;color:#7c3aed;">Frecuencia:</span> ' + (enc.frecuencia||'—') + '</p>' +
+          '<p><span style="font-weight:600;color:#7c3aed;">Mala experiencia:</span> ' + (enc.mala_exp||'—') + '</p>' +
+          '<p><span style="font-weight:600;color:#7c3aed;">Lo mas importante:</span> ' + (enc.importancia||'—') + '</p>' +
+          '</div>'
+          : '<p style="font-size:0.8rem;color:#9a6aff;font-style:italic;">No respondio la encuesta</p>'
+        ) +
+        '</div>';
+    });
+    list.innerHTML = html2;
+  } catch(err) {
+    list.innerHTML = '<p style="color:#B83232;padding:1rem;">Error: ' + err.message + '</p>';
+  }
 }
 
 async function loadJOpiniones() {
