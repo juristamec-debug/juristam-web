@@ -459,10 +459,7 @@
     <div class="section hidden" id="jNotifJSection">
       <h2>Notificaciones</h2>
       <p style="font-size:0.85rem;color:#6B5B95;margin-bottom:1rem;">Actividad reciente en la plataforma.</p>
-      <div style="display:flex;gap:0.5rem;margin-bottom:1rem;flex-wrap:wrap;">
-        <button onclick="limpiarTodasNotifJ()" style="background:#ef4444;color:#fff;border:none;padding:0.4rem 0.85rem;border-radius:0.4rem;font-size:0.78rem;font-weight:600;cursor:pointer;">🗑 Limpiar todas</button>
-        <button onclick="limpiarNotifPorDescripcion()" style="background:#f59e0b;color:#fff;border:none;padding:0.4rem 0.85rem;border-radius:0.4rem;font-size:0.78rem;font-weight:600;cursor:pointer;">🧹 Limpiar notif de prueba</button>
-      </div>
+
       <div id="jNotifJList"></div>
     </div>
     <div class="section hidden" id="jPagosRegistroSection">
@@ -1315,12 +1312,18 @@ async function publicarTramite() {
       showSection('enviadosSection');
     });
     // Notificar fuera del flujo principal para que no bloquee
+    // Guardar notificacion con tramiteId para poder borrarla al revertir
     setTimeout(function() {
       try {
-        notificarJuristam(
-          'Nuevo tramite publicado - ' + currentUserData.nombre,
-          'Tramite publicado.\nSolicitante: ' + currentUserData.nombre + '\nEmail: ' + currentUserData.email + '\nDescripcion: ' + desc + '\nMonto: $' + monto + '\nVe al panel Asignar.'
-        );
+        var F2 = window._firebase;
+        F2.addDoc(F2.collection(F2.db, 'notificaciones_juristam'), {
+          asunto: 'Nuevo tramite publicado - ' + currentUserData.nombre,
+          mensaje: 'Solicitante: ' + currentUserData.nombre + '\nEmail: ' + currentUserData.email + '\nDescripcion: ' + desc + '\nMonto: $' + monto,
+          leida: false,
+          tipo: 'tramite_publicado',
+          tramiteId: tramiteRef.id,
+          createdAt: F2.serverTimestamp()
+        }).catch(function(){});
       } catch(e) {}
     }, 100);
   } catch(err) {
@@ -1413,6 +1416,7 @@ async function aceptarTramite(tramiteId, btn) {
       mensaje: 'Ejecutor: ' + currentUserData.nombre + '\nSolicitante: ' + (t.nombre||'') + '\nCiudad: ' + (t.ciudadDestino||'') + '\nDescripcion: ' + (t.descripcion||'').substring(0,100) + '\nMonto: $' + (t.monto||0) + '\nEl solicitante tiene 4 horas para pagar.',
       leida: false,
       tipo: 'tramite_aceptado',
+      tramiteId: tramiteId,
       createdAt: F.serverTimestamp()
     });
     mostrarModalConf('✅ Trámite aceptado', '⏱️ Tienes <strong>24 horas</strong> para completarlo una vez confirmado el pago.<br><br>Si no lo completas en ese plazo, Juristam será notificado automáticamente.', function() {
@@ -2109,7 +2113,8 @@ async function loadJAbogados() {
   var abs = [];
   snap.forEach(function(d){ abs.push({ id: d.id, ...d.data() }); });
   abs = abs.filter(function(a){ return a.role !== 'juristam' && a.verified === true; });
-  abs.sort(function(a,b){ return (a.nombre||'').localeCompare(b.nombre||''); });
+  // Ordenar por fecha de verificación — el más reciente primero
+  abs.sort(function(a,b){ return (b.createdAt?.seconds||0)-(a.createdAt?.seconds||0); });
   _abogadosCargados = abs;
   if (!abs.length) { list.innerHTML = '<p style="color:#6B5B95;padding:1rem;text-align:center;">No hay abogados verificados aun.</p>'; return; }
   renderAbogadosList(abs, list);
@@ -2301,17 +2306,6 @@ async function loadJTramites() {
 }
 
 
-async function limpiarTodasNotifJ() {
-  mostrarModalConf('Limpiar todas', '¿Eliminar todas las notificaciones del panel?', async function() {
-    var F = window._firebase;
-    var snap = await F.getDocs(F.collection(F.db,'notificaciones_juristam'));
-    var promesas = [];
-    snap.forEach(function(d){ promesas.push(F.deleteDoc(F.doc(F.db,'notificaciones_juristam',d.id))); });
-    await Promise.all(promesas);
-    mostrarModalConf('Listo', 'Todas las notificaciones fueron eliminadas.', function(){ loadJNotifJ(); });
-  });
-}
-
 async function limpiarNotifPorDescripcion() {
   var F = window._firebase;
   var palabras = ['hazlo ahora', 'prueba', 'juan perez', 'juan pérez', 'maria lopes', 'ficticio'];
@@ -2344,20 +2338,15 @@ async function limpiarNotifPorDescripcion() {
 async function borrarNotificacionesTramite(tramiteId) {
   var F = window._firebase;
   try {
-    // Borrar notificaciones de abogados relacionadas al tramite
+    // Borrar notificaciones de abogados por tramiteId
     var snapN = await F.getDocs(F.query(F.collection(F.db,'notificaciones'), F.where('tramiteId','==',tramiteId)));
     var promesas = [];
     snapN.forEach(function(d){ promesas.push(F.deleteDoc(F.doc(F.db,'notificaciones',d.id))); });
     await Promise.all(promesas);
-    // Borrar notificaciones del panel de Juristam relacionadas
-    var snapNJ = await F.getDocs(F.collection(F.db,'notificaciones_juristam'));
+    // Borrar notificaciones del panel de Juristam por tramiteId
+    var snapNJ = await F.getDocs(F.query(F.collection(F.db,'notificaciones_juristam'), F.where('tramiteId','==',tramiteId)));
     var promesasJ = [];
-    snapNJ.forEach(function(d){
-      var msg = d.data().mensaje || '';
-      if (msg.includes(tramiteId) || (d.data().tipo === 'tramite_aceptado' && msg.includes(tramiteId))) {
-        promesasJ.push(F.deleteDoc(F.doc(F.db,'notificaciones_juristam',d.id)));
-      }
-    });
+    snapNJ.forEach(function(d){ promesasJ.push(F.deleteDoc(F.doc(F.db,'notificaciones_juristam',d.id))); });
     await Promise.all(promesasJ);
   } catch(e) { console.log('Error borrando notificaciones:', e); }
 }
@@ -2533,10 +2522,14 @@ async function loadJOpiniones() {
   var list = document.getElementById('jOpinionesList');
   list.innerHTML = '<p style="color:#7c6fa0;padding:1rem;">Cargando...</p>';
   try {
-    var snap = await F.getDocs(F.query(F.collection(F.db,'opiniones'), F.where('estado','==','pendiente'), F.orderBy('createdAt','desc')));
+    var snap = await F.getDocs(F.query(F.collection(F.db,'opiniones'), F.where('estado','==','pendiente')));
     if (snap.empty) { list.innerHTML = '<p style="color:#1A7F5A;padding:1rem;">No hay opiniones pendientes.</p>'; return; }
+    // Ordenar por fecha descendente en JS
+    var opDocs = [];
+    snap.forEach(function(docSnap){ opDocs.push(docSnap); });
+    opDocs.sort(function(a,b){ return (b.data().createdAt?.seconds||0)-(a.data().createdAt?.seconds||0); });
     var html2 = '';
-    snap.forEach(function(docSnap) {
+    opDocs.forEach(function(docSnap) {
       var o = docSnap.data();
       var oid = docSnap.id;
       var stars = '★'.repeat(o.puntaje) + '☆'.repeat(5 - o.puntaje);
