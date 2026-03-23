@@ -2224,13 +2224,62 @@ async function loadJTramites() {
   var tramites = [];
   snap.forEach(function(d){ tramites.push({ id: d.id, ...d.data() }); });
   tramites.sort(function(a,b){ return (b.createdAt?.seconds||0)-(a.createdAt?.seconds||0); });
-  if (tramites.length === 0) { list.innerHTML = '<p style="color:#6B5B95;padding:1rem;">No hay trámites.</p>'; return; }
+  if (tramites.length === 0) { list.innerHTML = '<p style="color:#6B5B95;padding:1rem;">No hay tramites.</p>'; return; }
   list.innerHTML = '';
-  tramites.forEach(function(t){
-    var estadoLabel = t.estado === 'pendiente' ? '⏳ Pendiente' : t.estado === 'esperando_pago' ? '💳 Esperando pago' : t.estado === 'en_proceso' ? '🔄 En proceso (' + t.aceptadoPor + ')' : '✅ Terminado (' + t.aceptadoPor + ')';
-    list.innerHTML += '<div class="tramite-item"><strong>' + t.nombre + '</strong> → ' + t.ciudadDestino + '<br><small style="color:#7c6fa0;">' + t.descripcion.substring(0,60) + '...</small><br>$' + t.monto + ' (comisión: $' + (t.monto*0.078).toFixed(2) + ') · ' + estadoLabel + '</div>';
+  tramites.forEach(function(t) {
+    var estadoColor = t.estado === 'pendiente' ? '#C07C1A' : t.estado === 'esperando_pago' ? '#2563EB' : t.estado === 'en_proceso' ? '#7c3aed' : '#1A7F5A';
+    var estadoLabel = t.estado === 'pendiente' ? 'Pendiente' : t.estado === 'esperando_pago' ? 'Esperando pago' : t.estado === 'en_proceso' ? 'En proceso' : 'Terminado';
+    var div = document.createElement('div');
+    div.style.cssText = 'background:#fff;border:1px solid #EDE9F8;border-radius:0.75rem;padding:1rem;margin-bottom:0.75rem;';
+    div.innerHTML =
+      '<div style="display:flex;justify-content:space-between;align-items:flex-start;gap:0.5rem;margin-bottom:0.5rem;">' +
+      '<div>' +
+      '<p style="font-weight:700;color:#2d1060;font-size:0.9rem;">' + (t.nombre||'Sin nombre') + ' → ' + (t.ciudadDestino||'-') + '</p>' +
+      '<p style="font-size:0.78rem;color:#7c6fa0;">' + (t.descripcion||'').substring(0,80) + '...</p>' +
+      '</div>' +
+      '<span style="background:' + estadoColor + ';color:#fff;border-radius:999px;font-size:0.7rem;font-weight:700;padding:2px 8px;white-space:nowrap;">' + estadoLabel + '</span>' +
+      '</div>' +
+      '<div style="font-size:0.8rem;color:#4c1d95;margin-bottom:0.6rem;">' +
+      '<span>💰 $' + (t.monto||0) + '</span>' +
+      (t.aceptadoPor ? ' · <span>👤 ' + t.aceptadoPor + '</span>' : '') +
+      (t.asignadoA ? ' · <span>📌 Asignado</span>' : '') +
+      '</div>' +
+      '<div style="display:flex;gap:0.4rem;flex-wrap:wrap;">' +
+      (t.estado !== 'pendiente' ?
+        '<button class="btn-revertir" data-id="' + t.id + '" style="background:#f59e0b;color:#fff;border:none;padding:0.35rem 0.75rem;border-radius:0.4rem;font-size:0.75rem;font-weight:600;cursor:pointer;">↩ Revertir a pendiente</button>' : '') +
+      '<button class="btn-eliminar-t" data-id="' + t.id + '" style="background:#ef4444;color:#fff;border:none;padding:0.35rem 0.75rem;border-radius:0.4rem;font-size:0.75rem;font-weight:600;cursor:pointer;">🗑 Eliminar</button>' +
+      '</div>';
+    list.appendChild(div);
+  });
+
+  // Listeners revertir
+  list.querySelectorAll('.btn-revertir').forEach(function(btn) {
+    btn.onclick = async function() {
+      var F = window._firebase;
+      await F.updateDoc(F.doc(F.db,'tramites',btn.dataset.id), {
+        estado: 'pendiente',
+        aceptadoPor: '',
+        aceptadoPorId: '',
+        asignadoA: '',
+        fechaLimite: '',
+        fechaLimitePago: ''
+      });
+      mostrarModalConf('Tramite revertido', 'El tramite volvio a estado pendiente como si nunca hubiera sido aceptado.', function(){ loadJTramites(); cargarBadgesJ(); });
+    };
+  });
+
+  // Listeners eliminar
+  list.querySelectorAll('.btn-eliminar-t').forEach(function(btn) {
+    btn.onclick = function() {
+      mostrarModalConf('Eliminar tramite', '¿Estas seguro? Esta accion no se puede deshacer.', async function() {
+        var F = window._firebase;
+        await F.deleteDoc(F.doc(F.db,'tramites',btn.dataset.id));
+        mostrarModalConf('Eliminado', 'El tramite fue eliminado completamente.', function(){ loadJTramites(); cargarBadgesJ(); });
+      });
+    };
   });
 }
+
 
 async function loadJAsignar() {
   var F = window._firebase;
