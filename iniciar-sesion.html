@@ -395,15 +395,16 @@
     </div>
     <nav><ul>
       <li><a onclick="showJSection('jAbogadosSection')"><i class="fas fa-users"></i> Abogados</a></li>
-      <li><a onclick="showJSection('jVerificarSection')"><i class="fas fa-user-check"></i> Verificar</a></li>
-      <li><a onclick="showJSection('jSuscripcionSection')"><i class="fas fa-crown"></i> Suscripciones</a></li>
-      <li><a onclick="showJSection('jTramitesSection')"><i class="fas fa-file-alt"></i> Trámites</a></li>
-      <li><a onclick="showJSection('jAsignarSection')"><i class="fas fa-map-marker-alt"></i> Asignar</a></li>
-      <li><a onclick="showJSection('jPagosSection')"><i class="fas fa-money-bill"></i> Confirmar Pagos</a></li>
-      <li><a onclick="showJSection('jMensajesSection')"><i class="fas fa-comments"></i> Conversaciones</a></li>
-      <li><a onclick="showJSection('jNotifJSection')"><i class="fas fa-bell"></i> Notificaciones</a></li>
+      <li><a onclick="showJSection('jVerificarSection')"><i class="fas fa-user-check"></i> Verificar <span id="badge-verificar" style="display:none;background:#e53e3e;color:#fff;border-radius:999px;font-size:0.65rem;font-weight:700;padding:1px 6px;margin-left:4px;vertical-align:middle;"></span></a></li>
+      <li><a onclick="showJSection('jSuscripcionSection')"><i class="fas fa-crown"></i> Suscripciones <span id="badge-suscripcion" style="display:none;background:#e53e3e;color:#fff;border-radius:999px;font-size:0.65rem;font-weight:700;padding:1px 6px;margin-left:4px;vertical-align:middle;"></span></a></li>
+      <li><a onclick="showJSection('jTramitesSection')"><i class="fas fa-file-alt"></i> Trámites <span id="badge-tramites" style="display:none;background:#e53e3e;color:#fff;border-radius:999px;font-size:0.65rem;font-weight:700;padding:1px 6px;margin-left:4px;vertical-align:middle;"></span></a></li>
+      <li><a onclick="showJSection('jAsignarSection')"><i class="fas fa-map-marker-alt"></i> Asignar <span id="badge-asignar" style="display:none;background:#e53e3e;color:#fff;border-radius:999px;font-size:0.65rem;font-weight:700;padding:1px 6px;margin-left:4px;vertical-align:middle;"></span></a></li>
+      <li><a onclick="showJSection('jPagosSection')"><i class="fas fa-money-bill"></i> Confirmar Pagos <span id="badge-pagos" style="display:none;background:#e53e3e;color:#fff;border-radius:999px;font-size:0.65rem;font-weight:700;padding:1px 6px;margin-left:4px;vertical-align:middle;"></span></a></li>
+      <li><a onclick="showJSection('jMensajesSection')"><i class="fas fa-comments"></i> Conversaciones <span id="badge-mensajes" style="display:none;background:#e53e3e;color:#fff;border-radius:999px;font-size:0.65rem;font-weight:700;padding:1px 6px;margin-left:4px;vertical-align:middle;"></span></a></li>
+      <li><a onclick="showJSection('jNotifJSection')"><i class="fas fa-bell"></i> Notificaciones <span id="badge-notif" style="display:none;background:#e53e3e;color:#fff;border-radius:999px;font-size:0.65rem;font-weight:700;padding:1px 6px;margin-left:4px;vertical-align:middle;"></span></a></li>
       <li><a onclick="showJSection('jPagosRegistroSection')"><i class="fas fa-file-invoice-dollar"></i> Registro Pagos</a></li>
       <li><a onclick="showJSection('jRotacionSection')"><i class="fas fa-sync-alt"></i> Rotación</a></li>
+      <li><a onclick="showJSection('jOpinionesJSection')"><i class="fas fa-star"></i> Opiniones <span id="badge-opiniones" style="display:none;background:#e53e3e;color:#fff;border-radius:999px;font-size:0.65rem;font-weight:700;padding:1px 6px;margin-left:4px;vertical-align:middle;"></span></a></li>
       <li><a onclick="doLogout()"><i class="fas fa-sign-out-alt"></i> Cerrar Sesión</a></li>
     </ul></nav>
   </div>
@@ -497,6 +498,7 @@ waitFirebase(function() {
         if (currentUserData.role === 'juristam') {
           showPanel('juristamPanel');
           showJSection('jAbogadosSection');
+          cargarBadgesJ();
         } else {
           // Verificar si puede acceder
           var puedeAcceder = currentUserData.subscriptionPaid || isTrialActive(currentUserData.registerDate);
@@ -774,6 +776,49 @@ function showSection(sectionId) {
   if (sectionId === 'opinionesSection') loadOpiniones();
   if (sectionId === 'notificacionesSection') loadNotificaciones();
   if (window.innerWidth < 1024) { toggleSidebarJ(); }
+}
+
+async function cargarBadgesJ() {
+  var F = window._firebase;
+  try {
+    // Badge Verificar — abogados pendientes
+    var snapV = await F.getDocs(F.query(F.collection(F.db,'abogados'), F.where('verified','==',false)));
+    var pendV = 0;
+    snapV.forEach(function(d){ if(d.data().role !== 'juristam' && !d.data().rechazado) pendV++; });
+    setBadgeJ('badge-verificar', pendV);
+
+    // Badge Asignar — tramites pendientes sin asignar
+    var snapA = await F.getDocs(F.query(F.collection(F.db,'tramites'), F.where('estado','==','pendiente')));
+    var pendA = 0;
+    snapA.forEach(function(d){ if(!d.data().aceptadoPor) pendA++; });
+    setBadgeJ('badge-asignar', pendA);
+
+    // Badge Confirmar Pagos — tramites esperando pago con comprobante
+    var snapP = await F.getDocs(F.query(F.collection(F.db,'tramites'), F.where('estado','==','esperando_pago')));
+    var pendP = 0;
+    snapP.forEach(function(d){ if(d.data().comprobanteUrl) pendP++; });
+    setBadgeJ('badge-pagos', pendP);
+
+    // Badge Notificaciones — no leidas
+    var snapN = await F.getDocs(F.query(F.collection(F.db,'notificaciones_juristam'), F.where('leida','==',false)));
+    setBadgeJ('badge-notif', snapN.size);
+
+    // Badge Opiniones — pendientes
+    var snapO = await F.getDocs(F.query(F.collection(F.db,'opiniones'), F.where('estado','==','pendiente')));
+    setBadgeJ('badge-opiniones', snapO.size);
+
+  } catch(e) { console.log('badges error:', e); }
+}
+
+function setBadgeJ(id, count) {
+  var el = document.getElementById(id);
+  if (!el) return;
+  if (count > 0) {
+    el.textContent = count;
+    el.style.display = 'inline-block';
+  } else {
+    el.style.display = 'none';
+  }
 }
 
 function showJSection(sectionId) {
@@ -1912,27 +1957,52 @@ async function loadJVerificar() {
   var snap = await F.getDocs(q);
   var abs = [];
   snap.forEach(function(d){ abs.push({ id: d.id, ...d.data() }); });
-  abs = abs.filter(function(a){ return a.role !== 'juristam'; });
-  if (abs.length === 0) { list.innerHTML = '<p style="color:#6B5B95;padding:1rem;text-align:center;">No hay abogados pendientes de verificación. ✅</p>'; return; }
+  abs = abs.filter(function(a){ return a.role !== 'juristam' && a.rechazado !== true; });
+  if (abs.length === 0) { list.innerHTML = '<p style="color:#6B5B95;padding:1rem;text-align:center;">No hay abogados pendientes. ✅</p>'; return; }
   list.innerHTML = '';
-  abs.forEach(function(a){
-    list.innerHTML += '<div style="padding:1rem;border-bottom:1px solid #EDE9F8;background:#fffbf0;">' +
+  abs.forEach(function(a) {
+    var enc = a.encuesta || {};
+    var encHTML = '<div style="background:#f8f5ff;border-radius:0.5rem;padding:0.65rem;margin-bottom:0.6rem;font-size:0.8rem;">' +
+      '<p style="font-weight:700;color:#4c1d95;margin-bottom:0.35rem;">Encuesta de registro</p>' +
+      '<p><span style="font-weight:600;color:#7c3aed;">Precio justo:</span> ' + (enc.precio||'No respondió') + '</p>' +
+      '<p><span style="font-weight:600;color:#7c3aed;">Frecuencia de uso:</span> ' + (enc.frecuencia||'No respondió') + '</p>' +
+      '<p><span style="font-weight:600;color:#7c3aed;">Tuvo mala experiencia:</span> ' + (enc.mala_exp||'No respondió') + '</p>' +
+      '<p><span style="font-weight:600;color:#7c3aed;">Lo más importante:</span> ' + (enc.importancia||'No respondió') + '</p>' +
+      '</div>';
+    var rolHTML = '<div style="background:#fffbe6;border-radius:0.5rem;padding:0.5rem;margin-bottom:0.6rem;font-size:0.8rem;">' +
+      '<span style="font-weight:600;color:#C07C1A;">Rol en plataforma:</span> ' + (a.rol_plataforma||'No especificado') + '</div>';
+    list.innerHTML +=
+      '<div style="padding:1rem;border-bottom:1px solid #EDE9F8;background:#fffbf0;">' +
       '<div style="display:flex;align-items:center;gap:0.75rem;margin-bottom:0.75rem;">' +
-      '<img src="' + a.foto + '" style="width:44px;height:44px;border-radius:50%;object-fit:cover;border:2px solid #C07C1A;flex-shrink:0;">' +
-      '<div><strong>' + a.nombre + '</strong><br><small style="color:#7c6fa0;">' + a.email + ' · ' + a.ciudad + '</small></div>' +
+      '<img src="' + (a.foto||'https://via.placeholder.com/44') + '" style="width:52px;height:52px;border-radius:50%;object-fit:cover;border:2px solid #C07C1A;flex-shrink:0;">' +
+      '<div><strong style="color:#2d1060;">' + a.nombre + '</strong><br>' +
+      '<small style="color:#7c6fa0;">' + a.email + ' · ' + a.ciudad + '</small></div>' +
       '</div>' +
-      '<div style="display:grid;grid-template-columns:1fr 1fr;gap:0.5rem;font-size:0.85rem;margin-bottom:0.75rem;">' +
-      '<p><span style="font-weight:600;color:#4c1d95;">Matrícula:</span> ' + a.matricula + '</p>' +
-      '<p><span style="font-weight:600;color:#4c1d95;">Cédula:</span> ' + a.cedula + '</p>' +
-      '<p><span style="font-weight:600;color:#4c1d95;">Teléfono:</span> ' + a.telefono + '</p>' +
-      '<p><span style="font-weight:600;color:#4c1d95;">Registro:</span> ' + a.registerDate + '</p>' +
+      '<div style="display:grid;grid-template-columns:1fr 1fr;gap:0.4rem;font-size:0.82rem;margin-bottom:0.6rem;">' +
+      '<p><span style="font-weight:600;color:#4c1d95;">Matrícula:</span> ' + (a.matricula||'-') + '</p>' +
+      '<p><span style="font-weight:600;color:#4c1d95;">Cédula:</span> ' + (a.cedula||'-') + '</p>' +
+      '<p><span style="font-weight:600;color:#4c1d95;">Teléfono:</span> ' + (a.telefono||'-') + '</p>' +
+      '<p><span style="font-weight:600;color:#4c1d95;">Registro:</span> ' + (a.registerDate||'-') + '</p>' +
+      '<p><span style="font-weight:600;color:#4c1d95;">Nivel:</span> ' + (a.nivel||'-') + '</p>' +
+      '<p><span style="font-weight:600;color:#4c1d95;">Experiencia:</span> ' + (a.experiencia||'-') + '</p>' +
       '</div>' +
+      (a.descripcion ? '<p style="font-size:0.8rem;color:#4c1d95;margin-bottom:0.6rem;"><span style="font-weight:600;">Descripción:</span> ' + a.descripcion + '</p>' : '') +
+      rolHTML +
+      encHTML +
       '<div style="display:flex;gap:0.5rem;">' +
-      '<button onclick="verificarAbogado(\'' + a.id + '\')" style="background:linear-gradient(135deg,#1A7F5A,#38A169);color:#fff;border:none;padding:0.5rem 1rem;border-radius:0.5rem;font-size:0.82rem;font-weight:600;cursor:pointer;flex:1;"><i class="fas fa-check"></i> Verificar matrícula</button>' +
-      '<button onclick="rechazarAbogado(\'' + a.id + '\')" style="background:linear-gradient(135deg,#B83232,#8C2020);color:#fff;border:none;padding:0.5rem 1rem;border-radius:0.5rem;font-size:0.82rem;font-weight:600;cursor:pointer;flex:1;"><i class="fas fa-times"></i> Rechazar</button>' +
+      '<button class="btn-verificar-ab" data-id="' + a.id + '" style="background:linear-gradient(135deg,#1A7F5A,#38A169);color:#fff;border:none;padding:0.5rem 1rem;border-radius:0.5rem;font-size:0.82rem;font-weight:600;cursor:pointer;flex:1;"><i class="fas fa-check"></i> Verificar</button>' +
+      '<button class="btn-rechazar-ab" data-id="' + a.id + '" style="background:linear-gradient(135deg,#B83232,#8C2020);color:#fff;border:none;padding:0.5rem 1rem;border-radius:0.5rem;font-size:0.82rem;font-weight:600;cursor:pointer;flex:1;"><i class="fas fa-times"></i> Rechazar</button>' +
       '</div></div>';
   });
+  // Listeners
+  list.querySelectorAll('.btn-verificar-ab').forEach(function(btn) {
+    btn.onclick = function() { verificarAbogado(btn.dataset.id); };
+  });
+  list.querySelectorAll('.btn-rechazar-ab').forEach(function(btn) {
+    btn.onclick = function() { rechazarAbogado(btn.dataset.id); };
+  });
 }
+
 
 async function verificarAbogado(abogadoId) {
   var F = window._firebase;
@@ -1945,6 +2015,7 @@ async function verificarAbogado(abogadoId) {
     leida: false,
     createdAt: F.serverTimestamp()
   });
+  cargarBadgesJ();
   mostrarModalConf('✅ Abogado verificado','La cuenta fue activada y el abogado fue notificado.',function(){ loadJVerificar(); loadJAbogados(); });
 }
 
@@ -2576,4 +2647,8 @@ async function subirImagenCloudinary(file, carpeta) {
       }).catch(function(){});
     }
   } catch(e) {}
-}>
+}
+}
+</script>
+</body>
+</html>
