@@ -1246,9 +1246,59 @@ function renderSolicitarForm() {
     '<div style="display:flex;justify-content:space-between;font-weight:700;color:#4c1d95;border-top:1px solid #c4b5f4;padding-top:0.3rem;margin-top:0.2rem;"><span>Total:</span><span id="resTotal">$0.00</span></div>' +
     '</div></div>' +
     '<textarea id="sTramiteDesc" placeholder="Descripción del trámite" rows="4" required></textarea>' +
+    '<div id="msgEnvioSolicitante" style="display:none;background:#eff6ff;border:1.5px solid #93c5fd;border-radius:0.6rem;padding:0.85rem;">' +
+    '<p style="font-size:0.82rem;color:#1e40af;font-weight:600;"><i class="fas fa-info-circle" style="margin-right:0.4rem;"></i>Una vez que confirmes el pago, se te mostrará la dirección del colega gestor para que le envíes los documentos.</p>' +
+    '</div>' +
+    '<div id="formDirSolicitante" style="display:none;background:#fffbe6;border:1.5px solid #C07C1A;border-radius:0.6rem;padding:0.85rem;">' +
+    '<p id="tituloFormDir" style="font-size:0.82rem;color:#C07C1A;font-weight:600;margin-bottom:0.75rem;"></p>' +
+    '<input type="text" id="cedulaSolDir" placeholder="Tu cédula de identidad" style="width:100%;padding:0.45rem 0.65rem;border:1.5px solid #C4B5F4;border-radius:0.4rem;font-size:0.82rem;margin-bottom:0.5rem;box-sizing:border-box;">' +
+    '<div style="display:flex;gap:1rem;margin-bottom:0.75rem;">' +
+    '<label style="display:flex;align-items:center;gap:0.4rem;font-size:0.82rem;cursor:pointer;"><input type="radio" name="tipoDirSol" value="personal" onchange="toggleDirFields(\'Sol\')" style="accent-color:#7c3aed;"> Dirección personal</label>' +
+    '<label style="display:flex;align-items:center;gap:0.4rem;font-size:0.82rem;cursor:pointer;"><input type="radio" name="tipoDirSol" value="servientrega" onchange="toggleDirFields(\'Sol\')" style="accent-color:#7c3aed;"> Servientrega</label>' +
+    '</div>' +
+    '<div id="camposPersonalSol">' +
+    '<input type="text" id="dirPersonalSol" placeholder="Dirección completa con referencia" style="width:100%;padding:0.45rem 0.65rem;border:1.5px solid #C4B5F4;border-radius:0.4rem;font-size:0.82rem;margin-bottom:0.35rem;box-sizing:border-box;">' +
+    '<input type="text" id="dirCiudadPersonalSol" placeholder="Ciudad" style="width:100%;padding:0.45rem 0.65rem;border:1.5px solid #C4B5F4;border-radius:0.4rem;font-size:0.82rem;margin-bottom:0.35rem;box-sizing:border-box;">' +
+    '</div>' +
+    '<div id="camposServientregaSol" style="display:none;">' +
+    '<p style="font-size:0.78rem;color:#7c6fa0;margin-bottom:0.4rem;">Se te enviará al Servientrega más cercano a ti. Proporciona la información de esa sucursal:</p>' +
+    '<input type="text" id="dirSvSucSol" placeholder="Dirección de la sucursal Servientrega" style="width:100%;padding:0.45rem 0.65rem;border:1.5px solid #C4B5F4;border-radius:0.4rem;font-size:0.82rem;margin-bottom:0.35rem;box-sizing:border-box;">' +
+    '<input type="text" id="dirSvCiudadSol" placeholder="Ciudad" style="width:100%;padding:0.45rem 0.65rem;border:1.5px solid #C4B5F4;border-radius:0.4rem;font-size:0.82rem;margin-bottom:0.35rem;box-sizing:border-box;">' +
+    '</div>' +
+    '</div>' +
     '<button type="button" onclick="publicarTramite()" style="background:linear-gradient(135deg,#4c1d95,#9a6aff);padding:0.85rem;border-radius:0.6rem;font-weight:700;box-shadow:0 4px 16px rgba(124,58,237,0.35);"><i class="fas fa-paper-plane"></i> Publicar Trámite</button>' +
     '<p id="solicitarMsg" class="message"></p>' +
     '</form>';
+}
+
+function toggleDirFields(prefijo) {
+  var tipo = document.querySelector('input[name="tipoDirSol"]:checked');
+  if (!tipo) return;
+  var camposPersonal = document.getElementById('camposPersonal' + prefijo);
+  var camposSv = document.getElementById('camposServientrega' + prefijo);
+  if (!camposPersonal || !camposSv) return;
+  if (tipo.value === 'personal') {
+    camposPersonal.style.display = 'block';
+    camposSv.style.display = 'none';
+  } else {
+    camposPersonal.style.display = 'none';
+    camposSv.style.display = 'block';
+  }
+}
+
+function toggleDirFieldsEj(tramiteId) {
+  var tipo = document.querySelector('input[name="tipo-dir-ej-' + tramiteId + '"]:checked');
+  if (!tipo) return;
+  var camposPersonal = document.getElementById('campos-personal-ej-' + tramiteId);
+  var camposSv = document.getElementById('campos-sv-ej-' + tramiteId);
+  if (!camposPersonal || !camposSv) return;
+  if (tipo.value === 'personal') {
+    camposPersonal.style.display = 'block';
+    camposSv.style.display = 'none';
+  } else {
+    camposPersonal.style.display = 'none';
+    camposSv.style.display = 'block';
+  }
 }
 
 function selectDocOpt(label, value) {
@@ -1258,6 +1308,25 @@ function selectDocOpt(label, value) {
   label.style.borderColor = '#9a6aff';
   label.style.background = '#f8f5ff';
   calcularTotalSolicitar();
+  // Mostrar formulario de dirección según escenario
+  var formDir = document.getElementById('formDirSolicitante');
+  var msgEnvio = document.getElementById('msgEnvioSolicitante');
+  if (!formDir || !msgEnvio) return;
+  if (value === 'recepcion') {
+    formDir.style.display = 'block';
+    msgEnvio.style.display = 'none';
+    document.getElementById('tituloFormDir').textContent = 'El colega que gestione tu trámite necesitará enviarte documentos al completarlo. Proporciona tu dirección de entrega. Tu dirección solo le será visible al gestor una vez que confirmes el pago.';
+  } else if (value === 'ambos') {
+    formDir.style.display = 'block';
+    msgEnvio.style.display = 'none';
+    document.getElementById('tituloFormDir').textContent = 'Este trámite involucra envío y recepción de documentos. Proporciona tu dirección para que el colega gestor pueda enviarte documentos al completarlo. Tu dirección solo le será visible al gestor una vez que confirmes el pago. Así mismo, la dirección del gestor te aparecerá a ti una vez que confirmes el pago.';
+  } else if (value === 'envio') {
+    formDir.style.display = 'none';
+    msgEnvio.style.display = 'block';
+  } else {
+    formDir.style.display = 'none';
+    msgEnvio.style.display = 'none';
+  }
 }
 
 function calcularTotalSolicitar() {
@@ -1305,6 +1374,27 @@ async function publicarTramite() {
   try {
     // Verificar que el usuario tiene datos necesarios
     if (!currentUser || !currentUserData) throw new Error('Sesion expirada. Recarga la pagina.');
+    // Leer dirección del solicitante si aplica
+    var tipoDocVal = tipoDoc.value;
+    var dirSolicitante = null;
+    if (tipoDocVal === 'recepcion' || tipoDocVal === 'ambos') {
+      var cedulaSolDir = document.getElementById('cedulaSolDir') ? document.getElementById('cedulaSolDir').value.trim() : '';
+      var tipoDirSolEl = document.querySelector('input[name="tipoDirSol"]:checked');
+      var tipoDirSolVal = tipoDirSolEl ? tipoDirSolEl.value : '';
+      var dirSolVal = '';
+      if (tipoDirSolVal === 'personal') {
+        var dirP = document.getElementById('dirPersonalSol') ? document.getElementById('dirPersonalSol').value.trim() : '';
+        var ciudadP = document.getElementById('dirCiudadPersonalSol') ? document.getElementById('dirCiudadPersonalSol').value.trim() : '';
+        dirSolVal = dirP + (ciudadP ? ' — Ciudad: ' + ciudadP : '');
+      } else if (tipoDirSolVal === 'servientrega') {
+        var sucursal = document.getElementById('dirSvSucSol') ? document.getElementById('dirSvSucSol').value.trim() : '';
+        var ciudad = document.getElementById('dirSvCiudadSol') ? document.getElementById('dirSvCiudadSol').value.trim() : '';
+        dirSolVal = 'Servientrega — Dirección: ' + sucursal + (ciudad ? ' — Ciudad: ' + ciudad : '');
+      }
+      if (cedulaSolDir && dirSolVal) {
+        dirSolicitante = { cedula: cedulaSolDir, direccion: dirSolVal, tipo: tipoDirSolVal };
+      }
+    }
     var tramiteRef = await F.addDoc(F.collection(F.db, 'tramites'), {
       abogadoId: currentUser.uid,
       nombre: currentUserData.nombre || 'Sin nombre',
@@ -1324,6 +1414,7 @@ async function publicarTramite() {
       asignadoA: '',
       fechaLimite: '',
       fechaLimitePago: '',
+      direccionSolicitante: dirSolicitante || null,
       createdAt: F.serverTimestamp()
     });
     if (btn) { btn.innerHTML = '<i class="fas fa-paper-plane"></i> Publicar Trámite'; btn.disabled = false; }
@@ -1462,7 +1553,7 @@ async function loadEnviados() {
   todos.sort(function(a,b) { return (b.createdAt?.seconds||0) - (a.createdAt?.seconds||0); });
   var esperando = todos.filter(function(t){ return t.estado === 'esperando_pago'; });
   var pendientes = todos.filter(function(t){ return t.estado === 'pendiente'; });
-  var enProceso = todos.filter(function(t){ return t.estado === 'en_proceso'; });
+  var enProceso = todos.filter(function(t){ return t.estado === 'en_proceso' || t.estado === 'pendiente_revision'; });
   var terminados = todos.filter(function(t){ return t.estado === 'terminado'; });
   if (todos.length === 0) { list.innerHTML = '<p style="color:#6B5B95;padding:1rem;">No has enviado trámites aún.</p>'; return; }
   list.innerHTML = '';
@@ -1517,12 +1608,10 @@ async function loadEnviados() {
       div.className = 'tramite-item';
       div.style.cssText = 'border-left:3px solid #8B5CF6;margin-bottom:0.5rem;';
 
-      // Formulario dirección al solicitante según escenario
+      // Mensajes al solicitante según escenario
       var dirHtml = '';
-      if ((t.tipo_documentos === 'recepcion' || t.tipo_documentos === 'ambos') && !t.direccionSolicitante) {
-        var descDir = t.tipo_documentos === 'ambos'
-          ? 'El ejecutor te enviará documentos al completar el trámite. Proporciona tu dirección para recibirlos.'
-          : 'El ejecutor te enviará los documentos del trámite al completarlo. Proporciona tu dirección.';
+      if (false) { // placeholder para mantener estructura
+        var descDir = '';
         dirHtml = '<div style="background:#fffbe6;border:1.5px solid #C07C1A;border-radius:0.6rem;padding:0.85rem;margin-top:0.6rem;">' +
           '<p style="font-weight:700;color:#C07C1A;font-size:0.85rem;margin-bottom:0.4rem;">📬 Proporciona tu dirección para recibir documentos</p>' +
           '<p style="font-size:0.78rem;color:#4c1d95;margin-bottom:0.6rem;">' + descDir + '</p>' +
@@ -1536,11 +1625,33 @@ async function loadEnviados() {
           '<input type="text" id="dir-sv-suc-sol-' + t.id + '" placeholder="Dirección exacta de la sucursal Servientrega" style="width:100%;padding:0.45rem 0.65rem;border:1.5px solid #C4B5F4;border-radius:0.4rem;font-size:0.82rem;margin-bottom:0.5rem;box-sizing:border-box;">' +
           '<button class="btn-guardar-dir-sol" data-id="' + t.id + '" style="background:linear-gradient(135deg,#C07C1A,#F59E0B);color:#fff;border:none;padding:0.45rem 1rem;border-radius:0.4rem;font-size:0.82rem;font-weight:600;cursor:pointer;width:100%;">Guardar dirección</button>' +
           '</div>';
-      } else if ((t.tipo_documentos === 'recepcion' || t.tipo_documentos === 'ambos') && t.direccionSolicitante) {
-        dirHtml = '<div style="background:#d1fae5;border-radius:0.5rem;padding:0.5rem 0.75rem;margin-top:0.5rem;font-size:0.8rem;color:#1A7F5A;">✓ Tu dirección fue registrada. El ejecutor fue notificado.</div>';
       }
-      if (t.tipo_documentos === 'envio' && t.direccionEjecutor) {
-        dirHtml += '<div style="background:#fffbe6;border:1px solid #C07C1A;border-radius:0.5rem;padding:0.5rem 0.75rem;margin-top:0.5rem;font-size:0.8rem;color:#C07C1A;"><strong>📦 Envía tus documentos a:</strong><br>' + t.direccionEjecutor.direccion + '<br>Cédula ejecutor: ' + t.direccionEjecutor.cedula + '</div>';
+      // Escenario envio: aviso antes del pago, dirección del gestor después del pago
+      if (t.tipo_documentos === 'envio') {
+        if (t.estado === 'esperando_pago') {
+          dirHtml = '<div style="background:#eff6ff;border:1.5px solid #93c5fd;border-radius:0.5rem;padding:0.75rem;margin-top:0.5rem;font-size:0.82rem;color:#1e40af;"><i class="fas fa-info-circle" style="margin-right:0.4rem;"></i>Una vez que confirmes el pago, se te mostrará la dirección del colega gestor para que le envíes los documentos.</div>';
+        } else if (t.direccionEjecutor) {
+          dirHtml = '<div style="background:#fffbe6;border:1.5px solid #C07C1A;border-radius:0.75rem;padding:0.75rem;margin-top:0.5rem;font-size:0.82rem;color:#C07C1A;"><strong>📦 Envía los documentos a esta dirección:</strong><br>' + t.direccionEjecutor.direccion + '<br><strong>Cédula del gestor:</strong> ' + t.direccionEjecutor.cedula + '</div>';
+        } else {
+          dirHtml = '<div style="background:#eff6ff;border:1.5px solid #93c5fd;border-radius:0.5rem;padding:0.75rem;margin-top:0.5rem;font-size:0.82rem;color:#1e40af;"><i class="fas fa-clock" style="margin-right:0.4rem;"></i>El colega gestor aún no ha proporcionado su dirección.</div>';
+        }
+      }
+      // Escenario recepcion: confirmar que la dirección está guardada
+      if (t.tipo_documentos === 'recepcion') {
+        if (t.direccionSolicitante) {
+          dirHtml += '<div style="background:#d1fae5;border:1px solid #6ee7b7;border-radius:0.5rem;padding:0.75rem;margin-top:0.5rem;font-size:0.82rem;color:#1A7F5A;"><i class="fas fa-check-circle" style="margin-right:0.4rem;"></i>Tu dirección está registrada. El colega gestor la verá una vez que confirmes el pago y te enviará los documentos al completar el trámite.</div>';
+        }
+      }
+      // Escenario ambos
+      if (t.tipo_documentos === 'ambos') {
+        if (t.direccionSolicitante) {
+          dirHtml += '<div style="background:#d1fae5;border:1px solid #6ee7b7;border-radius:0.5rem;padding:0.75rem;margin-top:0.5rem;font-size:0.82rem;color:#1A7F5A;"><i class="fas fa-check-circle" style="margin-right:0.4rem;"></i>Tu dirección está registrada. El gestor la verá una vez que confirmes el pago.</div>';
+        }
+        if (t.estado === 'esperando_pago') {
+          dirHtml += '<div style="background:#eff6ff;border:1.5px solid #93c5fd;border-radius:0.5rem;padding:0.75rem;margin-top:0.5rem;font-size:0.82rem;color:#1e40af;"><i class="fas fa-info-circle" style="margin-right:0.4rem;"></i>Una vez que confirmes el pago, se te mostrará la dirección del colega gestor para que le envíes los documentos.</div>';
+        } else if (t.direccionEjecutor) {
+          dirHtml += '<div style="background:#fffbe6;border:1.5px solid #C07C1A;border-radius:0.75rem;padding:0.75rem;margin-top:0.5rem;font-size:0.82rem;color:#C07C1A;"><strong>📦 Envía los documentos al gestor a esta dirección:</strong><br>' + t.direccionEjecutor.direccion + '<br><strong>Cédula del gestor:</strong> ' + t.direccionEjecutor.cedula + '</div>';
+        }
       }
 
       div.innerHTML =
@@ -1599,7 +1710,7 @@ async function loadAceptados() {
   snap.forEach(function(d) { todos.push({ id: d.id, ...d.data() }); });
   todos.sort(function(a,b) { return (b.createdAt?.seconds||0) - (a.createdAt?.seconds||0); });
   var esperando = todos.filter(function(t){ return t.estado === 'esperando_pago'; });
-  var enProceso = todos.filter(function(t){ return t.estado === 'en_proceso'; });
+  var enProceso = todos.filter(function(t){ return t.estado === 'en_proceso' || t.estado === 'pendiente_revision'; });
   var terminados = todos.filter(function(t){ return t.estado === 'terminado'; });
   if (todos.length === 0) { list.innerHTML = '<p style="color:#6B5B95;padding:1rem;">No has aceptado trámites aún.</p>'; return; }
   list.innerHTML = '';
@@ -1650,26 +1761,36 @@ async function loadAceptados() {
       var dirHtml = '';
       if ((t.tipo_documentos === 'envio' || t.tipo_documentos === 'ambos') && !t.direccionEjecutor) {
         var descDir = t.tipo_documentos === 'ambos'
-          ? 'Este trámite involucra envío y recepción de documentos. El solicitante te enviará documentos físicos y tú deberás enviarle documentos al completar. Ingresa tu dirección para recibir los documentos del solicitante.'
-          : 'El solicitante te enviará documentos físicos para que puedas iniciar el trámite. Ingresa tu dirección de recepción.';
+          ? 'Este trámite involucra envío y recepción de documentos. El solicitante te enviará documentos físicos y tú deberás enviarle documentos al completar. Ingresa tu dirección. Esta dirección únicamente le será visible al solicitante cuando haya confirmado el pago. Así mismo, la dirección del solicitante te aparecerá a ti una vez que confirme el pago.'
+          : 'El solicitante te enviará documentos físicos para iniciar este trámite. Ingresa tu dirección de entrega. Esta dirección únicamente le será visible al solicitante cuando haya confirmado el pago.';
         dirHtml = '<div style="background:#fffbe6;border:1.5px solid #C07C1A;border-radius:0.6rem;padding:0.85rem;margin-top:0.6rem;">' +
           '<p style="font-weight:700;color:#C07C1A;font-size:0.85rem;margin-bottom:0.4rem;">📬 Proporciona tu dirección para recibir documentos</p>' +
           '<p style="font-size:0.78rem;color:#4c1d95;margin-bottom:0.6rem;">' + descDir + '</p>' +
           '<input type="text" id="cedula-ej-' + t.id + '" placeholder="Tu cédula de identidad" style="width:100%;padding:0.45rem 0.65rem;border:1.5px solid #C4B5F4;border-radius:0.4rem;font-size:0.82rem;margin-bottom:0.5rem;box-sizing:border-box;">' +
-          '<div style="display:flex;gap:1rem;margin-bottom:0.5rem;">' +
-          '<label style="display:flex;align-items:center;gap:0.4rem;font-size:0.82rem;cursor:pointer;"><input type="radio" name="tipo-dir-ej-' + t.id + '" value="personal" style="accent-color:#7c3aed;"> Dirección personal</label>' +
-          '<label style="display:flex;align-items:center;gap:0.4rem;font-size:0.82rem;cursor:pointer;"><input type="radio" name="tipo-dir-ej-' + t.id + '" value="servientrega" style="accent-color:#7c3aed;"> Servientrega</label>' +
+          '<div style="display:flex;gap:1rem;margin-bottom:0.75rem;">' +
+          '<label style="display:flex;align-items:center;gap:0.4rem;font-size:0.82rem;cursor:pointer;"><input type="radio" name="tipo-dir-ej-' + t.id + '" value="personal" onchange="toggleDirFieldsEj(\'' + t.id + '\')" style="accent-color:#7c3aed;"> Dirección personal</label>' +
+          '<label style="display:flex;align-items:center;gap:0.4rem;font-size:0.82rem;cursor:pointer;"><input type="radio" name="tipo-dir-ej-' + t.id + '" value="servientrega" onchange="toggleDirFieldsEj(\'' + t.id + '\')" style="accent-color:#7c3aed;"> Servientrega</label>' +
           '</div>' +
-          '<input type="text" id="dir-personal-ej-' + t.id + '" placeholder="Dirección completa (calle, número, barrio, ciudad)" style="width:100%;padding:0.45rem 0.65rem;border:1.5px solid #C4B5F4;border-radius:0.4rem;font-size:0.82rem;margin-bottom:0.35rem;box-sizing:border-box;">' +
-          '<input type="text" id="dir-sv-ciudad-ej-' + t.id + '" placeholder="Ciudad de la sucursal Servientrega" style="width:100%;padding:0.45rem 0.65rem;border:1.5px solid #C4B5F4;border-radius:0.4rem;font-size:0.82rem;margin-bottom:0.35rem;box-sizing:border-box;">' +
-          '<input type="text" id="dir-sv-suc-ej-' + t.id + '" placeholder="Dirección exacta de la sucursal Servientrega" style="width:100%;padding:0.45rem 0.65rem;border:1.5px solid #C4B5F4;border-radius:0.4rem;font-size:0.82rem;margin-bottom:0.5rem;box-sizing:border-box;">' +
-          '<button class="btn-guardar-dir-ej" data-id="' + t.id + '" style="background:linear-gradient(135deg,#C07C1A,#F59E0B);color:#fff;border:none;padding:0.45rem 1rem;border-radius:0.4rem;font-size:0.82rem;font-weight:600;cursor:pointer;width:100%;">Guardar dirección</button>' +
+          '<div id="campos-personal-ej-' + t.id + '">' +
+          '<input type="text" id="dir-personal-ej-' + t.id + '" placeholder="Dirección completa con referencia" style="width:100%;padding:0.45rem 0.65rem;border:1.5px solid #C4B5F4;border-radius:0.4rem;font-size:0.82rem;margin-bottom:0.35rem;box-sizing:border-box;">' +
+          '<input type="text" id="dir-ciudad-personal-ej-' + t.id + '" placeholder="Ciudad" style="width:100%;padding:0.45rem 0.65rem;border:1.5px solid #C4B5F4;border-radius:0.4rem;font-size:0.82rem;margin-bottom:0.35rem;box-sizing:border-box;">' +
+          '</div>' +
+          '<div id="campos-sv-ej-' + t.id + '" style="display:none;">' +
+          '<p style="font-size:0.78rem;color:#7c6fa0;margin-bottom:0.4rem;">Se te enviará al Servientrega más cercano a ti. Proporciona la información de esa sucursal:</p>' +
+          '<input type="text" id="dir-sv-suc-ej-' + t.id + '" placeholder="Dirección de la sucursal Servientrega" style="width:100%;padding:0.45rem 0.65rem;border:1.5px solid #C4B5F4;border-radius:0.4rem;font-size:0.82rem;margin-bottom:0.35rem;box-sizing:border-box;">' +
+          '<input type="text" id="dir-sv-ciudad-ej-' + t.id + '" placeholder="Ciudad" style="width:100%;padding:0.45rem 0.65rem;border:1.5px solid #C4B5F4;border-radius:0.4rem;font-size:0.82rem;margin-bottom:0.35rem;box-sizing:border-box;">' +
+          '</div>' +
+          '<button class="btn-guardar-dir-ej" data-id="' + t.id + '" style="background:linear-gradient(135deg,#C07C1A,#F59E0B);color:#fff;border:none;padding:0.45rem 1rem;border-radius:0.4rem;font-size:0.82rem;font-weight:600;cursor:pointer;width:100%;margin-top:0.35rem;">Guardar dirección</button>' +
           '</div>';
       } else if ((t.tipo_documentos === 'envio' || t.tipo_documentos === 'ambos') && t.direccionEjecutor) {
         dirHtml = '<div style="background:#d1fae5;border-radius:0.5rem;padding:0.5rem 0.75rem;margin-top:0.5rem;font-size:0.8rem;color:#1A7F5A;">✓ Dirección proporcionada. El solicitante fue notificado.</div>';
       }
-      if (t.tipo_documentos === 'recepcion' && t.direccionSolicitante) {
-        dirHtml += '<div style="background:#fffbe6;border:1px solid #C07C1A;border-radius:0.5rem;padding:0.5rem 0.75rem;margin-top:0.5rem;font-size:0.8rem;color:#C07C1A;"><strong>📦 Envía los documentos a:</strong><br>' + t.direccionSolicitante.direccion + '<br>Cédula: ' + t.direccionSolicitante.cedula + '</div>';
+      if (t.tipo_documentos === 'recepcion') {
+        if (!t.pagoConfirmado) {
+          dirHtml += '<div style="background:#eff6ff;border:1.5px solid #93c5fd;border-radius:0.5rem;padding:0.75rem;margin-top:0.5rem;font-size:0.82rem;color:#1e40af;"><i class="fas fa-info-circle" style="margin-right:0.4rem;"></i>Deberás enviar documentos al solicitante cuando completes este trámite. Su dirección de entrega se te mostrará una vez que confirme el pago.</div>';
+        } else if (t.direccionSolicitante) {
+          dirHtml += '<div style="background:#fffbe6;border:1.5px solid #C07C1A;border-radius:0.75rem;padding:0.75rem;margin-top:0.5rem;font-size:0.82rem;color:#C07C1A;"><strong>📦 Envía los documentos a esta dirección al completar el trámite:</strong><br>' + t.direccionSolicitante.direccion + '<br><strong>Cédula del solicitante:</strong> ' + t.direccionSolicitante.cedula + '</div>';
+        }
       }
 
       // Bloque de completar con fotos
@@ -1774,30 +1895,37 @@ async function guardarDireccionEjecutor(tramiteId) {
   if (!tipo) { mostrarModalConf('Campos requeridos', 'Selecciona el tipo de entrega.', null); return; }
   if (!cedula) { mostrarModalConf('Campos requeridos', 'Ingresa tu cédula.', null); return; }
   if (tipo.value === 'personal') {
-    direccion = document.getElementById('dir-personal-ej-' + tramiteId) ? document.getElementById('dir-personal-ej-' + tramiteId).value.trim() : '';
-    if (!direccion) { mostrarModalConf('Campos requeridos', 'Ingresa tu dirección personal.', null); return; }
+    var dirP = document.getElementById('dir-personal-ej-' + tramiteId) ? document.getElementById('dir-personal-ej-' + tramiteId).value.trim() : '';
+    var ciudadP = document.getElementById('dir-ciudad-personal-ej-' + tramiteId) ? document.getElementById('dir-ciudad-personal-ej-' + tramiteId).value.trim() : '';
+    if (!dirP) { mostrarModalConf('Campos requeridos', 'Ingresa tu dirección completa.', null); return; }
+    if (!ciudadP) { mostrarModalConf('Campos requeridos', 'Ingresa tu ciudad.', null); return; }
+    direccion = dirP + ' — Ciudad: ' + ciudadP;
   } else {
-    var ciudad = document.getElementById('dir-sv-ciudad-ej-' + tramiteId) ? document.getElementById('dir-sv-ciudad-ej-' + tramiteId).value.trim() : '';
     var sucursal = document.getElementById('dir-sv-suc-ej-' + tramiteId) ? document.getElementById('dir-sv-suc-ej-' + tramiteId).value.trim() : '';
-    if (!ciudad || !sucursal) { mostrarModalConf('Campos requeridos', 'Ingresa la ciudad y dirección de la sucursal Servientrega.', null); return; }
-    direccion = 'Servientrega — Ciudad: ' + ciudad + ' — Sucursal: ' + sucursal;
+    var ciudad = document.getElementById('dir-sv-ciudad-ej-' + tramiteId) ? document.getElementById('dir-sv-ciudad-ej-' + tramiteId).value.trim() : '';
+    if (!sucursal) { mostrarModalConf('Campos requeridos', 'Ingresa la dirección de la sucursal Servientrega.', null); return; }
+    if (!ciudad) { mostrarModalConf('Campos requeridos', 'Ingresa la ciudad de la sucursal.', null); return; }
+    direccion = 'Servientrega — Dirección: ' + sucursal + ' — Ciudad: ' + ciudad;
   }
   await F.updateDoc(F.doc(F.db,'tramites',tramiteId), {
     direccionEjecutor: { cedula: cedula, direccion: direccion, tipo: tipo.value },
     direccionEjecutorAt: F.serverTimestamp()
   });
-  // Notificar al solicitante con la dirección
+  // Notificar al solicitante con la dirección del gestor
   var tSnap = await F.getDoc(F.doc(F.db,'tramites',tramiteId));
   var t = tSnap.data();
   await F.addDoc(F.collection(F.db,'notificaciones'), {
     abogadoId: t.abogadoId,
-    mensaje: 'El abogado ejecutor proporcionó su dirección para recibir tus documentos.\nCédula: ' + cedula + '\nDirección: ' + direccion,
+    mensaje: 'El colega gestor proporcionó su dirección. Envíale los documentos a:\nDirección: ' + direccion + '\nCédula: ' + cedula,
     tramiteId: tramiteId,
     fecha: new Date().toISOString().split('T')[0],
     leida: false,
     createdAt: F.serverTimestamp()
   });
-  document.getElementById('form-dir-ej-' + tramiteId).innerHTML = '<p style="color:#1A7F5A;font-weight:600;font-size:0.85rem;">✓ Dirección guardada. El solicitante fue notificado.</p>';
+  // Guardar dirección del gestor en el trámite
+  await F.updateDoc(F.doc(F.db,'tramites',tramiteId), { direccionEjecutor: { cedula: cedula, direccion: direccion, tipo: tipo.value } });
+  var formEl = document.getElementById('form-dir-ej-' + tramiteId);
+  if (formEl) formEl.innerHTML = '<p style="color:#1A7F5A;font-weight:600;font-size:0.85rem;"><i class=\"fas fa-check-circle\" style=\"margin-right:0.4rem;\"></i>Dirección guardada. El solicitante fue notificado y podrá enviarte los documentos.</p>';
 }
 
 async function guardarDireccionSolicitante(tramiteId) {
@@ -2841,15 +2969,37 @@ async function confirmarPago(tramiteId, ejecutorId, solicitanteId) {
   var F = window._firebase;
   var fechaLim = new Date();
   fechaLim.setHours(fechaLim.getHours() + 24);
+  // Obtener datos del tramite para saber el escenario
+  var tSnap = await F.getDoc(F.doc(F.db,'tramites',tramiteId));
+  var tData = tSnap.data();
+  var tipoDoc = tData ? (tData.tipo_documentos || 'ninguno') : 'ninguno';
+
   await F.updateDoc(F.doc(F.db,'tramites',tramiteId), {
     estado: 'en_proceso',
-    fechaLimite: fechaLim.toISOString()
+    fechaLimite: fechaLim.toISOString(),
+    pagoConfirmado: true
   });
   var today = new Date().toISOString().split('T')[0];
+
+  // Mensajes según escenario
+  var msgEjecutor = 'Pago confirmado. Ya puedes comenzar el tramite. Tienes 24 horas para completarlo.';
+  var msgSolicitante = 'Juristam confirmo tu pago. El ejecutor ya comenzo el tramite.';
+
+  if (tipoDoc === 'envio') {
+    msgEjecutor = 'Pago confirmado. El solicitante te enviara documentos fisicos para iniciar el tramite. Ve a Tramites Aceptados y proporciona tu direccion de entrega.';
+    msgSolicitante = 'Juristam confirmo tu pago. Ve a Mis Tramites — el ejecutor debera proporcionarte su direccion para que le envies los documentos.';
+  } else if (tipoDoc === 'recepcion') {
+    msgEjecutor = 'Pago confirmado. Al completar el tramite deberas enviar documentos al solicitante. El solicitante proporcionara su direccion de entrega en Mis Tramites.';
+    msgSolicitante = 'Juristam confirmo tu pago. Ve a Mis Tramites y proporciona tu direccion para recibir los documentos del ejecutor cuando complete el tramite.';
+  } else if (tipoDoc === 'ambos') {
+    msgEjecutor = 'Pago confirmado. El solicitante te enviara documentos fisicos. Ve a Tramites Aceptados y proporciona tu direccion. Ademas deberas enviarle documentos al completar.';
+    msgSolicitante = 'Juristam confirmo tu pago. Ve a Mis Tramites y proporciona tu direccion para recibir documentos del ejecutor. Tambien el ejecutor te proporcionara su direccion.';
+  }
+
   // Notif al ejecutor
   await F.addDoc(F.collection(F.db,'notificaciones'), {
     abogadoId: ejecutorId,
-    mensaje: '✅ Pago confirmado. Ya puedes comenzar el trámite. Tienes 24 horas para completarlo.',
+    mensaje: msgEjecutor,
     tramiteId: tramiteId,
     fecha: today,
     leida: false,
@@ -2858,13 +3008,13 @@ async function confirmarPago(tramiteId, ejecutorId, solicitanteId) {
   // Notif al solicitante
   await F.addDoc(F.collection(F.db,'notificaciones'), {
     abogadoId: solicitanteId,
-    mensaje: '✅ Juristam confirmó tu pago. El ejecutor ya comenzó el trámite.',
+    mensaje: msgSolicitante,
     tramiteId: tramiteId,
     fecha: today,
     leida: false,
     createdAt: F.serverTimestamp()
   });
-  mostrarModalConf('✅ Pago confirmado','Ambas partes fueron notificadas. El trámite está en proceso.',function(){ loadJPagos(); });
+  mostrarModalConf('Pago confirmado','Ambas partes fueron notificadas. El tramite esta en proceso.',function(){ loadJPagos(); cargarBadgesJ(); });
 }
 
 async function rechazarPago(tramiteId) {
