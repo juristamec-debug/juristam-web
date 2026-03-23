@@ -459,6 +459,10 @@
     <div class="section hidden" id="jNotifJSection">
       <h2>Notificaciones</h2>
       <p style="font-size:0.85rem;color:#6B5B95;margin-bottom:1rem;">Actividad reciente en la plataforma.</p>
+      <div style="display:flex;gap:0.5rem;margin-bottom:1rem;flex-wrap:wrap;">
+        <button onclick="limpiarTodasNotifJ()" style="background:#ef4444;color:#fff;border:none;padding:0.4rem 0.85rem;border-radius:0.4rem;font-size:0.78rem;font-weight:600;cursor:pointer;">🗑 Limpiar todas</button>
+        <button onclick="limpiarNotifPorDescripcion()" style="background:#f59e0b;color:#fff;border:none;padding:0.4rem 0.85rem;border-radius:0.4rem;font-size:0.78rem;font-weight:600;cursor:pointer;">🧹 Limpiar notif de prueba</button>
+      </div>
       <div id="jNotifJList"></div>
     </div>
     <div class="section hidden" id="jPagosRegistroSection">
@@ -1392,15 +1396,23 @@ async function aceptarTramite(tramiteId, btn) {
       aceptadoPorId: currentUser.uid,
       fechaLimitePago: fechaPago.toISOString()
     });
-    // Notificación al solicitante
+    // Notificacion al solicitante
     var tSnap = await F.getDoc(F.doc(F.db, 'tramites', tramiteId));
     var t = tSnap.data();
     await F.addDoc(F.collection(F.db, 'notificaciones'), {
       abogadoId: t.abogadoId,
-      mensaje: currentUserData.nombre + ' aceptó tu trámite "' + t.descripcion + '". Tienes 4 horas para realizar el pago.',
+      mensaje: currentUserData.nombre + ' acepto tu tramite "' + t.descripcion + '". Tienes 4 horas para realizar el pago.',
       tramiteId: tramiteId,
       fecha: new Date().toISOString().split('T')[0],
       leida: false,
+      createdAt: F.serverTimestamp()
+    });
+    // Notificar al panel de Juristam
+    await F.addDoc(F.collection(F.db, 'notificaciones_juristam'), {
+      asunto: 'Tramite aceptado - ' + currentUserData.nombre,
+      mensaje: 'Ejecutor: ' + currentUserData.nombre + '\nSolicitante: ' + (t.nombre||'') + '\nCiudad: ' + (t.ciudadDestino||'') + '\nDescripcion: ' + (t.descripcion||'').substring(0,100) + '\nMonto: $' + (t.monto||0) + '\nEl solicitante tiene 4 horas para pagar.',
+      leida: false,
+      tipo: 'tramite_aceptado',
       createdAt: F.serverTimestamp()
     });
     mostrarModalConf('✅ Trámite aceptado', '⏱️ Tienes <strong>24 horas</strong> para completarlo una vez confirmado el pago.<br><br>Si no lo completas en ese plazo, Juristam será notificado automáticamente.', function() {
@@ -2256,7 +2268,9 @@ async function loadJTramites() {
   list.querySelectorAll('.btn-revertir').forEach(function(btn) {
     btn.onclick = async function() {
       var F = window._firebase;
-      await F.updateDoc(F.doc(F.db,'tramites',btn.dataset.id), {
+      var tid = btn.dataset.id;
+      // Revertir tramite
+      await F.updateDoc(F.doc(F.db,'tramites',tid), {
         estado: 'pendiente',
         aceptadoPor: '',
         aceptadoPorId: '',
@@ -2264,7 +2278,9 @@ async function loadJTramites() {
         fechaLimite: '',
         fechaLimitePago: ''
       });
-      mostrarModalConf('Tramite revertido', 'El tramite volvio a estado pendiente como si nunca hubiera sido aceptado.', function(){ loadJTramites(); cargarBadgesJ(); });
+      // Borrar notificaciones relacionadas a este tramite
+      await borrarNotificacionesTramite(tid);
+      mostrarModalConf('Tramite revertido', 'El tramite volvio a estado pendiente y se eliminaron las notificaciones relacionadas.', function(){ loadJTramites(); cargarBadgesJ(); });
     };
   });
 
@@ -2273,13 +2289,78 @@ async function loadJTramites() {
     btn.onclick = function() {
       mostrarModalConf('Eliminar tramite', '¿Estas seguro? Esta accion no se puede deshacer.', async function() {
         var F = window._firebase;
-        await F.deleteDoc(F.doc(F.db,'tramites',btn.dataset.id));
-        mostrarModalConf('Eliminado', 'El tramite fue eliminado completamente.', function(){ loadJTramites(); cargarBadgesJ(); });
+        var tid = btn.dataset.id;
+        // Borrar notificaciones relacionadas
+        await borrarNotificacionesTramite(tid);
+        // Eliminar tramite
+        await F.deleteDoc(F.doc(F.db,'tramites',tid));
+        mostrarModalConf('Eliminado', 'El tramite y todas sus notificaciones fueron eliminados.', function(){ loadJTramites(); cargarBadgesJ(); });
       });
     };
   });
 }
 
+
+async function limpiarTodasNotifJ() {
+  mostrarModalConf('Limpiar todas', '¿Eliminar todas las notificaciones del panel?', async function() {
+    var F = window._firebase;
+    var snap = await F.getDocs(F.collection(F.db,'notificaciones_juristam'));
+    var promesas = [];
+    snap.forEach(function(d){ promesas.push(F.deleteDoc(F.doc(F.db,'notificaciones_juristam',d.id))); });
+    await Promise.all(promesas);
+    mostrarModalConf('Listo', 'Todas las notificaciones fueron eliminadas.', function(){ loadJNotifJ(); });
+  });
+}
+
+async function limpiarNotifPorDescripcion() {
+  var F = window._firebase;
+  var palabras = ['hazlo ahora', 'prueba', 'juan perez', 'juan pérez', 'maria lopes', 'ficticio'];
+  try {
+    // Limpiar notificaciones_juristam
+    var snapJ = await F.getDocs(F.collection(F.db,'notificaciones_juristam'));
+    var promesasJ = [];
+    snapJ.forEach(function(d){
+      var data = d.data();
+      var texto = ((data.asunto||'') + ' ' + (data.mensaje||'')).toLowerCase();
+      var esPrueba = palabras.some(function(p){ return texto.includes(p); });
+      if (esPrueba) promesasJ.push(F.deleteDoc(F.doc(F.db,'notificaciones_juristam',d.id)));
+    });
+    // Limpiar notificaciones de abogados
+    var snapN = await F.getDocs(F.collection(F.db,'notificaciones'));
+    var promesasN = [];
+    snapN.forEach(function(d){
+      var data = d.data();
+      var texto = (data.mensaje||'').toLowerCase();
+      var esPrueba = palabras.some(function(p){ return texto.includes(p); });
+      if (esPrueba) promesasN.push(F.deleteDoc(F.doc(F.db,'notificaciones',d.id)));
+    });
+    await Promise.all(promesasJ.concat(promesasN));
+    mostrarModalConf('Listo', 'Notificaciones de prueba eliminadas. Las de Juan Pérez y Paola ya no aparecen.', function(){ loadJNotifJ(); });
+  } catch(e) {
+    mostrarModalConf('Error', e.message, null);
+  }
+}
+
+async function borrarNotificacionesTramite(tramiteId) {
+  var F = window._firebase;
+  try {
+    // Borrar notificaciones de abogados relacionadas al tramite
+    var snapN = await F.getDocs(F.query(F.collection(F.db,'notificaciones'), F.where('tramiteId','==',tramiteId)));
+    var promesas = [];
+    snapN.forEach(function(d){ promesas.push(F.deleteDoc(F.doc(F.db,'notificaciones',d.id))); });
+    await Promise.all(promesas);
+    // Borrar notificaciones del panel de Juristam relacionadas
+    var snapNJ = await F.getDocs(F.collection(F.db,'notificaciones_juristam'));
+    var promesasJ = [];
+    snapNJ.forEach(function(d){
+      var msg = d.data().mensaje || '';
+      if (msg.includes(tramiteId) || (d.data().tipo === 'tramite_aceptado' && msg.includes(tramiteId))) {
+        promesasJ.push(F.deleteDoc(F.doc(F.db,'notificaciones_juristam',d.id)));
+      }
+    });
+    await Promise.all(promesasJ);
+  } catch(e) { console.log('Error borrando notificaciones:', e); }
+}
 
 async function loadJAsignar() {
   var F = window._firebase;
