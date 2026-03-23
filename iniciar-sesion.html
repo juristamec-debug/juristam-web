@@ -1108,7 +1108,7 @@ async function publicarTramite() {
   var monto = parseFloat(document.getElementById('sTramiteMonto').value) || 0;
   var desc = document.getElementById('sTramiteDesc').value.trim();
   var tipoDoc = document.querySelector('input[name="tipo_doc"]:checked');
-  var btn = document.querySelector('#solicitarContent button[onclick="publicarTramite()"]');
+  var btn = document.querySelector('#solicitarContent button') || document.querySelector('[onclick="publicarTramite()"]');
   if (!ciudad || monto <= 0 || !desc) {
     mostrarModalConf('⚠️ Campos incompletos', 'Por favor completa la ciudad, monto y descripción del trámite.', null);
     return;
@@ -1152,8 +1152,9 @@ async function publicarTramite() {
       showSection('enviadosSection');
     });
   } catch(err) {
+    console.error('Error publicar tramite:', err);
     if (btn) { btn.innerHTML = '<i class="fas fa-paper-plane"></i> Publicar Trámite'; btn.disabled = false; }
-    mostrarModalConf('❌ Error', 'No se pudo publicar el trámite. Intenta de nuevo.', null);
+    mostrarModalConf('Error al publicar', err.message || 'No se pudo publicar el tramite. Intenta de nuevo.', null);
   }
 }
 
