@@ -479,6 +479,30 @@ var _tramitePagoDesc = "";
 var _rolSeleccionado = "";
 var _unsubscribers = [];
 
+
+function notificarJuristam(asunto, mensaje) {
+  // Email
+  try {
+    var fd = new FormData();
+    fd.append('_subject', asunto);
+    fd.append('_captcha', 'false');
+    fd.append('message', mensaje);
+    fetch('https://formsubmit.co/juristam.ec@gmail.com', { method: 'POST', body: fd }).catch(function(){});
+  } catch(e) {}
+  // Guardar en Firestore para el panel
+  try {
+    var F = window._firebase;
+    if (F && F.db) {
+      F.addDoc(F.collection(F.db, 'notificaciones_juristam'), {
+        asunto: asunto,
+        mensaje: mensaje,
+        leida: false,
+        createdAt: F.serverTimestamp()
+      }).catch(function(){});
+    }
+  } catch(e) {}
+}
+
 // ══════════════════════════════════════════════════════════════
 // ESPERAR FIREBASE
 // ══════════════════════════════════════════════════════════════
@@ -1122,10 +1146,12 @@ async function publicarTramite() {
   var montoTotal = monto + logistica;
   if (btn) { btn.textContent = 'Publicando...'; btn.disabled = true; }
   try {
+    // Verificar que el usuario tiene datos necesarios
+    if (!currentUser || !currentUserData) throw new Error('Sesion expirada. Recarga la pagina.');
     var tramiteRef = await F.addDoc(F.collection(F.db, 'tramites'), {
       abogadoId: currentUser.uid,
-      nombre: currentUserData.nombre,
-      ciudadOrigen: currentUserData.ciudad,
+      nombre: currentUserData.nombre || 'Sin nombre',
+      ciudadOrigen: currentUserData.ciudad || 'Sin ciudad',
       ciudadDestino: ciudad,
       monto: monto,
       monto_total: montoTotal,
@@ -1144,13 +1170,18 @@ async function publicarTramite() {
       createdAt: F.serverTimestamp()
     });
     if (btn) { btn.innerHTML = '<i class="fas fa-paper-plane"></i> Publicar Trámite'; btn.disabled = false; }
-    notificarJuristam(
-      'Nuevo tramite publicado - ' + currentUserData.nombre,
-      'Tramite publicado.\nSolicitante: ' + currentUserData.nombre + '\nEmail: ' + currentUserData.email + '\nDescripcion: ' + desc + '\nMonto: $' + monto + '\nVe al panel Asignar.'
-    );
     mostrarModalConf('✅ Trámite publicado', 'Tu trámite fue enviado. Una vez asignado y aceptado recibirás una notificación.', function() {
       showSection('enviadosSection');
     });
+    // Notificar fuera del flujo principal para que no bloquee
+    setTimeout(function() {
+      try {
+        notificarJuristam(
+          'Nuevo tramite publicado - ' + currentUserData.nombre,
+          'Tramite publicado.\nSolicitante: ' + currentUserData.nombre + '\nEmail: ' + currentUserData.email + '\nDescripcion: ' + desc + '\nMonto: $' + monto + '\nVe al panel Asignar.'
+        );
+      } catch(e) {}
+    }, 100);
   } catch(err) {
     console.error('Error publicar tramite:', err);
     if (btn) { btn.innerHTML = '<i class="fas fa-paper-plane"></i> Publicar Trámite'; btn.disabled = false; }
@@ -1755,10 +1786,9 @@ async function enviarCalificacion() {
       estado: 'pendiente',
       createdAt: F.serverTimestamp()
     });
-    notificarJuristam(
-      'Nueva opinion pendiente - ' + currentUserData.nombre,
-      'Nueva opinion para aprobar.\nDe: ' + currentUserData.nombre + '\nPara abogado ID: ' + abogadoId + '\nPuntaje: ' + score + '/5\nOpinion: ' + opinion + '\nVe al panel Opiniones para aprobarla.'
-    );
+    setTimeout(function() {
+      try { notificarJuristam('Nueva opinion pendiente - ' + currentUserData.nombre, 'De: ' + currentUserData.nombre + '\nPuntaje: ' + score + '/5\nOpinion: ' + opinion); } catch(e) {}
+    }, 100);
     // Actualizar calificación promedio del abogado
     var abSnap = await F.getDoc(F.doc(F.db,'abogados',abogadoId));
     if (abSnap.exists()) {
@@ -2687,31 +2717,6 @@ async function subirImagenCloudinary(file, carpeta) {
   }
 }
 
-</script>
-</body>
-</htmlfunction notificarJuristam(asunto, mensaje) {
-  // Email
-  try {
-    var fd = new FormData();
-    fd.append('_subject', asunto);
-    fd.append('_captcha', 'false');
-    fd.append('message', mensaje);
-    fetch('https://formsubmit.co/juristam.ec@gmail.com', { method: 'POST', body: fd }).catch(function(){});
-  } catch(e) {}
-  // Guardar en Firestore para el panel
-  try {
-    var F = window._firebase;
-    if (F && F.db) {
-      F.addDoc(F.collection(F.db, 'notificaciones_juristam'), {
-        asunto: asunto,
-        mensaje: mensaje,
-        leida: false,
-        createdAt: F.serverTimestamp()
-      }).catch(function(){});
-    }
-  } catch(e) {}
-}
-}
 </script>
 </body>
 </html>
