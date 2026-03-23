@@ -429,12 +429,31 @@
     </ul></nav>
   </div>
   <div class="main">
-    <div class="section" id="jAbogadosSection"><h2>Abogados Registrados</h2><div id="jAbogadosList"></div></div>
-    <div class="section hidden" id="jVerificarSection"><h2>Pendientes de Verificación</h2><p style="font-size:0.85rem;color:#6B5B95;margin-bottom:1rem;">Confirma la matrícula en el Foro de Abogados antes de activar.</p><div id="jVerificarList"></div></div>
+    <div class="section" id="jAbogadosSection">
+      <h2>Abogados Registrados</h2>
+      <div style="position:relative;margin-bottom:1rem;">
+        <input type="text" id="buscarAbogados" placeholder="Buscar por nombre, matrícula, cédula o ciudad..." oninput="filtrarAbogados()" style="width:100%;padding:0.6rem 0.6rem 0.6rem 2.5rem;border:1.5px solid #C4B5F4;border-radius:0.5rem;font-size:0.88rem;box-sizing:border-box;">
+        <i class="fas fa-search" style="position:absolute;left:0.75rem;top:50%;transform:translateY(-50%);color:#9a6aff;"></i>
+      </div>
+      <div id="jAbogadosList"></div>
+    </div>
+    <div class="section hidden" id="jVerificarSection"><h2>Pendientes de Verificación</h2>
+      <div style="position:relative;margin-bottom:1rem;">
+        <input type="text" id="buscarVerificar" placeholder="Buscar por nombre, matrícula o ciudad..." oninput="filtrarVerificar()" style="width:100%;padding:0.6rem 0.6rem 0.6rem 2.5rem;border:1.5px solid #C4B5F4;border-radius:0.5rem;font-size:0.88rem;box-sizing:border-box;">
+        <i class="fas fa-search" style="position:absolute;left:0.75rem;top:50%;transform:translateY(-50%);color:#9a6aff;"></i>
+      </div>
+      <p style="font-size:0.85rem;color:#6B5B95;margin-bottom:1rem;">Confirma la matrícula en el Foro de Abogados antes de activar.</p><div id="jVerificarList"></div></div>
     <div class="section hidden" id="jTramitesSection"><h2>Todos los Trámites</h2><div id="jTramitesList"></div></div>
     <div class="section hidden" id="jAsignarSection"><h2>Asignar Trámites</h2><p style="font-size:0.85rem;color:#6B5B95;margin-bottom:1rem;">Asigna cada trámite pendiente al abogado que le toca por rotación.</p><div id="jAsignarList"></div></div>
     <div class="section hidden" id="jPagosSection"><h2>Confirmar Pagos</h2><p style="font-size:0.85rem;color:#6B5B95;margin-bottom:1rem;">Revisa el comprobante y confirma el pago para activar el trámite.</p><div id="jPagosList"></div></div>
-    <div class="section hidden" id="jRotacionSection"><h2>Rotación por Ciudad</h2><div id="jRotacionList"></div></div>
+    <div class="section hidden" id="jRotacionSection">
+      <h2>Rotación por Ciudad</h2>
+      <div style="position:relative;margin-bottom:1rem;">
+        <input type="text" id="buscarRotacion" placeholder="Buscar por nombre o ciudad..." oninput="filtrarRotacion()" style="width:100%;padding:0.6rem 0.6rem 0.6rem 2.5rem;border:1.5px solid #C4B5F4;border-radius:0.5rem;font-size:0.88rem;box-sizing:border-box;">
+        <i class="fas fa-search" style="position:absolute;left:0.75rem;top:50%;transform:translateY(-50%);color:#9a6aff;"></i>
+      </div>
+      <div id="jRotacionList"></div>
+    </div>
     <div class="section hidden" id="jOpinionesJSection"><h2>Opiniones pendientes</h2><div id="jOpinionesList"></div></div>
     <div class="section hidden" id="jEncuestasSection"><h2>Encuestas de registro</h2><div id="jEncuestasList"></div></div>
     <div class="section hidden" id="jNotifJSection">
@@ -455,6 +474,10 @@
     </div>
     <div class="section hidden" id="jSuscripcionSection">
       <h2>Gestión de Suscripciones</h2>
+      <div style="position:relative;margin-bottom:1rem;">
+        <input type="text" id="buscarSuscripcion" placeholder="Buscar por nombre o email..." oninput="filtrarSuscripcion()" style="width:100%;padding:0.6rem 0.6rem 0.6rem 2.5rem;border:1.5px solid #C4B5F4;border-radius:0.5rem;font-size:0.88rem;box-sizing:border-box;">
+        <i class="fas fa-search" style="position:absolute;left:0.75rem;top:50%;transform:translateY(-50%);color:#9a6aff;"></i>
+      </div>
       <p style="font-size:0.85rem;color:#6B5B95;margin-bottom:1rem;">Activa o desactiva el acceso de cada abogado. Los que tienen suscripción activa pueden usar la plataforma sin límite de tiempo.</p>
       <div id="jSuscripcionList"></div>
     </div>
@@ -855,6 +878,120 @@ async function cargarBadgesJ() {
   } catch(e) { console.log('badges error:', e); }
 }
 
+// Variables globales para datos cargados
+var _abogadosCargados = [];
+var _verificarCargados = [];
+var _suscripcionCargados = [];
+var _rotacionCargados = [];
+
+function renderVerificarList(abs, list) {
+  if (!abs.length) { list.innerHTML = '<p style="color:#6B5B95;padding:1rem;text-align:center;">No se encontraron abogados.</p>'; return; }
+  // Recargar la sección con los datos filtrados
+  list.innerHTML = '';
+  abs.forEach(function(a) {
+    var enc = a.encuesta || {};
+    var encHTML = '<div style="background:#f8f5ff;border-radius:0.5rem;padding:0.65rem;margin-bottom:0.6rem;font-size:0.8rem;">' +
+      '<p style="font-weight:700;color:#4c1d95;margin-bottom:0.35rem;">Encuesta</p>' +
+      '<p><span style="font-weight:600;color:#7c3aed;">Precio:</span> ' + (enc.precio||'—') + '</p>' +
+      '<p><span style="font-weight:600;color:#7c3aed;">Frecuencia:</span> ' + (enc.frecuencia||'—') + '</p>' +
+      '<p><span style="font-weight:600;color:#7c3aed;">Mala exp:</span> ' + (enc.mala_exp||'—') + '</p>' +
+      '<p><span style="font-weight:600;color:#7c3aed;">Importancia:</span> ' + (enc.importancia||'—') + '</p>' +
+      '</div>';
+    list.innerHTML +=
+      '<div style="padding:1rem;border-bottom:1px solid #EDE9F8;background:#fffbf0;">' +
+      '<div style="display:flex;align-items:center;gap:0.75rem;margin-bottom:0.75rem;">' +
+      '<img src="' + (a.foto||'https://via.placeholder.com/44') + '" style="width:52px;height:52px;border-radius:50%;object-fit:cover;border:2px solid #C07C1A;flex-shrink:0;">' +
+      '<div><strong style="color:#2d1060;">' + a.nombre + '</strong><br>' +
+      '<small style="color:#7c6fa0;">' + a.email + ' · ' + a.ciudad + '</small></div>' +
+      '</div>' +
+      '<div style="display:grid;grid-template-columns:1fr 1fr;gap:0.4rem;font-size:0.82rem;margin-bottom:0.6rem;">' +
+      '<p><span style="font-weight:600;color:#4c1d95;">Matrícula:</span> ' + (a.matricula||'-') + '</p>' +
+      '<p><span style="font-weight:600;color:#4c1d95;">Cédula:</span> ' + (a.cedula||'-') + '</p>' +
+      '<p><span style="font-weight:600;color:#4c1d95;">Teléfono:</span> ' + (a.telefono||'-') + '</p>' +
+      '<p><span style="font-weight:600;color:#4c1d95;">Registro:</span> ' + (a.registerDate||'-') + '</p>' +
+      '</div>' +
+      encHTML +
+      '<div style="display:flex;gap:0.5rem;">' +
+      '<button class="btn-ver-ab" data-id="' + a.id + '" style="background:linear-gradient(135deg,#1A7F5A,#38A169);color:#fff;border:none;padding:0.5rem 1rem;border-radius:0.5rem;font-size:0.82rem;font-weight:600;cursor:pointer;flex:1;"><i class="fas fa-check"></i> Verificar</button>' +
+      '<button class="btn-rec-ab" data-id="' + a.id + '" style="background:linear-gradient(135deg,#B83232,#8C2020);color:#fff;border:none;padding:0.5rem 1rem;border-radius:0.5rem;font-size:0.82rem;font-weight:600;cursor:pointer;flex:1;"><i class="fas fa-times"></i> Rechazar</button>' +
+      '</div></div>';
+  });
+  list.querySelectorAll('.btn-ver-ab').forEach(function(btn) { btn.onclick = function() { verificarAbogado(btn.dataset.id); }; });
+  list.querySelectorAll('.btn-rec-ab').forEach(function(btn) { btn.onclick = function() { rechazarAbogado(btn.dataset.id); }; });
+}
+
+function renderSuscripcionList(abs, list) {
+  if (!abs.length) { list.innerHTML = '<p style="color:#6B5B95;padding:1rem;">No se encontraron abogados.</p>'; return; }
+  list.innerHTML = abs.map(function(a) {
+    return '<div style="padding:0.75rem;border-bottom:1px solid #EDE9F8;">' +
+      '<p style="font-weight:600;color:#4c1d95;">' + (a.nombre||'Sin nombre') + '</p>' +
+      '<p style="font-size:0.78rem;color:#7c6fa0;">' + (a.email||'') + ' · ' + (a.ciudad||'') + '</p>' +
+      '</div>';
+  }).join('');
+}
+
+function renderRotacionList(abs, list) {
+  if (!abs.length) { list.innerHTML = '<p style="color:#6B5B95;padding:1rem;">No se encontraron abogados.</p>'; return; }
+  list.innerHTML = abs.map(function(a, idx) {
+    return '<div style="display:flex;align-items:center;gap:0.75rem;padding:0.75rem;border-bottom:1px solid #EDE9F8;">' +
+      '<span style="font-weight:700;color:#9a6aff;min-width:24px;">' + (idx+1) + '</span>' +
+      '<div><p style="font-weight:600;color:#4c1d95;">' + (a.nombre||'Sin nombre') + '</p>' +
+      '<p style="font-size:0.78rem;color:#7c6fa0;">' + (a.ciudad||'-') + '</p></div>' +
+      '</div>';
+  }).join('');
+}
+
+function filtrarAbogados() {
+  var q = document.getElementById('buscarAbogados').value.toLowerCase().trim();
+  var list = document.getElementById('jAbogadosList');
+  if (!_abogadosCargados.length) return;
+  var filtrados = _abogadosCargados.filter(function(a) {
+    return (a.nombre||'').toLowerCase().includes(q) ||
+           (a.matricula||'').toLowerCase().includes(q) ||
+           (a.cedula||'').toLowerCase().includes(q) ||
+           (a.ciudad||'').toLowerCase().includes(q) ||
+           (a.email||'').toLowerCase().includes(q);
+  });
+  if (!filtrados.length) { list.innerHTML = '<p style="color:#7c6fa0;padding:1rem;">No se encontraron abogados.</p>'; return; }
+  renderAbogadosList(filtrados, list);
+}
+
+function filtrarVerificar() {
+  var q = document.getElementById('buscarVerificar').value.toLowerCase().trim();
+  var list = document.getElementById('jVerificarList');
+  if (!_verificarCargados.length) return;
+  var filtrados = _verificarCargados.filter(function(a) {
+    return (a.nombre||'').toLowerCase().includes(q) ||
+           (a.matricula||'').toLowerCase().includes(q) ||
+           (a.ciudad||'').toLowerCase().includes(q) ||
+           (a.email||'').toLowerCase().includes(q);
+  });
+  renderVerificarList(filtrados, list);
+}
+
+function filtrarSuscripcion() {
+  var q = document.getElementById('buscarSuscripcion').value.toLowerCase().trim();
+  var list = document.getElementById('jSuscripcionList');
+  if (!_suscripcionCargados.length) return;
+  var filtrados = _suscripcionCargados.filter(function(a) {
+    return (a.nombre||'').toLowerCase().includes(q) ||
+           (a.email||'').toLowerCase().includes(q) ||
+           (a.ciudad||'').toLowerCase().includes(q);
+  });
+  renderSuscripcionList(filtrados, list);
+}
+
+function filtrarRotacion() {
+  var q = document.getElementById('buscarRotacion').value.toLowerCase().trim();
+  var list = document.getElementById('jRotacionList');
+  if (!_rotacionCargados.length) return;
+  var filtrados = _rotacionCargados.filter(function(a) {
+    return (a.nombre||'').toLowerCase().includes(q) ||
+           (a.ciudad||'').toLowerCase().includes(q);
+  });
+  renderRotacionList(filtrados, list);
+}
+
 function setBadgeJ(id, count) {
   var el = document.getElementById(id);
   if (!el) return;
@@ -1196,15 +1333,16 @@ async function loadDisponibles() {
   var F = window._firebase;
   var list = document.getElementById('disponiblesList');
   list.innerHTML = '<p style="color:#7c6fa0;padding:1rem;">Cargando...</p>';
-  var ciudad = currentUserData.ciudad.toLowerCase();
-  var q = F.query(F.collection(F.db, 'tramites'), F.where('ciudadDestino','==',ciudad), F.where('estado','==','pendiente'));
+  // Solo mostrar tramites que Juristam asignó específicamente a este abogado
+  var q = F.query(
+    F.collection(F.db, 'tramites'),
+    F.where('asignadoA', '==', currentUser.uid),
+    F.where('estado', '==', 'pendiente')
+  );
   var snap = await F.getDocs(q);
   var tramites = [];
   snap.forEach(function(d) { tramites.push({ id: d.id, ...d.data() }); });
-  // Filtrar por asignadoA
-  var visibles = tramites.filter(function(t) {
-    return !t.asignadoA || t.asignadoA === '' || t.asignadoA === currentUser.uid;
-  });
+  var visibles = tramites;
   if (visibles.length === 0) {
     list.innerHTML = '<p style="color:#6B5B95;padding:1rem;">No hay trámites disponibles en tu ciudad por ahora.</p>';
     return;
@@ -1959,48 +2097,34 @@ async function loadJAbogados() {
   var abs = [];
   snap.forEach(function(d){ abs.push({ id: d.id, ...d.data() }); });
   abs = abs.filter(function(a){ return a.role !== 'juristam' && a.verified === true; });
-  abs.sort(function(a,b){ return (b.createdAt?.seconds||0)-(a.createdAt?.seconds||0); });
-  if (abs.length === 0) { list.innerHTML = '<p style="color:#6B5B95;padding:1rem;">No hay abogados registrados.</p>'; return; }
+  abs.sort(function(a,b){ return (a.nombre||'').localeCompare(b.nombre||''); });
+  _abogadosCargados = abs;
+  if (!abs.length) { list.innerHTML = '<p style="color:#6B5B95;padding:1rem;text-align:center;">No hay abogados verificados aun.</p>'; return; }
+  renderAbogadosList(abs, list);
+}
+
+function renderAbogadosList(abs, list) {
+  var stars = function(n) { return '★'.repeat(Math.floor(n||0)) + '☆'.repeat(5-Math.floor(n||0)); };
   list.innerHTML = '';
-  abs.forEach(function(a){
-    var trialEnd = new Date(a.registerDate || '2025-01-01');
-    trialEnd.setDate(trialEnd.getDate() + 30);
-    var trialActivo = new Date() <= trialEnd;
-    var acceso = a.subscriptionPaid ? '💳 Pagada' : (trialActivo ? '⏳ Prueba' : '🔒 Vencida');
-    var colorAcceso = a.subscriptionPaid ? '#1A7F5A' : (trialActivo ? '#C07C1A' : '#B83232');
-    var div = document.createElement('div');
-    div.style.cssText = 'border:1.5px solid #ede8f7;border-radius:0.6rem;margin-bottom:0.75rem;overflow:hidden;';
-    div.innerHTML =
-      '<div style="padding:0.85rem 1rem;display:flex;align-items:center;gap:0.75rem;">' +
-      '<img src="' + a.foto + '" style="width:48px;height:48px;border-radius:50%;object-fit:cover;border:2px solid #9a6aff;flex-shrink:0;">' +
-      '<div style="flex:1;">' +
-      '<strong>' + a.nombre + '</strong> ' +
-      '<span style="font-size:0.72rem;background:' + (a.verified?'#E6F4EF':'#FEF3E2') + ';color:' + (a.verified?'#1A7F5A':'#C07C1A') + ';padding:0.1rem 0.5rem;border-radius:999px;">' + (a.verified?'✅':'⏳ Sin verificar') + '</span>' +
-      '<br><small style="color:#7c6fa0;">' + a.ciudad + ' · ' + a.email + '</small>' +
-      '<br><small style="color:' + colorAcceso + ';font-weight:600;">' + acceso + '</small>' +
+  abs.forEach(function(d) {
+    var trialEnd = new Date(d.registerDate||new Date());
+    trialEnd.setDate(trialEnd.getDate()+30);
+    list.innerHTML +=
+      '<div style="display:flex;align-items:center;gap:0.75rem;padding:0.85rem;border-bottom:1px solid #EDE9F8;">' +
+      '<img src="' + (d.foto||'https://via.placeholder.com/44') + '" style="width:44px;height:44px;border-radius:50%;object-fit:cover;flex-shrink:0;">' +
+      '<div style="flex:1;min-width:0;">' +
+      '<p style="font-weight:600;color:#4c1d95;font-size:0.9rem;">' + (d.nombre||'Sin nombre') + '</p>' +
+      '<p style="font-size:0.75rem;color:#7c6fa0;">' + (d.ciudad||'-') + ' · ' + (d.email||'') + '</p>' +
+      '<div style="color:#F59E0B;font-size:0.8rem;">' + stars(d.calificacion) + '</div>' +
       '</div>' +
-      '</div>' +
-      '<div style="padding:0.5rem 1rem;background:#f9f7ff;border-top:1px solid #ede8f7;display:flex;gap:0.5rem;flex-wrap:wrap;align-items:center;">' +
-      '<span style="font-size:0.75rem;color:#5c4d7a;background:#fff;padding:0.2rem 0.6rem;border-radius:999px;border:1px solid #ede8f7;">📋 ' + a.matricula + '</span>' +
-      '<span style="font-size:0.75rem;color:#5c4d7a;background:#fff;padding:0.2rem 0.6rem;border-radius:999px;border:1px solid #ede8f7;">📞 ' + (a.telefono||'Sin tel') + '</span>' +
+      '<button class="btn-ver-detalle" data-id="' + d.id + '" style="background:#f0ebff;color:#4c1d95;border:1.5px solid #C4B5F4;padding:0.35rem 0.75rem;border-radius:0.4rem;font-size:0.78rem;font-weight:600;cursor:pointer;white-space:nowrap;">Ver detalle</button>' +
       '</div>';
-    // Botones usando createElement
-    var bDiv = div.querySelector('div:last-child');
-    var btnDetalle = document.createElement('button');
-    btnDetalle.textContent = 'Ver detalle';
-    btnDetalle.style.cssText = 'background:#7c3aed;color:#fff;border:none;padding:0.3rem 0.75rem;border-radius:999px;font-size:0.75rem;font-weight:600;cursor:pointer;margin-left:auto;';
-    btnDetalle.onclick = (function(id){ return function(){ verDetalleAbogado(id); }; })(a.id);
-    bDiv.appendChild(btnDetalle);
-    if (!a.verified) {
-      var btnVer = document.createElement('button');
-      btnVer.textContent = '✅ Verificar';
-      btnVer.style.cssText = 'background:#1A7F5A;color:#fff;border:none;padding:0.3rem 0.75rem;border-radius:999px;font-size:0.75rem;font-weight:600;cursor:pointer;';
-      btnVer.onclick = (function(id){ return function(){ verificarAbogado(id); }; })(a.id);
-      bDiv.appendChild(btnVer);
-    }
-    list.appendChild(div);
+  });
+  list.querySelectorAll('.btn-ver-detalle').forEach(function(btn) {
+    btn.onclick = function() { verDetalleAbogado(btn.dataset.id); };
   });
 }
+
 
 async function loadJVerificar() {
   var F = window._firebase;
@@ -2011,6 +2135,7 @@ async function loadJVerificar() {
   var abs = [];
   snap.forEach(function(d){ abs.push({ id: d.id, ...d.data() }); });
   abs = abs.filter(function(a){ return a.role !== 'juristam' && a.rechazado !== true; });
+  _verificarCargados = abs;
   if (abs.length === 0) { list.innerHTML = '<p style="color:#6B5B95;padding:1rem;text-align:center;">No hay abogados pendientes. ✅</p>'; return; }
   list.innerHTML = '';
   abs.forEach(function(a) {
