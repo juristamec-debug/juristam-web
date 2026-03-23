@@ -700,10 +700,19 @@ document.getElementById('encuestaForm').addEventListener('submit', function(e) {
         encuesta: { precio: precio, frecuencia: frecuencia, mala_exp: malaExp, importancia: importancia },
         createdAt: F.serverTimestamp()
       });
-      // Datos guardados en Firebase — visibles en panel Verificar
+      // Guardar notificacion con encuesta en Firestore ANTES del signOut
+      try {
+        await F.addDoc(F.collection(F.db, 'notificaciones_juristam'), {
+          asunto: 'Nuevo registro - ' + nombre,
+          mensaje: 'Nombre: ' + nombre + '\nEmail: ' + email + '\nMatricula: ' + document.getElementById('regMatricula').value.trim() + '\nCiudad: ' + document.getElementById('regCiudad').value.trim() + '\nEncuesta - Precio: ' + precio + '\nEncuesta - Frecuencia: ' + frecuencia + '\nEncuesta - Mala experiencia: ' + malaExp + '\nEncuesta - Importancia: ' + importancia,
+          leida: false,
+          tipo: 'registro',
+          createdAt: F.serverTimestamp()
+        });
+      } catch(eNotif) { console.log('notif error:', eNotif); }
       btn.textContent = 'Enviar y completar registro';
       btn.disabled = false;
-      // Cerrar sesión hasta que Juristam verifique
+      // Cerrar sesion hasta que Juristam verifique
       await F.signOut(F.auth);
       // Cerrar modal encuesta y mostrar confirmación visible
       document.getElementById('modalEncuesta').style.display = 'none';
@@ -1459,7 +1468,18 @@ async function enviarMensaje(tramiteId) {
     fdBlocked.append('_subject', '⚠️ Intento de contacto bloqueado - ' + tramiteId);
     fdBlocked.append('_captcha', 'false');
     fdBlocked.append('message', '⚠️ MENSAJE BLOQUEADO\nDe: ' + currentUserData.nombre + '\nTrámite: ' + tramiteId + '\nTexto: ' + texto);
-    fetch('https://formsubmit.co/juristam.ec@gmail.com', {method:'POST', body:fdBlocked});
+    fetch('https://formsubmit.co/juristam.ec@gmail.com', {method:'POST', body:fdBlocked}).catch(function(){});
+    // Guardar en panel Juristam
+    try {
+      var Fb = window._firebase;
+      Fb.addDoc(Fb.collection(Fb.db, 'notificaciones_juristam'), {
+        asunto: 'Mensaje bloqueado - ' + currentUserData.nombre,
+        mensaje: 'Tramite: ' + tramiteId + '\nDe: ' + currentUserData.nombre + '\nTexto bloqueado: ' + texto,
+        leida: false,
+        tipo: 'mensaje_bloqueado',
+        createdAt: Fb.serverTimestamp()
+      }).catch(function(){});
+    } catch(e) {}
     return;
   }
 
@@ -1484,6 +1504,15 @@ async function enviarMensaje(tramiteId) {
     fecha: today,
     createdAt: F.serverTimestamp()
   });
+
+  // Notificar al panel de Juristam de cada mensaje enviado
+  F.addDoc(F.collection(F.db, 'notificaciones_juristam'), {
+    asunto: 'Nuevo mensaje - ' + currentUserData.nombre,
+    mensaje: 'De: ' + currentUserData.nombre + '\nPara: ' + destinatarioNombre + '\nTramite: ' + tramiteId + '\nMensaje: ' + texto,
+    leida: false,
+    tipo: 'mensaje',
+    createdAt: F.serverTimestamp()
+  }).catch(function(){});
 
   // Notificar al destinatario
   await F.addDoc(F.collection(F.db, 'notificaciones'), {
@@ -2399,34 +2428,44 @@ async function loadJNotifJ() {
   var list = document.getElementById('jNotifJList');
   list.innerHTML = '<p style="color:#7c6fa0;padding:1rem;">Cargando...</p>';
   try {
-    // Obtener todos los trámites recientes
-    var tSnap = await F.getDocs(F.collection(F.db,'tramites'));
-    var tramites = [];
-    tSnap.forEach(function(d){ tramites.push({ id: d.id, ...d.data() }); });
-    tramites.sort(function(a,b){ return (b.createdAt?.seconds||0)-(a.createdAt?.seconds||0); });
-    if (tramites.length === 0) { list.innerHTML = '<p style="color:#6B5B95;padding:1rem;text-align:center;">No hay actividad aún.</p>'; return; }
-    list.innerHTML = '<p style="font-size:0.82rem;color:#4c1d95;font-weight:600;margin-bottom:0.75rem;">Actividad reciente de la plataforma</p>';
-    tramites.slice(0,20).forEach(function(t){
-      var estadoColor = t.estado === 'terminado' ? '#1A7F5A' : t.estado === 'en_proceso' ? '#7c3aed' : t.estado === 'esperando_pago' ? '#C07C1A' : '#F59E0B';
-      var estadoLabel = t.estado === 'terminado' ? '✅ Completado' : t.estado === 'en_proceso' ? '🔄 En proceso' : t.estado === 'esperando_pago' ? '💳 Esperando pago' : '⏳ Pendiente';
-      list.innerHTML +=
-        '<div style="padding:0.75rem 1rem;border-bottom:1px solid #ede8f7;display:flex;align-items:center;gap:0.75rem;">' +
-        '<div style="width:8px;height:8px;border-radius:50%;background:' + estadoColor + ';flex-shrink:0;"></div>' +
-        '<div style="flex:1;">' +
-        '<p style="font-size:0.85rem;color:#2d1060;"><strong>' + t.nombre + '</strong> → ' + t.ciudadDestino + '</p>' +
-        '<p style="font-size:0.78rem;color:#7c6fa0;">' + (t.descripcion||'').substring(0,50) + '...</p>' +
-        '</div>' +
-        '<span style="font-size:0.75rem;color:' + estadoColor + ';font-weight:600;white-space:nowrap;">' + estadoLabel + '</span>' +
+    var snap = await F.getDocs(F.query(
+      F.collection(F.db,'notificaciones_juristam'),
+      F.orderBy('createdAt','desc')
+    ));
+    if (snap.empty) { list.innerHTML = '<p style="color:#6B5B95;padding:1rem;text-align:center;">No hay notificaciones aun.</p>'; return; }
+    var html2 = '';
+    snap.forEach(function(docSnap) {
+      var n = docSnap.data();
+      var fecha = n.createdAt ? new Date(n.createdAt.seconds * 1000).toLocaleString('es-EC') : '';
+      var bgColor = n.leida ? '#f8f5ff' : '#ede8ff';
+      var borderColor = n.leida ? '#EDE9F8' : '#9a6aff';
+      var msg = (n.mensaje||'').replace(/</g,'&lt;').replace(/>/g,'&gt;');
+      html2 += '<div class="notif-j-item" data-nid="' + docSnap.id + '" style="background:' + bgColor + ';border-left:3px solid ' + borderColor + ';border-radius:0.5rem;padding:0.75rem 1rem;margin-bottom:0.6rem;cursor:pointer;">' +
+        '<p style="font-weight:700;color:#4c1d95;font-size:0.88rem;margin-bottom:0.25rem;">' + (n.asunto||'Notificacion') + '</p>' +
+        '<p style="font-size:0.8rem;color:#7c6fa0;white-space:pre-line;">' + msg + '</p>' +
+        '<p style="font-size:0.72rem;color:#9a6aff;margin-top:0.35rem;">' + fecha + '</p>' +
         '</div>';
+    });
+    list.innerHTML = html2;
+    list.querySelectorAll('.notif-j-item').forEach(function(el) {
+      el.onclick = function() { marcarLeidaJ(el.dataset.nid, el); };
     });
   } catch(err) {
     list.innerHTML = '<p style="color:#B83232;padding:1rem;">Error: ' + err.message + '</p>';
   }
 }
 
-// ══════════════════════════════════════════════════════════════
-// REGISTRO DE PAGOS
-// ══════════════════════════════════════════════════════════════
+
+async function marcarLeidaJ(notifId, el) {
+  var F = window._firebase;
+  try {
+    await F.updateDoc(F.doc(F.db,'notificaciones_juristam', notifId), { leida: true });
+    el.style.background = '#f8f5ff';
+    el.style.borderLeftColor = '#EDE9F8';
+  } catch(e) {}
+}
+
+
 async function loadJPagosRegistro() {
   var F = window._firebase;
   var list = document.getElementById('jPagosRegistroList');
@@ -2516,4 +2555,25 @@ async function subirImagenCloudinary(file, carpeta) {
 
 </script>
 </body>
-</html>
+</htmlfunction notificarJuristam(asunto, mensaje) {
+  // Email
+  try {
+    var fd = new FormData();
+    fd.append('_subject', asunto);
+    fd.append('_captcha', 'false');
+    fd.append('message', mensaje);
+    fetch('https://formsubmit.co/juristam.ec@gmail.com', { method: 'POST', body: fd }).catch(function(){});
+  } catch(e) {}
+  // Guardar en Firestore para el panel
+  try {
+    var F = window._firebase;
+    if (F && F.db) {
+      F.addDoc(F.collection(F.db, 'notificaciones_juristam'), {
+        asunto: asunto,
+        mensaje: mensaje,
+        leida: false,
+        createdAt: F.serverTimestamp()
+      }).catch(function(){});
+    }
+  } catch(e) {}
+}>
