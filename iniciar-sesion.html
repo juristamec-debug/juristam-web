@@ -1690,6 +1690,20 @@ async function loadAceptados() {
       list.appendChild(div);
     });
   }
+  // Listeners fotos evidencia
+  list.querySelectorAll('.foto-ev-inp').forEach(function(inp) {
+    inp.addEventListener('change', function() { agregarFotosEvidencia(inp, inp.dataset.tid); });
+  });
+  // Listeners botón completar
+  list.querySelectorAll('.btn-marcar-completado').forEach(function(btn) {
+    btn.addEventListener('click', function() {
+      if (!btn.disabled) marcarCompletado(btn.dataset.tid, btn.dataset.desc, btn.dataset.ciudad, parseFloat(btn.dataset.monto), btn.dataset.sol);
+    });
+  });
+  // Listeners guardar dirección ejecutor
+  list.querySelectorAll('.btn-guardar-dir-ej').forEach(function(btn) {
+    btn.addEventListener('click', function() { guardarDireccionEjecutor(btn.dataset.id); });
+  });
   // Terminados
   if (terminados.length > 0) {
     list.innerHTML += '<div style="margin-top:' + ((esperando.length>0||enProceso.length>0)?'1.25rem':'0') + ';margin-bottom:0.5rem;padding:0.5rem 0.75rem;background:#E6F4EF;border-radius:0.5rem;border-left:3px solid #1A7F5A;"><p style="font-size:0.8rem;font-weight:700;color:#1A7F5A;"><i class="fas fa-check-circle"></i> Completados (' + terminados.length + ')</p></div>';
