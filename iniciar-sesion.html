@@ -289,6 +289,16 @@
             <label style="display:flex;align-items:center;gap:0.6rem;font-size:0.85rem;cursor:pointer;"><input type="radio" name="importancia" value="rapidez" style="accent-color:#7c3aed;"> Rapidez</label>
           </div>
         </div>
+        <div>
+          <p style="font-size:0.88rem;font-weight:700;color:#2d1060;margin-bottom:0.6rem;">¿Cómo nos encontraste? <span style="color:#B83232;">*</span></p>
+          <div style="display:flex;flex-direction:column;gap:0.5rem;">
+            <label style="display:flex;align-items:center;gap:0.6rem;font-size:0.85rem;cursor:pointer;"><input type="radio" name="como_llego" value="facebook" required style="accent-color:#7c3aed;"> Facebook</label>
+            <label style="display:flex;align-items:center;gap:0.6rem;font-size:0.85rem;cursor:pointer;"><input type="radio" name="como_llego" value="tiktok" style="accent-color:#7c3aed;"> TikTok</label>
+            <label style="display:flex;align-items:center;gap:0.6rem;font-size:0.85rem;cursor:pointer;"><input type="radio" name="como_llego" value="instagram" style="accent-color:#7c3aed;"> Instagram</label>
+            <label style="display:flex;align-items:center;gap:0.6rem;font-size:0.85rem;cursor:pointer;"><input type="radio" name="como_llego" value="colega" style="accent-color:#7c3aed;"> Un colega me lo recomendó</label>
+            <label style="display:flex;align-items:center;gap:0.6rem;font-size:0.85rem;cursor:pointer;"><input type="radio" name="como_llego" value="otro" style="accent-color:#7c3aed;"> Otro</label>
+          </div>
+        </div>
         <button type="submit" style="background:linear-gradient(135deg,#4c1d95,#9a6aff);padding:0.85rem;border-radius:0.6rem;font-weight:700;box-shadow:0 4px 16px rgba(124,58,237,0.35);"><i class="fas fa-paper-plane"></i> Enviar y completar registro</button>
         <p id="encuestaMsg" style="text-align:center;font-size:0.8rem;min-height:1em;"></p>
       </form>
@@ -733,6 +743,7 @@ document.getElementById('encuestaForm').addEventListener('submit', function(e) {
     var frecuencia = ef.querySelector('[name="frecuencia"]:checked') ? ef.querySelector('[name="frecuencia"]:checked').value : '';
     var malaExp = ef.querySelector('[name="mala_exp"]:checked') ? ef.querySelector('[name="mala_exp"]:checked').value : '';
     var importancia = ef.querySelector('[name="importancia"]:checked') ? ef.querySelector('[name="importancia"]:checked').value : '';
+    var comoLlego = ef.querySelector('[name="como_llego"]:checked') ? ef.querySelector('[name="como_llego"]:checked').value : '';
     try {
       var cred = await F.createUserWithEmailAndPassword(F.auth, email, pass);
       var uid = cred.user.uid;
@@ -768,14 +779,14 @@ document.getElementById('encuestaForm').addEventListener('submit', function(e) {
         subscriptionPaid: false,
         registerDate: new Date().toISOString().split('T')[0],
         role: 'abogado',
-        encuesta: { precio: precio, frecuencia: frecuencia, mala_exp: malaExp, importancia: importancia },
+        encuesta: { precio: precio, frecuencia: frecuencia, mala_exp: malaExp, importancia: importancia, como_llego: comoLlego },
         createdAt: F.serverTimestamp()
       });
       // Guardar notificacion con encuesta en Firestore ANTES del signOut
       try {
         await F.addDoc(F.collection(F.db, 'notificaciones_juristam'), {
           asunto: 'Nuevo registro - ' + nombre,
-          mensaje: 'Nombre: ' + nombre + '\nEmail: ' + email + '\nMatricula: ' + document.getElementById('regMatricula').value.trim() + '\nCiudad: ' + document.getElementById('regCiudad').value.trim() + '\nEncuesta - Precio: ' + precio + '\nEncuesta - Frecuencia: ' + frecuencia + '\nEncuesta - Mala experiencia: ' + malaExp + '\nEncuesta - Importancia: ' + importancia,
+          mensaje: 'Nombre: ' + nombre + '\nEmail: ' + email + '\nMatricula: ' + document.getElementById('regMatricula').value.trim() + '\nCiudad: ' + document.getElementById('regCiudad').value.trim() + '\nEncuesta - Precio: ' + precio + '\nEncuesta - Frecuencia: ' + frecuencia + '\nEncuesta - Mala experiencia: ' + malaExp + '\nEncuesta - Importancia: ' + importancia + '\nComo nos encontro: ' + comoLlego,
           leida: false,
           tipo: 'registro',
           createdAt: F.serverTimestamp()
@@ -2506,6 +2517,7 @@ async function loadJEncuestas() {
           '<p><span style="font-weight:600;color:#7c3aed;">Frecuencia:</span> ' + (enc.frecuencia||'—') + '</p>' +
           '<p><span style="font-weight:600;color:#7c3aed;">Mala experiencia:</span> ' + (enc.mala_exp||'—') + '</p>' +
           '<p><span style="font-weight:600;color:#7c3aed;">Lo mas importante:</span> ' + (enc.importancia||'—') + '</p>' +
+      '<p><span style="font-weight:600;color:#7c3aed;">Como nos encontro:</span> ' + (enc.como_llego||'—') + '</p>' +
           '</div>'
           : '<p style="font-size:0.8rem;color:#9a6aff;font-style:italic;">No respondio la encuesta</p>'
         ) +
