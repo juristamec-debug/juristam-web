@@ -1508,26 +1508,47 @@ async function loadEnviados() {
         var venc = ahora > lim;
         var hrs = Math.max(0, Math.floor((lim-ahora)/3600000));
         var mins = Math.max(0, Math.floor(((lim-ahora)%3600000)/60000));
-        tiempoHtml = venc ? '<br><span style="color:#B83232;font-size:0.78rem;font-weight:700;">⚠️ Tiempo límite superado — Juristam notificado</span>' : '<br><span style="color:#1A7F5A;font-size:0.78rem;">⏱ El ejecutor tiene ' + hrs + 'h ' + mins + 'm para completar</span>';
+        tiempoHtml = venc
+          ? '<div style="margin-top:0.4rem;background:#FEE2E2;color:#B83232;padding:0.4rem 0.65rem;border-radius:0.4rem;font-size:0.78rem;font-weight:600;">⚠️ Plazo vencido.</div>'
+          : '<div style="margin-top:0.4rem;font-size:0.78rem;color:' + (hrs<4?'#C07C1A':'#1A7F5A') + ';font-weight:600;">⏱ ' + hrs + 'h ' + mins + 'm restantes</div>';
       }
-      list.innerHTML += '<div class="tramite-item" style="border-left:3px solid #8B5CF6;margin-bottom:0.5rem;">' +
-        '<div><strong>' + t.descripcion + '</strong> — ' + t.ciudadDestino + '<br><span class="tag tag-progress">🔄 En ejecución</span></div>' +
-        '<div style="margin-top:0.5rem;">Ejecutando: <strong>' + t.aceptadoPor + '</strong>' + tiempoHtml + '</div>' +
-        // Formulario dirección según escenario
-        (t.tipo_documentos === 'recepcion' || t.tipo_documentos === 'ambos' ?
-          (!t.direccionSolicitante ?
-            htmlFormDireccion(t.id, 'sol',
-              '📬 Proporciona tu dirección para recibir documentos',
-              t.tipo_documentos === 'ambos'
-                ? 'Este trámite involucra envío y recepción. El ejecutor te enviará documentos al completar. Proporciona tu dirección.'
-                : 'El ejecutor te enviará los documentos del trámite al completarlo. Proporciona tu dirección de recepción.'
-            )
-            : '<div style="background:#d1fae5;border-radius:0.5rem;padding:0.5rem 0.75rem;margin-top:0.5rem;font-size:0.8rem;color:#1A7F5A;">✓ Dirección registrada. El ejecutor fue notificado.</div>'
-          ) : '') +
-        (t.tipo_documentos === 'envio' && t.direccionEjecutor ?
-          '<div style="background:#fffbe6;border:1px solid #C07C1A;border-radius:0.5rem;padding:0.5rem 0.75rem;margin-top:0.5rem;font-size:0.8rem;color:#C07C1A;"><strong>📦 Envía tus documentos a:</strong><br>' + t.direccionEjecutor.direccion + '<br>Cédula ejecutor: ' + t.direccionEjecutor.cedula + '</div>' : '') +
-        renderMensajesHtml(t.id) +
-        '</div>';
+
+      var div = document.createElement('div');
+      div.className = 'tramite-item';
+      div.style.cssText = 'border-left:3px solid #8B5CF6;margin-bottom:0.5rem;';
+
+      // Formulario dirección al solicitante según escenario
+      var dirHtml = '';
+      if ((t.tipo_documentos === 'recepcion' || t.tipo_documentos === 'ambos') && !t.direccionSolicitante) {
+        var descDir = t.tipo_documentos === 'ambos'
+          ? 'El ejecutor te enviará documentos al completar el trámite. Proporciona tu dirección para recibirlos.'
+          : 'El ejecutor te enviará los documentos del trámite al completarlo. Proporciona tu dirección.';
+        dirHtml = '<div style="background:#fffbe6;border:1.5px solid #C07C1A;border-radius:0.6rem;padding:0.85rem;margin-top:0.6rem;">' +
+          '<p style="font-weight:700;color:#C07C1A;font-size:0.85rem;margin-bottom:0.4rem;">📬 Proporciona tu dirección para recibir documentos</p>' +
+          '<p style="font-size:0.78rem;color:#4c1d95;margin-bottom:0.6rem;">' + descDir + '</p>' +
+          '<input type="text" id="cedula-sol-' + t.id + '" placeholder="Tu cédula de identidad" style="width:100%;padding:0.45rem 0.65rem;border:1.5px solid #C4B5F4;border-radius:0.4rem;font-size:0.82rem;margin-bottom:0.5rem;box-sizing:border-box;">' +
+          '<div style="display:flex;gap:1rem;margin-bottom:0.5rem;">' +
+          '<label style="display:flex;align-items:center;gap:0.4rem;font-size:0.82rem;cursor:pointer;"><input type="radio" name="tipo-dir-sol-' + t.id + '" value="personal" style="accent-color:#7c3aed;"> Dirección personal</label>' +
+          '<label style="display:flex;align-items:center;gap:0.4rem;font-size:0.82rem;cursor:pointer;"><input type="radio" name="tipo-dir-sol-' + t.id + '" value="servientrega" style="accent-color:#7c3aed;"> Servientrega</label>' +
+          '</div>' +
+          '<input type="text" id="dir-personal-sol-' + t.id + '" placeholder="Dirección completa (calle, número, barrio, ciudad)" style="width:100%;padding:0.45rem 0.65rem;border:1.5px solid #C4B5F4;border-radius:0.4rem;font-size:0.82rem;margin-bottom:0.35rem;box-sizing:border-box;">' +
+          '<input type="text" id="dir-sv-ciudad-sol-' + t.id + '" placeholder="Ciudad de la sucursal Servientrega" style="width:100%;padding:0.45rem 0.65rem;border:1.5px solid #C4B5F4;border-radius:0.4rem;font-size:0.82rem;margin-bottom:0.35rem;box-sizing:border-box;">' +
+          '<input type="text" id="dir-sv-suc-sol-' + t.id + '" placeholder="Dirección exacta de la sucursal Servientrega" style="width:100%;padding:0.45rem 0.65rem;border:1.5px solid #C4B5F4;border-radius:0.4rem;font-size:0.82rem;margin-bottom:0.5rem;box-sizing:border-box;">' +
+          '<button class="btn-guardar-dir-sol" data-id="' + t.id + '" style="background:linear-gradient(135deg,#C07C1A,#F59E0B);color:#fff;border:none;padding:0.45rem 1rem;border-radius:0.4rem;font-size:0.82rem;font-weight:600;cursor:pointer;width:100%;">Guardar dirección</button>' +
+          '</div>';
+      } else if ((t.tipo_documentos === 'recepcion' || t.tipo_documentos === 'ambos') && t.direccionSolicitante) {
+        dirHtml = '<div style="background:#d1fae5;border-radius:0.5rem;padding:0.5rem 0.75rem;margin-top:0.5rem;font-size:0.8rem;color:#1A7F5A;">✓ Tu dirección fue registrada. El ejecutor fue notificado.</div>';
+      }
+      if (t.tipo_documentos === 'envio' && t.direccionEjecutor) {
+        dirHtml += '<div style="background:#fffbe6;border:1px solid #C07C1A;border-radius:0.5rem;padding:0.5rem 0.75rem;margin-top:0.5rem;font-size:0.8rem;color:#C07C1A;"><strong>📦 Envía tus documentos a:</strong><br>' + t.direccionEjecutor.direccion + '<br>Cédula ejecutor: ' + t.direccionEjecutor.cedula + '</div>';
+      }
+
+      div.innerHTML =
+        '<div><strong>' + t.descripcion + '</strong><br>Ciudad: <strong>' + t.ciudadDestino + '</strong><br>Ejecutando: <strong>' + t.aceptadoPor + '</strong></div>' +
+        tiempoHtml +
+        dirHtml +
+        renderMensajesHtml(t.id);
+      list.appendChild(div);
     });
   }
   // Listeners guardar dirección solicitante
@@ -1611,34 +1632,62 @@ async function loadAceptados() {
       var vencido = limite && ahora > limite;
       var hrs = limite ? Math.max(0, Math.floor((limite-ahora)/3600000)) : null;
       var mins = limite ? Math.max(0, Math.floor(((limite-ahora)%3600000)/60000)) : null;
-      var tiempoLabel = limite ? (vencido ? '<span style="color:#B83232;font-weight:700;font-size:0.8rem;">⚠️ Tiempo vencido</span>' : '<span style="color:' + (hrs < 4 ? '#C07C1A' : '#1A7F5A') + ';font-size:0.8rem;font-weight:600;">⏱ ' + hrs + 'h ' + mins + 'm restantes</span>') : '';
-      if (vencido && !t._alertaEnviada) {
-        t._alertaEnviada = true;
-        var fdA = new FormData();
-        fdA.append('_subject', '⚠️ TRÁMITE VENCIDO - ' + t.id);
-        fdA.append('_captcha','false');
-        fdA.append('message','⚠️ TRÁMITE VENCIDO\nEjecutor: ' + currentUserData.nombre + '\nTrámite: ' + t.descripcion);
-        fetch('https://formsubmit.co/juristam.ec@gmail.com',{method:'POST',body:fdA});
-      }
-      list.innerHTML += '<div class="tramite-item" style="border-left:3px solid ' + (vencido?'#B83232':'#8B5CF6') + ';' + (vencido?'background:#fff5f5;':'') + 'margin-bottom:0.5rem;">' +
-        (vencido ? '<div style="background:#B83232;color:#fff;padding:0.4rem 0.75rem;border-radius:0.4rem;font-size:0.78rem;font-weight:700;margin-bottom:0.75rem;">⚠️ Plazo vencido — completa el trámite.</div>' : '') +
+      var tiempoLabel = limite ? (vencido
+        ? '<span style="color:#B83232;font-weight:700;font-size:0.8rem;">⚠️ Tiempo vencido</span>'
+        : '<span style="color:' + (hrs < 4 ? '#C07C1A' : '#1A7F5A') + ';font-size:0.8rem;font-weight:600;">⏱ ' + hrs + 'h ' + mins + 'm restantes</span>') : '';
+
+      var div = document.createElement('div');
+      div.className = 'tramite-item';
+      div.style.cssText = 'border-left:3px solid ' + (vencido?'#B83232':'#8B5CF6') + ';' + (vencido?'background:#fff5f5;':'') + 'margin-bottom:0.5rem;';
+
+      // HTML base del trámite
+      var baseHtml = (vencido ? '<div style="background:#B83232;color:#fff;padding:0.4rem 0.75rem;border-radius:0.4rem;font-size:0.78rem;font-weight:700;margin-bottom:0.75rem;">⚠️ Plazo vencido — completa el trámite.</div>' : '') +
         '<div><strong>' + t.descripcion + '</strong><br>Ciudad: <strong>' + t.ciudadDestino + '</strong><br>Monto: <strong>$' + (t.monto*0.922).toFixed(2) + '</strong></div>' +
         '<div style="margin-top:0.5rem;"><span class="tag tag-progress">🔄 En ejecución</span> ' + tiempoLabel + '</div>' +
-        renderMensajesHtml(t.id) +
-        '<div style="margin-top:0.75rem;padding:0.85rem;background:#f0fff4;border:1.5px solid #68D391;border-radius:0.6rem;">' +
+        renderMensajesHtml(t.id);
+
+      // Formulario de dirección según escenario
+      var dirHtml = '';
+      if ((t.tipo_documentos === 'envio' || t.tipo_documentos === 'ambos') && !t.direccionEjecutor) {
+        var descDir = t.tipo_documentos === 'ambos'
+          ? 'Este trámite involucra envío y recepción de documentos. El solicitante te enviará documentos físicos y tú deberás enviarle documentos al completar. Ingresa tu dirección para recibir los documentos del solicitante.'
+          : 'El solicitante te enviará documentos físicos para que puedas iniciar el trámite. Ingresa tu dirección de recepción.';
+        dirHtml = '<div style="background:#fffbe6;border:1.5px solid #C07C1A;border-radius:0.6rem;padding:0.85rem;margin-top:0.6rem;">' +
+          '<p style="font-weight:700;color:#C07C1A;font-size:0.85rem;margin-bottom:0.4rem;">📬 Proporciona tu dirección para recibir documentos</p>' +
+          '<p style="font-size:0.78rem;color:#4c1d95;margin-bottom:0.6rem;">' + descDir + '</p>' +
+          '<input type="text" id="cedula-ej-' + t.id + '" placeholder="Tu cédula de identidad" style="width:100%;padding:0.45rem 0.65rem;border:1.5px solid #C4B5F4;border-radius:0.4rem;font-size:0.82rem;margin-bottom:0.5rem;box-sizing:border-box;">' +
+          '<div style="display:flex;gap:1rem;margin-bottom:0.5rem;">' +
+          '<label style="display:flex;align-items:center;gap:0.4rem;font-size:0.82rem;cursor:pointer;"><input type="radio" name="tipo-dir-ej-' + t.id + '" value="personal" style="accent-color:#7c3aed;"> Dirección personal</label>' +
+          '<label style="display:flex;align-items:center;gap:0.4rem;font-size:0.82rem;cursor:pointer;"><input type="radio" name="tipo-dir-ej-' + t.id + '" value="servientrega" style="accent-color:#7c3aed;"> Servientrega</label>' +
+          '</div>' +
+          '<input type="text" id="dir-personal-ej-' + t.id + '" placeholder="Dirección completa (calle, número, barrio, ciudad)" style="width:100%;padding:0.45rem 0.65rem;border:1.5px solid #C4B5F4;border-radius:0.4rem;font-size:0.82rem;margin-bottom:0.35rem;box-sizing:border-box;">' +
+          '<input type="text" id="dir-sv-ciudad-ej-' + t.id + '" placeholder="Ciudad de la sucursal Servientrega" style="width:100%;padding:0.45rem 0.65rem;border:1.5px solid #C4B5F4;border-radius:0.4rem;font-size:0.82rem;margin-bottom:0.35rem;box-sizing:border-box;">' +
+          '<input type="text" id="dir-sv-suc-ej-' + t.id + '" placeholder="Dirección exacta de la sucursal Servientrega" style="width:100%;padding:0.45rem 0.65rem;border:1.5px solid #C4B5F4;border-radius:0.4rem;font-size:0.82rem;margin-bottom:0.5rem;box-sizing:border-box;">' +
+          '<button class="btn-guardar-dir-ej" data-id="' + t.id + '" style="background:linear-gradient(135deg,#C07C1A,#F59E0B);color:#fff;border:none;padding:0.45rem 1rem;border-radius:0.4rem;font-size:0.82rem;font-weight:600;cursor:pointer;width:100%;">Guardar dirección</button>' +
+          '</div>';
+      } else if ((t.tipo_documentos === 'envio' || t.tipo_documentos === 'ambos') && t.direccionEjecutor) {
+        dirHtml = '<div style="background:#d1fae5;border-radius:0.5rem;padding:0.5rem 0.75rem;margin-top:0.5rem;font-size:0.8rem;color:#1A7F5A;">✓ Dirección proporcionada. El solicitante fue notificado.</div>';
+      }
+      if (t.tipo_documentos === 'recepcion' && t.direccionSolicitante) {
+        dirHtml += '<div style="background:#fffbe6;border:1px solid #C07C1A;border-radius:0.5rem;padding:0.5rem 0.75rem;margin-top:0.5rem;font-size:0.8rem;color:#C07C1A;"><strong>📦 Envía los documentos a:</strong><br>' + t.direccionSolicitante.direccion + '<br>Cédula: ' + t.direccionSolicitante.cedula + '</div>';
+      }
+
+      // Bloque de completar con fotos
+      var completarHtml = '<div style="margin-top:0.75rem;padding:0.85rem;background:#f0fff4;border:1.5px solid #68D391;border-radius:0.6rem;">' +
         '<p style="font-size:0.82rem;font-weight:700;color:#1A7F5A;margin-bottom:0.5rem;"><i class="fas fa-check-circle"></i> ¿Completaste el trámite?</p>' +
         '<textarea id="ev-' + t.id + '" placeholder="Describe brevemente cómo lo completaste (opcional)" rows="2" style="width:100%;padding:0.5rem 0.75rem;border:1.5px solid #68D391;border-radius:0.5rem;font-size:0.82rem;resize:none;margin-bottom:0.5rem;font-family:DM Sans,sans-serif;"></textarea>' +
-        '<p style="font-size:0.8rem;font-weight:700;color:#4c1d95;margin-bottom:0.4rem;">Sube al menos 2 fotos como evidencia del trámite completado:</p>' +
+        '<p style="font-size:0.8rem;font-weight:700;color:#4c1d95;margin-bottom:0.4rem;">Sube al menos 2 fotos como evidencia:</p>' +
         '<div id="fotos-prev-' + t.id + '" style="display:flex;flex-wrap:wrap;gap:0.4rem;margin-bottom:0.5rem;"></div>' +
-        '<div style="display:flex;gap:0.5rem;margin-bottom:0.5rem;">' +
-        '<label style="flex:1;background:#f0ebff;border:1.5px dashed #9a6aff;border-radius:0.5rem;padding:0.5rem;text-align:center;cursor:pointer;font-size:0.8rem;color:#4c1d95;font-weight:600;">' +
-        '<i class="fas fa-camera"></i> Agregar foto' +
-        '<input type="file" id="foto-inp-' + t.id + '" accept="image/*" multiple style="display:none;" onchange="agregarFotosEvidencia(this,\'' + t.id + '\')">' +
+        '<label style="display:block;background:#f0ebff;border:1.5px dashed #9a6aff;border-radius:0.5rem;padding:0.5rem;text-align:center;cursor:pointer;font-size:0.8rem;color:#4c1d95;font-weight:600;margin-bottom:0.5rem;">' +
+        '<i class="fas fa-camera"></i> Agregar fotos' +
+        '<input type="file" class="foto-ev-inp" data-tid="' + t.id + '" accept="image/*" multiple style="display:none;">' +
         '</label>' +
-        '</div>' +
         '<p id="fotos-contador-' + t.id + '" style="font-size:0.75rem;color:#B83232;margin-bottom:0.4rem;">0 fotos subidas — mínimo 2 requeridas</p>' +
         '<button id="btn-completar-' + t.id + '" class="btn-marcar-completado" data-tid="' + t.id + '" data-desc="' + (t.descripcion||'').substring(0,40).replace(/"/g,'') + '" data-ciudad="' + t.ciudadDestino + '" data-monto="' + t.monto + '" data-sol="' + t.abogadoId + '" disabled style="background:#ccc;color:#fff;border:none;padding:0.6rem 1.25rem;border-radius:0.5rem;font-size:0.85rem;font-weight:700;cursor:not-allowed;width:100%;"><i class="fas fa-flag-checkered"></i> Marcar como completado (sube mínimo 2 fotos)</button>' +
-        '</div></div>';
+        '</div>';
+
+      div.innerHTML = baseHtml + dirHtml + completarHtml;
+      list.appendChild(div);
     });
   }
   // Terminados
