@@ -428,7 +428,7 @@
       <li><a onclick="showJSection('jSuscripcionSection')"><i class="fas fa-crown"></i> Suscripciones <span id="badge-suscripcion" style="display:none;background:#e53e3e;color:#fff;border-radius:999px;font-size:0.65rem;font-weight:700;padding:1px 6px;margin-left:4px;vertical-align:middle;"></span></a></li>
       <li><a onclick="showJSection('jTramitesSection')"><i class="fas fa-file-alt"></i> Trámites <span id="badge-tramites" style="display:none;background:#e53e3e;color:#fff;border-radius:999px;font-size:0.65rem;font-weight:700;padding:1px 6px;margin-left:4px;vertical-align:middle;"></span></a></li>
       <li><a onclick="showJSection('jAsignarSection')"><i class="fas fa-map-marker-alt"></i> Asignar <span id="badge-asignar" style="display:none;background:#e53e3e;color:#fff;border-radius:999px;font-size:0.65rem;font-weight:700;padding:1px 6px;margin-left:4px;vertical-align:middle;"></span></a></li>
-      <li><a onclick="showJSection('jPagosSection')"><i class="fas fa-money-bill"></i> Confirmar Pagos <span id="badge-pagos" style="display:none;background:#e53e3e;color:#fff;border-radius:999px;font-size:0.65rem;font-weight:700;padding:1px 6px;margin-left:4px;vertical-align:middle;"></span></a></li>
+      <li><a onclick="showJSection('jPagosSection')"><i class="fas fa-money-bill"></i> Confirmar Pagos <span id="badge-pagos" style="display:none;background:#e53e3e;color:#fff;border-radius:999px;font-size:0.65rem;font-weight:700;padding:1px 6px;margin-left:4px;vertical-align:middle;"></span> <span id="badge-revision" style="display:none;background:#7c3aed;color:#fff;border-radius:999px;font-size:0.65rem;font-weight:700;padding:1px 6px;margin-left:2px;vertical-align:middle;"></span></a></li>
       <li><a onclick="showJSection('jMensajesSection')"><i class="fas fa-comments"></i> Conversaciones <span id="badge-mensajes" style="display:none;background:#e53e3e;color:#fff;border-radius:999px;font-size:0.65rem;font-weight:700;padding:1px 6px;margin-left:4px;vertical-align:middle;"></span></a></li>
       <li><a onclick="showJSection('jNotifJSection')"><i class="fas fa-bell"></i> Notificaciones <span id="badge-notif" style="display:none;background:#e53e3e;color:#fff;border-radius:999px;font-size:0.65rem;font-weight:700;padding:1px 6px;margin-left:4px;vertical-align:middle;"></span></a></li>
       <li><a onclick="showJSection('jPagosRegistroSection')"><i class="fas fa-file-invoice-dollar"></i> Registro Pagos</a></li>
@@ -895,6 +895,11 @@ async function cargarBadgesJ() {
     var snapO = await F.getDocs(F.query(F.collection(F.db,'opiniones'), F.where('estado','==','pendiente')));
     setBadgeJ('badge-opiniones', snapO.size);
 
+    // Badge Revision — pendiente_revision + en_disputa
+    var snapR1 = await F.getDocs(F.query(F.collection(F.db,'tramites'), F.where('estado','==','pendiente_revision')));
+    var snapR2 = await F.getDocs(F.query(F.collection(F.db,'tramites'), F.where('estado','==','en_disputa')));
+    setBadgeJ('badge-revision', snapR1.size + snapR2.size);
+
   } catch(e) { console.log('badges error:', e); }
 }
 
@@ -1032,7 +1037,7 @@ function showJSection(sectionId) {
   if (sectionId === 'jSuscripcionSection') loadJSuscripcion();
   if (sectionId === 'jTramitesSection') loadJTramites();
   if (sectionId === 'jAsignarSection') loadJAsignar();
-  if (sectionId === 'jPagosSection') loadJPagos();
+  if (sectionId === 'jPagosSection') { loadJPagos(); loadJRevision(); }
   if (sectionId === 'jMensajesSection') loadJMensajes();
   if (sectionId === 'jRotacionSection') loadJRotacion();
   if (sectionId === 'jOpinionesJSection') loadJOpiniones();
@@ -1570,6 +1575,8 @@ async function loadEnviados() {
   var esperando = todos.filter(function(t){ return t.estado === 'esperando_pago'; });
   var pendientes = todos.filter(function(t){ return t.estado === 'pendiente'; });
   var enProceso = todos.filter(function(t){ return t.estado === 'en_proceso' || t.estado === 'pendiente_revision'; });
+  var esperandoConf = todos.filter(function(t){ return t.estado === 'esperando_confirmacion_solicitante'; });
+  var enDisputa = todos.filter(function(t){ return t.estado === 'en_disputa'; });
   var terminados = todos.filter(function(t){ return t.estado === 'terminado'; });
   if (todos.length === 0) { list.innerHTML = '<p style="color:#6B5B95;padding:1rem;">No has enviado trámites aún.</p>'; return; }
   list.innerHTML = '';
@@ -1678,6 +1685,72 @@ async function loadEnviados() {
       list.appendChild(div);
     });
   }
+  // Esperando confirmación del solicitante
+  if (esperandoConf.length > 0) {
+    list.innerHTML += '<div style="margin-bottom:0.5rem;padding:0.5rem 0.75rem;background:#eff6ff;border-radius:0.5rem;border-left:3px solid #3b82f6;"><p style="font-size:0.8rem;font-weight:700;color:#1e40af;"><i class="fas fa-clock"></i> Esperando tu confirmación (' + esperandoConf.length + ')</p></div>';
+    esperandoConf.forEach(function(t) {
+      var div = document.createElement('div');
+      div.className = 'tramite-item';
+      div.style.cssText = 'border-left:3px solid #3b82f6;background:#eff6ff;margin-bottom:0.5rem;';
+      div.innerHTML =
+        '<p style="font-weight:700;color:#1e40af;">' + (t.descripcion||'').substring(0,60) + '</p>' +
+        '<p style="font-size:0.78rem;color:#7c6fa0;margin-bottom:0.5rem;">Ciudad: <strong>' + (t.ciudadDestino||'—') + '</strong> · Gestor: <strong>' + (t.aceptadoPor||'—') + '</strong></p>' +
+        '<div style="background:#dbeafe;border-radius:0.5rem;padding:0.5rem 0.75rem;margin-bottom:0.6rem;font-size:0.8rem;color:#1e40af;"><i class="fas fa-info-circle" style="margin-right:0.4rem;"></i>Juristam revisó las evidencias y aprobó el trámite. Confirma que fue completado correctamente para que se libere el pago al gestor.</div>' +
+        '<div style="display:flex;gap:0.5rem;">' +
+        '<button class="btn-confirmar-sol" data-id="' + t.id + '" data-ej="' + (t.aceptadoPorId||'') + '" data-monto="' + (t.monto||0) + '" style="background:linear-gradient(135deg,#1A7F5A,#38A169);color:#fff;border:none;padding:0.45rem 1rem;border-radius:0.4rem;font-size:0.82rem;font-weight:600;cursor:pointer;flex:1;">✓ Sí, el trámite está correcto</button>' +
+        '<button class="btn-disputar-sol" data-id="' + t.id + '" style="background:linear-gradient(135deg,#B83232,#ef4444);color:#fff;border:none;padding:0.45rem 1rem;border-radius:0.4rem;font-size:0.82rem;font-weight:600;cursor:pointer;flex:1;">✗ No está bien completado</button>' +
+        '</div>';
+      list.appendChild(div);
+    });
+  }
+  // En disputa
+  if (enDisputa.length > 0) {
+    list.innerHTML += '<div style="margin-bottom:0.5rem;padding:0.5rem 0.75rem;background:#fee2e2;border-radius:0.5rem;border-left:3px solid #ef4444;"><p style="font-size:0.8rem;font-weight:700;color:#b91c1c;"><i class="fas fa-exclamation-triangle"></i> En disputa (' + enDisputa.length + ')</p></div>';
+    enDisputa.forEach(function(t) {
+      var div = document.createElement('div');
+      div.className = 'tramite-item';
+      div.style.cssText = 'border-left:3px solid #ef4444;background:#fff5f5;margin-bottom:0.5rem;';
+      div.innerHTML =
+        '<p style="font-weight:700;color:#b91c1c;">' + (t.descripcion||'').substring(0,60) + '</p>' +
+        '<p style="font-size:0.78rem;color:#7c6fa0;">Ciudad: <strong>' + (t.ciudadDestino||'—') + '</strong></p>' +
+        '<div style="background:#fee2e2;border-radius:0.5rem;padding:0.5rem 0.75rem;margin-top:0.4rem;font-size:0.8rem;color:#b91c1c;"><i class="fas fa-exclamation-triangle" style="margin-right:0.4rem;"></i>Reportaste que este trámite no está completado correctamente. Juristam está revisando la situación.</div>';
+      list.appendChild(div);
+    });
+  }
+  // Listeners confirmación del solicitante
+  list.querySelectorAll('.btn-confirmar-sol').forEach(function(btn) {
+    btn.addEventListener('click', async function() {
+      var F = window._firebase;
+      var tid = btn.dataset.id;
+      var ejId = btn.dataset.ej;
+      var monto = parseFloat(btn.dataset.monto);
+      await F.updateDoc(F.doc(F.db,'tramites',tid), { estado: 'terminado', confirmadoSolicitanteAt: F.serverTimestamp() });
+      await F.addDoc(F.collection(F.db,'notificaciones'), {
+        abogadoId: ejId,
+        mensaje: 'El solicitante confirmó que el trámite fue completado correctamente. Tu pago de $' + (monto*0.922).toFixed(2) + ' será transferido en breve. ¡Gracias por tu excelente trabajo!',
+        tramiteId: tid, fecha: new Date().toISOString().split('T')[0], leida: false, createdAt: F.serverTimestamp()
+      });
+      await F.addDoc(F.collection(F.db,'notificaciones_juristam'), {
+        asunto: 'Tramite confirmado por solicitante - listo para pagar',
+        mensaje: 'El solicitante confirmo el tramite. Tramite ID: ' + tid + '\nMonto a pagar al gestor: $' + (monto*0.922).toFixed(2),
+        leida: false, tipo: 'pago_pendiente', tramiteId: tid, createdAt: F.serverTimestamp()
+      });
+      mostrarModalConf('Tramite confirmado', 'Gracias por confirmar. Juristam procesará el pago al gestor en breve.', function(){ loadEnviados(); });
+    });
+  });
+  list.querySelectorAll('.btn-disputar-sol').forEach(function(btn) {
+    btn.addEventListener('click', async function() {
+      var F = window._firebase;
+      var tid = btn.dataset.id;
+      await F.updateDoc(F.doc(F.db,'tramites',tid), { estado: 'en_disputa' });
+      await F.addDoc(F.collection(F.db,'notificaciones_juristam'), {
+        asunto: 'DISPUTA - Solicitante reporta tramite incompleto',
+        mensaje: 'El solicitante reporto que el tramite no fue completado correctamente. Tramite ID: ' + tid + '. Ve al panel de revision para decidir.',
+        leida: false, tipo: 'disputa', tramiteId: tid, createdAt: F.serverTimestamp()
+      });
+      mostrarModalConf('Reporte enviado', 'Juristam fue notificado y revisará la situación. Pronto recibirás una respuesta.', function(){ loadEnviados(); });
+    });
+  });
   // Listeners guardar dirección solicitante
   list.querySelectorAll('.btn-guardar-dir-sol').forEach(function(btn) {
     btn.onclick = function() { guardarDireccionSolicitante(btn.dataset.id); };
@@ -1726,7 +1799,11 @@ async function loadAceptados() {
   snap.forEach(function(d) { todos.push({ id: d.id, ...d.data() }); });
   todos.sort(function(a,b) { return (b.createdAt?.seconds||0) - (a.createdAt?.seconds||0); });
   var esperando = todos.filter(function(t){ return t.estado === 'esperando_pago'; });
-  var enProceso = todos.filter(function(t){ return t.estado === 'en_proceso' || t.estado === 'pendiente_revision'; });
+  var enProceso = todos.filter(function(t){ return t.estado === 'en_proceso'; });
+  var vencidos = todos.filter(function(t){ return t.estado === 'en_proceso' && t.fechaLimite && new Date() > new Date(t.fechaLimite); });
+  var enRevision = todos.filter(function(t){ return t.estado === 'pendiente_revision'; });
+  var esperandoConf = todos.filter(function(t){ return t.estado === 'esperando_confirmacion_solicitante'; });
+  var enDisputa = todos.filter(function(t){ return t.estado === 'en_disputa'; });
   var terminados = todos.filter(function(t){ return t.estado === 'terminado'; });
   if (todos.length === 0) { list.innerHTML = '<p style="color:#6B5B95;padding:1rem;">No has aceptado trámites aún.</p>'; return; }
   list.innerHTML = '';
@@ -1824,6 +1901,48 @@ async function loadAceptados() {
         '</div>';
 
       div.innerHTML = baseHtml + dirHtml + completarHtml;
+      list.appendChild(div);
+    });
+  }
+  // En revisión
+  if (enRevision.length > 0) {
+    list.innerHTML += '<div style="margin-bottom:0.5rem;padding:0.5rem 0.75rem;background:#f5f3ff;border-radius:0.5rem;border-left:3px solid #7c3aed;"><p style="font-size:0.8rem;font-weight:700;color:#4c1d95;"><i class="fas fa-eye"></i> En revisión por Juristam (' + enRevision.length + ')</p></div>';
+    enRevision.forEach(function(t) {
+      var div = document.createElement('div');
+      div.className = 'tramite-item';
+      div.style.cssText = 'border-left:3px solid #7c3aed;background:#faf5ff;margin-bottom:0.5rem;';
+      div.innerHTML =
+        '<p style="font-weight:700;color:#4c1d95;">' + (t.descripcion||'').substring(0,60) + '</p>' +
+        '<p style="font-size:0.78rem;color:#7c6fa0;">Ciudad: <strong>' + (t.ciudadDestino||'—') + '</strong> · Monto: <strong>$' + ((t.monto||0)*0.922).toFixed(2) + '</strong></p>' +
+        '<div style="background:#ede9f8;border-radius:0.5rem;padding:0.5rem 0.75rem;margin-top:0.4rem;font-size:0.8rem;color:#4c1d95;"><i class="fas fa-search" style="margin-right:0.4rem;"></i>Subiste las fotos de evidencia. Juristam está revisando tu trabajo. Pronto recibirás una respuesta.</div>';
+      list.appendChild(div);
+    });
+  }
+  // Esperando confirmación del solicitante
+  if (esperandoConf.length > 0) {
+    list.innerHTML += '<div style="margin-bottom:0.5rem;padding:0.5rem 0.75rem;background:#eff6ff;border-radius:0.5rem;border-left:3px solid #3b82f6;"><p style="font-size:0.8rem;font-weight:700;color:#1e40af;"><i class="fas fa-user-check"></i> Esperando confirmación del solicitante (' + esperandoConf.length + ')</p></div>';
+    esperandoConf.forEach(function(t) {
+      var div = document.createElement('div');
+      div.className = 'tramite-item';
+      div.style.cssText = 'border-left:3px solid #3b82f6;background:#eff6ff;margin-bottom:0.5rem;';
+      div.innerHTML =
+        '<p style="font-weight:700;color:#1e40af;">' + (t.descripcion||'').substring(0,60) + '</p>' +
+        '<p style="font-size:0.78rem;color:#7c6fa0;">Ciudad: <strong>' + (t.ciudadDestino||'—') + '</strong> · Monto: <strong>$' + ((t.monto||0)*0.922).toFixed(2) + '</strong></p>' +
+        '<div style="background:#dbeafe;border-radius:0.5rem;padding:0.5rem 0.75rem;margin-top:0.4rem;font-size:0.8rem;color:#1e40af;"><i class="fas fa-clock" style="margin-right:0.4rem;"></i>Juristam aprobó tu trabajo. Estamos esperando que el solicitante confirme para liberar tu pago.</div>';
+      list.appendChild(div);
+    });
+  }
+  // En disputa
+  if (enDisputa.length > 0) {
+    list.innerHTML += '<div style="margin-bottom:0.5rem;padding:0.5rem 0.75rem;background:#fee2e2;border-radius:0.5rem;border-left:3px solid #ef4444;"><p style="font-size:0.8rem;font-weight:700;color:#b91c1c;"><i class="fas fa-exclamation-triangle"></i> En disputa (' + enDisputa.length + ')</p></div>';
+    enDisputa.forEach(function(t) {
+      var div = document.createElement('div');
+      div.className = 'tramite-item';
+      div.style.cssText = 'border-left:3px solid #ef4444;background:#fff5f5;margin-bottom:0.5rem;';
+      div.innerHTML =
+        '<p style="font-weight:700;color:#b91c1c;">' + (t.descripcion||'').substring(0,60) + '</p>' +
+        '<p style="font-size:0.78rem;color:#7c6fa0;">Ciudad: <strong>' + (t.ciudadDestino||'—') + '</strong></p>' +
+        '<div style="background:#fee2e2;border-radius:0.5rem;padding:0.5rem 0.75rem;margin-top:0.4rem;font-size:0.8rem;color:#b91c1c;"><i class="fas fa-exclamation-triangle" style="margin-right:0.4rem;"></i>El solicitante reportó que el trámite no está correcto. Juristam está revisando la situación.</div>';
       list.appendChild(div);
     });
   }
@@ -2882,82 +3001,89 @@ async function loadJRevision() {
   if (!list) return;
   list.innerHTML = '<p style="color:#7c6fa0;font-size:0.82rem;">Cargando...</p>';
   try {
-    var snap = await F.getDocs(F.query(F.collection(F.db,'tramites'), F.where('estado','==','pendiente_revision')));
-    if (snap.empty) { list.innerHTML = '<p style="color:#6B5B95;font-size:0.82rem;">No hay tramites pendientes de revision.</p>'; return; }
+    // Tramites pendiente_revision + en_disputa
+    var snap1 = await F.getDocs(F.query(F.collection(F.db,'tramites'), F.where('estado','==','pendiente_revision')));
+    var snap2 = await F.getDocs(F.query(F.collection(F.db,'tramites'), F.where('estado','==','en_disputa')));
     var tramites = [];
-    snap.forEach(function(d){ tramites.push({ id: d.id, ...d.data() }); });
+    snap1.forEach(function(d){ tramites.push({id:d.id,...d.data()}); });
+    snap2.forEach(function(d){ tramites.push({id:d.id,...d.data()}); });
     tramites.sort(function(a,b){ return (b.completadoAt?.seconds||0)-(a.completadoAt?.seconds||0); });
+    if (!tramites.length) { list.innerHTML = '<p style="color:#6B5B95;font-size:0.82rem;">No hay tramites pendientes de revision.</p>'; return; }
     list.innerHTML = '';
     tramites.forEach(function(t) {
+      var esDisputa = t.estado === 'en_disputa';
       var fotosHtml = '';
       if (t.fotosEvidencia && t.fotosEvidencia.length) {
         fotosHtml = '<div style="display:flex;flex-wrap:wrap;gap:0.4rem;margin:0.5rem 0;">';
         t.fotosEvidencia.forEach(function(url) {
-          fotosHtml += '<a href="' + url + '" target="_blank"><img src="' + url + '" style="width:80px;height:80px;object-fit:cover;border-radius:0.4rem;border:2px solid #9a6aff;cursor:pointer;"></a>';
+          fotosHtml += '<a href="' + url + '" target="_blank"><img src="' + url + '" style="width:80px;height:80px;object-fit:cover;border-radius:0.4rem;border:2px solid #9a6aff;"></a>';
         });
         fotosHtml += '</div>';
       } else {
         fotosHtml = '<p style="font-size:0.78rem;color:#B83232;">Sin fotos de evidencia</p>';
       }
       var div = document.createElement('div');
-      div.style.cssText = 'background:#fff;border:1.5px solid #9a6aff;border-radius:0.75rem;padding:1rem;margin-bottom:0.85rem;';
+      div.style.cssText = 'background:#fff;border:1.5px solid ' + (esDisputa?'#ef4444':'#9a6aff') + ';border-radius:0.75rem;padding:1rem;margin-bottom:0.85rem;';
       div.innerHTML =
-        '<p style="font-weight:700;color:#2d1060;margin-bottom:0.3rem;">' + (t.descripcion||'').substring(0,60) + '</p>' +
-        '<p style="font-size:0.78rem;color:#7c6fa0;margin-bottom:0.4rem;">Ejecutor: <strong>' + (t.aceptadoPor||'—') + '</strong> · Ciudad: ' + (t.ciudadDestino||'—') + ' · Monto ejecutor: $' + ((t.monto||0)*0.922).toFixed(2) + '</p>' +
-        (t.evidencia ? '<p style="font-size:0.8rem;color:#4c1d95;margin-bottom:0.4rem;"><strong>Descripción:</strong> ' + t.evidencia + '</p>' : '') +
-        '<p style="font-size:0.8rem;font-weight:600;color:#4c1d95;margin-bottom:0.3rem;">Fotos de evidencia (' + (t.fotosEvidencia ? t.fotosEvidencia.length : 0) + '):</p>' +
+        '<div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:0.5rem;">' +
+        '<p style="font-weight:700;color:#2d1060;font-size:0.9rem;">' + (t.descripcion||'').substring(0,60) + '</p>' +
+        '<span style="background:' + (esDisputa?'#fee2e2':'#ede9f8') + ';color:' + (esDisputa?'#b91c1c':'#4c1d95') + ';font-size:0.72rem;font-weight:700;padding:2px 8px;border-radius:999px;">' + (esDisputa?'EN DISPUTA':'EN REVISIÓN') + '</span>' +
+        '</div>' +
+        '<p style="font-size:0.78rem;color:#7c6fa0;margin-bottom:0.4rem;">Gestor: <strong>' + (t.aceptadoPor||'—') + '</strong> · Solicitante: <strong>' + (t.nombre||'—') + '</strong> · Ciudad: ' + (t.ciudadDestino||'—') + '</p>' +
+        (esDisputa ? '<div style="background:#fee2e2;border-radius:0.5rem;padding:0.5rem 0.75rem;margin-bottom:0.5rem;font-size:0.8rem;color:#b91c1c;"><strong>⚠️ El solicitante reportó que el trámite no está completado correctamente.</strong></div>' : '') +
+        (t.evidencia ? '<p style="font-size:0.8rem;color:#4c1d95;margin-bottom:0.4rem;"><strong>Descripción del gestor:</strong> ' + t.evidencia + '</p>' : '') +
+        '<p style="font-size:0.8rem;font-weight:600;color:#4c1d95;margin-bottom:0.3rem;">Fotos de evidencia (' + (t.fotosEvidencia?t.fotosEvidencia.length:0) + '):</p>' +
         fotosHtml +
-        '<div style="display:flex;gap:0.5rem;margin-top:0.6rem;">' +
-        '<button class="btn-autorizar-rev" data-id="' + t.id + '" data-ej="' + (t.aceptadoPorId||'') + '" data-sol="' + (t.abogadoId||'') + '" data-monto="' + (t.monto||0) + '" style="background:linear-gradient(135deg,#1A7F5A,#38A169);color:#fff;border:none;padding:0.45rem 1rem;border-radius:0.4rem;font-size:0.82rem;font-weight:600;cursor:pointer;flex:1;">✓ Autorizar y liberar pago</button>' +
-        '<button class="btn-rechazar-rev" data-id="' + t.id + '" data-ej="' + (t.aceptadoPorId||'') + '" style="background:linear-gradient(135deg,#B83232,#ef4444);color:#fff;border:none;padding:0.45rem 1rem;border-radius:0.4rem;font-size:0.82rem;font-weight:600;cursor:pointer;flex:1;">✗ Rechazar evidencias</button>' +
+        '<div style="display:flex;gap:0.5rem;margin-top:0.6rem;flex-wrap:wrap;">' +
+        '<button class="btn-aprobar-rev" data-id="' + t.id + '" data-ej="' + (t.aceptadoPorId||'') + '" data-sol="' + (t.abogadoId||'') + '" data-monto="' + (t.monto||0) + '" style="background:linear-gradient(135deg,#1A7F5A,#38A169);color:#fff;border:none;padding:0.45rem 1rem;border-radius:0.4rem;font-size:0.82rem;font-weight:600;cursor:pointer;flex:1;">✓ Tramite completado correctamente</button>' +
+        '<button class="btn-rechazar-rev" data-id="' + t.id + '" data-ej="' + (t.aceptadoPorId||'') + '" style="background:linear-gradient(135deg,#B83232,#ef4444);color:#fff;border:none;padding:0.45rem 1rem;border-radius:0.4rem;font-size:0.82rem;font-weight:600;cursor:pointer;flex:1;">✗ Tramite NO completado correctamente</button>' +
         '</div>';
       list.appendChild(div);
     });
 
-    // Listeners
-    list.querySelectorAll('.btn-autorizar-rev').forEach(function(btn) {
-      btn.onclick = async function() {
+    // Listener aprobar - notifica al solicitante para que confirme
+    list.querySelectorAll('.btn-aprobar-rev').forEach(function(btn) {
+      btn.addEventListener('click', async function() {
         var F = window._firebase;
         var tid = btn.dataset.id;
-        var ejId = btn.dataset.ej;
         var solId = btn.dataset.sol;
-        var monto = parseFloat(btn.dataset.monto);
-        await F.updateDoc(F.doc(F.db,'tramites',tid), { estado: 'terminado', autorizadoAt: F.serverTimestamp() });
-        // Notif ejecutor
-        await F.addDoc(F.collection(F.db,'notificaciones'), {
-          abogadoId: ejId,
-          mensaje: 'Juristam autorizó tu trámite. Tu pago de $' + (monto*0.922).toFixed(2) + ' será transferido en breve.',
-          tramiteId: tid, fecha: new Date().toISOString().split('T')[0], leida: false, createdAt: F.serverTimestamp()
-        });
-        // Notif solicitante
+        var ejId = btn.dataset.ej;
+        await F.updateDoc(F.doc(F.db,'tramites',tid), { estado: 'esperando_confirmacion_solicitante' });
         await F.addDoc(F.collection(F.db,'notificaciones'), {
           abogadoId: solId,
-          mensaje: 'Tu trámite fue completado y verificado por Juristam. Por favor califica al ejecutor.',
+          mensaje: 'Juristam revisó las evidencias y aprobó el trámite. Por favor confirma que tu trámite fue completado correctamente para que se libere el pago al gestor. Ve a Mis Trámites.',
           tramiteId: tid, fecha: new Date().toISOString().split('T')[0], leida: false, createdAt: F.serverTimestamp()
         });
-        mostrarModalConf('Tramite autorizado', 'El pago fue liberado al ejecutor y el solicitante fue notificado.', function(){ loadJRevision(); cargarBadgesJ(); });
-      };
+        await F.addDoc(F.collection(F.db,'notificaciones'), {
+          abogadoId: ejId,
+          mensaje: 'Juristam aprobó tu evidencia. Estamos esperando la confirmación del solicitante para liberar tu pago.',
+          tramiteId: tid, fecha: new Date().toISOString().split('T')[0], leida: false, createdAt: F.serverTimestamp()
+        });
+        mostrarModalConf('Aprobado', 'El solicitante fue notificado para confirmar el trámite.', function(){ loadJRevision(); cargarBadgesJ(); });
+      });
     });
 
+    // Listener rechazar - devuelve al gestor
     list.querySelectorAll('.btn-rechazar-rev').forEach(function(btn) {
-      btn.onclick = async function() {
+      btn.addEventListener('click', async function() {
         var F = window._firebase;
         var tid = btn.dataset.id;
         var ejId = btn.dataset.ej;
         await F.updateDoc(F.doc(F.db,'tramites',tid), { estado: 'en_proceso', fotosEvidencia: [], completadoAt: null });
         await F.addDoc(F.collection(F.db,'notificaciones'), {
           abogadoId: ejId,
-          mensaje: 'Juristam rechazó las evidencias de tu trámite. Por favor sube nuevas fotos que demuestren que el trámite fue completado correctamente.',
+          mensaje: 'Juristam revisó las evidencias y determinó que el trámite no fue completado correctamente. Por favor corrígelo y sube nuevas fotos de evidencia.',
           tramiteId: tid, fecha: new Date().toISOString().split('T')[0], leida: false, createdAt: F.serverTimestamp()
         });
-        mostrarModalConf('Evidencias rechazadas', 'El ejecutor fue notificado para subir nuevas fotos.', function(){ loadJRevision(); });
-      };
+        mostrarModalConf('Rechazado', 'El gestor fue notificado para corregir el trámite.', function(){ loadJRevision(); });
+      });
     });
 
   } catch(err) {
     list.innerHTML = '<p style="color:#B83232;font-size:0.82rem;">Error: ' + err.message + '</p>';
   }
 }
+
 
 async function loadJPagos() {
   var F = window._firebase;
