@@ -8,7 +8,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover, maximum-scale=5.0" />
 
   <title>Guías Juristam · Blog Legal por Categorías</title>
-  <meta name="description" content="Guías prácticas de Juristam organizadas por categorías: Coactiva, SENAE/Aduanas, Familia, Inmobiliario, Laboral y Societario. Encuentra soluciones reales en Ecuador." />
+  <meta name="description" content="Guías prácticas de Juristam organizadas por categorías: Coactiva, SENAE/Aduanas, Familia, Inmobiliario, Laboral, Societario y Bancario. Encuentra soluciones reales en Ecuador." />
   <link rel="canonical" href="https://juristam.net/blog/" />
   <meta name="robots" content="index,follow,max-image-preview:large" />
   <meta property="og:image" content="https://i.postimg.cc/vHygbHxz/oie-transparent-(2).png" />
@@ -608,6 +608,8 @@
     .category-card:nth-child(4) { animation-delay: .20s; }
     .category-card:nth-child(5) { animation-delay: .25s; }
     .category-card:nth-child(6) { animation-delay: .30s; }
+    .category-card:nth-child(7) { animation-delay: .35s; }
+    .category-card:nth-child(8) { animation-delay: .40s; }
 
     a:focus-visible, button:focus-visible, input:focus-visible {
       outline: 2px solid rgba(154,106,255,.6);
@@ -701,7 +703,7 @@
       <div class="search-wrap">
         <div class="search-row">
           <input type="search" class="search-input" id="searchInput"
-            placeholder="Ej: 'cuenta bloqueada coactiva', 'SENAE retuvo mercadería', 'inspección Superintendencia'…"
+            placeholder="Ej: 'cuenta bloqueada coactiva', 'deuda prescrita', 'inspección Superintendencia'…"
             aria-label="Buscar artículos" enterkeyhint="search">
           <button class="btn btn-primary" id="searchBtn" type="button" style="min-width:120px;">
             <i class="fas fa-search"></i> Buscar
@@ -743,6 +745,7 @@
         <li><a href="https://juristam.net/blog/posesion-efectiva-herencia-ecuador.html">Posesión efectiva herencia Ecuador sin testamento</a></li>
         <li><a href="https://juristam.net/blog/despido-intempestivo-ecuador.html">Despido intempestivo Ecuador liquidación</a></li>
         <li><a href="https://juristam.net/blog/cheque-sin-fondos-ecuador.html">Cheque sin fondos Ecuador acción penal</a></li>
+        <li><a href="https://juristam.net/blog/prescripcion-deuda-bancaria-ecuador.html">Prescripción deuda bancaria Ecuador buró crédito</a></li>
       </ul>
     </nav>
 
@@ -781,7 +784,7 @@
     <div class="chat-messages" id="chatMessages"></div>
     <div class="chat-input-row">
       <input type="text" class="chat-input" id="chatInput"
-        placeholder="Ej: 'inspección Superintendencia', 'coactiva bloquearon cuenta'…"
+        placeholder="Ej: 'deuda prescrita banco', 'coactiva bloquearon cuenta'…"
         aria-label="Escribe tu consulta" enterkeyhint="send">
       <button class="btn btn-primary" id="btnSendChat" type="button" style="padding:0 18px;min-height:48px;">
         <i class="fas fa-paper-plane"></i>
@@ -858,7 +861,11 @@
     { tag:"Penal", date:"Guía práctica",
       title:"Cheque sin fondos en Ecuador: acción penal, acción civil y plazos que no puedes dejar vencer",
       excerpt:"En Ecuador el giro de cheque sin fondos es un delito. Tienes dos acciones disponibles — penal y civil — que pueden ejercerse al mismo tiempo. Los plazos corren desde el protesto y si vencen, las opciones se cierran.",
-      url:"https://juristam.net/blog/cheque-sin-fondos-ecuador.html" }
+      url:"https://juristam.net/blog/cheque-sin-fondos-ecuador.html" },
+    { tag:"Bancario", date:"Guía práctica",
+      title:"Prescripción de deudas bancarias en Ecuador: qué protege y qué no",
+      excerpt:"La prescripción mata la acción de cobro judicial, pero no borra el buró de crédito. Conoce los plazos reales, qué los interrumpe, y por qué prescribir no significa quedar libre.",
+      url:"https://juristam.net/blog/prescripcion-deuda-bancaria-ecuador.html" }
   ];
 
   const categories = [
@@ -866,6 +873,10 @@
       desc:"Cuenta bloqueada, medidas de cobro, prescripción, nulidades y estrategia rápida.",
       href:"https://juristam.net/blog/categoria-coactiva.html",
       tags:["Coactiva"], enabled:true },
+    { key:"bancario", name:"Bancario", icon:"fa-landmark",
+      desc:"Deudas prescritas, buró de crédito, negociación con bancos y habeas data.",
+      href:"https://juristam.net/blog/categoria-bancario.html",
+      tags:["Bancario"], enabled:true },
     { key:"familia", name:"Familia", icon:"fa-people-roof",
       desc:"Alimentos, prohibición de salida, herencia, posesión efectiva y trámites urgentes.",
       href:"https://juristam.net/blog/categoria-familia.html",
@@ -1065,7 +1076,7 @@
     const q = normalize(raw);
     const results = searchPosts(q);
     if (!results.length) {
-      sendBotMessage('No encontré artículos exactos. Prueba con: "coactiva", "SENAE", "alimentos", "herencia", "terreno", "sueldo", "superintendencia", "SAS".');
+      sendBotMessage('No encontré artículos exactos. Prueba con: "coactiva", "deuda prescrita", "buró", "SENAE", "alimentos", "herencia", "terreno", "sueldo", "superintendencia", "SAS".');
       return;
     }
     const inferred = inferCategory(q);
@@ -1111,6 +1122,7 @@
   function inferCategory(q) {
     const map = [
       { keys:["coactiva","cobro coactivo","embargo","bloquearon","bloqueo","cuenta bloqueada"], cat:"Coactiva" },
+      { keys:["bancario","banco","deuda bancaria","deuda prescrita","prescripcion deuda","prescripción deuda","buro","buró","credito","crédito","equifax","habeas data","pagare","pagaré","financiera"], cat:"Bancario" },
       { keys:["senae","aduanas","aduana","retuvieron","mercaderia","mercadería","liquidacion","liquidación","aforo"], cat:"Aduanas" },
       { keys:["alimentos","familia","pension","pensión","prohibicion de salida","salida del pais","apellidos","apellido","registro civil","identidad","herencia","posesion efectiva","posesión efectiva","herederos","testamento"], cat:"Familia" },
       { keys:["terreno","inmueble","prescripcion","prescripción","posesion","posesión","reivindicacion","reivindicación","escritura"], cat:"Inmuebles" },
