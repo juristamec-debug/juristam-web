@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="es-EC">
+<head>
+  <meta charset="UTF-8">
+  <link rel="icon" type="image/png" href="https://i.postimg.cc/KjDB1NSM/Diseno-sin-titulo-(7).png">
+  <link rel="apple-touch-icon" href="https://i.postimg.cc/KjDB1NSM/Diseno-sin-titulo-(7).png">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <meta name="theme-color" content="#9a6aff">
+
+  <title>Tributario · Guías Júristam</title>
+  <meta name="description" content="Guías legales sobre defensa frente al SRI en Ecuador. Carga de la prueba, errores en demandas, devoluciones de impuestos y estrategias tributarias.">
+  <link rel="canonical" href="https://juristam.net/blog/categoria-tributario.html">
+  <meta name="robots" content="index,follow,max-image-preview:large">
+
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Tributario · Guías Júristam">
+  <meta property="og:description" content="Defensa frente al SRI en Ecuador. Carga de la prueba, errores comunes y riesgos que pueden hacerte perder un caso.">
+  <meta property="og:url" content="https://juristam.net/blog/categoria-tributario.html">
+  <meta property="og:image" content="https://i.postimg.cc/vHygbHxz/oie-transparent-(2).png">
+
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+  <style>
+    :root{
+      --primary:#9a6aff;
+      --primary-dark:#7c3aed;
+      --primary-soft:#efe8ff;
+      --bg:#ffffff;
+      --border:#e5e7eb;
+      --text:#0f172a;
+      --text-2:#334155;
+      --text-3:#64748b;
+      --shadow-sm:0 6px 16px rgba(15,23,42,.06);
+      --shadow-md:0 14px 28px rgba(15,23,42,.10);
+      --radius:18px;
+      --header-h:64px;
+      --btn-h:34px;
+      --btn-px:10px;
+      --btn-font:0.82rem;
+      --logo-h:42px;
+    }
+
+    *{margin:0;padding:0;box-sizing:border-box}
+    body{font-family:Inter,sans-serif;color:var(--text);background:#fff}
+    .container{width:min(1200px,100%);margin:0 auto;padding:0 16px;}
+
+    header{position:sticky;top:0;background:#fff;border-bottom:1px solid var(--border);}
+    .header-inner{display:flex;justify-content:space-between;align-items:center;height:var(--header-h);}
+    .brand img{height:var(--logo-h)}
+
+    .btn{border-radius:999px;font-weight:900;padding:8px 12px}
+    .btn-primary{background:var(--primary);color:#fff}
+    .btn-ghost{background:var(--primary-soft)}
+
+    main{padding:12px 0 50px}
+
+    .breadcrumb{color:var(--text-3);font-weight:900;margin-bottom:10px}
+    .hero{
+      background:linear-gradient(135deg,#f8fafc,#f2f3fb);
+      padding:20px;border-radius:var(--radius);
+      margin-bottom:20px;
+    }
+    .hero h1{font-family:Playfair Display;font-size:2rem}
+    .hero p{margin-top:10px;color:var(--text-2)}
+
+    .chips{margin-top:12px;display:flex;gap:10px;flex-wrap:wrap}
+    .chip{background:#fff;border:1px solid var(--border);padding:6px 10px;border-radius:999px;font-weight:800;font-size:.85rem}
+
+    .grid{display:grid;gap:16px;margin-top:20px}
+    .card{border:1px solid var(--border);padding:16px;border-radius:var(--radius)}
+    .title{font-weight:900;margin-bottom:10px}
+    .excerpt{color:var(--text-2);margin-bottom:10px}
+    .link{color:var(--primary-dark);font-weight:900}
+
+    footer{border-top:1px solid var(--border);padding:16px;margin-top:30px;color:var(--text-3)}
+  </style>
+</head>
+
+<body>
+
+<header>
+  <div class="container header-inner">
+    <a class="brand" href="/blog/">
+      <img src="https://i.postimg.cc/vHygbHxz/oie-transparent-(2).png">
+    </a>
+    <div>
+      <a href="/blog/" class="btn btn-ghost">Categorías</a>
+      <a href="/#formulario" class="btn btn-primary">Evaluar</a>
+    </div>
+  </div>
+</header>
+
+<main class="container">
+
+<nav class="breadcrumb">
+Guías / Tributario
+</nav>
+
+<section class="hero">
+  <h1>Tributario</h1>
+  <p>
+    Defensa frente al SRI, carga de la prueba, devoluciones de impuestos y errores que pueden hacerte perder un caso aunque tengas razón.  
+    Entiende el riesgo real antes de actuar.
+  </p>
+
+  <div class="chips">
+    <span class="chip">Carga de la prueba</span>
+    <span class="chip">SRI</span>
+    <span class="chip">Devolución IVA</span>
+    <span class="chip">Casación</span>
+  </div>
+</section>
+
+<section class="grid" id="grid"></section>
+
+</main>
+
+<footer>
+  <div class="container">
+    © 2025 Júristam · <a href="/blog/">Volver a Guías</a>
+  </div>
+</footer>
+
+<script>
+const posts = [
+  {
+    tag: "Tributario",
+    date: "Guía estratégica",
+    title: "Carga de la prueba en materia tributaria: por qué puedes perder aunque tengas razón",
+    excerpt: "En materia tributaria no basta tener argumentos: debes probarlos. Este es el error que más casos hace perder frente al SRI.",
+    url: "/blog/carga-prueba-tributaria-ecuador.html"
+  }
+  
+];
+
+document.getElementById('grid').innerHTML = posts.map(p => `
+  <article class="card">
+    <div class="title">${p.title}</div>
+    <div class="excerpt">${p.excerpt}</div>
+    <a class="link" href="${p.url}">Leer artículo →</a>
+  </article>
+`).join("");
+</script>
+
+</body>
+</html>
