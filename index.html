@@ -290,6 +290,53 @@
     .wa-float{position:fixed;right:16px; bottom:16px; z-index:1500;width:56px; height:56px; border-radius:18px;background:#25D366; color:#fff;display:flex; align-items:center; justify-content:center;text-decoration:none;box-shadow:0 12px 35px rgba(0,0,0,.22);transition:transform .18s ease, box-shadow .18s ease;}
     .wa-float:hover{ transform:translateY(-2px); box-shadow:0 16px 40px rgba(0,0,0,.26); }
     .wa-float i{ font-size:1.6rem; }
+    .whatsapp-helper{position:fixed;right:80px;bottom:26px;z-index:1499;background:rgba(15,20,30,.82);color:#fff;font-size:.72rem;font-weight:700;padding:5px 10px;border-radius:999px;white-space:nowrap;pointer-events:none;opacity:0;transform:translateX(6px);transition:opacity .22s ease,transform .22s ease;backdrop-filter:blur(6px);line-height:1.3;}
+    .wa-float:hover + .whatsapp-helper{opacity:1;transform:translateX(0);}
+    @media(max-width:640px){.whatsapp-helper{opacity:1;transform:translateX(0);}}
+
+    /* WhatsApp Price Modal */
+    .wa-modal-overlay{position:fixed;inset:0;z-index:2000;background:rgba(15,20,35,.55);backdrop-filter:blur(4px);display:flex;align-items:flex-end;justify-content:center;padding:0 0 88px;opacity:0;pointer-events:none;transition:opacity .22s ease;}
+    .wa-modal-overlay.active{opacity:1;pointer-events:all;}
+    .wa-modal{background:#fff;border-radius:24px;padding:24px 20px 20px;width:100%;max-width:380px;box-shadow:0 28px 70px rgba(17,24,39,.22);transform:translateY(18px);transition:transform .25s cubic-bezier(.34,1.3,.64,1);position:relative;box-sizing:border-box;}
+    .wa-modal-overlay.active .wa-modal{transform:translateY(0);}
+    .wa-modal-close{position:absolute;top:14px;right:14px;background:var(--neutral-light);border:none;border-radius:999px;width:28px;height:28px;display:flex;align-items:center;justify-content:center;cursor:pointer;color:var(--text-light);font-size:.85rem;transition:background .15s ease;}
+    .wa-modal-close:hover{background:var(--neutral-border);}
+    .wa-modal-icon{width:44px;height:44px;background:#25D366;border-radius:14px;display:flex;align-items:center;justify-content:center;color:#fff;font-size:1.4rem;margin-bottom:14px;box-shadow:0 10px 24px rgba(37,211,102,.28);}
+    .wa-modal-title{font-family:'Playfair Display',serif;font-weight:900;font-size:1.15rem;color:var(--secondary);margin-bottom:6px;line-height:1.25;}
+    .wa-modal-subtitle{font-size:.88rem;color:var(--text-secondary);line-height:1.55;margin-bottom:16px;}
+    .wa-modal-prices{display:flex;gap:10px;margin-bottom:18px;}
+    .wa-modal-price-box{flex:1;border-radius:16px;padding:12px 10px;text-align:center;border:1px solid rgba(154,106,255,.22);background:linear-gradient(180deg,rgba(239,232,255,.85) 0%,rgba(239,232,255,.45) 100%);}
+    .wa-modal-price-box.featured{border-color:rgba(124,58,237,.45);background:linear-gradient(135deg,rgba(154,106,255,.18) 0%,rgba(124,58,237,.10) 100%);}
+    .wa-modal-price-label{font-size:.72rem;font-weight:900;text-transform:uppercase;letter-spacing:1px;color:var(--primary-dark);margin-bottom:4px;}
+    .wa-modal-price-amount{font-weight:950;font-size:1.6rem;color:var(--primary-dark);line-height:1;}
+    .wa-modal-price-note{font-size:.7rem;color:var(--text-light);margin-top:3px;line-height:1.3;}
+    .wa-modal-note{font-size:.78rem;color:var(--text-secondary);background:rgba(239,232,255,.45);border:1px solid rgba(154,106,255,.18);border-radius:12px;padding:9px 12px;margin-bottom:16px;line-height:1.5;}
+    .wa-modal-actions{display:flex;flex-direction:column;gap:9px;}
+    .wa-modal-btn-wa{display:flex;align-items:center;justify-content:center;gap:8px;padding:13px 16px;border-radius:var(--radius-xl);background:#25D366;color:#fff;font-weight:900;font-size:.92rem;text-decoration:none;box-shadow:0 10px 24px rgba(37,211,102,.22);transition:transform .15s ease,box-shadow .15s ease;}
+    .wa-modal-btn-wa:hover{transform:translateY(-1px);box-shadow:0 14px 30px rgba(37,211,102,.28);}
+    .wa-modal-btn-form{display:flex;align-items:center;justify-content:center;gap:8px;padding:12px 16px;border-radius:var(--radius-xl);background:linear-gradient(135deg,var(--primary) 0%,var(--primary-dark) 100%);color:#fff;font-weight:900;font-size:.92rem;text-decoration:none;box-shadow:0 10px 24px rgba(124,58,237,.18);transition:transform .15s ease,box-shadow .15s ease;}
+    .wa-modal-btn-form:hover{transform:translateY(-1px);box-shadow:0 14px 30px rgba(124,58,237,.26);}
+    @media(min-width:640px){.wa-modal-overlay{align-items:center;padding:0;}.wa-modal{max-width:400px;}}
+
+    /* CRO - Nuevos estilos */
+    .hero-urgency{font-size: clamp(0.95rem, 3vw, 1.08rem);color:#92400e;background:linear-gradient(180deg,rgba(255,251,235,.92) 0%,rgba(255,247,220,.70) 100%);border:1px solid rgba(245,158,11,.45);border-left:4px solid #f59e0b;padding:12px 14px;border-radius:14px;margin:10px 0 14px;line-height:1.65;font-weight:650;box-sizing:border-box;width:100%;}
+    .juristam-authority{background:linear-gradient(135deg,rgba(154,106,255,.10) 0%,rgba(124,58,237,.06) 100%);border:1px solid rgba(154,106,255,.22);border-left:4px solid var(--primary);border-radius:18px;padding:18px 16px;margin: 0 0 var(--sec-y);width:100%;box-sizing:border-box;}
+    .juristam-authority p{font-size: clamp(1rem, 3vw, 1.12rem);color:var(--secondary);line-height:1.7;font-weight:650;margin:0;}
+    .juristam-trust{background:#fff;border:1px solid rgba(229,231,235,.95);border-radius:20px;padding:20px 16px;margin: 0 0 var(--sec-y);box-shadow:0 15px 35px rgba(17,24,39,.08);width:100%;box-sizing:border-box;}
+    .juristam-trust h3{font-family:'Playfair Display',serif;font-weight:900;font-size:1.15rem;color:var(--secondary);margin-bottom:14px;}
+    .juristam-trust ul{list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:10px;}
+    .juristam-trust ul li{position:relative;padding-left:26px;color:var(--text-secondary);font-weight:650;font-size:.95rem;line-height:1.5;}
+    .juristam-trust ul li::before{content:'✓';position:absolute;left:0;top:0;color:var(--accent);font-weight:900;font-size:1rem;}
+    .price-reinforcement{font-size: clamp(0.92rem, 2.8vw, 1.05rem);color:var(--secondary);background:rgba(239,232,255,.55);border:1px solid rgba(154,106,255,.22);border-radius:14px;padding:14px 16px;margin: 0 0 16px;line-height:1.65;font-weight:650;width:100%;box-sizing:border-box;position:relative;z-index:1;}
+    .cta-push{font-size: clamp(0.92rem, 2.8vw, 1.02rem);color:var(--text-secondary);font-weight:650;line-height:1.65;margin: 0 0 16px;padding:0 5px;box-sizing:border-box;}
+    .final-message{border-top:1px solid rgba(229,231,235,.85);padding-top:28px;margin-top:10px;width:100%;box-sizing:border-box;}
+    .final-message p{font-size: clamp(0.92rem, 2.8vw, 1.02rem);color:var(--text-secondary);line-height:1.75;margin-bottom:10px;font-weight:550;}
+    .final-message p:last-child{margin-bottom:0;}
+    .form-trust{font-size:.9rem;color:var(--accent);background:var(--accent-light);border:1px solid rgba(15,118,110,.25);border-radius:14px;padding:11px 14px;margin-bottom:18px;font-weight:650;line-height:1.55;width:100%;box-sizing:border-box;}
+    .form-progress{font-size:.82rem;font-weight:900;text-transform:uppercase;letter-spacing:1.5px;color:var(--primary-dark);background:rgba(239,232,255,.65);border:1px solid rgba(154,106,255,.22);border-radius:999px;padding:7px 14px;display:inline-block;margin-bottom:16px;}
+    .form-reinforcement{font-size:.9rem;color:var(--text-secondary);font-weight:650;line-height:1.6;text-align:center;margin-bottom:14px;padding:0 5px;box-sizing:border-box;}
+    #nextStep{width:100%;max-width:100%;white-space:normal;line-height:1.15;padding:0.95rem 1rem;min-height:54px;text-align:center;font-size:.95rem;display:inline-flex;align-items:center;justify-content:center;gap:.55rem;border-radius:var(--radius-xl);font-weight:900;text-decoration:none;transition:transform .18s ease,box-shadow .18s ease,background .18s ease;border:none;cursor:pointer;background:linear-gradient(135deg,var(--primary) 0%,var(--primary-dark) 100%);color:#fff;box-shadow:0 16px 34px rgba(124,58,237,.22);border:1px solid rgba(124,58,237,.18);margin-top:8px;}
+    #nextStep:hover{transform:translateY(-1px);box-shadow:0 20px 44px rgba(124,58,237,.28);}
 
     @media (min-width: 400px) {
       .hero-features { grid-template-columns: 1fr 1fr; }
@@ -315,6 +362,8 @@
       .services-grid { grid-template-columns: 1fr 1fr; }
       .about-grid { grid-template-columns: 1fr 1fr; }
       .hero-features { grid-template-columns: 1fr 1fr; }
+      .juristam-trust ul { flex-direction: row; flex-wrap: wrap; gap: 12px; }
+      .juristam-trust ul li { width: calc(50% - 6px); }
     }
     @media (min-width: 768px) {
       :root { --maxw: 720px; }
@@ -349,6 +398,8 @@
       .section{ padding: var(--sec-y) 0; }
       .section-title{ font-size: clamp(1.85rem, 6.2vw, 3.15rem); line-height: 1.08; }
       .section-subtitle{ font-size: clamp(1.02rem, 3.5vw, 1.22rem); line-height: 1.75; }
+      .juristam-trust ul { flex-direction: row; flex-wrap: wrap; }
+      .juristam-trust ul li { width: auto; flex: 1 1 auto; }
     }
     @supports (-webkit-touch-callout: none) {
       input, select, textarea { font-size: 16px; }
@@ -382,7 +433,7 @@
         </div>
 
         <div class="nav-right">
-          <a href="#formulario" class="btn btn-primary">Evaluar Caso</a>
+          <a href="#formulario" class="btn btn-primary">Evaluar mi caso ahora</a>
         </div>
 
         <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Abrir menú" aria-expanded="false" aria-controls="mobileMenu">
@@ -402,7 +453,7 @@
           <a href="/blog/" class="mobile-nav-link"><i class="fas fa-book"></i>Guías</a>
           <a href="#contacto" class="mobile-nav-link"><i class="fas fa-envelope"></i>Contacto</a>
           <a href="#formulario" class="btn btn-primary" style="width:100%; margin-top:6px;">
-            <i class="fas fa-clipboard-check"></i>Evaluar Caso
+            <i class="fas fa-clipboard-check"></i>Evaluar mi caso ahora
           </a>
         </div>
       </div>
@@ -419,10 +470,14 @@
             <span class="badge"><i class="fas fa-bullseye"></i> Estrategia Clara</span>
           </div>
           <h1 class="hero-title">Abogados en Ecuador: problemas legales en <span>soluciones ejecutables</span></h1>
+          <p class="hero-urgency">
+            Cada decisión que tomes sin asesoría puede jugar en tu contra.<br>
+            En muchos casos, actuar tarde significa perder opciones legales.
+          </p>
           <p class="hero-subtitle">Aquí no vienes a pedir opinión. Vienes a salir con un plan. Evaluamos tu caso, definimos la estrategia y te damos pasos claros. Atención virtual en todo Ecuador y presencial en Guayaquil.</p>
           <div class="hero-alert"><strong>Ojo:</strong> el error más caro es dejar pasar el tiempo. En temas legales, el retraso normalmente significa más riesgo, más costo o pérdida de derechos.</div>
           <div class="hero-actions">
-            <a href="#formulario" class="btn btn-primary"><i class="fas fa-clipboard-check"></i>Evaluar mi Caso</a>
+            <a href="#formulario" class="btn btn-primary"><i class="fas fa-clipboard-check"></i>Evaluar mi caso ahora</a>
             <a href="/blog/" class="btn btn-outline"><i class="fas fa-book"></i>Ver Guías</a>
           </div>
           <div class="hero-features">
@@ -462,6 +517,15 @@
     </div>
   </section>
 
+  <div class="container">
+    <div class="juristam-authority">
+      <p>
+        En Juristam trabajamos con un enfoque claro: no se trata solo de opinar,
+        sino de definir qué hacer, qué evitar y cómo proteger tu situación desde el inicio.
+      </p>
+    </div>
+  </div>
+
   <section class="section" id="proceso">
     <div class="container">
       <div class="section-header">
@@ -484,6 +548,18 @@
         <h2 class="section-title">Estudio jurídico en Ecuador</h2>
         <p class="section-subtitle">Información factual sobre quiénes somos, qué hacemos y cómo operamos.</p>
       </div>
+
+      <div class="juristam-trust">
+        <h3>¿Qué puedes esperar de nuestro equipo?</h3>
+        <ul>
+          <li>Análisis claro desde la primera consulta</li>
+          <li>Estrategia legal personalizada</li>
+          <li>Confidencialidad total</li>
+          <li>Respuesta ágil</li>
+          <li>Enfoque práctico: soluciones, no teoría</li>
+        </ul>
+      </div>
+
       <div class="about-grid">
         <div class="about-card"><h3>¿Qué es Juristam?</h3><p>Juristam es un estudio jurídico multidisciplinario en Ecuador que ofrece asesoría legal estratégica virtual en todo el país y presencial en Guayaquil. La modalidad virtual no es una alternativa de segunda: es la opción que el 90% de nuestros clientes elige porque es más rápida, igual de efectiva y permite trabajar con documentos en tiempo real desde cualquier ciudad del Ecuador. Sin desplazamientos innecesarios, sin perder días laborables, sin trámites que se alargan por logística.</p></div>
         <div class="about-card"><h3>Áreas de práctica</h3><p>Juristam atiende casos de coactiva y cobro coactivo, derecho de familia (alimentos, prohibición de salida, impugnación de paternidad), SENAE y aduanas (retención de mercadería, liquidaciones), derecho societario (inspecciones Superintendencia de Compañías, cierres de compañía, aumentos de capital), derecho laboral y derecho inmobiliario.</p></div>
@@ -529,7 +605,7 @@
             <li>Definimos ruta: negociación / acción / defensa</li>
             <li><strong>Descuento:</strong> si contratas el servicio, estos $45 se descuentan del precio final</li>
           </ul>
-          <a href="#formulario" class="btn btn-primary" style="width:100%; margin-top:16px;"><i class="fas fa-video"></i> Solicitar Virtual</a>
+          <a href="#formulario" class="btn btn-primary" style="width:100%; margin-top:16px;"><i class="fas fa-video"></i> Quiero saber qué hacer con mi caso</a>
         </div>
         <div class="service-card">
           <div class="service-badge">Presencial</div>
@@ -541,7 +617,7 @@
             <li>Plan por fases</li>
             <li><strong>Nota:</strong> esta consulta no es descontable</li>
           </ul>
-          <a href="#formulario" class="btn btn-outline" style="width:100%; margin-top:16px;"><i class="fas fa-map-marker-alt"></i> Solicitar Presencial</a>
+          <a href="#formulario" class="btn btn-outline" style="width:100%; margin-top:16px;"><i class="fas fa-map-marker-alt"></i> Iniciar evaluación legal</a>
         </div>
       </div>
     </div>
@@ -552,11 +628,15 @@
       <h2 class="cta-title">Tu situación legal merece atención profesional</h2>
       <p class="cta-text">Si el caso es real, se trabaja. Si no hay ruta, se dice.</p>
       <div class="cta-subnote"><i class="fas fa-bolt"></i> Empieza por la <strong>consulta virtual</strong>: es más rápida y, si avanzas con nosotros, <strong>los $45 se descuentan del precio final</strong>. (La presencial no aplica a descuento.)</div>
+      <p class="price-reinforcement">
+        Esta no es una consulta para "ver qué pasa".<br>
+        Es un espacio para entender tu situación y tomar decisiones con respaldo legal.
+      </p>
       <div class="pricing-display">
         <div class="price-box"><div class="price-amount">$45</div><div class="price-label">Virtual (recomendada)</div></div>
         <div class="price-box"><div class="price-amount">$85</div><div class="price-label">Presencial</div></div>
       </div>
-      <a href="#formulario" class="btn" style="background:white;color:var(--primary);width:100%; max-width:400px; margin:0 auto;"><i class="fas fa-file-alt"></i> Iniciar Evaluación</a>
+      <a href="#formulario" class="btn" style="background:white;color:var(--primary);width:100%; max-width:400px; margin:0 auto;"><i class="fas fa-file-alt"></i> Iniciar evaluación legal</a>
     </div>
   </div>
 
@@ -568,19 +648,24 @@
         <p class="section-subtitle">Completa todos los campos marcados con *. Sin esto no podemos ofrecerte una agenda responsable.</p>
       </div>
       <div class="form-section">
+        <p class="cta-push">
+          Si tu caso es real, se puede trabajar.<br>
+          El primer paso es entenderlo correctamente.
+        </p>
+        <p class="form-trust">
+          <i class="fas fa-lock"></i> Tu información es confidencial. Nuestro equipo revisa cada caso de forma personalizada.
+        </p>
         <form id="leadForm" action="https://formsubmit.co/juristam.ec@gmail.com" method="POST">
           <input type="hidden" name="_subject" value="NUEVO LEAD CALIFICADO - Juristam">
           <input type="hidden" name="_template" value="table">
           <input type="hidden" name="_captcha" value="false">
-          <div class="form-row">
-            <div class="form-group"><label for="nombre">Nombre completo *</label><input type="text" id="nombre" name="Nombre" required placeholder="Nombre y apellido"></div>
-            <div class="form-group"><label for="ciudad">Ciudad / Cantón *</label><input type="text" id="ciudad" name="Ciudad" required placeholder="Ej: Guayaquil, Quito, Riobamba"></div>
-          </div>
-          <div class="form-row">
-            <div class="form-group"><label for="telefono">Teléfono (WhatsApp) *</label><input type="tel" id="telefono" name="Teléfono" required placeholder="099 xxx xxxx"></div>
-            <div class="form-group"><label for="correo">Correo electrónico *</label><input type="email" id="correo" name="Correo" required placeholder="tucorreo@mail.com"></div>
-          </div>
-          <div class="form-row">
+
+          <div id="step1">
+            <p class="form-progress"><i class="fas fa-circle-dot"></i> Paso 1 de 2 – Información básica</p>
+            <div class="form-row">
+              <div class="form-group"><label for="nombre">Nombre completo *</label><input type="text" id="nombre" name="Nombre" required placeholder="Nombre y apellido"></div>
+              <div class="form-group"><label for="telefono">Teléfono (WhatsApp) *</label><input type="tel" id="telefono" name="Teléfono" required placeholder="099 xxx xxxx"></div>
+            </div>
             <div class="form-group">
               <label for="tipo-caso">Tipo de caso legal *</label>
               <select id="tipo-caso" name="Tipo de caso" required>
@@ -596,28 +681,37 @@
                 <option>Otro tipo de caso</option>
               </select>
             </div>
-            <div class="form-group">
-              <label for="tiempo">¿Desde cuándo tienes este problema? *</label>
-              <select id="tiempo" name="Tiempo del problema" required>
-                <option value="" disabled selected>Selecciona una opción</option>
-                <option>Menos de 1 mes</option>
-                <option>Entre 1 y 6 meses</option>
-                <option>Entre 6 meses y 1 año</option>
-                <option>Más de 1 año</option>
-              </select>
-            </div>
+            <button type="button" id="nextStep"><i class="fas fa-arrow-right"></i> Continuar evaluación</button>
           </div>
-          <div class="form-row">
-            <div class="form-group">
-              <label for="acciones">¿Qué has hecho legalmente hasta ahora? *</label>
-              <select id="acciones" name="Acciones tomadas" required>
-                <option value="" disabled selected>Selecciona una opción</option>
-                <option>No he hecho nada todavía</option>
-                <option>Ya presenté demanda / denuncia</option>
-                <option>Ya me demandaron / denunciaron</option>
-                <option>Estoy en mediación o negociación</option>
-                <option>Ya tengo sentencia o resolución</option>
-              </select>
+
+          <div id="step2" style="display:none;">
+            <p class="form-progress"><i class="fas fa-circle-dot"></i> Paso 2 de 2 – Detalles del caso</p>
+            <div class="form-row">
+              <div class="form-group"><label for="ciudad">Ciudad / Cantón *</label><input type="text" id="ciudad" name="Ciudad" required placeholder="Ej: Guayaquil, Quito, Riobamba"></div>
+              <div class="form-group"><label for="correo">Correo electrónico *</label><input type="email" id="correo" name="Correo" required placeholder="tucorreo@mail.com"></div>
+            </div>
+            <div class="form-row">
+              <div class="form-group">
+                <label for="tiempo">¿Desde cuándo tienes este problema? *</label>
+                <select id="tiempo" name="Tiempo del problema" required>
+                  <option value="" disabled selected>Selecciona una opción</option>
+                  <option>Menos de 1 mes</option>
+                  <option>Entre 1 y 6 meses</option>
+                  <option>Entre 6 meses y 1 año</option>
+                  <option>Más de 1 año</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label for="acciones">¿Qué has hecho legalmente hasta ahora? *</label>
+                <select id="acciones" name="Acciones tomadas" required>
+                  <option value="" disabled selected>Selecciona una opción</option>
+                  <option>No he hecho nada todavía</option>
+                  <option>Ya presenté demanda / denuncia</option>
+                  <option>Ya me demandaron / denunciaron</option>
+                  <option>Estoy en mediación o negociación</option>
+                  <option>Ya tengo sentencia o resolución</option>
+                </select>
+              </div>
             </div>
             <div class="form-group">
               <label for="presupuesto">Presupuesto aproximado para honorarios</label>
@@ -628,20 +722,24 @@
                 <option>Más de $500</option>
               </select>
             </div>
-          </div>
-          <div class="form-group">
-            <label>¿Tienes documentos, resoluciones o notificaciones? *</label>
-            <div class="radio-group">
-              <label class="radio-option"><input type="radio" name="Documentos" value="Si" required><span>Sí, tengo documentos importantes que puedo enviar en PDF o foto.</span></label>
-              <label class="radio-option"><input type="radio" name="Documentos" value="No"><span>No, casi no tengo documentos, solo la situación de hecho.</span></label>
+            <div class="form-group">
+              <label>¿Tienes documentos, resoluciones o notificaciones? *</label>
+              <div class="radio-group">
+                <label class="radio-option"><input type="radio" name="Documentos" value="Si" required><span>Sí, tengo documentos importantes que puedo enviar en PDF o foto.</span></label>
+                <label class="radio-option"><input type="radio" name="Documentos" value="No"><span>No, casi no tengo documentos, solo la situación de hecho.</span></label>
+              </div>
             </div>
+            <div class="form-group"><label for="resumen">Resume tu caso en 5–8 líneas *</label><textarea id="resumen" name="Resumen del caso" required rows="4" placeholder="Ej: Describe tu problema, desde cuándo ocurre y si has recibido notificaciones..."></textarea></div>
+            <div class="form-group"><label for="detalles">Fechas, montos o detalles clave</label><textarea id="detalles" name="Detalles adicionales" rows="3" placeholder="Audiencias, fechas, montos aproximados, etc."></textarea></div>
+            <p class="form-reinforcement">
+              Este es el primer paso para entender tu caso y definir qué hacer.
+            </p>
+            <div class="form-actions">
+              <button id="submitBtn" type="submit" class="btn btn-primary"><i class="fas fa-paper-plane"></i><span>Enviar y evaluar mi caso</span></button>
+            </div>
+            <p style="text-align:center; margin-top:14px; color: var(--text-light); font-size: .85rem;">Al enviar autorizas a Juristam a contactarte por WhatsApp o correo. Tus datos se manejan de forma confidencial.</p>
           </div>
-          <div class="form-group"><label for="resumen">Resume tu caso en 5–8 líneas *</label><textarea id="resumen" name="Resumen del caso" required rows="4" placeholder="Qué pasó, fechas clave, qué necesitas lograr."></textarea></div>
-          <div class="form-group"><label for="detalles">Fechas, montos o detalles clave</label><textarea id="detalles" name="Detalles adicionales" rows="3" placeholder="Audiencias, fechas, montos aproximados, etc."></textarea></div>
-          <div class="form-actions">
-            <button id="submitBtn" type="submit" class="btn btn-primary"><i class="fas fa-paper-plane"></i><span>Enviar formulario para revisión</span></button>
-          </div>
-          <p style="text-align:center; margin-top:14px; color: var(--text-light); font-size: .85rem;">Al enviar autorizas a Juristam a contactarte por WhatsApp o correo. Tus datos se manejan de forma confidencial.</p>
+
         </form>
         <div id="successMessage" class="success-message"><i class="fas fa-check-circle"></i> ✅ <strong>¡Formulario enviado exitosamente!</strong><br>Te contactaremos en menos de 24 horas hábiles.</div>
       </div>
@@ -659,6 +757,16 @@
         <div class="about-card"><h3>¿Cuánto cuesta la consulta?</h3><p>La consulta virtual cuesta $45 USD y está disponible en todo Ecuador. La presencial en Guayaquil cuesta $85 USD. Si contratas el servicio completo después de la consulta virtual, esos $45 se descuentan del honorario final. La presencial no aplica descuento.</p></div>
         <div class="about-card"><h3>¿Atienden en todo Ecuador?</h3><p>Sí. La modalidad virtual permite atender casos en Quito, Guayaquil, Cuenca, Loja, Ambato, Riobamba y cualquier otra ciudad del Ecuador. La atención presencial está disponible únicamente en Guayaquil.</p></div>
         <div class="about-card"><h3>¿Qué tipos de casos atienden?</h3><p>Coactiva, casos civiles, derecho de familia (alimentos, prohibición de salida, impugnación de paternidad), SENAE y aduanas, derecho societario (Superintendencia de Compañías), laboral e inmobiliario. Si tu caso no encaja en estas áreas, igual llena el formulario y lo evaluamos.</p></div>
+      </div>
+
+      <div class="final-message">
+        <p>
+          No todos los problemas legales se resuelven pagando.
+          Muchos se resuelven con una estrategia correcta.
+        </p>
+        <p>
+          En Juristam analizamos tu caso para que tomes decisiones con claridad, no por presión.
+        </p>
       </div>
     </div>
   </section>
@@ -683,7 +791,7 @@
           <div class="footer-heading">Contacto</div>
           <div class="footer-contact">
             <div class="contact-item"><i class="fas fa-phone"></i> <a href="tel:+593994859814">+593 99 485 9814</a></div>
-            <div class="contact-item"><i class="fas fa-envelope"></i> <a href="mailto:juristam.ec@gmail.com">juristam.ec@gmail.com</a></div>
+            <div class="contact-item"><i class="fas fa-envelope"></i> <a href="/cdn-cgi/l/email-protection#167c63647f6562777b38737556717b777f7a3875797b"><span class="__cf_email__" data-cfemail="117b6463786265707c3f747251767c70787d3f727e7c">[email&#160;protected]</span></a></div>
             <div class="contact-item"><i class="fas fa-map-marker-alt"></i> <span>Guayaquil, Ecuador</span></div>
           </div>
         </div>
@@ -703,11 +811,39 @@
     </div>
   </footer>
 
-  <a class="wa-float" href="https://wa.me/593994859814?text=Hola%20J%C3%BAristam.%20Quiero%20una%20EVALUACI%C3%93N%20de%20mi%20caso." target="_blank" rel="noopener" aria-label="Contactar por WhatsApp">
+  <!-- WhatsApp Price Modal -->
+  <div class="wa-modal-overlay" id="waModal" role="dialog" aria-modal="true" aria-label="Información de consulta">
+    <div class="wa-modal">
+      <button class="wa-modal-close" id="waModalClose" aria-label="Cerrar"><i class="fas fa-times"></i></button>
+      <div class="wa-modal-icon"><i class="fab fa-whatsapp"></i></div>
+      <div class="wa-modal-title">Cuéntanos tu caso, sin compromiso.</div>
+      <p class="wa-modal-subtitle">Leer tu situación y orientarte brevemente no tiene costo. Si decides avanzar con una consulta completa, la tarifa es:</p>
+      <div class="wa-modal-prices">
+        <div class="wa-modal-price-box featured">
+          <div class="wa-modal-price-label">Virtual ⭐</div>
+          <div class="wa-modal-price-amount">$45</div>
+          <div class="wa-modal-price-note">Todo Ecuador · Recomendada</div>
+        </div>
+        <div class="wa-modal-price-box">
+          <div class="wa-modal-price-label">Presencial</div>
+          <div class="wa-modal-price-amount">$85</div>
+          <div class="wa-modal-price-note">Solo Guayaquil</div>
+        </div>
+      </div>
+      <p class="wa-modal-note"><i class="fas fa-info-circle" style="color:var(--primary-dark);margin-right:5px;"></i>Si contratas el servicio completo, los <strong>$45 de la consulta virtual se descuentan</strong> del precio final.</p>
+      <div class="wa-modal-actions">
+        <a class="wa-modal-btn-wa" id="waModalContinue" href="https://wa.me/593994859814?text=Hola%2C%20vi%20su%20p%C3%A1gina%20de%20Juristam.%20Tengo%20un%20problema%20legal%20y%20quisiera%20saber%20qu%C3%A9%20opciones%20tengo.%0A%0ATe%20explico%20brevemente%20mi%20caso%3A" target="_blank" rel="noopener"><i class="fab fa-whatsapp"></i> Entendido, continuar a WhatsApp</a>
+        <a class="wa-modal-btn-form" href="#formulario" id="waModalForm"><i class="fas fa-clipboard-check"></i> Prefiero llenar el formulario</a>
+      </div>
+    </div>
+  </div>
+
+  <a class="wa-float" id="waFloatBtn" href="#" aria-label="Consulta rápida o caso urgente por WhatsApp" title="Consulta rápida o caso urgente">
     <i class="fab fa-whatsapp"></i>
   </a>
+  <small class="whatsapp-helper">Consulta rápida o caso urgente</small>
 
-  <script>
+  <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
     document.getElementById('currentYear').textContent = new Date().getFullYear();
 
     const setHeaderHeightVar = () => {
@@ -784,9 +920,57 @@
       }
     });
 
+    document.getElementById('nextStep').addEventListener('click', function() {
+      const nombre = document.getElementById('nombre');
+      const telefono = document.getElementById('telefono');
+      const tipoCaso = document.getElementById('tipo-caso');
+      if (!nombre.value.trim()) { nombre.focus(); nombre.reportValidity(); return; }
+      if (!telefono.value.trim()) { telefono.focus(); telefono.reportValidity(); return; }
+      if (!tipoCaso.value) { tipoCaso.focus(); tipoCaso.reportValidity(); return; }
+      document.getElementById('step1').style.display = 'none';
+      document.getElementById('step2').style.display = 'block';
+      document.getElementById('formulario').scrollIntoView({ behavior: 'smooth', block: 'start' });
+    });
+
     if (/iPhone|iPad|iPod/.test(navigator.userAgent)) {
       document.addEventListener('touchstart', function() {}, {passive: true});
     }
+
+    // WhatsApp Price Modal
+    const waModal = document.getElementById('waModal');
+    const waFloatBtn = document.getElementById('waFloatBtn');
+    const waModalClose = document.getElementById('waModalClose');
+    const waModalForm = document.getElementById('waModalForm');
+
+    const openWaModal = (e) => {
+      e.preventDefault();
+      waModal.classList.add('active');
+      document.body.style.overflow = 'hidden';
+    };
+
+    const closeWaModal = () => {
+      waModal.classList.remove('active');
+      document.body.style.overflow = '';
+    };
+
+    waFloatBtn.addEventListener('click', openWaModal);
+    waModalClose.addEventListener('click', closeWaModal);
+
+    waModal.addEventListener('click', (e) => {
+      if (e.target === waModal) closeWaModal();
+    });
+
+    waModalForm.addEventListener('click', (e) => {
+      e.preventDefault();
+      closeWaModal();
+      const headerH = parseFloat(getComputedStyle(document.documentElement).getPropertyValue('--header-h')) || 70;
+      const el = document.getElementById('formulario');
+      if (el) window.scrollTo({ top: el.getBoundingClientRect().top + window.scrollY - (headerH + 14), behavior: 'smooth' });
+    });
+
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') closeWaModal();
+    });
   </script>
 </body>
 </html>
