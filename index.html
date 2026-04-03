@@ -120,223 +120,226 @@
     :root{
       --primary:#9a6aff;
       --primary-dark:#7c3aed;
-      --primary-light:#efe8ff;
-      --secondary:#1e293b;
+      --primary-light:#f3eeff;
+      --secondary:#0f172a;
       --accent:#0f766e;
-      --accent-light:#ccfbf1;
+      --accent-light:#f0fdfb;
       --neutral-dark:#111827;
-      --neutral:#374151;
-      --neutral-light:#f3f4f6;
-      --neutral-border:#e5e7eb;
+      --neutral:#64748b;
+      --neutral-light:#f8fafc;
+      --neutral-border:#e8ecf0;
       --white:#ffffff;
-      --text-main:#111827;
-      --text-secondary:#4b5563;
-      --text-light:#6b7280;
-      --shadow-sm:0 2px 10px rgba(17,24,39,.06);
-      --shadow-md:0 18px 40px rgba(17,24,39,.10);
-      --shadow-lg:0 28px 70px rgba(17,24,39,.14);
-      --radius-sm:12px;
-      --radius-md:16px;
-      --radius-lg:24px;
-      --radius-xl:30px;
+      --text-main:#0f172a;
+      --text-secondary:#475569;
+      --text-light:#94a3b8;
+      --shadow-sm:0 1px 4px rgba(15,23,42,.05);
+      --shadow-md:0 8px 32px rgba(15,23,42,.08);
+      --shadow-lg:0 20px 60px rgba(15,23,42,.10);
+      --radius-sm:8px;
+      --radius-md:12px;
+      --radius-lg:18px;
+      --radius-xl:24px;
       --header-fixed-h: 70px;
       --header-h: 70px;
-      --pad-x: 16px;
+      --pad-x: 20px;
       --maxw: 100%;
-      --sec-y: 40px;
+      --sec-y: 56px;
     }
     *{margin:0;padding:0;box-sizing:border-box;}
     html{scroll-behavior:smooth;scroll-padding-top: calc(var(--header-h) + 14px);width: 100%;overflow-x: hidden;}
-    body{font-family:'Inter',system-ui,-apple-system,Segoe UI,sans-serif;color:var(--text-main);line-height:1.6;background:var(--white);overflow-x:hidden;text-rendering:optimizeLegibility;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;width: 100%;position: relative;}
+    body{font-family:'Inter',system-ui,-apple-system,Segoe UI,sans-serif;color:var(--text-main);line-height:1.7;background:var(--white);overflow-x:hidden;text-rendering:optimizeLegibility;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;width: 100%;position: relative;font-size:16px;}
     img{max-width:100%;height:auto;display:block;}
     a{-webkit-tap-highlight-color:transparent;}
     .container{width: 100%;max-width: var(--maxw);margin:0 auto;padding:0 var(--pad-x);box-sizing: border-box;}
     .header-container{width: 100%;max-width: var(--maxw);margin:0 auto;padding:0 var(--pad-x);box-sizing: border-box;height: 100%;display: flex;align-items: center;}
 
-    header{position:fixed; inset:0 0 auto 0; z-index:1000;height:var(--header-fixed-h);display:flex; align-items:center;background:rgba(255,255,255,.92);backdrop-filter: blur(14px);border-bottom:1px solid rgba(229,231,235,.85);box-shadow:var(--shadow-sm);transition: background .2s ease, box-shadow .2s ease;width: 100%;padding: 0;box-sizing: border-box;}
-    header.scrolled{background:rgba(255,255,255,.97);box-shadow:0 12px 28px rgba(17,24,39,.10);}
-    .navbar{height:var(--header-fixed-h);width:100%;display:flex;align-items:center;gap:12px;box-sizing: border-box;}
-    .brand{display:flex;align-items:center;text-decoration:none;min-width:0;flex: 1 1 auto;}
+    header{position:fixed;inset:0 0 auto 0;z-index:1000;height:var(--header-fixed-h);display:flex;align-items:center;background:rgba(255,255,255,.96);backdrop-filter:blur(20px);border-bottom:1px solid var(--neutral-border);box-shadow:0 1px 0 rgba(15,23,42,.04);transition:background .2s ease,box-shadow .2s ease;width:100%;padding:0;box-sizing:border-box;}
+    header.scrolled{background:rgba(255,255,255,.99);box-shadow:0 4px 20px rgba(15,23,42,.06);}
+    .navbar{height:var(--header-fixed-h);width:100%;display:flex;align-items:center;gap:12px;box-sizing:border-box;}
+    .brand{display:flex;align-items:center;text-decoration:none;min-width:0;flex:1 1 auto;}
     .logo-icon{height:70px;width:min(220px, 55vw);display:flex;align-items:center;justify-content:flex-start;overflow:hidden;}
-    .logo-icon img{height:100%;width:auto;object-fit:contain;display:block;max-height: 70px;}
+    .logo-icon img{height:100%;width:auto;object-fit:contain;display:block;max-height:70px;}
     .nav-center{display:none;}
     .nav-right{display:none;}
 
-    .mobile-menu-btn{display:flex;flex:0 0 auto;flex-direction:column;gap:5px;background:#fff;border:1px solid rgba(229,231,235,.95);box-shadow:0 10px 18px rgba(17,24,39,.08);cursor:pointer;padding:10px;border-radius:16px;width: 44px;height: 44px;justify-content: center;align-items: center;}
-    .mobile-menu-btn span{width:20px;height:2px;background:var(--neutral-dark);transition:all .25s ease;}
-    .mobile-menu{display:none;position:fixed;top: var(--header-h);left:0; right:0;background:rgba(255,255,255,.98);backdrop-filter: blur(14px);padding:14px var(--pad-x) 18px;z-index:999;border-top:1px solid var(--neutral-border);box-shadow:0 22px 50px rgba(17,24,39,.14);max-height: calc(100vh - var(--header-h));overflow-y: auto;-webkit-overflow-scrolling: touch;box-sizing: border-box;}
+    .mobile-menu-btn{display:flex;flex:0 0 auto;flex-direction:column;gap:5px;background:#fff;border:1px solid var(--neutral-border);box-shadow:var(--shadow-sm);cursor:pointer;padding:10px;border-radius:var(--radius-md);width:44px;height:44px;justify-content:center;align-items:center;}
+    .mobile-menu-btn span{width:20px;height:1.5px;background:var(--text-main);transition:all .25s ease;}
+    .mobile-menu{display:none;position:fixed;top:var(--header-h);left:0;right:0;background:rgba(255,255,255,.99);backdrop-filter:blur(20px);padding:16px var(--pad-x) 20px;z-index:999;border-top:1px solid var(--neutral-border);box-shadow:var(--shadow-lg);max-height:calc(100vh - var(--header-h));overflow-y:auto;-webkit-overflow-scrolling:touch;box-sizing:border-box;}
     .mobile-menu.active{display:block;}
-    .mobile-nav-links{display:flex;flex-direction:column;gap:10px;width: 100%;}
-    .mobile-nav-link{font-weight:900;color:var(--neutral);text-decoration:none;font-size:1rem;padding:14px 16px;border:1px solid rgba(229,231,235,.95);border-radius:18px;background:linear-gradient(180deg,#fff 0%, rgba(243,244,246,.70) 100%);display:flex; align-items:center; gap:12px;box-shadow:0 14px 26px rgba(17,24,39,.08);width: 100%;box-sizing: border-box;}
-    .mobile-nav-link i{ color:var(--primary); }
+    .mobile-nav-links{display:flex;flex-direction:column;gap:8px;width:100%;}
+    .mobile-nav-link{font-weight:600;color:var(--text-main);text-decoration:none;font-size:.95rem;padding:13px 16px;border:1px solid var(--neutral-border);border-radius:var(--radius-md);background:#fff;display:flex;align-items:center;gap:12px;width:100%;box-sizing:border-box;transition:background .15s ease;}
+    .mobile-nav-link:hover{background:var(--neutral-light);}
+    .mobile-nav-link i{color:var(--primary);}
 
-    .btn{display:inline-flex; align-items:center; justify-content:center;gap:.55rem;padding:0.85rem 1rem;border-radius:var(--radius-xl);font-weight:900;font-size:0.95rem;text-decoration:none;transition:transform .18s ease, box-shadow .18s ease, background .18s ease;border:none;cursor:pointer;white-space:nowrap;width: 100%;box-sizing: border-box;}
-    .btn-primary{background:linear-gradient(135deg,var(--primary) 0%,var(--primary-dark) 100%);color:#fff;box-shadow:0 16px 34px rgba(124,58,237,.22);border:1px solid rgba(124,58,237,.18);}
-    .btn-primary:hover{ transform:translateY(-1px); box-shadow:0 20px 44px rgba(124,58,237,.28); }
-    .btn-outline{background:#fff;color:var(--primary-dark);border:1px solid rgba(154,106,255,.40);box-shadow:0 14px 28px rgba(17,24,39,.08);}
-    .btn-outline:hover{ transform:translateY(-1px); background:rgba(239,232,255,.65); }
+    .btn{display:inline-flex;align-items:center;justify-content:center;gap:.5rem;padding:0.8rem 1.4rem;border-radius:var(--radius-md);font-weight:600;font-size:0.9rem;text-decoration:none;transition:all .2s ease;border:none;cursor:pointer;white-space:nowrap;width:100%;box-sizing:border-box;letter-spacing:.01em;}
+    .btn-primary{background:var(--primary);color:#fff;box-shadow:0 4px 14px rgba(124,58,237,.25);}
+    .btn-primary:hover{background:var(--primary-dark);transform:translateY(-1px);box-shadow:0 8px 22px rgba(124,58,237,.30);}
+    .btn-outline{background:#fff;color:var(--primary);border:1.5px solid var(--primary);box-shadow:none;}
+    .btn-outline:hover{background:var(--primary-light);transform:translateY(-1px);}
 
-    .section{padding: var(--sec-y) 0;width: 100%;overflow: hidden;}
-    .section-header{text-align:center;max-width:100%;margin:0 auto 24px;padding:0 var(--pad-x);box-sizing: border-box;}
-    .section-kicker{display:inline-block;font-size:.82rem;font-weight:900;text-transform:uppercase;letter-spacing:2px;color:var(--primary-dark);margin-bottom:12px;position:relative;padding-bottom:10px;}
-    .section-kicker::after{content:'';position:absolute; left:50%; bottom:0; transform:translateX(-50%);width:54px; height:4px;border-radius:999px;background:linear-gradient(to right,var(--primary),var(--primary-dark));}
-    .section-title{font-family:'Playfair Display',serif;font-weight:900;font-size: clamp(1.5rem, 5vw, 3.15rem);line-height:1.2;color:var(--secondary);margin-bottom:12px;padding: 0 10px;box-sizing: border-box;}
-    .section-subtitle{font-size: clamp(0.95rem, 3vw, 1.22rem);color:var(--text-secondary);line-height:1.6;padding: 0 10px;box-sizing: border-box;}
+    .section{padding:var(--sec-y) 0;width:100%;overflow:hidden;}
+    .section-header{text-align:center;max-width:100%;margin:0 auto 32px;padding:0 var(--pad-x);box-sizing:border-box;}
+    .section-kicker{display:inline-block;font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:3px;color:var(--primary);margin-bottom:14px;position:relative;padding-bottom:0;}
+    .section-kicker::after{display:none;}
+    .section-title{font-family:'Playfair Display',serif;font-weight:700;font-size:clamp(1.6rem, 5vw, 2.8rem);line-height:1.15;color:var(--secondary);margin-bottom:14px;padding:0;box-sizing:border-box;letter-spacing:-.02em;}
+    .section-subtitle{font-size:clamp(0.95rem, 3vw, 1.1rem);color:var(--text-secondary);line-height:1.75;padding:0;box-sizing:border-box;font-weight:400;max-width:560px;margin:0 auto;}
 
-    .hero{padding-top: calc(var(--header-h) + 20px);padding-bottom: 40px;background:radial-gradient(400px 300px at 10% 10%, rgba(154,106,255,.18), transparent 55%),radial-gradient(350px 250px at 95% 0%, rgba(124,58,237,.14), transparent 55%),linear-gradient(135deg,#f8fafc 0%,#f1f5f9 100%);position:relative;overflow:hidden;width: 100%;}
-    .hero-content{display:flex;flex-direction: column;gap: 24px;position:relative;z-index:1;width: 100%;}
-    .hero-badges{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:14px;width: 100%;}
-    .badge{display:inline-flex; align-items:center; gap:6px;padding:8px 12px;border-radius:999px;background:rgba(239,232,255,.85);border:1px solid rgba(154,106,255,.25);color:var(--primary-dark);font-weight:900;font-size:.8rem;white-space: nowrap;}
-    .hero-title{font-family:'Playfair Display',serif;font-weight:900;font-size: clamp(1.8rem, 6vw, 3.7rem);line-height:1.2;color:var(--secondary);margin-bottom:12px;letter-spacing:-.01em;overflow-wrap:break-word;word-break: break-word;padding: 0 5px;box-sizing: border-box;}
-    .hero-title span{ color:var(--primary); }
-    .hero-subtitle{font-size: clamp(1rem, 3.5vw, 1.28rem);color:var(--text-secondary);line-height:1.6;margin-bottom:12px;padding: 0 5px;box-sizing: border-box;}
-    .hero-alert{background:linear-gradient(180deg,#fffbeb 0%, rgba(255,251,235,.55) 100%);border:1px solid rgba(245,158,11,.65);border-left:5px solid #f59e0b;color:#92400e;padding: 14px 12px;border-radius:16px;margin: 14px 0 10px;box-shadow:0 12px 30px rgba(17,24,39,.10);width: 100%;box-sizing: border-box;}
-    .hero-actions{display:flex;flex-direction: column;gap:12px;margin-top:12px;width: 100%;}
-    .hero-actions .btn{width:100%;max-width: 100%;}
-    .hero-features{display:grid;grid-template-columns: 1fr;gap:12px;margin-top:20px;width: 100%;}
-    .hero-feature{display:flex;align-items:flex-start;gap:12px;padding:14px 12px;border-radius:18px;border:1px solid rgba(229,231,235,.95);background:rgba(255,255,255,.82);backdrop-filter: blur(10px);box-shadow:0 12px 30px rgba(17,24,39,.10);width: 100%;box-sizing: border-box;}
-    .hero-feature-icon{width:36px; height:36px;border-radius:14px;display:flex; align-items:center; justify-content:center;background:rgba(239,232,255,.95);color:var(--primary-dark);flex-shrink:0;box-shadow:0 10px 20px rgba(124,58,237,.14);}
-    .hero-card{background:rgba(255,255,255,.92);border-radius:22px;padding:18px 14px;border:1px solid rgba(229,231,235,.95);box-shadow:0 20px 50px rgba(17,24,39,.16);position:relative;overflow:hidden;width: 100%;box-sizing: border-box;}
-    .hero-card::before{content:'';position:absolute; top:0; left:0; right:0; height:6px;background:linear-gradient(to right,var(--primary),var(--primary-dark));}
-    .hero-card-title{font-family:'Playfair Display',serif;font-weight:900;font-size:1.25rem;color:var(--secondary);margin-bottom:12px;}
-    .hero-card-list{list-style:none;padding-left:0;margin:12px 0;}
-    .hero-card-list li{position:relative;padding-left:24px;margin-bottom:10px;color:var(--text-secondary);line-height:1.6;font-weight:600;}
-    .hero-card-list li::before{content:'✓';position:absolute;left:0; top:0;color:var(--accent);font-weight:900;}
-    .pricing-box{background:linear-gradient(180deg, rgba(239,232,255,.95) 0%, rgba(239,232,255,.70) 100%);border:1px solid rgba(154,106,255,.24);border-radius:18px;padding:14px 12px;margin-top:14px;width: 100%;box-sizing: border-box;}
-    .pricing-item{display:flex;justify-content:space-between;align-items:flex-start;gap:10px;flex-wrap:wrap;width: 100%;}
-    .pricing-item + .pricing-item{margin-top:12px;padding-top:12px;border-top:1px solid rgba(154,106,255,.18);}
-    .pricing-name{ font-weight:950; color:var(--primary-dark); font-size:0.95rem; }
-    .pricing-desc{ font-size:.85rem; color:var(--text-light); margin-top:.2rem; }
-    .pricing-price{ font-weight:950; font-size:1.8rem; color:var(--primary-dark); }
-    .virtual-advantage{margin-top:12px;padding:14px 12px;border-radius:16px;border:1px solid rgba(124,58,237,.22);background:radial-gradient(300px 150px at 10% 0%, rgba(154,106,255,.18), transparent 60%),linear-gradient(180deg, rgba(239,232,255,.92) 0%, rgba(255,255,255,.90) 100%);box-shadow:0 12px 30px rgba(17,24,39,.10);width: 100%;box-sizing: border-box;}
-    .virtual-advantage-title{display:flex; align-items:center; gap:10px;font-weight:950;color:var(--secondary);font-size:0.95rem;margin-bottom:6px;}
-    .virtual-advantage-title i{color:var(--primary-dark);background:rgba(239,232,255,.95);border:1px solid rgba(154,106,255,.22);width:32px; height:32px;display:flex; align-items:center; justify-content:center;border-radius:10px;box-shadow:0 10px 20px rgba(124,58,237,.12);flex-shrink:0;}
-    .virtual-advantage p{margin:0;color:var(--text-secondary);line-height:1.6;font-weight:650;font-size:.9rem;}
-    .virtual-advantage strong{ font-weight:950; color:var(--secondary); }
+    .hero{padding-top:calc(var(--header-h) + 40px);padding-bottom:56px;background:#fff;position:relative;overflow:hidden;width:100%;}
+    .hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 70% 60% at 80% 0%, rgba(154,106,255,.07), transparent 65%),radial-gradient(ellipse 50% 40% at 5% 80%, rgba(124,58,237,.05), transparent 60%);pointer-events:none;}
+    .hero-content{display:flex;flex-direction:column;gap:28px;position:relative;z-index:1;width:100%;}
+    .hero-badges{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:18px;width:100%;}
+    .badge{display:inline-flex;align-items:center;gap:6px;padding:6px 12px;border-radius:999px;background:var(--primary-light);border:1px solid rgba(154,106,255,.20);color:var(--primary-dark);font-weight:600;font-size:.75rem;white-space:nowrap;letter-spacing:.01em;}
+    .hero-title{font-family:'Playfair Display',serif;font-weight:700;font-size:clamp(1.9rem, 6vw, 3.5rem);line-height:1.12;color:var(--secondary);margin-bottom:16px;letter-spacing:-.03em;overflow-wrap:break-word;word-break:break-word;padding:0;box-sizing:border-box;}
+    .hero-title span{color:var(--primary);}
+    .hero-subtitle{font-size:clamp(1rem, 3.5vw, 1.15rem);color:var(--text-secondary);line-height:1.75;margin-bottom:16px;padding:0;box-sizing:border-box;font-weight:400;}
+    .hero-alert{background:#fffbeb;border:1px solid rgba(245,158,11,.35);border-left:3px solid #f59e0b;color:#78350f;padding:14px 16px;border-radius:var(--radius-md);margin:16px 0 12px;width:100%;box-sizing:border-box;font-size:.9rem;line-height:1.65;}
+    .hero-actions{display:flex;flex-direction:column;gap:10px;margin-top:16px;width:100%;}
+    .hero-actions .btn{width:100%;max-width:100%;}
+    .hero-features{display:grid;grid-template-columns:1fr;gap:10px;margin-top:24px;width:100%;}
+    .hero-feature{display:flex;align-items:flex-start;gap:12px;padding:14px;border-radius:var(--radius-md);border:1px solid var(--neutral-border);background:#fff;width:100%;box-sizing:border-box;}
+    .hero-feature-icon{width:34px;height:34px;border-radius:var(--radius-sm);display:flex;align-items:center;justify-content:center;background:var(--primary-light);color:var(--primary);flex-shrink:0;}
+    .hero-card{background:#fff;border-radius:var(--radius-lg);padding:24px 20px;border:1px solid var(--neutral-border);box-shadow:var(--shadow-md);position:relative;overflow:hidden;width:100%;box-sizing:border-box;}
+    .hero-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:var(--primary);}
+    .hero-card-title{font-family:'Playfair Display',serif;font-weight:700;font-size:1.2rem;color:var(--secondary);margin-bottom:14px;letter-spacing:-.01em;}
+    .hero-card-list{list-style:none;padding-left:0;margin:14px 0;}
+    .hero-card-list li{position:relative;padding-left:22px;margin-bottom:10px;color:var(--text-secondary);line-height:1.6;font-size:.92rem;}
+    .hero-card-list li::before{content:'✓';position:absolute;left:0;top:0;color:var(--accent);font-weight:700;}
+    .pricing-box{background:var(--neutral-light);border:1px solid var(--neutral-border);border-radius:var(--radius-md);padding:16px;margin-top:16px;width:100%;box-sizing:border-box;}
+    .pricing-item{display:flex;justify-content:space-between;align-items:flex-start;gap:10px;flex-wrap:wrap;width:100%;}
+    .pricing-item + .pricing-item{margin-top:14px;padding-top:14px;border-top:1px solid var(--neutral-border);}
+    .pricing-name{font-weight:600;color:var(--secondary);font-size:.9rem;}
+    .pricing-desc{font-size:.8rem;color:var(--text-light);margin-top:.2rem;}
+    .pricing-price{font-weight:700;font-size:1.6rem;color:var(--primary);}
+    .virtual-advantage{margin-top:14px;padding:14px;border-radius:var(--radius-md);border:1px solid rgba(154,106,255,.18);background:var(--primary-light);width:100%;box-sizing:border-box;}
+    .virtual-advantage-title{display:flex;align-items:center;gap:10px;font-weight:600;color:var(--secondary);font-size:.9rem;margin-bottom:8px;}
+    .virtual-advantage-title i{color:var(--primary);background:#fff;border:1px solid rgba(154,106,255,.20);width:30px;height:30px;display:flex;align-items:center;justify-content:center;border-radius:var(--radius-sm);flex-shrink:0;}
+    .virtual-advantage p{margin:0;color:var(--text-secondary);line-height:1.65;font-size:.85rem;}
+    .virtual-advantage strong{font-weight:600;color:var(--secondary);}
 
-    .cta-section{background:linear-gradient(135deg,var(--primary) 0%, var(--primary-dark) 100%);border-radius:24px;padding:20px 14px;text-align:center;color:#fff;margin: 22px 0;box-shadow:0 20px 50px rgba(124,58,237,.26);position:relative;overflow:hidden;width: 100%;box-sizing: border-box;}
-    .cta-section::before{content:'';position:absolute;inset:-30%;background:radial-gradient(circle at 30% 30%, rgba(255,255,255,.20), transparent 45%);pointer-events:none;}
-    .cta-title{font-family:'Playfair Display',serif;font-weight:950;font-size: clamp(1.4rem, 5vw, 2.7rem);margin-bottom:10px;position:relative; z-index:1;line-height:1.2;padding: 0 5px;box-sizing: border-box;}
-    .cta-text{font-size: clamp(0.95rem, 3.5vw, 1.2rem);opacity:.93;max-width:100%;margin:0 auto 10px;line-height:1.6;position:relative; z-index:1;padding: 0 5px;box-sizing: border-box;}
-    .cta-subnote{position:relative; z-index:1;margin: 0 auto 14px;max-width: 100%;font-weight:850;opacity:.97;line-height:1.6;font-size: .9rem;padding: 0 5px;box-sizing: border-box;}
-    .pricing-display{display:flex;flex-direction: column;justify-content:center;gap:16px;margin-bottom:16px;flex-wrap:wrap;position:relative; z-index:1;width: 100%;}
-    .price-box{ text-align:center; width: 100%; }
-    .price-amount{ font-weight:950; font-size: clamp(1.8rem, 6vw, 3.5rem); margin-bottom:2px; }
-    .price-label{ font-size:0.95rem; opacity:.92; }
+    .cta-section{background:var(--secondary);border-radius:var(--radius-lg);padding:36px 24px;text-align:center;color:#fff;margin:28px 0;position:relative;overflow:hidden;width:100%;box-sizing:border-box;}
+    .cta-section::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 60% 60% at 80% 20%, rgba(154,106,255,.18), transparent 60%);pointer-events:none;}
+    .cta-title{font-family:'Playfair Display',serif;font-weight:700;font-size:clamp(1.4rem, 5vw, 2.2rem);margin-bottom:12px;position:relative;z-index:1;line-height:1.2;letter-spacing:-.02em;padding:0;box-sizing:border-box;}
+    .cta-text{font-size:clamp(0.9rem, 3.5vw, 1.05rem);opacity:.80;max-width:100%;margin:0 auto 12px;line-height:1.7;position:relative;z-index:1;padding:0;box-sizing:border-box;}
+    .cta-subnote{position:relative;z-index:1;margin:0 auto 18px;max-width:100%;font-weight:500;opacity:.75;line-height:1.65;font-size:.85rem;padding:0;box-sizing:border-box;}
+    .pricing-display{display:flex;flex-direction:column;justify-content:center;gap:16px;margin-bottom:20px;flex-wrap:wrap;position:relative;z-index:1;width:100%;}
+    .price-box{text-align:center;width:100%;}
+    .price-amount{font-weight:700;font-size:clamp(2rem, 6vw, 3rem);margin-bottom:2px;color:#fff;}
+    .price-label{font-size:.85rem;opacity:.70;}
 
-    .process-grid{display:grid;grid-template-columns:1fr;gap:16px;width: 100%;}
-    .process-card{background:#fff;border-radius:20px;padding:18px 14px;border:1px solid rgba(229,231,235,.95);box-shadow:0 15px 35px rgba(17,24,39,.12);text-align:center;transition: transform .18s ease, box-shadow .18s ease;width: 100%;box-sizing: border-box;}
-    .process-card:hover{ transform: translateY(-4px); box-shadow:0 20px 45px rgba(17,24,39,.14); }
-    .process-number{width:50px;height:50px;border-radius:999px;display:flex;align-items:center;justify-content:center;background:linear-gradient(135deg,var(--primary) 0%, var(--primary-dark) 100%);color:#fff;font-family:'Playfair Display',serif;font-weight:900;font-size:1.3rem;margin:0 auto 12px;box-shadow:0 12px 30px rgba(124,58,237,.22);}
-    .process-title{font-family:'Playfair Display',serif;font-weight:900;color:var(--secondary);font-size:1.2rem;margin-bottom:8px;}
-    .process-description{ color:var(--text-secondary); line-height:1.6; font-size: 0.9rem; }
+    .process-grid{display:grid;grid-template-columns:1fr;gap:16px;width:100%;}
+    .process-card{background:#fff;border-radius:var(--radius-lg);padding:28px 20px;border:1px solid var(--neutral-border);text-align:center;transition:box-shadow .2s ease,transform .2s ease;width:100%;box-sizing:border-box;}
+    .process-card:hover{transform:translateY(-3px);box-shadow:var(--shadow-md);}
+    .process-number{width:44px;height:44px;border-radius:999px;display:flex;align-items:center;justify-content:center;background:var(--primary-light);color:var(--primary);font-family:'Playfair Display',serif;font-weight:700;font-size:1.15rem;margin:0 auto 16px;border:2px solid rgba(154,106,255,.25);}
+    .process-title{font-family:'Playfair Display',serif;font-weight:700;color:var(--secondary);font-size:1.1rem;margin-bottom:10px;letter-spacing:-.01em;}
+    .process-description{color:var(--text-secondary);line-height:1.7;font-size:.88rem;}
 
-    .blog-section{ background:var(--neutral-light); }
-    .blog-grid{display:grid;grid-template-columns:1fr;gap:16px;margin-top:18px;width: 100%;}
-    .blog-card{background:#fff;border:1px solid rgba(229,231,235,.95);border-radius:20px;padding:16px 14px;box-shadow:0 15px 35px rgba(17,24,39,.12);transition: transform .18s ease, box-shadow .18s ease;display:flex; flex-direction:column;min-width:0;width: 100%;box-sizing: border-box;}
-    .blog-card:hover{ transform: translateY(-4px); box-shadow:0 20px 45px rgba(17,24,39,.14); }
-    .blog-meta{display:flex;gap:8px;flex-wrap:wrap;align-items:center;color:var(--text-light);font-size:.85rem;margin-bottom:10px;}
-    .blog-tag{background:rgba(239,232,255,.92);color:var(--primary-dark);border:1px solid rgba(154,106,255,.22);padding:5px 8px;border-radius:999px;font-weight:950;font-size:.75rem;letter-spacing:.4px;text-transform:uppercase;}
-    .blog-title{ font-weight:950; font-size:1.05rem; color:var(--secondary); line-height:1.3; margin-bottom:8px; }
-    .blog-excerpt{ color:var(--text-secondary); line-height:1.6; font-size:0.9rem; margin-bottom:12px; flex:1; }
-    .blog-link{display:inline-flex; align-items:center; gap:8px;text-decoration:none;font-weight:950;color:var(--primary-dark);padding:10px 12px;border-radius:14px;background:rgba(239,232,255,.55);border:1px solid rgba(154,106,255,.20);width:fit-content;font-size: 0.9rem;}
-    .blog-link:hover{ background:rgba(239,232,255,.78); }
+    .blog-section{background:var(--neutral-light);}
+    .blog-grid{display:grid;grid-template-columns:1fr;gap:16px;margin-top:20px;width:100%;}
+    .blog-card{background:#fff;border:1px solid var(--neutral-border);border-radius:var(--radius-lg);padding:22px 18px;transition:box-shadow .2s ease,transform .2s ease;display:flex;flex-direction:column;min-width:0;width:100%;box-sizing:border-box;}
+    .blog-card:hover{transform:translateY(-3px);box-shadow:var(--shadow-md);}
+    .blog-meta{display:flex;gap:8px;flex-wrap:wrap;align-items:center;color:var(--text-light);font-size:.8rem;margin-bottom:12px;}
+    .blog-tag{background:var(--primary-light);color:var(--primary);border:1px solid rgba(154,106,255,.18);padding:4px 10px;border-radius:999px;font-weight:600;font-size:.7rem;letter-spacing:.5px;text-transform:uppercase;}
+    .blog-title{font-weight:600;font-size:1rem;color:var(--secondary);line-height:1.4;margin-bottom:10px;}
+    .blog-excerpt{color:var(--text-secondary);line-height:1.7;font-size:.88rem;margin-bottom:14px;flex:1;}
+    .blog-link{display:inline-flex;align-items:center;gap:7px;text-decoration:none;font-weight:600;color:var(--primary);font-size:.85rem;transition:gap .15s ease;}
+    .blog-link:hover{gap:10px;}
 
-    .services-section{ background:var(--neutral-light); }
-    .services-grid{display:grid;grid-template-columns:1fr;gap:16px;width: 100%;}
-    .service-card{background:#fff;border-radius:20px;padding:18px 14px;border:1px solid rgba(229,231,235,.95);box-shadow:0 15px 35px rgba(17,24,39,.12);transition: transform .18s ease, box-shadow .18s ease;position:relative;overflow:hidden;min-width:0;width: 100%;box-sizing: border-box;}
-    .service-card:hover{ transform: translateY(-4px); box-shadow:0 20px 45px rgba(17,24,39,.14); }
-    .service-card.featured{ border:2px solid rgba(154,106,255,.75); }
-    .service-card.featured::before{content:'Recomendado';position:absolute;top:12px; right:12px;background:linear-gradient(135deg,var(--primary) 0%, var(--primary-dark) 100%);color:#fff;padding:6px 10px;border-radius:999px;font-weight:950;font-size:.7rem;box-shadow:0 12px 25px rgba(124,58,237,.22);}
-    .service-badge{ display:inline-block; font-size:.8rem; font-weight:950; text-transform:uppercase; letter-spacing:1px; color:var(--primary-dark); margin-bottom:.5rem; }
-    .service-title{ font-family:'Playfair Display',serif; font-weight:950; font-size:1.4rem; color:var(--secondary); margin-bottom:.5rem; line-height:1.2; }
-    .service-price{ font-weight:950; font-size:2rem; color:var(--primary-dark); margin:.5rem 0; }
-    .service-price span{ font-size:.9rem; color:var(--text-light); font-weight:800; }
-    .service-features{ list-style:none; padding-left:0; margin:12px 0 0; }
-    .service-features li{margin-bottom:8px;color:var(--text-secondary);position:relative;padding-left:24px;line-height:1.6;font-weight:600;font-size: 0.9rem;}
-    .service-features li::before{ content:'✓'; position:absolute; left:0; top:0; color:var(--accent); font-weight:950; }
+    .services-section{background:var(--neutral-light);}
+    .services-grid{display:grid;grid-template-columns:1fr;gap:16px;width:100%;}
+    .service-card{background:#fff;border-radius:var(--radius-lg);padding:28px 22px;border:1px solid var(--neutral-border);transition:box-shadow .2s ease,transform .2s ease;position:relative;overflow:hidden;min-width:0;width:100%;box-sizing:border-box;}
+    .service-card:hover{transform:translateY(-3px);box-shadow:var(--shadow-md);}
+    .service-card.featured{border:1.5px solid rgba(154,106,255,.45);}
+    .service-card.featured::before{content:'Recomendado';position:absolute;top:16px;right:16px;background:var(--primary);color:#fff;padding:4px 10px;border-radius:999px;font-weight:600;font-size:.7rem;}
+    .service-badge{display:inline-block;font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:2px;color:var(--primary);margin-bottom:.6rem;}
+    .service-title{font-family:'Playfair Display',serif;font-weight:700;font-size:1.35rem;color:var(--secondary);margin-bottom:.5rem;line-height:1.2;letter-spacing:-.01em;}
+    .service-price{font-weight:700;font-size:2rem;color:var(--primary);margin:.6rem 0;letter-spacing:-.02em;}
+    .service-price span{font-size:.85rem;color:var(--text-light);font-weight:400;letter-spacing:0;}
+    .service-features{list-style:none;padding-left:0;margin:14px 0 0;}
+    .service-features li{margin-bottom:10px;color:var(--text-secondary);position:relative;padding-left:20px;line-height:1.6;font-size:.88rem;}
+    .service-features li::before{content:'✓';position:absolute;left:0;top:0;color:var(--accent);font-weight:700;}
 
-    .about-section{ background:#fff; }
-    .about-grid{display:grid;grid-template-columns:1fr;gap:16px;margin-top:20px;}
-    .about-card{background:var(--neutral-light);border:1px solid var(--neutral-border);border-radius:20px;padding:18px 14px;box-sizing: border-box;}
-    .about-card h3{font-family:'Playfair Display',serif;font-size:1.1rem; font-weight:900;color:var(--secondary); margin-bottom:10px;}
-    .about-card p{color:var(--text-secondary);font-size:.92rem; line-height:1.7;}
+    .about-section{background:#fff;}
+    .about-grid{display:grid;grid-template-columns:1fr;gap:16px;margin-top:24px;}
+    .about-card{background:var(--neutral-light);border:1px solid var(--neutral-border);border-radius:var(--radius-lg);padding:24px 20px;box-sizing:border-box;}
+    .about-card h3{font-family:'Playfair Display',serif;font-size:1.05rem;font-weight:700;color:var(--secondary);margin-bottom:12px;letter-spacing:-.01em;}
+    .about-card p{color:var(--text-secondary);font-size:.88rem;line-height:1.75;}
 
-    .form-section{background:#fff;border-radius:22px;padding:18px 14px;box-shadow:0 20px 50px rgba(17,24,39,.16);border:1px solid rgba(229,231,235,.95);width: 100%;box-sizing: border-box;}
-    .form-row{display:grid;grid-template-columns:1fr;gap:12px;margin-bottom:12px;width: 100%;}
-    .form-group{ margin-bottom:12px; width: 100%; }
-    label{ display:block; font-weight:950; color:var(--secondary); margin-bottom:8px; font-size: 0.95rem; }
-    input, select, textarea{width:100%;padding:12px;border:1px solid rgba(229,231,235,.98);border-radius:16px;font-family:'Inter',sans-serif;font-size:1rem;transition: box-shadow .18s ease, border-color .18s ease;background:#fff;box-shadow:0 8px 20px rgba(17,24,39,.04);box-sizing: border-box;-webkit-appearance: none;}
-    input:focus, select:focus, textarea:focus{outline:none;border-color:rgba(154,106,255,.85);box-shadow:0 0 0 3px rgba(154,106,255,.14), 0 12px 30px rgba(17,24,39,.08);}
-    .radio-group{ display:flex; flex-direction:column; gap:10px; width: 100%; }
-    .radio-option{display:flex;align-items:flex-start;gap:10px;color:var(--text-secondary);padding:12px;border-radius:18px;border:1px solid rgba(229,231,235,.95);background:linear-gradient(180deg,#fff 0%, rgba(243,244,246,.70) 100%);box-shadow:0 12px 30px rgba(17,24,39,.10);width: 100%;box-sizing: border-box;}
-    .radio-option input[type="radio"]{ margin-top:3px; }
-    .form-actions{ text-align:center; margin-top:16px; width: 100%; }
-    .success-message{display:none;background:var(--accent-light);color:var(--accent);padding:14px 12px;border-radius:16px;border:1px solid rgba(15,118,110,.35);margin-top:14px;text-align:center;font-weight:950;box-shadow:0 12px 30px rgba(17,24,39,.10);width: 100%;box-sizing: border-box;font-size: 0.9rem;}
-    #submitBtn{width: 100%;max-width:100%;white-space: normal;line-height:1.15;padding: 0.95rem 1rem;min-height: 54px;text-align:center;font-size: 0.95rem;}
+    .form-section{background:#fff;border-radius:var(--radius-lg);padding:24px 18px;box-shadow:var(--shadow-md);border:1px solid var(--neutral-border);width:100%;box-sizing:border-box;}
+    .form-row{display:grid;grid-template-columns:1fr;gap:14px;margin-bottom:14px;width:100%;}
+    .form-group{margin-bottom:14px;width:100%;}
+    label{display:block;font-weight:600;color:var(--secondary);margin-bottom:6px;font-size:.88rem;}
+    input, select, textarea{width:100%;padding:12px 14px;border:1.5px solid var(--neutral-border);border-radius:var(--radius-md);font-family:'Inter',sans-serif;font-size:.95rem;transition:border-color .18s ease,box-shadow .18s ease;background:#fff;box-sizing:border-box;-webkit-appearance:none;color:var(--text-main);}
+    input:focus, select:focus, textarea:focus{outline:none;border-color:var(--primary);box-shadow:0 0 0 3px rgba(154,106,255,.12);}
+    .radio-group{display:flex;flex-direction:column;gap:10px;width:100%;}
+    .radio-option{display:flex;align-items:flex-start;gap:10px;color:var(--text-secondary);padding:12px 14px;border-radius:var(--radius-md);border:1.5px solid var(--neutral-border);background:#fff;width:100%;box-sizing:border-box;font-size:.88rem;transition:border-color .15s ease;}
+    .radio-option:hover{border-color:rgba(154,106,255,.35);}
+    .radio-option input[type="radio"]{margin-top:2px;}
+    .form-actions{text-align:center;margin-top:20px;width:100%;}
+    .success-message{display:none;background:var(--accent-light);color:var(--accent);padding:14px 16px;border-radius:var(--radius-md);border:1px solid rgba(15,118,110,.25);margin-top:14px;text-align:center;font-weight:600;width:100%;box-sizing:border-box;font-size:.88rem;}
+    #submitBtn{width:100%;max-width:100%;white-space:normal;line-height:1.2;padding:1rem 1.4rem;min-height:52px;text-align:center;font-size:.95rem;}
 
-    footer{background:linear-gradient(180deg, #0f172a 0%, #0b1220 100%);color:#fff;padding:40px 0 20px;margin-top:40px;width: 100%;}
-    .footer-content{display:grid;grid-template-columns: 1fr;gap:24px;margin-bottom:18px;width: 100%;}
-    .footer-heading{ font-family:'Playfair Display',serif; font-weight:900; font-size:1.1rem; margin-bottom:12px; }
-    .footer-links{ list-style:none; display:flex; flex-direction:column; gap:8px; }
-    .footer-links a{ color:rgba(255,255,255,.72); text-decoration:none; transition:color .18s ease; font-weight:700; font-size: 0.9rem; }
-    .footer-links a:hover{ color:#fff; }
-    .footer-contact{ display:flex; flex-direction:column; gap:10px; }
-    .contact-item{ display:flex; align-items:center; gap:10px; color:rgba(255,255,255,.72); flex-wrap:wrap; font-size: 0.9rem; }
-    .contact-item a{ color:rgba(255,255,255,.86); text-decoration:none; font-weight:950; }
-    .contact-item a:hover{ text-decoration:underline; color:#fff; }
-    .footer-bottom{ text-align:center; padding-top:14px; border-top:1px solid rgba(255,255,255,.10); color:rgba(255,255,255,.55); font-size:.85rem; }
+    footer{background:var(--secondary);color:#fff;padding:52px 0 24px;margin-top:56px;width:100%;}
+    .footer-content{display:grid;grid-template-columns:1fr;gap:28px;margin-bottom:22px;width:100%;}
+    .footer-heading{font-family:'Playfair Display',serif;font-weight:700;font-size:1rem;margin-bottom:14px;letter-spacing:-.01em;}
+    .footer-links{list-style:none;display:flex;flex-direction:column;gap:9px;}
+    .footer-links a{color:rgba(255,255,255,.55);text-decoration:none;transition:color .18s ease;font-weight:400;font-size:.85rem;}
+    .footer-links a:hover{color:#fff;}
+    .footer-contact{display:flex;flex-direction:column;gap:12px;}
+    .contact-item{display:flex;align-items:center;gap:10px;color:rgba(255,255,255,.55);flex-wrap:wrap;font-size:.85rem;}
+    .contact-item a{color:rgba(255,255,255,.80);text-decoration:none;font-weight:500;}
+    .contact-item a:hover{color:#fff;}
+    .footer-bottom{text-align:center;padding-top:16px;border-top:1px solid rgba(255,255,255,.08);color:rgba(255,255,255,.35);font-size:.8rem;}
 
-    .wa-float{position:fixed;right:16px; bottom:16px; z-index:1500;width:56px; height:56px; border-radius:18px;background:#25D366; color:#fff;display:flex; align-items:center; justify-content:center;text-decoration:none;box-shadow:0 12px 35px rgba(0,0,0,.22);transition:transform .18s ease, box-shadow .18s ease;}
-    .wa-float:hover{ transform:translateY(-2px); box-shadow:0 16px 40px rgba(0,0,0,.26); }
-    .wa-float i{ font-size:1.6rem; }
-    .whatsapp-helper{position:fixed;right:80px;bottom:26px;z-index:1499;background:rgba(15,20,30,.82);color:#fff;font-size:.72rem;font-weight:700;padding:5px 10px;border-radius:999px;white-space:nowrap;pointer-events:none;opacity:0;transform:translateX(6px);transition:opacity .22s ease,transform .22s ease;backdrop-filter:blur(6px);line-height:1.3;}
+    .wa-float{position:fixed;right:16px;bottom:16px;z-index:1500;width:56px;height:56px;border-radius:16px;background:#25D366;color:#fff;display:flex;align-items:center;justify-content:center;text-decoration:none;box-shadow:0 8px 28px rgba(0,0,0,.18);transition:transform .18s ease,box-shadow .18s ease;}
+    .wa-float:hover{transform:translateY(-2px);box-shadow:0 12px 36px rgba(0,0,0,.22);}
+    .wa-float i{font-size:1.5rem;}
+    .whatsapp-helper{position:fixed;right:80px;bottom:26px;z-index:1499;background:rgba(15,23,42,.85);color:#fff;font-size:.7rem;font-weight:600;padding:5px 10px;border-radius:999px;white-space:nowrap;pointer-events:none;opacity:0;transform:translateX(6px);transition:opacity .22s ease,transform .22s ease;backdrop-filter:blur(8px);line-height:1.3;}
     .wa-float:hover + .whatsapp-helper{opacity:1;transform:translateX(0);}
     @media(max-width:640px){.whatsapp-helper{opacity:1;transform:translateX(0);}}
 
     /* WhatsApp Price Modal */
-    .wa-modal-overlay{position:fixed;inset:0;z-index:2000;background:rgba(15,20,35,.55);backdrop-filter:blur(4px);display:flex;align-items:flex-end;justify-content:center;padding:0 0 88px;opacity:0;pointer-events:none;transition:opacity .22s ease;}
+    .wa-modal-overlay{position:fixed;inset:0;z-index:2000;background:rgba(15,23,42,.50);backdrop-filter:blur(4px);display:flex;align-items:flex-end;justify-content:center;padding:0 0 88px;opacity:0;pointer-events:none;transition:opacity .22s ease;}
     .wa-modal-overlay.active{opacity:1;pointer-events:all;}
-    .wa-modal{background:#fff;border-radius:24px;padding:24px 20px 20px;width:100%;max-width:380px;box-shadow:0 28px 70px rgba(17,24,39,.22);transform:translateY(18px);transition:transform .25s cubic-bezier(.34,1.3,.64,1);position:relative;box-sizing:border-box;}
+    .wa-modal{background:#fff;border-radius:var(--radius-lg);padding:24px 20px 20px;width:100%;max-width:380px;box-shadow:var(--shadow-lg);transform:translateY(18px);transition:transform .25s cubic-bezier(.34,1.3,.64,1);position:relative;box-sizing:border-box;}
     .wa-modal-overlay.active .wa-modal{transform:translateY(0);}
-    .wa-modal-close{position:absolute;top:14px;right:14px;background:var(--neutral-light);border:none;border-radius:999px;width:28px;height:28px;display:flex;align-items:center;justify-content:center;cursor:pointer;color:var(--text-light);font-size:.85rem;transition:background .15s ease;}
+    .wa-modal-close{position:absolute;top:14px;right:14px;background:var(--neutral-light);border:none;border-radius:999px;width:28px;height:28px;display:flex;align-items:center;justify-content:center;cursor:pointer;color:var(--text-light);font-size:.8rem;transition:background .15s ease;}
     .wa-modal-close:hover{background:var(--neutral-border);}
-    .wa-modal-icon{width:44px;height:44px;background:#25D366;border-radius:14px;display:flex;align-items:center;justify-content:center;color:#fff;font-size:1.4rem;margin-bottom:14px;box-shadow:0 10px 24px rgba(37,211,102,.28);}
-    .wa-modal-title{font-family:'Playfair Display',serif;font-weight:900;font-size:1.15rem;color:var(--secondary);margin-bottom:6px;line-height:1.25;}
-    .wa-modal-subtitle{font-size:.88rem;color:var(--text-secondary);line-height:1.55;margin-bottom:16px;}
-    .wa-modal-prices{display:flex;gap:10px;margin-bottom:18px;}
-    .wa-modal-price-box{flex:1;border-radius:16px;padding:12px 10px;text-align:center;border:1px solid rgba(154,106,255,.22);background:linear-gradient(180deg,rgba(239,232,255,.85) 0%,rgba(239,232,255,.45) 100%);}
-    .wa-modal-price-box.featured{border-color:rgba(124,58,237,.45);background:linear-gradient(135deg,rgba(154,106,255,.18) 0%,rgba(124,58,237,.10) 100%);}
-    .wa-modal-price-label{font-size:.72rem;font-weight:900;text-transform:uppercase;letter-spacing:1px;color:var(--primary-dark);margin-bottom:4px;}
-    .wa-modal-price-amount{font-weight:950;font-size:1.6rem;color:var(--primary-dark);line-height:1;}
-    .wa-modal-price-note{font-size:.7rem;color:var(--text-light);margin-top:3px;line-height:1.3;}
-    .wa-modal-note{font-size:.78rem;color:var(--text-secondary);background:rgba(239,232,255,.45);border:1px solid rgba(154,106,255,.18);border-radius:12px;padding:9px 12px;margin-bottom:16px;line-height:1.5;}
-    .wa-modal-actions{display:flex;flex-direction:column;gap:9px;}
-    .wa-modal-btn-wa{display:flex;align-items:center;justify-content:center;gap:8px;padding:13px 16px;border-radius:var(--radius-xl);background:#25D366;color:#fff;font-weight:900;font-size:.92rem;text-decoration:none;box-shadow:0 10px 24px rgba(37,211,102,.22);transition:transform .15s ease,box-shadow .15s ease;}
-    .wa-modal-btn-wa:hover{transform:translateY(-1px);box-shadow:0 14px 30px rgba(37,211,102,.28);}
-    .wa-modal-btn-form{display:flex;align-items:center;justify-content:center;gap:8px;padding:12px 16px;border-radius:var(--radius-xl);background:linear-gradient(135deg,var(--primary) 0%,var(--primary-dark) 100%);color:#fff;font-weight:900;font-size:.92rem;text-decoration:none;box-shadow:0 10px 24px rgba(124,58,237,.18);transition:transform .15s ease,box-shadow .15s ease;}
-    .wa-modal-btn-form:hover{transform:translateY(-1px);box-shadow:0 14px 30px rgba(124,58,237,.26);}
+    .wa-modal-icon{width:42px;height:42px;background:#25D366;border-radius:var(--radius-md);display:flex;align-items:center;justify-content:center;color:#fff;font-size:1.3rem;margin-bottom:14px;box-shadow:0 6px 20px rgba(37,211,102,.22);}
+    .wa-modal-title{font-family:'Playfair Display',serif;font-weight:700;font-size:1.1rem;color:var(--secondary);margin-bottom:6px;line-height:1.25;letter-spacing:-.01em;}
+    .wa-modal-subtitle{font-size:.85rem;color:var(--text-secondary);line-height:1.6;margin-bottom:16px;}
+    .wa-modal-prices{display:flex;gap:10px;margin-bottom:16px;}
+    .wa-modal-price-box{flex:1;border-radius:var(--radius-md);padding:12px 10px;text-align:center;border:1px solid var(--neutral-border);background:var(--neutral-light);}
+    .wa-modal-price-box.featured{border-color:rgba(154,106,255,.35);background:var(--primary-light);}
+    .wa-modal-price-label{font-size:.68rem;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:var(--primary);margin-bottom:4px;}
+    .wa-modal-price-amount{font-weight:700;font-size:1.5rem;color:var(--secondary);line-height:1;}
+    .wa-modal-price-note{font-size:.67rem;color:var(--text-light);margin-top:4px;line-height:1.3;}
+    .wa-modal-note{font-size:.78rem;color:var(--text-secondary);background:var(--neutral-light);border:1px solid var(--neutral-border);border-radius:var(--radius-md);padding:10px 12px;margin-bottom:16px;line-height:1.55;}
+    .wa-modal-actions{display:flex;flex-direction:column;gap:8px;}
+    .wa-modal-btn-wa{display:flex;align-items:center;justify-content:center;gap:8px;padding:12px 16px;border-radius:var(--radius-md);background:#25D366;color:#fff;font-weight:600;font-size:.88rem;text-decoration:none;transition:all .18s ease;}
+    .wa-modal-btn-wa:hover{background:#1da851;transform:translateY(-1px);}
+    .wa-modal-btn-form{display:flex;align-items:center;justify-content:center;gap:8px;padding:12px 16px;border-radius:var(--radius-md);background:var(--primary);color:#fff;font-weight:600;font-size:.88rem;text-decoration:none;transition:all .18s ease;}
+    .wa-modal-btn-form:hover{background:var(--primary-dark);transform:translateY(-1px);}
     @media(min-width:640px){.wa-modal-overlay{align-items:center;padding:0;}.wa-modal{max-width:400px;}}
 
-    /* CRO - Nuevos estilos */
-    .hero-urgency{font-size: clamp(0.95rem, 3vw, 1.08rem);color:#92400e;background:linear-gradient(180deg,rgba(255,251,235,.92) 0%,rgba(255,247,220,.70) 100%);border:1px solid rgba(245,158,11,.45);border-left:4px solid #f59e0b;padding:12px 14px;border-radius:14px;margin:10px 0 14px;line-height:1.65;font-weight:650;box-sizing:border-box;width:100%;}
-    .juristam-authority{background:linear-gradient(135deg,rgba(154,106,255,.10) 0%,rgba(124,58,237,.06) 100%);border:1px solid rgba(154,106,255,.22);border-left:4px solid var(--primary);border-radius:18px;padding:18px 16px;margin: 0 0 var(--sec-y);width:100%;box-sizing:border-box;}
-    .juristam-authority p{font-size: clamp(1rem, 3vw, 1.12rem);color:var(--secondary);line-height:1.7;font-weight:650;margin:0;}
-    .juristam-trust{background:#fff;border:1px solid rgba(229,231,235,.95);border-radius:20px;padding:20px 16px;margin: 0 0 var(--sec-y);box-shadow:0 15px 35px rgba(17,24,39,.08);width:100%;box-sizing:border-box;}
-    .juristam-trust h3{font-family:'Playfair Display',serif;font-weight:900;font-size:1.15rem;color:var(--secondary);margin-bottom:14px;}
+    /* CRO blocks */
+    .hero-urgency{font-size:clamp(0.88rem, 3vw, 1rem);color:#78350f;background:#fffbeb;border:1px solid rgba(245,158,11,.30);border-left:3px solid #f59e0b;padding:12px 14px;border-radius:var(--radius-md);margin:10px 0 16px;line-height:1.65;box-sizing:border-box;width:100%;}
+    .juristam-authority{background:var(--primary-light);border:1px solid rgba(154,106,255,.18);border-left:3px solid var(--primary);border-radius:var(--radius-md);padding:18px 20px;margin:0 0 var(--sec-y);width:100%;box-sizing:border-box;}
+    .juristam-authority p{font-size:clamp(.95rem, 3vw, 1.05rem);color:var(--secondary);line-height:1.75;font-weight:400;margin:0;}
+    .juristam-trust{background:#fff;border:1px solid var(--neutral-border);border-radius:var(--radius-lg);padding:24px 20px;margin:0 0 var(--sec-y);box-shadow:var(--shadow-sm);width:100%;box-sizing:border-box;}
+    .juristam-trust h3{font-family:'Playfair Display',serif;font-weight:700;font-size:1.05rem;color:var(--secondary);margin-bottom:16px;letter-spacing:-.01em;}
     .juristam-trust ul{list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:10px;}
-    .juristam-trust ul li{position:relative;padding-left:26px;color:var(--text-secondary);font-weight:650;font-size:.95rem;line-height:1.5;}
-    .juristam-trust ul li::before{content:'✓';position:absolute;left:0;top:0;color:var(--accent);font-weight:900;font-size:1rem;}
-    .price-reinforcement{font-size: clamp(0.92rem, 2.8vw, 1.05rem);color:var(--secondary);background:rgba(239,232,255,.55);border:1px solid rgba(154,106,255,.22);border-radius:14px;padding:14px 16px;margin: 0 0 16px;line-height:1.65;font-weight:650;width:100%;box-sizing:border-box;position:relative;z-index:1;}
-    .cta-push{font-size: clamp(0.92rem, 2.8vw, 1.02rem);color:var(--text-secondary);font-weight:650;line-height:1.65;margin: 0 0 16px;padding:0 5px;box-sizing:border-box;}
-    .final-message{border-top:1px solid rgba(229,231,235,.85);padding-top:28px;margin-top:10px;width:100%;box-sizing:border-box;}
-    .final-message p{font-size: clamp(0.92rem, 2.8vw, 1.02rem);color:var(--text-secondary);line-height:1.75;margin-bottom:10px;font-weight:550;}
+    .juristam-trust ul li{position:relative;padding-left:22px;color:var(--text-secondary);font-size:.88rem;line-height:1.6;}
+    .juristam-trust ul li::before{content:'✓';position:absolute;left:0;top:0;color:var(--accent);font-weight:700;}
+    .price-reinforcement{font-size:clamp(.88rem, 2.8vw, 1rem);color:var(--text-secondary);background:var(--primary-light);border:1px solid rgba(154,106,255,.18);border-radius:var(--radius-md);padding:14px 16px;margin:0 0 16px;line-height:1.7;width:100%;box-sizing:border-box;position:relative;z-index:1;}
+    .cta-push{font-size:clamp(.88rem, 2.8vw, 1rem);color:var(--text-secondary);line-height:1.7;margin:0 0 18px;padding:0;box-sizing:border-box;}
+    .final-message{border-top:1px solid var(--neutral-border);padding-top:32px;margin-top:12px;width:100%;box-sizing:border-box;}
+    .final-message p{font-size:clamp(.88rem, 2.8vw, 1rem);color:var(--text-secondary);line-height:1.8;margin-bottom:10px;}
     .final-message p:last-child{margin-bottom:0;}
-    .form-trust{font-size:.9rem;color:var(--accent);background:var(--accent-light);border:1px solid rgba(15,118,110,.25);border-radius:14px;padding:11px 14px;margin-bottom:18px;font-weight:650;line-height:1.55;width:100%;box-sizing:border-box;}
-    .form-progress{font-size:.82rem;font-weight:900;text-transform:uppercase;letter-spacing:1.5px;color:var(--primary-dark);background:rgba(239,232,255,.65);border:1px solid rgba(154,106,255,.22);border-radius:999px;padding:7px 14px;display:inline-block;margin-bottom:16px;}
-    .form-reinforcement{font-size:.9rem;color:var(--text-secondary);font-weight:650;line-height:1.6;text-align:center;margin-bottom:14px;padding:0 5px;box-sizing:border-box;}
-    #nextStep{width:100%;max-width:100%;white-space:normal;line-height:1.15;padding:0.95rem 1rem;min-height:54px;text-align:center;font-size:.95rem;display:inline-flex;align-items:center;justify-content:center;gap:.55rem;border-radius:var(--radius-xl);font-weight:900;text-decoration:none;transition:transform .18s ease,box-shadow .18s ease,background .18s ease;border:none;cursor:pointer;background:linear-gradient(135deg,var(--primary) 0%,var(--primary-dark) 100%);color:#fff;box-shadow:0 16px 34px rgba(124,58,237,.22);border:1px solid rgba(124,58,237,.18);margin-top:8px;}
-    #nextStep:hover{transform:translateY(-1px);box-shadow:0 20px 44px rgba(124,58,237,.28);}
+    .form-trust{font-size:.85rem;color:var(--accent);background:var(--accent-light);border:1px solid rgba(15,118,110,.20);border-radius:var(--radius-md);padding:11px 14px;margin-bottom:20px;line-height:1.6;width:100%;box-sizing:border-box;}
+    .form-progress{font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:2px;color:var(--primary);background:var(--primary-light);border:1px solid rgba(154,106,255,.18);border-radius:999px;padding:6px 14px;display:inline-block;margin-bottom:18px;}
+    .form-reinforcement{font-size:.85rem;color:var(--text-secondary);line-height:1.65;text-align:center;margin-bottom:16px;padding:0;box-sizing:border-box;}
+    #nextStep{width:100%;max-width:100%;white-space:normal;line-height:1.2;padding:1rem 1.4rem;min-height:52px;text-align:center;font-size:.9rem;display:inline-flex;align-items:center;justify-content:center;gap:.5rem;border-radius:var(--radius-md);font-weight:600;text-decoration:none;transition:all .2s ease;border:none;cursor:pointer;background:var(--primary);color:#fff;box-shadow:0 4px 14px rgba(124,58,237,.25);margin-top:10px;}
+    #nextStep:hover{background:var(--primary-dark);transform:translateY(-1px);box-shadow:0 8px 22px rgba(124,58,237,.30);}
 
     @media (min-width: 400px) {
       .hero-features { grid-template-columns: 1fr 1fr; }
@@ -347,13 +350,13 @@
       .logo-icon { height: 75px; width: min(240px, 50vw); }
       .logo-icon img { max-height: 75px; }
       .hero-features { grid-template-columns: 1fr 1fr; }
-      .hero-card { padding: 20px 16px; }
+      .hero-card { padding: 24px 20px; }
     }
     @media (min-width: 640px) {
-      :root{ --pad-x: 22px; --header-fixed-h: 92px; --header-h: 92px; --sec-y: 60px; --maxw: 640px; }
-      .logo-icon{ height:80px; width:min(270px, 55vw); }
-      .logo-icon img { max-height: 80px; }
-      .hero-actions{ flex-direction: row; gap: 14px; }
+      :root{ --pad-x: 24px; --header-fixed-h: 76px; --header-h: 76px; --sec-y: 72px; --maxw: 640px; }
+      .logo-icon{ height:76px; width:min(260px, 55vw); }
+      .logo-icon img { max-height: 76px; }
+      .hero-actions{ flex-direction: row; gap: 12px; }
       .hero-actions .btn { width: auto; flex: 1; }
       .form-row{ grid-template-columns: 1fr 1fr; }
       .footer-content{ grid-template-columns: 1fr 1fr; }
@@ -367,37 +370,36 @@
     }
     @media (min-width: 768px) {
       :root { --maxw: 720px; }
-      .hero-content { display: grid; grid-template-columns: 1fr; gap: 30px; }
+      .hero-content { display: grid; grid-template-columns: 1fr; gap: 32px; }
     }
     @media (min-width: 1024px) {
-      :root{ --pad-x: 28px; --header-fixed-h: 75px; --header-h: 75px; --sec-y: 86px; --maxw: 1280px; }
-      .hero-content{ grid-template-columns: 1.05fr .95fr; gap: clamp(1.6rem, 3.8vw, 4rem); align-items:center; }
+      :root{ --pad-x: 32px; --header-fixed-h: 72px; --header-h: 72px; --sec-y: 96px; --maxw: 1200px; }
+      .hero-content{ grid-template-columns: 1.1fr .9fr; gap: clamp(2rem, 4vw, 5rem); align-items: center; }
       .nav-center{ display:flex; flex:1 1 auto; justify-content:center; }
       .nav-right{ display:flex; }
       .mobile-menu-btn{ display:none; }
-      .brand{ flex:0 0 auto; margin-right: 90px; }
-      .logo-icon{ height:100px; width:200px; }
-      .logo-icon img { max-height: 100px; }
-      .nav-links{display:flex; align-items:center; gap:.35rem; padding:.35rem;border-radius:999px; background:rgba(243,244,246,.65);border:1px solid rgba(229,231,235,.85);overflow:auto; max-width:100%; scrollbar-width:none;}
+      .brand{ flex:0 0 auto; margin-right: 60px; }
+      .logo-icon{ height:72px; width:200px; }
+      .logo-icon img { max-height: 72px; }
+      .nav-links{display:flex;align-items:center;gap:.25rem;padding:.3rem;border-radius:999px;background:var(--neutral-light);border:1px solid var(--neutral-border);overflow:auto;max-width:100%;scrollbar-width:none;}
       .nav-links::-webkit-scrollbar{ display:none; }
-      .nav-link{font-weight:800; color:var(--neutral); text-decoration:none;font-size:.95rem; padding:.7rem 1.05rem; border-radius:999px;transition:all .2s ease; position:relative; white-space:nowrap;}
-      .nav-link:hover{ background:#fff; color:var(--primary-dark); box-shadow:0 6px 18px rgba(17,24,39,.08); }
-      .nav-link::after{content:''; position:absolute; left:16px; right:16px; bottom:8px;height:2px; border-radius:999px;background:linear-gradient(to right,var(--primary),var(--primary-dark));transform:scaleX(0); transform-origin:left; transition:transform .2s ease;opacity:.9; pointer-events:none;}
-      .nav-link:hover::after, .nav-link:focus-visible::after{ transform:scaleX(1); }
+      .nav-link{font-weight:500;color:var(--text-secondary);text-decoration:none;font-size:.88rem;padding:.65rem 1rem;border-radius:999px;transition:all .18s ease;position:relative;white-space:nowrap;}
+      .nav-link:hover{background:#fff;color:var(--primary);box-shadow:var(--shadow-sm);}
+      .nav-link::after{display:none;}
       .process-grid{ grid-template-columns: repeat(3, 1fr); gap:20px; }
       .services-grid{ grid-template-columns: repeat(2, 1fr); gap:20px; }
       .blog-grid{ grid-template-columns: repeat(3, 1fr); gap:18px; }
       .about-grid{ grid-template-columns: repeat(3, 1fr); gap:20px; }
-      .footer-content{ grid-template-columns: repeat(4, 1fr); gap:22px; }
-      .hero-actions{ display:flex; gap:14px; }
+      .footer-content{ grid-template-columns: repeat(4, 1fr); gap:24px; }
+      .hero-actions{ display:flex; gap:12px; }
       .hero-actions .btn{ width:auto; }
       .hero-features{ grid-template-columns: repeat(2, 1fr); }
-      .hero-card{ padding: clamp(1.25rem, 3.2vw, 3rem); border-radius:26px; }
-      .form-section{ padding: clamp(1.5rem, 4vw, 4rem); border-radius:26px; }
-      .btn{ padding: 1rem 1.15rem; font-size: 1.02rem; width: auto; }
+      .hero-card{ padding: clamp(1.5rem, 3vw, 2.5rem); border-radius:var(--radius-lg); }
+      .form-section{ padding: clamp(2rem, 4vw, 3.5rem); border-radius:var(--radius-lg); }
+      .btn{ padding: .9rem 1.6rem; font-size: .92rem; width: auto; }
       .section{ padding: var(--sec-y) 0; }
-      .section-title{ font-size: clamp(1.85rem, 6.2vw, 3.15rem); line-height: 1.08; }
-      .section-subtitle{ font-size: clamp(1.02rem, 3.5vw, 1.22rem); line-height: 1.75; }
+      .section-title{ font-size: clamp(1.8rem, 5vw, 2.8rem); line-height: 1.1; }
+      .section-subtitle{ font-size: clamp(1rem, 3vw, 1.1rem); line-height: 1.8; }
       .juristam-trust ul { flex-direction: row; flex-wrap: wrap; }
       .juristam-trust ul li { width: auto; flex: 1 1 auto; }
     }
@@ -407,6 +409,514 @@
     }
     @media (prefers-reduced-motion: reduce){
       *{ scroll-behavior:auto !important; transition:none !important; }
+    }
+
+    /* ── Premium refinements ── */
+
+    /* Fuente adicional elegante para display */
+    @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600&display=swap');
+
+    /* Variables extra */
+    :root {
+      --gold: #b8953f;
+      --gold-light: #f9f4ea;
+      --divider: rgba(15,23,42,.07);
+    }
+
+    /* Body: ligeramente más espacio entre letras en texto normal */
+    body { letter-spacing: .005em; }
+
+    /* Header: línea inferior más sutil, más peso visual mínimo */
+    header {
+      border-bottom-color: var(--divider);
+      box-shadow: 0 1px 0 var(--divider);
+    }
+    header.scrolled {
+      box-shadow: 0 2px 16px rgba(15,23,42,.06);
+    }
+
+    /* Nav links: más refinados */
+    .nav-link {
+      letter-spacing: .01em;
+      font-size: .85rem;
+    }
+
+    /* Botón nav derecho: borde sutil en lugar de sólido */
+    .nav-right .btn-primary {
+      font-size: .85rem;
+      padding: .7rem 1.3rem;
+      letter-spacing: .02em;
+    }
+
+    /* Hero: más espacio blanco, gradiente más sutil */
+    .hero {
+      padding-top: calc(var(--header-h) + 56px);
+      padding-bottom: 72px;
+    }
+    .hero::before {
+      background: radial-gradient(ellipse 55% 45% at 85% 5%, rgba(154,106,255,.06), transparent 60%);
+    }
+
+    /* Título hero: usar Cormorant para mayor elegancia en desktop */
+    @media (min-width: 1024px) {
+      .hero-title {
+        font-family: 'Cormorant Garamond', 'Playfair Display', serif;
+        font-size: clamp(2.2rem, 5vw, 4rem);
+        font-weight: 600;
+        line-height: 1.08;
+        letter-spacing: -.03em;
+      }
+      .section-title {
+        font-family: 'Cormorant Garamond', 'Playfair Display', serif;
+        font-size: clamp(2rem, 4.5vw, 3.2rem);
+        font-weight: 600;
+        letter-spacing: -.03em;
+      }
+      .cta-title {
+        font-family: 'Cormorant Garamond', 'Playfair Display', serif;
+        font-weight: 600;
+        letter-spacing: -.02em;
+      }
+    }
+
+    /* Badges: más discretos */
+    .badge {
+      background: #fff;
+      border-color: var(--neutral-border);
+      color: var(--text-secondary);
+      font-weight: 500;
+      font-size: .72rem;
+      letter-spacing: .02em;
+    }
+    .badge i { color: var(--primary); }
+
+    /* Hero urgency: más limpio */
+    .hero-urgency {
+      border-left-color: var(--gold);
+      background: var(--gold-light);
+      border-color: rgba(184,149,63,.25);
+      color: #6b4c10;
+      font-size: .88rem;
+    }
+
+    /* Hero alert: mismo tratamiento */
+    .hero-alert {
+      border-left-color: var(--gold);
+      background: var(--gold-light);
+      border-color: rgba(184,149,63,.22);
+      color: #6b4c10;
+      font-size: .87rem;
+    }
+
+    /* Hero features: más minimalistas */
+    .hero-feature {
+      border-color: var(--divider);
+      background: #fdfdfd;
+      padding: 12px 14px;
+    }
+    .hero-feature-icon {
+      background: var(--primary-light);
+      color: var(--primary);
+      border-radius: 8px;
+      width: 32px;
+      height: 32px;
+    }
+    .hero-feature strong {
+      font-size: .88rem;
+      font-weight: 600;
+      color: var(--secondary);
+    }
+
+    /* Hero card: acento superior más fino */
+    .hero-card::before { height: 2px; }
+    .hero-card { border-color: var(--divider); }
+
+    /* Pricing box: más neutro */
+    .pricing-box {
+      background: var(--neutral-light);
+      border-color: var(--divider);
+    }
+    .pricing-name { font-weight: 600; font-size: .88rem; }
+    .pricing-price {
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: var(--secondary);
+    }
+
+    /* Virtual advantage: sin fondo coloreado */
+    .virtual-advantage {
+      background: #fdfdfd;
+      border-color: var(--divider);
+    }
+
+    /* Section kicker: detalle dorado como acento */
+    .section-kicker {
+      color: var(--primary);
+      font-size: .68rem;
+      letter-spacing: 3.5px;
+    }
+
+    /* Divisor elegante entre secciones */
+    .section + .section,
+    .section + .container,
+    .container + .section {
+      border-top: 1px solid var(--divider);
+    }
+
+    /* Process cards: números más elegantes */
+    .process-number {
+      background: transparent;
+      color: var(--primary);
+      border: 1.5px solid rgba(154,106,255,.30);
+      font-family: 'Cormorant Garamond', 'Playfair Display', serif;
+      font-size: 1.25rem;
+      font-weight: 600;
+    }
+    .process-card { box-shadow: none; }
+    .process-card:hover { box-shadow: var(--shadow-sm); }
+
+    /* Blog cards: más limpios */
+    .blog-card { box-shadow: none; }
+    .blog-card:hover { box-shadow: var(--shadow-sm); }
+    .blog-title { font-weight: 600; font-size: .96rem; letter-spacing: -.005em; }
+    .blog-link {
+      background: transparent;
+      border: none;
+      padding: 0;
+      color: var(--primary);
+      font-size: .84rem;
+      font-weight: 600;
+    }
+    .blog-link:hover { background: transparent; }
+
+    /* Service cards */
+    .service-card { box-shadow: none; }
+    .service-card:hover { box-shadow: var(--shadow-sm); }
+    .service-card.featured::before {
+      font-size: .68rem;
+      letter-spacing: .5px;
+      padding: 4px 10px;
+    }
+    .service-price {
+      color: var(--secondary);
+      font-size: 1.9rem;
+      letter-spacing: -.03em;
+    }
+
+    /* About cards: fondo ligeramente más cálido */
+    .about-card {
+      background: #fdfdfd;
+      border-color: var(--divider);
+    }
+
+    /* CTA section: más sobrio */
+    .cta-section {
+      background: var(--secondary);
+      border-radius: var(--radius-lg);
+      padding: 40px 28px;
+    }
+    .cta-section::before {
+      background: radial-gradient(ellipse 50% 70% at 90% 10%, rgba(154,106,255,.12), transparent 60%);
+    }
+    .price-amount { letter-spacing: -.03em; }
+    .price-box { border-right: 1px solid rgba(255,255,255,.10); }
+    .price-box:last-child { border-right: none; }
+
+    /* Price reinforcement */
+    .price-reinforcement {
+      background: rgba(255,255,255,.07);
+      border-color: rgba(255,255,255,.12);
+      color: rgba(255,255,255,.72);
+      font-size: .84rem;
+    }
+
+    /* Form section */
+    .form-section {
+      border-color: var(--divider);
+      box-shadow: 0 2px 20px rgba(15,23,42,.05);
+    }
+    label { font-size: .84rem; letter-spacing: .01em; }
+    input, select, textarea {
+      border-color: var(--neutral-border);
+      border-radius: var(--radius-md);
+      font-size: .92rem;
+      color: var(--text-main);
+      background: #fdfdfd;
+    }
+    input::placeholder, textarea::placeholder { color: var(--text-light); font-size: .88rem; }
+    .radio-option { border-color: var(--neutral-border); background: #fdfdfd; font-size: .86rem; }
+
+    /* Authority block */
+    .juristam-authority {
+      background: var(--primary-light);
+      border-left-color: var(--primary);
+      border-color: rgba(154,106,255,.15);
+    }
+    .juristam-authority p { font-size: .96rem; color: var(--secondary); }
+
+    /* Trust block */
+    .juristam-trust { border-color: var(--divider); box-shadow: none; }
+    .juristam-trust ul li { font-size: .86rem; }
+
+    /* Footer: más aireado */
+    footer { padding: 64px 0 28px; }
+    .footer-links a { font-size: .82rem; letter-spacing: .01em; }
+    .footer-bottom { font-size: .75rem; letter-spacing: .02em; }
+
+    /* Modal: más elegante */
+    .wa-modal {
+      border-radius: var(--radius-lg);
+      box-shadow: 0 24px 64px rgba(15,23,42,.14);
+    }
+    .wa-modal-title {
+      font-family: 'Cormorant Garamond', 'Playfair Display', serif;
+      font-size: 1.2rem;
+      font-weight: 600;
+      letter-spacing: -.01em;
+    }
+
+    /* ── About teaser ── */
+    .about-teaser {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+      padding: 22px 24px;
+      margin: 32px 0;
+      border-left: 3px solid var(--primary);
+      background: var(--primary-light);
+      border-radius: var(--radius-md);
+      flex-wrap: wrap;
+    }
+    .about-teaser-text {
+      font-size: clamp(.9rem, 2.8vw, 1.02rem);
+      color: var(--secondary);
+      line-height: 1.7;
+      font-style: italic;
+      flex: 1 1 260px;
+      margin: 0;
+    }
+    .about-teaser-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      font-weight: 700;
+      font-size: .85rem;
+      color: var(--primary-dark);
+      text-decoration: none;
+      white-space: nowrap;
+      flex-shrink: 0;
+      transition: gap .15s ease;
+    }
+    .about-teaser-link:hover { gap: 10px; }
+
+    /* ── Hero stats ── */
+    .hero-stats {
+      display: flex;
+      align-items: center;
+      gap: 0;
+      margin-top: 28px;
+      background: #fff;
+      border: 1px solid var(--neutral-border);
+      border-radius: var(--radius-md);
+      padding: 16px 20px;
+      flex-wrap: wrap;
+    }
+    .hero-stat {
+      flex: 1 1 auto;
+      text-align: center;
+      padding: 6px 12px;
+    }
+    .hero-stat-number {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.6rem;
+      font-weight: 700;
+      color: var(--primary);
+      letter-spacing: -.03em;
+      line-height: 1;
+    }
+    .hero-stat-label {
+      font-size: .72rem;
+      color: var(--text-light);
+      font-weight: 500;
+      text-transform: uppercase;
+      letter-spacing: .04em;
+      margin-top: 4px;
+    }
+    .hero-stat-divider {
+      width: 1px;
+      height: 36px;
+      background: var(--neutral-border);
+      flex-shrink: 0;
+    }
+
+    /* ── Areas section ── */
+    .areas-section { background: #fff; }
+    .areas-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 12px;
+      width: 100%;
+    }
+    .area-card {
+      background: var(--neutral-light);
+      border: 1px solid var(--neutral-border);
+      border-radius: var(--radius-md);
+      padding: 18px 16px;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      transition: box-shadow .18s ease, transform .18s ease, border-color .18s ease;
+    }
+    .area-card:hover {
+      transform: translateY(-2px);
+      box-shadow: var(--shadow-sm);
+      border-color: rgba(154,106,255,.30);
+    }
+    .area-icon {
+      width: 36px; height: 36px;
+      border-radius: var(--radius-sm);
+      background: var(--primary-light);
+      color: var(--primary);
+      display: flex; align-items: center; justify-content: center;
+      font-size: .95rem;
+      flex-shrink: 0;
+    }
+    .area-name {
+      font-weight: 700;
+      font-size: .92rem;
+      color: var(--secondary);
+      letter-spacing: -.01em;
+    }
+    .area-desc {
+      font-size: .78rem;
+      color: var(--text-light);
+      line-height: 1.55;
+    }
+    @media (min-width: 640px) {
+      .areas-grid { grid-template-columns: repeat(3, 1fr); gap: 14px; }
+      .hero-stats { flex-wrap: nowrap; }
+    }
+    @media (min-width: 1024px) {
+      .areas-grid { grid-template-columns: repeat(4, 1fr); gap: 16px; }
+    }
+
+    /* Separador elegante en FAQ final */
+    .final-message {
+      border-top: 1px solid var(--divider);
+      padding-top: 36px;
+      margin-top: 16px;
+    }
+    .final-message p { font-style: italic; color: var(--text-secondary); font-size: .9rem; }
+
+    /* ── Casos de Éxito ── */
+    .casos-section { background: var(--neutral-light); }
+    .casos-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 16px;
+      width: 100%;
+    }
+    .caso-card {
+      background: #fff;
+      border: 1px solid var(--neutral-border);
+      border-radius: var(--radius-lg);
+      padding: 22px 20px;
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+      transition: box-shadow .2s ease, transform .2s ease;
+      position: relative;
+      overflow: hidden;
+    }
+    .caso-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 2px;
+      background: var(--primary);
+      opacity: 0;
+      transition: opacity .2s ease;
+    }
+    .caso-card:hover { transform: translateY(-3px); box-shadow: var(--shadow-md); }
+    .caso-card:hover::before { opacity: 1; }
+    .caso-header {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .caso-icon {
+      width: 40px; height: 40px;
+      border-radius: var(--radius-sm);
+      background: var(--primary-light);
+      color: var(--primary);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1rem;
+      flex-shrink: 0;
+    }
+    .caso-name {
+      font-weight: 700;
+      font-size: .95rem;
+      color: var(--secondary);
+      letter-spacing: -.01em;
+    }
+    .caso-label {
+      font-size: .75rem;
+      color: var(--text-light);
+      font-weight: 500;
+      margin-top: 2px;
+      text-transform: uppercase;
+      letter-spacing: .04em;
+    }
+    .caso-quote {
+      font-size: .88rem;
+      color: var(--text-secondary);
+      line-height: 1.65;
+      font-style: italic;
+    }
+    .caso-result {
+      font-size: .84rem;
+      font-weight: 600;
+      color: var(--accent);
+      display: flex;
+      align-items: flex-start;
+      gap: 7px;
+      line-height: 1.5;
+    }
+    .caso-result i { flex-shrink: 0; margin-top: 2px; font-size: .85rem; }
+    .caso-btn {
+      align-self: flex-start;
+      background: var(--primary-light);
+      color: var(--primary-dark);
+      border: 1px solid rgba(154,106,255,.25);
+      padding: 8px 14px;
+      border-radius: var(--radius-md);
+      cursor: pointer;
+      font-weight: 600;
+      font-size: .82rem;
+      transition: background .18s ease, transform .18s ease;
+      margin-top: 4px;
+    }
+    .caso-btn:hover { background: rgba(154,106,255,.22); transform: translateY(-1px); }
+    .caso-detail {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height .28s ease, padding .28s ease;
+      background: var(--neutral-light);
+      border-radius: var(--radius-md);
+      border: 1px solid var(--neutral-border);
+      padding: 0 14px;
+      margin-top: 0;
+    }
+    .caso-detail.open { max-height: 600px; padding: 14px; margin-top: 10px; }
+    .caso-detail h4 { font-family: 'Playfair Display', serif; font-weight: 700; font-size: .95rem; color: var(--secondary); margin-bottom: 10px; }
+    .caso-detail p { font-size: .85rem; color: var(--text-secondary); line-height: 1.65; margin-bottom: 8px; }
+    .caso-detail p:last-child { margin-bottom: 0; }
+    @media (min-width: 640px) {
+      .casos-grid { grid-template-columns: 1fr 1fr; gap: 16px; }
+    }
+    @media (min-width: 1024px) {
+      .casos-grid { grid-template-columns: repeat(3, 1fr); gap: 20px; }
     }
   </style>
 </head>
@@ -464,27 +974,28 @@
     <div class="container">
       <div class="hero-content">
         <div>
-          <div class="hero-badges">
-            <span class="badge"><i class="fas fa-shield-alt"></i> Asesoría Profesional</span>
-            <span class="badge"><i class="fas fa-filter"></i> Filtrado de Casos</span>
-            <span class="badge"><i class="fas fa-bullseye"></i> Estrategia Clara</span>
-          </div>
           <h1 class="hero-title">Abogados en Ecuador: problemas legales en <span>soluciones ejecutables</span></h1>
-          <p class="hero-urgency">
-            Cada decisión que tomes sin asesoría puede jugar en tu contra.<br>
-            En muchos casos, actuar tarde significa perder opciones legales.
-          </p>
           <p class="hero-subtitle">Aquí no vienes a pedir opinión. Vienes a salir con un plan. Evaluamos tu caso, definimos la estrategia y te damos pasos claros. Atención virtual en todo Ecuador y presencial en Guayaquil.</p>
-          <div class="hero-alert"><strong>Ojo:</strong> el error más caro es dejar pasar el tiempo. En temas legales, el retraso normalmente significa más riesgo, más costo o pérdida de derechos.</div>
           <div class="hero-actions">
             <a href="#formulario" class="btn btn-primary"><i class="fas fa-clipboard-check"></i>Evaluar mi caso ahora</a>
             <a href="/blog/" class="btn btn-outline"><i class="fas fa-book"></i>Ver Guías</a>
           </div>
-          <div class="hero-features">
-            <div class="hero-feature"><span class="hero-feature-icon"><i class="fas fa-check"></i></span><div><strong>Asesoría Nacional</strong><div style="font-size:.85rem; color:var(--text-light); margin-top:.15rem;">Cobertura en todo Ecuador</div></div></div>
-            <div class="hero-feature"><span class="hero-feature-icon"><i class="fas fa-file-contract"></i></span><div><strong>Análisis Documental</strong><div style="font-size:.85rem; color:var(--text-light); margin-top:.15rem;">Revisión previa (si aplica)</div></div></div>
-            <div class="hero-feature"><span class="hero-feature-icon"><i class="fas fa-clock"></i></span><div><strong>Sesión con objetivo</strong><div style="font-size:.85rem; color:var(--text-light); margin-top:.15rem;">No "charla": estrategia</div></div></div>
-            <div class="hero-feature"><span class="hero-feature-icon"><i class="fas fa-lock"></i></span><div><strong>Confidencialidad</strong><div style="font-size:.85rem; color:var(--text-light); margin-top:.15rem;">Manejo responsable</div></div></div>
+          <div class="hero-stats">
+            <div class="hero-stat">
+              <div class="hero-stat-number">+60</div>
+              <div class="hero-stat-label">Casos resueltos</div>
+            </div>
+            <div class="hero-stat-divider"></div>
+            <div class="hero-stat">
+              <div class="hero-stat-number">2019</div>
+              <div class="hero-stat-label">Desde</div>
+            </div>
+            <div class="hero-stat-divider"></div>
+            <div class="hero-stat">
+              <div class="hero-stat-number">18</div>
+              <div class="hero-stat-label">Áreas de práctica</div>
+            </div>
+
           </div>
         </div>
         <div class="hero-card">
@@ -498,31 +1009,23 @@
           </ul>
           <div class="pricing-box">
             <div class="pricing-item">
-              <div><div class="pricing-name">Consulta Virtual (Recomendada)</div><div class="pricing-desc">Videollamada desde cualquier ciudad</div></div>
+              <div><div class="pricing-name">Consulta Virtual (Recomendada)</div><div class="pricing-desc">Videollamada · Todo Ecuador · $45 se descuentan si contratas</div></div>
               <div class="pricing-price">$45</div>
             </div>
             <div class="pricing-item">
-              <div><div class="pricing-name">Consulta Presencial</div><div class="pricing-desc">Guayaquil (casos complejos)</div></div>
+              <div><div class="pricing-name">Consulta Presencial</div><div class="pricing-desc">Guayaquil · casos complejos</div></div>
               <div class="pricing-price">$85</div>
             </div>
-            <div class="virtual-advantage" role="note" aria-label="Beneficio de la consulta virtual">
-              <div class="virtual-advantage-title"><i class="fas fa-bolt"></i>La opción inteligente para empezar (Virtual)</div>
-              <p>La consulta <strong>virtual</strong> te permite avanzar <strong>más rápido</strong> y con la misma claridad estratégica. Además, si luego decides <strong>contratarnos para llevar tu caso</strong>, el valor de la consulta virtual (<strong>$45</strong>) se <strong>descuenta del precio final</strong> del servicio.</p>
-              <p style="margin-top:8px; color:var(--text-light); font-weight:750; font-size: 0.85rem;"><i class="fas fa-info-circle" style="color:var(--primary-dark);"></i> Nota: este descuento aplica <strong>solo</strong> para la consulta virtual. La consulta presencial (<strong>$85</strong>) no es descontable.</p>
-            </div>
           </div>
-          <p style="font-size:.85rem; color:var(--text-light); margin-top:12px;"><i class="fas fa-info-circle" style="color:var(--primary);"></i> Te decimos qué hacer con <strong>TU</strong> documento, <strong>TU</strong> plazo y <strong>TU</strong> riesgo.</p>
         </div>
       </div>
     </div>
   </section>
 
   <div class="container">
-    <div class="juristam-authority">
-      <p>
-        En Juristam trabajamos con un enfoque claro: no se trata solo de opinar,
-        sino de definir qué hacer, qué evitar y cómo proteger tu situación desde el inicio.
-      </p>
+    <div class="about-teaser">
+      <p class="about-teaser-text">Juristam nació porque en Ecuador es difícil encontrar asesoría legal directa, sin rodeos, sin venderte humo y sin que te cobren por no decirte nada útil. Aquí te decimos la verdad, sea cual sea.</p>
+      <a href="/conocenos.html" class="about-teaser-link">Conoce nuestra historia <i class="fas fa-arrow-right"></i></a>
     </div>
   </div>
 
@@ -541,48 +1044,253 @@
     </div>
   </section>
 
-  <section class="section about-section" id="quienes-somos" aria-label="Acerca de Juristam">
+  <section class="section casos-section" id="casos-exito">
     <div class="container">
       <div class="section-header">
-        <div class="section-kicker">Juristam</div>
-        <h2 class="section-title">Estudio jurídico en Ecuador</h2>
-        <p class="section-subtitle">Información factual sobre quiénes somos, qué hacemos y cómo operamos.</p>
+        <div class="section-kicker">Resultados Reales</div>
+        <h2 class="section-title">Mira lo que hemos hecho</h2>
+        <p class="section-subtitle">Resultados reales en situaciones complejas. Estrategia, ejecución y resultados concretos.</p>
       </div>
+      <div class="casos-grid">
 
-      <div class="juristam-trust">
-        <h3>¿Qué puedes esperar de nuestro equipo?</h3>
-        <ul>
-          <li>Análisis claro desde la primera consulta</li>
-          <li>Estrategia legal personalizada</li>
-          <li>Confidencialidad total</li>
-          <li>Respuesta ágil</li>
-          <li>Enfoque práctico: soluciones, no teoría</li>
-        </ul>
+        <article class="caso-card">
+          <div class="caso-header">
+            <div class="caso-icon"><i class="fas fa-user-check"></i></div>
+            <div>
+              <div class="caso-name">Jeremy T.</div>
+              <div class="caso-label">Historial Limpio</div>
+            </div>
+          </div>
+          <p class="caso-quote">"Seguía apareciendo como procesado y me rechazaban trabajos. Juristam gestionó el archivo y hoy mi registro está limpio."</p>
+          <div class="caso-result"><i class="fas fa-check-circle"></i> Archivo definitivo en Fiscalía y eliminación del registro policial en 21 días.</div>
+          <button class="caso-btn" type="button" aria-expanded="false" aria-controls="detJeremy" onclick="toggleCaso('detJeremy', this)">Ver detalles</button>
+          <div id="detJeremy" class="caso-detail">
+            <h4>Detalles del caso</h4>
+            <p><strong>Situación inicial:</strong> Libertad sin medidas desde abril, pero el sistema policial lo mostraba como "procesado", afectando empleo y acceso a créditos.</p>
+            <p><strong>Estrategia:</strong> Solicitud de archivo por inactividad (art. 592 COIP) y gestión administrativa para actualizar el Módulo de Noticias del Delito.</p>
+            <p><strong>Resultado:</strong> Resolución de archivo emitida y constancia policial actualizada. Cliente volvió a postular a empleos sin restricciones.</p>
+          </div>
+        </article>
+
+        <article class="caso-card">
+          <div class="caso-header">
+            <div class="caso-icon"><i class="fas fa-home"></i></div>
+            <div>
+              <div class="caso-name">Luis R.</div>
+              <div class="caso-label">Herencia Protegida</div>
+            </div>
+          </div>
+          <p class="caso-quote">"Creí que mis derechos se habían esfumado. Ahora cada quincena recibo mi parte sin rogarle a nadie."</p>
+          <div class="caso-result"><i class="fas fa-check-circle"></i> USD 14 600 en rentas atrasadas recuperados y dominio inscrito en 63 días.</div>
+          <button class="caso-btn" type="button" aria-expanded="false" aria-controls="detLuis" onclick="toggleCaso('detLuis', this)">Ver detalles</button>
+          <div id="detLuis" class="caso-detail">
+            <h4>Detalles del caso</h4>
+            <p><strong>Situación inicial:</strong> Un familiar administraba la casa heredada, cobraba los arriendos y se negaba a reconocer la participación de Luis.</p>
+            <p><strong>Estrategia:</strong> Incidente de ejecución con medida cautelar de depósito judicial y anotación de prohibición de venta.</p>
+            <p><strong>Resultado:</strong> El juez obligó al depósito del 40% mensual para Luis y ordenó la inscripción inmediata de su copropiedad.</p>
+          </div>
+        </article>
+
+        <article class="caso-card">
+          <div class="caso-header">
+            <div class="caso-icon"><i class="fas fa-car"></i></div>
+            <div>
+              <div class="caso-name">Jonathan R.</div>
+              <div class="caso-label">Derecho del Consumidor</div>
+            </div>
+          </div>
+          <p class="caso-quote">"Pagaba puntualmente mis letras y la empresa se inventaba excusas. Con Juristam logré que me entreguen el vehículo exacto que había elegido."</p>
+          <div class="caso-result"><i class="fas fa-check-circle"></i> Entrega forzada del vehículo (USD 18 800) + devolución de USD 310 en 34 días.</div>
+          <button class="caso-btn" type="button" aria-expanded="false" aria-controls="detJonathan" onclick="toggleCaso('detJonathan', this)">Ver detalles</button>
+          <div id="detJonathan" class="caso-detail">
+            <h4>Detalles del caso</h4>
+            <p><strong>Situación inicial:</strong> Tras 62 cuotas pagadas, la empresa intentó cambiar condiciones y exigir un garante.</p>
+            <p><strong>Estrategia:</strong> Revisión contractual en Zoom, requerimiento notarial de 48 h y denuncia ante la SCPM.</p>
+            <p><strong>Resultado:</strong> Vehículo entregado, cargos indebidos reembolsados y penalidad condonada.</p>
+          </div>
+        </article>
+
+        <article class="caso-card">
+          <div class="caso-header">
+            <div class="caso-icon"><i class="fas fa-file-invoice-dollar"></i></div>
+            <div>
+              <div class="caso-name">Andrea P.</div>
+              <div class="caso-label">Prescripción ATM</div>
+            </div>
+          </div>
+          <p class="caso-quote">"En menos de dos semanas mis multas de la ATM se prescribieron y pude matricular sin pagar un centavo."</p>
+          <div class="caso-result"><i class="fas fa-check-circle"></i> Deuda anulada (USD 1 988) y bloqueo levantado en 12 días hábiles.</div>
+          <button class="caso-btn" type="button" aria-expanded="false" aria-controls="detAndrea" onclick="toggleCaso('detAndrea', this)">Ver detalles</button>
+          <div id="detAndrea" class="caso-detail">
+            <h4>Detalles del caso</h4>
+            <p><strong>Situación inicial:</strong> Cinco multas de 2014–2017 bloqueaban su matrícula y crédito.</p>
+            <p><strong>Estrategia:</strong> Solicitud de prescripción el mismo día, seguimiento diario y certificación oficial.</p>
+            <p><strong>Resultado:</strong> Anulación total de la deuda y certificado "no adeudar".</p>
+          </div>
+        </article>
+
+        <article class="caso-card">
+          <div class="caso-header">
+            <div class="caso-icon"><i class="fas fa-box"></i></div>
+            <div>
+              <div class="caso-name">María Fernanda V.</div>
+              <div class="caso-label">SENAE / Aduanas</div>
+            </div>
+          </div>
+          <p class="caso-quote">"Con Juristam logramos que SENAE liberara la mercancía sin pagar la multa."</p>
+          <div class="caso-result"><i class="fas fa-check-circle"></i> Multa anulada (USD 18 000) y contenedor liberado en 5 días.</div>
+          <button class="caso-btn" type="button" aria-expanded="false" aria-controls="detMaria" onclick="toggleCaso('detMaria', this)">Ver detalles</button>
+          <div id="detMaria" class="caso-detail">
+            <h4>Detalles del caso</h4>
+            <p><strong>Situación inicial:</strong> Multa y retención por presunta declaración inexacta de valores CIF.</p>
+            <p><strong>Estrategia:</strong> Informe técnico-contable, recurso de revisión y peritaje externo.</p>
+            <p><strong>Resultado:</strong> SENAE anuló la multa, devolvió la garantía y liberó la carga.</p>
+          </div>
+        </article>
+
+        <article class="caso-card">
+          <div class="caso-header">
+            <div class="caso-icon"><i class="fas fa-gavel"></i></div>
+            <div>
+              <div class="caso-name">Diego M.</div>
+              <div class="caso-label">Juicio Coactivo</div>
+            </div>
+          </div>
+          <p class="caso-quote">"El juicio coactivo era intimidante, pero Juristam me defendió hasta resolverlo."</p>
+          <div class="caso-result"><i class="fas fa-check-circle"></i> Reducción sustancial de deuda y plan de pagos accesible.</div>
+          <button class="caso-btn" type="button" aria-expanded="false" aria-controls="detDiego" onclick="toggleCaso('detDiego', this)">Ver detalles</button>
+          <div id="detDiego" class="caso-detail">
+            <h4>Detalles del caso</h4>
+            <p><strong>Situación inicial:</strong> Proceso coactivo iniciado por institución pública con riesgo de embargo.</p>
+            <p><strong>Estrategia:</strong> Defensa técnica, recursos de apelación y negociación de pago.</p>
+            <p><strong>Resultado:</strong> Deuda reducida y cronograma flexible acorde a su capacidad de pago.</p>
+          </div>
+        </article>
+
       </div>
-
-      <div class="about-grid">
-        <div class="about-card"><h3>¿Qué es Juristam?</h3><p>Juristam es un estudio jurídico multidisciplinario en Ecuador que ofrece asesoría legal estratégica virtual en todo el país y presencial en Guayaquil. La modalidad virtual no es una alternativa de segunda: es la opción que el 90% de nuestros clientes elige porque es más rápida, igual de efectiva y permite trabajar con documentos en tiempo real desde cualquier ciudad del Ecuador. Sin desplazamientos innecesarios, sin perder días laborables, sin trámites que se alargan por logística.</p></div>
-        <div class="about-card"><h3>Áreas de práctica</h3><p>Juristam atiende casos de coactiva y cobro coactivo, derecho de familia (alimentos, prohibición de salida, impugnación de paternidad), SENAE y aduanas (retención de mercadería, liquidaciones), derecho societario (inspecciones Superintendencia de Compañías, cierres de compañía, aumentos de capital), derecho laboral y derecho inmobiliario.</p></div>
-        <div class="about-card"><h3>Cobertura y tarifas</h3><p>Consulta virtual disponible en todo Ecuador a $45 USD. Consulta presencial en Guayaquil a $85 USD. El valor de la consulta virtual se descuenta del honorario final si el cliente decide contratar el servicio completo. Juristam aplica transparencia total: sin letra pequeña ni cobros sorpresa.</p></div>
+      <div style="display:flex;justify-content:center;margin-top:32px;">
+        <a class="btn btn-outline" href="/casos-de-exito.html"><i class="fas fa-trophy"></i> Ver todos los casos</a>
       </div>
     </div>
   </section>
 
-  <section class="section blog-section" id="blog">
+  <section class="section areas-section" id="areas">
     <div class="container">
       <div class="section-header">
-        <div class="section-kicker">Guías Juristam</div>
-        <h2 class="section-title">Artículos prácticos para actuar con claridad</h2>
-        <p class="section-subtitle">Lectura rápida. Sin teoría innecesaria. Enfocado en "qué hacer".</p>
+        <div class="section-kicker">Multidisciplinario</div>
+        <h2 class="section-title">Todas las áreas del derecho en un solo lugar</h2>
+        <p class="section-subtitle">Juristam opera como una firma multidisciplinaria: cada caso se atiende con el especialista correcto, sin rebotar entre despachos.</p>
       </div>
-      <div class="blog-grid">
-        <article class="blog-card"><div class="blog-meta"><span class="blog-tag">Aduanas</span><span><i class="fa-regular fa-clock"></i> Guía práctica</span></div><div class="blog-title">SENAE retuvo tu mercadería: qué hacer (sin empeorar el caso)</div><div class="blog-excerpt">Pasos concretos, errores que te hunden y cómo estructurar una respuesta que sí sirve.</div><a class="blog-link" href="/blog/senae-retencion-mercaderia.html" rel="noopener">Leer artículo <i class="fas fa-arrow-right"></i></a></article>
-        <article class="blog-card"><div class="blog-meta"><span class="blog-tag">Familia</span><span><i class="fa-regular fa-clock"></i> Guía práctica</span></div><div class="blog-title">Prohibición de salida del país por alimentos: cómo levantarla si hay acuerdo</div><div class="blog-excerpt">Qué revisar, qué pedir al juzgado y cómo acelerar el trámite cuando es urgente.</div><a class="blog-link" href="/blog/prohibicion-salida-alimentos.html" rel="noopener">Leer artículo <i class="fas fa-arrow-right"></i></a></article>
-        <article class="blog-card"><div class="blog-meta"><span class="blog-tag">Coactiva</span><span><i class="fa-regular fa-clock"></i> Guía práctica</span></div><div class="blog-title">Cuenta bloqueada por coactiva y es tu salario: cómo moverte rápido</div><div class="blog-excerpt">Qué pruebas necesitas y cómo argumentar el origen de fondos para desbloqueo.</div><a class="blog-link" href="/blog/cuenta-bloqueada-coactiva-salario.html" rel="noopener">Leer artículo <i class="fas fa-arrow-right"></i></a></article>
-        <article class="blog-card"><div class="blog-meta"><span class="blog-tag">Societario</span><span><i class="fa-regular fa-clock"></i> Guía práctica</span></div><div class="blog-title">Inspección de la Superintendencia de Compañías: qué revisan y cómo prepararte</div><div class="blog-excerpt">Si tu empresa recibió una carta credencial de inspección, esto es lo que revisa el inspector y cómo prepararte.</div><a class="blog-link" href="/blog/inspeccion-superintendencia-companias-ecuador.html" rel="noopener">Leer artículo <i class="fas fa-arrow-right"></i></a></article>
-      </div>
-      <div style="display:flex;justify-content:center;margin-top:18px;">
-        <a class="btn btn-primary" href="/blog/"><i class="fas fa-book-open"></i> Ver todos los artículos</a>
+      <div class="areas-grid">
+
+        <div class="area-card">
+          <div class="area-icon"><i class="fas fa-gavel"></i></div>
+          <div class="area-name">Derecho Civil</div>
+          <div class="area-desc">Contratos, obligaciones, responsabilidad civil, propiedad y posesión</div>
+        </div>
+
+        <div class="area-card">
+          <div class="area-icon"><i class="fas fa-users"></i></div>
+          <div class="area-name">Derecho de Familia</div>
+          <div class="area-desc">Alimentos, divorcio, impugnación de paternidad, prohibición de salida del país</div>
+        </div>
+
+        <div class="area-card">
+          <div class="area-icon"><i class="fas fa-shield-alt"></i></div>
+          <div class="area-name">Derecho Penal</div>
+          <div class="area-desc">Defensa penal, archivos en Fiscalía, delitos informáticos, registro policial</div>
+        </div>
+
+        <div class="area-card">
+          <div class="area-icon"><i class="fas fa-hard-hat"></i></div>
+          <div class="area-name">Derecho Laboral</div>
+          <div class="area-desc">Despidos, liquidaciones, actas de finiquito, demandas laborales, seguridad social</div>
+        </div>
+
+        <div class="area-card">
+          <div class="area-icon"><i class="fas fa-home"></i></div>
+          <div class="area-name">Derecho Inmobiliario</div>
+          <div class="area-desc">Prescripción adquisitiva, reivindicación, herencias, terrenos y compraventa</div>
+        </div>
+
+        <div class="area-card">
+          <div class="area-icon"><i class="fas fa-building"></i></div>
+          <div class="area-name">Derecho Societario</div>
+          <div class="area-desc">Superintendencia de Compañías, cierres, constitución, aumentos de capital</div>
+        </div>
+
+        <div class="area-card">
+          <div class="area-icon"><i class="fas fa-landmark"></i></div>
+          <div class="area-name">Derecho Administrativo</div>
+          <div class="area-desc">Recursos ante entidades públicas, coactiva, impugnación de actos administrativos</div>
+        </div>
+
+        <div class="area-card">
+          <div class="area-icon"><i class="fas fa-ship"></i></div>
+          <div class="area-name">Derecho Aduanero / SENAE</div>
+          <div class="area-desc">Retención de mercadería, liquidaciones, recursos, clasificación arancelaria</div>
+        </div>
+
+        <div class="area-card">
+          <div class="area-icon"><i class="fas fa-file-invoice-dollar"></i></div>
+          <div class="area-name">Derecho Tributario</div>
+          <div class="area-desc">Defensa ante el SRI, impugnación de liquidaciones, planificación fiscal</div>
+        </div>
+
+        <div class="area-card">
+          <div class="area-icon"><i class="fas fa-handshake"></i></div>
+          <div class="area-name">Derecho del Consumidor</div>
+          <div class="area-desc">Reclamos ante la SCPM, incumplimientos contractuales, garantías y devoluciones</div>
+        </div>
+
+        <div class="area-card">
+          <div class="area-icon"><i class="fas fa-university"></i></div>
+          <div class="area-name">Derecho Bancario</div>
+          <div class="area-desc">Reestructuración de deuda, buró de crédito, refinanciamiento, cobranza indebida</div>
+        </div>
+
+        <div class="area-card">
+          <div class="area-icon"><i class="fas fa-balance-scale"></i></div>
+          <div class="area-name">Derecho Constitucional</div>
+          <div class="area-desc">Acciones de protección, amparo, garantías constitucionales y derechos fundamentales</div>
+        </div>
+
+        <div class="area-card">
+          <div class="area-icon"><i class="fas fa-globe"></i></div>
+          <div class="area-name">Derecho Internacional Privado</div>
+          <div class="area-desc">Contratos internacionales, reconocimiento de sentencias extranjeras, apostillas</div>
+        </div>
+
+        <div class="area-card">
+          <div class="area-icon"><i class="fas fa-car"></i></div>
+          <div class="area-name">Derecho de Tránsito / ATM</div>
+          <div class="area-desc">Multas, prescripción, bloqueo de matrículas, accidentes de tránsito</div>
+        </div>
+
+        <div class="area-card">
+          <div class="area-icon"><i class="fas fa-laptop-code"></i></div>
+          <div class="area-name">Derecho Digital</div>
+          <div class="area-desc">Protección de datos, contratos digitales, delitos informáticos, suplantación de identidad</div>
+        </div>
+
+        <div class="area-card">
+          <div class="area-icon"><i class="fas fa-leaf"></i></div>
+          <div class="area-name">Derecho Ambiental</div>
+          <div class="area-desc">Infracciones ambientales, licencias, recursos ante el MAATE y municipios</div>
+        </div>
+
+        <div class="area-card">
+          <div class="area-icon"><i class="fas fa-lightbulb"></i></div>
+          <div class="area-name">Propiedad Intelectual</div>
+          <div class="area-desc">Registro de marcas, derechos de autor, patentes y protección de activos intangibles</div>
+        </div>
+
+        <div class="area-card">
+          <div class="area-icon"><i class="fas fa-people-arrows"></i></div>
+          <div class="area-name">Mediación y Arbitraje</div>
+          <div class="area-desc">Resolución alternativa de conflictos, acuerdos extrajudiciales, centros de mediación</div>
+        </div>
+
       </div>
     </div>
   </section>
@@ -623,23 +1331,6 @@
     </div>
   </section>
 
-  <div class="container">
-    <div class="cta-section">
-      <h2 class="cta-title">Tu situación legal merece atención profesional</h2>
-      <p class="cta-text">Si el caso es real, se trabaja. Si no hay ruta, se dice.</p>
-      <div class="cta-subnote"><i class="fas fa-bolt"></i> Empieza por la <strong>consulta virtual</strong>: es más rápida y, si avanzas con nosotros, <strong>los $45 se descuentan del precio final</strong>. (La presencial no aplica a descuento.)</div>
-      <p class="price-reinforcement">
-        Esta no es una consulta para "ver qué pasa".<br>
-        Es un espacio para entender tu situación y tomar decisiones con respaldo legal.
-      </p>
-      <div class="pricing-display">
-        <div class="price-box"><div class="price-amount">$45</div><div class="price-label">Virtual (recomendada)</div></div>
-        <div class="price-box"><div class="price-amount">$85</div><div class="price-label">Presencial</div></div>
-      </div>
-      <a href="#formulario" class="btn" style="background:white;color:var(--primary);width:100%; max-width:400px; margin:0 auto;"><i class="fas fa-file-alt"></i> Iniciar evaluación legal</a>
-    </div>
-  </div>
-
   <section class="section" id="formulario">
     <div class="container">
       <div class="section-header">
@@ -648,13 +1339,6 @@
         <p class="section-subtitle">Completa todos los campos marcados con *. Sin esto no podemos ofrecerte una agenda responsable.</p>
       </div>
       <div class="form-section">
-        <p class="cta-push">
-          Si tu caso es real, se puede trabajar.<br>
-          El primer paso es entenderlo correctamente.
-        </p>
-        <p class="form-trust">
-          <i class="fas fa-lock"></i> Tu información es confidencial. Nuestro equipo revisa cada caso de forma personalizada.
-        </p>
         <form id="leadForm" action="https://formsubmit.co/juristam.ec@gmail.com" method="POST">
           <input type="hidden" name="_subject" value="NUEVO LEAD CALIFICADO - Juristam">
           <input type="hidden" name="_template" value="table">
@@ -731,9 +1415,6 @@
             </div>
             <div class="form-group"><label for="resumen">Resume tu caso en 5–8 líneas *</label><textarea id="resumen" name="Resumen del caso" required rows="4" placeholder="Ej: Describe tu problema, desde cuándo ocurre y si has recibido notificaciones..."></textarea></div>
             <div class="form-group"><label for="detalles">Fechas, montos o detalles clave</label><textarea id="detalles" name="Detalles adicionales" rows="3" placeholder="Audiencias, fechas, montos aproximados, etc."></textarea></div>
-            <p class="form-reinforcement">
-              Este es el primer paso para entender tu caso y definir qué hacer.
-            </p>
             <div class="form-actions">
               <button id="submitBtn" type="submit" class="btn btn-primary"><i class="fas fa-paper-plane"></i><span>Enviar y evaluar mi caso</span></button>
             </div>
@@ -746,27 +1427,21 @@
     </div>
   </section>
 
-  <section class="section" id="preguntas-frecuentes" style="background:var(--neutral-light);">
+  <section class="section blog-section" id="blog">
     <div class="container">
       <div class="section-header">
-        <div class="section-kicker">FAQ</div>
-        <h2 class="section-title">Preguntas frecuentes</h2>
-        <p class="section-subtitle">Lo que más nos preguntan antes de agendar.</p>
+        <div class="section-kicker">Guías Juristam</div>
+        <h2 class="section-title">Artículos prácticos para actuar con claridad</h2>
+        <p class="section-subtitle">Lectura rápida. Sin teoría innecesaria. Enfocado en "qué hacer".</p>
       </div>
-      <div class="about-grid">
-        <div class="about-card"><h3>¿Cuánto cuesta la consulta?</h3><p>La consulta virtual cuesta $45 USD y está disponible en todo Ecuador. La presencial en Guayaquil cuesta $85 USD. Si contratas el servicio completo después de la consulta virtual, esos $45 se descuentan del honorario final. La presencial no aplica descuento.</p></div>
-        <div class="about-card"><h3>¿Atienden en todo Ecuador?</h3><p>Sí. La modalidad virtual permite atender casos en Quito, Guayaquil, Cuenca, Loja, Ambato, Riobamba y cualquier otra ciudad del Ecuador. La atención presencial está disponible únicamente en Guayaquil.</p></div>
-        <div class="about-card"><h3>¿Qué tipos de casos atienden?</h3><p>Coactiva, casos civiles, derecho de familia (alimentos, prohibición de salida, impugnación de paternidad), SENAE y aduanas, derecho societario (Superintendencia de Compañías), laboral e inmobiliario. Si tu caso no encaja en estas áreas, igual llena el formulario y lo evaluamos.</p></div>
+      <div class="blog-grid">
+        <article class="blog-card"><div class="blog-meta"><span class="blog-tag">Aduanas</span><span><i class="fa-regular fa-clock"></i> Guía práctica</span></div><div class="blog-title">SENAE retuvo tu mercadería: qué hacer (sin empeorar el caso)</div><div class="blog-excerpt">Pasos concretos, errores que te hunden y cómo estructurar una respuesta que sí sirve.</div><a class="blog-link" href="/blog/senae-retencion-mercaderia.html" rel="noopener">Leer artículo <i class="fas fa-arrow-right"></i></a></article>
+        <article class="blog-card"><div class="blog-meta"><span class="blog-tag">Familia</span><span><i class="fa-regular fa-clock"></i> Guía práctica</span></div><div class="blog-title">Prohibición de salida del país por alimentos: cómo levantarla si hay acuerdo</div><div class="blog-excerpt">Qué revisar, qué pedir al juzgado y cómo acelerar el trámite cuando es urgente.</div><a class="blog-link" href="/blog/prohibicion-salida-alimentos.html" rel="noopener">Leer artículo <i class="fas fa-arrow-right"></i></a></article>
+        <article class="blog-card"><div class="blog-meta"><span class="blog-tag">Coactiva</span><span><i class="fa-regular fa-clock"></i> Guía práctica</span></div><div class="blog-title">Cuenta bloqueada por coactiva y es tu salario: cómo moverte rápido</div><div class="blog-excerpt">Qué pruebas necesitas y cómo argumentar el origen de fondos para desbloqueo.</div><a class="blog-link" href="/blog/cuenta-bloqueada-coactiva-salario.html" rel="noopener">Leer artículo <i class="fas fa-arrow-right"></i></a></article>
+        <article class="blog-card"><div class="blog-meta"><span class="blog-tag">Societario</span><span><i class="fa-regular fa-clock"></i> Guía práctica</span></div><div class="blog-title">Inspección de la Superintendencia de Compañías: qué revisan y cómo prepararte</div><div class="blog-excerpt">Si tu empresa recibió una carta credencial de inspección, esto es lo que revisa el inspector y cómo prepararte.</div><a class="blog-link" href="/blog/inspeccion-superintendencia-companias-ecuador.html" rel="noopener">Leer artículo <i class="fas fa-arrow-right"></i></a></article>
       </div>
-
-      <div class="final-message">
-        <p>
-          No todos los problemas legales se resuelven pagando.
-          Muchos se resuelven con una estrategia correcta.
-        </p>
-        <p>
-          En Juristam analizamos tu caso para que tomes decisiones con claridad, no por presión.
-        </p>
+      <div style="display:flex;justify-content:center;margin-top:18px;">
+        <a class="btn btn-primary" href="/blog/"><i class="fas fa-book-open"></i> Ver todos los artículos</a>
       </div>
     </div>
   </section>
@@ -971,6 +1646,13 @@
     document.addEventListener('keydown', (e) => {
       if (e.key === 'Escape') closeWaModal();
     });
+
+    function toggleCaso(id, btn) {
+      const el = document.getElementById(id);
+      const isOpen = el.classList.toggle('open');
+      btn.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+      btn.textContent = isOpen ? 'Ocultar detalles' : 'Ver detalles';
+    }
   </script>
 </body>
 </html>
