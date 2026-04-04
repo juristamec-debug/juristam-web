@@ -428,6 +428,59 @@
     }
     @media (prefers-reduced-motion: reduce) { * { scroll-behavior: auto !important; transition: none !important; } }
 
+    /* ── CUSTOM CURSOR: trail dots ── */
+    @media (pointer: fine) {
+      *, a, button { cursor: none !important; }
+      .cursor-dot {
+        position: fixed; top: 0; left: 0; z-index: 9999;
+        width: 7px; height: 7px;
+        background: var(--primary);
+        border-radius: 50%;
+        pointer-events: none;
+        transform: translate(-50%, -50%);
+        will-change: transform;
+      }
+      .cursor-trail {
+        position: fixed; top: 0; left: 0; z-index: 9997;
+        width: 5px; height: 5px;
+        background: var(--primary);
+        border-radius: 50%;
+        pointer-events: none;
+        transform: translate(-50%, -50%);
+        transition: opacity .4s ease;
+        will-change: transform, opacity;
+      }
+    }
+
+    /* ── PREMIUM DIVIDERS ── */
+    .section + .section, .section + .container, .container + .section { border-top: 1px solid rgba(10,10,15,.06); }
+    .origen-section, .origen-section + .section { border-top: none; }
+
+    /* ── HERO: more air ── */
+    .hero { padding-top: calc(var(--header-h) + 80px); padding-bottom: 100px; }
+
+    /* ── HERO kicker ornament ── */
+    .hero-kicker-wrap { display: flex; align-items: center; gap: 14px; margin-bottom: 28px; }
+    .hero-kicker-line { width: 36px; height: 1px; background: var(--primary); flex-shrink: 0; }
+    .hero-kicker-text { font-size: .66rem; font-weight: 600; text-transform: uppercase; letter-spacing: .18em; color: var(--primary); }
+
+    /* ── HERO title: bigger and lighter on desktop ── */
+    @media (min-width: 1024px) {
+      .hero { padding-top: calc(var(--header-h) + 110px); padding-bottom: 140px; }
+      .hero-title { font-size: clamp(3rem, 6.5vw, 5.4rem); font-weight: 300; letter-spacing: -.055em; line-height: 1.03; }
+      .hero-title span { font-weight: 600; }
+    }
+
+    /* ── BUTTON: fill-from-left hover ── */
+    .btn-primary { position: relative; overflow: hidden; z-index: 0; }
+    .btn-primary::before { content: ''; position: absolute; inset: 0; background: var(--primary-dark); transform: translateX(-101%); transition: transform .32s cubic-bezier(.22,1,.36,1); z-index: -1; }
+    .btn-primary:hover::before { transform: translateX(0); }
+    .btn-primary:hover { transform: none; box-shadow: none; }
+
+    /* ── SECTION kicker with lines ── */
+    .section-kicker-wrap { display: flex; align-items: center; gap: 12px; margin-bottom: 14px; justify-content: center; }
+    .section-kicker-line { width: 24px; height: 1px; background: var(--primary); flex-shrink: 0; }
+
     /* ── ANIMATIONS ── */
     @keyframes fadeUp {
       from { opacity: 0; transform: translateY(22px); }
@@ -506,6 +559,11 @@
     <div class="container">
       <div class="hero-content">
         <div>
+          <div class="hero-kicker-wrap">
+            <div class="hero-kicker-line"></div>
+            <span class="hero-kicker-text">Estudio Jurídico · Ecuador · Desde 2019</span>
+            <div class="hero-kicker-line"></div>
+          </div>
           <h1 class="hero-title fade-up delay-1">Abogados en Ecuador: problemas legales en <span>soluciones ejecutables</span></h1>
           <p class="hero-subtitle fade-up delay-2">Aquí no vienes a pedir opinión. Vienes a salir con un plan. Evaluamos tu caso, definimos la estrategia y te damos pasos claros. Atención virtual en todo Ecuador y presencial en Guayaquil.</p>
           <div class="hero-actions fade-up delay-3">
@@ -538,16 +596,7 @@
             <li>Plan por etapas: pasos, tiempos y riesgos</li>
             <li>Presupuesto si decides avanzar</li>
           </ul>
-          <div class="pricing-box">
-            <div class="pricing-item">
-              <div><div class="pricing-name">Consulta Virtual (Recomendada)</div><div class="pricing-desc">Videollamada · Todo Ecuador · $45 se descuentan si contratas</div></div>
-              <div class="pricing-price">$45</div>
-            </div>
-            <div class="pricing-item">
-              <div><div class="pricing-name">Consulta Presencial</div><div class="pricing-desc">Guayaquil · casos complejos</div></div>
-              <div class="pricing-price">$85</div>
-            </div>
-          </div>
+          <a href="#servicios" class="btn btn-outline" style="width:100%; margin-top:20px; text-align:center;">Ver tarifas <i class="fas fa-arrow-down"></i></a>
         </div>
       </div>
     </div>
@@ -833,9 +882,9 @@
   <section class="section services-section" id="servicios">
     <div class="container">
       <div class="section-header fade-up-scroll">
-        <div class="section-kicker">Servicios</div>
-        <h2 class="section-title">Modalidades</h2>
-        <p class="section-subtitle">Dos formas de trabajar: virtual y presencial.</p>
+        <div class="section-kicker">Tarifas</div>
+        <h2 class="section-title">Transparencia total.<br>Sin sorpresas.</h2>
+        <p class="section-subtitle">Una consulta con precio fijo, sin letra pequeña. Si decides avanzar con tu caso, los $45 de la consulta virtual se descuentan del honorario final.</p>
       </div>
       <div class="services-grid">
         <div class="service-card featured">
@@ -885,20 +934,32 @@
               <div class="form-group"><label for="telefono">Teléfono (WhatsApp) *</label><input type="tel" id="telefono" name="Teléfono" required placeholder="099 xxx xxxx"></div>
             </div>
             <div class="form-group">
-              <label for="tipo-caso">Tipo de caso legal *</label>
+              <label for="tipo-caso">¿Cuál describe mejor tu situación? *</label>
               <select id="tipo-caso" name="Tipo de caso" required>
-                <option value="" disabled selected>Selecciona una opción</option>
-                <option>Alimentos / familia</option>
-                <option>Violencia / protección</option>
-                <option>Deudas / coactiva / banco / retención judicial</option>
-                <option>Laboral</option>
-                <option>Inquilinato / arriendo</option>
-                <option>Inmobiliario / terrenos / herencias</option>
-                <option>Societario / Superintendencia de Compañías</option>
-                <option>Penal</option>
-                <option>Otro tipo de caso</option>
+                <option value="" disabled selected>Selecciona la que más se parezca a tu caso</option>
+                <option value="Me deben dinero o tengo una deuda que no puedo pagar">💰 Me deben dinero — o tengo una deuda que no puedo pagar</option>
+                <option value="Me bloquearon la cuenta, me embargan o tengo una coactiva">🔒 Me bloquearon la cuenta, me embargan o tengo una coactiva</option>
+                <option value="Problemas con mi trabajo — me despidieron, no me pagaron o me acosan">💼 Problemas con mi trabajo — me despidieron, no me pagaron o me acosan</option>
+                <option value="Asuntos de familia — hijos, alimentos, herencia o divorcio">👨‍👩‍👧 Asuntos de familia — hijos, alimentos, herencia o divorcio</option>
+                <option value="No puedo salir del país o alguien tiene prohibición de salida">✈️ No puedo salir del país o alguien tiene prohibición de salida</option>
+                <option value="Mercadería retenida en aduana o problemas con SENAE">📦 Mercadería retenida en aduana o problemas con SENAE</option>
+                <option value="Problemas con mi empresa — Superintendencia, socios o cierre">🏢 Problemas con mi empresa — Superintendencia, socios o cierre</option>
+                <option value="Me acusan de algo o tengo problemas con la justicia o Fiscalía">⚖️ Me acusan de algo o tengo problemas con la justicia o Fiscalía</option>
+                <option value="Problema con una propiedad, terreno, herencia o arriendo">🏠 Problema con una propiedad, terreno, herencia o arriendo</option>
+                <option value="Problemas con el banco, buró de crédito o refinanciamiento">🏦 Problemas con el banco, buró de crédito o refinanciamiento</option>
+                <option value="Me multaron, me cobraron algo injusto o me estafaron">🚨 Me multaron, me cobraron algo injusto o me estafaron</option>
+                <option value="Problemas con impuestos o el SRI">📋 Problemas con impuestos o el SRI</option>
+                <option value="Quiero proteger mi marca, negocio o creación">💡 Quiero proteger mi marca, negocio o creación</option>
+                <option value="Problemas con trámites del Estado o una institución pública">🏛️ Problemas con trámites del Estado o una institución pública</option>
+                <option value="Multas de tránsito o no puedo matricular mi vehículo">🚗 Multas de tránsito o no puedo matricular mi vehículo</option>
+                <option value="Me suplantaron la identidad o tengo problemas digitales">💻 Me suplantaron la identidad o tengo problemas digitales</option>
+                <option value="Problemas ambientales o con permisos de funcionamiento">🌿 Problemas ambientales o con permisos de funcionamiento</option>
+                <option value="Otro problema — no sé bien cómo describirlo">🔍 Otro problema — no sé bien cómo describirlo</option>
               </select>
             </div>
+            <div class="form-group" id="caso-libre-wrap" style="margin-top:-6px;">
+              <label for="caso-libre" style="font-weight:400; color:var(--text-secondary); font-size:.8rem;">¿Quieres describir tu situación con tus propias palabras? <span style="color:var(--text-light);">(opcional)</span></label>
+              <textarea id="caso-libre" name="Descripción libre del caso" rows="2" placeholder="Escribe aquí lo que está pasando, con tus propias palabras..."></textarea>
             <button type="button" id="nextStep"><i class="fas fa-arrow-right"></i> Continuar evaluación</button>
           </div>
 
@@ -1229,6 +1290,50 @@
         if (entries[0].isIntersecting) { startCounters(); statsObserver.disconnect(); }
       }, { threshold: 0.5 });
       statsObserver.observe(statsEl);
+    }
+
+    // ── Custom cursor: trail dots ──
+    if (window.matchMedia('(pointer: fine)').matches) {
+      const TRAIL_COUNT = 10;
+      const dot = document.createElement('div');
+      dot.className = 'cursor-dot';
+      document.body.appendChild(dot);
+
+      const trails = Array.from({ length: TRAIL_COUNT }, (_, i) => {
+        const el = document.createElement('div');
+        el.className = 'cursor-trail';
+        el.style.opacity = (1 - i / TRAIL_COUNT) * 0.55 + '';
+        el.style.width = Math.max(2, 5 - i * 0.3) + 'px';
+        el.style.height = el.style.width;
+        document.body.appendChild(el);
+        return { el, x: 0, y: 0 };
+      });
+
+      let mx = 0, my = 0;
+      document.addEventListener('mousemove', e => { mx = e.clientX; my = e.clientY; });
+
+      const positions = Array(TRAIL_COUNT).fill(null).map(() => ({ x: 0, y: 0 }));
+
+      const animCursor = () => {
+        dot.style.left = mx + 'px';
+        dot.style.top = my + 'px';
+
+        positions[0].x += (mx - positions[0].x) * 0.35;
+        positions[0].y += (my - positions[0].y) * 0.35;
+
+        for (let i = 1; i < TRAIL_COUNT; i++) {
+          positions[i].x += (positions[i - 1].x - positions[i].x) * 0.38;
+          positions[i].y += (positions[i - 1].y - positions[i].y) * 0.38;
+        }
+
+        trails.forEach((t, i) => {
+          t.el.style.left = positions[i].x + 'px';
+          t.el.style.top = positions[i].y + 'px';
+        });
+
+        requestAnimationFrame(animCursor);
+      };
+      requestAnimationFrame(animCursor);
     }
   </script>
 </body>
