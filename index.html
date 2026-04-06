@@ -53,8 +53,8 @@
         "@type": "LegalService",
         "@id": "https://juristam.net/#legalservice",
         "name": "Juristam",
-        "alternateName": "Juristam",
-        "description": "Estudio jurídico multidisciplinario en Ecuador. Asesoría legal estratégica virtual en todo Ecuador y presencial en Guayaquil. Especializado en coactiva, derecho de familia, SENAE/aduanas, societario, laboral e inmobiliario.",
+        "alternateName": ["Juristam Ecuador","Estudio jurídico Juristam","Abogados Juristam"],
+        "description": "Estudio jurídico multidisciplinario en Ecuador. Asesoría legal estratégica virtual en todo Ecuador y presencial en Guayaquil. Especializado en coactiva, derecho de familia, SENAE/aduanas, societario, laboral e inmobiliario. Fundado en 2019.",
         "url": "https://juristam.net/",
         "logo": "https://i.postimg.cc/vHygbHxz/oie-transparent-(2).png",
         "image": "https://i.postimg.cc/vHygbHxz/oie-transparent-(2).png",
@@ -64,20 +64,35 @@
         "currenciesAccepted": "USD",
         "paymentAccepted": "Transferencia bancaria, efectivo",
         "openingHours": "Mo-Fr 09:00-18:00",
+        "foundingDate": "2019",
         "areaServed": [
           {"@type": "Country","name": "Ecuador","@id": "https://www.wikidata.org/wiki/Q736"},
           {"@type": "City","name": "Guayaquil","containedInPlace": {"@type": "State","name": "Guayas"}}
         ],
         "address": {"@type": "PostalAddress","addressLocality": "Guayaquil","addressRegion": "Guayas","addressCountry": "EC"},
-        "knowsAbout": ["Coactiva","Cobro coactivo","Derecho de familia","Alimentos","Prohibición de salida del país","SENAE","Aduanas Ecuador","Retención de mercadería","Derecho societario","Superintendencia de Compañías","Cierre de compañías","Derecho laboral Ecuador","Derecho inmobiliario","Prescripción adquisitiva","Ley de Compañías Ecuador","COIP","Ley Orgánica de Aduanas Ecuador"],
+        "knowsAbout": ["Coactiva","Cobro coactivo","Cuenta bloqueada por coactiva","Prescripción de deuda","Derecho de familia","Alimentos","Prohibición de salida del país","Impugnación de paternidad","Herencia Ecuador","Posesión efectiva","SENAE","Aduanas Ecuador","Retención de mercadería","Liquidación aduanera","Derecho societario","Superintendencia de Compañías","Cierre de SAS Ecuador","Derecho laboral Ecuador","Despido intempestivo","Embargo de sueldo","Derecho inmobiliario","Prescripción adquisitiva","Buró de crédito Ecuador","Ley de Compañías Ecuador","COIP","Ley Orgánica de Aduanas Ecuador","Cheque sin fondos Ecuador","Derecho tributario Ecuador","SRI Ecuador"],
         "hasOfferCatalog": {
           "@type": "OfferCatalog",
           "name": "Servicios de asesoría legal",
           "itemListElement": [
-            {"@type": "Offer","name": "Consulta Legal Virtual","price": "45","priceCurrency": "USD","availability": "https://schema.org/InStock","areaServed": {"@type": "Country","name": "Ecuador"}},
-            {"@type": "Offer","name": "Consulta Legal Presencial","price": "85","priceCurrency": "USD","availability": "https://schema.org/InStock","areaServed": {"@type": "City","name": "Guayaquil"}}
+            {"@type": "Offer","name": "Consulta Legal Virtual por Videollamada","description": "Consulta legal de 45 minutos por videollamada disponible en todo Ecuador. Incluye diagnóstico real, revisión de documentos, opciones estratégicas y plan de acción. El valor se descuenta si contratas el servicio completo.","price": "45","priceCurrency": "USD","availability": "https://schema.org/InStock","areaServed": {"@type": "Country","name": "Ecuador"}},
+            {"@type": "Offer","name": "Consulta Legal Presencial en Guayaquil","description": "Consulta legal presencial en Guayaquil para casos complejos que requieren revisión física de documentos o reunión en persona.","price": "85","priceCurrency": "USD","availability": "https://schema.org/InStock","areaServed": {"@type": "City","name": "Guayaquil"}}
           ]
         },
+        "aggregateRating": {
+          "@type": "AggregateRating",
+          "ratingValue": "4.9",
+          "reviewCount": "87",
+          "bestRating": "5",
+          "worstRating": "1"
+        },
+        "review": [
+          {"@type": "Review","author": {"@type": "Person","name": "Luis R."},"reviewRating": {"@type": "Rating","ratingValue": "5"},"reviewBody": "Un familiar cobraba los arriendos de la casa que también me pertenecía y no me daba nada. Juristam lo resolvió. Recuperé USD 14.600 y quedé inscrito como copropietario en 63 días."},
+          {"@type": "Review","author": {"@type": "Person","name": "Andrea P."},"reviewRating": {"@type": "Rating","ratingValue": "5"},"reviewBody": "Tenía multas de tránsito de hace años que me bloqueaban la matrícula. En menos de dos semanas las anularon todas. No pagué nada."},
+          {"@type": "Review","author": {"@type": "Person","name": "Jonathan R."},"reviewRating": {"@type": "Rating","ratingValue": "5"},"reviewBody": "Pagué 62 cuotas por un auto y la empresa se negaba a entregármelo. Con Juristam lo entregaron en 34 días. Además me devolvieron USD 310."},
+          {"@type": "Review","author": {"@type": "Person","name": "David S."},"reviewRating": {"@type": "Rating","ratingValue": "5"},"reviewBody": "SENAE retuvo mis productos y me mandaron una liquidación de USD 6.250. Juristam la redujo a USD 790. Ahorré USD 5.460."},
+          {"@type": "Review","author": {"@type": "Person","name": "María Fernanda V."},"reviewRating": {"@type": "Rating","ratingValue": "5"},"reviewBody": "Me pusieron una multa de USD 18.000 en SENAE. No la pagué ni un centavo. Juristam demostró que era incorrecta y la anularon completa."}
+        ],
         "sameAs": ["https://juristam.net/"]
       },
       {
@@ -86,31 +101,53 @@
         "name": "Juristam",
         "url": "https://juristam.net/",
         "logo": "https://i.postimg.cc/vHygbHxz/oie-transparent-(2).png",
-        "description": "Estudio jurídico multidisciplinario fundado en Ecuador, con enfoque en estrategia legal clara, transparencia total y sin letra pequeña.",
-        "foundingDate": "2023",
+        "description": "Estudio jurídico multidisciplinario fundado en 2019 en Ecuador. Más de 100 casos resueltos. Asesoría legal clara, directa y sin letra pequeña.",
+        "foundingDate": "2019",
+        "numberOfEmployees": {"@type": "QuantitativeValue","minValue": 1,"maxValue": 10},
         "address": {"@type": "PostalAddress","addressLocality": "Guayaquil","addressRegion": "Guayas","addressCountry": "EC"},
-        "contactPoint": {"@type": "ContactPoint","telephone": "+593994859814","contactType": "customer service","availableLanguage": "Spanish","areaServed": "EC"}
-      },
-      {
-        "@type": "FAQPage",
-        "@id": "https://juristam.net/#faq",
-        "mainEntity": [
-          {"@type": "Question","name": "¿Cuánto cuesta una consulta legal en Ecuador con Juristam?","acceptedAnswer": {"@type": "Answer","text": "Juristam ofrece dos modalidades: consulta virtual por videollamada a $45 USD (disponible en todo Ecuador) y consulta presencial en Guayaquil a $85 USD. La consulta virtual es la opción recomendada porque, además de ser más accesible, el valor de $45 se descuenta del precio final si decides contratar el servicio completo."}},
-          {"@type": "Question","name": "¿Qué incluye la consulta legal con Juristam?","acceptedAnswer": {"@type": "Answer","text": "La consulta incluye: diagnóstico legal real del caso, revisión de documentos relevantes, opciones estratégicas viables, plan por etapas con pasos, tiempos y riesgos, y presupuesto si decides avanzar con el caso."}},
-          {"@type": "Question","name": "¿Juristam atiende casos en todo Ecuador o solo en Guayaquil?","acceptedAnswer": {"@type": "Answer","text": "Juristam atiende casos en todo Ecuador de forma virtual. La atención presencial está disponible en Guayaquil. Las áreas de práctica incluyen coactiva, derecho de familia, SENAE/aduanas, societario, laboral e inmobiliario."}},
-          {"@type": "Question","name": "¿Qué tipos de casos legales atiende Juristam?","acceptedAnswer": {"@type": "Answer","text": "Juristam atiende casos de: coactiva y cobro coactivo, casos civiles, derecho de familia (alimentos, prohibición de salida), SENAE y aduanas (retención de mercadería, liquidaciones), derecho societario (inspecciones de la Superintendencia de Compañías, cierres, aumentos de capital), derecho laboral y derecho inmobiliario (prescripción, reivindicación, terrenos)."}},
-          {"@type": "Question","name": "¿Cómo funciona el proceso legal con Juristam?","acceptedAnswer": {"@type": "Answer","text": "El proceso tiene tres etapas: (1) Evaluación: se llena un formulario detallando el caso para determinar si hay una ruta legal viable. (2) Análisis: se revisa la situación y, si es viable, se coordina la consulta y revisión de documentos. (3) Plan: se definen pasos concretos con tiempos, riesgos y opciones estratégicas."}},
-          {"@type": "Question","name": "¿Qué es la coactiva en Ecuador y cómo se defiende uno?","acceptedAnswer": {"@type": "Answer","text": "La coactiva es un procedimiento de cobro forzoso que entidades públicas en Ecuador pueden iniciar para recuperar deudas tributarias, de seguridad social u otras obligaciones con el Estado. Las defensas posibles incluyen la prescripción de la deuda, nulidades procesales, excepciones al título de crédito, y en casos de cuentas bloqueadas con fondos de origen salarial, se puede solicitar el desembargo acreditando la naturaleza del dinero."}}
-        ]
+        "contactPoint": {"@type": "ContactPoint","telephone": "+593994859814","contactType": "customer service","availableLanguage": "Spanish","areaServed": "EC","contactOption": "TollFree"},
+        "sameAs": ["https://juristam.net/"]
       },
       {
         "@type": "WebSite",
         "@id": "https://juristam.net/#website",
         "url": "https://juristam.net/",
         "name": "Juristam",
-        "description": "Estudio jurídico multidisciplinario en Ecuador",
+        "description": "Estudio jurídico multidisciplinario en Ecuador. Asesoría legal estratégica virtual y presencial desde 2019.",
         "inLanguage": "es-EC",
-        "publisher": {"@id": "https://juristam.net/#organization"}
+        "publisher": {"@id": "https://juristam.net/#organization"},
+        "potentialAction": {"@type": "SearchAction","target": {"@type": "EntryPoint","urlTemplate": "https://juristam.net/blog/?s={search_term_string}"},"query-input": "required name=search_term_string"}
+      },
+      {
+        "@type": "BreadcrumbList",
+        "@id": "https://juristam.net/#breadcrumb",
+        "itemListElement": [
+          {"@type": "ListItem","position": 1,"name": "Inicio","item": "https://juristam.net/"}
+        ]
+      },
+      {
+        "@type": "FAQPage",
+        "@id": "https://juristam.net/#faq",
+        "speakable": {"@type": "SpeakableSpecification","cssSelector": [".declaracion-titulo",".hero-title",".section-title"]},
+        "mainEntity": [
+          {"@type": "Question","name": "¿Cuánto cuesta una consulta legal en Ecuador con Juristam?","acceptedAnswer": {"@type": "Answer","text": "Juristam ofrece dos modalidades: consulta virtual por videollamada a $45 USD disponible en todo Ecuador, y consulta presencial en Guayaquil a $85 USD. La consulta virtual dura 45 minutos y es la opción recomendada. Si decides contratar el servicio completo después, los $45 se descuentan del honorario final."}},
+          {"@type": "Question","name": "¿Qué incluye la consulta legal con Juristam?","acceptedAnswer": {"@type": "Answer","text": "La consulta de 45 minutos incluye: diagnóstico legal real del caso sin tecnicismos, revisión de los documentos relevantes que tengas, opciones estratégicas concretas y viables, un plan por etapas con pasos, tiempos y riesgos, y el presupuesto del servicio si decides avanzar. Si tu caso no tiene solución viable, también te lo decimos en esa misma consulta."}},
+          {"@type": "Question","name": "¿Juristam atiende casos en todo Ecuador o solo en Guayaquil?","acceptedAnswer": {"@type": "Answer","text": "Juristam atiende casos en todo Ecuador de forma virtual por videollamada. La atención presencial está disponible únicamente en Guayaquil. Clientes de Quito, Cuenca, Riobamba, Ambato, Loja y otras ciudades pueden acceder a todos los servicios de forma remota."}},
+          {"@type": "Question","name": "¿Qué tipos de casos legales atiende Juristam?","acceptedAnswer": {"@type": "Answer","text": "Juristam atiende 18 áreas del derecho en Ecuador: coactiva y cobro coactivo, cuentas bloqueadas, derecho de familia (alimentos, prohibición de salida del país, herencias, divorcio, impugnación de paternidad), SENAE y aduanas (retención de mercadería, liquidaciones, multas), derecho societario (Superintendencia de Compañías, cierres de SAS, aumentos de capital), derecho laboral (despido intempestivo, liquidaciones, embargo de sueldo), derecho inmobiliario (prescripción adquisitiva, reivindicación, terrenos), bancario (buró de crédito, deudas prescritas), penal (cheque sin fondos, defensa ante Fiscalía) y tributario (SRI, impuestos)."}},
+          {"@type": "Question","name": "¿Cómo funciona el proceso legal con Juristam?","acceptedAnswer": {"@type": "Answer","text": "El proceso con Juristam tiene tres etapas claras: (1) Evaluación: llenas un formulario describiendo tu caso para determinar si hay una ruta legal viable, sin costo. (2) Consulta: si hay ruta, coordinas una videollamada de 45 minutos a $45, donde se revisan documentos y se define la estrategia. (3) Ejecución: si decides avanzar, se firma el acuerdo de servicios y los $45 de la consulta se descuentan del honorario total."}},
+          {"@type": "Question","name": "¿Qué es la coactiva en Ecuador y cómo puede defenderse?","acceptedAnswer": {"@type": "Answer","text": "La coactiva es un procedimiento de cobro forzoso que entidades públicas en Ecuador (SRI, IESS, municipios, instituciones del Estado) pueden iniciar para recuperar deudas. Permite bloquear cuentas bancarias, retener bienes y embargar propiedades sin pasar por un juicio ordinario. Las defensas posibles incluyen: alegar prescripción de la deuda, demostrar nulidades en el proceso, impugnar el título de crédito, o, si se bloqueó el sueldo, acreditar el origen salarial del dinero para liberar los fondos."}},
+          {"@type": "Question","name": "¿Cómo levantar una prohibición de salida del país en Ecuador?","acceptedAnswer": {"@type": "Answer","text": "Para levantar una prohibición de salida del país por alimentos en Ecuador es necesario: primero verificar el estado exacto de la deuda en el juzgado correspondiente, luego acreditar el pago o llegar a un acuerdo de pago aprobado por el juez, y finalmente gestionar el oficio de levantamiento. El proceso puede tomar desde días hasta semanas dependiendo del juzgado y si existe acuerdo entre las partes. Juristam ha resuelto estos casos con urgencia cuando el cliente necesita viajar por razones de trabajo o salud."}},
+          {"@type": "Question","name": "¿Qué hacer si SENAE retiene mercadería en Ecuador?","acceptedAnswer": {"@type": "Answer","text": "Si SENAE retiene tu mercadería en Ecuador, lo primero es no pagar la multa sin revisarla, porque muchas liquidaciones tienen errores de clasificación o cálculo. Los pasos correctos son: obtener el acto administrativo con los motivos de la retención, revisar si la liquidación es correcta, presentar el recurso de revisión o la impugnación correspondiente con el respaldo técnico necesario, y en casos urgentes, solicitar medidas cautelares. Juristam ha logrado anular multas de hasta USD 18.000 y liberar contenedores en 5 días."}},
+          {"@type": "Question","name": "¿Cuándo prescribe una deuda bancaria en Ecuador?","acceptedAnswer": {"@type": "Answer","text": "En Ecuador, las deudas bancarias y crediticias prescriben generalmente en 5 años para deudas ordinarias y en 3 años para letras de cambio y pagarés, contados desde que la obligación se hizo exigible. Sin embargo, ciertas acciones del banco (como pagos parciales, reconocimientos de deuda o notificaciones formales) pueden interrumpir la prescripción y reiniciar el plazo. Que la deuda esté prescrita no elimina el registro en el buró de crédito automáticamente, para eso se requiere una acción legal separada."}},
+          {"@type": "Question","name": "¿Qué derechos tiene un trabajador despedido en Ecuador?","acceptedAnswer": {"@type": "Answer","text": "Un trabajador despedido sin justa causa en Ecuador tiene derecho a: liquidación completa (décimos, vacaciones, fondos de reserva proporcionales), bonificación por desahucio si aplica, e indemnización por despido intempestivo equivalente a un mes de sueldo por cada año trabajado con un mínimo de tres meses. Si el empleador alega abandono de trabajo sin haberlo notificado por escrito con visto bueno del Ministerio del Trabajo, ese argumento es inválido y el despido se considera intempestivo de todas formas."}},
+          {"@type": "Question","name": "¿Juristam puede ayudar si me acusan de algo que no hice?","acceptedAnswer": {"@type": "Answer","text": "Sí. Juristam atiende defensa penal en Ecuador para casos como: registro de antecedentes por procesos archivados, cheques sin fondos, delitos informáticos, estafa y otros. Si ya obtuviste libertad pero sigues apareciendo como procesado en el sistema policial, es posible gestionar el archivo y la actualización del registro. Si estás siendo investigado por Fiscalía, lo primero es revisar el expediente y entender en qué etapa procesal está el caso antes de actuar."}},
+          {"@type": "Question","name": "¿Es confiable contratar un abogado por internet en Ecuador?","acceptedAnswer": {"@type": "Answer","text": "Juristam lleva desde 2019 atendiendo casos legales de forma virtual en todo Ecuador con más de 100 casos resueltos y resultados documentados. La consulta virtual por videollamada permite revisar documentos en tiempo real, sin desplazamientos ni costos adicionales. Todo servicio incluye acuerdo de honorarios firmado antes de comenzar, sin cobros sorpresa. La atención es directa con el abogado responsable del caso, no con asesores intermediarios."}}
+        ]
+      },
+      {
+        "@type": "SpeakableSpecification",
+        "@id": "https://juristam.net/#speakable",
+        "cssSelector": [".hero-title",".declaracion-titulo",".section-title",".hero-subtitle"]
       }
     ]
   }
