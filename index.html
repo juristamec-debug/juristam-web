@@ -234,7 +234,14 @@
     .process-grid { display: grid; grid-template-columns: 1fr; gap: 1px; width: 100%; background: var(--neutral-border); border: 1px solid var(--neutral-border); border-radius: var(--radius-lg); overflow: hidden; }
     .process-card { background: #fff; padding: 32px 24px; text-align: left; transition: background .18s ease; width: 100%; box-sizing: border-box; }
     .process-card:hover { background: var(--neutral-light); }
-    .process-number { font-family: 'League Spartan', sans-serif; font-size: 2.8rem; font-weight: 300; color: rgba(154,106,255,.25); line-height: 1; margin-bottom: 14px; letter-spacing: -.05em; }
+    .consulta-grid { display:grid; grid-template-columns:1fr; gap:1px; background:var(--neutral-border); border:1px solid var(--neutral-border); border-radius:var(--radius-lg); overflow:hidden; }
+    .consulta-item { background:#fff; padding:20px 22px; display:flex; align-items:center; gap:16px; transition:background .18s; font-size:.92rem; color:var(--text-secondary); line-height:1.6; }
+    .consulta-dot { width:7px; height:7px; border-radius:50%; background:var(--primary); flex-shrink:0; }
+    @media (min-width:640px) {
+      .consulta-grid { grid-template-columns:1fr 1fr; }
+      .consulta-item { padding:26px 28px; font-size:.96rem; }
+      .consulta-full { grid-column:1/-1; }
+    }
     .process-title { font-family: 'League Spartan', sans-serif; font-weight: 600; color: var(--secondary); font-size: 1.2rem; margin-bottom: 8px; letter-spacing: -.02em; }
     .process-description { color: var(--text-secondary); line-height: 1.75; font-size: .86rem; }
 
@@ -599,26 +606,26 @@
         <h2 class="section-title">¿Qué incluye?</h2>
         <p class="section-subtitle">45 minutos contigo, tu caso y una estrategia real. Esto es lo que obtienes.</p>
       </div>
-      <div class="fade-up-scroll" style="display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--neutral-border);border:1px solid var(--neutral-border);border-radius:var(--radius-lg);overflow:hidden;margin-top:32px;">
-        <div style="background:#fff;padding:28px 28px;display:flex;align-items:center;gap:18px;transition:background .18s;" onmouseenter="this.style.background='var(--neutral-light)'" onmouseleave="this.style.background='#fff'">
-          <div style="width:8px;height:8px;border-radius:50%;background:var(--primary);flex-shrink:0;"></div>
-          <span style="font-size:.96rem;color:var(--text-secondary);line-height:1.6;">Diagnóstico legal real <strong style="color:var(--secondary);">(sin humo)</strong></span>
+      <div class="fade-up-scroll consulta-grid" style="margin-top:32px;">
+        <div class="consulta-item" onmouseenter="this.style.background='var(--neutral-light)'" onmouseleave="this.style.background='#fff'">
+          <div class="consulta-dot"></div>
+          <span>Diagnóstico legal real <strong style="color:var(--secondary);">(sin humo)</strong></span>
         </div>
-        <div style="background:#fff;padding:28px 28px;display:flex;align-items:center;gap:18px;transition:background .18s;" onmouseenter="this.style.background='var(--neutral-light)'" onmouseleave="this.style.background='#fff'">
-          <div style="width:8px;height:8px;border-radius:50%;background:var(--primary);flex-shrink:0;"></div>
-          <span style="font-size:.96rem;color:var(--text-secondary);line-height:1.6;">Revisión de documentos relevantes</span>
+        <div class="consulta-item" onmouseenter="this.style.background='var(--neutral-light)'" onmouseleave="this.style.background='#fff'">
+          <div class="consulta-dot"></div>
+          <span>Revisión de documentos relevantes</span>
         </div>
-        <div style="background:#fff;padding:28px 28px;display:flex;align-items:center;gap:18px;transition:background .18s;" onmouseenter="this.style.background='var(--neutral-light)'" onmouseleave="this.style.background='#fff'">
-          <div style="width:8px;height:8px;border-radius:50%;background:var(--primary);flex-shrink:0;"></div>
-          <span style="font-size:.96rem;color:var(--text-secondary);line-height:1.6;">Opciones estratégicas viables</span>
+        <div class="consulta-item" onmouseenter="this.style.background='var(--neutral-light)'" onmouseleave="this.style.background='#fff'">
+          <div class="consulta-dot"></div>
+          <span>Opciones estratégicas viables</span>
         </div>
-        <div style="background:#fff;padding:28px 28px;display:flex;align-items:center;gap:18px;transition:background .18s;" onmouseenter="this.style.background='var(--neutral-light)'" onmouseleave="this.style.background='#fff'">
-          <div style="width:8px;height:8px;border-radius:50%;background:var(--primary);flex-shrink:0;"></div>
-          <span style="font-size:.96rem;color:var(--text-secondary);line-height:1.6;">Plan por etapas: pasos, tiempos y riesgos</span>
+        <div class="consulta-item" onmouseenter="this.style.background='var(--neutral-light)'" onmouseleave="this.style.background='#fff'">
+          <div class="consulta-dot"></div>
+          <span>Plan por etapas: pasos, tiempos y riesgos</span>
         </div>
-        <div style="background:#fff;padding:28px 28px;display:flex;align-items:center;gap:18px;grid-column:1/-1;transition:background .18s;" onmouseenter="this.style.background='var(--neutral-light)'" onmouseleave="this.style.background='#fff'">
-          <div style="width:8px;height:8px;border-radius:50%;background:var(--primary);flex-shrink:0;"></div>
-          <span style="font-size:.96rem;color:var(--text-secondary);line-height:1.6;">Presupuesto detallado si decides avanzar con tu caso</span>
+        <div class="consulta-item consulta-full" onmouseenter="this.style.background='var(--neutral-light)'" onmouseleave="this.style.background='#fff'">
+          <div class="consulta-dot"></div>
+          <span>Presupuesto detallado si decides avanzar con tu caso</span>
         </div>
       </div>
     </div>
@@ -919,7 +926,7 @@
             <li>Definimos ruta: negociación / acción / defensa</li>
             <li><strong>Descuento:</strong> si contratas el servicio, estos $45 se descuentan del precio final</li>
           </ul>
-          <a href="#formulario" class="btn btn-primary" style="width:100%; margin-top:16px;"><i class="fas fa-video"></i> Quiero saber qué hacer con mi caso</a>        </div>
+          <a href="#formulario" class="btn btn-primary" style="width:100%; margin-top:16px;"><i class="fas fa-video"></i> Evaluar mi caso</a>        </div>
         <div class="service-card">
           <div class="service-badge">Presencial</div>
           <h3 class="service-title">Consulta en Guayaquil</h3>
