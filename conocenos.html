@@ -6,23 +6,19 @@
   <link rel="icon" type="image/png" href="/favicon.png">
   <link rel="apple-touch-icon" href="/favicon.png">
   <meta name="theme-color" content="#9a6aff">
-
   <title>Conócenos · Juristam — Estudio jurídico en Ecuador</title>
   <meta name="description" content="Conoce quiénes somos en Juristam: nuestra historia, misión y los valores que guían cada caso legal que atendemos en Ecuador." />
   <link rel="canonical" href="https://juristam.net/conocenos.html" />
   <meta name="robots" content="index,follow" />
-
   <meta property="og:type" content="website" />
   <meta property="og:title" content="Conócenos · Juristam" />
   <meta property="og:description" content="Conoce quiénes somos en Juristam: nuestra historia, misión y los valores que guían cada caso." />
   <meta property="og:url" content="https://juristam.net/conocenos.html" />
   <meta property="og:image" content="https://i.postimg.cc/vHygbHxz/oie-transparent-(2).png" />
-
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400;1,600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=League+Spartan:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-
   <style>
     :root {
       --primary: #9a6aff;
@@ -36,7 +32,6 @@
       --text-secondary: #5a5a72;
       --text-light: #9898b0;
       --accent: #0f766e;
-      --accent-light: #f0fdfb;
       --shadow-sm: 0 1px 3px rgba(10,10,15,.04);
       --shadow-md: 0 4px 24px rgba(10,10,15,.06);
       --radius-sm: 4px;
@@ -88,7 +83,6 @@
     .nav-desktop-link::after { content: ''; position: absolute; left: 50%; right: 50%; bottom: 0; height: 1.5px; background: var(--primary); transition: left .22s ease, right .22s ease; display: block; }
     .nav-desktop-link:hover { color: var(--text-main); }
     .nav-desktop-link:hover::after { left: 1rem; right: 1rem; }
-    .header-cta { display: none; }
 
     /* BUTTONS */
     .btn { display: inline-flex; align-items: center; justify-content: center; gap: .5rem; padding: .7rem 1.4rem; border-radius: var(--radius-md); font-weight: 500; font-size: .86rem; text-decoration: none; border: none; cursor: pointer; transition: all .2s ease; white-space: nowrap; letter-spacing: .02em; position: relative; overflow: hidden; }
@@ -110,9 +104,9 @@
     .hero::before { content: ''; position: absolute; inset: 0; background: radial-gradient(ellipse 50% 40% at 90% 5%, rgba(154,106,255,.05), transparent 65%); pointer-events: none; }
     .hero-kicker-wrap { display: flex; align-items: center; gap: 14px; margin-bottom: 28px; }
     .hero-kicker-line { width: 36px; height: 1px; background: var(--primary); flex-shrink: 0; }
-    .hero-kicker-text { font-size: .64rem; font-weight: 600; text-transform: uppercase; letter-spacing: .18em; color: var(--primary); }
-    .hero h1 { font-family: 'Cormorant Garamond', serif; font-size: clamp(2.4rem,7vw,4.8rem); font-weight: 300; line-height: 1.06; color: var(--secondary); margin-bottom: 28px; letter-spacing: -.05em; }
-    .hero h1 em { font-style: italic; color: var(--primary); font-weight: 400; }
+    .hero-kicker-text { font-family: 'League Spartan', sans-serif; font-size: .64rem; font-weight: 600; text-transform: uppercase; letter-spacing: .18em; color: var(--primary); }
+    .hero h1 { font-family: 'League Spartan', sans-serif; font-size: clamp(2rem,5.5vw,3.8rem); font-weight: 700; line-height: 1.04; color: var(--secondary); margin-bottom: 28px; letter-spacing: -.02em; }
+    .hero h1 em { font-style: normal; color: var(--primary); font-weight: 800; }
     .hero-lead { font-size: clamp(.96rem,2.5vw,1.08rem); color: var(--text-secondary); line-height: 1.85; max-width: 580px; }
     .hero-lead strong { color: var(--secondary); font-weight: 600; }
 
@@ -120,18 +114,18 @@
     .section { padding: var(--sec-y) 0; border-top: 1px solid var(--divider); }
     .section-kicker-wrap { display: flex; align-items: center; gap: 12px; margin-bottom: 14px; }
     .section-kicker-line { width: 24px; height: 1px; background: var(--primary); flex-shrink: 0; }
-    .section-kicker { font-size: .64rem; font-weight: 600; text-transform: uppercase; letter-spacing: .18em; color: var(--primary); }
-    .section-title { font-family: 'Cormorant Garamond', serif; font-size: clamp(1.9rem,5vw,3.2rem); font-weight: 300; color: var(--secondary); line-height: 1.1; letter-spacing: -.04em; margin-bottom: 16px; }
-    .section-title strong { font-weight: 600; }
+    .section-kicker { font-family: 'League Spartan', sans-serif; font-size: .64rem; font-weight: 600; text-transform: uppercase; letter-spacing: .18em; color: var(--primary); }
+    .section-title { font-family: 'League Spartan', sans-serif; font-size: clamp(1.6rem,4.5vw,2.6rem); font-weight: 700; color: var(--secondary); line-height: 1.08; letter-spacing: -.02em; margin-bottom: 16px; }
+    .section-title strong { font-weight: 800; }
     .section-subtitle { font-size: clamp(.88rem,2.5vw,1rem); color: var(--text-secondary); line-height: 1.82; max-width: 520px; }
 
     /* DECLARACIÓN */
     .declaracion { background: #1e0a4e; padding: var(--sec-y) 0; position: relative; overflow: hidden; border-top: none; }
     .declaracion::before { content: ''; position: absolute; inset: 0; background: radial-gradient(ellipse 55% 60% at 85% 30%, rgba(154,106,255,.22), transparent 60%); pointer-events: none; }
     .declaracion-inner { position: relative; z-index: 1; max-width: 760px; }
-    .declaracion-label { font-size: .62rem; font-weight: 600; text-transform: uppercase; letter-spacing: .18em; color: rgba(255,255,255,.28); margin-bottom: 24px; display: block; }
-    .declaracion-quote { font-family: 'Cormorant Garamond', serif; font-size: clamp(1.6rem,5vw,2.8rem); font-weight: 300; color: #fff; line-height: 1.32; letter-spacing: -.03em; margin-bottom: 24px; }
-    .declaracion-quote em { font-style: italic; color: var(--primary); }
+    .declaracion-label { font-family: 'League Spartan', sans-serif; font-size: .62rem; font-weight: 600; text-transform: uppercase; letter-spacing: .18em; color: rgba(255,255,255,.28); margin-bottom: 24px; display: block; }
+    .declaracion-quote { font-family: 'League Spartan', sans-serif; font-size: clamp(1.4rem,4vw,2.2rem); font-weight: 700; color: #fff; line-height: 1.22; letter-spacing: -.02em; margin-bottom: 24px; }
+    .declaracion-quote em { font-style: normal; color: var(--primary); font-weight: 800; }
     .declaracion-sub { font-size: clamp(.86rem,2.5vw,.98rem); color: rgba(255,255,255,.48); line-height: 1.82; max-width: 540px; }
 
     /* GRIDS */
@@ -146,7 +140,7 @@
     .como-grid { display: grid; grid-template-columns: 1fr; gap: 1px; margin-top: 40px; background: var(--neutral-border); border: 1px solid var(--neutral-border); border-radius: var(--radius-lg); overflow: hidden; }
     .como-card { background: #fff; padding: 32px 24px; transition: background .18s ease; }
     .como-card:hover { background: var(--neutral-light); }
-    .como-number { font-family: 'Cormorant Garamond', serif; font-size: 3.2rem; font-weight: 300; color: rgba(154,106,255,.18); line-height: 1; margin-bottom: 16px; letter-spacing: -.06em; }
+    .como-number { font-family: 'League Spartan', sans-serif; font-size: 2.4rem; font-weight: 800; color: rgba(154,106,255,.18); line-height: 1; margin-bottom: 16px; letter-spacing: -.03em; }
     .como-title { font-weight: 600; font-size: .95rem; color: var(--secondary); margin-bottom: 8px; letter-spacing: -.01em; }
     .como-desc { font-size: .84rem; color: var(--text-secondary); line-height: 1.75; }
     .como-truth { margin-top: 32px; padding: 24px 28px; background: var(--secondary); border-radius: var(--radius-lg); color: rgba(255,255,255,.72); font-size: clamp(.86rem,2.5vw,.96rem); line-height: 1.82; position: relative; overflow: hidden; }
@@ -162,17 +156,17 @@
 
     /* STATS */
     .stats-section { background: #1e0a4e; border-top: none; }
-    .stats-label { font-size: .62rem; font-weight: 600; text-transform: uppercase; letter-spacing: .18em; color: rgba(255,255,255,.28); margin-bottom: 16px; display: block; }
-    .stats-title { font-family: 'Cormorant Garamond', serif; font-size: clamp(1.8rem,5vw,3rem); font-weight: 300; color: #fff; line-height: 1.1; letter-spacing: -.04em; margin-bottom: 40px; }
+    .stats-label { font-family: 'League Spartan', sans-serif; font-size: .62rem; font-weight: 600; text-transform: uppercase; letter-spacing: .18em; color: rgba(255,255,255,.28); margin-bottom: 16px; display: block; }
+    .stats-title { font-family: 'League Spartan', sans-serif; font-size: clamp(1.6rem,4.5vw,2.6rem); font-weight: 700; color: #fff; line-height: 1.08; letter-spacing: -.02em; margin-bottom: 40px; }
     .stats-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1px; background: rgba(255,255,255,.08); border: 1px solid rgba(255,255,255,.08); border-radius: var(--radius-lg); overflow: hidden; }
     .stat-card { background: rgba(255,255,255,.04); padding: 32px 24px; text-align: center; }
-    .stat-number { font-family: 'Cormorant Garamond', serif; font-size: clamp(2.2rem,7vw,3.4rem); font-weight: 600; color: var(--primary); line-height: 1; margin-bottom: 8px; letter-spacing: -.04em; }
+    .stat-number { font-family: 'League Spartan', sans-serif; font-size: clamp(2.2rem,7vw,3.4rem); font-weight: 800; color: var(--primary); line-height: 1; margin-bottom: 8px; letter-spacing: -.03em; }
     .stat-label { color: rgba(255,255,255,.42); font-size: .76rem; font-weight: 400; line-height: 1.4; letter-spacing: .02em; }
 
     /* CTA */
     .cta-card { background: var(--primary-light); border: 1px solid rgba(154,106,255,.18); border-radius: var(--radius-lg); padding: 40px 28px; display: flex; flex-direction: column; gap: 28px; }
-    .cta-card h3 { font-family: 'Cormorant Garamond', serif; font-size: clamp(1.6rem,4vw,2.4rem); font-weight: 300; color: var(--secondary); line-height: 1.15; letter-spacing: -.04em; }
-    .cta-card h3 strong { font-weight: 600; }
+    .cta-card h3 { font-family: 'League Spartan', sans-serif; font-size: clamp(1.4rem,3.5vw,2rem); font-weight: 700; color: var(--secondary); line-height: 1.15; letter-spacing: -.02em; }
+    .cta-card h3 strong { font-weight: 800; }
     .cta-card p { color: var(--text-secondary); font-size: .88rem; line-height: 1.8; }
     .cta-actions { display: flex; flex-direction: column; gap: 10px; }
     .btn-wa { display: inline-flex; align-items: center; justify-content: center; gap: .5rem; padding: .72rem 1.4rem; border-radius: var(--radius-md); font-weight: 500; font-size: .86rem; text-decoration: none; border: 1px solid var(--neutral-border); background: #fff; color: var(--text-secondary); transition: all .18s ease; letter-spacing: .02em; width: 100%; }
@@ -181,7 +175,7 @@
     /* FOOTER */
     footer { background: var(--secondary); color: #fff; padding: 64px 0 28px; }
     .footer-inner { display: grid; grid-template-columns: 1fr; gap: 32px; margin-bottom: 28px; }
-    .footer-heading { font-family: 'Cormorant Garamond', serif; font-weight: 600; font-size: 1.1rem; margin-bottom: 16px; letter-spacing: -.02em; color: #fff; }
+    .footer-heading { font-family: 'League Spartan', sans-serif; font-weight: 700; font-size: 1rem; margin-bottom: 16px; letter-spacing: -.01em; color: #fff; }
     .footer-links { list-style: none; display: flex; flex-direction: column; gap: 10px; }
     .footer-links a { color: rgba(255,255,255,.38); font-size: .8rem; font-weight: 400; transition: color .18s; letter-spacing: .01em; }
     .footer-links a:hover { color: rgba(255,255,255,.80); }
@@ -207,7 +201,7 @@
       .header-inner { display: grid; grid-template-columns: 1fr auto 1fr; align-items: center; }
       .hamburger { display: none; }
       .nav-desktop { display: flex; justify-content: center; }
-      .header-cta { display: inline-flex; justify-content: flex-end; }
+      .header-cta { display: inline-flex !important; justify-content: flex-end; }
       .ayudamos-grid { grid-template-columns: repeat(3, 1fr); }
       .valores-grid { grid-template-columns: repeat(3, 1fr); }
       .cta-card { flex-direction: row; align-items: center; gap: 56px; }
@@ -225,19 +219,19 @@
     .wa-modal-close { position: absolute; top: 14px; right: 14px; background: var(--neutral-light); border: none; border-radius: 999px; width: 28px; height: 28px; display: flex; align-items: center; justify-content: center; cursor: pointer; color: var(--text-light); font-size: .78rem; transition: background .15s ease; }
     .wa-modal-close:hover { background: var(--neutral-border); }
     .wa-modal-icon { width: 40px; height: 40px; background: #25D366; border-radius: var(--radius-md); display: flex; align-items: center; justify-content: center; color: #fff; font-size: 1.2rem; margin-bottom: 14px; }
-    .wa-modal-title { font-family: 'Cormorant Garamond', serif; font-weight: 600; font-size: 1.2rem; color: var(--secondary); margin-bottom: 6px; letter-spacing: -.02em; }
+    .wa-modal-title { font-family: 'League Spartan', sans-serif; font-weight: 700; font-size: 1.1rem; color: var(--secondary); margin-bottom: 6px; letter-spacing: -.01em; }
     .wa-modal-subtitle { font-size: .82rem; color: var(--text-secondary); line-height: 1.65; margin-bottom: 18px; }
     .wa-modal-prices { display: flex; gap: 10px; margin-bottom: 16px; }
     .wa-modal-price-box { flex: 1; border-radius: var(--radius-md); padding: 14px 10px; text-align: center; border: 1px solid var(--neutral-border); background: var(--neutral-light); }
     .wa-modal-price-box.featured { border-color: rgba(154,106,255,.30); background: var(--primary-light); }
     .wa-modal-price-label { font-size: .62rem; font-weight: 600; text-transform: uppercase; letter-spacing: .10em; color: var(--primary); margin-bottom: 6px; }
-    .wa-modal-price-amount { font-family: 'Cormorant Garamond', serif; font-weight: 600; font-size: 1.8rem; color: var(--secondary); line-height: 1; letter-spacing: -.04em; }
+    .wa-modal-price-amount { font-family: 'League Spartan', sans-serif; font-weight: 800; font-size: 1.8rem; color: var(--secondary); line-height: 1; letter-spacing: -.03em; }
     .wa-modal-price-note { font-size: .64rem; color: var(--text-light); margin-top: 5px; line-height: 1.4; }
     .wa-modal-note { font-size: .76rem; color: var(--text-secondary); background: var(--neutral-light); border: 1px solid var(--neutral-border); border-radius: var(--radius-md); padding: 10px 12px; margin-bottom: 16px; line-height: 1.6; }
     .wa-modal-actions { display: flex; flex-direction: column; gap: 8px; }
-    .wa-modal-btn-wa { display: flex; align-items: center; justify-content: center; gap: 8px; padding: 12px 16px; border-radius: var(--radius-md); background: #25D366; color: #fff; font-weight: 500; font-size: .86rem; text-decoration: none; transition: all .18s ease; letter-spacing: .01em; }
+    .wa-modal-btn-wa { display: flex; align-items: center; justify-content: center; gap: 8px; padding: 12px 16px; border-radius: var(--radius-md); background: #25D366; color: #fff; font-weight: 500; font-size: .86rem; text-decoration: none; transition: all .18s ease; }
     .wa-modal-btn-wa:hover { background: #1da851; }
-    .wa-modal-btn-form { display: flex; align-items: center; justify-content: center; gap: 8px; padding: 12px 16px; border-radius: var(--radius-md); background: var(--primary); color: #fff; font-weight: 500; font-size: .86rem; text-decoration: none; transition: all .18s ease; position: relative; overflow: hidden; z-index: 0; }
+    .wa-modal-btn-form { display: flex; align-items: center; justify-content: center; gap: 8px; padding: 12px 16px; border-radius: var(--radius-md); background: var(--primary); color: #fff; font-weight: 500; font-size: .86rem; text-decoration: none; position: relative; overflow: hidden; z-index: 0; }
     .wa-modal-btn-form::before { content: ''; position: absolute; inset: 0; background: var(--primary-dark); transform: translateX(-101%); transition: transform .28s cubic-bezier(.22,1,.36,1); z-index: -1; }
     .wa-modal-btn-form:hover::before { transform: translateX(0); }
     @media (min-width: 640px) { .wa-modal-overlay { align-items: center; padding: 0; } }
@@ -250,7 +244,6 @@
     <a href="/" class="logo-wrap" aria-label="Juristam — Inicio">
       <img src="https://i.postimg.cc/vHygbHxz/oie-transparent-(2).png" alt="Juristam" width="200" height="70">
     </a>
-
     <nav class="nav-desktop" aria-label="Menú principal">
       <div class="nav-desktop-links">
         <a href="/#proceso" class="nav-desktop-link">Proceso</a>
@@ -261,7 +254,6 @@
         <a href="/#contacto" class="nav-desktop-link">Contacto</a>
       </div>
     </nav>
-
     <div class="header-cta" style="display:flex;align-items:center;gap:10px;justify-content:flex-end;">
       <button class="hamburger" id="mobileMenuBtn" aria-label="Abrir menú" aria-expanded="false" type="button">
         <i class="fas fa-bars"></i>
@@ -271,7 +263,6 @@
   </div>
 </header>
 
-<!-- Mobile menu -->
 <div class="mobile-menu" id="mobileMenu">
   <div class="mobile-menu-panel">
     <div class="mobile-menu-head">
@@ -432,11 +423,10 @@
   </div>
 </footer>
 
-<a class="wa-float" id="waFloatBtn" href="#" aria-label="Consulta rápida o caso urgente" title="Consulta rápida o caso urgente">
+<a class="wa-float" id="waFloatBtn" href="#" aria-label="Consulta rápida o caso urgente">
   <i class="fab fa-whatsapp"></i>
 </a>
 
-<!-- WA Modal -->
 <div class="wa-modal-overlay" id="waModal" role="dialog" aria-modal="true" aria-label="Información de consulta">
   <div class="wa-modal">
     <button class="wa-modal-close" id="waModalClose" aria-label="Cerrar"><i class="fas fa-times"></i></button>
@@ -466,13 +456,11 @@
 <script>
   document.getElementById('yr').textContent = new Date().getFullYear();
 
-  // Show desktop CTA at 1024px+
   if (window.innerWidth >= 1024) document.getElementById('desktopCta').style.display = 'inline-flex';
   window.addEventListener('resize', () => {
     document.getElementById('desktopCta').style.display = window.innerWidth >= 1024 ? 'inline-flex' : 'none';
   });
 
-  // Mobile menu
   const mobileMenu = document.getElementById('mobileMenu');
   const mobileMenuBtn = document.getElementById('mobileMenuBtn');
   const mobileMenuClose = document.getElementById('mobileMenuClose');
@@ -484,14 +472,12 @@
   document.addEventListener('keydown', e => { if (e.key === 'Escape') closeMobileMenu(); });
   mobileMenu.querySelectorAll('a').forEach(a => a.addEventListener('click', closeMobileMenu));
 
-  // Scroll fade
   const fadeEls = document.querySelectorAll('.fade-up-scroll');
   const obs = new IntersectionObserver((entries) => {
     entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); obs.unobserve(e.target); } });
   }, { threshold: 0.10 });
   fadeEls.forEach(el => obs.observe(el));
 
-  // WA Modal
   const waModal = document.getElementById('waModal');
   const openModal = (e) => { e.preventDefault(); waModal.classList.add('active'); document.body.style.overflow = 'hidden'; };
   const closeModal = () => { waModal.classList.remove('active'); document.body.style.overflow = ''; };
@@ -501,7 +487,6 @@
   waModal.addEventListener('click', (e) => { if (e.target === waModal) closeModal(); });
   document.addEventListener('keydown', (e) => { if (e.key === 'Escape') closeModal(); });
 
-  // Cursor trail
   if (window.matchMedia('(pointer: fine)').matches) {
     const TRAIL = 10;
     const dot = document.createElement('div'); dot.className = 'cursor-dot'; document.body.appendChild(dot);
@@ -509,7 +494,7 @@
       const el = document.createElement('div'); el.className = 'cursor-trail';
       el.style.opacity = ((1 - i / TRAIL) * 0.55).toFixed(2);
       el.style.width = Math.max(2, 5 - i * 0.3) + 'px'; el.style.height = el.style.width;
-      document.body.appendChild(el); return { el, x: 0, y: 0 };
+      document.body.appendChild(el); return { el };
     });
     let mx = 0, my = 0;
     const pos = Array(TRAIL).fill(null).map(() => ({ x: 0, y: 0 }));

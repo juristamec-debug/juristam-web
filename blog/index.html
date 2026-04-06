@@ -2,8 +2,8 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8" />
-  <link rel="icon" type="image/png" href="https://i.postimg.cc/KjDB1NSM/Diseno-sin-titulo-(7).png">
-  <link rel="apple-touch-icon" href="https://i.postimg.cc/KjDB1NSM/Diseno-sin-titulo-(7).png">
+  <link rel="icon" type="image/png" href="/favicon.png">
+  <link rel="apple-touch-icon" href="/favicon.png">
   <meta name="theme-color" content="#9a6aff">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover, maximum-scale=5.0" />
 
@@ -15,697 +15,305 @@
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,600;0,9..144,700;1,9..144,400&family=DM+Sans:wght@400;500;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=League+Spartan:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
   <style>
-    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
-    html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
-
     :root {
-      --sat: env(safe-area-inset-top);
-      --sar: env(safe-area-inset-right);
-      --sal: env(safe-area-inset-left);
-      --sab: env(safe-area-inset-bottom);
-
       --primary: #9a6aff;
       --primary-dark: #7c3aed;
-      --primary-mid: #8b5cf6;
-      --primary-soft: #f3eeff;
-      --primary-softer: #faf7ff;
-      --accent: #06b6d4;
-      --accent-soft: #ecfeff;
-
-      --ink: #0d0d1a;
-      --ink-2: #2d2d45;
-      --ink-3: #64648a;
-      --ink-4: #9898b8;
-      --surface: #ffffff;
-      --surface-2: #f8f7fc;
-      --border: #e8e4f4;
-      --border-soft: #f0edf9;
-
-      --shadow-xs: 0 2px 8px rgba(100,60,200,.06);
-      --shadow-sm: 0 4px 16px rgba(100,60,200,.08);
-      --shadow-md: 0 8px 32px rgba(100,60,200,.12);
-      --shadow-lg: 0 16px 48px rgba(100,60,200,.16);
-      --shadow-xl: 0 24px 64px rgba(100,60,200,.20);
-
-      --radius-sm: 12px;
-      --radius: 18px;
-      --radius-lg: 24px;
-      --radius-xl: 32px;
-      --pill: 9999px;
-
-      --header-h: calc(68px + var(--sat));
-      --touch: 44px;
-
-      --font-display: 'Fraunces', Georgia, serif;
-      --font-body: 'DM Sans', system-ui, sans-serif;
+      --primary-light: #f5f0ff;
+      --secondary: #0a0a0f;
+      --neutral-light: #f9f9fb;
+      --neutral-border: #ebebef;
+      --white: #ffffff;
+      --text-main: #0a0a0f;
+      --text-secondary: #5a5a72;
+      --text-light: #9898b0;
+      --accent: #0f766e;
+      --divider: rgba(10,10,15,.07);
+      --radius-sm: 4px;
+      --radius-md: 8px;
+      --radius-lg: 12px;
+      --shadow-sm: 0 1px 3px rgba(10,10,15,.04);
+      --shadow-md: 0 4px 24px rgba(10,10,15,.06);
+      --header-h: 80px;
+      --pad-x: 20px;
+      --maxw: 100%;
+      --sec-y: 88px;
+      --sat: env(safe-area-inset-top);
+      --sab: env(safe-area-inset-bottom);
     }
 
-    body {
-      font-family: var(--font-body);
-      background: var(--surface);
-      color: var(--ink);
-      overflow-x: hidden;
-      -webkit-font-smoothing: antialiased;
-    }
-
-    a { color: inherit; text-decoration: none; }
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; overflow-x: hidden; -webkit-text-size-adjust: 100%; }
+    body { font-family: 'Inter', system-ui, sans-serif; background: var(--white); color: var(--text-main); overflow-x: hidden; -webkit-font-smoothing: antialiased; line-height: 1.7; font-size: 16px; letter-spacing: .005em; }
+    a { color: inherit; text-decoration: none; -webkit-tap-highlight-color: transparent; }
     img { max-width: 100%; display: block; }
-    button, input { font: inherit; }
+    .container { width: 100%; max-width: var(--maxw); margin: 0 auto; padding: 0 var(--pad-x); box-sizing: border-box; }
+    .sr-only { position: absolute !important; width: 1px !important; height: 1px !important; padding: 0 !important; margin: -1px !important; overflow: hidden !important; clip: rect(0,0,0,0) !important; white-space: nowrap !important; border: 0 !important; }
 
-    .sr-only {
-      position: absolute !important; width: 1px !important; height: 1px !important;
-      padding: 0 !important; margin: -1px !important; overflow: hidden !important;
-      clip: rect(0,0,0,0) !important; white-space: nowrap !important; border: 0 !important;
-    }
-
-    .container {
-      width: min(1200px, 100%);
-      margin: 0 auto;
-      padding: 0 20px;
+    /* CURSOR */
+    @media (pointer: fine) {
+      *, a, button { cursor: none !important; }
+      .cursor-dot { position: fixed; top: 0; left: 0; z-index: 9999; width: 7px; height: 7px; background: var(--primary); border-radius: 50%; pointer-events: none; transform: translate(-50%,-50%); will-change: transform; }
+      .cursor-trail { position: fixed; top: 0; left: 0; z-index: 9997; width: 5px; height: 5px; background: var(--primary); border-radius: 50%; pointer-events: none; transform: translate(-50%,-50%); will-change: transform; }
     }
 
     /* HEADER */
-    header {
-      position: sticky; top: 0; z-index: 1000;
-      height: var(--header-h);
-      background: rgba(255,255,255,.96);
-      backdrop-filter: blur(16px);
-      -webkit-backdrop-filter: blur(16px);
-      border-bottom: 1px solid var(--border-soft);
-      box-shadow: var(--shadow-xs);
-      padding-top: var(--sat);
-    }
+    header { position: fixed; inset: 0 0 auto 0; z-index: 1000; height: var(--header-h); display: flex; align-items: center; background: rgba(255,255,255,.97); backdrop-filter: blur(24px); border-bottom: 1px solid var(--divider); width: 100%; }
+    .header-inner { height: 100%; width: 100%; max-width: var(--maxw); margin: 0 auto; padding: 0 var(--pad-x); display: flex; align-items: center; justify-content: space-between; gap: 16px; box-sizing: border-box; }
+    .logo-wrap img { height: 72px; width: auto; object-fit: contain; }
 
-    .header-inner {
-      height: calc(var(--header-h) - var(--sat));
-      display: flex; align-items: center; justify-content: space-between;
-      gap: 12px;
-      padding-left: max(20px, var(--sal));
-      padding-right: max(20px, var(--sar));
-      max-width: 1200px; margin: 0 auto;
-    }
+    /* NAV MOBILE */
+    .hamburger { display: flex; width: 44px; height: 44px; border-radius: var(--radius-md); border: 1px solid var(--neutral-border); background: transparent; color: var(--text-main); align-items: center; justify-content: center; }
+    .mobile-menu { display: none; position: fixed; inset: 0; z-index: 1500; background: rgba(10,10,15,.45); backdrop-filter: blur(6px); }
+    .mobile-menu.active { display: block; }
+    .mobile-menu-panel { position: absolute; top: 12px; right: 12px; left: 12px; background: #fff; border: 1px solid var(--neutral-border); border-radius: var(--radius-lg); box-shadow: 0 24px 64px rgba(10,10,15,.18); overflow: hidden; }
+    .mobile-menu-head { display: flex; align-items: center; justify-content: space-between; padding: 16px; border-bottom: 1px solid var(--divider); }
+    .mobile-menu-close { width: 36px; height: 36px; border-radius: 999px; border: 1px solid var(--neutral-border); background: var(--neutral-light); color: var(--text-secondary); display: flex; align-items: center; justify-content: center; font-size: .8rem; }
+    .mobile-menu-body { padding: 12px; }
+    .mobile-menu-list { display: flex; flex-direction: column; gap: 4px; }
+    .mobile-menu-item { display: flex; align-items: center; gap: 12px; padding: 11px 14px; border-radius: var(--radius-md); color: var(--text-secondary); font-size: .88rem; font-weight: 500; transition: background .15s; }
+    .mobile-menu-item:hover { background: var(--neutral-light); color: var(--text-main); }
+    .mobile-menu-item i { color: var(--primary); font-size: .82rem; width: 16px; }
+    .mobile-menu-cta { margin-top: 10px; padding-top: 10px; border-top: 1px solid var(--divider); }
 
-    .brand { display: flex; align-items: center; flex: 0 0 auto; }
-    .logo-box { height: 46px; display: flex; align-items: center; }
-    .logo-box img { height: 100%; width: auto; object-fit: contain; }
+    /* NAV DESKTOP */
+    .nav-desktop { display: none; }
+    .nav-desktop-links { display: flex; align-items: center; }
+    .nav-desktop-link { font-weight: 400; color: var(--text-secondary); font-size: 1rem; padding: .6rem 1rem; transition: color .2s ease; position: relative; white-space: nowrap; letter-spacing: .01em; text-decoration: none; }
+    .nav-desktop-link::after { content: ''; position: absolute; left: 50%; right: 50%; bottom: 0; height: 1.5px; background: var(--primary); transition: left .22s ease, right .22s ease; display: block; }
+    .nav-desktop-link:hover { color: var(--text-main); }
+    .nav-desktop-link:hover::after { left: 1rem; right: 1rem; }
 
-    .header-actions { display: flex; align-items: center; gap: 8px; }
+    /* BUTTONS */
+    .btn { display: inline-flex; align-items: center; justify-content: center; gap: .5rem; padding: .7rem 1.4rem; border-radius: var(--radius-md); font-weight: 500; font-size: .86rem; text-decoration: none; border: none; cursor: pointer; transition: all .2s ease; white-space: nowrap; letter-spacing: .02em; position: relative; overflow: hidden; }
+    .btn-primary { background: var(--primary); color: #fff; z-index: 0; }
+    .btn-primary::before { content: ''; position: absolute; inset: 0; background: var(--primary-dark); transform: translateX(-101%); transition: transform .32s cubic-bezier(.22,1,.36,1); z-index: -1; }
+    .btn-primary:hover::before { transform: translateX(0); }
+    .btn-ghost { background: var(--neutral-light); color: var(--text-secondary); border: 1px solid var(--neutral-border); }
+    .btn-ghost:hover { background: var(--neutral-border); color: var(--text-main); }
 
-    .btn {
-      display: inline-flex; align-items: center; justify-content: center; gap: 8px;
-      min-height: var(--touch); padding: 0 16px;
-      border-radius: var(--pill);
-      font-family: var(--font-body); font-weight: 700; font-size: .9rem;
-      white-space: nowrap; line-height: 1; cursor: pointer;
-      border: 1.5px solid transparent;
-      transition: all .18s ease;
-      -webkit-tap-highlight-color: transparent;
-    }
-    .btn i { font-size: .85em; }
-    .btn-ghost {
-      background: var(--primary-soft);
-      color: var(--primary-dark);
-      border-color: var(--border);
-    }
-    .btn-ghost:hover { background: var(--primary-soft); border-color: var(--primary); box-shadow: var(--shadow-sm); }
-    .btn-primary {
-      background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
-      color: #fff;
-      box-shadow: 0 6px 20px rgba(124,58,237,.30);
-    }
-    .btn-primary:hover { transform: translateY(-1px); box-shadow: 0 10px 28px rgba(124,58,237,.38); }
-    .btn-icon {
-      width: var(--touch); padding: 0;
-      background: var(--surface); border-color: var(--border);
-      color: var(--ink-2);
-      box-shadow: var(--shadow-xs);
-    }
-
-    .nav-center { display: none; }
-    .desktop-actions { display: none; }
-
-    /* MOBILE DRAWER */
-    .drawer-overlay {
-      position: fixed; inset: 0;
-      background: rgba(13,13,26,.65);
-      backdrop-filter: blur(8px);
-      display: none; z-index: 2000;
-    }
-    .drawer-overlay.active { display: block; }
-    .drawer {
-      position: absolute; top: 0; right: 0;
-      width: min(360px, 90vw); height: 100%;
-      background: var(--surface);
-      border-left: 1px solid var(--border);
-      box-shadow: -24px 0 64px rgba(100,60,200,.18);
-      padding: 20px 20px calc(20px + var(--sab));
-      display: flex; flex-direction: column; gap: 12px;
-    }
-    .drawer-head {
-      display: flex; align-items: center; justify-content: space-between;
-      padding-top: max(0px, var(--sat));
-    }
-    .drawer-title { font-weight: 800; font-size: 1.1rem; color: var(--ink); }
-    .drawer-close {
-      width: 40px; height: 40px; border-radius: var(--radius-sm);
-      border: 1.5px solid var(--border); background: var(--surface);
-      cursor: pointer; color: var(--ink-3); font-size: 1rem;
-      display: flex; align-items: center; justify-content: center;
-    }
-    .drawer-links { display: flex; flex-direction: column; gap: 6px; margin-top: 8px; }
-    .drawer-links a {
-      display: flex; align-items: center; justify-content: space-between;
-      padding: 13px 16px; border: 1.5px solid var(--border-soft);
-      border-radius: var(--radius-sm); background: var(--surface-2);
-      font-weight: 700; color: var(--ink-2); font-size: .95rem;
-      transition: all .15s;
-    }
-    .drawer-links a:active { transform: scale(.98); }
-    .drawer-cta { margin-top: auto; }
-    .drawer-cta .btn { width: 100%; justify-content: center; }
+    /* ANIMATIONS */
+    @keyframes fadeUp { from { opacity:0; transform:translateY(24px); } to { opacity:1; transform:translateY(0); } }
+    .fade-up { opacity: 0; animation: fadeUp .7s cubic-bezier(.22,1,.36,1) forwards; }
+    .fade-up.d1 { animation-delay: .10s; }
+    .fade-up.d2 { animation-delay: .22s; }
+    .fade-up.d3 { animation-delay: .36s; }
+    .fade-up-scroll { opacity: 0; transform: translateY(20px); transition: opacity .65s cubic-bezier(.22,1,.36,1), transform .65s cubic-bezier(.22,1,.36,1); }
+    .fade-up-scroll.visible { opacity: 1; transform: translateY(0); }
 
     /* HERO */
-    main { padding: 28px 0 80px; }
+    main { padding-top: var(--header-h); }
+    .hero { padding: 72px 0 80px; background: #fff; position: relative; overflow: hidden; border-bottom: 1px solid var(--divider); }
+    .hero::before { content: ''; position: absolute; inset: 0; background: radial-gradient(ellipse 50% 40% at 90% 5%, rgba(154,106,255,.05), transparent 65%); pointer-events: none; }
+    .hero-kicker-wrap { display: flex; align-items: center; gap: 14px; margin-bottom: 24px; }
+    .hero-kicker-line { width: 36px; height: 1px; background: var(--primary); flex-shrink: 0; }
+    .hero-kicker-text { font-family: 'League Spartan', sans-serif; font-size: .64rem; font-weight: 600; text-transform: uppercase; letter-spacing: .18em; color: var(--primary); }
+    .hero h1 { font-family: 'League Spartan', sans-serif; font-size: clamp(2rem,5.5vw,3.8rem); font-weight: 700; line-height: 1.04; color: var(--secondary); margin-bottom: 20px; letter-spacing: -.02em; }
+    .hero h1 em { font-style: normal; color: var(--primary); font-weight: 800; }
+    .hero-lead { font-size: clamp(.92rem,2.5vw,1.05rem); color: var(--text-secondary); line-height: 1.82; max-width: 520px; margin-bottom: 28px; }
 
-    .hero {
-      position: relative; overflow: hidden;
-      background: var(--primary-softer);
-      border: 1.5px solid var(--border);
-      border-radius: var(--radius-xl);
-      padding: 32px 24px 28px;
-    }
+    /* STATS PILLS */
+    .hero-stats { display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 28px; }
+    .stat-pill { display: inline-flex; align-items: center; gap: 8px; padding: 7px 14px; background: var(--neutral-light); border: 1px solid var(--neutral-border); border-radius: 999px; font-size: .8rem; font-weight: 600; color: var(--text-secondary); }
+    .stat-pill i { color: var(--primary); font-size: .82rem; }
 
-    .hero::before {
-      content: '';
-      position: absolute; top: -60px; right: -60px;
-      width: 280px; height: 280px;
-      background: radial-gradient(circle, rgba(154,106,255,.15) 0%, transparent 70%);
-      border-radius: 50%;
-      pointer-events: none;
-    }
-    .hero::after {
-      content: '';
-      position: absolute; bottom: -40px; left: 20%;
-      width: 200px; height: 200px;
-      background: radial-gradient(circle, rgba(6,182,212,.08) 0%, transparent 70%);
-      border-radius: 50%;
-      pointer-events: none;
-    }
-
-    .hero-badge {
-      display: inline-flex; align-items: center; gap: 8px;
-      padding: 6px 14px;
-      background: var(--primary-soft);
-      border: 1.5px solid rgba(154,106,255,.3);
-      border-radius: var(--pill);
-      font-size: .78rem; font-weight: 700; color: var(--primary-dark);
-      text-transform: uppercase; letter-spacing: .06em;
-      margin-bottom: 16px;
-    }
-
-    .hero h1 {
-      font-family: var(--font-display);
-      font-weight: 700;
-      font-size: clamp(2rem, 6vw, 3rem);
-      line-height: 1.08;
-      letter-spacing: -.02em;
-      color: var(--ink);
-      margin-bottom: 12px;
-    }
-    .hero h1 em {
-      font-style: italic;
-      color: var(--primary-dark);
-    }
-
-    .hero-lead {
-      color: var(--ink-3);
-      font-size: clamp(.98rem, 2.5vw, 1.08rem);
-      line-height: 1.7;
-      max-width: 52ch;
-      margin-bottom: 24px;
-    }
-
-    .hero-stats {
-      display: flex; flex-wrap: wrap; gap: 12px;
-      margin-bottom: 24px;
-    }
-    .stat-pill {
-      display: inline-flex; align-items: center; gap: 8px;
-      padding: 8px 14px;
-      background: var(--surface);
-      border: 1.5px solid var(--border);
-      border-radius: var(--pill);
-      font-size: .85rem; font-weight: 700; color: var(--ink-2);
-      box-shadow: var(--shadow-xs);
-    }
-    .stat-pill i { color: var(--primary); font-size: .9em; }
-
-    .search-wrap { display: flex; flex-direction: column; gap: 10px; }
+    /* SEARCH */
+    .search-wrap { display: flex; flex-direction: column; gap: 10px; max-width: 600px; }
     .search-row { display: flex; gap: 10px; flex-direction: column; }
-    .search-input {
-      flex: 1; min-height: 50px;
-      padding: 14px 18px;
-      border: 2px solid var(--border);
-      border-radius: var(--radius);
-      background: var(--surface);
-      font-size: 1rem; color: var(--ink);
-      outline: none;
-      transition: border-color .18s, box-shadow .18s;
-    }
-    .search-input::placeholder { color: var(--ink-4); }
-    .search-input:focus {
-      border-color: var(--primary);
-      box-shadow: 0 0 0 4px rgba(154,106,255,.14);
-    }
-    .search-hint {
-      font-size: .82rem; color: var(--ink-4); line-height: 1.5;
-      display: flex; align-items: flex-start; gap: 6px;
-    }
-    .search-hint i { color: var(--primary); margin-top: 2px; flex-shrink: 0; }
+    .search-input { flex: 1; min-height: 50px; padding: 13px 18px; border: 1.5px solid var(--neutral-border); border-radius: var(--radius-md); background: var(--white); font-size: .96rem; color: var(--text-main); outline: none; font-family: 'Inter', sans-serif; transition: border-color .18s, box-shadow .18s; }
+    .search-input::placeholder { color: var(--text-light); }
+    .search-input:focus { border-color: var(--primary); box-shadow: 0 0 0 3px rgba(154,106,255,.12); }
+    .search-hint { font-size: .78rem; color: var(--text-light); display: flex; align-items: flex-start; gap: 6px; }
+    .search-hint i { color: var(--primary); margin-top: 2px; }
 
-    /* SECTION HEADER */
-    .section-header {
-      display: flex; align-items: flex-end; justify-content: space-between;
-      gap: 16px; margin: 40px 0 20px;
-      padding-bottom: 16px;
-      border-bottom: 2px solid var(--border-soft);
-    }
-    .section-header h2 {
-      font-family: var(--font-display);
-      font-size: clamp(1.4rem, 3.5vw, 1.85rem);
-      font-weight: 700;
-      color: var(--ink);
-      line-height: 1.15;
-    }
-    .section-header h2 span {
-      display: block;
-      font-size: .8em; font-style: italic;
-      color: var(--ink-3); font-weight: 400;
-      margin-top: 2px;
-    }
-    .total-badge {
-      flex-shrink: 0;
-      padding: 6px 14px;
-      background: var(--primary-soft);
-      border: 1.5px solid var(--border);
-      border-radius: var(--pill);
-      font-size: .82rem; font-weight: 800;
-      color: var(--primary-dark);
-    }
+    /* CATEGORIES SECTION */
+    .cats-section { padding: var(--sec-y) 0; }
+    .section-header-row { display: flex; align-items: flex-end; justify-content: space-between; gap: 16px; margin-bottom: 32px; padding-bottom: 20px; border-bottom: 1px solid var(--divider); }
+    .section-header-row h2 { font-family: 'League Spartan', sans-serif; font-size: clamp(1.4rem,3.5vw,2rem); font-weight: 700; color: var(--secondary); line-height: 1.08; letter-spacing: -.02em; }
+    .section-header-row h2 span { display: block; font-size: .7em; font-weight: 400; color: var(--text-light); margin-top: 4px; letter-spacing: .02em; text-transform: uppercase; }
+    .total-badge { flex-shrink: 0; padding: 6px 14px; background: var(--primary-light); border: 1px solid rgba(154,106,255,.2); border-radius: 999px; font-size: .78rem; font-weight: 700; color: var(--primary-dark); font-family: 'League Spartan', sans-serif; }
 
-    /* CATEGORIES GRID */
-    .categories-grid {
-      display: grid;
-      grid-template-columns: 1fr;
-      gap: 16px;
-    }
-
-    .category-card {
-      position: relative; overflow: hidden;
-      background: var(--surface);
-      border: 1.5px solid var(--border);
-      border-radius: var(--radius-lg);
-      padding: 22px 20px 18px;
-      cursor: pointer;
-      transition: transform .2s ease, box-shadow .2s ease, border-color .2s ease;
-      display: flex; flex-direction: column;
-      min-height: 200px;
-    }
-    .category-card::before {
-      content: '';
-      position: absolute; top: 0; left: 0; right: 0;
-      height: 3px;
-      background: linear-gradient(90deg, var(--primary), var(--primary-dark));
-      opacity: 0;
-      transition: opacity .2s;
-    }
-    .category-card:hover {
-      transform: translateY(-3px);
-      box-shadow: var(--shadow-lg);
-      border-color: rgba(154,106,255,.4);
-    }
+    /* CATEGORY CARDS */
+    .categories-grid { display: grid; grid-template-columns: 1fr; gap: 1px; background: var(--neutral-border); border: 1px solid var(--neutral-border); border-radius: var(--radius-lg); overflow: hidden; }
+    .category-card { background: #fff; padding: 28px 24px; display: flex; flex-direction: column; gap: 16px; cursor: pointer; transition: background .18s ease; position: relative; }
+    .category-card:hover { background: var(--neutral-light); }
+    .category-card::before { content: ''; position: absolute; top: 0; left: 0; width: 2px; height: 100%; background: var(--primary); opacity: 0; transition: opacity .18s ease; }
     .category-card:hover::before { opacity: 1; }
-    .category-card[aria-disabled="true"] {
-      opacity: .55; cursor: not-allowed; transform: none !important;
-    }
+    .category-card[aria-disabled="true"] { opacity: .5; cursor: not-allowed; }
+    .card-top { display: flex; align-items: center; justify-content: space-between; gap: 12px; }
+    .card-icon { width: 38px; height: 38px; border-radius: var(--radius-sm); background: var(--primary-light); color: var(--primary); display: flex; align-items: center; justify-content: center; font-size: .9rem; flex-shrink: 0; }
+    .card-count { font-size: .72rem; font-weight: 700; color: var(--text-light); background: var(--neutral-light); border: 1px solid var(--neutral-border); padding: 4px 10px; border-radius: 999px; font-family: 'League Spartan', sans-serif; letter-spacing: .02em; }
+    .card-name { font-family: 'League Spartan', sans-serif; font-weight: 700; font-size: 1rem; color: var(--secondary); letter-spacing: -.01em; }
+    .card-desc { font-size: .82rem; color: var(--text-secondary); line-height: 1.65; }
+    .card-actions { display: flex; flex-direction: column; gap: 8px; margin-top: 4px; }
+    .btn-card { display: flex; align-items: center; justify-content: center; gap: 8px; padding: 10px 16px; border-radius: var(--radius-md); font-weight: 600; font-size: .82rem; transition: all .18s ease; letter-spacing: .01em; text-decoration: none; border: none; }
+    .btn-card-primary { background: var(--secondary); color: #fff; position: relative; overflow: hidden; z-index: 0; }
+    .btn-card-primary::before { content: ''; position: absolute; inset: 0; background: var(--primary-dark); transform: translateX(-101%); transition: transform .28s cubic-bezier(.22,1,.36,1); z-index: -1; }
+    .btn-card-primary:hover::before { transform: translateX(0); }
+    .btn-card-ghost { background: transparent; color: var(--primary); border: 1px solid rgba(154,106,255,.25); }
+    .btn-card-ghost:hover { background: var(--primary-light); border-color: var(--primary); }
 
-    .card-top {
-      display: flex; align-items: flex-start;
-      justify-content: space-between; gap: 12px;
-      margin-bottom: 14px;
-    }
-
-    .card-icon-wrap {
-      width: 46px; height: 46px;
-      border-radius: var(--radius-sm);
-      background: var(--primary-soft);
-      border: 1.5px solid rgba(154,106,255,.2);
-      display: flex; align-items: center; justify-content: center;
-      flex-shrink: 0;
-    }
-    .card-icon-wrap i {
-      font-size: 1.1rem; color: var(--primary-dark);
-    }
-
-    .card-count {
-      display: inline-flex; align-items: center; gap: 6px;
-      padding: 5px 11px;
-      background: var(--surface-2);
-      border: 1.5px solid var(--border-soft);
-      border-radius: var(--pill);
-      font-size: .78rem; font-weight: 800;
-      color: var(--ink-3);
-    }
-
-    .card-body { flex: 1; }
-    .card-body h3 {
-      font-size: 1.1rem; font-weight: 800;
-      color: var(--ink); margin-bottom: 8px;
-      line-height: 1.2;
-    }
-    .card-body p {
-      color: var(--ink-3); font-size: .9rem;
-      line-height: 1.6; margin-bottom: 16px;
-    }
-
-    .card-footer {
-      display: flex; gap: 10px; margin-top: auto;
-      flex-direction: column;
-    }
-
-    .btn-card-primary {
-      display: flex; align-items: center; justify-content: center; gap: 8px;
-      padding: 11px 16px;
-      background: var(--ink);
-      color: #fff;
-      border-radius: var(--radius-sm);
-      font-weight: 700; font-size: .88rem;
-      transition: background .18s, transform .18s;
-    }
-    .btn-card-primary:hover { background: var(--primary-dark); transform: translateY(-1px); }
-
-    .btn-card-ghost {
-      display: flex; align-items: center; justify-content: center; gap: 8px;
-      padding: 10px 16px;
-      background: transparent;
-      color: var(--primary-dark);
-      border: 1.5px dashed rgba(154,106,255,.4);
-      border-radius: var(--radius-sm);
-      font-weight: 700; font-size: .85rem;
-      transition: background .18s, border-color .18s;
-    }
-    .btn-card-ghost:hover { background: var(--primary-soft); border-color: var(--primary); }
-
-    /* CHAT MODAL */
-    .modal-overlay {
-      position: fixed; inset: 0;
-      background: rgba(13,13,26,.75);
-      backdrop-filter: blur(12px);
-      display: none; align-items: flex-end; justify-content: center;
-      z-index: 2500;
-    }
+    /* SEARCH MODAL */
+    .modal-overlay { position: fixed; inset: 0; background: rgba(10,10,15,.45); backdrop-filter: blur(6px); display: none; align-items: flex-end; justify-content: center; z-index: 2500; }
     .modal-overlay.active { display: flex; }
-
-    .chat-modal {
-      width: 100%; max-height: 88vh;
-      background: var(--surface);
-      border-radius: 28px 28px 0 0;
-      box-shadow: 0 -24px 64px rgba(100,60,200,.22);
-      overflow: hidden; display: flex; flex-direction: column;
-    }
-
-    .modal-header {
-      display: flex; align-items: center; justify-content: space-between;
-      gap: 12px; padding: 18px 20px;
-      border-bottom: 1.5px solid var(--border-soft);
-      background: var(--primary-softer);
-    }
+    .chat-modal { width: 100%; max-height: 88vh; background: var(--white); border-radius: 16px 16px 0 0; box-shadow: 0 -24px 64px rgba(10,10,15,.18); overflow: hidden; display: flex; flex-direction: column; }
+    .modal-header { display: flex; align-items: center; justify-content: space-between; gap: 12px; padding: 18px 20px; border-bottom: 1px solid var(--divider); background: var(--neutral-light); }
     .modal-title-row { display: flex; align-items: center; gap: 12px; }
-    .modal-icon {
-      width: 42px; height: 42px; border-radius: var(--radius-sm);
-      background: var(--primary-soft);
-      border: 1.5px solid rgba(154,106,255,.25);
-      display: flex; align-items: center; justify-content: center;
-      color: var(--primary-dark); font-size: 1rem;
-    }
-    .modal-info h3 { font-size: 1rem; font-weight: 800; color: var(--ink); }
-    .modal-info p { font-size: .82rem; color: var(--ink-3); margin-top: 1px; }
-    .modal-close {
-      width: 40px; height: 40px; border-radius: var(--radius-sm);
-      border: 1.5px solid var(--border);
-      background: var(--surface); cursor: pointer;
-      display: flex; align-items: center; justify-content: center;
-      color: var(--ink-3);
-    }
-
-    .chat-messages {
-      flex: 1; padding: 20px; overflow-y: auto;
-      -webkit-overflow-scrolling: touch;
-      display: flex; flex-direction: column; gap: 10px;
-      background: linear-gradient(180deg, var(--surface) 0%, var(--surface-2) 100%);
-    }
-
-    .message {
-      max-width: 86%; padding: 12px 16px;
-      border-radius: 20px; line-height: 1.55;
-      font-size: .95rem; word-break: break-word;
-    }
-    .message-bot {
-      align-self: flex-start;
-      background: var(--surface);
-      border: 1.5px solid var(--border);
-      border-bottom-left-radius: 6px;
-      color: var(--ink-2);
-    }
-    .message-user {
-      align-self: flex-end;
-      background: linear-gradient(135deg, var(--primary), var(--primary-dark));
-      color: #fff;
-      border-bottom-right-radius: 6px;
-    }
-
-    .search-results {
-      display: grid; grid-template-columns: 1fr;
-      gap: 10px; margin-top: 8px;
-    }
-    .result-card {
-      border: 1.5px solid var(--border);
-      border-radius: var(--radius);
-      padding: 14px 16px;
-      background: var(--surface);
-      transition: border-color .15s, box-shadow .15s;
-    }
-    .result-card:hover { border-color: rgba(154,106,255,.4); box-shadow: var(--shadow-sm); }
+    .modal-icon { width: 38px; height: 38px; border-radius: var(--radius-sm); background: var(--primary-light); border: 1px solid rgba(154,106,255,.2); display: flex; align-items: center; justify-content: center; color: var(--primary); font-size: .9rem; }
+    .modal-info h3 { font-family: 'League Spartan', sans-serif; font-size: .95rem; font-weight: 700; color: var(--secondary); letter-spacing: -.01em; }
+    .modal-info p { font-size: .78rem; color: var(--text-light); margin-top: 1px; }
+    .modal-close { width: 36px; height: 36px; border-radius: 999px; border: 1px solid var(--neutral-border); background: var(--white); display: flex; align-items: center; justify-content: center; color: var(--text-secondary); font-size: .8rem; }
+    .chat-messages { flex: 1; padding: 20px; overflow-y: auto; -webkit-overflow-scrolling: touch; display: flex; flex-direction: column; gap: 10px; background: var(--neutral-light); }
+    .message { max-width: 86%; padding: 12px 16px; border-radius: var(--radius-lg); line-height: 1.6; font-size: .9rem; word-break: break-word; }
+    .message-bot { align-self: flex-start; background: var(--white); border: 1px solid var(--neutral-border); color: var(--text-secondary); border-bottom-left-radius: 4px; }
+    .message-user { align-self: flex-end; background: var(--primary); color: #fff; border-bottom-right-radius: 4px; }
+    .search-results { display: grid; grid-template-columns: 1fr; gap: 10px; margin-top: 8px; }
+    .result-card { border: 1px solid var(--neutral-border); border-radius: var(--radius-md); padding: 16px; background: var(--white); transition: border-color .15s; }
+    .result-card:hover { border-color: rgba(154,106,255,.35); }
     .result-header { display: flex; justify-content: space-between; gap: 8px; flex-wrap: wrap; margin-bottom: 8px; }
-    .result-tag {
-      padding: 4px 10px; border-radius: var(--pill);
-      background: var(--primary-soft); color: var(--primary-dark);
-      border: 1.5px solid rgba(154,106,255,.2);
-      font-weight: 800; font-size: .72rem;
-      text-transform: uppercase; letter-spacing: .05em;
-    }
-    .result-date { font-size: .75rem; color: var(--ink-4); display: flex; align-items: center; gap: 5px; }
-    .result-title { font-weight: 800; font-size: .95rem; margin-bottom: 6px; line-height: 1.3; color: var(--ink); }
-    .result-excerpt { color: var(--ink-3); line-height: 1.6; font-size: .88rem; margin-bottom: 10px; }
-    .result-link { display: inline-flex; align-items: center; gap: 6px; font-weight: 800; color: var(--primary-dark); font-size: .88rem; }
+    .result-tag { padding: 3px 10px; border-radius: 999px; background: var(--primary-light); color: var(--primary-dark); border: 1px solid rgba(154,106,255,.2); font-weight: 700; font-size: .68rem; text-transform: uppercase; letter-spacing: .08em; font-family: 'League Spartan', sans-serif; }
+    .result-date { font-size: .72rem; color: var(--text-light); display: flex; align-items: center; gap: 5px; }
+    .result-title { font-weight: 600; font-size: .9rem; margin-bottom: 6px; line-height: 1.35; color: var(--secondary); }
+    .result-excerpt { color: var(--text-secondary); line-height: 1.6; font-size: .82rem; margin-bottom: 10px; }
+    .result-link { display: inline-flex; align-items: center; gap: 6px; font-weight: 600; color: var(--primary); font-size: .82rem; }
     .result-link:hover { text-decoration: underline; }
-
-    .chat-input-row {
-      padding: 14px 16px calc(14px + var(--sab));
-      border-top: 1.5px solid var(--border-soft);
-      display: flex; gap: 10px; align-items: center;
-      background: var(--surface);
-    }
-    .chat-input {
-      flex: 1; min-height: 48px;
-      border-radius: var(--pill);
-      border: 2px solid var(--border);
-      padding: 12px 18px;
-      background: var(--surface-2);
-      font-size: 1rem; outline: none;
-      transition: border-color .18s, box-shadow .18s;
-    }
-    .chat-input:focus {
-      border-color: var(--primary);
-      background: var(--surface);
-      box-shadow: 0 0 0 4px rgba(154,106,255,.12);
-    }
+    .chat-input-row { padding: 14px 16px; border-top: 1px solid var(--divider); display: flex; gap: 10px; align-items: center; background: var(--white); }
+    .chat-input { flex: 1; min-height: 46px; border-radius: var(--radius-md); border: 1.5px solid var(--neutral-border); padding: 12px 16px; background: var(--neutral-light); font-size: .96rem; outline: none; font-family: 'Inter', sans-serif; transition: border-color .18s, box-shadow .18s; }
+    .chat-input:focus { border-color: var(--primary); background: var(--white); box-shadow: 0 0 0 3px rgba(154,106,255,.10); }
 
     /* FOOTER */
-    footer {
-      border-top: 1.5px solid var(--border-soft);
-      padding: 24px 0 calc(24px + var(--sab));
-      background: var(--surface-2);
-    }
-    .footer-inner {
-      display: flex; align-items: center; justify-content: space-between;
-      flex-wrap: wrap; gap: 12px;
-    }
-    .footer-brand {
-      font-family: var(--font-display);
-      font-size: 1.1rem; font-weight: 600;
-      color: var(--ink-2);
-    }
-    .footer-links { display: flex; gap: 16px; flex-wrap: wrap; }
-    .footer-links a {
-      font-size: .85rem; color: var(--ink-3); font-weight: 600;
-      text-underline-offset: 3px;
-    }
-    .footer-links a:hover { color: var(--primary-dark); text-decoration: underline; }
+    footer { background: var(--secondary); color: #fff; padding: 64px 0 28px; margin-top: 0; width: 100%; }
+    .footer-content { display: grid; grid-template-columns: 1fr; gap: 32px; margin-bottom: 28px; width: 100%; }
+    .footer-heading { font-family: 'League Spartan', sans-serif; font-weight: 600; font-size: 1.1rem; margin-bottom: 16px; letter-spacing: -.02em; color: #fff; }
+    .footer-links { list-style: none; display: flex; flex-direction: column; gap: 10px; }
+    .footer-links a { color: rgba(255,255,255,.38); text-decoration: none; transition: color .18s ease; font-weight: 400; font-size: .82rem; letter-spacing: .01em; }
+    .footer-links a:hover { color: rgba(255,255,255,.80); }
+    .footer-contact { display: flex; flex-direction: column; gap: 12px; }
+    .contact-item { display: flex; align-items: center; gap: 10px; color: rgba(255,255,255,.55); font-size: .82rem; }
+    .contact-item i { color: var(--primary); font-size: .85rem; width: 14px; }
+    .contact-item a { color: rgba(255,255,255,.55); transition: color .18s; }
+    .contact-item a:hover { color: #fff; }
+    .footer-bottom { text-align: center; padding-top: 20px; border-top: 1px solid rgba(255,255,255,.06); color: rgba(255,255,255,.22); font-size: .76rem; letter-spacing: .03em; }
 
-    /* DESKTOP */
-    @media (min-width: 980px) {
-      :root { --header-h: 80px; }
-      .logo-box { height: 52px; }
-      .header-actions { display: none; }
-      .nav-center { display: flex; flex: 1 1 auto; justify-content: center; padding: 0 20px; }
-      .desktop-actions { display: flex; gap: 10px; align-items: center; }
-
-      .nav-menu {
-        display: flex; align-items: center; gap: 4px;
-        padding: 6px 8px;
-        background: var(--surface-2);
-        border: 1.5px solid var(--border);
-        border-radius: var(--pill);
-      }
-      .nav-link {
-        padding: 8px 14px; border-radius: var(--pill);
-        font-weight: 700; color: var(--ink-3);
-        font-size: .9rem; white-space: nowrap;
-        transition: all .15s;
-      }
-      .nav-link:hover { background: var(--surface); color: var(--primary-dark); }
-      .nav-link[aria-current="page"] { background: var(--primary-soft); color: var(--primary-dark); }
-
-      .hero { padding: 48px 44px; }
-      .hero::before { width: 400px; height: 400px; top: -80px; right: -80px; }
+    /* RESPONSIVE */
+    @media (min-width: 640px) {
+      :root { --pad-x: 28px; --maxw: 640px; --sec-y: 96px; }
+      .logo-wrap img { height: 84px; }
       .search-row { flex-direction: row; }
-      .search-input { flex: 1; }
-
-      .categories-grid { grid-template-columns: repeat(2, minmax(0,1fr)); gap: 18px; }
-
+      .categories-grid { grid-template-columns: 1fr 1fr; }
+      .footer-content { grid-template-columns: 1fr 1fr; }
+    }
+    @media (min-width: 980px) {
+      .hamburger { display: none; }
+      .nav-desktop { display: flex; justify-content: center; }
+      .header-cta { display: inline-flex !important; justify-content: flex-end; }
       .modal-overlay { align-items: center; }
-      .chat-modal { max-width: 900px; border-radius: 28px; max-height: 82vh; }
-      .search-results { grid-template-columns: repeat(2, minmax(0,1fr)); }
+      .chat-modal { max-width: 860px; border-radius: 16px; max-height: 82vh; }
+      .search-results { grid-template-columns: repeat(2, 1fr); }
     }
+    @media (min-width: 1024px) {
+      :root { --pad-x: 40px; --header-h: 90px; --maxw: 1200px; --sec-y: 112px; }
+      .logo-wrap img { height: 100px; }
+      .header-inner { display: grid; grid-template-columns: 1fr auto 1fr; align-items: center; }
+      .categories-grid { grid-template-columns: repeat(3, 1fr); }
+      .footer-content { grid-template-columns: repeat(4, 1fr); gap: 32px; }
+    }
+    @media (prefers-reduced-motion: reduce) { * { animation: none !important; transition: none !important; } }
 
-    @media (min-width: 1200px) {
-      .categories-grid { grid-template-columns: repeat(3, minmax(0,1fr)); }
-    }
-
-    @keyframes fadeUp {
-      from { opacity: 0; transform: translateY(16px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-    .category-card { animation: fadeUp .4s ease both; }
-    .category-card:nth-child(1) { animation-delay: .05s; }
-    .category-card:nth-child(2) { animation-delay: .10s; }
-    .category-card:nth-child(3) { animation-delay: .15s; }
-    .category-card:nth-child(4) { animation-delay: .20s; }
-    .category-card:nth-child(5) { animation-delay: .25s; }
-    .category-card:nth-child(6) { animation-delay: .30s; }
-    .category-card:nth-child(7) { animation-delay: .35s; }
-    .category-card:nth-child(8) { animation-delay: .40s; }
-
-    a:focus-visible, button:focus-visible, input:focus-visible {
-      outline: 2px solid rgba(154,106,255,.6);
-      outline-offset: 2px;
-    }
+    /* Card animations */
+    @keyframes cardUp { from { opacity:0; transform:translateY(16px); } to { opacity:1; transform:translateY(0); } }
+    .category-card { animation: cardUp .45s cubic-bezier(.22,1,.36,1) both; }
+    .category-card:nth-child(1) { animation-delay:.05s; }
+    .category-card:nth-child(2) { animation-delay:.10s; }
+    .category-card:nth-child(3) { animation-delay:.15s; }
+    .category-card:nth-child(4) { animation-delay:.20s; }
+    .category-card:nth-child(5) { animation-delay:.25s; }
+    .category-card:nth-child(6) { animation-delay:.30s; }
+    .category-card:nth-child(7) { animation-delay:.35s; }
+    .category-card:nth-child(8) { animation-delay:.40s; }
+    .category-card:nth-child(9) { animation-delay:.45s; }
   </style>
 </head>
-
 <body>
 
-<!-- HEADER -->
-<header role="banner">
-  <div class="header-inner">
-    <a href="https://juristam.net/" class="brand" aria-label="Juristam - Inicio">
-      <div class="logo-box">
-        <img src="https://i.postimg.cc/vHygbHxz/oie-transparent-(2).png" alt="Juristam">
-      </div>
+<header>
+  <div class="header-inner container">
+    <a href="https://juristam.net/" class="logo-wrap" aria-label="Juristam — Inicio">
+      <img src="https://i.postimg.cc/vHygbHxz/oie-transparent-(2).png" alt="Juristam">
     </a>
 
-    <nav class="nav-center" aria-label="Navegación principal">
-      <div class="nav-menu">
-        <a href="https://juristam.net/#proceso" class="nav-link">Proceso</a>
-        <a href="https://juristam.net/#servicios" class="nav-link">Servicios</a>
-        <a href="https://juristam.net/casos-de-exito.html" class="nav-link">Casos de Éxito</a>
-        <a href="https://juristam.net/blog/" class="nav-link" aria-current="page">Guías</a>
-        <a href="https://juristam.net/#contacto" class="nav-link">Contacto</a>
+    <nav class="nav-desktop" aria-label="Menú principal">
+      <div class="nav-desktop-links">
+        <a href="https://juristam.net/#proceso" class="nav-desktop-link">Proceso</a>
+        <a href="https://juristam.net/conocenos.html" class="nav-desktop-link">Conócenos</a>
+        <a href="https://juristam.net/#servicios" class="nav-desktop-link">Servicios</a>
+        <a href="https://juristam.net/casos-de-exito.html" class="nav-desktop-link">Casos de Éxito</a>
+        <a href="https://juristam.net/blog/" class="nav-desktop-link">Guías</a>
+        <a href="https://juristam.net/#contacto" class="nav-desktop-link">Contacto</a>
       </div>
     </nav>
 
-    <div class="desktop-actions">
-      <button class="btn btn-ghost" id="btnOpenChatDesktop" type="button">
-        <i class="fas fa-magnifying-glass"></i> Buscar
-      </button>
-      <a href="https://juristam.net/#formulario" class="btn btn-primary">
-        Evaluar Caso <i class="fas fa-arrow-right"></i>
-      </a>
-    </div>
-
-    <div class="header-actions">
-      <button class="btn btn-ghost" id="btnOpenChat" type="button" style="padding:0 12px;">
-        <i class="fas fa-magnifying-glass"></i>
-      </button>
-      <button class="btn btn-icon" id="btnHamburger" type="button" aria-label="Menú">
+    <div class="header-cta" style="display:flex;align-items:center;gap:10px;justify-content:flex-end;">
+      <button class="hamburger" id="mobileMenuBtn" aria-label="Abrir menú" aria-expanded="false" type="button">
         <i class="fas fa-bars"></i>
       </button>
+      <button class="btn btn-ghost" id="btnOpenSearch" type="button" style="display:none;" id="desktopSearch">
+        <i class="fas fa-magnifying-glass"></i> Buscar
+      </button>
+      <a href="https://juristam.net/#formulario" class="btn btn-primary" id="desktopCta" style="display:none;">
+        Evaluar Caso <i class="fas fa-arrow-right"></i>
+      </a>
     </div>
   </div>
 </header>
 
-<!-- MOBILE DRAWER -->
-<div class="drawer-overlay" id="drawerOverlay" aria-hidden="true">
-  <aside class="drawer" role="dialog" aria-modal="true" aria-label="Menú">
-    <div class="drawer-head">
-      <span class="drawer-title">Menú</span>
-      <button class="drawer-close" id="btnCloseDrawer" type="button" aria-label="Cerrar">
-        <i class="fas fa-times"></i>
-      </button>
+<!-- Mobile menu -->
+<div class="mobile-menu" id="mobileMenu">
+  <div class="mobile-menu-panel">
+    <div class="mobile-menu-head">
+      <span style="font-weight:600;font-size:.88rem;color:var(--secondary);">Menú</span>
+      <button class="mobile-menu-close" id="mobileMenuClose" aria-label="Cerrar"><i class="fas fa-xmark"></i></button>
     </div>
-    <nav class="drawer-links">
-      <a href="https://juristam.net/#proceso">Proceso <i class="fas fa-chevron-right"></i></a>
-      <a href="https://juristam.net/#servicios">Servicios <i class="fas fa-chevron-right"></i></a>
-      <a href="https://juristam.net/casos-de-exito.html">Casos de Éxito <i class="fas fa-chevron-right"></i></a>
-      <a href="https://juristam.net/blog/">Guías <i class="fas fa-chevron-right"></i></a>
-      <a href="https://juristam.net/#contacto">Contacto <i class="fas fa-chevron-right"></i></a>
-    </nav>
-    <div class="drawer-cta">
-      <a href="https://juristam.net/#formulario" class="btn btn-primary">
-        Evaluar Caso <i class="fas fa-arrow-right"></i>
-      </a>
+    <div class="mobile-menu-body">
+      <div class="mobile-menu-list">
+        <a href="https://juristam.net/#proceso" class="mobile-menu-item"><i class="fas fa-route"></i> Proceso</a>
+        <a href="https://juristam.net/conocenos.html" class="mobile-menu-item"><i class="fas fa-users"></i> Conócenos</a>
+        <a href="https://juristam.net/#servicios" class="mobile-menu-item"><i class="fas fa-gavel"></i> Servicios</a>
+        <a href="https://juristam.net/casos-de-exito.html" class="mobile-menu-item"><i class="fas fa-star"></i> Casos de Éxito</a>
+        <a href="https://juristam.net/blog/" class="mobile-menu-item"><i class="fas fa-book"></i> Guías</a>
+        <a href="https://juristam.net/#contacto" class="mobile-menu-item"><i class="fas fa-envelope"></i> Contacto</a>
+      </div>
+      <div class="mobile-menu-cta">
+        <a href="https://juristam.net/#formulario" class="btn btn-primary" style="width:100%;justify-content:center;margin-top:4px;">
+          <i class="fas fa-clipboard-check"></i> Evaluar mi caso
+        </a>
+      </div>
     </div>
-  </aside>
+  </div>
 </div>
 
-<!-- MAIN -->
-<main role="main">
+<main>
   <div class="container">
 
     <!-- HERO -->
     <section class="hero" aria-labelledby="hero-title">
-      <div class="hero-badge">
-        <i class="fas fa-book-open-reader"></i> Guías Juristam
+      <div class="hero-kicker-wrap fade-up d1">
+        <div class="hero-kicker-line"></div>
+        <span class="hero-kicker-text">Guías Juristam · Ecuador</span>
+        <div class="hero-kicker-line"></div>
       </div>
-      <h1 id="hero-title">Problemas legales <em>reales.</em><br>Soluciones claras.</h1>
-      <p class="hero-lead">
-        Artículos prácticos organizados por categoría. Sin teoría innecesaria.
-        Solo lo que necesitas saber para actuar bien.
-      </p>
-
-      <div class="hero-stats" id="heroStats"></div>
-
-      <div class="search-wrap">
+      <h1 id="hero-title" class="fade-up d2">Problemas legales <em>reales.</em><br>Soluciones claras.</h1>
+      <p class="hero-lead fade-up d3">Artículos prácticos organizados por categoría. Sin teoría innecesaria. Solo lo que necesitas saber para actuar bien.</p>
+      <div class="hero-stats fade-up d3" id="heroStats" style="animation-delay:.42s;"></div>
+      <div class="search-wrap fade-up" style="opacity:0;animation:fadeUp .7s cubic-bezier(.22,1,.36,1) .5s forwards;">
         <div class="search-row">
           <input type="search" class="search-input" id="searchInput"
             placeholder="Ej: 'cuenta bloqueada coactiva', 'deuda prescrita', 'inspección Superintendencia'…"
             aria-label="Buscar artículos" enterkeyhint="search">
-          <button class="btn btn-primary" id="searchBtn" type="button" style="min-width:120px;">
+          <button class="btn btn-primary" id="searchBtn" type="button" style="min-width:120px;flex-shrink:0;">
             <i class="fas fa-search"></i> Buscar
           </button>
         </div>
@@ -717,17 +325,15 @@
     </section>
 
     <!-- CATEGORIES -->
-    <div class="section-header" id="categorias">
-      <h2>
-        Categorías
-        <span>Selecciona un área y accede a todos sus artículos</span>
-      </h2>
-      <span class="total-badge" id="totalBadge">— artículos</span>
-    </div>
+    <section class="cats-section" id="categorias">
+      <div class="section-header-row fade-up-scroll">
+        <h2>Categorías<span>Selecciona un área y accede a todos sus artículos</span></h2>
+        <span class="total-badge" id="totalBadge">— artículos</span>
+      </div>
+      <div class="categories-grid" id="categoriesGrid" aria-label="Categorías de guías legales"></div>
+    </section>
 
-    <div class="categories-grid" id="categoriesGrid" aria-label="Categorías de guías legales"></div>
-
-    <!-- SEO links -->
+    <!-- SEO links hidden -->
     <nav class="sr-only" aria-label="Guías destacadas">
       <ul>
         <li><a href="https://juristam.net/blog/prohibicion-salida-alimentos.html">Prohibición de salida del país por alimentos</a></li>
@@ -746,31 +352,57 @@
         <li><a href="https://juristam.net/blog/despido-intempestivo-ecuador.html">Despido intempestivo Ecuador liquidación</a></li>
         <li><a href="https://juristam.net/blog/cheque-sin-fondos-ecuador.html">Cheque sin fondos Ecuador acción penal</a></li>
         <li><a href="https://juristam.net/blog/prescripcion-deuda-bancaria-ecuador.html">Prescripción deuda bancaria Ecuador buró crédito</a></li>
-        <li><a href="https://juristam.net/blog/despido-intempestivo-abandono-trabajo-ecuador.html">Despido intempestivo en Ecuador: qué pasa si el empleador alega abandono de trabajo</a></li>,
-         <li><a href=""https://juristam.net/blog/carga-prueba-tributaria-ecuador.html"">Carga de la prueba en materia tributaria: por qué puedes perder aunque tengas razón</a></li>
-
-
+        <li><a href="https://juristam.net/blog/despido-intempestivo-abandono-trabajo-ecuador.html">Despido intempestivo en Ecuador: qué pasa si el empleador alega abandono de trabajo</a></li>
+        <li><a href="https://juristam.net/blog/carga-prueba-tributaria-ecuador.html">Carga de la prueba en materia tributaria: por qué puedes perder aunque tengas razón</a></li>
       </ul>
     </nav>
 
   </div>
 </main>
 
-<footer role="contentinfo">
+<footer id="contacto">
   <div class="container">
-    <div class="footer-inner">
-      <span class="footer-brand">Juristam</span>
-      <div class="footer-links">
-        <a href="https://juristam.net/">Inicio</a>
-        <a href="https://juristam.net/#servicios">Servicios</a>
-        <a href="https://juristam.net/#formulario">Evaluar Caso</a>
-        <span style="color:var(--ink-4);font-size:.82rem;">© <span id="currentYear"></span></span>
+    <div class="footer-content">
+      <div>
+        <div class="footer-heading">Juristam</div>
+        <p style="opacity:.55;font-size:.82rem;line-height:1.7;">Estudio jurídico en Ecuador.<br>Estrategia legal, claridad y acción.</p>
+      </div>
+      <div>
+        <div class="footer-heading">Navegación</div>
+        <ul class="footer-links">
+          <li><a href="https://juristam.net/">Inicio</a></li>
+          <li><a href="https://juristam.net/conocenos.html">Conócenos</a></li>
+          <li><a href="https://juristam.net/#servicios">Servicios</a></li>
+          <li><a href="https://juristam.net/casos-de-exito.html">Casos de Éxito</a></li>
+          <li><a href="https://juristam.net/blog/">Guías</a></li>
+          <li><a href="https://juristam.net/#formulario">Evaluar Caso</a></li>
+        </ul>
+      </div>
+      <div>
+        <div class="footer-heading">Contacto</div>
+        <div class="footer-contact">
+          <div class="contact-item"><i class="fas fa-phone"></i><a href="tel:+593994859814">+593 99 485 9814</a></div>
+          <div class="contact-item"><i class="fas fa-envelope"></i><a href="mailto:juristam.ec@gmail.com">juristam.ec@gmail.com</a></div>
+          <div class="contact-item"><i class="fas fa-map-marker-alt"></i><span>Guayaquil, Ecuador</span></div>
+        </div>
+      </div>
+      <div>
+        <div class="footer-heading">Guías</div>
+        <ul class="footer-links">
+          <li><a href="https://juristam.net/blog/">Ver todas</a></li>
+          <li><a href="https://juristam.net/blog/senae-retencion-mercaderia.html">SENAE: Retención</a></li>
+          <li><a href="https://juristam.net/blog/prohibicion-salida-alimentos.html">Prohibición salida</a></li>
+          <li><a href="https://juristam.net/blog/cuenta-bloqueada-coactiva-salario.html">Cuenta bloqueada</a></li>
+          <li><a href="https://juristam.net/blog/embargo-sueldo-ecuador.html">Embargo de sueldo</a></li>
+          <li><a href="https://juristam.net/blog/inspeccion-superintendencia-companias-ecuador.html">Inspección Superintendencia</a></li>
+        </ul>
       </div>
     </div>
+    <div class="footer-bottom">© <span id="currentYear"></span> Juristam. Todos los derechos reservados. · <a href="https://juristam.net/" style="color:rgba(255,255,255,.55);">juristam.net</a></div>
   </div>
 </footer>
 
-<!-- CHAT MODAL -->
+<!-- SEARCH MODAL -->
 <div class="modal-overlay" id="chatModal" aria-hidden="true">
   <div class="chat-modal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
     <div class="modal-header">
@@ -790,7 +422,7 @@
       <input type="text" class="chat-input" id="chatInput"
         placeholder="Ej: 'deuda prescrita banco', 'coactiva bloquearon cuenta'…"
         aria-label="Escribe tu consulta" enterkeyhint="send">
-      <button class="btn btn-primary" id="btnSendChat" type="button" style="padding:0 18px;min-height:48px;">
+      <button class="btn btn-primary" id="btnSendChat" type="button" style="padding:0 18px;min-height:46px;flex-shrink:0;">
         <i class="fas fa-paper-plane"></i>
       </button>
     </div>
@@ -800,141 +432,61 @@
 <script>
   document.addEventListener('DOMContentLoaded', () => {
     document.getElementById('currentYear').textContent = new Date().getFullYear();
+
+    // Show desktop items
+    if (window.innerWidth >= 980) {
+      document.getElementById('desktopCta').style.display = 'inline-flex';
+      const s = document.getElementById('btnOpenSearch');
+      if (s) s.style.display = 'inline-flex';
+    }
+    window.addEventListener('resize', () => {
+      const show = window.innerWidth >= 980;
+      document.getElementById('desktopCta').style.display = show ? 'inline-flex' : 'none';
+    });
+
     renderStats();
     renderCategories();
     setupEventListeners();
   });
 
   const posts = [
-    { tag:"Coactiva", date:"Corte Nacional · Nulidad por personería",
-      title:"¿Te pueden cobrar una coactiva si ya no eres representante legal?",
-      excerpt:"Muchas personas pagan coactivas que nunca debieron dirigirse contra ellas. La Corte Nacional aclaró que cobrar a un exrepresentante legal puede anular todo el proceso.",
-      url:"https://juristam.net/blog/coactiva-ex-representante-legal-nulidad-ecuador.html" },
-    { tag:"Coactiva", date:"Corte Nacional · Resolución 393-2023",
-      title:"¿Te pueden cobrar en coactiva si la deuda es ilegal en Ecuador?",
-      excerpt:"La Corte Nacional aclaró un error grave: no todo se defiende dentro de la coactiva. Conoce cuándo atacar el título de crédito, la prescripción y por qué el tiempo lo cambia todo.",
-      url:"https://juristam.net/blog/coactiva-deuda-ilegal-defensa-ecuador.html" },
-    { tag:"Coactiva", date:"Guía práctica",
-      title:"Cuenta bloqueada por coactiva y es tu salario: cómo moverte rápido",
-      excerpt:"Qué pruebas necesitas y cómo argumentar el origen del dinero para desbloqueo.",
-      url:"https://juristam.net/blog/cuenta-bloqueada-coactiva-salario.html" },
-    { tag:"Laboral", date:"Guía práctica",
-      title:"¿Me pueden embargar todo el sueldo en Ecuador?",
-      excerpt:"Cuánto pueden retenerte legalmente, cuándo es ilegal y qué hacer si te bloquean todo el salario.",
-      url:"https://juristam.net/blog/embargo-sueldo-ecuador.html" },
-    { tag:"Laboral", date:"Jurisprudencia obligatoria",
-      title:"¿Tus fondos de reserva cuentan para la jubilación patronal en Ecuador?",
-      excerpt:"La Corte Nacional dejó una regla obligatoria: cuándo los fondos de reserva cuentan, qué se puede descontar y qué ya no.",
-      url:"https://juristam.net/blog/fondos-reserva-jubilacion-patronal-ecuador.html" },
-    { tag:"Inmuebles", date:"Jurisprudencia obligatoria",
-      title:"Terrenos: la regla obligatoria de la Corte sobre identificación del inmueble",
-      excerpt:"La Corte Nacional aclaró qué se exige en prescripción y qué en reivindicación. Explicado fácil, sin tecnicismos.",
-      url:"https://juristam.net/blog/regla-obligatoria-singularizacion-inmueble-prescripcion-reivindicacion.html" },
-    { tag:"Aduanas", date:"Guía práctica",
-      title:"SENAE retuvo tu mercadería: qué hacer (sin empeorar el caso)",
-      excerpt:"Pasos concretos, errores comunes y cómo ordenar tu estrategia para recuperar tu mercancía.",
-      url:"https://juristam.net/blog/senae-retencion-mercaderia.html" },
-    { tag:"Familia", date:"Jurisprudencia · Corte Nacional",
-      title:"¿Me enteré de que no soy el padre del niño… ¿siempre puedo impugnar la paternidad en Ecuador?",
-      excerpt:"El ADN negativo no siempre te libera. Todo depende de cómo nació la paternidad: presunción legal vs reconocimiento voluntario.",
-      url:"https://juristam.net/blog/adn-negativo-impugnacion-paternidad-ecuador.html" },
-    { tag:"Familia", date:"Guía práctica",
-      title:"Prohibición de salida del país por alimentos: cómo levantarla si hay acuerdo",
-      excerpt:"Qué revisar, qué pedir al juzgado y cómo acelerar el trámite cuando hay urgencia.",
-      url:"https://juristam.net/blog/prohibicion-salida-alimentos.html" },
-    { tag:"Familia", date:"Corte Nacional · Identidad y apellidos",
-      title:"¿Puedo cambiar mi apellido en Ecuador aunque en mi cédula conste otro?",
-      excerpt:"Cuándo sí procede si en la cédula tienes un apellido, pero en la vida real usas otro por años.",
-      url:"https://juristam.net/blog/cambio-apellido-ecuador-cedula-identidad.html" },
-    { tag:"Familia", date:"Guía práctica",
-      title:"Posesión efectiva en Ecuador sin testamento: qué es, cuándo tramitarla y qué puede salir mal",
-      excerpt:"Qué define la complejidad real del trámite, qué pasa cuando hay herederos en conflicto y por qué esperar tiene un costo real.",
-      url:"https://juristam.net/blog/posesion-efectiva-herencia-ecuador.html" },
-    { tag:"Societario", date:"Guía práctica",
-      title:"Inspección de la Superintendencia de Compañías: qué revisan y cómo prepararte",
-      excerpt:"Si tu empresa recibió una carta credencial de inspección, esto es exactamente lo que revisa el inspector, los errores más comunes y cómo prepararte antes de la visita.",
-      url:"https://juristam.net/blog/inspeccion-superintendencia-companias-ecuador.html" },
-    { tag:"Societario", date:"Guía práctica",
-      title:"Cierre de SAS en Ecuador: etapas, bloqueos y riesgos que encarecen el proceso",
-      excerpt:"Cerrar una SAS no es dejarla sin movimiento: implica disolución, liquidación y cancelación. Conoce dónde se bloquea y por qué hacerlo mal sale caro.",
-      url:"https://juristam.net/blog/cierre-sas-ecuador.html" },
-    { tag:"Laboral", date:"Guía práctica",
-      title:"Te despidieron y te dijeron que no tienes derecho a nada: lo que el Código del Trabajo establece sobre el despido intempestivo",
-      excerpt:"Si te despidieron sin causa justificada y ya tienes la liquidación en la mano, antes de firmar necesitas saber exactamente a cuánto tienes derecho.",
-      url:"https://juristam.net/blog/despido-intempestivo-ecuador.html" },
-    { tag:"Penal", date:"Guía práctica",
-      title:"Cheque sin fondos en Ecuador: acción penal, acción civil y plazos que no puedes dejar vencer",
-      excerpt:"En Ecuador el giro de cheque sin fondos es un delito. Tienes dos acciones disponibles — penal y civil — que pueden ejercerse al mismo tiempo. Los plazos corren desde el protesto y si vencen, las opciones se cierran.",
-      url:"https://juristam.net/blog/cheque-sin-fondos-ecuador.html" },
-    { tag:"Bancario", date:"Guía práctica",
-      title:"Prescripción de deudas bancarias en Ecuador: qué protege y qué no",
-      excerpt:"La prescripción mata la acción de cobro judicial, pero no borra el buró de crédito. Conoce los plazos reales, qué los interrumpe, y por qué prescribir no significa quedar libre.",
-      url:"https://juristam.net/blog/prescripcion-deuda-bancaria-ecuador.html" },
-      {
-  tag: "Laboral",
-  date: "Abril 2026",
-  title: "Despido intempestivo en Ecuador: qué pasa si el empleador alega abandono de trabajo",
-  excerpt: "Si tu empleador dice que abandonaste el trabajo pero no tiene visto bueno, la ley lo obliga a probarlo. Ese error puede convertirse en la clave para demostrar un despido intempestivo.",
-  url: "https://juristam.net/blog/despido-intempestivo-abandono-trabajo-ecuador.html"
-},
- {
-    tag: "Tributario",
-    date: "Guía estratégica",
-    title: "Carga de la prueba en materia tributaria: por qué puedes perder aunque tengas razón",
-    excerpt: "En materia tributaria no basta tener argumentos: debes probarlos. Este es el error que más casos hace perder frente al SRI.",
-    url: "/blog/carga-prueba-tributaria-ecuador.html"
-  }
-
+    { tag:"Coactiva", date:"Corte Nacional · Nulidad por personería", title:"¿Te pueden cobrar una coactiva si ya no eres representante legal?", excerpt:"Muchas personas pagan coactivas que nunca debieron dirigirse contra ellas. La Corte Nacional aclaró que cobrar a un exrepresentante legal puede anular todo el proceso.", url:"https://juristam.net/blog/coactiva-ex-representante-legal-nulidad-ecuador.html" },
+    { tag:"Coactiva", date:"Corte Nacional · Resolución 393-2023", title:"¿Te pueden cobrar en coactiva si la deuda es ilegal en Ecuador?", excerpt:"La Corte Nacional aclaró un error grave: no todo se defiende dentro de la coactiva. Conoce cuándo atacar el título de crédito, la prescripción y por qué el tiempo lo cambia todo.", url:"https://juristam.net/blog/coactiva-deuda-ilegal-defensa-ecuador.html" },
+    { tag:"Coactiva", date:"Guía práctica", title:"Cuenta bloqueada por coactiva y es tu salario: cómo moverte rápido", excerpt:"Qué pruebas necesitas y cómo argumentar el origen del dinero para desbloqueo.", url:"https://juristam.net/blog/cuenta-bloqueada-coactiva-salario.html" },
+    { tag:"Laboral", date:"Guía práctica", title:"¿Me pueden embargar todo el sueldo en Ecuador?", excerpt:"Cuánto pueden retenerte legalmente, cuándo es ilegal y qué hacer si te bloquean todo el salario.", url:"https://juristam.net/blog/embargo-sueldo-ecuador.html" },
+    { tag:"Laboral", date:"Jurisprudencia obligatoria", title:"¿Tus fondos de reserva cuentan para la jubilación patronal en Ecuador?", excerpt:"La Corte Nacional dejó una regla obligatoria: cuándo los fondos de reserva cuentan, qué se puede descontar y qué ya no.", url:"https://juristam.net/blog/fondos-reserva-jubilacion-patronal-ecuador.html" },
+    { tag:"Inmuebles", date:"Jurisprudencia obligatoria", title:"Terrenos: la regla obligatoria de la Corte sobre identificación del inmueble", excerpt:"La Corte Nacional aclaró qué se exige en prescripción y qué en reivindicación. Explicado fácil, sin tecnicismos.", url:"https://juristam.net/blog/regla-obligatoria-singularizacion-inmueble-prescripcion-reivindicacion.html" },
+    { tag:"Aduanas", date:"Guía práctica", title:"SENAE retuvo tu mercadería: qué hacer (sin empeorar el caso)", excerpt:"Pasos concretos, errores comunes y cómo ordenar tu estrategia para recuperar tu mercancía.", url:"https://juristam.net/blog/senae-retencion-mercaderia.html" },
+    { tag:"Familia", date:"Jurisprudencia · Corte Nacional", title:"¿Me enteré de que no soy el padre del niño… ¿siempre puedo impugnar la paternidad en Ecuador?", excerpt:"El ADN negativo no siempre te libera. Todo depende de cómo nació la paternidad: presunción legal vs reconocimiento voluntario.", url:"https://juristam.net/blog/adn-negativo-impugnacion-paternidad-ecuador.html" },
+    { tag:"Familia", date:"Guía práctica", title:"Prohibición de salida del país por alimentos: cómo levantarla si hay acuerdo", excerpt:"Qué revisar, qué pedir al juzgado y cómo acelerar el trámite cuando hay urgencia.", url:"https://juristam.net/blog/prohibicion-salida-alimentos.html" },
+    { tag:"Familia", date:"Corte Nacional · Identidad y apellidos", title:"¿Puedo cambiar mi apellido en Ecuador aunque en mi cédula conste otro?", excerpt:"Cuándo sí procede si en la cédula tienes un apellido, pero en la vida real usas otro por años.", url:"https://juristam.net/blog/cambio-apellido-ecuador-cedula-identidad.html" },
+    { tag:"Familia", date:"Guía práctica", title:"Posesión efectiva en Ecuador sin testamento: qué es, cuándo tramitarla y qué puede salir mal", excerpt:"Qué define la complejidad real del trámite, qué pasa cuando hay herederos en conflicto y por qué esperar tiene un costo real.", url:"https://juristam.net/blog/posesion-efectiva-herencia-ecuador.html" },
+    { tag:"Societario", date:"Guía práctica", title:"Inspección de la Superintendencia de Compañías: qué revisan y cómo prepararte", excerpt:"Si tu empresa recibió una carta credencial de inspección, esto es exactamente lo que revisa el inspector, los errores más comunes y cómo prepararte antes de la visita.", url:"https://juristam.net/blog/inspeccion-superintendencia-companias-ecuador.html" },
+    { tag:"Societario", date:"Guía práctica", title:"Cierre de SAS en Ecuador: etapas, bloqueos y riesgos que encarecen el proceso", excerpt:"Cerrar una SAS no es dejarla sin movimiento: implica disolución, liquidación y cancelación. Conoce dónde se bloquea y por qué hacerlo mal sale caro.", url:"https://juristam.net/blog/cierre-sas-ecuador.html" },
+    { tag:"Laboral", date:"Guía práctica", title:"Te despidieron y te dijeron que no tienes derecho a nada: lo que el Código del Trabajo establece sobre el despido intempestivo", excerpt:"Si te despidieron sin causa justificada y ya tienes la liquidación en la mano, antes de firmar necesitas saber exactamente a cuánto tienes derecho.", url:"https://juristam.net/blog/despido-intempestivo-ecuador.html" },
+    { tag:"Penal", date:"Guía práctica", title:"Cheque sin fondos en Ecuador: acción penal, acción civil y plazos que no puedes dejar vencer", excerpt:"En Ecuador el giro de cheque sin fondos es un delito. Tienes dos acciones disponibles — penal y civil — que pueden ejercerse al mismo tiempo.", url:"https://juristam.net/blog/cheque-sin-fondos-ecuador.html" },
+    { tag:"Bancario", date:"Guía práctica", title:"Prescripción de deudas bancarias en Ecuador: qué protege y qué no", excerpt:"La prescripción mata la acción de cobro judicial, pero no borra el buró de crédito. Conoce los plazos reales, qué los interrumpe, y por qué prescribir no significa quedar libre.", url:"https://juristam.net/blog/prescripcion-deuda-bancaria-ecuador.html" },
+    { tag:"Laboral", date:"Abril 2026", title:"Despido intempestivo en Ecuador: qué pasa si el empleador alega abandono de trabajo", excerpt:"Si tu empleador dice que abandonaste el trabajo pero no tiene visto bueno, la ley lo obliga a probarlo.", url:"https://juristam.net/blog/despido-intempestivo-abandono-trabajo-ecuador.html" },
+    { tag:"Tributario", date:"Guía estratégica", title:"Carga de la prueba en materia tributaria: por qué puedes perder aunque tengas razón", excerpt:"En materia tributaria no basta tener argumentos: debes probarlos. Este es el error que más casos hace perder frente al SRI.", url:"/blog/carga-prueba-tributaria-ecuador.html" }
   ];
 
   const categories = [
-    { key:"coactiva", name:"Coactiva", icon:"fa-gavel",
-      desc:"Cuenta bloqueada, medidas de cobro, prescripción, nulidades y estrategia rápida.",
-      href:"https://juristam.net/blog/categoria-coactiva.html",
-      tags:["Coactiva"], enabled:true },
-    { key:"bancario", name:"Bancario", icon:"fa-landmark",
-      desc:"Deudas prescritas, buró de crédito, negociación con bancos y habeas data.",
-      href:"https://juristam.net/blog/categoria-bancario.html",
-      tags:["Bancario"], enabled:true },
-    { key:"familia", name:"Familia", icon:"fa-people-roof",
-      desc:"Alimentos, prohibición de salida, herencia, posesión efectiva y trámites urgentes.",
-      href:"https://juristam.net/blog/categoria-familia.html",
-      tags:["Familia"], enabled:true },
-    { key:"senae", name:"SENAE / Aduanas", icon:"fa-boxes-stacked",
-      desc:"Retención de mercadería, liquidaciones, multas y pasos para no empeorar el caso.",
-      href:"https://juristam.net/blog/categoria-senae-aduanas.html",
-      tags:["Aduanas","SENAE","Aduana"], enabled:true },
-    { key:"inmobiliario", name:"Inmobiliario", icon:"fa-house-chimney",
-      desc:"Prescripción, reivindicación, escrituras, conflictos por terrenos y posesión.",
-      href:"https://juristam.net/blog/categoria-inmobiliario.html",
-      tags:["Inmuebles","Inmobiliario"], enabled:true },
-    { key:"laboral", name:"Laboral", icon:"fa-briefcase",
-      desc:"Embargos, despido, despido intempestivo, abandono de trabajo, derechos del trabajador, liquidaciones y reglas obligatorias.",
-      href:"https://juristam.net/blog/categoria-laboral.html",
-      tags:["Laboral"], enabled:true },
-    { key:"societario", name:"Societario", icon:"fa-building-columns",
-      desc:"Inspecciones de la Superintendencia, aumentos de capital, cierres de compañía y cumplimiento societario.",
-      href:"https://juristam.net/blog/categoria-societario.html",
-      tags:["Societario"], enabled:true },
-    { key:"penal", name:"Penal", icon:"fa-scale-balanced",
-      desc:"Cheques sin fondos, defensa ante Fiscalía, estafa y delitos patrimoniales. Acciones penales y civiles disponibles en Ecuador.",
-      href:"https://juristam.net/blog/categoria-penal.html",
-      tags:["Penal"], enabled:true },
-      { key:"tributario", name:"Tributario", icon:"fa-file-invoice-dollar",
-  desc:"SRI, impuestos, deudas tributarias, multas, clausuras y defensa fiscal. Estrategias para evitar que el problema escale a coactiva.",
-  href:"https://juristam.net/blog/categoria-tributario.html",
-  tags:["Tributario","SRI","Impuestos"], enabled:true },
-      
+    { key:"coactiva", name:"Coactiva", icon:"fa-gavel", desc:"Cuenta bloqueada, medidas de cobro, prescripción, nulidades y estrategia rápida.", href:"https://juristam.net/blog/categoria-coactiva.html", tags:["Coactiva"], enabled:true },
+    { key:"bancario", name:"Bancario", icon:"fa-landmark", desc:"Deudas prescritas, buró de crédito, negociación con bancos y habeas data.", href:"https://juristam.net/blog/categoria-bancario.html", tags:["Bancario"], enabled:true },
+    { key:"familia", name:"Familia", icon:"fa-people-roof", desc:"Alimentos, prohibición de salida, herencia, posesión efectiva y trámites urgentes.", href:"https://juristam.net/blog/categoria-familia.html", tags:["Familia"], enabled:true },
+    { key:"senae", name:"SENAE / Aduanas", icon:"fa-boxes-stacked", desc:"Retención de mercadería, liquidaciones, multas y pasos para no empeorar el caso.", href:"https://juristam.net/blog/categoria-senae-aduanas.html", tags:["Aduanas","SENAE","Aduana"], enabled:true },
+    { key:"inmobiliario", name:"Inmobiliario", icon:"fa-house-chimney", desc:"Prescripción, reivindicación, escrituras, conflictos por terrenos y posesión.", href:"https://juristam.net/blog/categoria-inmobiliario.html", tags:["Inmuebles","Inmobiliario"], enabled:true },
+    { key:"laboral", name:"Laboral", icon:"fa-briefcase", desc:"Embargos, despido intempestivo, abandono de trabajo, derechos del trabajador y liquidaciones.", href:"https://juristam.net/blog/categoria-laboral.html", tags:["Laboral"], enabled:true },
+    { key:"societario", name:"Societario", icon:"fa-building-columns", desc:"Inspecciones de la Superintendencia, aumentos de capital, cierres de compañía y cumplimiento societario.", href:"https://juristam.net/blog/categoria-societario.html", tags:["Societario"], enabled:true },
+    { key:"penal", name:"Penal", icon:"fa-scale-balanced", desc:"Cheques sin fondos, defensa ante Fiscalía, estafa y delitos patrimoniales.", href:"https://juristam.net/blog/categoria-penal.html", tags:["Penal"], enabled:true },
+    { key:"tributario", name:"Tributario", icon:"fa-file-invoice-dollar", desc:"SRI, impuestos, deudas tributarias, multas, clausuras y defensa fiscal.", href:"https://juristam.net/blog/categoria-tributario.html", tags:["Tributario","SRI","Impuestos"], enabled:true }
   ];
 
   function normalize(text) {
-    return String(text||"").toLowerCase()
-      .normalize("NFD").replace(/[\u0300-\u036f]/g,"")
-      .replace(/[^\p{L}\p{N}\s]/gu," ").replace(/\s+/g," ").trim();
+    return String(text||"").toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g,"").replace(/[^\p{L}\p{N}\s]/gu," ").replace(/\s+/g," ").trim();
   }
   function escapeHtml(text) {
-    const d = document.createElement('div');
-    d.textContent = text; return d.innerHTML;
+    const d = document.createElement('div'); d.textContent = text; return d.innerHTML;
   }
 
   function renderStats() {
@@ -943,8 +495,7 @@
     document.getElementById('heroStats').innerHTML = `
       <span class="stat-pill"><i class="fas fa-file-lines"></i> ${total} artículos</span>
       <span class="stat-pill"><i class="fas fa-layer-group"></i> ${cats} categorías</span>
-      <span class="stat-pill"><i class="fas fa-map-marker-alt"></i> Ecuador</span>
-    `;
+      <span class="stat-pill"><i class="fas fa-map-marker-alt"></i> Ecuador</span>`;
     document.getElementById('totalBadge').textContent = `${total} artículos`;
   }
 
@@ -952,64 +503,49 @@
     const grid = document.getElementById('categoriesGrid');
     if (!grid) return;
     grid.innerHTML = categories.map(cat => {
-      const count = posts.filter(p =>
-        cat.tags.some(t => normalize(t) === normalize(p.tag))
-      ).length;
+      const count = posts.filter(p => cat.tags.some(t => normalize(t) === normalize(p.tag))).length;
       const disabled = !cat.enabled;
       return `
-        <article class="category-card"
-          data-category="${cat.key}"
-          tabindex="${disabled ? '-1' : '0'}"
-          role="button"
-          aria-disabled="${disabled}"
-          aria-label="${escapeHtml(cat.name)}, ${count} artículos">
+        <article class="category-card" data-category="${cat.key}" tabindex="${disabled?'-1':'0'}" role="button" aria-disabled="${disabled}" aria-label="${escapeHtml(cat.name)}, ${count} artículos">
           <div class="card-top">
-            <div class="card-icon-wrap">
-              <i class="fas ${cat.icon}"></i>
-            </div>
-            <span class="card-count">
-              <i class="far fa-file-lines"></i> ${count}
-            </span>
+            <div class="card-icon"><i class="fas ${cat.icon}"></i></div>
+            <span class="card-count"><i class="far fa-file-lines"></i> ${count}</span>
           </div>
-          <div class="card-body">
-            <h3>${escapeHtml(cat.name)}</h3>
-            <p>${escapeHtml(cat.desc)}</p>
-          </div>
-          <div class="card-footer">
+          <div class="card-name">${escapeHtml(cat.name)}</div>
+          <div class="card-desc">${escapeHtml(cat.desc)}</div>
+          <div class="card-actions">
             ${disabled
-              ? `<button class="btn-card-primary" disabled style="opacity:.6;cursor:not-allowed;">Próximamente</button>`
-              : `<a href="${cat.href}" class="btn-card-primary">
-                   Ver artículos <i class="fas fa-arrow-right"></i>
-                 </a>`
-            }
-            <button class="btn-card-ghost" data-category-search="${escapeHtml(cat.name)}" type="button">
+              ? `<button class="btn-card btn-card-primary" disabled style="opacity:.5;cursor:not-allowed;">Próximamente</button>`
+              : `<a href="${cat.href}" class="btn-card btn-card-primary">Ver artículos <i class="fas fa-arrow-right"></i></a>`}
+            <button class="btn-card btn-card-ghost" data-category-search="${escapeHtml(cat.name)}" type="button">
               <i class="far fa-comment-dots"></i> Buscar en ${escapeHtml(cat.name)}
             </button>
           </div>
-        </article>
-      `;
+        </article>`;
     }).join('');
   }
 
   function setupEventListeners() {
-    ['btnOpenChat','btnOpenChatHero','btnOpenChatDesktop'].forEach(id => {
-      const el = document.getElementById(id);
-      if (el) el.addEventListener('click', openChatModal);
-    });
+    // Mobile menu
+    const mobileMenu = document.getElementById('mobileMenu');
+    const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+    const mobileMenuClose = document.getElementById('mobileMenuClose');
+    const openMobileMenu = () => { mobileMenu.classList.add('active'); document.body.style.overflow='hidden'; };
+    const closeMobileMenu = () => { mobileMenu.classList.remove('active'); document.body.style.overflow=''; };
+    mobileMenuBtn.addEventListener('click', openMobileMenu);
+    mobileMenuClose.addEventListener('click', closeMobileMenu);
+    mobileMenu.addEventListener('click', e => { if (e.target === mobileMenu) closeMobileMenu(); });
+    mobileMenu.querySelectorAll('a').forEach(a => a.addEventListener('click', closeMobileMenu));
 
-    document.getElementById('btnCloseChat').addEventListener('click', closeChatModal);
-    document.getElementById('chatModal').addEventListener('click', e => {
-      if (e.target.id === 'chatModal') closeChatModal();
-    });
-
+    // Search
+    const btnOpenSearch = document.getElementById('btnOpenSearch');
+    if (btnOpenSearch) btnOpenSearch.addEventListener('click', openChatModal);
     document.getElementById('searchBtn').addEventListener('click', handleQuickSearch);
-    document.getElementById('searchInput').addEventListener('keydown', e => {
-      if (e.key === 'Enter') { e.preventDefault(); handleQuickSearch(); }
-    });
+    document.getElementById('searchInput').addEventListener('keydown', e => { if (e.key === 'Enter') { e.preventDefault(); handleQuickSearch(); } });
+    document.getElementById('btnCloseChat').addEventListener('click', closeChatModal);
+    document.getElementById('chatModal').addEventListener('click', e => { if (e.target.id === 'chatModal') closeChatModal(); });
     document.getElementById('btnSendChat').addEventListener('click', sendChatMessage);
-    document.getElementById('chatInput').addEventListener('keydown', e => {
-      if (e.key === 'Enter') { e.preventDefault(); sendChatMessage(); }
-    });
+    document.getElementById('chatInput').addEventListener('keydown', e => { if (e.key === 'Enter') { e.preventDefault(); sendChatMessage(); } });
 
     document.addEventListener('click', e => {
       const card = e.target.closest('.category-card');
@@ -1019,38 +555,17 @@
         if (cat?.enabled) window.location.href = cat.href;
       }
       const cs = e.target.closest('[data-category-search]');
-      if (cs) {
-        e.preventDefault();
-        const name = cs.getAttribute('data-category-search');
-        openChatModal();
-        setTimeout(() => sendBotMessage(`Perfecto. Escribe tu pregunta sobre <strong>${escapeHtml(name)}</strong>.`), 200);
-      }
+      if (cs) { e.preventDefault(); const name = cs.getAttribute('data-category-search'); openChatModal(); setTimeout(() => sendBotMessage(`Perfecto. Escribe tu pregunta sobre <strong>${escapeHtml(name)}</strong>.`), 200); }
     });
 
     document.addEventListener('keydown', e => {
-      if (e.key === 'Escape') {
-        if (document.getElementById('chatModal').classList.contains('active')) closeChatModal();
-        if (document.getElementById('drawerOverlay').classList.contains('active')) closeDrawer();
-      }
+      if (e.key === 'Escape') { closeChatModal(); closeMobileMenu(); }
     });
 
-    document.getElementById('btnHamburger').addEventListener('click', openDrawer);
-    document.getElementById('btnCloseDrawer').addEventListener('click', closeDrawer);
-    document.getElementById('drawerOverlay').addEventListener('click', e => {
-      if (e.target.id === 'drawerOverlay') closeDrawer();
-    });
-    document.querySelectorAll('.drawer-links a').forEach(a => a.addEventListener('click', closeDrawer));
-  }
-
-  function openDrawer() {
-    const o = document.getElementById('drawerOverlay');
-    o.classList.add('active'); o.setAttribute('aria-hidden','false');
-    document.body.style.overflow = 'hidden';
-  }
-  function closeDrawer() {
-    const o = document.getElementById('drawerOverlay');
-    o.classList.remove('active'); o.setAttribute('aria-hidden','true');
-    document.body.style.overflow = '';
+    // Scroll fade
+    const fadeEls = document.querySelectorAll('.fade-up-scroll');
+    const obs = new IntersectionObserver(entries => { entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); obs.unobserve(e.target); } }); }, { threshold: 0.10 });
+    fadeEls.forEach(el => obs.observe(el));
   }
 
   function openChatModal() {
@@ -1058,8 +573,7 @@
     m.classList.add('active'); m.setAttribute('aria-hidden','false');
     document.body.style.overflow = 'hidden';
     const msgs = document.getElementById('chatMessages');
-    if (!msgs.children.length)
-      sendBotMessage('Hola. Escribe tu problema y te muestro los artículos más relevantes de Juristam.');
+    if (!msgs.children.length) sendBotMessage('Hola. Escribe tu problema y te muestro los artículos más relevantes de Juristam.');
     setTimeout(() => document.getElementById('chatInput').focus(), 200);
   }
   function closeChatModal() {
@@ -1075,21 +589,18 @@
   }
   function sendUserMessage(text) {
     const msgs = document.getElementById('chatMessages');
-    const d = document.createElement('div');
-    d.className = 'message message-user'; d.textContent = text;
+    const d = document.createElement('div'); d.className = 'message message-user'; d.textContent = text;
     msgs.appendChild(d); scrollBottom();
   }
   function sendBotMessage(html) {
     const msgs = document.getElementById('chatMessages');
-    const d = document.createElement('div');
-    d.className = 'message message-bot'; d.innerHTML = html;
+    const d = document.createElement('div'); d.className = 'message message-bot'; d.innerHTML = html;
     msgs.appendChild(d); scrollBottom();
   }
   function scrollBottom() {
     const msgs = document.getElementById('chatMessages');
     setTimeout(() => msgs.scrollTop = msgs.scrollHeight, 80);
   }
-
   function handleQuickSearch() {
     const q = document.getElementById('searchInput').value.trim();
     if (!q) return;
@@ -1099,18 +610,11 @@
   function processSearchQuery(raw) {
     const q = normalize(raw);
     const results = searchPosts(q);
-    if (!results.length) {
-      sendBotMessage('No encontré artículos exactos. Prueba con: "coactiva", "deuda prescrita", "buró", "SENAE", "alimentos", "herencia", "terreno", "sueldo", "superintendencia", "SAS".');
-      return;
-    }
+    if (!results.length) { sendBotMessage('No encontré artículos exactos. Prueba con: "coactiva", "deuda prescrita", "buró", "SENAE", "alimentos", "herencia", "terreno", "sueldo", "superintendencia", "SAS".'); return; }
     const inferred = inferCategory(q);
     if (inferred) {
-      const cat = categories.find(c =>
-        normalize(c.name) === normalize(inferred) ||
-        c.tags.some(t => normalize(t) === normalize(inferred))
-      );
-      if (cat?.enabled)
-        sendBotMessage(`Esto suena a <strong>${escapeHtml(cat.name)}</strong>. <a href="${cat.href}" target="_blank" rel="noopener" style="text-decoration:underline;color:inherit;">Ver todos los artículos →</a>`);
+      const cat = categories.find(c => normalize(c.name) === normalize(inferred) || c.tags.some(t => normalize(t) === normalize(inferred)));
+      if (cat?.enabled) sendBotMessage(`Esto suena a <strong>${escapeHtml(cat.name)}</strong>. <a href="${cat.href}" target="_blank" rel="noopener" style="text-decoration:underline;color:var(--primary);">Ver todos los artículos →</a>`);
     }
     sendBotMessage(`Artículos relevantes para: <strong>${escapeHtml(raw)}</strong>`);
     const container = document.createElement('div');
@@ -1123,16 +627,13 @@
         </div>
         <div class="result-title">${escapeHtml(p.title)}</div>
         <div class="result-excerpt">${escapeHtml(p.excerpt)}</div>
-        <a href="${p.url}" class="result-link" target="_blank" rel="noopener">
-          Leer artículo <i class="fas fa-arrow-right"></i>
-        </a>
+        <a href="${p.url}" class="result-link" target="_blank" rel="noopener">Leer artículo <i class="fas fa-arrow-right"></i></a>
       </div>`).join('');
     document.getElementById('chatMessages').appendChild(container);
     scrollBottom();
   }
   function searchPosts(q) {
-    return posts.map(p => ({...p, score: score(q,p)}))
-      .filter(p => p.score > 0).sort((a,b) => b.score-a.score).slice(0,6);
+    return posts.map(p => ({...p, score: score(q,p)})).filter(p => p.score > 0).sort((a,b) => b.score-a.score).slice(0,6);
   }
   function score(q, p) {
     let s = 0;
@@ -1146,20 +647,41 @@
   function inferCategory(q) {
     const map = [
       { keys:["coactiva","cobro coactivo","embargo","bloquearon","bloqueo","cuenta bloqueada"], cat:"Coactiva" },
-      { keys:["bancario","banco","deuda bancaria","deuda prescrita","prescripcion deuda","prescripción deuda","buro","buró","credito","crédito","equifax","habeas data","pagare","pagaré","financiera"], cat:"Bancario" },
-      { keys:["senae","aduanas","aduana","retuvieron","mercaderia","mercadería","liquidacion","liquidación","aforo"], cat:"Aduanas" },
-      { keys:["alimentos","familia","pension","pensión","prohibicion de salida","salida del pais","apellidos","apellido","registro civil","identidad","herencia","posesion efectiva","posesión efectiva","herederos","testamento"], cat:"Familia" },
-      { keys:["terreno","inmueble","prescripcion","prescripción","posesion","posesión","reivindicacion","reivindicación","escritura"], cat:"Inmuebles" },
-      { keys:["laboral","sueldo","salario","despido","fondo de reserva","jubilacion patronal","jubilación patronal"], cat:"Laboral" },
-      { keys:["penal","cheque","cheque sin fondos","cheque rechazado","protesto","fiscalia","fiscalía","denuncia penal","estafa","delito"], cat:"Penal" },
-      { keys:["superintendencia","companias","compañías","compañia","compañía","inspeccion","inspección","aumento de capital","accionista","societario","sas","cierre de compania","cierre de compañía","nombramiento","representante legal","balance","registro mercantil","disolucion","disolución","liquidacion","liquidación","cancelacion","cancelación"], cat:"Societario" }
+      { keys:["bancario","banco","deuda bancaria","deuda prescrita","prescripcion deuda","buro","buro","credito","equifax","habeas data","pagare","financiera"], cat:"Bancario" },
+      { keys:["senae","aduanas","aduana","retuvieron","mercaderia","liquidacion","aforo"], cat:"Aduanas" },
+      { keys:["alimentos","familia","pension","prohibicion de salida","salida del pais","apellidos","apellido","registro civil","herencia","posesion efectiva","herederos","testamento"], cat:"Familia" },
+      { keys:["terreno","inmueble","prescripcion","posesion","reivindicacion","escritura"], cat:"Inmuebles" },
+      { keys:["laboral","sueldo","salario","despido","fondo de reserva","jubilacion patronal","abandono"], cat:"Laboral" },
+      { keys:["penal","cheque","cheque sin fondos","protesto","fiscalia","denuncia penal","estafa","delito"], cat:"Penal" },
+      { keys:["superintendencia","companias","inspeccion","aumento de capital","accionista","societario","sas","cierre","nombramiento","representante legal"], cat:"Societario" },
+      { keys:["sri","impuesto","tributario","tributo","multa fiscal","clausura","ruc"], cat:"Tributario" }
     ];
-    for (const g of map)
-      for (const k of g.keys)
-        if (q.includes(normalize(k))) return g.cat;
+    for (const g of map) for (const k of g.keys) if (q.includes(normalize(k))) return g.cat;
     return null;
   }
-</script>
 
+  // Cursor trail
+  if (window.matchMedia('(pointer: fine)').matches) {
+    const TRAIL = 10;
+    const dot = document.createElement('div'); dot.className = 'cursor-dot'; document.body.appendChild(dot);
+    const trails = Array.from({ length: TRAIL }, (_, i) => {
+      const el = document.createElement('div'); el.className = 'cursor-trail';
+      el.style.opacity = ((1 - i / TRAIL) * 0.55).toFixed(2);
+      el.style.width = Math.max(2, 5 - i * 0.3) + 'px'; el.style.height = el.style.width;
+      document.body.appendChild(el); return { el };
+    });
+    let mx = 0, my = 0;
+    const pos = Array(TRAIL).fill(null).map(() => ({ x: 0, y: 0 }));
+    document.addEventListener('mousemove', e => { mx = e.clientX; my = e.clientY; });
+    const tick = () => {
+      dot.style.left = mx + 'px'; dot.style.top = my + 'px';
+      pos[0].x += (mx - pos[0].x) * 0.35; pos[0].y += (my - pos[0].y) * 0.35;
+      for (let i = 1; i < TRAIL; i++) { pos[i].x += (pos[i-1].x - pos[i].x) * 0.38; pos[i].y += (pos[i-1].y - pos[i].y) * 0.38; }
+      trails.forEach((t, i) => { t.el.style.left = pos[i].x + 'px'; t.el.style.top = pos[i].y + 'px'; });
+      requestAnimationFrame(tick);
+    };
+    requestAnimationFrame(tick);
+  }
+</script>
 </body>
 </html>
