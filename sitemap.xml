@@ -4,14 +4,14 @@
   <!-- Página principal -->
   <url>
     <loc>https://juristam.net/</loc>
-    <lastmod>2026-01-13</lastmod>
+    <lastmod>2026-04-17</lastmod>
     <priority>1.0</priority>
   </url>
 
   <!-- Blog principal -->
   <url>
     <loc>https://juristam.net/blog/</loc>
-    <lastmod>2026-01-13</lastmod>
+    <lastmod>2026-04-17</lastmod>
     <priority>0.9</priority>
   </url>
 
@@ -31,7 +31,7 @@
 
   <url>
     <loc>https://juristam.net/blog/categoria-familia.html</loc>
-    <lastmod>2026-01-13</lastmod>
+    <lastmod>2026-04-17</lastmod>
     <priority>0.85</priority>
   </url>
 
@@ -43,7 +43,7 @@
 
   <url>
     <loc>https://juristam.net/blog/categoria-laboral.html</loc>
-    <lastmod>2026-01-13</lastmod>
+    <lastmod>2026-04-17</lastmod>
     <priority>0.85</priority>
   </url>
 
@@ -53,33 +53,60 @@
     <priority>0.85</priority>
   </url>
 
-  <!-- AÑADIDO: categoría societario estaba faltando -->
   <url>
     <loc>https://juristam.net/blog/categoria-societario.html</loc>
     <lastmod>2026-01-13</lastmod>
     <priority>0.85</priority>
   </url>
 
-  <!-- Artículos Familia -->
+  <url>
+    <loc>https://juristam.net/blog/categoria-bancario.html</loc>
+    <lastmod>2026-04-17</lastmod>
+    <priority>0.85</priority>
+  </url>
+
+  <url>
+    <loc>https://juristam.net/blog/categoria-penal.html</loc>
+    <lastmod>2026-01-13</lastmod>
+    <priority>0.85</priority>
+  </url>
+
+  <url>
+    <loc>https://juristam.net/blog/categoria-tributario.html</loc>
+    <lastmod>2026-01-13</lastmod>
+    <priority>0.85</priority>
+  </url>
+
+  <!-- ═══════════════════════════════════════
+       ARTÍCULOS FAMILIA
+  ════════════════════════════════════════ -->
   <url>
     <loc>https://juristam.net/blog/prohibicion-salida-alimentos.html</loc>
-    <lastmod>2026-01-13</lastmod>
+    <lastmod>2026-04-17</lastmod>
     <priority>0.8</priority>
   </url>
 
   <url>
     <loc>https://juristam.net/blog/cambio-apellido-ecuador-cedula-identidad.html</loc>
-    <lastmod>2026-01-13</lastmod>
+    <lastmod>2026-04-17</lastmod>
     <priority>0.8</priority>
   </url>
 
   <url>
     <loc>https://juristam.net/blog/adn-negativo-impugnacion-paternidad-ecuador.html</loc>
-    <lastmod>2026-01-13</lastmod>
+    <lastmod>2026-04-17</lastmod>
     <priority>0.9</priority>
   </url>
 
-  <!-- Artículos Coactiva / Público -->
+  <url>
+    <loc>https://juristam.net/blog/posesion-efectiva-herencia-ecuador.html</loc>
+    <lastmod>2026-04-17</lastmod>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- ═══════════════════════════════════════
+       ARTÍCULOS COACTIVA / SENAE
+  ════════════════════════════════════════ -->
   <url>
     <loc>https://juristam.net/blog/senae-retencion-mercaderia.html</loc>
     <lastmod>2026-01-13</lastmod>
@@ -88,13 +115,13 @@
 
   <url>
     <loc>https://juristam.net/blog/cuenta-bloqueada-coactiva-salario.html</loc>
-    <lastmod>2026-01-13</lastmod>
+    <lastmod>2026-04-17</lastmod>
     <priority>0.8</priority>
   </url>
 
   <url>
     <loc>https://juristam.net/blog/embargo-sueldo-ecuador.html</loc>
-    <lastmod>2026-01-13</lastmod>
+    <lastmod>2026-04-17</lastmod>
     <priority>0.8</priority>
   </url>
 
@@ -110,37 +137,90 @@
     <priority>0.8</priority>
   </url>
 
-  <!-- Laboral -->
+  <!-- ═══════════════════════════════════════
+       ARTÍCULOS LABORAL
+  ════════════════════════════════════════ -->
   <url>
     <loc>https://juristam.net/blog/fondos-reserva-jubilacion-patronal-ecuador.html</loc>
     <lastmod>2026-01-13</lastmod>
     <priority>0.8</priority>
   </url>
 
-  <!-- Inmobiliario -->
+  <url>
+    <loc>https://juristam.net/blog/despido-intempestivo-ecuador.html</loc>
+    <lastmod>2026-04-17</lastmod>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://juristam.net/blog/despido-intempestivo-abandono-trabajo-ecuador.html</loc>
+    <lastmod>2026-04-17</lastmod>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://juristam.net/blog/bonificacion-voluntaria-finiquito-despido-ecuador.html</loc>
+    <lastmod>2026-04-17</lastmod>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- ═══════════════════════════════════════
+       ARTÍCULOS BANCARIO
+  ════════════════════════════════════════ -->
+  <url>
+    <loc>https://juristam.net/blog/prescripcion-deuda-bancaria-ecuador.html</loc>
+    <lastmod>2026-04-17</lastmod>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://juristam.net/blog/cheque-sin-fondos-ecuador.html</loc>
+    <lastmod>2026-04-17</lastmod>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- ═══════════════════════════════════════
+       ARTÍCULOS INMOBILIARIO
+  ════════════════════════════════════════ -->
   <url>
     <loc>https://juristam.net/blog/regla-obligatoria-singularizacion-inmueble-prescripcion-reivindicacion.html</loc>
     <lastmod>2026-01-13</lastmod>
     <priority>0.8</priority>
   </url>
 
-  <!-- AÑADIDO: faltaba en sitemap -->
   <url>
     <loc>https://juristam.net/blog/reivindicacion-terreno-requisitos-dominio-posesion-singularizacion.html</loc>
     <lastmod>2026-01-13</lastmod>
     <priority>0.8</priority>
   </url>
 
-  <!-- Societario -->
-  <!-- AÑADIDO: faltaba en sitemap -->
+  <!-- ═══════════════════════════════════════
+       ARTÍCULOS SOCIETARIO
+  ════════════════════════════════════════ -->
   <url>
     <loc>https://juristam.net/blog/inspeccion-superintendencia-companias-ecuador.html</loc>
+    <lastmod>2026-04-17</lastmod>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://juristam.net/blog/cierre-sas-ecuador.html</loc>
+    <lastmod>2026-04-17</lastmod>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- ═══════════════════════════════════════
+       ARTÍCULOS TRIBUTARIO
+  ════════════════════════════════════════ -->
+  <url>
+    <loc>https://juristam.net/blog/carga-prueba-tributaria-ecuador.html</loc>
     <lastmod>2026-01-13</lastmod>
     <priority>0.8</priority>
   </url>
 
-  <!-- Datos judiciales / SATJE -->
-  <!-- AÑADIDO: faltaba en sitemap -->
+  <!-- ═══════════════════════════════════════
+       OTROS
+  ════════════════════════════════════════ -->
   <url>
     <loc>https://juristam.net/blog/ocultar-datos-satje-proteccion-datos-judiciales-ecuador.html</loc>
     <lastmod>2026-01-13</lastmod>
