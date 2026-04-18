@@ -223,7 +223,6 @@
     }
     @media (prefers-reduced-motion: reduce) { * { animation: none !important; transition: none !important; } }
 
-    /* Card animations */
     @keyframes cardUp { from { opacity:0; transform:translateY(16px); } to { opacity:1; transform:translateY(0); } }
     .category-card { animation: cardUp .45s cubic-bezier(.22,1,.36,1) both; }
     .category-card:nth-child(1) { animation-delay:.05s; }
@@ -244,7 +243,6 @@
     <a href="https://juristam.net/" class="logo-wrap" aria-label="Juristam — Inicio">
       <img src="https://i.postimg.cc/vHygbHxz/oie-transparent-(2).png" alt="Juristam">
     </a>
-
     <nav class="nav-desktop" aria-label="Menú principal">
       <div class="nav-desktop-links">
         <a href="https://juristam.net/#proceso" class="nav-desktop-link">Proceso</a>
@@ -255,12 +253,11 @@
         <a href="https://juristam.net/#contacto" class="nav-desktop-link">Contacto</a>
       </div>
     </nav>
-
     <div class="header-cta" style="display:flex;align-items:center;gap:10px;justify-content:flex-end;">
       <button class="hamburger" id="mobileMenuBtn" aria-label="Abrir menú" aria-expanded="false" type="button">
         <i class="fas fa-bars"></i>
       </button>
-      <button class="btn btn-ghost" id="btnOpenSearch" type="button" style="display:none;" id="desktopSearch">
+      <button class="btn btn-ghost" id="btnOpenSearch" type="button" style="display:none;">
         <i class="fas fa-magnifying-glass"></i> Buscar
       </button>
       <a href="https://juristam.net/#formulario" class="btn btn-primary" id="desktopCta" style="display:none;">
@@ -270,7 +267,6 @@
   </div>
 </header>
 
-<!-- Mobile menu -->
 <div class="mobile-menu" id="mobileMenu">
   <div class="mobile-menu-panel">
     <div class="mobile-menu-head">
@@ -297,8 +293,6 @@
 
 <main>
   <div class="container">
-
-    <!-- HERO -->
     <section class="hero" aria-labelledby="hero-title">
       <div class="hero-kicker-wrap fade-up d1">
         <div class="hero-kicker-line"></div>
@@ -324,7 +318,6 @@
       </div>
     </section>
 
-    <!-- CATEGORIES -->
     <section class="cats-section" id="categorias">
       <div class="section-header-row fade-up-scroll">
         <h2>Categorías<span>Selecciona un área y accede a todos sus artículos</span></h2>
@@ -333,7 +326,6 @@
       <div class="categories-grid" id="categoriesGrid" aria-label="Categorías de guías legales"></div>
     </section>
 
-    <!-- SEO links hidden -->
     <nav class="sr-only" aria-label="Guías destacadas">
       <ul>
         <li><a href="https://juristam.net/blog/prohibicion-salida-alimentos.html">Prohibición de salida del país por alimentos</a></li>
@@ -354,6 +346,7 @@
         <li><a href="https://juristam.net/blog/prescripcion-deuda-bancaria-ecuador.html">Prescripción deuda bancaria Ecuador buró crédito</a></li>
         <li><a href="https://juristam.net/blog/despido-intempestivo-abandono-trabajo-ecuador.html">Despido intempestivo en Ecuador: qué pasa si el empleador alega abandono de trabajo</a></li>
         <li><a href="https://juristam.net/blog/carga-prueba-tributaria-ecuador.html">Carga de la prueba en materia tributaria: por qué puedes perder aunque tengas razón</a></li>
+        <li><a href="https://juristam.net/blog/bonificacion-voluntaria-finiquito-despido-ecuador.html">Bonificación voluntaria y finiquito: la Corte Nacional dice que puede ser un despido encubierto</a></li>
       </ul>
     </nav>
 
@@ -390,11 +383,11 @@
         <div class="footer-heading">Guías</div>
         <ul class="footer-links">
           <li><a href="https://juristam.net/blog/">Ver todas</a></li>
-          <li><a href="https://juristam.net/blog/senae-retencion-mercaderia.html">SENAE: Retención</a></li>
-          <li><a href="https://juristam.net/blog/prohibicion-salida-alimentos.html">Prohibición salida</a></li>
-          <li><a href="https://juristam.net/blog/cuenta-bloqueada-coactiva-salario.html">Cuenta bloqueada</a></li>
+          <li><a href="https://juristam.net/blog/bonificacion-voluntaria-finiquito-despido-ecuador.html">Bonificación voluntaria y finiquito</a></li>
+          <li><a href="https://juristam.net/blog/despido-intempestivo-abandono-trabajo-ecuador.html">Abandono de trabajo</a></li>
+          <li><a href="https://juristam.net/blog/prescripcion-deuda-bancaria-ecuador.html">Prescripción bancaria</a></li>
           <li><a href="https://juristam.net/blog/embargo-sueldo-ecuador.html">Embargo de sueldo</a></li>
-          <li><a href="https://juristam.net/blog/inspeccion-superintendencia-companias-ecuador.html">Inspección Superintendencia</a></li>
+          <li><a href="https://juristam.net/blog/prohibicion-salida-alimentos.html">Prohibición de salida</a></li>
         </ul>
       </div>
     </div>
@@ -402,7 +395,6 @@
   </div>
 </footer>
 
-<!-- SEARCH MODAL -->
 <div class="modal-overlay" id="chatModal" aria-hidden="true">
   <div class="chat-modal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
     <div class="modal-header">
@@ -432,8 +424,6 @@
 <script>
   document.addEventListener('DOMContentLoaded', () => {
     document.getElementById('currentYear').textContent = new Date().getFullYear();
-
-    // Show desktop items
     if (window.innerWidth >= 980) {
       document.getElementById('desktopCta').style.display = 'inline-flex';
       const s = document.getElementById('btnOpenSearch');
@@ -443,7 +433,6 @@
       const show = window.innerWidth >= 980;
       document.getElementById('desktopCta').style.display = show ? 'inline-flex' : 'none';
     });
-
     renderStats();
     renderCategories();
     setupEventListeners();
@@ -467,7 +456,8 @@
     { tag:"Penal", date:"Guía práctica", title:"Cheque sin fondos en Ecuador: acción penal, acción civil y plazos que no puedes dejar vencer", excerpt:"En Ecuador el giro de cheque sin fondos es un delito. Tienes dos acciones disponibles — penal y civil — que pueden ejercerse al mismo tiempo.", url:"https://juristam.net/blog/cheque-sin-fondos-ecuador.html" },
     { tag:"Bancario", date:"Guía práctica", title:"Prescripción de deudas bancarias en Ecuador: qué protege y qué no", excerpt:"La prescripción mata la acción de cobro judicial, pero no borra el buró de crédito. Conoce los plazos reales, qué los interrumpe, y por qué prescribir no significa quedar libre.", url:"https://juristam.net/blog/prescripcion-deuda-bancaria-ecuador.html" },
     { tag:"Laboral", date:"Abril 2026", title:"Despido intempestivo en Ecuador: qué pasa si el empleador alega abandono de trabajo", excerpt:"Si tu empleador dice que abandonaste el trabajo pero no tiene visto bueno, la ley lo obliga a probarlo.", url:"https://juristam.net/blog/despido-intempestivo-abandono-trabajo-ecuador.html" },
-    { tag:"Tributario", date:"Guía estratégica", title:"Carga de la prueba en materia tributaria: por qué puedes perder aunque tengas razón", excerpt:"En materia tributaria no basta tener argumentos: debes probarlos. Este es el error que más casos hace perder frente al SRI.", url:"/blog/carga-prueba-tributaria-ecuador.html" }
+    { tag:"Tributario", date:"Guía estratégica", title:"Carga de la prueba en materia tributaria: por qué puedes perder aunque tengas razón", excerpt:"En materia tributaria no basta tener argumentos: debes probarlos. Este es el error que más casos hace perder frente al SRI.", url:"/blog/carga-prueba-tributaria-ecuador.html" },
+    { tag:"Laboral", date:"Abril 2026 · Corte Nacional · Resolución 89-2012", title:"Me dieron una bonificación voluntaria y me hicieron firmar un finiquito en Ecuador: la Corte Nacional dice que eso puede ser un despido encubierto", excerpt:"Firmar el acta no significa que perdiste tus derechos. Si te pagaron por voluntad del empleador sin desahucio ni causa legal, la Corte Nacional dice que eso es un despido intempestivo disfrazado.", url:"https://juristam.net/blog/bonificacion-voluntaria-finiquito-despido-ecuador.html" }
   ];
 
   const categories = [
@@ -476,7 +466,7 @@
     { key:"familia", name:"Familia", icon:"fa-people-roof", desc:"Alimentos, prohibición de salida, herencia, posesión efectiva y trámites urgentes.", href:"https://juristam.net/blog/categoria-familia.html", tags:["Familia"], enabled:true },
     { key:"senae", name:"SENAE / Aduanas", icon:"fa-boxes-stacked", desc:"Retención de mercadería, liquidaciones, multas y pasos para no empeorar el caso.", href:"https://juristam.net/blog/categoria-senae-aduanas.html", tags:["Aduanas","SENAE","Aduana"], enabled:true },
     { key:"inmobiliario", name:"Inmobiliario", icon:"fa-house-chimney", desc:"Prescripción, reivindicación, escrituras, conflictos por terrenos y posesión.", href:"https://juristam.net/blog/categoria-inmobiliario.html", tags:["Inmuebles","Inmobiliario"], enabled:true },
-    { key:"laboral", name:"Laboral", icon:"fa-briefcase", desc:"Embargos, despido intempestivo, abandono de trabajo, derechos del trabajador y liquidaciones.", href:"https://juristam.net/blog/categoria-laboral.html", tags:["Laboral"], enabled:true },
+    { key:"laboral", name:"Laboral", icon:"fa-briefcase", desc:"Embargos, despido intempestivo, bonificación voluntaria, finiquito, derechos del trabajador y liquidaciones.", href:"https://juristam.net/blog/categoria-laboral.html", tags:["Laboral"], enabled:true },
     { key:"societario", name:"Societario", icon:"fa-building-columns", desc:"Inspecciones de la Superintendencia, aumentos de capital, cierres de compañía y cumplimiento societario.", href:"https://juristam.net/blog/categoria-societario.html", tags:["Societario"], enabled:true },
     { key:"penal", name:"Penal", icon:"fa-scale-balanced", desc:"Cheques sin fondos, defensa ante Fiscalía, estafa y delitos patrimoniales.", href:"https://juristam.net/blog/categoria-penal.html", tags:["Penal"], enabled:true },
     { key:"tributario", name:"Tributario", icon:"fa-file-invoice-dollar", desc:"SRI, impuestos, deudas tributarias, multas, clausuras y defensa fiscal.", href:"https://juristam.net/blog/categoria-tributario.html", tags:["Tributario","SRI","Impuestos"], enabled:true }
@@ -526,7 +516,6 @@
   }
 
   function setupEventListeners() {
-    // Mobile menu
     const mobileMenu = document.getElementById('mobileMenu');
     const mobileMenuBtn = document.getElementById('mobileMenuBtn');
     const mobileMenuClose = document.getElementById('mobileMenuClose');
@@ -537,7 +526,6 @@
     mobileMenu.addEventListener('click', e => { if (e.target === mobileMenu) closeMobileMenu(); });
     mobileMenu.querySelectorAll('a').forEach(a => a.addEventListener('click', closeMobileMenu));
 
-    // Search
     const btnOpenSearch = document.getElementById('btnOpenSearch');
     if (btnOpenSearch) btnOpenSearch.addEventListener('click', openChatModal);
     document.getElementById('searchBtn').addEventListener('click', handleQuickSearch);
@@ -562,7 +550,6 @@
       if (e.key === 'Escape') { closeChatModal(); closeMobileMenu(); }
     });
 
-    // Scroll fade
     const fadeEls = document.querySelectorAll('.fade-up-scroll');
     const obs = new IntersectionObserver(entries => { entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); obs.unobserve(e.target); } }); }, { threshold: 0.10 });
     fadeEls.forEach(el => obs.observe(el));
@@ -610,7 +597,7 @@
   function processSearchQuery(raw) {
     const q = normalize(raw);
     const results = searchPosts(q);
-    if (!results.length) { sendBotMessage('No encontré artículos exactos. Prueba con: "coactiva", "deuda prescrita", "buró", "SENAE", "alimentos", "herencia", "terreno", "sueldo", "superintendencia", "SAS".'); return; }
+    if (!results.length) { sendBotMessage('No encontré artículos exactos. Prueba con: "coactiva", "deuda prescrita", "buró", "SENAE", "alimentos", "herencia", "terreno", "sueldo", "superintendencia", "SAS", "finiquito", "bonificacion".'); return; }
     const inferred = inferCategory(q);
     if (inferred) {
       const cat = categories.find(c => normalize(c.name) === normalize(inferred) || c.tags.some(t => normalize(t) === normalize(inferred)));
@@ -647,11 +634,11 @@
   function inferCategory(q) {
     const map = [
       { keys:["coactiva","cobro coactivo","embargo","bloquearon","bloqueo","cuenta bloqueada"], cat:"Coactiva" },
-      { keys:["bancario","banco","deuda bancaria","deuda prescrita","prescripcion deuda","buro","buro","credito","equifax","habeas data","pagare","financiera"], cat:"Bancario" },
+      { keys:["bancario","banco","deuda bancaria","deuda prescrita","prescripcion deuda","buro","credito","equifax","habeas data","pagare","financiera"], cat:"Bancario" },
       { keys:["senae","aduanas","aduana","retuvieron","mercaderia","liquidacion","aforo"], cat:"Aduanas" },
       { keys:["alimentos","familia","pension","prohibicion de salida","salida del pais","apellidos","apellido","registro civil","herencia","posesion efectiva","herederos","testamento"], cat:"Familia" },
       { keys:["terreno","inmueble","prescripcion","posesion","reivindicacion","escritura"], cat:"Inmuebles" },
-      { keys:["laboral","sueldo","salario","despido","fondo de reserva","jubilacion patronal","abandono"], cat:"Laboral" },
+      { keys:["laboral","sueldo","salario","despido","fondo de reserva","jubilacion patronal","abandono","finiquito","bonificacion","liquidacion laboral"], cat:"Laboral" },
       { keys:["penal","cheque","cheque sin fondos","protesto","fiscalia","denuncia penal","estafa","delito"], cat:"Penal" },
       { keys:["superintendencia","companias","inspeccion","aumento de capital","accionista","societario","sas","cierre","nombramiento","representante legal"], cat:"Societario" },
       { keys:["sri","impuesto","tributario","tributo","multa fiscal","clausura","ruc"], cat:"Tributario" }
@@ -660,7 +647,6 @@
     return null;
   }
 
-  // Cursor trail
   if (window.matchMedia('(pointer: fine)').matches) {
     const TRAIL = 10;
     const dot = document.createElement('div'); dot.className = 'cursor-dot'; document.body.appendChild(dot);
