@@ -4,14 +4,14 @@
   <!-- Página principal -->
   <url>
     <loc>https://juristam.net/</loc>
-    <lastmod>2026-04-17</lastmod>
+    <lastmod>2026-04-23</lastmod>
     <priority>1.0</priority>
   </url>
 
   <!-- Blog principal -->
   <url>
     <loc>https://juristam.net/blog/</loc>
-    <lastmod>2026-04-17</lastmod>
+    <lastmod>2026-04-23</lastmod>
     <priority>0.9</priority>
   </url>
 
@@ -20,6 +20,13 @@
     <loc>https://juristam.net/casos-de-exito.html</loc>
     <lastmod>2026-01-13</lastmod>
     <priority>0.9</priority>
+  </url>
+
+  <!-- Conócenos -->
+  <url>
+    <loc>https://juristam.net/conocenos.html</loc>
+    <lastmod>2026-04-23</lastmod>
+    <priority>0.85</priority>
   </url>
 
   <!-- Categorías -->
@@ -31,19 +38,19 @@
 
   <url>
     <loc>https://juristam.net/blog/categoria-familia.html</loc>
-    <lastmod>2026-04-17</lastmod>
+    <lastmod>2026-04-23</lastmod>
     <priority>0.85</priority>
   </url>
 
   <url>
     <loc>https://juristam.net/blog/categoria-inmobiliario.html</loc>
-    <lastmod>2026-01-13</lastmod>
+    <lastmod>2026-04-23</lastmod>
     <priority>0.85</priority>
   </url>
 
   <url>
     <loc>https://juristam.net/blog/categoria-laboral.html</loc>
-    <lastmod>2026-04-17</lastmod>
+    <lastmod>2026-04-23</lastmod>
     <priority>0.85</priority>
   </url>
 
@@ -61,7 +68,7 @@
 
   <url>
     <loc>https://juristam.net/blog/categoria-bancario.html</loc>
-    <lastmod>2026-04-17</lastmod>
+    <lastmod>2026-04-23</lastmod>
     <priority>0.85</priority>
   </url>
 
@@ -121,7 +128,7 @@
 
   <url>
     <loc>https://juristam.net/blog/embargo-sueldo-ecuador.html</loc>
-    <lastmod>2026-04-17</lastmod>
+    <lastmod>2026-04-23</lastmod>
     <priority>0.8</priority>
   </url>
 
@@ -164,6 +171,24 @@
     <priority>0.8</priority>
   </url>
 
+  <url>
+    <loc>https://juristam.net/blog/trabajo-domestico-muerte-empleador-ecuador.html</loc>
+    <lastmod>2026-04-23</lastmod>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://juristam.net/blog/impugnacion-acta-finiquito-contrato-colectivo-ecuador.html</loc>
+    <lastmod>2026-04-23</lastmod>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://juristam.net/blog/despido-intempestivo-discapacidad-familiar-ecuador.html</loc>
+    <lastmod>2026-04-23</lastmod>
+    <priority>0.8</priority>
+  </url>
+
   <!-- ═══════════════════════════════════════
        ARTÍCULOS BANCARIO
   ════════════════════════════════════════ -->
@@ -191,6 +216,12 @@
   <url>
     <loc>https://juristam.net/blog/reivindicacion-terreno-requisitos-dominio-posesion-singularizacion.html</loc>
     <lastmod>2026-01-13</lastmod>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://juristam.net/blog/prescripcion-adquisitiva-dominio-terreno-ecuador.html</loc>
+    <lastmod>2026-04-23</lastmod>
     <priority>0.8</priority>
   </url>
 
