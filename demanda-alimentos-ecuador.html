@@ -589,7 +589,6 @@
 <!-- HERO -->
 <div class="hero">
   <img class="hero-logo" src="https://i.postimg.cc/vHygbHxz/oie-transparent-(2).png" alt="Juristam" />
-  <div class="hero-badge">Herramienta oficial · Formulario único del Consejo de la Judicatura</div>
   <h1>Tu demanda de pensión alimenticia, <em>lista para el juzgado</em></h1>
   <p>No tienes que entender de leyes. Llena el formulario, nosotros armamos la demanda. En minutos.</p>
 
@@ -601,7 +600,7 @@
   </div>
 
   <div class="hero-benefits">
-    <span class="hero-benefit">Formulario oficial del Consejo de la Judicatura</span>
+    <span class="hero-benefit">Demanda completa lista para el juzgado</span>
     <span class="hero-benefit">Cálculo automático de pensión</span>
     <span class="hero-benefit">Incluye declaratoria de paternidad</span>
     <span class="hero-benefit">Lista para cualquier juzgado en Ecuador</span>
@@ -995,7 +994,6 @@
     <div class="audiencia-card">
       <div class="emoji">⚖️</div>
       <div class="descuento-num">$20</div>
-      <div class="descuento-label">de descuento en tu primer honorario con Juristam</div>
       <h3 style="margin-top:.8rem;">Cuando llegue la audiencia, no estás sola</h3>
       <p>Presentar la demanda es el primer paso. Para la audiencia necesitas un abogado que te represente y defienda bien. En Juristam te ofrecemos un precio especial para mamás que usaron esta herramienta.</p>
       <a href="https://wa.me/593994859814?text=Hola,%20quiero%20información%20sobre%20representación%20en%20audiencia%20de%20alimentos%20con%20descuento" class="btn-audiencia" target="_blank" rel="noopener">
@@ -1010,7 +1008,7 @@
       </div>
       <div class="side-card-body">
         <ul class="garantia-list">
-          <li>Formulario oficial del Consejo de la Judicatura</li>
+          <li>Demanda completa lista para presentar en el juzgado</li>
           <li>Fundamentos constitucionales y legales completos</li>
           <li>Cálculo automático de cuantía según la ley</li>
           <li>Solicitud de declaratoria de paternidad y ADN si aplica</li>
@@ -1043,7 +1041,7 @@
 
 <!-- NOTA LEGAL -->
 <div class="nota-legal">
-  <strong>AVISO LEGAL:</strong> Esta herramienta genera documentos basados en el Formulario Único oficial del Consejo de la Judicatura del Ecuador.
+  <strong>AVISO LEGAL:</strong> Esta herramienta genera documentos legales para procesos de pensión alimenticia en Ecuador.
   No sustituye la asesoría legal personalizada. Para representación en audiencias y patrocinio jurídico contamos con el equipo de Juristam.
   <br/><br/>
   © 2026 Juristam — Asesoría Legal Estratégica en Ecuador · <a href="https://juristam.net" style="color:var(--primary);">juristam.net</a>
@@ -1124,9 +1122,12 @@
       `2) Se fije una pensión alimenticia mensual total de $${(parseFloat(datos.valor_pretendido) || 0).toFixed(2)} a favor de mi(s) hijo/a(s).`,
       `3) Se disponga el pago mediante depósito en la cuenta ${datos.banco_tipo} N.° ${datos.banco_cuenta}, banco/cooperativa ${datos.banco_nombre}.`,
     ];
-    if (datos.mc_prohibicion_salida) pretensiones.push('4) Se dicte prohibición de salida del país del demandado.');
-    if (datos.mc_prohibicion_enajenar) pretensiones.push('5) Se dicte prohibición de enajenar bienes del demandado.');
-    if (datos.solicitud_adn) pretensiones.push('6) Se disponga prueba biológica de paternidad (ADN).');
+    let numPret = 4;
+    if (datos.mc_prohibicion_salida) pretensiones.push(`${numPret++}) Se dicte prohibición de salida del país del demandado.`);
+    if (datos.mc_prohibicion_enajenar_vehiculos) pretensiones.push(`${numPret++}) Se prohíba al demandado enajenar sus vehículos, debiendo oficiarse a la ANT.`);
+    if (datos.mc_prohibicion_enajenar_inmuebles) pretensiones.push(`${numPret++}) Se prohíba al demandado enajenar sus bienes inmuebles, debiendo oficiarse al Registro de la Propiedad.`);
+    if (datos.mc_prohibicion_enajenar_mercantil) pretensiones.push(`${numPret++}) Se prohíba al demandado enajenar bienes muebles registrados, debiendo oficiarse al Registro Mercantil.`);
+    if (datos.solicitud_adn) pretensiones.push(`${numPret++}) Se disponga prueba biológica de paternidad (ADN).`);
 
     const dirDemandado = datos.demandado_conoce_dir === 'NO'
       ? 'No se conoce dirección exacta del demandado — solicito se realicen las diligencias pertinentes para su citación.'
@@ -1134,6 +1135,36 @@
 
     let abogado = '';
     if (datos.abogado_nombre) abogado = `\nPatrocinio: ${datos.abogado_nombre}${datos.abogado_casillero ? ', casillero ' + datos.abogado_casillero : ''}${datos.abogado_email ? ', correo ' + datos.abogado_email : ''}.`;
+
+    // Pruebas DINARDAP
+    const dinardap = [];
+    if (datos.prueba_iess) dinardap.push('IESS');
+    if (datos.prueba_isspol) dinardap.push('ISSPOL');
+    if (datos.prueba_issfa) dinardap.push('ISSFA');
+    if (datos.prueba_sri) dinardap.push('SRI');
+    if (datos.prueba_registro_civil) dinardap.push('Registro Civil');
+    if (datos.prueba_ant) dinardap.push('ANT');
+    if (datos.prueba_registro_propiedad) dinardap.push('Registro de la Propiedad');
+    if (datos.prueba_registro_mercantil) dinardap.push('Registro Mercantil');
+
+    let pruebasTexto = '';
+    if (dinardap.length) pruebasTexto += `B. Oficios vía DINARDAP: ${dinardap.join(', ')}.\n`;
+    if (datos.prueba_super_bancos) pruebasTexto += 'C. Oficio a Superintendencia de Bancos: cuentas e inversiones del demandado (último año).\n';
+    if (datos.prueba_declaracion_demandado) pruebasTexto += 'D. Testimonio del demandado en audiencia.\n';
+    if (datos.prueba_declaracion_actor) pruebasTexto += 'E. Mi propio testimonio en audiencia.\n';
+    if (datos.prueba_visita_domiciliaria) pruebasTexto += 'F. Visita domiciliaria por equipo técnico del juzgado (diligencia pre-procesal).\n';
+
+    const testigos = datos.nomina_testigos
+      ? `G. Testigos:\n${datos.nomina_testigos}`
+      : '';
+
+    // Obligado subsidiario
+    let subsidiarioTexto = '';
+    if (datos.subsidiario_nombres) {
+      const motivosMap = {ausencia:'está ausente', impedimento:'tiene impedimento legal', insuficiencia:'tiene recursos insuficientes', discapacidad:'tiene discapacidad'};
+      const motivoLabel = motivosMap[datos.subsidiario_motivo] || datos.subsidiario_motivo;
+      subsidiarioTexto = `\nOBLIGADO/A SUBSIDIARIO/A\n------------------------\nNombres: ${datos.subsidiario_nombres}\nRelación: ${datos.subsidiario_relacion}\nCédula: ${datos.subsidiario_cedula}\nDomicilio: ${datos.subsidiario_calle_p} y ${datos.subsidiario_calle_s}, barrio ${datos.subsidiario_barrio}, N.° ${datos.subsidiario_numeracion}, ${datos.subsidiario_ciudad}.\nMotivo: El obligado principal ${motivoLabel}.`;
+    }
 
     return `DEMANDA DE DECLARATORIA DE PATERNIDAD Y FIJACIÓN DE PENSIÓN ALIMENTICIA
 ===========================================================================
@@ -1174,9 +1205,14 @@ TOTAL: $${cq.total.toFixed(2)}
 
 PROCEDIMIENTO: Sumario (Art. 332 numeral 3 COGEP)
 
+ANUNCIO DE PRUEBAS
+------------------
+A. Documental: Partida de nacimiento del/los menor(es); cédula del solicitante; certificado bancario.
+${pruebasTexto}${testigos}
 DECLARACIÓN JURADA
 ------------------
 Declaro bajo juramento que los documentos solicitados mediante oficios no están en mi poder — Art. 159 COGEP.
+${subsidiarioTexto}
 
 ${datos.actor_ciudad_vive}, a ____ de __________ de 2026.
 
@@ -1213,7 +1249,31 @@ ${abogado}`.trim();
       datos.menor_edad_list = fd.getAll('menor_edad[]');
       datos.discapacidad_list = fd.getAll('discapacidad[]');
       datos.mc_prohibicion_salida = !!fd.get('mc_prohibicion_salida');
-      datos.mc_prohibicion_enajenar = !!fd.get('mc_prohibicion_enajenar');
+      datos.mc_prohibicion_enajenar_vehiculos = !!fd.get('mc_prohibicion_enajenar_vehiculos');
+      datos.mc_prohibicion_enajenar_inmuebles = !!fd.get('mc_prohibicion_enajenar_inmuebles');
+      datos.mc_prohibicion_enajenar_mercantil = !!fd.get('mc_prohibicion_enajenar_mercantil');
+      datos.prueba_iess = !!fd.get('prueba_iess');
+      datos.prueba_isspol = !!fd.get('prueba_isspol');
+      datos.prueba_issfa = !!fd.get('prueba_issfa');
+      datos.prueba_sri = !!fd.get('prueba_sri');
+      datos.prueba_registro_civil = !!fd.get('prueba_registro_civil');
+      datos.prueba_ant = !!fd.get('prueba_ant');
+      datos.prueba_registro_propiedad = !!fd.get('prueba_registro_propiedad');
+      datos.prueba_registro_mercantil = !!fd.get('prueba_registro_mercantil');
+      datos.prueba_super_bancos = !!fd.get('prueba_super_bancos');
+      datos.prueba_declaracion_demandado = !!fd.get('prueba_declaracion_demandado');
+      datos.prueba_declaracion_actor = !!fd.get('prueba_declaracion_actor');
+      datos.prueba_visita_domiciliaria = !!fd.get('prueba_visita_domiciliaria');
+      datos.nomina_testigos = fd.get('nomina_testigos') || '';
+      datos.subsidiario_nombres = fd.get('subsidiario_nombres') || '';
+      datos.subsidiario_relacion = fd.get('subsidiario_relacion') || '';
+      datos.subsidiario_cedula = fd.get('subsidiario_cedula') || '';
+      datos.subsidiario_ciudad = fd.get('subsidiario_ciudad') || '';
+      datos.subsidiario_calle_p = fd.get('subsidiario_calle_p') || '';
+      datos.subsidiario_calle_s = fd.get('subsidiario_calle_s') || '';
+      datos.subsidiario_barrio = fd.get('subsidiario_barrio') || '';
+      datos.subsidiario_numeracion = fd.get('subsidiario_numeracion') || '';
+      datos.subsidiario_motivo = fd.get('subsidiario_motivo') || '';
       datos.solicitud_adn = !!fd.get('solicitud_adn');
       datos.demandado_conoce_dir = fd.get('demandado_conoce_dir') || 'SI';
 
