@@ -4,14 +4,14 @@
   <!-- Página principal -->
   <url>
     <loc>https://juristam.net/</loc>
-    <lastmod>2026-04-23</lastmod>
+    <lastmod>2026-05-06</lastmod>
     <priority>1.0</priority>
   </url>
 
   <!-- Blog principal -->
   <url>
     <loc>https://juristam.net/blog/</loc>
-    <lastmod>2026-04-23</lastmod>
+    <lastmod>2026-05-06</lastmod>
     <priority>0.9</priority>
   </url>
 
@@ -29,7 +29,9 @@
     <priority>0.85</priority>
   </url>
 
-  <!-- Categorías -->
+  <!-- ═══════════════════════════════════════
+       CATEGORÍAS
+  ════════════════════════════════════════ -->
   <url>
     <loc>https://juristam.net/blog/categoria-coactiva.html</loc>
     <lastmod>2026-01-13</lastmod>
@@ -38,7 +40,7 @@
 
   <url>
     <loc>https://juristam.net/blog/categoria-familia.html</loc>
-    <lastmod>2026-04-23</lastmod>
+    <lastmod>2026-05-06</lastmod>
     <priority>0.85</priority>
   </url>
 
@@ -84,8 +86,158 @@
     <priority>0.85</priority>
   </url>
 
+  <url>
+    <loc>https://juristam.net/blog/categoria-testamentos.html</loc>
+    <lastmod>2026-05-06</lastmod>
+    <priority>0.85</priority>
+  </url>
+
   <!-- ═══════════════════════════════════════
-       ARTÍCULOS FAMILIA
+       HERRAMIENTAS (prioridad alta — convierten)
+  ════════════════════════════════════════ -->
+  <url>
+    <loc>https://juristam.net/diagnostico-testamento-ecuador.html</loc>
+    <lastmod>2026-05-06</lastmod>
+    <priority>0.95</priority>
+  </url>
+
+  <url>
+    <loc>https://juristam.net/testamento-simple-ecuador.html</loc>
+    <lastmod>2026-05-06</lastmod>
+    <priority>0.9</priority>
+  </url>
+
+  <url>
+    <loc>https://juristam.net/testamento-complejo-ecuador.html</loc>
+    <lastmod>2026-05-06</lastmod>
+    <priority>0.9</priority>
+  </url>
+
+  <url>
+    <loc>https://juristam.net/demanda-alimentos-ecuador.html</loc>
+    <lastmod>2026-05-06</lastmod>
+    <priority>0.9</priority>
+  </url>
+
+  <!-- ═══════════════════════════════════════
+       ARTÍCULOS TESTAMENTOS (nuevos — mayo 2026)
+  ════════════════════════════════════════ -->
+  <url>
+    <loc>https://juristam.net/blog/como-hacer-testamento-ecuador.html</loc>
+    <lastmod>2026-05-06</lastmod>
+    <priority>0.85</priority>
+  </url>
+
+  <url>
+    <loc>https://juristam.net/blog/testamento-sin-hijos-ecuador.html</loc>
+    <lastmod>2026-05-06</lastmod>
+    <priority>0.85</priority>
+  </url>
+
+  <url>
+    <loc>https://juristam.net/blog/que-pasa-si-muero-sin-testamento-ecuador.html</loc>
+    <lastmod>2026-05-06</lastmod>
+    <priority>0.85</priority>
+  </url>
+
+  <url>
+    <loc>https://juristam.net/blog/testamento-casado-hijos-diferentes-parejas-ecuador.html</loc>
+    <lastmod>2026-05-06</lastmod>
+    <priority>0.85</priority>
+  </url>
+
+  <url>
+    <loc>https://juristam.net/blog/cuanto-cuesta-testamento-ecuador.html</loc>
+    <lastmod>2026-05-06</lastmod>
+    <priority>0.85</priority>
+  </url>
+
+  <url>
+    <loc>https://juristam.net/blog/testamento-con-negocio-empresa-ecuador.html</loc>
+    <lastmod>2026-05-06</lastmod>
+    <priority>0.85</priority>
+  </url>
+
+  <url>
+    <loc>https://juristam.net/blog/puedo-desheredar-hijo-ecuador.html</loc>
+    <lastmod>2026-05-06</lastmod>
+    <priority>0.85</priority>
+  </url>
+
+  <url>
+    <loc>https://juristam.net/blog/albacea-testamento-ecuador.html</loc>
+    <lastmod>2026-05-06</lastmod>
+    <priority>0.85</priority>
+  </url>
+
+  <url>
+    <loc>https://juristam.net/blog/impuesto-herencia-ecuador.html</loc>
+    <lastmod>2026-05-06</lastmod>
+    <priority>0.85</priority>
+  </url>
+
+  <url>
+    <loc>https://juristam.net/blog/mi-pareja-hereda-sin-casarnos-ecuador.html</loc>
+    <lastmod>2026-05-06</lastmod>
+    <priority>0.85</priority>
+  </url>
+
+  <!-- ═══════════════════════════════════════
+       ARTÍCULOS ALIMENTOS (nuevos — mayo 2026)
+  ════════════════════════════════════════ -->
+  <url>
+    <loc>https://juristam.net/blog/como-demandar-pension-alimenticia-ecuador.html</loc>
+    <lastmod>2026-05-06</lastmod>
+    <priority>0.85</priority>
+  </url>
+
+  <url>
+    <loc>https://juristam.net/blog/padre-no-paga-pension-alimenticia-ecuador.html</loc>
+    <lastmod>2026-05-06</lastmod>
+    <priority>0.85</priority>
+  </url>
+
+  <url>
+    <loc>https://juristam.net/blog/padre-no-reconoce-hijo-pension-alimenticia-ecuador.html</loc>
+    <lastmod>2026-05-06</lastmod>
+    <priority>0.85</priority>
+  </url>
+
+  <url>
+    <loc>https://juristam.net/blog/cuanto-tarda-pension-alimenticia-ecuador.html</loc>
+    <lastmod>2026-05-06</lastmod>
+    <priority>0.85</priority>
+  </url>
+
+  <url>
+    <loc>https://juristam.net/blog/no-se-donde-vive-padre-demandar-alimentos-ecuador.html</loc>
+    <lastmod>2026-05-06</lastmod>
+    <priority>0.85</priority>
+  </url>
+
+  <!-- ═══════════════════════════════════════
+       ARTÍCULOS INMOBILIARIO (nuevos — mayo 2026)
+  ════════════════════════════════════════ -->
+  <url>
+    <loc>https://juristam.net/blog/prescripcion-adquisitiva-dominio-terreno-ecuador.html</loc>
+    <lastmod>2026-05-06</lastmod>
+    <priority>0.85</priority>
+  </url>
+
+  <url>
+    <loc>https://juristam.net/blog/terreno-sin-escritura-prescripcion-adquisitiva-ecuador.html</loc>
+    <lastmod>2026-05-06</lastmod>
+    <priority>0.85</priority>
+  </url>
+
+  <url>
+    <loc>https://juristam.net/blog/terreno-ocupado-escritura-ecuador.html</loc>
+    <lastmod>2026-05-06</lastmod>
+    <priority>0.85</priority>
+  </url>
+
+  <!-- ═══════════════════════════════════════
+       ARTÍCULOS FAMILIA (existentes)
   ════════════════════════════════════════ -->
   <url>
     <loc>https://juristam.net/blog/prohibicion-salida-alimentos.html</loc>
@@ -112,7 +264,7 @@
   </url>
 
   <!-- ═══════════════════════════════════════
-       ARTÍCULOS COACTIVA / SENAE
+       ARTÍCULOS COACTIVA / SENAE (existentes)
   ════════════════════════════════════════ -->
   <url>
     <loc>https://juristam.net/blog/senae-retencion-mercaderia.html</loc>
@@ -145,7 +297,7 @@
   </url>
 
   <!-- ═══════════════════════════════════════
-       ARTÍCULOS LABORAL
+       ARTÍCULOS LABORAL (existentes)
   ════════════════════════════════════════ -->
   <url>
     <loc>https://juristam.net/blog/fondos-reserva-jubilacion-patronal-ecuador.html</loc>
@@ -190,7 +342,7 @@
   </url>
 
   <!-- ═══════════════════════════════════════
-       ARTÍCULOS BANCARIO
+       ARTÍCULOS BANCARIO (existentes)
   ════════════════════════════════════════ -->
   <url>
     <loc>https://juristam.net/blog/prescripcion-deuda-bancaria-ecuador.html</loc>
@@ -205,7 +357,7 @@
   </url>
 
   <!-- ═══════════════════════════════════════
-       ARTÍCULOS INMOBILIARIO
+       ARTÍCULOS INMOBILIARIO (existentes)
   ════════════════════════════════════════ -->
   <url>
     <loc>https://juristam.net/blog/regla-obligatoria-singularizacion-inmueble-prescripcion-reivindicacion.html</loc>
@@ -219,14 +371,8 @@
     <priority>0.8</priority>
   </url>
 
-  <url>
-    <loc>https://juristam.net/blog/prescripcion-adquisitiva-dominio-terreno-ecuador.html</loc>
-    <lastmod>2026-04-23</lastmod>
-    <priority>0.8</priority>
-  </url>
-
   <!-- ═══════════════════════════════════════
-       ARTÍCULOS SOCIETARIO
+       ARTÍCULOS SOCIETARIO (existentes)
   ════════════════════════════════════════ -->
   <url>
     <loc>https://juristam.net/blog/inspeccion-superintendencia-companias-ecuador.html</loc>
@@ -241,7 +387,7 @@
   </url>
 
   <!-- ═══════════════════════════════════════
-       ARTÍCULOS TRIBUTARIO
+       ARTÍCULOS TRIBUTARIO (existentes)
   ════════════════════════════════════════ -->
   <url>
     <loc>https://juristam.net/blog/carga-prueba-tributaria-ecuador.html</loc>
@@ -250,7 +396,7 @@
   </url>
 
   <!-- ═══════════════════════════════════════
-       OTROS
+       OTROS (existentes)
   ════════════════════════════════════════ -->
   <url>
     <loc>https://juristam.net/blog/ocultar-datos-satje-proteccion-datos-judiciales-ecuador.html</loc>
