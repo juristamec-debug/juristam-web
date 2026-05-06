@@ -1,0 +1,671 @@
+<!DOCTYPE html>
+<html lang="es-EC">
+<head>
+  <meta charset="UTF-8" />
+  <title>Crear Testamento Simple Ecuador · Juristam</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Genera tu minuta de testamento simple en Ecuador por $25. Lista para llevar al notario. Conforme al Libro III del Código Civil ecuatoriano." />
+  <link rel="canonical" href="https://juristam.net/testamento-simple-ecuador.html" />
+  <link rel="icon" type="image/png" href="https://i.postimg.cc/KjDB1NSM/Diseno-sin-titulo-(7).png" />
+  <style>
+    :root{--primary:#9a6aff;--primary-dark:#7b52cc;--text-main:#222;--text-muted:#666;--border:#ddd;--success:#1e824c;--warning:#c47a11;--danger:#c0392b;}
+    *{box-sizing:border-box;font-family:system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;}
+    html{scroll-behavior:smooth;}
+    body{margin:0;padding:0;background:radial-gradient(circle at top left,#fefbff,#ece9ff);color:var(--text-main);}
+    .app{max-width:1050px;margin:24px auto;padding:24px;background:#fff;border-radius:18px;box-shadow:0 18px 45px rgba(0,0,0,0.08);border:1px solid rgba(154,106,255,0.18);}
+    @media(max-width:768px){.app{margin:0;border-radius:0;box-shadow:none;padding:16px;}}
+    header{margin-bottom:18px;border-bottom:1px solid #eee;padding-bottom:12px;}
+    header h1{margin:0 0 4px;font-size:1.45rem;display:flex;align-items:center;gap:8px;}
+    header h1 span.logo{display:inline-flex;width:26px;height:26px;border-radius:8px;background:linear-gradient(135deg,var(--primary),var(--primary-dark));color:#fff;align-items:center;justify-content:center;font-weight:700;font-size:0.9rem;}
+    header p{margin:0;font-size:0.9rem;color:var(--text-muted);}
+    .badge{display:inline-flex;align-items:center;gap:6px;padding:4px 10px;border-radius:999px;background:rgba(154,106,255,0.08);color:var(--primary-dark);font-size:0.8rem;margin-top:6px;}
+    .badge-dot{width:7px;height:7px;border-radius:50%;background:var(--primary);}
+    .steps{display:flex;flex-wrap:wrap;gap:8px;margin-top:12px;margin-bottom:4px;}
+    .step{flex:1;min-width:120px;padding:6px 10px;border-radius:999px;border:1px solid #e2ddff;font-size:0.78rem;color:var(--text-muted);display:flex;align-items:center;gap:6px;background:#faf9ff;}
+    .step span.num{display:inline-flex;width:18px;height:18px;border-radius:999px;align-items:center;justify-content:center;font-size:0.75rem;border:1px solid #d0c7ff;}
+    .step-active{border-color:var(--primary);color:var(--primary-dark);background:rgba(154,106,255,0.08);}
+    .step-active span.num{background:var(--primary);color:#fff;border-color:var(--primary);}
+    .step-done{background:rgba(154,106,255,0.2);border-color:rgba(154,106,255,0.5);}
+    .grid{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,1.2fr);gap:20px;}
+    @media(max-width:900px){.grid{grid-template-columns:1fr;}}
+    .card{background:#faf9ff;border-radius:14px;padding:16px 18px;border:1px solid rgba(154,106,255,0.15);margin-bottom:14px;}
+    .card h2{margin:0 0 8px;font-size:1.05rem;}
+    .field-group{margin-bottom:10px;}
+    .field-group label{display:block;font-size:0.86rem;font-weight:600;margin-bottom:4px;}
+    .field-group small{display:block;font-size:0.78rem;color:var(--text-muted);margin-top:2px;}
+    .legal-note{background:rgba(196,122,17,0.08);border-left:3px solid var(--warning);padding:8px;margin:8px 0;font-size:0.75rem;border-radius:4px;}
+    .nota-notaria{background:#fff8e1;border-left:4px solid #f59e0b;border-radius:0 10px 10px 0;padding:1rem 1.2rem;margin:1rem 0;font-size:0.83rem;color:#78350f;line-height:1.6;}
+    .nota-notaria strong{color:#92400e;}
+    .success-note{background:rgba(30,130,76,0.08);border-left:3px solid var(--success);padding:8px;margin:8px 0;font-size:0.75rem;border-radius:4px;}
+    .error-note{background:rgba(192,57,43,0.08);border-left:3px solid var(--danger);padding:8px;margin:8px 0;font-size:0.75rem;border-radius:4px;display:none;}
+    .inline-inputs{display:flex;gap:8px;flex-wrap:wrap;}
+    .inline-inputs > div{flex:1;min-width:130px;}
+    input[type="text"],input[type="number"],textarea,select{width:100%;padding:7px 9px;border-radius:8px;border:1px solid var(--border);font-size:0.9rem;resize:vertical;}
+    input.error,select.error,textarea.error{border-color:var(--danger);background:rgba(192,57,43,0.05);}
+    textarea{min-height:60px;}
+    .hint{font-size:0.8rem;color:var(--text-muted);}
+    .btn{border:none;border-radius:999px;padding:8px 16px;font-size:0.9rem;cursor:pointer;display:inline-flex;align-items:center;gap:6px;}
+    .btn-primary{background:linear-gradient(135deg,var(--primary),var(--primary-dark));color:#fff;box-shadow:0 8px 18px rgba(154,106,255,0.35);}
+    .btn-secondary{background:#f3f3f8;color:#444;border:1px solid #e0e0f2;}
+    .btn:disabled{opacity:.5;cursor:not-allowed;box-shadow:none;}
+    .preview-header{margin-bottom:6px;display:flex;align-items:center;justify-content:space-between;gap:8px;}
+    .preview-header h2{margin:0;font-size:1.02rem;}
+    .preview-box{background:#fdfcff;border-radius:14px;border:1px solid rgba(154,106,255,0.18);padding:10px 12px;font-size:0.82rem;}
+    .preview-box textarea{border-radius:10px;border:1px solid #e2ddff;width:100%;min-height:420px;padding:10px;font-family:monospace;font-size:0.8rem;}
+    .pill{display:inline-flex;padding:3px 7px;border-radius:999px;font-size:0.75rem;background:#f5f5fc;color:#555;margin-right:4px;margin-bottom:4px;}
+    .heredero-card{background:#fff;border-radius:10px;border:1px solid #e2ddff;padding:8px 10px;margin-top:8px;font-size:0.8rem;}
+    .heredero-card-header{display:flex;justify-content:space-between;align-items:center;margin-bottom:6px;}
+    .heredero-card-title{font-weight:600;font-size:0.8rem;}
+    .heredero-remove{border:none;background:transparent;font-size:0.75rem;color:#c0392b;cursor:pointer;}
+    .heredero-grid{display:flex;flex-wrap:wrap;gap:6px;}
+    .heredero-grid > div{flex:1;min-width:130px;}
+    .validation-summary{background:rgba(192,57,43,0.08);border:1px solid var(--danger);border-radius:8px;padding:12px;margin:12px 0;display:none;}
+    .validation-summary h4{margin:0 0 8px;color:var(--danger);font-size:0.9rem;}
+    .validation-summary ul{margin:0;padding-left:18px;font-size:0.8rem;}
+    .pago-box{background:#f0fdf4;border:1.5px solid #16a34a;border-radius:12px;padding:1.2rem 1.4rem;margin:1rem 0;}
+    .pago-box h3{margin:0 0 0.8rem;font-size:1rem;color:#15803d;}
+    .pago-datos{padding-left:1.2rem;margin:0.5rem 0;}
+    .pago-datos li{font-size:0.88rem;margin-bottom:4px;}
+    .modal-backdrop{position:fixed;inset:0;background:rgba(0,0,0,0.45);display:none;align-items:center;justify-content:center;z-index:9999;padding:16px;}
+    .modal{background:#fff;border-radius:16px;padding:24px;max-width:420px;width:100%;box-shadow:0 18px 45px rgba(0,0,0,0.25);}
+    .modal h3{margin:0 0 12px;}
+    .modal p{margin:0 0 16px;font-size:1rem;}
+  </style>
+</head>
+<body>
+<div class="app">
+  <header>
+    <h1><span class="logo">J</span>Testamento Simple · Juristam</h1>
+    <p>Llena el formulario y genera tu <strong>minuta de testamento simple</strong> lista para llevar al notario. Conforme al <strong>Libro III del Código Civil ecuatoriano</strong>.</p>
+    <div class="badge"><span class="badge-dot"></span>Paso 2 · Redacción del testamento simple</div>
+    <div class="steps">
+      <div class="step step-done"><span class="num">✓</span>Diagnóstico</div>
+      <div class="step step-active"><span class="num">2</span>Crear tu minuta</div>
+      <div class="step"><span class="num">3</span>Llevar al notario</div>
+    </div>
+    <div class="nota-notaria">
+      <strong>📋 Importante:</strong> Juristam genera la <strong>minuta de testamento por $25</strong> — ese es el documento que llevas al notario. Los gastos notariales (~$450-$540) los pagas directamente al notario y son completamente aparte.
+      <br/><a href="https://juristam.net/diagnostico-testamento-ecuador.html" style="color:#92400e;font-size:0.82rem;">← Volver al diagnóstico gratuito</a>
+    </div>
+  </header>
+
+  <div id="validationErrors" class="validation-summary">
+    <h4>Errores encontrados:</h4>
+    <ul id="errorList"></ul>
+  </div>
+
+  <div class="grid">
+    <section>
+
+      <div class="card">
+        <h2>1. Datos del testador</h2>
+        <div class="field-group inline-inputs">
+          <div>
+            <label for="tNombre">Nombre completo *</label>
+            <input type="text" id="tNombre" placeholder="Nombres y apellidos" />
+            <small>Tal como constan en tu cédula (Art. 1054 CC).</small>
+          </div>
+          <div>
+            <label for="tCedula">Cédula *</label>
+            <input type="text" id="tCedula" placeholder="Ej. 0912345678" />
+            <small id="cedulaError" class="error-note">Cédula no válida</small>
+          </div>
+        </div>
+        <div class="field-group inline-inputs">
+          <div>
+            <label for="tEstadoCivil">Estado civil *</label>
+            <select id="tEstadoCivil">
+              <option value="">Selecciona</option>
+              <option value="soltero">Soltero/a</option>
+              <option value="casado">Casado/a</option>
+              <option value="union">Unión de hecho</option>
+              <option value="divorciado">Divorciado/a</option>
+              <option value="viudo">Viudo/a</option>
+            </select>
+          </div>
+          <div>
+            <label for="tProfesion">Profesión u ocupación</label>
+            <input type="text" id="tProfesion" placeholder="Ej. comerciante, empleado" />
+          </div>
+        </div>
+        <div class="field-group inline-inputs">
+          <div>
+            <label for="tDomicilio">Domicilio *</label>
+            <input type="text" id="tDomicilio" placeholder="Calle, número, sector" />
+          </div>
+          <div>
+            <label for="tCiudadFirma">Ciudad donde se firmará *</label>
+            <input type="text" id="tCiudadFirma" placeholder="Ej. Guayaquil" />
+          </div>
+        </div>
+        <div class="field-group">
+          <label for="tFechaTexto">Fecha en palabras (opcional)</label>
+          <input type="text" id="tFechaTexto" placeholder="Ej. quince de noviembre de dos mil veinticinco" />
+        </div>
+      </div>
+
+      <div class="card">
+        <h2>2. Cónyuge o pareja</h2>
+        <div class="field-group">
+          <label for="tTieneConyuge">¿Tienes cónyuge o pareja con derecho a heredar? *</label>
+          <select id="tTieneConyuge">
+            <option value="">Selecciona</option>
+            <option value="no">No</option>
+            <option value="si">Sí</option>
+          </select>
+          <small>El cónyuge tiene derecho a porción conyugal (Arts. 1196-1203 CC).</small>
+        </div>
+        <div id="bloqueConyuge" style="display:none;">
+          <div class="field-group inline-inputs">
+            <div>
+              <label for="tNombreConyuge">Nombre del cónyuge *</label>
+              <input type="text" id="tNombreConyuge" placeholder="Nombre y apellidos" />
+            </div>
+            <div>
+              <label for="tCedulaConyuge">Cédula del cónyuge</label>
+              <input type="text" id="tCedulaConyuge" placeholder="Ej. 0912345678" />
+            </div>
+          </div>
+          <div class="field-group">
+            <label for="tRegimenConyugal">Régimen patrimonial *</label>
+            <select id="tRegimenConyugal">
+              <option value="">Selecciona</option>
+              <option value="sociedad">Sociedad conyugal vigente (bienes en común)</option>
+              <option value="separacion">Separación de bienes</option>
+              <option value="no_se">No estoy seguro</option>
+            </select>
+          </div>
+        </div>
+      </div>
+
+      <div class="card">
+        <h2>3. Hijos y legitimarios</h2>
+        <div class="legal-note"><strong>IMPORTANTE:</strong> Los hijos tienen derecho a la mitad de tus bienes (legítimas, Art. 1207 CC).</div>
+        <div class="field-group">
+          <label for="tTieneHijos">¿Tienes hijos o hijas? *</label>
+          <select id="tTieneHijos">
+            <option value="">Selecciona</option>
+            <option value="si">Sí, tengo hijos</option>
+            <option value="no">No tengo hijos</option>
+          </select>
+        </div>
+        <div id="bloqueConHijos" style="display:none;margin-top:10px;">
+          <div class="field-group">
+            <label for="tInfoHijos">Información sobre tus hijos *</label>
+            <textarea id="tInfoHijos" placeholder="Ej. Tengo dos hijos: Juan Pérez (mayor de edad) y Ana Pérez (menor), ambos del matrimonio con María López."></textarea>
+          </div>
+          <div class="field-group">
+            <label for="tUsaCuartaMejoras">¿Usar cuarta de mejoras para favorecer a algún hijo específico?</label>
+            <select id="tUsaCuartaMejoras">
+              <option value="no">No, reparto igual entre todos</option>
+              <option value="si">Sí, quiero usar la cuarta de mejoras</option>
+            </select>
+            <small>Art. 1207 CC: puedes distribuir una cuarta parte adicional entre tus descendientes.</small>
+          </div>
+          <div id="bloqueCuartaMejoras" style="display:none;margin-top:8px;">
+            <textarea id="tCuartaMejoras" placeholder="Ej. Quiero que mi hijo mayor reciba la mitad de la cuarta de mejoras, y mis otros dos hijos reciban un cuarto cada uno."></textarea>
+          </div>
+        </div>
+        <div id="bloqueSinHijos" style="display:none;margin-top:10px;">
+          <div class="field-group">
+            <label for="tIncluirPadres">¿Tus padres están vivos y quieres incluirlos?</label>
+            <select id="tIncluirPadres">
+              <option value="no">No, no quiero incluirlos</option>
+              <option value="si_incluir">Sí, incluirlos como herederos</option>
+              <option value="si_excluir">Sí viven pero quiero dejarlos fuera</option>
+            </select>
+            <small>Sin hijos, los padres son legitimarios (Art. 1205 CC) con derecho a la mitad de tus bienes.</small>
+          </div>
+        </div>
+      </div>
+
+      <div class="card">
+        <h2>4. Herederos</h2>
+        <div class="field-group">
+          <label>Personas que quieres incluir como herederos *</label>
+          <small>Agrega a todas las personas. Los legitimarios tienen derechos reservados por ley.</small>
+          <div id="herederosContainer"></div>
+          <div class="field-group" style="margin-top:10px;">
+            <div class="inline-inputs">
+              <div><label>Total asignado:</label><input type="text" id="totalPorcentaje" readonly value="0%" style="background:#f0f0f0;font-weight:bold;" /></div>
+              <div><label>Disponible:</label><input type="text" id="porcentajeDisponible" readonly value="100%" style="background:#e8f5e8;font-weight:bold;color:var(--success);" /></div>
+            </div>
+          </div>
+          <button type="button" id="btnAgregarHeredero" class="btn btn-secondary" style="margin-top:8px;">+ Agregar heredero</button>
+        </div>
+      </div>
+
+      <div class="card">
+        <h2>5. Bienes</h2>
+        <div class="field-group">
+          <label for="tBienes">Tus bienes principales *</label>
+          <textarea id="tBienes" placeholder="Ej. Una casa en calle X, un vehículo marca Y, cuentas bancarias en banco Z, etc."></textarea>
+          <small>Descríbelos de forma identificable. La lista es referencial.</small>
+        </div>
+        <div class="field-group">
+          <label for="tClasificacionBienes">Clasificación de bienes *</label>
+          <select id="tClasificacionBienes">
+            <option value="">Selecciona</option>
+            <option value="solo_mios">Todos son de mi propiedad exclusiva</option>
+            <option value="con_sociedad">Algunos son de sociedad conyugal</option>
+            <option value="mixtos">Hay bienes propios y gananciales</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="card">
+        <h2>6. Cómo repartir tu herencia</h2>
+        <div class="field-group">
+          <label for="tFormaReparto">¿Cómo quieres repartir? *</label>
+          <textarea id="tFormaReparto" placeholder="Ej. Que todos mis bienes se repartan por partes iguales entre mis hijos, respetando las porciones legales del cónyuge."></textarea>
+          <small>Siempre se respetarán las legítimas y la porción conyugal (Libro III CC).</small>
+        </div>
+        <div class="field-group">
+          <label for="tLegados">Legados específicos (opcional)</label>
+          <textarea id="tLegados" placeholder="Ej. Dejo a mi hijo Juan el vehículo marca X; a mi hija Ana la casa ubicada en..."></textarea>
+        </div>
+      </div>
+
+      <div class="card">
+        <h2>7. Albacea y disposiciones finales</h2>
+        <div class="field-group inline-inputs">
+          <div>
+            <label for="tAlbaceaNombre">Albacea (opcional)</label>
+            <input type="text" id="tAlbaceaNombre" placeholder="Nombre completo" />
+          </div>
+          <div>
+            <label for="tAlbaceaCedula">Cédula del albacea</label>
+            <input type="text" id="tAlbaceaCedula" placeholder="Ej. 0912345678" />
+          </div>
+        </div>
+        <div class="field-group">
+          <label for="tDeudas">Deudas o cargas (opcional)</label>
+          <textarea id="tDeudas" placeholder="Ej. Reconozco un crédito con el Banco X que deberá pagarse con cargo a mi herencia."></textarea>
+        </div>
+        <div class="field-group">
+          <label for="tClausulasEspeciales">Cláusulas especiales (opcional)</label>
+          <textarea id="tClausulasEspeciales" placeholder="Ej. Encargo a mi albacea que vele porque se respeten las decisiones aquí tomadas..."></textarea>
+        </div>
+        <div class="field-group">
+          <label for="tTuvoTestamentoPrevio">¿Ya hiciste antes un testamento?</label>
+          <select id="tTuvoTestamentoPrevio">
+            <option value="no">No, nunca hice testamento</option>
+            <option value="si">Sí, quiero que este revoque al anterior (Art. 1235)</option>
+          </select>
+        </div>
+        <div class="success-note" id="validationSuccess" style="display:none;">✅ Datos validados. Puedes generar la minuta.</div>
+        <button id="btnValidar" class="btn btn-secondary" type="button" style="margin-right:8px;">Validar datos</button>
+        <button id="btnGenerar" class="btn btn-primary" type="button" disabled>Generar minuta · $25</button>
+        <p class="hint" style="margin-top:6px;">Al generar aparecerán los datos de pago. Los gastos notariales (~$450-$540) son aparte y se pagan directamente al notario.</p>
+      </div>
+
+      <div id="seccionPago" class="card" style="display:none;">
+        <h2>✅ Minuta generada — Procede con el pago</h2>
+        <p class="hint" style="margin-bottom:0.8rem;">Tu minuta está lista en la vista previa. Para recibirla por WhatsApp y correo realiza la transferencia y envía el comprobante:</p>
+        <div class="pago-box">
+          <h3>Datos para la transferencia</h3>
+          <ul class="pago-datos">
+            <li>🏦 <strong>Banco:</strong> Banco Pichincha</li>
+            <li>💳 <strong>Tipo de cuenta:</strong> Ahorros</li>
+            <li>🔢 <strong>N.° de cuenta:</strong> 2208128370</li>
+            <li>👤 <strong>Titular:</strong> Noemí Jiménez</li>
+            <li>🪪 <strong>C.I.:</strong> 0929476489</li>
+          </ul>
+        </div>
+        <div class="legal-note" style="margin-bottom:1rem;">
+          <strong>Precios — solo por la minuta:</strong> Minuta simple $25 · Con acompañamiento de abogado $90<br/>
+          <strong>⚠️ Los gastos notariales (~$450-$540) los pagas directamente al notario — son completamente aparte.</strong>
+        </div>
+        <form id="formPago" method="POST" enctype="multipart/form-data">
+          <input type="hidden" name="_subject" value="Pago Testamento Simple - Juristam" />
+          <input type="hidden" name="_captcha" value="false" />
+          <div class="field-group">
+            <label for="pagoNombre">Nombre completo *</label>
+            <input type="text" id="pagoNombre" name="nombre" required />
+          </div>
+          <div class="field-group inline-inputs">
+            <div><label for="pagoWhatsapp">WhatsApp *</label><input type="text" id="pagoWhatsapp" name="whatsapp" placeholder="09XXXXXXXX" required /></div>
+            <div><label for="pagoEmail">Correo electrónico *</label><input type="text" id="pagoEmail" name="correo" placeholder="usuario@correo.com" required /></div>
+          </div>
+          <div class="field-group">
+            <label>Plan que escoges</label>
+            <div style="display:flex;flex-wrap:wrap;gap:8px;margin-top:6px;">
+              <label style="display:flex;align-items:center;gap:8px;padding:10px 14px;border:1px solid var(--border);border-radius:10px;cursor:pointer;flex:1;min-width:180px;background:#fff;">
+                <input type="radio" name="plan" value="simple_minuta" checked /> Solo minuta · <strong>$25</strong>
+              </label>
+              <label style="display:flex;align-items:center;gap:8px;padding:10px 14px;border:1px solid var(--border);border-radius:10px;cursor:pointer;flex:1;min-width:180px;background:#fff;">
+                <input type="radio" name="plan" value="simple_completo" /> Minuta + abogado · <strong>$90</strong>
+              </label>
+            </div>
+          </div>
+          <div class="field-group">
+            <label for="montoPagado">Monto transferido (US$) *</label>
+            <input type="number" id="montoPagado" name="monto" step="0.01" required />
+          </div>
+          <div class="field-group">
+            <label for="comprobante">Foto del comprobante *</label>
+            <input type="file" id="comprobante" name="comprobante" accept="image/*,application/pdf" required />
+          </div>
+          <p class="hint">Un abogado de Juristam verificará tu pago y te enviará la minuta por WhatsApp o correo.</p>
+          <button type="submit" class="btn btn-primary">Enviar comprobante a Juristam</button>
+        </form>
+      </div>
+
+    </section>
+
+    <aside>
+      <div class="preview-header">
+        <h2>Vista previa de la minuta</h2>
+        <span class="pill">Testamento abierto · Ecuador</span>
+      </div>
+      <div class="preview-box">
+        <textarea id="minutaPreview" readonly placeholder="Aquí aparecerá tu minuta de testamento simple. Completa el formulario y haz clic en Generar minuta."></textarea>
+        <p class="hint" style="margin-top:6px;">Este documento debe ser revisado por un abogado antes de firmar ante notario.</p>
+        <button id="btnExportar" class="btn btn-secondary" type="button" style="margin-top:8px;display:none;">📥 Descargar minuta (.txt)</button>
+      </div>
+      <div class="card" style="margin-top:16px;">
+        <h3 style="margin:0 0 8px;font-size:0.95rem;">Verificación automática</h3>
+        <ul style="font-size:0.8rem;margin:8px 0;padding-left:18px;">
+          <li>✅ Legítimas respetadas (50% mínimo para hijos, Art. 1207)</li>
+          <li>✅ Porción conyugal considerada (Arts. 1196-1203)</li>
+          <li>✅ Cuarta de mejoras dentro del 25%</li>
+          <li>✅ Suma de porcentajes ≤ 100%</li>
+          <li>✅ Cédulas válidas</li>
+        </ul>
+      </div>
+    </aside>
+  </div>
+</div>
+
+<div class="modal-backdrop" id="modalPagoExito">
+  <div class="modal">
+    <h3>✅ Comprobante recibido</h3>
+    <p>Un abogado de Juristam verificará tu pago y te enviará la minuta completa por WhatsApp o correo electrónico en breve.</p>
+    <button type="button" class="btn btn-secondary" id="cerrarModalPago">Entendido</button>
+  </div>
+</div>
+
+<script>
+  const STORAGE_KEY = 'juristam_simple_v6';
+  const PROVINCIAS = ['01','02','03','04','05','06','07','08','09','10','11','12','13','14','15','16','17','18','19','20','21','22','23','24'];
+
+  function validarCedula(c) {
+    if (!c || c.length !== 10 || !/^\d+$/.test(c)) return false;
+    if (!PROVINCIAS.includes(c.substring(0,2))) return false;
+    if (parseInt(c[2]) > 6) return false;
+    const d = c.split('').map(Number);
+    let s = 0;
+    for (let i = 0; i < 9; i++) { let x = d[i]; if (i%2===0){x*=2; if(x>9)x-=9;} s+=x; }
+    return (Math.ceil(s/10)*10-s)%10 === d[9];
+  }
+
+  function actualizarPct() {
+    let t = 0;
+    document.querySelectorAll('[id^="herederoPorcentaje_"]').forEach(el => { t += parseFloat(el.value)||0; });
+    const te = document.getElementById('totalPorcentaje');
+    const de = document.getElementById('porcentajeDisponible');
+    if (te) { te.value = t.toFixed(2)+'%'; te.style.background = t>100?'#ffe6e6':'#f0f0f0'; }
+    if (de) { de.value = Math.max(0,100-t).toFixed(2)+'%'; de.style.background = t>100?'#ffe6e6':'#e8f5e8'; }
+    return t <= 100.01;
+  }
+
+  function actualizarBloques() {
+    const cv = document.getElementById('tTieneConyuge').value;
+    document.getElementById('bloqueConyuge').style.display = cv==='si'?'block':'none';
+    const hv = document.getElementById('tTieneHijos').value;
+    document.getElementById('bloqueConHijos').style.display = hv==='si'?'block':'none';
+    document.getElementById('bloqueSinHijos').style.display = hv==='no'?'block':'none';
+    const qv = document.getElementById('tUsaCuartaMejoras').value;
+    document.getElementById('bloqueCuartaMejoras').style.display = qv==='si'?'block':'none';
+  }
+
+  let cnt = 0;
+  function crearHeredero(data) {
+    cnt++;
+    const c = document.getElementById('herederosContainer');
+    const idx = cnt;
+    const d = document.createElement('div');
+    d.className = 'heredero-card'; d.setAttribute('data-idx', idx);
+    d.innerHTML = `<div class="heredero-card-header"><span class="heredero-card-title">Heredero ${idx}</span><button type="button" class="heredero-remove" data-remove="${idx}">Eliminar</button></div>
+      <div class="heredero-grid">
+        <div><label style="font-size:0.75rem;font-weight:600;">Nombre completo *</label><input type="text" id="herederoNombre_${idx}" placeholder="Ej. Juan Pérez" /></div>
+        <div><label style="font-size:0.75rem;font-weight:600;">Cédula</label><input type="text" id="herederoCedula_${idx}" placeholder="Ej. 0912345678" /></div>
+      </div>
+      <div class="heredero-grid" style="margin-top:6px;">
+        <div><label style="font-size:0.75rem;font-weight:600;">Tipo *</label>
+          <select id="herederoTipo_${idx}">
+            <option value="">Selecciona</option>
+            <option value="legitimario_hijo">Hijo/a — Art. 1205</option>
+            <option value="legitimario_conyuge">Cónyuge — Art. 1196</option>
+            <option value="legitimario_padre">Padre/madre — Art. 1205</option>
+            <option value="beneficiario">Otro beneficiario</option>
+          </select>
+        </div>
+        <div><label style="font-size:0.75rem;font-weight:600;">Porcentaje %</label><input type="number" id="herederoPorcentaje_${idx}" placeholder="Ej. 25" min="0" max="100" step="0.01" /></div>
+      </div>`;
+    c.appendChild(d);
+    if (data) {
+      if(data.nombre) document.getElementById('herederoNombre_'+idx).value=data.nombre;
+      if(data.cedula) document.getElementById('herederoCedula_'+idx).value=data.cedula;
+      if(data.tipo) document.getElementById('herederoTipo_'+idx).value=data.tipo;
+      if(data.porcentaje) document.getElementById('herederoPorcentaje_'+idx).value=data.porcentaje;
+    }
+    document.getElementById('herederoPorcentaje_'+idx).addEventListener('input', actualizarPct);
+    guardar(); actualizarPct();
+  }
+
+  function leerHerederos() {
+    const lines = [];
+    document.querySelectorAll('.heredero-card').forEach(card => {
+      const idx = card.getAttribute('data-idx');
+      const n = (document.getElementById('herederoNombre_'+idx)||{}).value||'';
+      const c = (document.getElementById('herederoCedula_'+idx)||{}).value||'';
+      const t = (document.getElementById('herederoTipo_'+idx)||{}).value||'';
+      const p = (document.getElementById('herederoPorcentaje_'+idx)||{}).value||'';
+      if (!n.trim()) return;
+      const tm = {legitimario_hijo:'hijo/a (Art. 1205)',legitimario_conyuge:'cónyuge (Art. 1196)',legitimario_padre:'padre/madre (Art. 1205)',beneficiario:'beneficiario/a'};
+      let l = n.trim();
+      if(c) l += ' – C.C. '+c;
+      if(t) l += ' – '+(tm[t]||t);
+      if(p) l += ' – Aprox. '+p+'%';
+      lines.push(l);
+    });
+    return lines.join('\n');
+  }
+
+  function getV(id) { const e=document.getElementById(id); return e?e.value.trim():''; }
+
+  function validar() {
+    const errs = [];
+    const req = [{id:'tNombre',m:'Nombre requerido'},{id:'tEstadoCivil',m:'Estado civil requerido'},{id:'tDomicilio',m:'Domicilio requerido'},{id:'tCiudadFirma',m:'Ciudad requerida'},{id:'tTieneConyuge',m:'Indicar si tiene cónyuge'},{id:'tTieneHijos',m:'Indicar si tiene hijos'},{id:'tBienes',m:'Bienes requeridos'},{id:'tClasificacionBienes',m:'Clasificación requerida'},{id:'tFormaReparto',m:'Forma de reparto requerida'}];
+    req.forEach(r => { const e=document.getElementById(r.id); if(e&&!e.value.trim()){errs.push(r.m);e.classList.add('error');}else if(e)e.classList.remove('error'); });
+    const ced = getV('tCedula');
+    if(!ced){errs.push('Cédula requerida');}else if(!validarCedula(ced)){errs.push('Cédula no válida');document.getElementById('tCedula').classList.add('error');document.getElementById('cedulaError').style.display='block';}
+    else{document.getElementById('cedulaError').style.display='none';}
+    if(document.querySelectorAll('.heredero-card').length===0) errs.push('Agrega al menos un heredero');
+    if(!actualizarPct()) errs.push('Suma de porcentajes excede 100%');
+    return errs;
+  }
+
+  function mostrarErrs(errs) {
+    const div=document.getElementById('validationErrors');
+    const list=document.getElementById('errorList');
+    const btn=document.getElementById('btnGenerar');
+    const ok=document.getElementById('validationSuccess');
+    if(errs.length>0){
+      list.innerHTML=errs.map(e=>'<li>'+e+'</li>').join('');
+      div.style.display='block'; btn.disabled=true; ok.style.display='none';
+      div.scrollIntoView({behavior:'smooth',block:'start'});
+    } else {
+      div.style.display='none'; btn.disabled=false; ok.style.display='block';
+    }
+  }
+
+  function generarMinuta() {
+    const errs = validar();
+    if(errs.length>0){mostrarErrs(errs);return;}
+
+    const nombre=getV('tNombre'), cedula=getV('tCedula');
+    const ecEl=document.getElementById('tEstadoCivil'); const ec=ecEl?ecEl.value:'';
+    const profesion=getV('tProfesion'), domicilio=getV('tDomicilio'), ciudad=getV('tCiudadFirma'), fecha=getV('tFechaTexto');
+    const cvEl=document.getElementById('tTieneConyuge'); const cv=cvEl?cvEl.value:'no';
+    const nconyuge=getV('tNombreConyuge'), cconyuge=getV('tCedulaConyuge');
+    const rcEl=document.getElementById('tRegimenConyugal'); const rc=rcEl?rcEl.value:'';
+    const hjEl=document.getElementById('tTieneHijos'); const hj=hjEl?hjEl.value:'';
+    const infoHijos=getV('tInfoHijos');
+    const ucmEl=document.getElementById('tUsaCuartaMejoras'); const ucm=ucmEl?ucmEl.value:'no';
+    const cuarta=getV('tCuartaMejoras');
+    const ipEl=document.getElementById('tIncluirPadres'); const ip=ipEl?ipEl.value:'';
+    const bienes=getV('tBienes');
+    const cbEl=document.getElementById('tClasificacionBienes'); const cb=cbEl?cbEl.value:'';
+    const reparto=getV('tFormaReparto'), legados=getV('tLegados');
+    const albn=getV('tAlbaceaNombre'), albc=getV('tAlbaceaCedula');
+    const deudas=getV('tDeudas'), clausulas=getV('tClausulasEspeciales');
+    const tpEl=document.getElementById('tTuvoTestamentoPrevio'); const tp=tpEl?tpEl.value:'no';
+    const hTxt=leerHerederos();
+
+    // FIX aplicado: let en lugar de const
+    let txtEC = '';
+    if(ec==='soltero') txtEC='soltero/a';
+    else if(ec==='casado') txtEC='casado/a';
+    else if(ec==='union') txtEC='en unión de hecho';
+    else if(ec==='divorciado') txtEC='divorciado/a';
+    else if(ec==='viudo') txtEC='viudo/a';
+
+    let enc = ciudad ? (fecha ? `En la ciudad de ${ciudad}, a los ${fecha}, comparece ante el Notario/a competente ${nombre}, quien otorga el presente testamento abierto por escritura pública, conforme al Libro III del Código Civil ecuatoriano:` : `En la ciudad de ${ciudad}, comparece ${nombre}, quien otorga el presente testamento abierto por escritura pública.`) : `Comparece ${nombre}, quien otorga el presente testamento abierto por escritura pública.`;
+
+    let m = enc+'\n\n';
+    m += `${nombre}, de nacionalidad ecuatoriana, de estado civil ${txtEC||'____'}, ${profesion?'de profesión u ocupación '+profesion+', ':''}portador(a) de la cédula de ciudadanía N.° ${cedula}, domiciliado(a) en ${domicilio}, en pleno uso de sus facultades mentales y capaz para testar (Arts. 1041-1044 CC). A quien en adelante se le denominará EL TESTADOR.\n\n`;
+
+    if(cv==='si'&&nconyuge){
+      let rTxt='';
+      if(rc==='sociedad') rTxt=', con sociedad conyugal vigente — solo puede heredarse la porción que legalmente corresponde al testador';
+      else if(rc==='separacion') rTxt=', con separación de bienes';
+      m += `PRIMERA.- DECLARACIÓN SOBRE CÓNYUGE: Cónyuge: ${nconyuge}, C.C. ${cconyuge||'____'}${rTxt}. Se reconoce la porción conyugal (Arts. 1196-1203 CC).\n\n`;
+    }
+
+    m += 'SEGUNDA.- LEGITIMARIOS: ';
+    if(hj==='si'&&infoHijos){
+      m += `Hijos (legitimarios, Art. 1205 CC): ${infoHijos}.`;
+      if(ucm==='si'&&cuarta) m += ` Cuarta de mejoras (Art. 1207): ${cuarta}.`;
+      else m += ' Se respetará íntegramente la legítima rigorosa (Art. 1207 CC).';
+    } else if(hj==='no'){
+      m += 'El testador no tiene hijos. ';
+      if(ip==='si_incluir') m += 'Se reconoce a los padres como legitimarios (Art. 1205 CC).';
+      else if(ip==='si_excluir') m += 'Aunque el testador tiene padres vivos, manifiesta su voluntad de no incluirlos.';
+      else m += 'Sin hijos ni padres con derecho sucesorio.';
+    }
+    m += '\n\n';
+
+    m += 'TERCERA.- RESERVA DE LEGÍTIMAS: Se respetarán las legítimas (Art. 1207 CC) — mitad del acervo para legitimarios — sin perjuicio de la porción conyugal (Arts. 1196-1203). Cualquier disposición que contravenga esto será nula en la parte excedente.\n\n';
+
+    if(hTxt) m += `CUARTA.- HEREDEROS INSTITUIDOS:\n${hTxt}\n\n`;
+
+    m += 'QUINTA.- BIENES DEL TESTADOR: ';
+    if(bienes) m += `El testador declara ser propietario de, entre otros: ${bienes}. `;
+    if(cb==='con_sociedad'||cb==='mixtos') m += 'Parte de dichos bienes pertenecen a la sociedad conyugal — solo puede disponerse la porción que legalmente corresponde al testador.';
+    else m += 'Los bienes mencionados son de propiedad exclusiva del testador.';
+    m += '\n\n';
+
+    m += `SEXTA.- FORMA DE REPARTO: ${reparto} La institución de herederos se entiende sin perjuicio de los legados específicos.\n\n`;
+
+    if(legados) m += `SÉPTIMA.- LEGADOS ESPECÍFICOS (Arts. 1132-1162 CC): ${legados}. Se entregarán una vez satisfechas las deudas y respetadas las legítimas.\n\n`;
+
+    m += 'OCTAVA.- DEUDAS Y CARGAS: ';
+    if(deudas) m += deudas+' ';
+    m += 'Todas las obligaciones al momento del fallecimiento se pagarán con cargo a la masa hereditaria (Art. 1370 CC) antes de repartir.\n\n';
+
+    if(albn) m += `NOVENA.- ALBACEA (Arts. 1293-1331 CC): Se designa como albacea a ${albn}, C.C. ${albc||'____'}.\n\n`;
+    if(clausulas) m += `DÉCIMA.- DISPOSICIONES ADICIONALES: ${clausulas}\n\n`;
+    if(tp==='si') m += 'UNDÉCIMA.- REVOCACIÓN EXPRESA: El testador revoca expresamente todos los testamentos anteriores (Arts. 1235-1238 CC).\n\n';
+
+    m += `DISPOSICIÓN FINAL: Este testamento recoge la libre y espontánea voluntad del testador. Solicita se eleve a escritura pública ante Notario/a competente del cantón de ${ciudad}.\n\nEn fe de lo cual firma.\n\n__________________________________\n${nombre}\nC.C. ${cedula}\n\n`;
+    m += `--- Minuta generada por Juristam ---\n`;
+    m += `Precio de la minuta: $25 (solo documento)\n`;
+    m += `Los gastos notariales (~$450-$540) se pagan directamente al notario — son completamente aparte.\n`;
+    m += `Fecha: ${new Date().toLocaleDateString('es-EC',{day:'numeric',month:'long',year:'numeric'})}`;
+
+    const prev=document.getElementById('minutaPreview');
+    if(prev){prev.value=m;prev.scrollTop=0;}
+    document.getElementById('btnExportar').style.display='inline-flex';
+    document.getElementById('seccionPago').style.display='block';
+    document.getElementById('seccionPago').scrollIntoView({behavior:'smooth',block:'start'});
+    guardar();
+  }
+
+  function guardar() {
+    const ids=['tNombre','tCedula','tEstadoCivil','tProfesion','tDomicilio','tCiudadFirma','tFechaTexto','tTieneConyuge','tNombreConyuge','tCedulaConyuge','tRegimenConyugal','tTieneHijos','tInfoHijos','tUsaCuartaMejoras','tCuartaMejoras','tIncluirPadres','tBienes','tClasificacionBienes','tFormaReparto','tLegados','tAlbaceaNombre','tAlbaceaCedula','tDeudas','tClausulasEspeciales','tTuvoTestamentoPrevio'];
+    const st={};
+    ids.forEach(id=>{const e=document.getElementById(id);if(e)st[id]=e.value;});
+    const hh=[];
+    document.querySelectorAll('.heredero-card').forEach(card=>{
+      const idx=card.getAttribute('data-idx');
+      hh.push({nombre:(document.getElementById('herederoNombre_'+idx)||{}).value||'',cedula:(document.getElementById('herederoCedula_'+idx)||{}).value||'',tipo:(document.getElementById('herederoTipo_'+idx)||{}).value||'',porcentaje:(document.getElementById('herederoPorcentaje_'+idx)||{}).value||''});
+    });
+    st.herederos=hh; st.cnt=cnt;
+    try{localStorage.setItem(STORAGE_KEY,JSON.stringify(st));}catch(e){}
+  }
+
+  function cargar() {
+    let st;
+    try{st=JSON.parse(localStorage.getItem(STORAGE_KEY));}catch(e){crearHeredero();return;}
+    if(!st){crearHeredero();return;}
+    Object.keys(st).forEach(k=>{if(k==='herederos'||k==='cnt')return;const e=document.getElementById(k);if(e&&typeof st[k]==='string')e.value=st[k];});
+    document.getElementById('herederosContainer').innerHTML='';
+    cnt=st.cnt||0;
+    if(st.herederos&&st.herederos.length) st.herederos.forEach(h=>crearHeredero(h));
+    else crearHeredero();
+    actualizarBloques(); actualizarPct();
+  }
+
+  document.addEventListener('DOMContentLoaded',()=>{
+    document.getElementById('tTieneConyuge').addEventListener('change',()=>{actualizarBloques();guardar();});
+    document.getElementById('tTieneHijos').addEventListener('change',()=>{actualizarBloques();guardar();});
+    document.getElementById('tUsaCuartaMejoras').addEventListener('change',()=>{actualizarBloques();guardar();});
+    document.getElementById('btnValidar').addEventListener('click',()=>mostrarErrs(validar()));
+    document.getElementById('btnGenerar').addEventListener('click',generarMinuta);
+    document.getElementById('btnAgregarHeredero').addEventListener('click',()=>crearHeredero());
+    document.getElementById('herederosContainer').addEventListener('click',e=>{
+      if(e.target.classList.contains('heredero-remove')){
+        const idx=e.target.getAttribute('data-remove');
+        const card=document.querySelector('.heredero-card[data-idx="'+idx+'"]');
+        if(card){card.remove();guardar();actualizarPct();}
+      }
+    });
+    document.getElementById('tCedula').addEventListener('blur',function(){
+      if(this.value&&!validarCedula(this.value)){this.classList.add('error');document.getElementById('cedulaError').style.display='block';}
+      else{this.classList.remove('error');document.getElementById('cedulaError').style.display='none';}
+    });
+    document.getElementById('btnExportar').addEventListener('click',()=>{
+      const v=document.getElementById('minutaPreview').value;
+      if(!v)return;
+      const a=document.createElement('a');
+      a.href=URL.createObjectURL(new Blob([v],{type:'text/plain'}));
+      a.download='testamento-simple-'+(getV('tNombre')||'testador')+'.txt';
+      a.click();
+    });
+    const formPago=document.getElementById('formPago');
+    formPago.addEventListener('submit',e=>{
+      e.preventDefault();
+      const btn=formPago.querySelector('button[type="submit"]');
+      btn.disabled=true; btn.textContent='Enviando...';
+      const fd=new FormData(formPago);
+      fetch('https://formsubmit.co/ajax/juristam.ec@gmail.com',{method:'POST',body:fd,headers:{Accept:'application/json'}})
+        .then(r=>r.ok?r.json():Promise.reject())
+        .then(()=>{document.getElementById('modalPagoExito').style.display='flex';formPago.reset();btn.disabled=false;btn.textContent='Enviar comprobante a Juristam';})
+        .catch(()=>{alert('Problema al enviar. Intenta nuevamente o escríbenos a WhatsApp.');btn.disabled=false;btn.textContent='Enviar comprobante a Juristam';});
+    });
+    document.querySelectorAll('input[name="plan"]').forEach(r=>r.addEventListener('change',()=>{
+      const m=document.getElementById('montoPagado');
+      if(!m)return;
+      if(r.value==='simple_minuta')m.value='25';
+      else if(r.value==='simple_completo')m.value='90';
+    }));
+    document.getElementById('cerrarModalPago').addEventListener('click',()=>{document.getElementById('modalPagoExito').style.display='none';});
+    document.querySelectorAll('input,textarea,select').forEach(el=>{el.addEventListener('input',guardar);el.addEventListener('change',guardar);});
+    setInterval(()=>{if(validar().length===0)document.getElementById('btnGenerar').disabled=false;},3000);
+    cargar();
+  });
+</script>
+</body>
+</html>

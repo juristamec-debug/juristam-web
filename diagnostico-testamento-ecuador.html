@@ -1,0 +1,477 @@
+<!DOCTYPE html>
+<html lang="es-EC">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0" />
+  <title>Diagnóstico de Testamento Ecuador · Juristam</title>
+  <meta name="description" content="Descubre en minutos si necesitas un testamento simple o complejo en Ecuador. Diagnóstico gratuito según el Libro III del Código Civil ecuatoriano." />
+  <link rel="canonical" href="https://juristam.net/diagnostico-testamento-ecuador.html" />
+  <link rel="icon" type="image/png" href="https://i.postimg.cc/KjDB1NSM/Diseno-sin-titulo-(7).png" />
+  <style>
+    :root {
+      --primary: #9a6aff;
+      --primary-dark: #7b52cc;
+      --text-main: #222;
+      --text-muted: #666;
+      --border: #ddd;
+      --simple: #1e824c;
+      --complejo: #c47a11;
+      --critico: #c0392b;
+      --step-done: #9a6aff33;
+    }
+    * { box-sizing: border-box; font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; }
+    html { scroll-behavior: smooth; height: 100%; }
+    body { margin: 0; padding: 0; min-height: 100%; background: radial-gradient(circle at top left, #fefbff, #ece9ff); color: var(--text-main); overflow-x: hidden; line-height: 1.5; }
+    .app { max-width: 100%; margin: 0 auto; padding: clamp(12px,3vw,24px); background: #fff; min-height: 100vh; }
+    @media(min-width:768px){ .app { max-width:960px; margin:24px auto; border-radius:18px; box-shadow:0 18px 45px rgba(0,0,0,0.08); border:1px solid rgba(154,106,255,0.18); padding:24px; } }
+    header { margin-bottom: clamp(16px,3vw,24px); border-bottom: 1px solid #eee; padding-bottom: clamp(12px,2vw,16px); }
+    header h1 { margin: 0 0 clamp(8px,1.5vw,12px); font-size: clamp(1.25rem,4vw,1.5rem); display: flex; align-items: center; gap: clamp(6px,1vw,10px); flex-wrap: wrap; }
+    header h1 span.logo { display:inline-flex; width:clamp(28px,6vw,32px); height:clamp(28px,6vw,32px); border-radius:8px; background:linear-gradient(135deg,var(--primary),var(--primary-dark)); color:#fff; align-items:center; justify-content:center; font-weight:700; font-size:clamp(0.85rem,2vw,0.95rem); flex-shrink:0; }
+    header p { margin: 0 0 clamp(10px,2vw,12px); font-size: clamp(0.85rem,2vw,0.95rem); color: var(--text-muted); line-height: 1.5; }
+    .badge { display:inline-flex; align-items:center; gap:6px; padding:clamp(6px,1vw,8px) clamp(10px,2vw,14px); border-radius:999px; background:rgba(154,106,255,0.08); color:var(--primary-dark); font-size:clamp(0.75rem,2vw,0.85rem); margin-top:6px; }
+    .badge-dot { width:7px; height:7px; border-radius:50%; background:var(--primary); flex-shrink:0; }
+    .steps { display:flex; flex-wrap:wrap; gap:clamp(6px,1vw,8px); margin-top:clamp(12px,2vw,16px); margin-bottom:4px; }
+    .step { flex:1; min-width:100px; padding:clamp(8px,1vw,10px) clamp(10px,2vw,14px); border-radius:999px; border:1px solid #e2ddff; font-size:clamp(0.75rem,2vw,0.85rem); color:var(--text-muted); display:flex; align-items:center; gap:clamp(6px,1vw,8px); background:#faf9ff; justify-content:center; }
+    .step span.num { display:inline-flex; width:clamp(18px,4vw,22px); height:clamp(18px,4vw,22px); border-radius:999px; align-items:center; justify-content:center; font-size:clamp(0.7rem,2vw,0.8rem); border:1px solid #d0c7ff; flex-shrink:0; }
+    .step-active { border-color:var(--primary); color:var(--primary-dark); background:rgba(154,106,255,0.08); }
+    .step-active span.num { background:var(--primary); color:#fff; border-color:var(--primary); }
+    .step-done { background:var(--step-done); border-color:rgba(154,106,255,0.5); }
+    .grid { display:grid; grid-template-columns:1fr; gap:clamp(16px,3vw,24px); }
+    @media(min-width:900px){ .grid { grid-template-columns:minmax(0,1.7fr) minmax(0,1.1fr); gap:20px; } }
+    .card { background:#faf9ff; border-radius:clamp(12px,2vw,16px); padding:clamp(16px,3vw,20px); border:1px solid rgba(154,106,255,0.15); margin-bottom:clamp(14px,2vw,18px); }
+    .card h2 { margin:0 0 clamp(10px,2vw,12px); font-size:clamp(1rem,3vw,1.15rem); }
+    .field-group { margin-bottom:clamp(14px,2vw,18px); }
+    .field-group label { display:block; font-size:clamp(0.85rem,2vw,0.95rem); font-weight:600; margin-bottom:6px; color:var(--text-main); }
+    .field-group small { display:block; font-size:clamp(0.75rem,2vw,0.85rem); color:var(--text-muted); margin-top:4px; line-height:1.4; }
+    .radio-row { display:flex; flex-wrap:wrap; gap:clamp(8px,1.5vw,10px); margin-top:6px; }
+    .radio-chip { display:inline-flex; align-items:center; gap:clamp(5px,1vw,8px); padding:clamp(8px,1.5vw,10px) clamp(12px,2vw,16px); border-radius:999px; border:1px solid var(--border); background:#fff; font-size:clamp(0.8rem,2vw,0.9rem); cursor:pointer; flex:1; min-width:140px; }
+    .radio-chip input { margin:0; width:18px; height:18px; flex-shrink:0; }
+    .inline-inputs { display:flex; flex-wrap:wrap; gap:clamp(10px,2vw,14px); }
+    input[type="text"],input[type="number"],input[type="tel"],input[type="email"] { width:100%; padding:clamp(10px,2vw,12px) clamp(12px,2vw,16px); border-radius:10px; border:1px solid var(--border); font-size:clamp(0.9rem,2vw,1rem); transition:border-color 0.3s ease; }
+    input:focus { outline:none; border-color:var(--primary); box-shadow:0 0 0 3px rgba(154,106,255,0.1); }
+    .inline-inputs > div { flex:1; min-width:200px; }
+    .hint { font-size:clamp(0.8rem,2vw,0.9rem); color:var(--text-muted); line-height:1.5; }
+    .btn { border:none; border-radius:999px; padding:clamp(10px,2vw,12px) clamp(16px,3vw,24px); font-size:clamp(0.9rem,2vw,1rem); cursor:pointer; display:inline-flex; align-items:center; justify-content:center; gap:8px; transition:all 0.3s ease; font-weight:500; min-height:48px; }
+    .btn-primary { background:linear-gradient(135deg,var(--primary),var(--primary-dark)); color:#fff; box-shadow:0 8px 18px rgba(154,106,255,0.35); }
+    .btn-primary:hover { transform:translateY(-2px); box-shadow:0 12px 24px rgba(154,106,255,0.4); }
+    .btn-secondary { background:#f3f3f8; color:#444; border:1px solid #e0e0f2; }
+    .btn-ghost { background:transparent; color:var(--text-muted); padding-left:0; }
+    .btn-ghost:hover { color:var(--primary); }
+    .result-box { background:#fdfcff; border-radius:clamp(12px,2vw,16px); padding:clamp(16px,3vw,20px); border:1px solid rgba(154,106,255,0.18); font-size:clamp(0.9rem,2vw,1rem); min-height:150px; }
+    .result-title { font-weight:700; margin-bottom:clamp(10px,2vw,12px); display:flex; align-items:center; gap:10px; flex-wrap:wrap; font-size:clamp(1rem,3vw,1.2rem); }
+    .tag { display:inline-flex; padding:clamp(5px,1vw,8px) clamp(10px,2vw,14px); border-radius:999px; font-size:clamp(0.75rem,2vw,0.85rem); color:#fff; font-weight:600; align-items:center; gap:6px; }
+    .tag-simple { background:var(--simple); }
+    .tag-complejo { background:var(--complejo); }
+    .tag-critico { background:var(--critico); }
+    .pill { display:inline-flex; padding:clamp(5px,1vw,8px) clamp(10px,2vw,14px); border-radius:999px; font-size:clamp(0.75rem,2vw,0.85rem); background:#f5f5fc; color:#555; margin:0 8px 8px 0; border:1px solid #eee; }
+    ul { margin:clamp(10px,2vw,12px) 0; padding-left:20px; font-size:clamp(0.85rem,2vw,0.95rem); }
+    ul li { margin-bottom:6px; }
+    .price-box { margin-top:clamp(16px,3vw,20px); padding-top:clamp(12px,2vw,16px); border-top:2px dashed #e0def5; font-size:clamp(0.9rem,2vw,1rem); }
+    .price-title { font-weight:700; margin-bottom:clamp(10px,2vw,12px); font-size:clamp(1rem,3vw,1.2rem); }
+    .price-row { margin-bottom:clamp(8px,1.5vw,10px); display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; }
+    .price-amount { color:var(--simple); font-weight:700; font-size:clamp(1rem,3vw,1.2rem); }
+    .mini-note { font-size:clamp(0.75rem,2vw,0.85rem); color:var(--text-muted); margin-top:8px; line-height:1.4; }
+    .faq-list { font-size:clamp(0.8rem,2vw,0.9rem); padding-left:18px; margin:clamp(8px,2vw,12px) 0 0 0; }
+    .nota-notaria { background:#fff8e1; border-left:4px solid #f59e0b; border-radius:0 10px 10px 0; padding:1rem 1.2rem; margin-top:1rem; font-size:clamp(0.8rem,2vw,0.88rem); color:#78350f; line-height:1.6; }
+    .nota-notaria strong { color:#92400e; }
+    .btn-cta-herramienta { display:inline-flex; align-items:center; justify-content:center; gap:8px; background:linear-gradient(135deg,var(--primary),var(--primary-dark)); color:#fff; border:none; border-radius:999px; padding:clamp(10px,2vw,14px) clamp(20px,4vw,32px); font-size:clamp(0.95rem,2vw,1.05rem); font-weight:700; cursor:pointer; box-shadow:0 8px 18px rgba(154,106,255,0.35); text-decoration:none; margin-top:1rem; transition:all 0.3s ease; }
+    .btn-cta-herramienta:hover { transform:translateY(-2px); box-shadow:0 12px 24px rgba(154,106,255,0.4); }
+    @media(max-width:600px){ h1{font-size:1.7rem;} .radio-chip{min-width:calc(50% - 8px);} .btn{width:100%;} .btn-cta-herramienta{width:100%;} }
+  </style>
+</head>
+<body>
+<div class="app">
+  <header>
+    <h1>
+      <span class="logo">J</span>
+      Diagnóstico de Testamento · Juristam
+    </h1>
+    <p>Contesta unas preguntas sencillas y la herramienta clasificará tu caso como <strong>testamento simple</strong> o <strong>testamento complejo</strong> según el <strong>Libro III del Código Civil ecuatoriano</strong>. El diagnóstico es <strong>completamente gratuito</strong>.</p>
+    <div class="badge"><span class="badge-dot"></span>Diagnóstico gratuito · Lenguaje claro · Sin registro</div>
+    <div class="steps">
+      <div class="step step-active" data-step="1"><span class="num">1</span>Diagnóstico gratuito</div>
+      <div class="step" data-step="2"><span class="num">2</span>Crear tu minuta</div>
+      <div class="step" data-step="3"><span class="num">3</span>Llevar al notario</div>
+    </div>
+  </header>
+
+  <div class="grid">
+    <section>
+      <div class="card">
+        <h2>1. Datos rápidos</h2>
+        <div class="field-group inline-inputs">
+          <div>
+            <label for="nombre">Tu nombre</label>
+            <input type="text" id="nombre" placeholder="Nombre y apellidos" />
+          </div>
+          <div>
+            <label for="ciudad">Ciudad</label>
+            <input type="text" id="ciudad" placeholder="Ej. Guayaquil" />
+          </div>
+        </div>
+        <div class="field-group">
+          <label>¿Eres mayor de 18 años y estás en pleno uso de tus facultades mentales?</label>
+          <div class="radio-row">
+            <label class="radio-chip"><input type="radio" name="capacidad" value="si" checked /> Sí</label>
+            <label class="radio-chip"><input type="radio" name="capacidad" value="duda" /> Tengo dudas</label>
+            <label class="radio-chip"><input type="radio" name="capacidad" value="no" /> No / discapacidad mental declarada</label>
+          </div>
+          <small>Si tienes dudas sobre la capacidad del testador, márcalo — el caso requiere revisión especial.</small>
+        </div>
+      </div>
+
+      <div class="card">
+        <h2>2. Situación familiar</h2>
+        <div class="field-group">
+          <label>¿Tienes hijos o hijas? (biológicos o adoptados)</label>
+          <div class="radio-row">
+            <label class="radio-chip"><input type="radio" name="hijos" value="no" checked /> No</label>
+            <label class="radio-chip"><input type="radio" name="hijos" value="si" /> Sí</label>
+          </div>
+        </div>
+        <div id="grupoHijosDet" style="display:none;">
+          <div class="field-group">
+            <label>¿Tus hijos son todos de la misma pareja?</label>
+            <div class="radio-row">
+              <label class="radio-chip"><input type="radio" name="hijosParejas" value="una" checked /> Sí, de una sola pareja</label>
+              <label class="radio-chip"><input type="radio" name="hijosParejas" value="varias" /> No, de varias parejas</label>
+            </div>
+          </div>
+          <div class="field-group">
+            <label>¿Quieres dejar sin herencia o con menos parte a algún hijo?</label>
+            <div class="radio-row">
+              <label class="radio-chip"><input type="radio" name="desheredar" value="no" checked /> No, todos por igual</label>
+              <label class="radio-chip"><input type="radio" name="desheredar" value="si" /> Sí, quiero cambiar la parte de alguien</label>
+            </div>
+            <small>Solo es posible en casos muy específicos del Art. 1231 del Código Civil.</small>
+          </div>
+        </div>
+        <div id="grupoPadresDet" style="display:none;">
+          <div class="field-group">
+            <label>¿Tus padres viven y quieres que reciban parte de tu herencia?</label>
+            <div class="radio-row">
+              <label class="radio-chip"><input type="radio" name="padresVivos" value="no" checked /> Mis padres no viven</label>
+              <label class="radio-chip"><input type="radio" name="padresVivos" value="si_incluir" /> Sí viven y quiero incluirlos</label>
+              <label class="radio-chip"><input type="radio" name="padresVivos" value="si_excluir" /> Sí viven pero quiero dejarlos fuera</label>
+            </div>
+          </div>
+        </div>
+        <div class="field-group">
+          <label>Estado civil actual</label>
+          <div class="radio-row">
+            <label class="radio-chip"><input type="radio" name="estadoCivil" value="soltero" checked /> Soltero/a</label>
+            <label class="radio-chip"><input type="radio" name="estadoCivil" value="casado" /> Casado/a</label>
+            <label class="radio-chip"><input type="radio" name="estadoCivil" value="union" /> Unión de hecho</label>
+            <label class="radio-chip"><input type="radio" name="estadoCivil" value="otro" /> Otro</label>
+          </div>
+        </div>
+      </div>
+
+      <div class="card">
+        <h2>3. Bienes y patrimonio</h2>
+        <div class="field-group">
+          <label>¿Tienes bienes en el extranjero?</label>
+          <div class="radio-row">
+            <label class="radio-chip"><input type="radio" name="bienesExterior" value="no" checked /> No</label>
+            <label class="radio-chip"><input type="radio" name="bienesExterior" value="si" /> Sí</label>
+          </div>
+        </div>
+        <div class="field-group">
+          <label>¿Tienes negocios, empresas o participaciones en compañías?</label>
+          <div class="radio-row">
+            <label class="radio-chip"><input type="radio" name="empresas" value="no" checked /> No</label>
+            <label class="radio-chip"><input type="radio" name="empresas" value="si" /> Sí</label>
+          </div>
+        </div>
+        <div class="field-group">
+          <label>¿Tu patrimonio es sencillo o variado?</label>
+          <div class="radio-row">
+            <label class="radio-chip"><input type="radio" name="complejidadBienes" value="sencillo" checked /> Sencillo (1-2 inmuebles, cuentas)</label>
+            <label class="radio-chip"><input type="radio" name="complejidadBienes" value="variado" /> Variado / muchos bienes distintos</label>
+          </div>
+        </div>
+        <div class="field-group">
+          <label>Los bienes que quieres incluir en el testamento:</label>
+          <div class="radio-row">
+            <label class="radio-chip"><input type="radio" name="regimenBienes" value="solo_mios" checked /> Son solo míos</label>
+            <label class="radio-chip"><input type="radio" name="regimenBienes" value="mixtos" /> Hay bienes comprados con mi pareja</label>
+          </div>
+        </div>
+      </div>
+
+      <div class="card">
+        <h2>4. Reglas especiales</h2>
+        <div class="field-group">
+          <label>¿Quieres poner condiciones especiales sobre cómo se reparte tu herencia?</label>
+          <small>Por ejemplo: que alguien use una casa mientras viva pero luego pase a tus hijos; que un nieto reciba su parte solo cuando cumpla cierta edad.</small>
+          <div class="radio-row">
+            <label class="radio-chip"><input type="radio" name="reglasEspeciales" value="no" checked /> No, algo simple y directo</label>
+            <label class="radio-chip"><input type="radio" name="reglasEspeciales" value="si" /> Sí, quiero reglas especiales</label>
+          </div>
+        </div>
+        <div class="field-group">
+          <label>¿Quieres dejar parte de tu herencia a alguien fuera de tu familia cercana?</label>
+          <small>Por ejemplo: a un amigo, ahijado, iglesia o fundación.</small>
+          <div class="radio-row">
+            <label class="radio-chip"><input type="radio" name="herederosNoFamilia" value="no" checked /> No, solo familia</label>
+            <label class="radio-chip"><input type="radio" name="herederosNoFamilia" value="si" /> Sí, también a otras personas</label>
+          </div>
+        </div>
+        <div class="field-group">
+          <label>¿Ya hiciste antes un testamento que quieras dejar sin efecto?</label>
+          <div class="radio-row">
+            <label class="radio-chip"><input type="radio" name="testamentoPrevio" value="no" checked /> No, nunca hice uno</label>
+            <label class="radio-chip"><input type="radio" name="testamentoPrevio" value="si" /> Sí, ya hice uno antes</label>
+          </div>
+        </div>
+        <div class="field-group">
+          <label>¿Algún juez ha declarado interdicción o discapacidad mental del testador?</label>
+          <div class="radio-row">
+            <label class="radio-chip"><input type="radio" name="incapacidad" value="no" checked /> No</label>
+            <label class="radio-chip"><input type="radio" name="incapacidad" value="si" /> Sí</label>
+          </div>
+        </div>
+      </div>
+
+      <div style="display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px;margin-top:4px;">
+        <button id="btnAnalizar" class="btn btn-primary" type="button">Analizar mi caso gratuitamente</button>
+        <button id="btnLimpiar" class="btn btn-ghost" type="button">Limpiar respuestas</button>
+      </div>
+      <p class="hint" style="margin-top:8px;">Este diagnóstico es gratuito y orientativo. No es un testamento — solo te dice qué herramienta necesitas.</p>
+
+      <div class="nota-notaria" style="margin-top:1.2rem;">
+        <strong>📋 ¿Cómo funciona el proceso completo?</strong><br/>
+        Juristam genera tu <strong>minuta de testamento</strong> — el documento que el notario necesita para redactar la escritura pública. Los gastos notariales (aproximadamente $450-$540) los pagas directamente al notario aparte. Juristam solo cobra por preparar la minuta correctamente.
+      </div>
+    </section>
+
+    <aside>
+      <div class="card" id="resultadoCard">
+        <h2>Resultado del diagnóstico</h2>
+        <div id="resultado" class="result-box">
+          <div class="result-title">Aún no se ha realizado el diagnóstico.</div>
+          <p class="hint">Completa las preguntas y haz clic en <strong>"Analizar mi caso gratuitamente"</strong> para ver si necesitas testamento simple o complejo.</p>
+          <p class="mini-note">Tiempo estimado: 3 a 5 minutos.</p>
+        </div>
+      </div>
+
+      <div class="card">
+        <h2>Criterios que usamos</h2>
+        <p class="hint">La clasificación se basa en:</p>
+        <span class="pill">Capacidad para testar (Arts. 1041-1043 CC)</span>
+        <span class="pill">Hijos y legitimarios (Arts. 1194-1205 CC)</span>
+        <span class="pill">Cuarta de mejoras (Art. 1207 CC)</span>
+        <span class="pill">Porción conyugal (Arts. 1196 y ss.)</span>
+        <span class="pill">Desheredación (Arts. 1230 y ss.)</span>
+        <span class="pill">Bienes en el extranjero / empresas</span>
+        <span class="pill">Revocación de testamentos (Art. 1039)</span>
+        <p class="mini-note">Esta clasificación es un criterio interno de Juristam y no sustituye asesoría jurídica personalizada.</p>
+      </div>
+
+      <div class="card">
+        <h2>Preguntas rápidas</h2>
+        <ul class="faq-list">
+          <li><strong>¿El diagnóstico me obliga a algo?</strong> No, es gratuito y sin compromiso.</li>
+          <li><strong>¿Qué incluye la minuta?</strong> El documento completo listo para llevar al notario.</li>
+          <li><strong>¿Los gastos notariales están incluidos?</strong> No — esos los pagas directamente al notario.</li>
+          <li><strong>¿Puedo cambiar de opinión?</strong> Sí, mientras no firmes ante notario es solo un borrador.</li>
+        </ul>
+      </div>
+    </aside>
+  </div>
+</div>
+
+<script>
+  const STORAGE_KEY = 'juristam_diag_v2';
+
+  function getRadio(name) {
+    const el = document.querySelector('input[name="' + name + '"]:checked');
+    return el ? el.value : null;
+  }
+
+  function saveState() {
+    const data = {
+      nombre: document.getElementById('nombre').value,
+      ciudad: document.getElementById('ciudad').value,
+      capacidad: getRadio('capacidad'),
+      hijos: getRadio('hijos'),
+      hijosParejas: getRadio('hijosParejas'),
+      desheredar: getRadio('desheredar'),
+      padresVivos: getRadio('padresVivos'),
+      estadoCivil: getRadio('estadoCivil'),
+      bienesExterior: getRadio('bienesExterior'),
+      empresas: getRadio('empresas'),
+      complejidadBienes: getRadio('complejidadBienes'),
+      regimenBienes: getRadio('regimenBienes'),
+      reglasEspeciales: getRadio('reglasEspeciales'),
+      herederosNoFamilia: getRadio('herederosNoFamilia'),
+      testamentoPrevio: getRadio('testamentoPrevio'),
+      incapacidad: getRadio('incapacidad')
+    };
+    try { localStorage.setItem(STORAGE_KEY, JSON.stringify(data)); } catch(e){}
+  }
+
+  function loadState() {
+    let data;
+    try { data = JSON.parse(localStorage.getItem(STORAGE_KEY)); } catch(e){ return; }
+    if (!data) return;
+    if (data.nombre) document.getElementById('nombre').value = data.nombre;
+    if (data.ciudad) document.getElementById('ciudad').value = data.ciudad;
+    function restoreRadio(name, value) {
+      if (!value) return;
+      const r = document.querySelector('input[name="' + name + '"][value="' + value + '"]');
+      if (r) r.checked = true;
+    }
+    ['capacidad','hijos','hijosParejas','desheredar','padresVivos','estadoCivil',
+     'bienesExterior','empresas','complejidadBienes','regimenBienes',
+     'reglasEspeciales','herederosNoFamilia','testamentoPrevio','incapacidad']
+      .forEach(n => restoreRadio(n, data[n]));
+    const hijosVal = data.hijos || getRadio('hijos');
+    document.getElementById('grupoHijosDet').style.display = hijosVal === 'si' ? 'block' : 'none';
+    document.getElementById('grupoPadresDet').style.display = hijosVal === 'no' ? 'block' : 'none';
+  }
+
+  function analizar() {
+    const nombre = document.getElementById('nombre').value.trim();
+    const ciudad = document.getElementById('ciudad').value.trim();
+    const capacidad = getRadio('capacidad');
+    const hijos = getRadio('hijos');
+    const hijosParejas = getRadio('hijosParejas');
+    const desheredar = getRadio('desheredar');
+    const padresVivos = getRadio('padresVivos');
+    const estadoCivil = getRadio('estadoCivil');
+    const bienesExterior = getRadio('bienesExterior');
+    const empresas = getRadio('empresas');
+    const complejidadBienes = getRadio('complejidadBienes');
+    const regimenBienes = getRadio('regimenBienes');
+    const reglasEspeciales = getRadio('reglasEspeciales');
+    const herederosNoFamilia = getRadio('herederosNoFamilia');
+    const testamentoPrevio = getRadio('testamentoPrevio');
+    const incapacidad = getRadio('incapacidad');
+    const resultadoBox = document.getElementById('resultado');
+
+    // CASO CRÍTICO
+    if (capacidad === 'no' || capacidad === 'duda' || incapacidad === 'si') {
+      resultadoBox.innerHTML = `
+        <div class="result-title"><span class="tag tag-critico">CASO CRÍTICO · CAPACIDAD</span></div>
+        <p>Hay dudas sobre la capacidad del testador. El <strong>Art. 1043 del Código Civil</strong> establece quiénes no son hábiles para testar.</p>
+        <ul>
+          <li>Requiere <strong>revisión jurídica individual</strong> (Art. 1044).</li>
+          <li>Puede exigir <strong>informes médicos actualizados</strong>.</li>
+          <li>El notario puede exigir pruebas de capacidad mental (Art. 1054).</li>
+        </ul>
+        <p class="hint">Contáctanos por WhatsApp para revisar tu caso específico antes de proceder.</p>
+        <a href="https://wa.me/593994859814?text=Hola,%20tengo%20dudas%20sobre%20capacidad%20para%20testar%20en%20Ecuador" class="btn-cta-herramienta">Consultar por WhatsApp</a>`;
+      document.getElementById('resultadoCard').scrollIntoView({behavior:'smooth',block:'start'});
+      return;
+    }
+
+    // PUNTAJE
+    let puntos = 0;
+    if (hijos === 'si' && hijosParejas === 'varias') puntos++;
+    if (hijos === 'si' && desheredar === 'si') puntos += 2;
+    if (hijos === 'no' && padresVivos === 'si_excluir') puntos += 2;
+    if (bienesExterior === 'si') puntos++;
+    if (empresas === 'si') puntos++;
+    if (complejidadBienes === 'variado') puntos++;
+    if (regimenBienes === 'mixtos') puntos++;
+    if (reglasEspeciales === 'si') puntos++;
+    if (herederosNoFamilia === 'si') puntos++;
+    if (testamentoPrevio === 'si') puntos++;
+
+    const tipo = puntos >= 2 ? 'complejo' : 'simple';
+
+    const motivosSimple = [];
+    const motivosComplejo = [];
+
+    if (hijos === 'si') {
+      if (hijosParejas === 'una') motivosSimple.push('Hijos de una sola pareja — reparto más sencillo.');
+      else motivosComplejo.push('Hijos de varias parejas — hay que ordenar bien las proporciones.');
+      if (desheredar === 'si') motivosComplejo.push('Quieres excluir o reducir la parte de un hijo — solo posible en casos específicos del Art. 1231.');
+      else motivosSimple.push('Todos los hijos reciben por igual — simplifica el documento.');
+    } else {
+      if (padresVivos === 'si_incluir') motivosSimple.push('Padres vivos incluidos como herederos conforme al Art. 1030 CC.');
+      else if (padresVivos === 'si_excluir') motivosComplejo.push('Quieres excluir a tus padres — son legitimarios según el Art. 1205 y tienen derecho a la mitad de tus bienes.');
+      else motivosSimple.push('Sin hijos ni padres vivos — mayor libertad de disposición.');
+    }
+    if (estadoCivil === 'casado') motivosComplejo.push('Casado/a — hay que considerar la porción conyugal (Art. 1196 CC).');
+    if (estadoCivil === 'union') motivosComplejo.push('Unión de hecho — debe estar legalmente reconocida para que tu pareja tenga derechos hereditarios.');
+    if (bienesExterior === 'si') motivosComplejo.push('Bienes en el extranjero — puede requerir coordinar reglas de otros países.');
+    if (empresas === 'si') motivosComplejo.push('Negocios o empresas — requieren redacción más cuidadosa en el testamento.');
+    if (complejidadBienes === 'sencillo') motivosSimple.push('Patrimonio sencillo — facilita la redacción.');
+    else motivosComplejo.push('Patrimonio variado — más bienes distintos que ordenar.');
+    if (regimenBienes === 'mixtos') motivosComplejo.push('Bienes con sociedad conyugal — hay que distinguir qué parte es tuya.');
+    if (reglasEspeciales === 'si') motivosComplejo.push('Reglas especiales (condiciones, plazos, usufructos) — añaden detalle al documento.');
+    if (herederosNoFamilia === 'si') motivosComplejo.push('Herederos fuera de la familia — hay que cuidar que se respeten las legítimas primero.');
+    if (testamentoPrevio === 'si') motivosComplejo.push('Testamento anterior que revocar — debe dejarse sin efecto expresamente (Art. 1235).');
+    else motivosSimple.push('Sin testamento previo — escenario más limpio.');
+
+    const saludo = nombre ? `<p>Según lo que nos contaste, <strong>${nombre}${ciudad ? ' desde ' + ciudad : ''}</strong>:</p>` : '';
+
+    if (tipo === 'simple') {
+      const motivos = [...motivosComplejo, ...motivosSimple];
+      resultadoBox.innerHTML = `
+        <div class="result-title"><span class="tag tag-simple">✓ TESTAMENTO SIMPLE</span></div>
+        ${saludo}
+        <p>Tu caso es <strong>testamento simple</strong>. La situación es clara y sin variables complicadas.</p>
+        ${motivos.length ? '<ul>' + motivos.map(m=>`<li>${m}</li>`).join('') + '</ul>' : ''}
+        ${hijos === 'si' ? '<p class="mini-note" style="color:#c47a11;"><strong>Nota:</strong> Al tener hijos, la ley reserva la mitad de tus bienes para legítimas (Art. 1207) más una cuarta de mejoras que puedes distribuir como prefieras entre tus descendientes.</p>' : ''}
+        <div class="price-box">
+          <div class="price-title">Precio para tu caso:</div>
+          <div class="price-row">Minuta de testamento simple (solo documento) <span class="price-amount">$25</span></div>
+          <div class="price-row">Servicio completo (minuta + acompañamiento de abogado) <span class="price-amount">$90</span></div>
+          <p class="mini-note">⚠️ Los gastos notariales (aproximadamente $450-$540) los pagas directamente al notario — son aparte del precio de Juristam.</p>
+        </div>
+        <a href="https://juristam.net/testamento-simple-ecuador.html" class="btn-cta-herramienta">Crear mi testamento simple →</a>`;
+    } else {
+      resultadoBox.innerHTML = `
+        <div class="result-title"><span class="tag tag-complejo">⚠ TESTAMENTO COMPLEJO</span></div>
+        ${saludo}
+        <p>Tu caso es <strong>testamento complejo</strong>. Hay elementos que requieren una redacción más cuidadosa.</p>
+        ${motivosComplejo.length ? '<ul>' + motivosComplejo.map(m=>`<li>${m}</li>`).join('') + '</ul>' : ''}
+        ${hijos === 'si' ? '<p class="mini-note" style="color:#c47a11;"><strong>Nota:</strong> Al tener hijos, la ley reserva la mitad de tus bienes para legítimas (Art. 1207) más una cuarta de mejoras que puedes distribuir entre tus descendientes.</p>' : ''}
+        <div class="price-box">
+          <div class="price-title">Precio para tu caso:</div>
+          <div class="price-row">Minuta avanzada (solo documento) <span class="price-amount">$60</span></div>
+          <div class="price-row">Servicio completo (minuta + acompañamiento de abogado) <span class="price-amount">$150</span></div>
+          <p class="mini-note">⚠️ Los gastos notariales (aproximadamente $450-$540) los pagas directamente al notario — son aparte del precio de Juristam.</p>
+          <p class="mini-note">En casos complejos se recomienda que un abogado revise la minuta antes de la firma notarial.</p>
+        </div>
+        <a href="https://juristam.net/testamento-complejo-ecuador.html" class="btn-cta-herramienta">Crear mi testamento complejo →</a>`;
+    }
+
+    document.getElementById('resultadoCard').scrollIntoView({behavior:'smooth',block:'start'});
+  }
+
+  function limpiar() {
+    document.getElementById('nombre').value = '';
+    document.getElementById('ciudad').value = '';
+    document.querySelectorAll('input[type="radio"]').forEach(r => {
+      const defaults = {capacidad:'si',hijos:'no',hijosParejas:'una',desheredar:'no',padresVivos:'no',estadoCivil:'soltero',bienesExterior:'no',empresas:'no',complejidadBienes:'sencillo',regimenBienes:'solo_mios',reglasEspeciales:'no',herederosNoFamilia:'no',testamentoPrevio:'no',incapacidad:'no'};
+      if (defaults[r.name] && r.value === defaults[r.name]) r.checked = true;
+    });
+    document.getElementById('grupoHijosDet').style.display = 'none';
+    document.getElementById('grupoPadresDet').style.display = 'block';
+    document.getElementById('resultado').innerHTML = `<div class="result-title">Aún no se ha realizado el diagnóstico.</div><p class="hint">Completa las preguntas y haz clic en <strong>"Analizar mi caso gratuitamente"</strong>.</p><p class="mini-note">Tiempo estimado: 3 a 5 minutos.</p>`;
+    try { localStorage.removeItem(STORAGE_KEY); } catch(e){}
+  }
+
+  document.addEventListener('DOMContentLoaded', () => {
+    document.getElementById('btnAnalizar').addEventListener('click', () => { saveState(); analizar(); });
+    document.getElementById('btnLimpiar').addEventListener('click', limpiar);
+    document.querySelectorAll('input[name="hijos"]').forEach(r => {
+      r.addEventListener('change', () => {
+        const val = getRadio('hijos');
+        document.getElementById('grupoHijosDet').style.display = val === 'si' ? 'block' : 'none';
+        document.getElementById('grupoPadresDet').style.display = val === 'no' ? 'block' : 'none';
+        saveState();
+      });
+    });
+    document.querySelectorAll('input, #nombre, #ciudad').forEach(el => el.addEventListener('change', saveState));
+    document.getElementById('nombre').addEventListener('input', saveState);
+    document.getElementById('ciudad').addEventListener('input', saveState);
+    loadState();
+  });
+</script>
+</body>
+</html>
