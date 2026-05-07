@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <title>Crear Testamento Simple Ecuador · Juristam</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Genera tu minuta de testamento simple en Ecuador por $25. Lista para llevar al notario. Conforme al Libro III del Código Civil ecuatoriano." />
+  <meta name="description" content="Genera tu minuta de testamento simple en Ecuador por $60. Lista para llevar al notario. Conforme al Libro III del Código Civil ecuatoriano." />
   <link rel="canonical" href="https://juristam.net/testamento-simple-ecuador.html" />
   <link rel="icon" type="image/png" href="https://i.postimg.cc/KjDB1NSM/Diseno-sin-titulo-(7).png" />
   <style>
@@ -84,7 +84,7 @@
       <div class="step"><span class="num">3</span>Llevar al notario</div>
     </div>
     <div class="nota-notaria">
-      <strong>📋 Importante:</strong> Juristam genera la <strong>minuta de testamento por $25</strong> — ese es el documento que llevas al notario. Los gastos notariales (~$450-$540) los pagas directamente al notario y son completamente aparte.
+      <strong>📋 Importante:</strong> Juristam genera la <strong>minuta de testamento por $60</strong> — ese es el documento que llevas al notario. Los gastos notariales (~$450-$540) los pagas directamente al notario y son completamente aparte.
       <br/><a href="https://juristam.net/diagnostico-testamento-ecuador.html" style="color:#92400e;font-size:0.82rem;">← Volver al diagnóstico gratuito</a>
     </div>
   </header>
@@ -295,7 +295,7 @@
         </div>
         <div class="success-note" id="validationSuccess" style="display:none;">✅ Datos validados. Puedes generar la minuta.</div>
         <button id="btnValidar" class="btn btn-secondary" type="button" style="margin-right:8px;">Validar datos</button>
-        <button id="btnGenerar" class="btn btn-primary" type="button" disabled>Generar minuta · $25</button>
+        <button id="btnGenerar" class="btn btn-primary" type="button" disabled>Generar minuta · $60</button>
         <p class="hint" style="margin-top:6px;">Al generar aparecerán los datos de pago. Los gastos notariales (~$450-$540) son aparte y se pagan directamente al notario.</p>
       </div>
 
@@ -313,7 +313,7 @@
           </ul>
         </div>
         <div class="legal-note" style="margin-bottom:1rem;">
-          <strong>Precios — solo por la minuta:</strong> Minuta simple $25 · Con acompañamiento de abogado $90<br/>
+          <strong>Precios — solo por la minuta:</strong> Minuta simple $60 · Con acompañamiento de abogado $120<br/>
           <strong>⚠️ Los gastos notariales (~$450-$540) los pagas directamente al notario — son completamente aparte.</strong>
         </div>
         <form id="formPago" method="POST" enctype="multipart/form-data">
@@ -331,10 +331,10 @@
             <label>Plan que escoges</label>
             <div style="display:flex;flex-wrap:wrap;gap:8px;margin-top:6px;">
               <label style="display:flex;align-items:center;gap:8px;padding:10px 14px;border:1px solid var(--border);border-radius:10px;cursor:pointer;flex:1;min-width:180px;background:#fff;">
-                <input type="radio" name="plan" value="simple_minuta" checked /> Solo minuta · <strong>$25</strong>
+                <input type="radio" name="plan" value="simple_minuta" checked /> Solo minuta · <strong>$60</strong>
               </label>
               <label style="display:flex;align-items:center;gap:8px;padding:10px 14px;border:1px solid var(--border);border-radius:10px;cursor:pointer;flex:1;min-width:180px;background:#fff;">
-                <input type="radio" name="plan" value="simple_completo" /> Minuta + abogado · <strong>$90</strong>
+                <input type="radio" name="plan" value="simple_completo" /> Minuta + abogado · <strong>$120</strong>
               </label>
             </div>
           </div>
@@ -581,7 +581,7 @@
 
     m += `DISPOSICIÓN FINAL: Este testamento recoge la libre y espontánea voluntad del testador. Solicita se eleve a escritura pública ante Notario/a competente del cantón de ${ciudad}.\n\nEn fe de lo cual firma.\n\n__________________________________\n${nombre}\nC.C. ${cedula}\n\n`;
     m += `--- Minuta generada por Juristam ---\n`;
-    m += `Precio de la minuta: $25 (solo documento)\n`;
+    m += `Precio de la minuta: $60 (solo documento)\n`;
     m += `Los gastos notariales (~$450-$540) se pagan directamente al notario — son completamente aparte.\n`;
     m += `Fecha: ${new Date().toLocaleDateString('es-EC',{day:'numeric',month:'long',year:'numeric'})}`;
 
@@ -658,8 +658,8 @@
     document.querySelectorAll('input[name="plan"]').forEach(r=>r.addEventListener('change',()=>{
       const m=document.getElementById('montoPagado');
       if(!m)return;
-      if(r.value==='simple_minuta')m.value='25';
-      else if(r.value==='simple_completo')m.value='90';
+      if(r.value==='simple_minuta')m.value='60';
+      else if(r.value==='simple_completo')m.value='120';
     }));
     document.getElementById('cerrarModalPago').addEventListener('click',()=>{document.getElementById('modalPagoExito').style.display='none';});
     document.querySelectorAll('input,textarea,select').forEach(el=>{el.addEventListener('input',guardar);el.addEventListener('change',guardar);});

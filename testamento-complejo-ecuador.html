@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <title>Crear Testamento Complejo Ecuador · Juristam</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Genera tu minuta de testamento complejo en Ecuador por $60. Incluye sustituciones, fideicomisos, desheredación y legados modales. Conforme al Libro III del Código Civil ecuatoriano." />
+  <meta name="description" content="Genera tu minuta de testamento complejo en Ecuador por $99. Incluye sustituciones, fideicomisos, desheredación y legados modales. Conforme al Libro III del Código Civil ecuatoriano." />
   <link rel="canonical" href="https://juristam.net/testamento-complejo-ecuador.html" />
   <link rel="icon" type="image/png" href="https://i.postimg.cc/KjDB1NSM/Diseno-sin-titulo-(7).png" />
   <style>
@@ -78,7 +78,7 @@
       <div class="step"><span class="num">3</span>Llevar al notario</div>
     </div>
     <div class="nota-notaria">
-      <strong>📋 Importante:</strong> Juristam genera la <strong>minuta de testamento complejo por $60</strong> — ese es el documento que llevas al notario. Los gastos notariales (~$450-$540) los pagas directamente al notario y son completamente aparte. En casos complejos se recomienda que un abogado revise la minuta antes de la firma.
+      <strong>📋 Importante:</strong> Juristam genera la <strong>minuta de testamento complejo por $99</strong> — ese es el documento que llevas al notario. Los gastos notariales (~$450-$540) los pagas directamente al notario y son completamente aparte. En casos complejos se recomienda que un abogado revise la minuta antes de la firma.
       <br/><a href="https://juristam.net/diagnostico-testamento-ecuador.html" style="color:#92400e;font-size:0.82rem;">← Volver al diagnóstico gratuito</a>
     </div>
   </header>
@@ -288,7 +288,7 @@
           <textarea id="tRevocacionExpresa" placeholder="Ej. Revoco expresamente el testamento otorgado ante Notario X el 15/03/2020."></textarea>
         </div>
 
-        <button id="btnGenerarComplejo" class="btn btn-primary" type="button">Generar Minuta Compleja · $60</button>
+        <button id="btnGenerarComplejo" class="btn btn-primary" type="button">Generar Minuta Compleja · $99</button>
         <p class="hint" style="margin-top:8px;">Al generar aparecerán los datos de pago. Los gastos notariales (~$450-$540) son aparte.</p>
       </div>
 
@@ -306,7 +306,7 @@
           </ul>
         </div>
         <div class="legal-note" style="margin-bottom:1rem;">
-          <strong>Precios — solo por la minuta:</strong> Minuta avanzada $60 · Con acompañamiento de abogado $150<br/>
+          <strong>Precios — solo por la minuta:</strong> Minuta avanzada $99 · Con acompañamiento de abogado $180<br/>
           <strong>⚠️ Los gastos notariales (~$450-$540) los pagas directamente al notario — son completamente aparte.</strong>
         </div>
         <form id="formPago" method="POST" enctype="multipart/form-data">
@@ -321,10 +321,10 @@
             <label>Plan que escoges</label>
             <div style="display:flex;flex-wrap:wrap;gap:8px;margin-top:6px;">
               <label style="display:flex;align-items:center;gap:8px;padding:10px 14px;border:1px solid var(--border);border-radius:10px;cursor:pointer;flex:1;min-width:180px;background:#fff;">
-                <input type="radio" name="plan" value="complejo_minuta" checked /> Minuta avanzada · <strong>$60</strong>
+                <input type="radio" name="plan" value="complejo_minuta" checked /> Minuta avanzada · <strong>$99</strong>
               </label>
               <label style="display:flex;align-items:center;gap:8px;padding:10px 14px;border:1px solid var(--border);border-radius:10px;cursor:pointer;flex:1;min-width:180px;background:#fff;">
-                <input type="radio" name="plan" value="complejo_completo" /> Minuta + abogado · <strong>$150</strong>
+                <input type="radio" name="plan" value="complejo_completo" /> Minuta + abogado · <strong>$180</strong>
               </label>
             </div>
           </div>
@@ -395,8 +395,8 @@
     document.querySelectorAll('input[name="plan"]').forEach(r=>r.addEventListener('change',function(){
       const m=document.getElementById('montoPagado');
       if(!m)return;
-      if(r.value==='complejo_minuta')m.value='60';
-      else if(r.value==='complejo_completo')m.value='150';
+      if(r.value==='complejo_minuta')m.value='99';
+      else if(r.value==='complejo_completo')m.value='180';
     }));
 
     document.getElementById('cerrarModalPago').addEventListener('click',function(){document.getElementById('modalPagoExito').style.display='none';});
@@ -501,7 +501,7 @@
     m += `CLÁUSULA DÉCIMA.- RESERVA DE LEGÍTIMAS Y DISPOSICIONES FINALES.\nEn todo caso se respetarán las legítimas rigorosas (Art. 1207 CC) y la porción conyugal (Arts. 1196-1203). Cualquier disposición que contravenga estas porciones forzosas será nula en la parte excedente.\n\n`;
     m += `El testador ratifica que este documento expresa su última voluntad, libre de vicios, y solicita su elevación a escritura pública ante Notario/a competente del cantón de ${ciudad}.\n\nEn fe de lo cual firma.\n\n__________________________________\n${nombre}\nC.C. ${cedula}\n\n`;
     m += `--- Minuta generada por Juristam ---\n`;
-    m += `Precio de la minuta: $60 (solo documento)\n`;
+    m += `Precio de la minuta: $99 (solo documento)\n`;
     m += `Los gastos notariales (~$450-$540) se pagan directamente al notario — son completamente aparte.\n`;
     m += `Fecha: ${new Date().toLocaleDateString('es-EC',{day:'numeric',month:'long',year:'numeric'})}`;
 
