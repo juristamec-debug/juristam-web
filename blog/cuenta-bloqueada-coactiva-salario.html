@@ -220,20 +220,6 @@
       box-shadow: 0 6px 18px rgba(0,0,0,.25);
     }
 
-    .btn-wa {
-      background: #25d366;
-      color: #fff;
-      padding: .65rem 1.3rem;
-      border-radius: 8px;
-      text-decoration: none;
-      font-size: .88rem;
-      font-weight: 700;
-      white-space: nowrap;
-      transition: background .2s;
-    }
-
-    .btn-wa:hover { background: #1da851; }
-
     .cta-urgente {
       background: var(--danger-light);
       border: 1.5px solid var(--danger);
@@ -486,12 +472,343 @@
     footer a { color: var(--primary); text-decoration: none; }
     footer strong { color: var(--white); }
 
+    /* ─── INSIGHT BOX ─── */
+    .insight-box {
+      background: linear-gradient(135deg, #1e1b4b 0%, #312e81 100%);
+      border-radius: 16px;
+      padding: 1.35rem 1.4rem;
+      margin: 1.8rem 0;
+      color: #e0e7ff;
+      border: 1px solid rgba(99,102,241,.3);
+      box-shadow: 0 8px 28px rgba(49,46,129,.2);
+    }
+    .insight-box .ib-label {
+      display: inline-block;
+      background: rgba(165,180,252,.15);
+      border: 1px solid rgba(165,180,252,.3);
+      color: #a5b4fc;
+      font-size: .74rem;
+      font-weight: 700;
+      letter-spacing: .5px;
+      text-transform: uppercase;
+      padding: .2rem .6rem;
+      border-radius: 999px;
+      margin-bottom: .75rem;
+    }
+    .insight-box p { color: #c7d2fe; margin: .6rem 0; font-size: .96rem; line-height: 1.75; }
+    .insight-box strong { color: #e0e7ff; }
+
+    /* ─── PROF NOTE ─── */
+    .prof-note {
+      border-left: 3px solid var(--primary);
+      padding: .9rem 1.1rem;
+      margin: 1.5rem 0;
+      background: rgba(154,106,255,.045);
+      border-radius: 0 12px 12px 0;
+      color: var(--text-secondary);
+      font-size: .95rem;
+      line-height: 1.75;
+    }
+    .prof-note strong { color: var(--primary-dark); }
+
+    /* ─── PRICING BANNER ─── */
+    .pricing-banner {
+      margin: 2.5rem 0 1.5rem;
+      border-radius: 20px;
+      overflow: hidden;
+      border: 1px solid rgba(124,58,237,.2);
+      box-shadow: 0 12px 40px rgba(124,58,237,.15);
+      background: linear-gradient(160deg, #0f0a1e 0%, #1a0f3a 40%, #0f1a2e 100%);
+    }
+    .pb-header {
+      padding: 1.2rem 1.5rem .9rem;
+      border-bottom: 1px solid rgba(255,255,255,.08);
+      text-align: center;
+    }
+    .pb-header .pb-eyebrow {
+      display: inline-block;
+      background: rgba(154,106,255,.2);
+      border: 1px solid rgba(154,106,255,.35);
+      color: #c4b5fd;
+      font-size: .74rem;
+      font-weight: 700;
+      letter-spacing: .6px;
+      text-transform: uppercase;
+      padding: .25rem .75rem;
+      border-radius: 999px;
+      margin-bottom: .65rem;
+    }
+    .pb-header h3 {
+      color: #f1f5f9;
+      font-size: 1.1rem;
+      font-weight: 700;
+      font-family: 'Playfair Display', serif;
+      margin: 0;
+    }
+    .pb-plans {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0;
+    }
+    .pb-plan {
+      padding: 1.5rem 1.4rem;
+      position: relative;
+    }
+    .pb-plan:first-child {
+      border-right: 1px solid rgba(255,255,255,.07);
+    }
+    .pb-plan.featured {
+      background: rgba(154,106,255,.1);
+    }
+    .pb-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: .3rem;
+      background: linear-gradient(135deg, #7c3aed, #9a6aff);
+      color: #fff;
+      font-size: .7rem;
+      font-weight: 700;
+      padding: .2rem .6rem;
+      border-radius: 999px;
+      margin-bottom: .75rem;
+      letter-spacing: .3px;
+      text-transform: uppercase;
+    }
+    .pb-plan-name {
+      display: block;
+      color: #94a3b8;
+      font-size: .82rem;
+      font-weight: 600;
+      letter-spacing: .3px;
+      text-transform: uppercase;
+      margin-bottom: .35rem;
+    }
+    .pb-price {
+      font-size: 2.2rem;
+      font-weight: 800;
+      color: #f1f5f9;
+      line-height: 1;
+      font-family: 'Playfair Display', serif;
+    }
+    .pb-price sup {
+      font-size: 1rem;
+      vertical-align: super;
+      font-family: Inter, sans-serif;
+      font-weight: 700;
+      color: #a5b4fc;
+    }
+    .pb-area {
+      display: block;
+      color: #64748b;
+      font-size: .8rem;
+      margin-top: .4rem;
+    }
+    .pb-footer {
+      padding: .85rem 1.5rem;
+      border-top: 1px solid rgba(255,255,255,.07);
+      background: rgba(0,0,0,.25);
+      text-align: center;
+    }
+    .pb-footer p {
+      color: #64748b;
+      font-size: .84rem;
+      margin: 0;
+    }
+    .pb-footer strong { color: #a5b4fc; }
+
+    /* ─── WHATSAPP BUTTON ─── */
+    .wa-wrap {
+      text-align: center;
+      margin: 1.8rem 0 .5rem;
+    }
+    .wa-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: .6rem;
+      background: linear-gradient(135deg, #25d366, #128c7e);
+      color: #fff;
+      font-weight: 700;
+      font-size: 1rem;
+      padding: 15px 28px;
+      border-radius: 14px;
+      border: none;
+      cursor: pointer;
+      box-shadow: 0 8px 24px rgba(37,211,102,.3);
+      transition: .2s;
+      text-decoration: none;
+    }
+    .wa-btn:hover { transform: translateY(-2px); filter: brightness(1.06); }
+    .wa-btn svg { flex: 0 0 22px; }
+
+    /* ─── MODAL ─── */
+    .modal-overlay {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,.65);
+      backdrop-filter: blur(4px);
+      z-index: 9999;
+      align-items: center;
+      justify-content: center;
+      padding: 16px;
+    }
+    .modal-overlay.active { display: flex; }
+    .modal-box {
+      background: #fff;
+      border-radius: 20px;
+      max-width: 500px;
+      width: 100%;
+      box-shadow: 0 24px 60px rgba(0,0,0,.35);
+      overflow: hidden;
+      animation: modalIn .25s cubic-bezier(.34,1.56,.64,1) both;
+    }
+    @keyframes modalIn {
+      from { opacity: 0; transform: scale(.92) translateY(12px); }
+      to   { opacity: 1; transform: scale(1) translateY(0); }
+    }
+    .modal-top {
+      background: linear-gradient(135deg, #0f0a1e, #1a0f3a);
+      padding: 1.4rem 1.5rem 1.2rem;
+    }
+    .modal-top .m-label {
+      display: inline-block;
+      background: rgba(154,106,255,.2);
+      border: 1px solid rgba(154,106,255,.4);
+      color: #c4b5fd;
+      font-size: .72rem;
+      font-weight: 700;
+      letter-spacing: .5px;
+      text-transform: uppercase;
+      padding: .2rem .6rem;
+      border-radius: 999px;
+      margin-bottom: .7rem;
+    }
+    .modal-top h4 {
+      color: #f1f5f9;
+      font-size: 1.05rem;
+      font-weight: 700;
+      line-height: 1.4;
+      font-family: 'Playfair Display', serif;
+      margin: 0;
+    }
+    .modal-body { padding: 1.3rem 1.5rem; }
+    .modal-body p { color: #4b5563; font-size: .95rem; margin: .6rem 0; }
+    .m-plans {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: .75rem;
+      margin: 1rem 0;
+    }
+    .m-plan {
+      border: 1px solid #e5e7eb;
+      border-radius: 14px;
+      padding: .9rem 1rem;
+      background: #f9fafb;
+    }
+    .m-plan.m-featured {
+      border-color: rgba(124,58,237,.4);
+      background: rgba(154,106,255,.05);
+    }
+    .m-plan .m-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: .2rem;
+      background: linear-gradient(135deg, #7c3aed, #9a6aff);
+      color: #fff;
+      font-size: .67rem;
+      font-weight: 700;
+      padding: .15rem .5rem;
+      border-radius: 999px;
+      margin-bottom: .5rem;
+      text-transform: uppercase;
+      letter-spacing: .2px;
+    }
+    .m-plan-name {
+      display: block;
+      color: #6b7280;
+      font-size: .78rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: .3px;
+      margin-bottom: .25rem;
+    }
+    .m-price {
+      font-size: 1.65rem;
+      font-weight: 800;
+      color: #1e293b;
+      font-family: 'Playfair Display', serif;
+      line-height: 1;
+    }
+    .m-price sup {
+      font-size: .9rem;
+      vertical-align: super;
+      font-family: Inter, sans-serif;
+      font-weight: 700;
+      color: #7c3aed;
+    }
+    .m-area {
+      display: block;
+      color: #9ca3af;
+      font-size: .76rem;
+      margin-top: .3rem;
+    }
+    .m-discount {
+      background: rgba(16,185,129,.08);
+      border: 1px solid rgba(16,185,129,.25);
+      border-radius: 10px;
+      padding: .65rem .85rem;
+      color: #065f46;
+      font-size: .85rem;
+      font-weight: 600;
+      margin: .85rem 0 0;
+    }
+    .m-discount span { font-weight: 800; color: #059669; }
+    .modal-actions {
+      padding: 0 1.5rem 1.4rem;
+      display: flex;
+      flex-direction: column;
+      gap: .65rem;
+    }
+    .m-confirm-btn {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: .55rem;
+      background: linear-gradient(135deg, #25d366, #128c7e);
+      color: #fff;
+      font-weight: 700;
+      font-size: 1rem;
+      padding: 14px 20px;
+      border-radius: 12px;
+      border: none;
+      cursor: pointer;
+      box-shadow: 0 6px 20px rgba(37,211,102,.3);
+      transition: .2s;
+      text-decoration: none;
+    }
+    .m-confirm-btn:hover { filter: brightness(1.06); }
+    .m-cancel {
+      text-align: center;
+      color: #9ca3af;
+      font-size: .85rem;
+      cursor: pointer;
+      font-weight: 600;
+      transition: .15s;
+    }
+    .m-cancel:hover { color: #6b7280; }
+
     @media (max-width: 600px) {
       h1 { font-size: 1.6rem; }
       .cta-block { padding: 1.5rem 1rem; }
       .cta-urgente { flex-direction: column; align-items: flex-start; }
       .compare-table { font-size: .82rem; }
       .compare-table th, .compare-table td { padding: .6rem .7rem; }
+      .pb-plans { grid-template-columns: 1fr; }
+      .pb-plan:first-child { border-right: none; border-bottom: 1px solid rgba(255,255,255,.07); }
+      .pb-price { font-size: 1.9rem; }
+      .m-plans { grid-template-columns: 1fr; }
+      .modal-body { padding: 1rem 1.1rem; }
+      .modal-actions { padding: 0 1.1rem 1.2rem; }
     }
   </style>
 </head>
@@ -537,9 +854,9 @@
         ¿Te bloquearon la cuenta hoy y no puedes acceder a tu sueldo?
         <span>Cuéntanos tu caso ahora — actuamos donde corresponde, no en el banco.</span>
       </p>
-      <a class="btn-wa" href="https://wa.me/593994859814?text=Hola,%20me%20bloquearon%20la%20cuenta%20del%20banco%20y%20el%20dinero%20es%20mi%20sueldo" target="_blank" rel="noopener">
+      <button class="wa-btn" onclick="openModal()" style="padding:.65rem 1.3rem;font-size:.88rem;border-radius:8px;" aria-label="Escribir por WhatsApp">
         Escribir por WhatsApp
-      </a>
+      </button>
     </div>
 
     <div class="tldr">
@@ -554,6 +871,13 @@
 
       <p>Eso significa que aunque el Art. 328 de la Constitución diga claramente que tu remuneración es inembargable, el banco igual bloquea todo. Y ahí es donde la gente comete el error más costoso: <strong>llamar al banco esperando que lo resuelva.</strong></p>
 
+      <!-- INSERCIÓN 1 -->
+      <div class="insight-box">
+        <span class="ib-label">Lo que vemos con frecuencia en Juristam</span>
+        <p>Muchas personas llegan a nosotros después de días o semanas perdidas llamando al banco, esperando que "algo cambie". El banco no puede revocar una orden judicial. <strong>Nunca pudo.</strong></p>
+        <p>El tiempo que se pierde en esa espera es tiempo en el que el proceso judicial sigue avanzando — y en el que tú sigues sin acceso a tu salario. Identificar correctamente dónde actuar desde el primer día es la diferencia entre resolver esto en días o en semanas.</p>
+      </div>
+
       <div class="callout-danger">
         <strong>⚠ El error que te cuesta semanas de sueldo</strong>
         El banco no puede desbloquear tu cuenta por su cuenta. No tiene esa facultad. La única persona que puede ordenar el levantamiento del bloqueo es el juez que emitió la orden original. Mientras esperas que el banco "haga algo", tu sueldo sigue bloqueado.
@@ -567,6 +891,11 @@
 
       <p>La Corte Constitucional en el Caso N.° 3135-21-EP ya ordenó el levantamiento total de retenciones sobre cuentas donde se depositaba exclusivamente el sueldo. La jurisprudencia está de tu lado — pero tienes que activarla dentro del proceso judicial.</p>
 
+      <!-- INSERCIÓN 2 -->
+      <div class="prof-note">
+        <strong>¿Por qué no basta con "saber que la ley te protege"?</strong> Porque la protección constitucional no se activa sola. Alguien tiene que presentar el pedido formal ante el juez correcto, con los documentos correctos y el argumento jurídico bien construido. Un pedido incompleto o mal fundamentado puede ser rechazado aunque la ley esté de tu lado — y cada rechazo suma días más sin tu sueldo.
+      </div>
+
       <div class="callout-success">
         <strong>✓ Buena noticia</strong>
         Cuando el pedido se presenta correctamente con los documentos adecuados, el juez puede resolver en días — no semanas. El problema no es el sistema, es saber exactamente cómo presentar el caso.
@@ -578,10 +907,18 @@
 
       <p>Un pedido bien presentado desde el inicio es la diferencia entre recuperar tu dinero en días o en semanas.</p>
 
+      <!-- INSERCIÓN 3 -->
+      <div class="insight-box">
+        <span class="ib-label">Cómo trabajamos en Juristam</span>
+        <p>Antes de cualquier acción, revisamos el expediente completo: la orden de retención, la autoridad que la emitió, los documentos que tienes disponibles y el estado actual del proceso. <strong>No damos orientación genérica — analizamos tu caso específico.</strong></p>
+        <p>Muchas veces el cliente cree que simplemente necesita "pedir el desbloqueo", cuando en realidad primero hay que identificar ante qué juez actuar, qué argumento aplicar y qué documentos lo respaldan. Eso es lo que hace que el pedido funcione desde el primer intento.</p>
+        <p>Por eso la asesoría en Juristam tiene un costo: no es responder dudas generales. Es revisar tu caso, preparar la estrategia y actuar donde corresponde. <strong>Una buena asesoría inicial es precisamente lo que evita semanas adicionales sin tu sueldo.</strong></p>
+      </div>
+
       <div class="cta-block">
         <h3>¿Te bloquearon la cuenta con tu sueldo adentro?</h3>
         <p>Cuéntanos tu caso ahora. En Juristam revisamos la orden de retención, identificamos ante qué juez actuar y presentamos el pedido correcto para recuperar tu dinero lo antes posible.</p>
-        <a class="btn-solid" href="https://wa.me/593994859814?text=Hola,%20me%20bloquearon%20la%20cuenta%20con%20mi%20sueldo%20y%20necesito%20ayuda" target="_blank" rel="noopener">Escríbenos ahora · WhatsApp</a>
+        <button class="btn-solid" onclick="openModal()" aria-label="Escribir por WhatsApp">Escríbenos ahora · WhatsApp</button>
       </div>
 
       <h2>Qué documentos necesitas para desbloquear tu cuenta</h2>
@@ -617,6 +954,11 @@
 
       <p>Tener los documentos es necesario pero no suficiente. La solicitud ante el juez debe estar bien fundamentada — con el argumento constitucional correcto, la petición específica y los documentos organizados de forma que el juez pueda resolver rápido.</p>
 
+      <!-- INSERCIÓN 4 -->
+      <div class="prof-note">
+        <strong>Lo que muy pocas personas saben:</strong> No es lo mismo "tener los documentos" que "presentarlos correctamente". El juez recibe solicitudes todos los días. Una solicitud que no identifica con precisión el expediente, no cita el fundamento constitucional adecuado o no organiza la prueba de forma clara puede quedar en espera indefinida — aunque el caso sea legalmente sólido. El trabajo del abogado no empieza cuando ya hay una audiencia. Empieza aquí.
+      </div>
+
       <div class="callout-warning">
         <strong>⚠ Lo que retrasa el desbloqueo</strong>
         Mandar documentos sueltos sin explicación. No identificar el expediente ni la autoridad correcta. Pedir "que se levante el embargo" sin especificar el fundamento legal. Cada error formal en la solicitud puede costar días o semanas adicionales sin acceso a tu sueldo.
@@ -627,6 +969,13 @@
       <p>El bloqueo no se levanta solo. Mientras no haya una solicitud formal ante el juez, la cuenta sigue bloqueada indefinidamente — aunque la ley te proteja completamente.</p>
 
       <p>Hemos atendido casos donde la cuenta estuvo bloqueada más de un mes porque la persona esperó que el banco resolviera, luego intentó gestionar sola con documentos incompletos, y recién después buscó ayuda legal. Todo ese tiempo sin acceso al sueldo era evitable.</p>
+
+      <!-- INSERCIÓN 5 -->
+      <div class="insight-box">
+        <span class="ib-label">Una perspectiva que vale tener antes de avanzar</span>
+        <p>En Juristam trabajamos de forma distinta. Antes de cualquier acción, revisamos el caso completo: la orden, el expediente, los documentos disponibles y los plazos. Eso nos permite darte una orientación clara desde el inicio — sin sorpresas.</p>
+        <p>La asesoría no consiste en decirte que "tienes derechos". Es identificar exactamente cómo ejercerlos en tu caso concreto, ante qué autoridad y con qué respaldo documental. <strong>Precisamente por eso puede marcar la diferencia entre días y semanas.</strong></p>
+      </div>
 
       <div class="related">
         <h3>Artículos relacionados</h3>
@@ -668,10 +1017,38 @@
 
       </div>
 
-      <div class="cta-block">
-        <h3>Cada día bloqueado es un día sin tu sueldo</h3>
-        <p>No pierdas más tiempo con el banco. Cuéntanos tu caso ahora por WhatsApp — identificamos la orden, la autoridad correcta y gestionamos el levantamiento del bloqueo lo antes posible.</p>
-        <a class="btn-solid" href="https://wa.me/593994859814?text=Hola,%20me%20bloquearon%20la%20cuenta%20con%20mi%20sueldo%20y%20necesito%20que%20me%20ayuden" target="_blank" rel="noopener">Escríbenos ahora · WhatsApp</a>
+      <!-- ─── PRICING BANNER ─── -->
+      <div class="pricing-banner" aria-label="Modalidades de asesoría Juristam">
+        <div class="pb-header">
+          <span class="pb-eyebrow">Asesoría legal con Juristam</span>
+          <h3>Revisamos tu caso antes de cualquier compromiso</h3>
+        </div>
+        <div class="pb-plans">
+          <div class="pb-plan featured">
+            <div class="pb-badge">⭐ Recomendada</div>
+            <span class="pb-plan-name">Asesoría Virtual</span>
+            <div class="pb-price"><sup>$</sup>45</div>
+            <span class="pb-area">Todo Ecuador</span>
+          </div>
+          <div class="pb-plan">
+            <span class="pb-plan-name">Asesoría Presencial</span>
+            <div class="pb-price"><sup>$</sup>85</div>
+            <span class="pb-area">Solo Guayaquil</span>
+          </div>
+        </div>
+        <div class="pb-footer">
+          <p>Si contratas el servicio completo, los <strong>$45 de la consulta virtual se descuentan del precio final.</strong></p>
+        </div>
+      </div>
+
+      <!-- ─── WHATSAPP BUTTON ─── -->
+      <div class="wa-wrap">
+        <button class="wa-btn" onclick="openModal()" aria-label="Escribir por WhatsApp">
+          <svg viewBox="0 0 24 24" fill="currentColor" width="22" height="22" aria-hidden="true">
+            <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+          </svg>
+          Escribir por WhatsApp
+        </button>
       </div>
 
     </article>
@@ -689,6 +1066,73 @@
     </p>
   </div>
 </footer>
+
+<!-- ─── MODAL ─── -->
+<div class="modal-overlay" id="waModal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+  <div class="modal-box">
+    <div class="modal-top">
+      <span class="m-label">Sin compromiso</span>
+      <h4 id="modalTitle">Cuéntanos tu caso. Leer tu situación no tiene costo.</h4>
+    </div>
+    <div class="modal-body">
+      <p>Si decides avanzar con una consulta completa, la tarifa es:</p>
+      <div class="m-plans">
+        <div class="m-plan m-featured">
+          <div class="m-badge">⭐ Recomendada</div>
+          <span class="m-plan-name">Virtual</span>
+          <div class="m-price"><sup>$</sup>45</div>
+          <span class="m-area">Todo Ecuador</span>
+        </div>
+        <div class="m-plan">
+          <span class="m-plan-name">Presencial</span>
+          <div class="m-price"><sup>$</sup>85</div>
+          <span class="m-area">Solo Guayaquil</span>
+        </div>
+      </div>
+      <div class="m-discount">
+        Si contratas el servicio completo, los <span>$45 de la consulta virtual se descuentan</span> del precio final.
+      </div>
+    </div>
+    <div class="modal-actions">
+      <a id="waLink" href="#" target="_blank" rel="noopener noreferrer" class="m-confirm-btn" onclick="closeModal()">
+        <svg viewBox="0 0 24 24" fill="currentColor" width="20" height="20" aria-hidden="true">
+          <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+        </svg>
+        Entendido, continuar a WhatsApp
+      </a>
+      <div class="m-cancel" onclick="closeModal()" role="button" tabindex="0" onkeydown="if(event.key==='Enter')closeModal()">Cancelar</div>
+    </div>
+  </div>
+</div>
+
+<script>
+  var WA_NUMBER = "593994859814";
+  var WA_MESSAGE = "Hola, leí el artículo sobre cuenta bloqueada por coactiva y me gustaría contarles mi situación.";
+
+  function buildWaLink() {
+    return "https://wa.me/" + WA_NUMBER + "?text=" + encodeURIComponent(WA_MESSAGE);
+  }
+
+  function openModal() {
+    document.getElementById("waLink").href = buildWaLink();
+    var overlay = document.getElementById("waModal");
+    overlay.classList.add("active");
+    document.body.style.overflow = "hidden";
+  }
+
+  function closeModal() {
+    document.getElementById("waModal").classList.remove("active");
+    document.body.style.overflow = "";
+  }
+
+  document.getElementById("waModal").addEventListener("click", function(e) {
+    if (e.target === this) closeModal();
+  });
+
+  document.addEventListener("keydown", function(e) {
+    if (e.key === "Escape") closeModal();
+  });
+</script>
 
 </body>
 </html>
