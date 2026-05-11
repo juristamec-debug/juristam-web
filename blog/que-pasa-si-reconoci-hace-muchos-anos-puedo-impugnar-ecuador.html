@@ -126,6 +126,11 @@
   footer a{color:var(--primary);text-decoration:none;}
   footer strong{color:var(--white);}
   @media(max-width:600px){h1{font-size:1.6rem;}.cta-urgente{flex-direction:column;}.precio-cards{grid-template-columns:1fr;}.precio-card-item:first-child{border-right:none;border-bottom:1px solid var(--border);}.modal-precios{grid-template-columns:1fr;}}
+.autor-firma{display:flex;align-items:center;gap:.9rem;margin:.5rem 0 1.4rem;padding:.9rem 1.1rem;background:var(--gray-light);border-radius:10px;border:1px solid var(--border);}
+.autor-avatar{width:42px;height:42px;border-radius:50%;background:var(--primary-dark);color:#fff;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:1rem;flex-shrink:0;}
+.autor-info{font-size:.82rem;line-height:1.5;color:var(--text-secondary);}
+.autor-info strong{color:var(--text);font-size:.88rem;display:block;}
+
 </style>
 </head>
 <body>
@@ -164,6 +169,15 @@
   </div>
   <h1>Qu&#233; pasa si reconoc&#237; a un hijo hace muchos a&#241;os: &#191;puedo impugnar igual en Ecuador?</h1>
   <p class="catline">Categor&#237;a: <a href="/blog/categoria-familia.html">Familia</a></p>
+  <div class="autor-firma">
+  <div class="autor-avatar">J</div>
+  <div class="autor-info">
+    <strong>Equipo Editorial · Juristam</strong>
+    Contenido elaborado con base en el Código Civil ecuatoriano, el Código Orgánico de la Niñez y Adolescencia, y jurisprudencia de la Corte Nacional de Justicia. Actualizado: 7 de mayo de 2026.
+  </div>
+</div>
+
+
   <div class="cta-urgente" role="complementary">
     <p>&#191;Reconociste hace a&#241;os y ahora el ADN confirm&#243; que no eres el padre?<span>El tiempo afecta las pruebas disponibles. Cu&#233;ntanos tu caso para evaluar qu&#233; queda disponible.</span></p>
     <button class="btn-wa" onclick="abrirModal()">Escribir por WhatsApp</button>
