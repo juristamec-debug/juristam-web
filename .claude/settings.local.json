@@ -1,0 +1,10 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(Get-ChildItem -Path \"blog\" -Filter \"*.html\")",
+      "Bash(Select-Object -ExpandProperty Name)",
+      "Bash(Sort-Object)",
+      "Bash(Measure-Object)"
+    ]
+  }
+}
