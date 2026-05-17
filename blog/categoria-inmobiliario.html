@@ -1,4 +1,4 @@
-
+﻿
 
 <!DOCTYPE html>
 <html lang="es">
@@ -27,6 +27,7 @@
   <link rel="apple-touch-icon" href="https://i.postimg.cc/KjDB1NSM/Diseno-sin-titulo-(7).png">
 
   <!-- Fonts & Icons -->
+  <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
@@ -391,40 +392,53 @@
   document.getElementById('year').textContent = new Date().getFullYear();
 
   const posts = [
-    {
-      tag: "Inmobiliario",
-      date: "Jurisprudencia obligatoria",
-      title: "Terrenos: la regla obligatoria de la Corte sobre identificación del inmueble",
-      excerpt: "Qué exige la Corte en prescripción y qué en reivindicación. Explicado fácil, sin tecnicismos.",
-      url: "https://juristam.net/blog/regla-obligatoria-singularizacion-inmueble-prescripcion-reivindicacion.html"
-    },
-    {
-  tag: "Inmobiliario",
-  date: "Jurisprudencia obligatoria",
-  title: "¿Puedes recuperar tu terreno cuando quieras? La regla de la Corte que hace perder casos",
-  excerpt: "La Corte Nacional fijó tres requisitos obligatorios para la reivindicación. Si te falta uno, pierdes el terreno aunque tengas razón.",
-  url: "https://juristam.net/blog/reivindicacion-terreno-requisitos-dominio-posesion-singularizacion.html"
-},
-{ tag:"Inmobiliario", 
-date:"Abril 2026 · Corte Nacional · Res. 105-2011", 
-title:"Tienes escritura de un terreno en Ecuador pero alguien lo ocupa hace años — o llevas años en un terreno sin escritura. En ambos casos el tiempo lo cambia todo.", 
-excerpt:"En Ecuador puedes perder tu terreno aunque tengas escritura si alguien lleva 15 años poseyéndolo. Y puedes ganar la propiedad sin escritura si pruebas esa posesión. La Corte Nacional lo confirmó con un caso donde una poseedora de 20 años ganó frente a una propietaria con escritura inscrita.", 
-url:"https://juristam.net/blog/prescripcion-adquisitiva-dominio-terreno-ecuador.html" 
-},
-{
-  tag: "Inmobiliario",
-  date: "Mayo 2026 · Corte Nacional · Res. 105-2011",
-  title: "Llevo años en un terreno sin escritura en Ecuador: cómo volverte el dueño legal antes de que te saquen",
-  excerpt: "Si llevas 15 años o más en un terreno sin escritura, la ley ecuatoriana te da el derecho de reclamar la propiedad. La Corte Nacional lo confirmó: una mujer sin papeles ganó contra una propietaria con escritura inscrita en el Registro de la Propiedad.",
-  url: "https://juristam.net/blog/terreno-sin-escritura-prescripcion-adquisitiva-ecuador.html"
-},
-{
-  tag: "Inmobiliario",
-  date: "Mayo 2026 · Corte Nacional · Res. 105-2011",
-  title: "Tengo escritura de un terreno en Ecuador pero alguien lo ocupa: qué hacer antes de que sea demasiado tarde",
-  excerpt: "En Ecuador puedes perder tu terreno aunque tengas escritura si alguien lleva 15 años poseyéndolo. La Corte Nacional lo confirmó: una propietaria con escritura inscrita perdió su terreno frente a una poseedora de 20 años. Cada año que no actúas es un año que el ocupante gana.",
-  url: "https://juristam.net/blog/terreno-ocupado-escritura-ecuador.html"
-}
+    { tag: "Inmobiliario", date: "Guía práctica", title: "La acción reivindicatoria para recuperar tu terreno en", excerpt: "La acción reivindicatoria es la herramienta del propietario para exigir la devolución de su terreno. Te explicamos", url: "https://juristam.net/blog/accion-reivindicatoria-terreno-ecuador.html" },
+    { tag: "Inmobiliario", date: "Guía práctica", title: "El animo de dueno en la posesion Ecuador: como demostrarlo", excerpt: "El ánimo de dueño es uno de los 4 requisitos de la prescripción adquisitiva. No es un estado mental sino un conjunto", url: "https://juristam.net/blog/animo-de-dueno-posesion-ecuador.html" },
+    { tag: "Inmobiliario", date: "Guía práctica", title: "No tener escritura debilita la prueba de posesion en Ecuador", excerpt: "Para la prescripción extraordinaria no necesitas escritura. El Art. 2410 del Código Civil lo establece expresamente.", url: "https://juristam.net/blog/ausencia-de-titulo-afecta-posesion-ecuador.html" },
+    { tag: "Inmobiliario", date: "Guía práctica", title: "Cómo calcular cuántos años lleva el ocupante de tu terreno", excerpt: "El número de años que lleva el ocupante determina tu riesgo legal y la estrategia correcta. Aquí te explicamos cómo", url: "https://juristam.net/blog/calcular-anos-ocupante-terreno-ecuador.html" },
+    { tag: "Inmobiliario", date: "Guía práctica", title: "Carta notarial interrumpe prescripcion adquisitiva Ecuador", excerpt: "Muchos propietarios creen que enviar una carta notarial al ocupante detiene la prescripción. Te explicamos si eso es", url: "https://juristam.net/blog/carta-notarial-interrumpe-prescripcion-ecuador.html" },
+    { tag: "Inmobiliario", date: "Guía práctica", title: "Cómo probar la posesión de un terreno en Ecuador", excerpt: "Testigos, peritos, árboles, predial, facturas &mdash; te explicamos exactamente qué pruebas acepta la Corte Nacional", url: "https://juristam.net/blog/como-probar-posesion-terreno-ecuador.html" },
+    { tag: "Inmobiliario", date: "Guía práctica", title: "Árboles, construcciones y plantaciones como prueba de", excerpt: "Los árboles, construcciones y plantaciones son testigos mudos de la posesión. Un perito puede estimar su edad y eso", url: "https://juristam.net/blog/construcciones-arboles-prueba-posesion-ecuador.html" },
+    { tag: "Inmobiliario", date: "Guía práctica", title: "Cuanto cuesta un juicio de prescripcion adquisitiva Ecuador", excerpt: "El costo de un juicio de prescripción adquisitiva en Ecuador depende de la complejidad del caso y la duración del", url: "https://juristam.net/blog/costo-juicio-prescripcion-adquisitiva-ecuador.html" },
+    { tag: "Inmobiliario", date: "Guía práctica", title: "Prescripcion ordinaria o extraordinaria", excerpt: "¿No sabes si te corresponde la prescripción ordinaria de 5 años o la extraordinaria de 15? Te explicamos las dos", url: "https://juristam.net/blog/cual-prescripcion-aplica-mi-caso-ecuador.html" },
+    { tag: "Inmobiliario", date: "Guía práctica", title: "Cuánto tarda y cuánto cuesta un juicio de prescripción", excerpt: "Tiempos reales, costos estimados y qué factores aceleran o alargan un juicio de prescripción adquisitiva en Ecuador.", url: "https://juristam.net/blog/cuanto-tarda-juicio-prescripcion-adquisitiva-ecuador.html" },
+    { tag: "Inmobiliario", date: "Guía práctica", title: "Demanda de desalojo de terreno en Ecuador", excerpt: "El desalojo de un terreno en Ecuador no siempre procede. Te explicamos cuándo sí funciona, cuándo no es la acción", url: "https://juristam.net/blog/desalojo-terreno-ecuador.html" },
+    { tag: "Inmobiliario", date: "Guía práctica", title: "Despues de interrumpir la prescripcion que pasa en Ecuador", excerpt: "Interrumpiste la prescripción adquisitiva. ¿Qué pasa ahora? Te explicamos si el plazo se reinicia, qué oportunidades", url: "https://juristam.net/blog/despues-interrumpir-prescripcion-que-pasa-ecuador.html" },
+    { tag: "Inmobiliario", date: "Guía práctica", title: "Qué documentos juntar si llevas años en un terreno sin", excerpt: "Si llevas años en un terreno sin escritura en Ecuador y quieres demandar la prescripción adquisitiva, necesitas", url: "https://juristam.net/blog/documentos-probar-posesion-terreno-sin-escritura-ecuador.html" },
+    { tag: "Inmobiliario", date: "Guía práctica", title: "Qué errores evitar si estás poseyendo un terreno sin", excerpt: "Si estás poseyendo un terreno sin escritura en Ecuador, hay actos que pueden destruir tu posesión aunque lleves 20", url: "https://juristam.net/blog/errores-evitar-poseyendo-sin-escritura-ecuador.html" },
+    { tag: "Inmobiliario", date: "Guía práctica", title: "Etapas del juicio de prescripcion adquisitiva Ecuador paso a", excerpt: "El juicio de prescripción adquisitiva en Ecuador tiene etapas definidas. Te explicamos cada una, cuánto tarda y qué", url: "https://juristam.net/blog/etapas-juicio-prescripcion-adquisitiva-ecuador.html" },
+    { tag: "Inmobiliario", date: "Guía práctica", title: "Fotos, facturas de servicios y documentos administrativos", excerpt: "Las facturas de servicios, fotos con fecha y documentos administrativos son prueba documental válida para acreditar", url: "https://juristam.net/blog/fotos-facturas-servicios-prueba-posesion-ecuador.html" },
+    { tag: "Inmobiliario", date: "Guía práctica", title: "Heredi un terreno sin escritura Ecuador como legalizarlo por", excerpt: "Si heredaste un terreno sin escritura en Ecuador, puedes continuar la posesión de tu causante y sumar ese tiempo para", url: "https://juristam.net/blog/herencia-terreno-sin-escritura-ecuador.html" },
+    { tag: "Inmobiliario", date: "Guía práctica", title: "Cómo interrumpir la prescripción adquisitiva en Ecuador", excerpt: "Si alguien ocupa tu terreno, la prescripción adquisitiva se puede detener antes de que se configure. Te explicamos", url: "https://juristam.net/blog/interrumpir-prescripcion-adquisitiva-ecuador.html" },
+    { tag: "Inmobiliario", date: "Guía práctica", title: "Qué hacer si quien ocupa tu terreno es un familiar en", excerpt: "Los conflictos de terrenos entre familiares tienen una dinámica especial. La prescripción entre parientes tiene", url: "https://juristam.net/blog/ocupante-familiar-terreno-ecuador.html" },
+    { tag: "Inmobiliario", date: "Guía práctica", title: "El pago del impuesto predial como prueba de posesión de", excerpt: "El impuesto predial es uno de los documentos más poderosos para probar posesión con ánimo de dueño en Ecuador. Te", url: "https://juristam.net/blog/pago-predial-prueba-posesion-ecuador.html" },
+    { tag: "Inmobiliario", date: "Guía práctica", title: "El informe pericial de posesión en Ecuador", excerpt: "El informe pericial es una de las pruebas más poderosas en prescripción adquisitiva. Te explicamos qué mide exactamente,", url: "https://juristam.net/blog/peritos-posesion-terreno-ecuador.html" },
+    { tag: "Inmobiliario", date: "Guía práctica", title: "Por que el plazo de prescripcion es 5 anos en un caso y 15", excerpt: "La prescripción ordinaria dura 5 años y la extraordinaria 15. Te explicamos por qué existe esa diferencia, con", url: "https://juristam.net/blog/plazo-5-vs-15-anos-prescripcion-ecuador.html" },
+    { tag: "Inmobiliario", date: "Guía práctica", title: "Como demostrar que la posesion fue continua e ininterrumpida", excerpt: "La continuidad es uno de los requisitos más difíciles de probar en la prescripción adquisitiva. Te explicamos qué la", url: "https://juristam.net/blog/posesion-continua-ininterrumpida-como-probarla-ecuador.html" },
+    { tag: "Inmobiliario", date: "Guía práctica", title: "Que interrupciones destruyen la posesion continua Ecuador", excerpt: "No toda ausencia del terreno interrumpe la posesión continua en Ecuador. Te explicamos qué interrupciones sí afectan", url: "https://juristam.net/blog/posesion-continua-interrupciones-ecuador.html" },
+    { tag: "Inmobiliario", date: "Guía práctica", title: "Posesión efectiva y herencia en Ecuador", excerpt: "Si falleció un familiar en Ecuador y dejó bienes, necesitas tramitar la posesión efectiva. Sin ese trámite no puedes", url: "https://juristam.net/blog/posesion-efectiva-herencia-ecuador.html" },
+    { tag: "Inmobiliario", date: "Guía práctica", title: "Posesion efectiva herencia vs prescripcion adquisitiva", excerpt: "Muchas personas confunden la posesión efectiva de herencia con la prescripción adquisitiva en Ecuador. Son procesos", url: "https://juristam.net/blog/posesion-efectiva-vs-prescripcion-adquisitiva-ecuador.html" },
+    { tag: "Inmobiliario", date: "Guía práctica", title: "Posesión notoria de apellidos en Ecuador", excerpt: "La posesión notoria de apellidos es el mecanismo legal para cambiar el apellido en Ecuador. Te explicamos qué es, qué", url: "https://juristam.net/blog/posesion-notoria-apellidos-ecuador.html" },
+    { tag: "Inmobiliario", date: "Guía práctica", title: "Posesion pacifica requisito prescripcion adquisitiva Ecuador", excerpt: "La posesión pacífica es uno de los 4 requisitos de la prescripción adquisitiva en Ecuador. Te explicamos qué la", url: "https://juristam.net/blog/posesion-pacifica-requisito-ecuador.html" },
+    { tag: "Inmobiliario", date: "Guía práctica", title: "Que significa posesion publica Ecuador prescripcion", excerpt: "La posesión pública es uno de los 4 requisitos de la prescripción adquisitiva en Ecuador. Te explicamos qué significa", url: "https://juristam.net/blog/posesion-publica-que-significa-ecuador.html" },
+    { tag: "Inmobiliario", date: "Guía práctica", title: "Prescripcion adquisitiva terreno copropiedad indiviso", excerpt: "¿El terreno pertenece a varios dueños o está indiviso? La prescripción adquisitiva entre copropietarios tiene reglas", url: "https://juristam.net/blog/prescripcion-adquisitiva-bien-indiviso-ecuador.html" },
+    { tag: "Inmobiliario", date: "Guía práctica", title: "Terreno en Ecuador", excerpt: "En Ecuador puedes perder tu terreno aunque tengas escritura si alguien lleva 15 años poseyéndolo. Y puedes ganar la", url: "https://juristam.net/blog/prescripcion-adquisitiva-dominio-terreno-ecuador.html" },
+    { tag: "Inmobiliario", date: "Guía práctica", title: "Prescripción adquisitiva y herencia en Ecuador", excerpt: "Terrenos heredados sin escritura, en disputa entre hermanos o en copropiedad tienen regímenes especiales para la", url: "https://juristam.net/blog/prescripcion-adquisitiva-herencia-ecuador.html" },
+    { tag: "Inmobiliario", date: "Guía práctica", title: "Prescripcion extraordinaria Ecuador", excerpt: "La prescripción extraordinaria en Ecuador permite ganar un terreno sin escritura ni buena fe si llevas 15 años de", url: "https://juristam.net/blog/prescripcion-extraordinaria-sin-titulo-ecuador.html" },
+    { tag: "Inmobiliario", date: "Guía práctica", title: "Prescripcion ordinaria Ecuador", excerpt: "La prescripción ordinaria en Ecuador requiere justo título y buena fe para completarse en solo 5 años. Te explicamos", url: "https://juristam.net/blog/prescripcion-ordinaria-justo-titulo-ecuador.html" },
+    { tag: "Inmobiliario", date: "Guía práctica", title: "Prescripción ordinaria vs extraordinaria en Ecuador", excerpt: "En Ecuador hay dos tipos de prescripción adquisitiva. La ordinaria requiere justo título y buena fe en 5 años. La", url: "https://juristam.net/blog/prescripcion-ordinaria-vs-extraordinaria-ecuador.html" },
+    { tag: "Inmobiliario", date: "Guía práctica", title: "Que factores alargan el juicio de prescripcion adquisitiva", excerpt: "Un juicio de prescripción adquisitiva puede tomar el doble de tiempo por factores que muchos no anticipan. Te", url: "https://juristam.net/blog/que-alarga-juicio-prescripcion-ecuador.html" },
+    { tag: "Inmobiliario", date: "Guía práctica", title: "Que es el reconocimiento de dominio ajeno y como interrumpe", excerpt: "El reconocimiento de dominio ajeno es cuando el poseedor admite que el terreno es de otro. Ese acto destruye el ánimo", url: "https://juristam.net/blog/reconocimiento-dominio-ajeno-ecuador.html" },
+    { tag: "Inmobiliario", date: "Guía práctica", title: "Identificar inmueble: regla Corte Ecuador", excerpt: "La Corte Nacional fijó una regla obligatoria: los requisitos de identificación del inmueble son distintos para", url: "https://juristam.net/blog/regla-obligatoria-singularizacion-inmueble-prescripcion-reivindicacion.html" },
+    { tag: "Inmobiliario", date: "Guía práctica", title: "Reivindicar terreno Ecuador: regla de la Corte", excerpt: "Para recuperar tu terreno en Ecuador debes probar dominio, posesión del demandado y singularización (Res. 546-2012).", url: "https://juristam.net/blog/reivindicacion-terreno-requisitos-dominio-posesion-singularizacion.html" },
+    { tag: "Inmobiliario", date: "Guía práctica", title: "Los 4 requisitos de la prescripción adquisitiva en Ecuador", excerpt: "Para ganar un terreno por prescripción en Ecuador debes cumplir 4 requisitos simultáneos: posesión pública, pacífica,", url: "https://juristam.net/blog/requisitos-prescripcion-adquisitiva-ecuador.html" },
+    { tag: "Inmobiliario", date: "Guía práctica", title: "Como inscribir sentencia de prescripcion adquisitiva en", excerpt: "Ganar el juicio de prescripción adquisitiva no es el último paso. La sentencia debe inscribirse en el Registro de la", url: "https://juristam.net/blog/sentencia-prescripcion-registro-propiedad-ecuador.html" },
+    { tag: "Inmobiliario", date: "Guía práctica", title: "Cómo recuperar un terreno que abandonaste y alguien ocupa en", excerpt: "Si dejaste un terreno sin atender y alguien lo está ocupando, la recuperación es posible pero depende de cuánto", url: "https://juristam.net/blog/terreno-abandonado-recuperar-ecuador.html" },
+    { tag: "Inmobiliario", date: "Guía práctica", title: "Terreno en disputa hermanos Ecuador prescripcion adquisitiva", excerpt: "Cuando un heredero vivió en el terreno familiar durante años y los demás quieren su parte, o viceversa. Te explicamos", url: "https://juristam.net/blog/terreno-en-disputa-hermanos-prescripcion-ecuador.html" },
+    { tag: "Inmobiliario", date: "Guía práctica", title: "Tengo escritura pero alguien ocupa mi terreno en Ecuador", excerpt: "Tienes escritura de un terreno en Ecuador pero alguien lo ocupa. Si llevan 15 años y no actúas, pueden ganarte la", url: "https://juristam.net/blog/terreno-ocupado-escritura-ecuador.html" },
+    { tag: "Inmobiliario", date: "Guía práctica", title: "Llevo años en un terreno sin escritura en Ecuador", excerpt: "Si llevas años en un terreno sin escritura en Ecuador, la prescripción adquisitiva puede convertirte en el dueño", url: "https://juristam.net/blog/terreno-sin-escritura-prescripcion-adquisitiva-ecuador.html" },
+    { tag: "Inmobiliario", date: "Guía práctica", title: "Qué deben declarar los testigos de posesión para que el juez", excerpt: "No cualquier testigo vale en un juicio de prescripción adquisitiva. Te explicamos qué debe declarar un testigo, qué", url: "https://juristam.net/blog/testigos-posesion-terreno-requisitos-ecuador.html" },
+    { tag: "Inmobiliario", date: "Guía práctica", title: "Cómo los testimonios de vecinos prueban la posesión de un", excerpt: "Los vecinos son testigos clave en un juicio de prescripción adquisitiva en Ecuador. Te explicamos qué tipo de vecino", url: "https://juristam.net/blog/vecinos-testigos-posesion-terreno-ecuador.html" }
   ];
 
   const grid = document.getElementById('grid');

@@ -4,7 +4,8 @@
       "Bash(Get-ChildItem -Path \"blog\" -Filter \"*.html\")",
       "Bash(Select-Object -ExpandProperty Name)",
       "Bash(Sort-Object)",
-      "Bash(Measure-Object)"
+      "Bash(Measure-Object)",
+      "Bash(Get-ChildItem -Path \"c:\\\\Users\\\\HOLA\\\\OneDrive\\\\Escritorio\\\\juristam-web\" -Filter \"*.html\")"
     ]
   }
 }

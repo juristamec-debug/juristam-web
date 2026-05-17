@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="es">
 <head>
   <meta charset="UTF-8">
@@ -18,8 +18,18 @@
   <meta property="og:url" content="https://juristam.net/blog/categoria-bancario.html">
   <meta property="og:image" content="https://i.postimg.cc/vHygbHxz/oie-transparent-(2).png">
 
+  <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"CollectionPage",
+    "name":"Bancario · Guías Júristam",
+    "url":"https://juristam.net/blog/categoria-bancario.html",
+    "description":"Guías legales sobre deudas bancarias en Ecuador. Prescripción, buró de crédito, negociación con bancos y habeas data. Estrategia legal clara.",
+    "mainEntity":{"@type":"ItemList","itemListElement":[]}
+  }
+  </script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
   <style>
     :root{
@@ -351,13 +361,9 @@
   document.getElementById('year').textContent = new Date().getFullYear();
 
   const posts = [
-    {
-      tag: "Bancario",
-      date: "Guía práctica",
-      title: "Prescripción de deudas bancarias en Ecuador: qué protege y qué no",
-      excerpt: "La prescripción mata la acción de cobro judicial, pero no borra el buró de crédito. Conoce los plazos reales, qué los interrumpe, y por qué prescribir no significa quedar libre.",
-      url: "/blog/prescripcion-deuda-bancaria-ecuador.html"
-    }
+    { tag: "Bancario", date: "Guía práctica", title: "Cheque sin fondos en Ecuador", excerpt: "Si no actúas desde el protesto, el plazo penal vence y pierdes tu mejor opción legal. Juristam revisa tu caso y te", url: "https://juristam.net/blog/cheque-sin-fondos-ecuador.html" },
+    { tag: "Bancario", date: "Guía práctica", title: "¿El banco puede embargarme el sueldo en Ecuador", excerpt: "En Ecuador el sueldo es 100% inembargable para deudas bancarias, coactivas y deudas comunes. Ningún banco puede", url: "https://juristam.net/blog/embargo-sueldo-ecuador.html" },
+    { tag: "Bancario", date: "Guía práctica", title: "Prescripción de deuda bancaria en Ecuador", excerpt: "¿Cuándo prescribe una deuda bancaria en Ecuador? Pagaré: 3 años. Tarjeta y consumo: 5 años. Pero hay errores que", url: "https://juristam.net/blog/prescripcion-deuda-bancaria-ecuador.html" }
   ];
 
   const grid = document.getElementById('grid');

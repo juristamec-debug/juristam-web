@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="es-EC">
 <head>
   <meta charset="UTF-8">
@@ -18,8 +18,18 @@
   <meta property="og:url" content="https://juristam.net/blog/categoria-tributario.html">
   <meta property="og:image" content="https://i.postimg.cc/vHygbHxz/oie-transparent-(2).png">
 
+  <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"CollectionPage",
+    "name":"Tributario · Guías Júristam",
+    "url":"https://juristam.net/blog/categoria-tributario.html",
+    "description":"Guías legales sobre defensa frente al SRI en Ecuador. Carga de la prueba, errores en demandas, devoluciones de impuestos y estrategias tributarias.",
+    "mainEntity":{"@type":"ItemList","itemListElement":[]}
+  }
+  </script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
   <style>
     :root{
@@ -124,15 +134,10 @@ Guías / Tributario
 
 <script>
 const posts = [
-  {
-    tag: "Tributario",
-    date: "Guía estratégica",
-    title: "Carga de la prueba en materia tributaria: por qué puedes perder aunque tengas razón",
-    excerpt: "En materia tributaria no basta tener argumentos: debes probarlos. Este es el error que más casos hace perder frente al SRI.",
-    url: "/blog/carga-prueba-tributaria-ecuador.html"
-  }
-  
-];
+    { tag: "Tributario", date: "Guía práctica", title: "Carga de la prueba tributaria en Ecuador", excerpt: "En Ecuador, la carga de la prueba en materia tributaria puede hacerte perder un caso incluso si tienes razón.", url: "https://juristam.net/blog/carga-prueba-tributaria-ecuador.html" },
+    { tag: "Tributario", date: "Guía práctica", title: "Impuesto a la herencia en Ecuador", excerpt: "El impuesto a la herencia en Ecuador lo paga cada heredero al SRI según la porción que recibe. Descubre cuándo", url: "https://juristam.net/blog/impuesto-herencia-ecuador.html" },
+    { tag: "Tributario", date: "Guía práctica", title: "Motivos frecuentes de multas de la Superintendencia de", excerpt: "Los motivos más comunes de sanciones de la Superintendencia de Compañías en Ecuador. Cómo evitarlas y qué hacer si tu", url: "https://juristam.net/blog/multas-supercias-ecuador.html" }
+  ];
 
 document.getElementById('grid').innerHTML = posts.map(p => `
   <article class="card">

@@ -1,4 +1,4 @@
-
+﻿
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -16,7 +16,7 @@
   <meta name="theme-color" content="#9a6aff">
 
   <title>Societario · Guías Júristam</title>
-  <meta name="description" content="Guías legales societarias en Ecuador: constitución de compañías, aumento de capital, reformas estatutarias, S.A.S., responsabilidad y estrategias empresariales.">
+  <meta name="description" content="Guías legales societarias en Ecuador: constitución de compañías, aumento de capital, reformas estatutarias, S.A.S., responsabilidad y estrategias">
   <link rel="canonical" href="https://juristam.net/blog/categoria-societario.html">
   <meta name="robots" content="index,follow,max-image-preview:large">
 
@@ -27,6 +27,7 @@
   <meta property="og:url" content="https://juristam.net/blog/categoria-societario.html">
 
   <!-- Fonts & Icons -->
+  <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
@@ -299,20 +300,47 @@
 
   // ✅ Agrega aquí tus artículos cuando estén listos
   const posts = [
-    {
-      tag: "Societario",
-        date: "Guía práctica",
-        title: "Inspección de la Superintendencia de Compañías: qué revisan y cómo prepararte",
-        excerpt: "Si tu empresa recibió una carta credencial de inspección, esto es exactamente lo que revisa el inspector, los errores más comunes y cómo prepararte antes de la visita.",
-        url: "https://juristam.net/blog/inspeccion-superintendencia-companias-ecuador.html"
-    },
-    {
-  tag: "Societario",
-  date: "Guía práctica",
-  title: "Cierre de SAS en Ecuador: etapas, bloqueos y riesgos que encarecen el proceso",
-  excerpt: "Cerrar una SAS no es dejarla sin movimiento: implica disolución, liquidación y cancelación. Conoce dónde se bloquea y por qué hacerlo mal sale caro.",
-  url: "https://juristam.net/blog/cierre-sas-ecuador.html"
-}
+    { tag: "Societario", date: "Guía práctica", title: "Abuso de mayoría en empresas ecuatorianas: qué hacer", excerpt: "Qué es el abuso de mayoría en una compañía ecuatoriana y qué recursos tienen los socios minoritarios para protegerse.", url: "https://juristam.net/blog/abuso-mayoria-societaria-ecuador.html" },
+    { tag: "Societario", date: "Guía práctica", title: "Estrategias de protección y blindaje patrimonial legal para", excerpt: "Las estrategias legales más efectivas para proteger el patrimonio personal de un empresario en Ecuador frente a", url: "https://juristam.net/blog/blindaje-patrimonial-legal-ecuador.html" },
+    { tag: "Societario", date: "Guía práctica", title: "Empresa paralizada por conflicto entre socios en Ecuador", excerpt: "Qué hacer cuando los socios de una empresa no pueden tomar decisiones por un conflicto que paraliza la operación.", url: "https://juristam.net/blog/bloqueo-decisiones-socios-ecuador.html" },
+    { tag: "Societario", date: "Guía práctica", title: "Causas legales para dejar de pagar pensión alimenticia en", excerpt: "No todas las situaciones permiten dejar de pagar pensión alimenticia en Ecuador. Te explicamos cuáles son las causas", url: "https://juristam.net/blog/causas-legales-dejar-pagar-pension-alimenticia-ecuador.html" },
+    { tag: "Societario", date: "Guía práctica", title: "Cierre de SAS en Ecuador: cómo disolver la empresa", excerpt: "Cómo cerrar una SAS en Ecuador: pasos legales, documentos y trámites ante la Superintendencia de Compañías para", url: "https://juristam.net/blog/cierre-sas-ecuador.html" },
+    { tag: "Societario", date: "Guía práctica", title: "Cláusulas penales en contratos empresariales en Ecuador", excerpt: "Cómo funcionan las cláusulas penales en contratos empresariales en Ecuador. Cuándo son exigibles, cómo se calculan y", url: "https://juristam.net/blog/clausulas-penales-contratos-ecuador.html" },
+    { tag: "Societario", date: "Guía práctica", title: "Cómo demandar pensión alimenticia en Ecuador", excerpt: "Guía completa para demandar pensión alimenticia en Ecuador 2026. Tabla oficial actualizada, calculadora de pensión,", url: "https://juristam.net/blog/como-demandar-pension-alimenticia-ecuador.html" },
+    { tag: "Societario", date: "Guía práctica", title: "Compliance empresarial en Ecuador", excerpt: "Guía de compliance empresarial en Ecuador. Cómo cumplir con obligaciones legales, evitar multas de la SCVS y proteger", url: "https://juristam.net/blog/compliance-empresarial-ecuador.html" },
+    { tag: "Societario", date: "Guía práctica", title: "Qué es compliance empresarial y por qué ya no es opcional en", excerpt: "Qué es el compliance empresarial en Ecuador, qué obligaciones implica y por qué ya no es solo para grandes empresas.", url: "https://juristam.net/blog/compliance-que-es-ecuador.html" },
+    { tag: "Societario", date: "Guía práctica", title: "Conflictos entre socios en Ecuador", excerpt: "Guía de conflictos societarios en Ecuador. Exclusión de socios, abuso de mayoría, empresas paralizadas, impugnación", url: "https://juristam.net/blog/conflictos-societarios-ecuador.html" },
+    { tag: "Societario", date: "Guía práctica", title: "Cómo constituir una empresa en Ecuador correctamente", excerpt: "Guía completa para constituir una empresa en Ecuador. Tipos societarios, proceso legal, errores a evitar y costos", url: "https://juristam.net/blog/constitucion-companias-ecuador.html" },
+    { tag: "Societario", date: "Guía práctica", title: "Acuerdo de confidencialidad (NDA) para empresas en Ecuador", excerpt: "Cómo funciona un NDA en Ecuador. Cuándo usarlo, qué debe incluir y cómo hacerlo exigible frente a empleados, socios o", url: "https://juristam.net/blog/contrato-confidencialidad-nda-ecuador.html" },
+    { tag: "Societario", date: "Guía práctica", title: "Cómo redactar contratos de prestación de servicios en", excerpt: "Cómo redactar contratos de prestación de servicios correctamente en Ecuador. Cláusulas esenciales, errores comunes y", url: "https://juristam.net/blog/contrato-servicios-empresa-ecuador.html" },
+    { tag: "Societario", date: "Guía práctica", title: "Pacto entre socios en Ecuador", excerpt: "El pacto entre socios en Ecuador: qué es, por qué el estatuto no es suficiente y qué cláusulas debe incluir para", url: "https://juristam.net/blog/contrato-socios-empresa-ecuador.html" },
+    { tag: "Societario", date: "Guía práctica", title: "Contratos empresariales en Ecuador", excerpt: "Los contratos que toda empresa en Ecuador necesita tener. Cláusulas esenciales, riesgos de contratos genéricos y cómo", url: "https://juristam.net/blog/contratos-empresariales-ecuador.html" },
+    { tag: "Societario", date: "Guía práctica", title: "Riesgos de usar contratos genéricos descargados de internet", excerpt: "Los riesgos legales de usar contratos genéricos en tu empresa en Ecuador. Por qué un contrato que parece completo", url: "https://juristam.net/blog/contratos-mal-hechos-riesgos-ecuador.html" },
+    { tag: "Societario", date: "Guía práctica", title: "Copiaron o usan indebidamente mi marca en Ecuador: qué hacer", excerpt: "Qué acciones legales existen en Ecuador cuando alguien usa tu marca sin autorización o una marca confusamente", url: "https://juristam.net/blog/copiaron-mi-marca-ecuador.html" },
+    { tag: "Societario", date: "Guía práctica", title: "Cuánto cuesta constituir una empresa en Ecuador en 2026", excerpt: "Costos reales para crear una empresa en Ecuador: capital mínimo, escritura pública, Registro Mercantil y honorarios.", url: "https://juristam.net/blog/cuanto-cuesta-crear-empresa-ecuador.html" },
+    { tag: "Societario", date: "Guía práctica", title: "Como una demanda judicial interrumpe la prescripcion", excerpt: "Presentar una demanda judicial es el mecanismo más efectivo para interrumpir la prescripción adquisitiva. Te", url: "https://juristam.net/blog/demanda-judicial-interrumpe-prescripcion-ecuador.html" },
+    { tag: "Societario", date: "Guía práctica", title: "Derecho corporativo en Ecuador", excerpt: "Guía completa de derecho corporativo en Ecuador. Constitución de compañías, protección patrimonial, conflictos", url: "https://juristam.net/blog/derecho-corporativo-empresas-ecuador.html" },
+    { tag: "Societario", date: "Guía práctica", title: "Errores legales al crear una SAS en Ecuador y cómo evitarlos", excerpt: "Los errores más frecuentes al constituir una SAS en Ecuador: estatutos genéricos, capital mal declarado y mecanismos", url: "https://juristam.net/blog/errores-crear-sas-ecuador.html" },
+    { tag: "Societario", date: "Guía práctica", title: "¿Se puede sacar legalmente a un socio de una empresa en", excerpt: "Cómo excluir a un socio de una compañía en Ecuador: causales legales, proceso y qué pasa con sus participaciones.", url: "https://juristam.net/blog/expulsar-socio-compania-ecuador.html" },
+    { tag: "Societario", date: "Guía práctica", title: "Cómo funcionan los fideicomisos en Ecuador y para qué sirven", excerpt: "Qué es un fideicomiso en Ecuador, cómo funciona y cuándo es la herramienta correcta para proteger activos personales", url: "https://juristam.net/blog/fideicomisos-ecuador.html" },
+    { tag: "Societario", date: "Guía práctica", title: "Qué sucede con las acciones y participaciones de una empresa", excerpt: "Cómo se heredan las acciones y participaciones de una empresa en Ecuador. El proceso legal y cómo evitar conflictos", url: "https://juristam.net/blog/herederos-acciones-compania-ecuador.html" },
+    { tag: "Societario", date: "Guía práctica", title: "Cómo impugnar decisiones de la junta de socios en Ecuador", excerpt: "Cómo impugnar resoluciones de juntas generales en Ecuador. Qué decisiones son impugnables, cuáles son los plazos y", url: "https://juristam.net/blog/impugnacion-juntas-generales-ecuador.html" },
+    { tag: "Societario", date: "Guía práctica", title: "Inspección Superintendencia de Compañías Ecuador", excerpt: "Si tu empresa recibió una carta credencial de inspección de la Superintendencia de Compañías, esto es lo que revisan,", url: "https://juristam.net/blog/inspeccion-superintendencia-companias-ecuador.html" },
+    { tag: "Societario", date: "Guía práctica", title: "Cuándo conviene liquidar una empresa con conflictos internos", excerpt: "Cuándo la disolución y liquidación es la mejor solución para una empresa con conflictos societarios irresolubles en", url: "https://juristam.net/blog/liquidacion-companias-conflictos.html" },
+    { tag: "Societario", date: "Guía práctica", title: "No sé dónde vive el padre de mi hijo en Ecuador", excerpt: "No saber dónde vive el padre no es un impedimento para demandar pensión alimenticia en Ecuador. El juzgado tiene", url: "https://juristam.net/blog/no-se-donde-vive-padre-demandar-alimentos-ecuador.html" },
+    { tag: "Societario", date: "Guía práctica", title: "Cómo redactar el objeto social de una empresa en Ecuador", excerpt: "El objeto social define qué puede hacer legalmente tu empresa en Ecuador. Un error en su redacción puede limitar", url: "https://juristam.net/blog/objeto-social-empresa-ecuador.html" },
+    { tag: "Societario", date: "Guía práctica", title: "Oposición al registro de marca en Ecuador: qué hacer", excerpt: "Qué hacer si alguien presenta una oposición a tu solicitud de marca en Ecuador. Cómo responder y cuáles son los", url: "https://juristam.net/blog/oposicion-registro-marca-ecuador.html" },
+    { tag: "Societario", date: "Guía práctica", title: "Planificación patrimonial empresarial en Ecuador", excerpt: "Guía de planificación patrimonial para empresarios en Ecuador. Separación patrimonial, sucesión empresarial,", url: "https://juristam.net/blog/planificacion-patrimonial-empresarial-ecuador.html" },
+    { tag: "Societario", date: "Guía práctica", title: "Políticas internas que reducen riesgos legales en empresas", excerpt: "Qué políticas internas debe tener una empresa en Ecuador para reducir riesgos legales, proteger a sus directivos y", url: "https://juristam.net/blog/politicas-internas-empresa-ecuador.html" },
+    { tag: "Societario", date: "Guía práctica", title: "Prevención de lavado de activos en empresas en Ecuador", excerpt: "Obligaciones de prevención de lavado de activos para empresas en Ecuador. Quiénes están obligados, qué controles", url: "https://juristam.net/blog/prevencion-lavado-activos-empresas-ecuador.html" },
+    { tag: "Societario", date: "Guía práctica", title: "Errores comunes de emprendedores con marcas y propiedad", excerpt: "Los errores más frecuentes que cometen los emprendedores con la propiedad intelectual de su negocio en Ecuador y cómo", url: "https://juristam.net/blog/propiedad-intelectual-emprendedores.html" },
+    { tag: "Societario", date: "Guía práctica", title: "Propiedad intelectual y marcas en Ecuador", excerpt: "Guía de propiedad intelectual y marcas en Ecuador. Cómo registrar una marca, responder a oposiciones y proteger los", url: "https://juristam.net/blog/propiedad-intelectual-marcas-ecuador.html" },
+    { tag: "Societario", date: "Guía práctica", title: "Diferencia entre marca y nombre comercial en Ecuador", excerpt: "Diferencia legal entre marca registrada y nombre comercial en Ecuador. Cómo proteger el nombre de la empresa más allá", url: "https://juristam.net/blog/proteger-nombre-comercial-ecuador.html" },
+    { tag: "Societario", date: "Guía práctica", title: "Cómo registrar una marca en Ecuador paso a paso", excerpt: "Guía para registrar una marca en Ecuador ante el SENADI. Proceso, requisitos, costos y cuánto tarda. Asesoría legal", url: "https://juristam.net/blog/registrar-marca-ecuador.html" },
+    { tag: "Societario", date: "Guía práctica", title: "Responsabilidad legal del representante legal de una empresa", excerpt: "Qué responsabilidades legales tiene el representante legal de una empresa en Ecuador y cuándo responde con su", url: "https://juristam.net/blog/representante-legal-responsabilidad-ecuador.html" },
+    { tag: "Societario", date: "Guía práctica", title: "Cómo separar patrimonio personal y empresarial en Ecuador", excerpt: "Cómo mantener correctamente separados el patrimonio personal y el empresarial en Ecuador para protegerse frente a", url: "https://juristam.net/blog/separar-patrimonio-personal-empresa.html" },
+    { tag: "Societario", date: "Guía práctica", title: "Qué pasa con una empresa familiar cuando fallece el dueño en", excerpt: "Cómo planificar la sucesión de una empresa familiar en Ecuador. Qué pasa con las participaciones cuando fallece el", url: "https://juristam.net/blog/sucesion-empresas-familiares-ecuador.html" },
+    { tag: "Societario", date: "Guía práctica", title: "SAS, Cía. Ltda. y Sociedad Anónima en Ecuador", excerpt: "Diferencias entre SAS, Cía. Ltda. y Sociedad Anónima en Ecuador. Cuál tipo societario conviene según tu negocio,", url: "https://juristam.net/blog/tipos-companias-ecuador.html" }
   ];
 
   const grid = document.getElementById('grid');

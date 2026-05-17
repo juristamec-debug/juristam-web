@@ -1,4 +1,4 @@
-
+﻿
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -26,6 +26,7 @@
 <link rel="apple-touch-icon" href="https://i.postimg.cc/KjDB1NSM/Diseno-sin-titulo-(7).png">
 
   <!-- Fonts & Icons -->
+  <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
@@ -385,90 +386,61 @@
   document.getElementById('year').textContent = new Date().getFullYear();
 
   const posts = [
-    {
-      tag:"Tránsito",
-      date:"Guía principal",
-      title:"Prescripción de multas de tránsito en Ecuador: todo lo que necesitas saber",
-      excerpt:"Cuándo prescribe una multa, qué plazos aplican y cómo tramitar la prescripción ante la ANT o el juzgado.",
-      url:"https://juristam.net/blog/prescripcion-multas-transito-ecuador.html"
-    },
-    {
-      tag:"Tránsito",
-      date:"Plazo legal",
-      title:"Los 5 años de prescripción de multa de tránsito en Ecuador",
-      excerpt:"Cómo se cuentan los 5 años, desde cuándo corren y qué los puede interrumpir o suspender.",
-      url:"https://juristam.net/blog/cinco-anos-prescripcion-multa-transito-ecuador.html"
-    },
-    {
-      tag:"Tránsito",
-      date:"Consulta en línea",
-      title:"Cómo consultar tus multas de tránsito en Ecuador",
-      excerpt:"Paso a paso para verificar multas en la ANT, EMOV, AMT u otras plataformas municipales.",
-      url:"https://juristam.net/blog/consultar-multas-transito-ecuador.html"
-    },
-    {
-      tag:"Tránsito",
-      date:"Matrícula",
-      title:"Matrícula bloqueada por multa de tránsito en Ecuador",
-      excerpt:"Qué hacer cuando no puedes renovar la matrícula por multas pendientes y cuáles son tus opciones.",
-      url:"https://juristam.net/blog/matricula-bloqueada-multa-transito-ecuador.html"
-    },
-    {
-      tag:"Tránsito",
-      date:"Licencia",
-      title:"Puntos de licencia y prescripción de multa en Ecuador",
-      excerpt:"Qué pasa con los puntos descontados cuando una multa prescribe y cómo recuperar tu puntaje.",
-      url:"https://juristam.net/blog/puntos-licencia-prescripcion-multa-ecuador.html"
-    },
-    {
-      tag:"Tránsito",
-      date:"Trámite",
-      title:"Cómo presentar la solicitud de prescripción de multa ante la ANT",
-      excerpt:"Documentos, plazos y pasos para pedir formalmente la prescripción de una multa de tránsito.",
-      url:"https://juristam.net/blog/como-presentar-solicitud-prescripcion-multa-ant.html"
-    },
-    {
-      tag:"Tránsito",
-      date:"Prescripción judicial",
-      title:"Prescripción de multas de tránsito sin abogado en Ecuador",
-      excerpt:"Cuándo puedes hacer el trámite tú solo y cuándo necesitas asistencia legal.",
-      url:"https://juristam.net/blog/prescripcion-multas-transito-sin-abogado-ecuador.html"
-    },
-    {
-      tag:"Tránsito",
-      date:"Coactiva",
-      title:"¿La coactiva interrumpe la prescripción de una multa de tránsito?",
-      excerpt:"Qué efecto tiene un proceso coactivo sobre el plazo de prescripción y cómo defenderte.",
-      url:"https://juristam.net/blog/coactiva-interrumpe-prescripcion-multa-transito.html"
-    },
-    {
-      tag:"Tránsito",
-      date:"Consecuencias",
-      title:"Consecuencias de no pagar una multa de tránsito en Ecuador",
-      excerpt:"Bloqueo de matrícula, embargo de vehículo, buró de crédito y coactiva: lo que puede pasar.",
-      url:"https://juristam.net/blog/consecuencias-no-pagar-multa-transito-ecuador.html"
-    },
-    {
-      tag:"Tránsito",
-      date:"Quito",
-      title:"Prescripción de multa de tránsito ANT Quito",
-      excerpt:"Proceso específico para tramitar la prescripción de una multa ante la ANT en Quito.",
-      url:"https://juristam.net/blog/prescripcion-multa-transito-ant-quito.html"
-    },
-    {
-      tag:"Tránsito",
-      date:"Guayaquil",
-      title:"Prescripción de multa de tránsito en Guayaquil",
-      excerpt:"Cómo tramitar la prescripción ante la ATM de Guayaquil y qué plazos y documentos se requieren.",
-      url:"https://juristam.net/blog/prescripcion-multa-guayaquil-ecuador.html"
-    },
-    {
-      tag:"Tránsito",
-      date:"Cuenca",
-      title:"Prescripción de multa EMOV EP Cuenca",
-      excerpt:"Proceso y requisitos para prescribir multas de tránsito ante la EMOV EP en Cuenca.",
-      url:"https://juristam.net/blog/prescripcion-multa-emov-ep-cuenca.html"
-    }
+    { tag: "Tránsito", date: "Guía práctica", title: "Abono o pago parcial de multa de tránsito", excerpt: "Abono o pago parcial de multa de tránsito: ¿reinicia el plazo de prescripción?. Júristam te orienta con guías legales", url: "https://juristam.net/blog/abono-multa-transito-reinicia-prescripcion.html" },
+    { tag: "Tránsito", date: "Guía práctica", title: "Cómo consultar multas de tránsito en el portal de la ANT en", excerpt: "Cómo consultar multas de tránsito en el portal de la ANT en Ecuador. Júristam te orienta con guías legales claras y", url: "https://juristam.net/blog/ant-online-consultar-multas-ecuador.html" },
+    { tag: "Tránsito", date: "Guía práctica", title: "ANT o municipio", excerpt: "ANT o municipio: quién tiene competencia para resolver la prescripción de tu multa. Guía práctica con Júristam, firma", url: "https://juristam.net/blog/ant-vs-municipio-quien-resuelve-prescripcion-multa.html" },
+    { tag: "Tránsito", date: "Guía práctica", title: "Antecedentes de tránsito en el SATJE en Ecuador", excerpt: "Antecedentes de tránsito en el SATJE en Ecuador: cómo ocultar el proceso. Júristam te orienta con guías legales", url: "https://juristam.net/blog/antecedentes-transito-satje-ocultamiento.html" },
+    { tag: "Tránsito", date: "Guía práctica", title: "Multas de tránsito y buró de crédito en Ecuador: ¿af", excerpt: "Multas de tránsito y buró de crédito en Ecuador: ¿afectan tu historial?. Júristam te orienta con guías legales claras", url: "https://juristam.net/blog/buro-credito-multa-transito-ecuador.html" },
+    { tag: "Tránsito", date: "Guía práctica", title: "Cómo calcular si tu multa de tránsito ya prescribió en Ecua", excerpt: "Cómo calcular si tu multa de tránsito ya prescribió en Ecuador. Júristam te orienta con guías legales claras y", url: "https://juristam.net/blog/calcular-prescripcion-multa-transito-ecuador.html" },
+    { tag: "Tránsito", date: "Guía práctica", title: "Licencia con cero puntos en Ecuador", excerpt: "Licencia con cero puntos en Ecuador: qué pasa y cómo regularizar. Júristam te orienta con guías legales claras y", url: "https://juristam.net/blog/cero-puntos-licencia-ecuador.html" },
+    { tag: "Tránsito", date: "Guía práctica", title: "Cómo se cuentan los cinco años de prescripción de multas de", excerpt: "Cómo se cuentan los cinco años de prescripción de multas de tránsito en Ecuador. Júristam te orienta con guías", url: "https://juristam.net/blog/cinco-anos-prescripcion-multa-transito-ecuador.html" },
+    { tag: "Tránsito", date: "Guía práctica", title: "Cobro coactivo de multa de tránsito", excerpt: "Cobro coactivo de multa de tránsito: ¿interrumpe el plazo de prescripción en Ecuador?. Guía práctica con Júristam,", url: "https://juristam.net/blog/coactiva-interrumpe-prescripcion-multa-transito.html" },
+    { tag: "Tránsito", date: "Guía práctica", title: "Cómo redactar y presentar la solicitud de prescripción de", excerpt: "Guía paso a paso para redactar y presentar la solicitud de prescripción de multa de tránsito en Ecuador. Qué debe", url: "https://juristam.net/blog/como-presentar-solicitud-prescripcion-multa-ant.html" },
+    { tag: "Tránsito", date: "Guía práctica", title: "Qué pasa si no pagas ni prescriben tus multas de tránsito en", excerpt: "Qué pasa si no pagas ni prescriben tus multas de tránsito en Ecuador. Júristam te orienta con guías legales claras y", url: "https://juristam.net/blog/consecuencias-no-pagar-multa-transito-ecuador.html" },
+    { tag: "Tránsito", date: "Guía práctica", title: "Cómo consultar tus multas de tránsito en Ecuador", excerpt: "Cómo consultar tus multas de tránsito en Ecuador antes de tramitar la prescripción. Guía práctica con Júristam, firma", url: "https://juristam.net/blog/consultar-multas-transito-ecuador.html" },
+    { tag: "Tránsito", date: "Guía práctica", title: "¿Un convenio de pago de multa de tránsito interrumpe la", excerpt: "¿Un convenio de pago de multa de tránsito interrumpe la prescripción en Ecuador?. Júristam te orienta con guías", url: "https://juristam.net/blog/convenio-pago-multa-transito-interrumpe-prescripcion.html" },
+    { tag: "Tránsito", date: "Guía práctica", title: "¿Cuántas multas de tránsito tengo en Ecuador? Cómo h", excerpt: "¿Cuántas multas de tránsito tengo en Ecuador? Cómo hacer el inventario completo. Júristam te orienta con guías", url: "https://juristam.net/blog/cuantas-multas-tengo-transito-ecuador.html" },
+    { tag: "Tránsito", date: "Guía práctica", title: "Dónde tramitar la prescripción de tu multa de tránsito en E", excerpt: "Dónde tramitar la prescripción de tu multa de tránsito en Ecuador: guía por entidad. Guía práctica con Júristam,", url: "https://juristam.net/blog/donde-tramitar-prescripcion-multa-transito-ecuador.html" },
+    { tag: "Tránsito", date: "Guía práctica", title: "Embargo por multa de tránsito en Ecuador", excerpt: "Embargo por multa de tránsito en Ecuador: cómo oponerse y qué derechos tienes. Júristam te orienta con guías legales", url: "https://juristam.net/blog/embargo-vehículo-multa-transito-ecuador.html" },
+    { tag: "Tránsito", date: "Guía práctica", title: "Errores frecuentes en la prescripción de multas de tránsito", excerpt: "Errores frecuentes en la prescripción de multas de tránsito en Ecuador: cómo evitarlos. Guía práctica con Júristam,", url: "https://juristam.net/blog/errores-frecuentes-prescripcion-multas-transito-ecuador.html" },
+    { tag: "Tránsito", date: "Guía práctica", title: "Escrito de prescripción ante el Juez de Contravenciones en", excerpt: "Escrito de prescripción ante el Juez de Contravenciones en Ecuador: qué debe incluir y cómo evitar el rechazo.", url: "https://juristam.net/blog/escrito-prescripcion-contravenciones-requisitos.html" },
+    { tag: "Tránsito", date: "Guía práctica", title: "Qué debe contener el escrito de prescripción ante el Juez de", excerpt: "Los elementos que debe incluir el escrito de prescripción de multa de tránsito ante el Juez de Contravenciones en", url: "https://juristam.net/blog/escrito-prescripcion-juez-contravenciones-transito.html" },
+    { tag: "Tránsito", date: "Guía práctica", title: "Historial de infracciones de tránsito en Ecuador", excerpt: "Historial de infracciones de tránsito en Ecuador: cómo consultarlo y para qué sirve. Guía práctica con Júristam,", url: "https://juristam.net/blog/historial-infracciones-transito-ecuador.html" },
+    { tag: "Tránsito", date: "Guía práctica", title: "Por qué la prescripción de multas no devuelve los puntos de", excerpt: "Por qué la prescripción de multas no devuelve los puntos de la licencia. Júristam te orienta con guías legales claras", url: "https://juristam.net/blog/licencia-no-devuelve-puntos-prescripcion.html" },
+    { tag: "Tránsito", date: "Guía práctica", title: "Matrícula bloqueada por multa de tránsito en Ecuador: cómo", excerpt: "Matrícula bloqueada por multa de tránsito en Ecuador: cómo resolverlo. Júristam te orienta con guías legales claras y", url: "https://juristam.net/blog/matricula-bloqueada-multa-transito-ecuador.html" },
+    { tag: "Tránsito", date: "Guía práctica", title: "Prescripción de multas de Movidelnor en Ecuador", excerpt: "Prescripción de multas de Movidelnor en Ecuador: cómo tramitarla. Júristam te orienta con guías legales claras y", url: "https://juristam.net/blog/multa-movidelnor-prescripcion-ecuador.html" },
+    { tag: "Tránsito", date: "Guía práctica", title: "Prescripción de multas de Portovial en Ecuador", excerpt: "Prescripción de multas de Portovial en Ecuador: cómo tramitarla. Júristam te orienta con guías legales claras y", url: "https://juristam.net/blog/multa-portovial-prescripcion-ecuador.html" },
+    { tag: "Tránsito", date: "Guía práctica", title: "Multas de tránsito de 2021 en Ecuador: ¿ya prescribieron?", excerpt: "Multas de tránsito de 2021 en Ecuador: ¿ya prescribieron?. Júristam te orienta con guías legales claras y", url: "https://juristam.net/blog/multa-transito-2021-prescripcion-ecuador.html" },
+    { tag: "Tránsito", date: "Guía práctica", title: "Intereses y mora en multas de tránsito no pagadas en Ecuador", excerpt: "Intereses y mora en multas de tránsito no pagadas en Ecuador. Júristam te orienta con guías legales claras y", url: "https://juristam.net/blog/multa-transito-interes-mora-ecuador.html" },
+    { tag: "Tránsito", date: "Guía práctica", title: "Puntos de la licencia por tipo de infracción de tránsito en", excerpt: "Puntos de la licencia por tipo de infracción de tránsito en Ecuador: guía completa. Guía práctica con Júristam, firma", url: "https://juristam.net/blog/multa-transito-puntos-licencia-diferentes-infracciones.html" },
+    { tag: "Tránsito", date: "Guía práctica", title: "Multa de tránsito de un vehículo que vendí en Ecuador: &iqu", excerpt: "Multa de tránsito de un vehículo que vendí en Ecuador: ¿es mi problema?. Júristam te orienta con guías legales claras", url: "https://juristam.net/blog/multa-vehiculo-vendido-ecuador.html" },
+    { tag: "Tránsito", date: "Guía práctica", title: "Multas de tránsito muy antiguas en Ecuador: ¿también prescr", excerpt: "Multas de tránsito muy antiguas en Ecuador: ¿también prescriben?. Júristam te orienta con guías legales claras y", url: "https://juristam.net/blog/multas-transito-antiguas-prescriben-ecuador.html" },
+    { tag: "Tránsito", date: "Guía práctica", title: "Municipio pequeño y multa de tránsito: cómo tramitar la pre", excerpt: "Municipio pequeño y multa de tránsito: cómo tramitar la prescripción en Ecuador. Júristam te orienta con guías", url: "https://juristam.net/blog/municipio-pequeno-multa-transito-prescripcion.html" },
+    { tag: "Tránsito", date: "Guía práctica", title: "No recuerdo los datos de mi multa de tránsito en Ecuador", excerpt: "No recuerdo los datos de mi multa de tránsito en Ecuador: cómo recuperarlos. Júristam te orienta con guías legales", url: "https://juristam.net/blog/no-recuerdo-mi-multa-transito-ecuador.html" },
+    { tag: "Tránsito", date: "Guía práctica", title: "No puedo renovar la licencia de conducción por multas de", excerpt: "No puedo renovar la licencia de conducción por multas de tránsito en Ecuador: solución. Guía práctica con Júristam,", url: "https://juristam.net/blog/no-renovar-licencia-multa-transito-ecuador.html" },
+    { tag: "Tránsito", date: "Guía práctica", title: "Plazos y tiempos del proceso de prescripción ante el Juez de", excerpt: "Plazos y tiempos del proceso de prescripción ante el Juez de Contravenciones en Ecuador. Guía práctica con Júristam,", url: "https://juristam.net/blog/plazos-prescripcion-contravenciones-transito-juzgado.html" },
+    { tag: "Tránsito", date: "Guía práctica", title: "Cómo prescribir una multa de tránsito de la AMT en Quito", excerpt: "Guía para prescribir una multa de tránsito emitida por la Agencia Metropolitana de Tránsito (AMT) en Quito. Dónde", url: "https://juristam.net/blog/prescripcion-multa-amt-quito.html" },
+    { tag: "Tránsito", date: "Guía práctica", title: "Prescripción de multas de la EMOV en Cuenca Ecuador", excerpt: "Prescripción de multas de la EMOV en Cuenca Ecuador: cómo tramitarla. Júristam te orienta con guías legales claras y", url: "https://juristam.net/blog/prescripcion-multa-emov-cuenca-ecuador.html" },
+    { tag: "Tránsito", date: "Guía práctica", title: "Cómo prescribir una multa de tránsito emitida por EMOV EP en", excerpt: "Guía para prescribir una multa de tránsito de la EMOV EP de Cuenca. Dónde presentar la solicitud, qué documentos", url: "https://juristam.net/blog/prescripcion-multa-emov-ep-cuenca.html" },
+    { tag: "Tránsito", date: "Guía práctica", title: "Prescripción de multas de tránsito en Guayaquil: cómo trami", excerpt: "Prescripción de multas de tránsito en Guayaquil: cómo tramitarla. Júristam te orienta con guías legales claras y", url: "https://juristam.net/blog/prescripcion-multa-guayaquil-ecuador.html" },
+    { tag: "Tránsito", date: "Guía práctica", title: "Prescripción de multas de tránsito en otras ciudades de", excerpt: "Prescripción de multas de tránsito en otras ciudades de Ecuador: Ambato, Loja, Riobamba y más. Asesoría legal", url: "https://juristam.net/blog/prescripcion-multa-otras-ciudades-ecuador.html" },
+    { tag: "Tránsito", date: "Guía práctica", title: "Cómo prescribir una multa de tránsito emitida por la Policía", excerpt: "Guía para prescribir multas de tránsito emitidas por agentes de la Policía Nacional en Ecuador. Dónde presentar la", url: "https://juristam.net/blog/prescripcion-multa-policia-nacional-transito.html" },
+    { tag: "Tránsito", date: "Guía práctica", title: "Prescripción de multas de tránsito de la AMT Quito: cómo tr", excerpt: "Prescripción de multas de tránsito de la AMT Quito: cómo tramitarla. Júristam te orienta con guías legales claras y", url: "https://juristam.net/blog/prescripcion-multa-transito-ant-quito.html" },
+    { tag: "Tránsito", date: "Guía práctica", title: "¿Puedo tramitar la prescripción de una multa de tránsito de", excerpt: "¿Puedo tramitar la prescripción de una multa de tránsito desde otra ciudad en Ecuador?. Guía práctica con Júristam,", url: "https://juristam.net/blog/prescripcion-multa-transito-fuera-de-mi-ciudad.html" },
+    { tag: "Tránsito", date: "Guía práctica", title: "Notificación inválida de multa de tránsito: ¿interru", excerpt: "Notificación inválida de multa de tránsito: ¿interrumpe la prescripción en Ecuador?. Guía práctica con Júristam,", url: "https://juristam.net/blog/prescripcion-multa-transito-notificacion-invalida.html" },
+    { tag: "Tránsito", date: "Guía práctica", title: "Suspensión vs interrupción del plazo de prescripción de mul", excerpt: "Suspensión vs interrupción del plazo de prescripción de multas de tránsito en Ecuador. Guía práctica con Júristam,", url: "https://juristam.net/blog/prescripcion-multa-transito-suspension-plazo-ecuador.html" },
+    { tag: "Tránsito", date: "Guía práctica", title: "Prescripción de multas de tránsito en sede administrativa en", excerpt: "Prescripción de multas de tránsito en sede administrativa en Ecuador. Júristam te orienta con guías legales claras y", url: "https://juristam.net/blog/prescripcion-multas-administrativas-ecuador.html" },
+    { tag: "Tránsito", date: "Guía práctica", title: "Prescripción de multas de tránsito desde 2014 en Ecuador", excerpt: "Prescripción de multas de tránsito desde 2014 en Ecuador: el proceso ante el Juez de Contravenciones. Asesoría legal", url: "https://juristam.net/blog/prescripcion-multas-judiciales-ecuador.html" },
+    { tag: "Tránsito", date: "Guía práctica", title: "Multas de tránsito de 2019 en Ecuador: ¿ya prescribieron?", excerpt: "Multas de tránsito de 2019 en Ecuador: ¿ya prescribieron?. Júristam te orienta con guías legales claras y", url: "https://juristam.net/blog/prescripcion-multas-transito-2019-ecuador.html" },
+    { tag: "Tránsito", date: "Guía práctica", title: "Multas de tránsito de 2020 en Ecuador: ¿ya prescribieron?", excerpt: "Multas de tránsito de 2020 en Ecuador: ¿ya prescribieron?. Júristam te orienta con guías legales claras y", url: "https://juristam.net/blog/prescripcion-multas-transito-2020-ecuador.html" },
+    { tag: "Tránsito", date: "Guía práctica", title: "Prescripción de multas de tránsito en Ecuador", excerpt: "Guía completa sobre prescripción de multas de tránsito en Ecuador. Cinco años de plazo, sede administrativa ($50) o", url: "https://juristam.net/blog/prescripcion-multas-transito-ecuador.html" },
+    { tag: "Tránsito", date: "Guía práctica", title: "Prescripción de multas de tránsito sin abogado en Ecuador", excerpt: "Prescripción de multas de tránsito sin abogado en Ecuador: cuándo es posible y cuándo no. Guía práctica con Júristam,", url: "https://juristam.net/blog/prescripcion-multas-transito-sin-abogado-ecuador.html" },
+    { tag: "Tránsito", date: "Guía práctica", title: "La prescripción de multas de tránsito y los puntos de la", excerpt: "La prescripción de multas de tránsito y los puntos de la licencia en Ecuador. Júristam te orienta con guías legales", url: "https://juristam.net/blog/puntos-licencia-prescripcion-multa-ecuador.html" },
+    { tag: "Tránsito", date: "Guía práctica", title: "Qué interrumpe el plazo de prescripción de una multa de trá", excerpt: "Qué interrumpe el plazo de prescripción de una multa de tránsito en Ecuador. Júristam te orienta con guías legales", url: "https://juristam.net/blog/que-interrumpe-prescripcion-multa-transito-ecuador.html" },
+    { tag: "Tránsito", date: "Guía práctica", title: "Cómo recuperar puntos de la licencia de conducción en", excerpt: "Cómo recuperar puntos de la licencia de conducción en Ecuador. Júristam te orienta con guías legales claras y", url: "https://juristam.net/blog/recuperar-puntos-licencia-ecuador.html" },
+    { tag: "Tránsito", date: "Guía práctica", title: "Requisitos formales del escrito judicial de prescripción de", excerpt: "Cuáles son los requisitos formales que debe cumplir el escrito de prescripción de multa de tránsito ante el juez en", url: "https://juristam.net/blog/requisitos-formales-prescripcion-judicial-transito.html" },
+    { tag: "Tránsito", date: "Guía práctica", title: "Unidades Judiciales de Contravenciones en Ecuador", excerpt: "Unidades Judiciales de Contravenciones en Ecuador: dónde están y cómo funcionan. Júristam te orienta con guías", url: "https://juristam.net/blog/unidad-judicial-contravenciones-ecuador.html" },
+    { tag: "Tránsito", date: "Guía práctica", title: "Cómo verificar si el plazo de prescripción de tu multa ya se", excerpt: "Cómo verificar si el plazo de prescripción de tu multa ya se cumplió en Ecuador. Júristam te orienta con guías", url: "https://juristam.net/blog/verificar-plazo-prescripcion-multa-transito-ecuador.html" }
   ];
 
   const grid = document.getElementById('grid');

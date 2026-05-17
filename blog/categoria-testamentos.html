@@ -1,4 +1,4 @@
-
+﻿
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -26,6 +26,7 @@
 <link rel="apple-touch-icon" href="https://i.postimg.cc/KjDB1NSM/Diseno-sin-titulo-(7).png">
 
   <!-- Fonts & Icons -->
+  <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
@@ -385,76 +386,13 @@
   document.getElementById('year').textContent = new Date().getFullYear();
 
   const posts = [
-    {
-      tag:"Testamentos",
-      date:"Guía práctica",
-      title:"Cómo hacer un testamento en Ecuador paso a paso",
-      excerpt:"Tipos de testamento, requisitos legales, costos y qué pasa si no lo haces.",
-      url:"https://juristam.net/blog/como-hacer-testamento-ecuador.html"
-    },
-    {
-      tag:"Herencia",
-      date:"Sucesión intestada",
-      title:"¿Qué pasa si mueres sin testamento en Ecuador?",
-      excerpt:"Cómo se distribuyen los bienes cuando no hay testamento y quiénes heredan por ley.",
-      url:"https://juristam.net/blog/que-pasa-si-muero-sin-testamento-ecuador.html"
-    },
-    {
-      tag:"Herencia",
-      date:"Tributario",
-      title:"Impuesto a la herencia en Ecuador: quién paga y cuánto",
-      excerpt:"Tarifas, exenciones, plazos para declarar y cómo calcular el impuesto a la herencia.",
-      url:"https://juristam.net/blog/impuesto-herencia-ecuador.html"
-    },
-    {
-      tag:"Testamentos",
-      date:"Desheredación",
-      title:"¿Puedo desheredar a un hijo en Ecuador?",
-      excerpt:"Cuándo es legal desheredar, qué causales exige la ley y cómo hacerlo correctamente.",
-      url:"https://juristam.net/blog/puedo-desheredar-hijo-ecuador.html"
-    },
-    {
-      tag:"Testamentos",
-      date:"Albacea",
-      title:"El albacea en el testamento en Ecuador: funciones y responsabilidades",
-      excerpt:"Qué es el albacea, qué puede y no puede hacer, y cómo se designa en el testamento.",
-      url:"https://juristam.net/blog/albacea-testamento-ecuador.html"
-    },
-    {
-      tag:"Testamentos",
-      date:"Costos",
-      title:"¿Cuánto cuesta hacer un testamento en Ecuador?",
-      excerpt:"Honorarios notariales, gastos adicionales y diferencias según el tipo de testamento.",
-      url:"https://juristam.net/blog/cuanto-cuesta-testamento-ecuador.html"
-    },
-    {
-      tag:"Herencia",
-      date:"Pareja",
-      title:"¿Mi pareja hereda sin estar casados en Ecuador?",
-      excerpt:"Qué derechos hereditarios tiene una pareja de hecho y cómo protegerlos legalmente.",
-      url:"https://juristam.net/blog/mi-pareja-hereda-sin-casarnos-ecuador.html"
-    },
-    {
-      tag:"Testamentos",
-      date:"Familia compleja",
-      title:"Testamento estando casado con hijos de diferentes parejas en Ecuador",
-      excerpt:"Cómo repartir correctamente cuando hay hijos de distintas relaciones y cónyuge actual.",
-      url:"https://juristam.net/blog/testamento-casado-hijos-diferentes-parejas-ecuador.html"
-    },
-    {
-      tag:"Testamentos",
-      date:"Empresa",
-      title:"Testamento con negocio o empresa en Ecuador",
-      excerpt:"Cómo incluir una empresa en el testamento sin generar conflictos entre herederos.",
-      url:"https://juristam.net/blog/testamento-con-negocio-empresa-ecuador.html"
-    },
-    {
-      tag:"Testamentos",
-      date:"Sin hijos",
-      title:"Testamento sin hijos en Ecuador: a quién dejar tus bienes",
-      excerpt:"Opciones legales cuando no tienes hijos: cónyuge, padres, terceros y fundaciones.",
-      url:"https://juristam.net/blog/testamento-sin-hijos-ecuador.html"
-    }
+    { tag: "Testamentos", date: "Guía práctica", title: "El albacea en el testamento ecuatoriano", excerpt: "El albacea es quien ejecuta tu testamento cuando ya no puedes hacerlo. Sin uno designado, tus herederos tienen que", url: "https://juristam.net/blog/albacea-testamento-ecuador.html" },
+    { tag: "Testamentos", date: "Guía práctica", title: "Cómo hacer un testamento en Ecuador — guía real 2026", excerpt: "Guía completa y honesta sobre cómo hacer un testamento en Ecuador: qué dice el Código Civil, qué es la minuta, cómo", url: "https://juristam.net/blog/como-hacer-testamento-ecuador.html" },
+    { tag: "Testamentos", date: "Guía práctica", title: "Cuánto cuesta hacer un testamento en Ecuador", excerpt: "Cuánto cuesta realmente hacer un testamento en Ecuador: qué es la minuta, cuánto cobra Juristam y qué hace el notario", url: "https://juristam.net/blog/cuanto-cuesta-testamento-ecuador.html" },
+    { tag: "Testamentos", date: "Guía práctica", title: "Qué pasa si muero sin testamento en Ecuador", excerpt: "Si mueres sin testamento en Ecuador, la ley decide quién recibe tus bienes — y esa decisión puede destruir a tu familia.", url: "https://juristam.net/blog/que-pasa-si-muero-sin-testamento-ecuador.html" },
+    { tag: "Testamentos", date: "Guía práctica", title: "Testamento con hijos de distintas parejas en Ecuador", excerpt: "Si tienes hijos de distintas parejas en Ecuador, el testamento mal redactado puede generar un conflicto que dure", url: "https://juristam.net/blog/testamento-casado-hijos-diferentes-parejas-ecuador.html" },
+    { tag: "Testamentos", date: "Guía práctica", title: "Testamento con negocio o empresa en Ecuador", excerpt: "Si tienes un negocio en Ecuador y mueres sin testamento, tus socios, ex parejas e hijos que nunca trabajaron contigo", url: "https://juristam.net/blog/testamento-con-negocio-empresa-ecuador.html" },
+    { tag: "Testamentos", date: "Guía práctica", title: "Testamento sin hijos en Ecuador", excerpt: "Sin hijos, tu herencia en Ecuador no va automáticamente a tu pareja. Descubre quién hereda realmente y cómo el", url: "https://juristam.net/blog/testamento-sin-hijos-ecuador.html" }
   ];
 
   const grid = document.getElementById('grid');

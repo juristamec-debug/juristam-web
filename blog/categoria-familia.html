@@ -1,4 +1,4 @@
-<!DOCTYPE html> 
+﻿<!DOCTYPE html> 
 <html lang="es">
 <head>
   <meta charset="UTF-8">
@@ -10,7 +10,7 @@
   <meta name="theme-color" content="#9a6aff">
 
   <title>Familia · Guías Júristam</title>
-  <meta name="description" content="Guías legales de Familia en Ecuador: alimentos, prohibición de salida del país, acuerdos y trámites urgentes.">
+  <meta name="description" content="Guías legales de Familia en Ecuador: alimentos, prohibición de salida del país, acuerdos y trámites urgentes. Asesoría legal especializada en Ecuador">
   <link rel="canonical" href="https://juristam.net/blog/categoria-familia.html">
   <meta name="robots" content="index,follow,max-image-preview:large">
 
@@ -25,6 +25,7 @@
   <link rel="apple-touch-icon" href="https://i.postimg.cc/KjDB1NSM/Diseno-sin-titulo-(7).png">
 
   <!-- Fonts & Icons -->
+  <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
@@ -399,87 +400,52 @@
   document.getElementById('year').textContent = new Date().getFullYear();
 
   const posts = [
-    {
-      tag: "Familia",
-      date: "Guía práctica",
-      title: "Prohibición de salida del país por alimentos: cómo levantarla si hay acuerdo",
-      excerpt: "Qué revisar, qué pedir al juzgado y cómo acelerar el trámite cuando hay urgencia.",
-      url: "/blog/prohibicion-salida-alimentos.html"
-    },
-    {
-      tag: "Familia",
-      date: "Guía práctica",
-      title: "¿Me enteré de que no soy el padre… ¿siempre puedo impugnar?",
-      excerpt: "El ADN negativo no siempre te libera: la clave es cómo nació la paternidad (presunción legal o reconocimiento voluntario).",
-      url: "/blog/adn-negativo-impugnacion-paternidad-ecuador.html"
-    },
-    {
-      tag: "Familia",
-      date: "Guía práctica",
-      title: "¿Puedo cambiar mi apellido en Ecuador aunque en mi cédula conste otro?",
-      excerpt: "Cuándo sí procede (caso tipo Centeno Katz → Katz Vergara) y cuándo no. El error que hace perder el trámite por años.",
-      url: "/blog/cambio-apellido-ecuador-cedula-identidad.html"
-    },
-    {
-      tag: "Familia",
-      date: "Guía práctica",
-      title: "Cumplí la pena o fui sobreseído… pero nadie me contrata: cómo ocultar datos en SATJE",
-      excerpt: "Cuándo sí se puede pedir ocultamiento/rectificación de datos personales en procesos judiciales, riesgos de no hacer nada y por qué usar la vía equivocada te hace perder.",
-      url: "/blog/ocultar-datos-satje-proteccion-datos-judiciales-ecuador.html"
-    },
-    {
-      tag: "Familia",
-      date: "Guía práctica",
-      title: "Posesión efectiva en Ecuador sin testamento: qué es, cuándo tramitarla y qué puede salir mal",
-      excerpt: "Qué define la complejidad real del trámite, qué pasa cuando hay herederos en conflicto y por qué esperar tiene un costo real.",
-      url: "/blog/posesion-efectiva-herencia-ecuador.html"
-    },
-    {
-  tag: "Familia",
-  date: "Guía práctica",
-  title: "Pensión alimenticia Ecuador 2026: calculadora oficial, tabla y cómo demandar aunque el padre no reconozca al hijo",
-  excerpt: "Tabla oficial actualizada, calculadora de pensión por nivel de ingreso y paso a paso para presentar la demanda. Incluye el caso del padre que no reconoce al hijo.",
-  url: "/blog/como-demandar-pension-alimenticia-ecuador.html"
-},
-{
-  tag: "Familia",
-  date: "Mayo 2026 · Apremio personal · SUPA",
-  title: "El padre no paga la pensión alimenticia en Ecuador: qué hacer paso a paso para obligarlo a pagar",
-  excerpt: "Si el padre no paga dos meses de pensión alimenticia en Ecuador puedes pedir su arresto. Te explicamos el apremio personal, la retención de sueldo y cada opción legal disponible para obligarlo a pagar.",
-  url: "/blog/padre-no-paga-pension-alimenticia-ecuador.html"
-},
-{
-  tag: "Familia",
-  date: "Mayo 2026 · Paternidad · Alimentos",
-  title: "El padre no reconoce a mi hijo en Ecuador y quiero pensión: cómo demandar los dos al mismo tiempo",
-  excerpt: "No necesitas que el padre haya reconocido a tu hijo para demandar pensión. En Ecuador puedes pedir la paternidad y los alimentos en una sola demanda. El ADN lo ordena el juez y la pensión corre desde el día que presentas.",
-  url: "/blog/padre-no-reconoce-hijo-pension-alimenticia-ecuador.html"
-},
-{
-  tag: "Familia",
-  date: "Mayo 2026 · Tiempos del proceso",
-  title: "¿Cuánto tiempo tarda la pensión alimenticia en Ecuador? Lo que nadie te dice antes de demandar",
-  excerpt: "La pensión provisional puede fijarse en días. La audiencia definitiva entre 30 y 60 días. Pero el padre empieza a deber desde el día que presentas la demanda — aunque todavía no sepa que fue demandado.",
-  url: "/blog/cuanto-tarda-pension-alimenticia-ecuador.html"
-},
-{
-  tag: "Familia",
-  date: "Mayo 2026 · Padre desaparecido",
-  title: "No sé dónde vive el padre de mi hijo en Ecuador: puedo demandar alimentos igual",
-  excerpt: "No conocer la dirección del padre no es un impedimento legal para demandar. El juzgado tiene sus propios mecanismos para localizarlo — Registro Civil, IESS, Registro de la Propiedad. Presenta la demanda hoy.",
-  url: "/blog/no-se-donde-vive-padre-demandar-alimentos-ecuador.html"
-},
-{ tag: "Familia", date: "Guía práctica", title: "Cómo hacer un testamento en Ecuador: lo que nadie te explica antes de ir al notario", excerpt: "Para hacer un testamento en Ecuador necesitas una minuta — el documento escrito que llevas al notario. Juristam la prepara desde $25. El diagnóstico para saber qué tipo necesitas es gratis.", url: "/blog/como-hacer-testamento-ecuador.html" },
-{ tag: "Familia", date: "Guía práctica", title: "No tienes hijos en Ecuador: a quién le va tu herencia si no haces nada — y cómo cambiarlo", excerpt: "Sin hijos y sin testamento, tu herencia no va automáticamente a tu pareja. Primero heredan tus padres. Si tu pareja no está casada contigo legalmente, no recibe nada aunque lleven 15 años juntos.", url: "/blog/testamento-sin-hijos-ecuador.html" },
-{ tag: "Familia", date: "Guía práctica", title: "Qué pasa si muero sin testamento en Ecuador: el escenario que nadie quiere que le pase a su familia", excerpt: "La ley aplica un orden fijo de herederos que no considera lo que tú hubieras querido. Tu pareja conviviente no reconocida no recibe nada. Tus hijos de distintas parejas comparten igual sin importar circunstancias.", url: "/blog/que-pasa-si-muero-sin-testamento-ecuador.html" },
-{ tag: "Familia", date: "Guía práctica", title: "Tienes hijos de distintas parejas en Ecuador: el testamento que evita que se destruyan entre ellos", excerpt: "Sin testamento, cada grupo de hijos — y las ex parejas que los representan si son menores — tiene sus propios intereses. El testamento correcto organiza el reparto antes de que sea un problema.", url: "/blog/testamento-casado-hijos-diferentes-parejas-ecuador.html" },
-{ tag: "Familia", date: "Guía práctica", title: "Cuánto cuesta hacer un testamento en Ecuador: la explicación que nadie te da antes de decidir", excerpt: "Lo que Juristam cobra es solo por preparar la minuta — el documento escrito que llevas al notario. Minuta simple $25. Minuta compleja $60. El diagnóstico para saber cuál necesitas es gratis.", url: "/blog/cuanto-cuesta-testamento-ecuador.html" },
-{ tag: "Familia", date: "Guía práctica", title: "Testamento con negocio o empresa en Ecuador: cómo no perder lo que construiste", excerpt: "Sin testamento, tu negocio entra a la masa hereditaria y todos los herederos tienen derechos sobre él. Si no se ponen de acuerdo, cualquiera puede pedir la liquidación judicial.", url: "/blog/testamento-con-negocio-empresa-ecuador.html" },
-{ tag: "Familia", date: "Guía práctica", title: "¿Puedo desheredar a mi hijo en Ecuador? Lo que dice realmente el Código Civil", excerpt: "Solo puedes desheredar en 5 causas taxativas del Art. 1231 CC — y necesitas prueba judicial. Un testamento que lo intente sin cumplir esos requisitos es nulo en esa parte.", url: "/blog/puedo-desheredar-hijo-ecuador.html" },
-{ tag: "Familia", date: "Guía práctica", title: "El albacea en el testamento ecuatoriano: quién es, qué hace y por qué importa nombrarlo", excerpt: "Sin albacea designado, tus herederos tienen que ponerse de acuerdo en cada paso de la sucesión. Cuando hay conflicto entre ellos, el proceso puede paralizarse durante años.", url: "/blog/albacea-testamento-ecuador.html" },
-{ tag: "Familia", date: "Guía práctica", title: "Impuesto a la herencia en Ecuador 2026: cuándo se paga, cuánto y cómo evitar errores", excerpt: "Cuando heredas en Ecuador debes pagar un impuesto al SRI sobre la porción que recibes. Los hijos tienen tarifa reducida. Hay montos exonerados. Y el testamento influye en cómo se estructura todo.", url: "/blog/impuesto-herencia-ecuador.html" },
-{ tag: "Familia", date: "Guía práctica", title: "Mi pareja hereda si morimos sin casarnos en Ecuador: la verdad que pocos conocen", excerpt: "Una pareja conviviente sin matrimonio ni unión de hecho reconocida no tiene ningún derecho hereditario en Ecuador. No importa cuántos años lleven juntos. El testamento es la única solución.", url: "/blog/mi-pareja-hereda-sin-casarnos-ecuador.html" }
-];
+    { tag: "Familia", date: "Guía práctica", title: "El ADN negativo es suficiente para impugnar la paternidad si", excerpt: "Si el hijo nació dentro del matrimonio en Ecuador y el ADN es negativo, ese resultado tiene un peso jurídico mucho", url: "https://juristam.net/blog/adn-basta-paternidad-matrimonial-ecuador.html" },
+    { tag: "Familia", date: "Guía práctica", title: "ADN negativo y sigo pagando pensión en Ecuador", excerpt: "Descubriste que no eres el padre biológico y sigues pagando pensión alimenticia en Ecuador. Hay una ruta legal — pero", url: "https://juristam.net/blog/adn-negativo-impugnacion-paternidad-ecuador.html" },
+    { tag: "Familia", date: "Guía práctica", title: "Poner el apellido del padrastro en Ecuador", excerpt: "Quieres que tu hijo lleve el apellido del padrastro en Ecuador. Las dos únicas rutas legales son la adopción formal y", url: "https://juristam.net/blog/apellido-padrastro-ecuador.html" },
+    { tag: "Familia", date: "Guía práctica", title: "Cambiar el orden de los apellidos en Ecuador", excerpt: "Quieres cambiar el orden de tus apellidos en Ecuador — pasar el materno al primero. Te explicamos cómo funciona, en", url: "https://juristam.net/blog/cambiar-orden-apellidos-ecuador.html" },
+    { tag: "Familia", date: "Guía práctica", title: "Cambio de apellido en Ecuador", excerpt: "Sí se puede cambiar o quitar el apellido en Ecuador — pero depende de cuánto tiempo llevas usando ese otro apellido", url: "https://juristam.net/blog/cambio-apellido-ecuador-cedula-identidad.html" },
+    { tag: "Familia", date: "Guía práctica", title: "Cambio de apellido de menor de edad en Ecuador", excerpt: "Requisitos y pasos para cambiar el apellido de un menor de edad en Ecuador: proceso notarial o judicial, costos,", url: "https://juristam.net/blog/cambio-apellido-menor-edad-ecuador.html" },
+    { tag: "Familia", date: "Guía práctica", title: "Cambio de apellido por vía judicial en Ecuador", excerpt: "El Registro Civil no puede o no quiso hacer tu cambio de apellido en Ecuador. Te explicamos cuándo aplica la vía", url: "https://juristam.net/blog/cambio-apellido-via-judicial-ecuador.html" },
+    { tag: "Familia", date: "Guía práctica", title: "Cómo se impugna la paternidad matrimonial en Ecuador", excerpt: "El proceso paso a paso para impugnar la paternidad cuando el hijo nació dentro del matrimonio en Ecuador. Qué", url: "https://juristam.net/blog/como-impugnar-paternidad-matrimonial-ecuador.html" },
+    { tag: "Familia", date: "Guía práctica", title: "Cómo pedir la prueba de ADN en un juicio de alimentos en", excerpt: "Tienes un juicio de alimentos activo en Ecuador y quieres solicitar una prueba de ADN. Te explicamos cómo pedirla,", url: "https://juristam.net/blog/como-pedir-prueba-adn-juicio-alimentos-ecuador.html" },
+    { tag: "Familia", date: "Guía práctica", title: "Cómo probar que te engañaron para reconocer a un hijo en", excerpt: "Te dijeron que el niño era tuyo y lo reconociste. Ahora el ADN dice que no. Aquí te explicamos cómo probar ese engaño", url: "https://juristam.net/blog/como-probar-engano-reconocimiento-hijo-ecuador.html" },
+    { tag: "Familia", date: "Guía práctica", title: "¿Cuánto cobra un abogado por impugnación de paternidad en", excerpt: "Cuánto cobra realmente un abogado por impugnar la paternidad en Ecuador: rangos de honorarios según el tipo de caso,", url: "https://juristam.net/blog/cuanto-cobra-abogado-impugnacion-paternidad-ecuador.html" },
+    { tag: "Familia", date: "Guía práctica", title: "¿Cuánto cuesta impugnar la paternidad en Ecuador", excerpt: "Cuánto cuesta realmente impugnar la paternidad en Ecuador: honorarios de abogado, prueba de ADN, tasas judiciales y", url: "https://juristam.net/blog/cuanto-cuesta-impugnar-paternidad-ecuador.html" },
+    { tag: "Familia", date: "Guía práctica", title: "Cuánto cuesta una prueba de ADN en Ecuador", excerpt: "¿Cuánto cuesta una prueba de ADN en Ecuador? Te explicamos los precios de la prueba privada, la judicial y qué", url: "https://juristam.net/blog/cuanto-cuesta-prueba-adn-ecuador.html" },
+    { tag: "Familia", date: "Guía práctica", title: "¿Cuánto cuesta y cuánto tarda el cambio de apellido en", excerpt: "Los costos y tiempos reales del cambio de apellido en Ecuador — por la vía administrativa del Registro Civil y por la", url: "https://juristam.net/blog/cuanto-cuesta-tarda-cambio-apellido-ecuador.html" },
+    { tag: "Familia", date: "Guía práctica", title: "Cuánto tarda una impugnación de paternidad matrimonial en", excerpt: "El tiempo real que toma un proceso de impugnación de paternidad matrimonial en Ecuador — qué factores lo aceleran,", url: "https://juristam.net/blog/cuanto-tarda-impugnacion-paternidad-matrimonial-ecuador.html" },
+    { tag: "Familia", date: "Guía práctica", title: "Cuánto tarda la impugnación de paternidad por reconocimiento", excerpt: "¿Cuánto tiempo dura un proceso de impugnación de paternidad por reconocimiento voluntario en Ecuador? Te explicamos", url: "https://juristam.net/blog/cuanto-tarda-la-impugnacion-de-paternidad-reconocimiento-voluntario-ecuador.html" },
+    { tag: "Familia", date: "Guía práctica", title: "¿Cuánto tiempo tarda la pensión alimenticia en Ecuador", excerpt: "La pensión provisional puede fijarse en días. La audiencia ocurre entre 30 y 60 días. Pero el padre empieza a deber", url: "https://juristam.net/blog/cuanto-tarda-pension-alimenticia-ecuador.html" },
+    { tag: "Familia", date: "Guía práctica", title: "Daño económico por paternidad falsa en Ecuador", excerpt: "Te hicieron creer que eras el padre y pagaste años de pensión. ¿Ese daño económico tiene reconocimiento legal en", url: "https://juristam.net/blog/dano-economico-paternidad-falsa-ecuador.html" },
+    { tag: "Familia", date: "Guía práctica", title: "Dónde hacer la prueba de ADN legal en Ecuador", excerpt: "¿Dónde hacer una prueba de ADN con valor legal en Ecuador? Te explicamos qué laboratorios son los adecuados, qué", url: "https://juristam.net/blog/donde-hacer-adn-legal-en-ecuador.html" },
+    { tag: "Familia", date: "Guía práctica", title: "El ADN negativo no basta cuando firmaste el reconocimiento", excerpt: "Si reconociste voluntariamente a un hijo en Ecuador, el ADN negativo por sí solo no es suficiente para impugnar. Te", url: "https://juristam.net/blog/el-adn-negativo-no-basta-reconocimiento-voluntario-ecuador.html" },
+    { tag: "Familia", date: "Guía práctica", title: "El ADN privado sirve en juicio de alimentos en Ecuador", excerpt: "¿Tienes una prueba de ADN privada y quieres usarla en un juicio de alimentos en Ecuador? Te explicamos cuándo sirve,", url: "https://juristam.net/blog/el-adn-privado-sirve-en-juicio-alimentos-ecuador.html" },
+    { tag: "Familia", date: "Guía práctica", title: "El juez puede ordenar la prueba de ADN en el juicio de", excerpt: "¿Puede el juez ordenar la prueba de ADN en un juicio de alimentos en Ecuador aunque nadie la pida? Sí puede. Te", url: "https://juristam.net/blog/el-juez-puede-ordenar-adn-juicio-alimentos-ecuador.html" },
+    { tag: "Familia", date: "Guía práctica", title: "Enriquecimiento injusto y pensiones pagadas por paternidad", excerpt: "¿Puede aplicar la figura del enriquecimiento injusto o enriquecimiento sin causa para recuperar pensiones pagadas por", url: "https://juristam.net/blog/enriquecimiento-injusto-pensiones-paternidad-ecuador.html" },
+    { tag: "Familia", date: "Guía práctica", title: "Gastos del juicio de impugnación de paternidad en Ecuador", excerpt: "Todos los gastos reales de un juicio de impugnación de paternidad en Ecuador: ADN judicial, tasas, copias", url: "https://juristam.net/blog/gastos-juicio-impugnacion-paternidad-ecuador.html" },
+    { tag: "Familia", date: "Guía práctica", title: "Impugnar paternidad por reconocimiento voluntario en Ecuador", excerpt: "Firmaste el reconocimiento de un hijo que no es tuyo en Ecuador. Aquí te explicamos cuándo la ley permite impugnar", url: "https://juristam.net/blog/impugnar-paternidad-reconocimiento-voluntario-ecuador.html" },
+    { tag: "Familia", date: "Guía práctica", title: "Mi pareja hereda si morimos sin casarnos en Ecuador", excerpt: "En Ecuador tu pareja conviviente no hereda nada si no están casados y no tienen unión de hecho reconocida. Descubre", url: "https://juristam.net/blog/mi-pareja-hereda-sin-casarnos-ecuador.html" },
+    { tag: "Familia", date: "Guía práctica", title: "El padre no paga la pensión alimenticia en Ecuador", excerpt: "Si el padre no paga la pensión alimenticia en Ecuador puedes pedir su arresto desde el primer mes de incumplimiento.", url: "https://juristam.net/blog/padre-no-paga-pension-alimenticia-ecuador.html" },
+    { tag: "Familia", date: "Guía práctica", title: "El padre no reconoce a mi hijo en Ecuador", excerpt: "Si el padre no reconoce a tu hijo en Ecuador puedes demandar la paternidad y la pensión alimenticia al mismo tiempo.", url: "https://juristam.net/blog/padre-no-reconoce-hijo-pension-alimenticia-ecuador.html" },
+    { tag: "Familia", date: "Guía práctica", title: "¿Se puede pagar una impugnación de paternidad por cuotas en", excerpt: "¿Es posible pagar los honorarios de una impugnación de paternidad en cuotas en Ecuador? Te explicamos qué es", url: "https://juristam.net/blog/pagar-impugnacion-paternidad-cuotas-ecuador.html" },
+    { tag: "Familia", date: "Guía práctica", title: "Paternidad matrimonial e impugnación por ADN negativo en", excerpt: "Si el hijo nació dentro del matrimonio y el ADN salió negativo, tienes la ruta más directa para impugnar la", url: "https://juristam.net/blog/paternidad-matrimonial-adn-negativo-ecuador.html" },
+    { tag: "Familia", date: "Guía práctica", title: "Qué pasa con la pensión alimenticia si el hijo nació en", excerpt: "Tienes un juicio de alimentos activo, el ADN salió negativo y el hijo nació en tu matrimonio. Te explicamos si la", url: "https://juristam.net/blog/pension-hijo-nacido-matrimonio-adn-negativo-ecuador.html" },
+    { tag: "Familia", date: "Guía práctica", title: "¿Se recupera el dinero de las pensiones pagadas si el ADN es", excerpt: "El ADN salió negativo y quieres saber si Ecuador te devuelve el dinero de las pensiones que ya pagaste. La respuesta", url: "https://juristam.net/blog/pensiones-pagadas-se-recuperan-adn-negativo-ecuador.html" },
+    { tag: "Familia", date: "Guía práctica", title: "Pérdida patrimonial por paternidad falsa en Ecuador", excerpt: "¿Cuánto perdiste realmente por una paternidad que no era tuya? La pérdida patrimonial va más allá de las pensiones.", url: "https://juristam.net/blog/perdida-patrimonial-paternidad-falsa-ecuador.html" },
+    { tag: "Familia", date: "Guía práctica", title: "Qué es la presunción de paternidad matrimonial en Ecuador", excerpt: "La presunción de paternidad matrimonial en Ecuador convierte automáticamente al esposo en padre legal de cualquier", url: "https://juristam.net/blog/presuncion-paternidad-matrimonial-ecuador.html" },
+    { tag: "Familia", date: "Guía práctica", title: "Prohibición de salida del país por pensión alimenticia en", excerpt: "¿Tienes prohibición de salida del país por pensión alimenticia en Ecuador? El impedimento no desaparece aunque", url: "https://juristam.net/blog/prohibicion-salida-alimentos.html" },
+    { tag: "Familia", date: "Guía práctica", title: "¿Puedo desheredar a mi hijo en Ecuador", excerpt: "En Ecuador solo puedes desheredar a un hijo en 5 casos muy específicos. Si no cumples los requisitos, el testamento", url: "https://juristam.net/blog/puedo-desheredar-hijo-ecuador.html" },
+    { tag: "Familia", date: "Guía práctica", title: "Puedo impugnar la paternidad si el niño ya lleva mi apellido", excerpt: "¿El niño ya lleva tu apellido y quieres impugnar el reconocimiento voluntario en Ecuador? El apellido no cierra la", url: "https://juristam.net/blog/puedo-impugnar-si-ya-tiene-mi-apellido-ecuador.html" },
+    { tag: "Familia", date: "Guía práctica", title: "Qué pasa si la madre no quiere hacerse el ADN en Ecuador", excerpt: "La madre se niega a que le hagan el ADN al niño en Ecuador. Te explicamos qué opciones tienes, si el juez puede", url: "https://juristam.net/blog/que-pasa-si-la-madre-no-quiere-adn-ecuador.html" },
+    { tag: "Familia", date: "Guía práctica", title: "Qué pasa si pierdo la impugnación de paternidad en Ecuador", excerpt: "¿Qué ocurre si el juez rechaza la impugnación de paternidad por reconocimiento voluntario en Ecuador? Te explicamos", url: "https://juristam.net/blog/que-pasa-si-pierdo-la-impugnacion-de-paternidad-ecuador.html" },
+    { tag: "Familia", date: "Guía práctica", title: "Qué pruebas acepta el juez en la impugnación de paternidad", excerpt: "¿Qué pruebas sirven realmente ante el juez para impugnar un reconocimiento voluntario de paternidad en Ecuador? Te", url: "https://juristam.net/blog/que-pruebas-acepta-el-juez-impugnacion-paternidad-ecuador.html" },
+    { tag: "Familia", date: "Guía práctica", title: "Cómo quitar el apellido paterno en Ecuador", excerpt: "Tu padre nunca estuvo presente y quieres quitarte su apellido en Ecuador. Te explicamos cuándo procede legalmente,", url: "https://juristam.net/blog/quitar-apellido-paterno-ecuador.html" },
+    { tag: "Familia", date: "Guía práctica", title: "Me rechazaron el cambio de apellido en el Registro Civil", excerpt: "El Registro Civil te negó el cambio de apellido en Ecuador. Te explicamos por qué puede pasar, si el rechazo es", url: "https://juristam.net/blog/rechazaron-cambio-apellido-registro-civil-ecuador.html" },
+    { tag: "Familia", date: "Guía práctica", title: "Recuperación de pensiones en impugnación de paternidad", excerpt: "Ganaste o vas a ganar el juicio de impugnación de paternidad. ¿Qué puedes recuperar económicamente? La guía completa", url: "https://juristam.net/blog/recuperacion-pensiones-alimenticias-impugnacion-paternidad-ecuador.html" },
+    { tag: "Familia", date: "Guía práctica", title: "¿Se puede suspender la pensión alimenticia mientras dura el", excerpt: "Iniciaste el proceso de impugnación de paternidad en Ecuador y sigues pagando pensión. Te explicamos si se puede", url: "https://juristam.net/blog/suspender-pension-alimenticia-juicio-impugnacion-ecuador.html" },
+    { tag: "Familia", date: "Guía práctica", title: "¿Vale la pena impugnar la paternidad en Ecuador", excerpt: "¿Impugnar la paternidad en Ecuador vale la pena? Analizamos el punto de equilibrio económico, los factores no", url: "https://juristam.net/blog/vale-la-pena-impugnar-paternidad-ecuador.html" }
+  ];
 
   const grid = document.getElementById('grid');
   grid.innerHTML = posts.map(p => `
