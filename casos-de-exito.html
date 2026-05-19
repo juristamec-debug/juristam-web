@@ -262,6 +262,9 @@
       .footer-content { grid-template-columns: repeat(4, 1fr); gap: 32px; }
     }
     @media (prefers-reduced-motion: reduce) { * { animation: none !important; transition: none !important; } }
+    .cat-nav { display: flex; flex-wrap: wrap; gap: 8px; justify-content: center; margin-top: 32px; }
+    .cat-pill { display: inline-flex; align-items: center; gap: 6px; padding: 7px 14px; border-radius: 999px; border: 1px solid var(--neutral-border); background: var(--neutral-light); color: var(--text-secondary); font-size: .78rem; font-weight: 500; transition: all .18s; white-space: nowrap; text-decoration: none; }
+    .cat-pill:hover { border-color: var(--primary); color: var(--primary); background: var(--primary-light); font-weight: 600; }
   </style>
 </head>
 <body>
@@ -319,6 +322,20 @@
     </div>
     <h1 class="fade-up d2">Historias de<br><em>éxito comprobado.</em></h1>
     <p class="hero-lead fade-up d2" style="animation-delay:.30s;">Personas reales con problemas reales. Esto es lo que pasó cuando decidieron actuar.</p>
+    <div class="cat-nav fade-up" style="animation-delay:.38s;">
+      <a class="cat-pill" href="/casos-de-exito-transito.html"><i class="fas fa-car"></i>&nbsp;Tránsito</a>
+      <a class="cat-pill" href="/casos-de-exito-antecedentes.html"><i class="fas fa-shield-halved"></i>&nbsp;Antecedentes</a>
+      <a class="cat-pill" href="/casos-de-exito-familia.html"><i class="fas fa-house-heart"></i>&nbsp;Familia</a>
+      <a class="cat-pill" href="/casos-de-exito-inmobiliario.html"><i class="fas fa-building"></i>&nbsp;Inmobiliario</a>
+      <a class="cat-pill" href="/casos-de-exito-senae.html"><i class="fas fa-ship"></i>&nbsp;SENAE</a>
+      <a class="cat-pill" href="/casos-de-exito-laboral.html"><i class="fas fa-briefcase"></i>&nbsp;Laboral</a>
+      <a class="cat-pill" href="/casos-de-exito-bancario.html"><i class="fas fa-building-columns"></i>&nbsp;Bancario</a>
+      <a class="cat-pill" href="/casos-de-exito-testamentos.html"><i class="fas fa-scroll"></i>&nbsp;Testamentos</a>
+      <a class="cat-pill" href="/casos-de-exito-coactiva.html"><i class="fas fa-hammer"></i>&nbsp;Coactiva</a>
+      <a class="cat-pill" href="/casos-de-exito-societario.html"><i class="fas fa-handshake"></i>&nbsp;Societario</a>
+      <a class="cat-pill" href="/casos-de-exito-tributario.html"><i class="fas fa-receipt"></i>&nbsp;Tributario</a>
+      <a class="cat-pill" href="/casos-de-exito-maritimo.html"><i class="fas fa-anchor"></i>&nbsp;Marítimo</a>
+    </div>
   </div>
 </section>
 
@@ -331,7 +348,7 @@
         <div style="width:24px;height:1px;background:var(--primary);flex-shrink:0;"></div>
       </div>
       <h2 style="font-family:'League Spartan',sans-serif;font-size:clamp(1.6rem,4.5vw,2.6rem);font-weight:700;color:var(--secondary);line-height:1.08;letter-spacing:-.02em;margin-bottom:12px;">Cada caso, <strong style="font-weight:800;">un resultado.</strong></h2>
-      <p style="font-size:clamp(.88rem,2.5vw,1rem);color:var(--text-secondary);line-height:1.8;max-width:480px;margin:0 auto;">Si algo de lo que ves aquí te suena familiar, ya sabes dónde estamos.</p>
+      <p style="font-size:clamp(.88rem,2.5vw,1rem);color:var(--text-secondary);line-height:1.8;max-width:480px;margin:0 auto;">Estos son algunos de nuestros casos. Filtra por categoría arriba para ver los que se parecen al tuyo.</p>
     </div>
 
     <div class="cases-grid">
