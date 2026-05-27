@@ -160,6 +160,17 @@ footer a{color:var(--primary);}footer strong{color:var(--white);}
 @media(max-width:650px){h1{font-size:1.7rem;}.precio-cards{grid-template-columns:1fr;}.precio-card-item:first-child{border-right:none;border-bottom:1px solid var(--border);}.modal-precios{grid-template-columns:1fr;}.cta-urgente{flex-direction:column;align-items:flex-start;}.tabla{font-size:.82rem;}.tabla th,.tabla td{padding:.65rem .7rem;}}
 </style>
 <meta property="article:author" content="Juristam" />
+<style>
+.faq-list { margin: 1.5rem 0; }
+.faq-item { border: 1px solid rgba(154,106,255,.2); border-radius: 8px; margin-bottom: .75rem; overflow: hidden; }
+.faq-item summary { cursor: pointer; padding: 1rem 1.25rem; font-weight: 600; font-size: .95rem; color: var(--text-primary); list-style: none; display: flex; justify-content: space-between; align-items: center; gap: 1rem; }
+.faq-item summary::-webkit-details-marker { display: none; }
+.faq-item summary::after { content: "+"; font-size: 1.25rem; color: var(--primary); flex-shrink: 0; transition: transform .2s; }
+.faq-item[open] summary::after { content: "−"; }
+.faq-item[open] summary { color: var(--primary); }
+.faq-answer { padding: .25rem 1.25rem 1.25rem; font-size: .9rem; line-height: 1.75; color: var(--text-secondary); }
+.faq-answer p { margin: 0; }
+</style>
 </head><body>
 <div class="modal-overlay" id="waModal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
   <div class="modal">
@@ -200,59 +211,106 @@ footer a{color:var(--primary);}footer strong{color:var(--white);}
 <div class="tldr"><strong>El Bill of Lading es el documento m&aacute;s importante del transporte mar&iacute;timo.</strong> Es simultáneamente recibo de la mercanc&iacute;a, prueba del contrato de transporte y t&iacute;tulo de propiedad de la carga. Entender sus funciones es fundamental para cualquier operador de comercio exterior.</div>
 <div class="cluster-nav"><strong>Ecosistema jur&iacute;dico &mdash; Derecho Corporativo Ecuador</strong><div class="cn-pilar"><a href="/blog/derecho-corporativo-empresas-ecuador.html">&#9679; Gu&iacute;a principal: Derecho corporativo en Ecuador</a></div><div class="cn-sat"><a href="/blog/constitucion-companias-ecuador.html">&rarr; C&oacute;mo crear una empresa correctamente en Ecuador</a></div><div class="cn-sat"><a href="/blog/contratos-empresariales-ecuador.html">&rarr; Contratos que toda empresa necesita en Ecuador</a></div><div class="cn-sat"><a href="/blog/compliance-empresarial-ecuador.html">&rarr; Compliance: proteger tu empresa de multas y sanciones</a></div><div class="cn-sat"><a href="/blog/comercio-exterior-aduanas-ecuador.html">&rarr; Comercio exterior, aduanas y SENAE</a></div><div class="cn-sat"><a href="/blog/derecho-maritimo-ecuador.html">&rarr; Derecho mar&iacute;timo y operaciones portuarias</a><div class="cn-ms"><a href="/blog/danos-carga-maritima-ecuador.html">&middot; Da&ntilde;os en carga mar&iacute;tima: responsabilidad</a><a href="/blog/demoras-contenedores-puerto-ecuador.html">&middot; Sobresta&iacute;as y demoras portuarias</a><a href="/blog/conocimiento-embarque-bill-lading.html" class="active">&middot; Valor legal del Bill of Lading</a><a href="/blog/seguros-maritimos-ecuador.html">&middot; Seguros mar&iacute;timos en Ecuador</a><a href="/blog/conflictos-navieras-ecuador.html">&middot; Conflictos con navieras y log&iacute;stica</a></div></div><div class="cn-sat"><a href="/blog/conflictos-societarios-ecuador.html">&rarr; Conflictos entre socios y control empresarial</a></div><div class="cn-sat"><a href="/blog/propiedad-intelectual-marcas-ecuador.html">&rarr; Propiedad intelectual y marcas en Ecuador</a></div><div class="cn-sat"><a href="/blog/planificacion-patrimonial-empresarial-ecuador.html">&rarr; Planificaci&oacute;n patrimonial empresarial</a></div></div>
 <article>
-<h2>Las tres funciones del Bill of Lading</h2>
-<ul>
-  <li><strong>Recibo de mercanc&iacute;a:</strong> el transportador reconoce haber recibido la mercanc&iacute;a en el estado descrito. Si hay discrepancias con lo recibido, aparecen en el B/L como &ldquo;clean&rdquo; o &ldquo;claused&rdquo;.</li>
-  <li><strong>Prueba del contrato de transporte:</strong> documenta los t&eacute;rminos del transporte: origen, destino, flete, condiciones.</li>
-  <li><strong>T&iacute;tulo de propiedad:</strong> quien posee el B/L original tiene derecho a reclamar la mercanc&iacute;a. Esto lo hace un documento negociable que puede transferirse en el comercio internacional.</li>
-</ul>
-<h2>Tipos de Bill of Lading y sus diferencias</h2>
-<table class="tabla">
-  <thead><tr><th>Tipo</th><th>Caracter&iacute;stica</th><th>Uso</th></tr></thead>
-  <tbody>
-    <tr><td><strong>Original B/L</strong></td><td>T&iacute;tulo negociable f&iacute;sico</td><td>Operaciones con carga de alto valor o con carta de cr&eacute;dito</td></tr>
-    <tr><td><strong>Telex Release / Sea Waybill</strong></td><td>No negociable, se env&iacute;a electr&oacute;nicamente</td><td>Operaciones entre partes de confianza, libera mercanc&iacute;a sin el original</td></tr>
-    <tr><td><strong>Claused B/L</strong></td><td>Con observaciones sobre el estado de la mercanc&iacute;a</td><td>Indica que la mercanc&iacute;a no estaba en perfecto estado al embarque</td></tr>
-  </tbody>
-</table>
-<div class="callout-danger"><strong>&#9888; Un B/L claused puede invalidar la carta de cr&eacute;dito</strong>Si el importador paga con carta de cr&eacute;dito, el banco generalmente exige un Clean B/L. Si el B/L tiene observaciones sobre el estado de la mercanc&iacute;a, el banco puede rechazar el pago.</div>
-<div class="callout-proceso"><strong>Asesor&iacute;a en operaciones mar&iacute;timas en Juristam</strong><p>Asesoramos en la revisi&oacute;n de B/Ls, reclamaciones basadas en el B/L y conflictos sobre la entrega de mercanc&iacute;a.</p>
-<p style="font-size:.9rem;color:var(--text-secondary);line-height:1.75;border-left:3px solid var(--primary);padding-left:1rem;margin:1.5rem 0;">Si tienes un problema de carga marítima o contratos navieros, en Juristam el abogado especialista llega a la asesoría con tu caso ya analizado — no a escucharte, sino a explicarte exactamente qué tienes y qué puedes hacer. <a href="https://wa.me/593994859814" style="color:var(--primary);font-weight:600;">Cuéntanos tu caso →</a></p>
-</div>
-<div class="precio-banner">
-  <div class="precio-banner-header"><p>Asesor&iacute;a corporativa especializada &middot; Juristam</p><h3>Asesoramos en reclamaciones y conflictos relacionados con el Bill of Lading</h3></div>
-  <div class="precio-cards">
-    <div class="precio-card-item"><span class="precio-badge-rec">&#11088; Recomendada</span><div class="precio-tipo">Asesor&iacute;a Virtual</div><div class="precio-monto">$45 <span>/ sesi&oacute;n</span></div><div class="precio-desc">Videollamada desde cualquier ciudad del Ecuador.</div></div>
-    <div class="precio-card-item"><div class="precio-tipo">Asesor&iacute;a Presencial</div><div class="precio-monto">$85 <span>/ sesi&oacute;n</span></div><div class="precio-desc">En nuestra oficina en Guayaquil.</div></div>
-  </div>
-  <div class="precio-footer">
-    <p><strong>Si contratas el servicio completo, los $45 de la consulta virtual se descuentan del precio final.</strong></p>
-    <div class="precio-cta"><button class="btn-wa" onclick="abrirModal()">Consultar con Juristam &rarr;</button></div>
-  </div>
-</div><div class="related-corp">
-  <h3>Sigue leyendo sobre este tema</h3>
-  <ul><li><a href="/blog/derecho-maritimo-ecuador.html"><strong><u>Derecho mar&iacute;timo y operaciones portuarias</u></strong></a></li>
-<li><a href="/blog/danos-carga-maritima-ecuador.html"><strong><u>Da&ntilde;os en carga mar&iacute;tima: responsabilidad</u></strong></a></li>
-<li><a href="/blog/demoras-contenedores-puerto-ecuador.html"><strong><u>Sobresta&iacute;as y demoras portuarias</u></strong></a></li>
-<li><a href="/blog/seguros-maritimos-ecuador.html"><strong><u>Seguros mar&iacute;timos en Ecuador</u></strong></a></li>
-<li><a href="/blog/conflictos-navieras-ecuador.html"><strong><u>Conflictos con navieras y log&iacute;stica</u></strong></a></li>
-<li><a href="/blog/derecho-corporativo-empresas-ecuador.html"><strong><u>Gu&iacute;a principal: Derecho corporativo en Ecuador</u></strong></a></li></ul>
-</div>
-<div class="faq-section">
-<p style="font-size:.88rem;color:var(--text-secondary);line-height:1.8;background:var(--neutral-light);border-radius:8px;padding:1rem 1.25rem;margin:1.5rem 0;">Cuando contratas la asesoría de Juristam, nos explicas tu caso por texto, nota de voz o llamada. El abogado asignado hace las preguntas pertinentes, revisa los documentos y analiza todo antes de la reunión. Los 45 minutos son para entregarte la estrategia — no para empezar desde cero.</p>
-<h2 id="faq">Preguntas frecuentes</h2>
-<details><summary>&iquest;Puedo reclamar mercanc&iacute;a sin el Bill of Lading original?</summary><p class="faq-answer">Depende del tipo de B/L. Con un Sea Waybill o Telex Release, no se necesita el original. Con un B/L negociable original, quien reclama la mercanc&iacute;a debe presentarlo. Si se perdi&oacute; el original, hay procedimientos para obtener una garantía de la naviera. En Juristam manejamos estos casos &mdash; 0994859814.</p></details>
-</div>
-<div style="background:var(--primary-light);border-left:4px solid var(--primary);border-radius:8px;padding:1.2rem 1.5rem;margin:2rem 0;">
-  <p style="font-size:.85rem;font-weight:600;color:var(--primary-dark);margin-bottom:.5rem;">&#9733; Resultados reales</p>
-  <p style="font-size:.9rem;line-height:1.7;margin-bottom:.8rem;">¿Quieres ver cómo resolvemos casos como el tuyo? Revisa los resultados reales de clientes de Juristam en esta área.</p>
-  <a href="/casos-de-exito-maritimo.html" style="font-weight:600;color:var(--primary-dark);text-decoration:underline;">Ver casos de éxito en derecho marítimo →</a>
-</div>
 
-<div style="margin:2rem 0;padding:1.25rem 1.5rem;background:var(--primary-light);border-radius:10px;border:1px solid rgba(154,106,255,.2);">
-  <p style="font-size:.9rem;font-weight:600;color:var(--primary-dark);margin-bottom:.5rem;">¿Tienes este problema?</p>
-  <p style="font-size:.88rem;color:var(--text-secondary);line-height:1.75;margin-bottom:.8rem;">El abogado especialista analiza tu caso antes de la reunión — llega con la estrategia definida y la explicación sin tecnicismos. Cuéntanos tu situación y coordinamos.</p>
-  <a href="https://wa.me/593994859814" style="display:inline-block;background:var(--primary);color:#fff;padding:.65rem 1.4rem;border-radius:8px;font-weight:600;font-size:.88rem;text-decoration:none;">Hablar con Juristam →</a>
+<p>El conocimiento de embarque —conocido internacionalmente como bill of lading o simplemente BL— es el documento más importante del transporte marítimo internacional. Para el importador ecuatoriano que lo recibe cada vez que hace una importación por barco, puede parecer solo un formulario más de la cadena de trámites. En realidad es mucho más que eso: es al mismo tiempo el contrato de transporte que define los derechos y obligaciones de la naviera, el recibo que prueba en qué estado fue recibida la mercancía, y en su versión negociable, un título de propiedad que puede transferirse como un cheque.</p>
+<p>Esta guía explica desde cero qué es el conocimiento de embarque, cómo funciona en la práctica de las importaciones ecuatorianas, y qué debe saber cualquier empresa que importe por vía marítima.</p>
+<p style="font-size:.9rem;color:var(--text-secondary);line-height:1.75;border-left:3px solid var(--primary);padding-left:1rem;margin:1.5rem 0;">Si tienes este problema, en Juristam el abogado especialista marítimo llega a la asesoría con tu caso ya analizado. <a href="https://wa.me/593994859814" style="color:var(--primary);font-weight:600;">Cuéntanos tu caso →</a></p>
+<h2>Las tres funciones del conocimiento de embarque</h2>
+<p>Ningún otro documento del comercio exterior concentra tantas funciones jurídicas en un solo papel. El BL cumple tres funciones simultáneamente.</p>
+<p><strong>Primera función: contrato de transporte.</strong> Cuando la naviera emite el BL, está estableciendo los términos del transporte: qué carga, en qué buque, desde qué puerto, hacia qué destino, bajo qué condiciones de responsabilidad. El BL no es todo el contrato de transporte —las condiciones generales están en el reverso del BL o en el sitio web de la naviera— pero es la evidencia principal de ese contrato. Si hay un conflicto entre el importador y la naviera por daños a la carga, el BL es el documento que define los derechos de cada parte.</p>
+<p><strong>Segunda función: recibo de la carga.</strong> Al emitir el BL, la naviera certifica que recibió la mercancía descrita en el documento en el estado que indica. Si el BL es "limpio" —sin anotaciones sobre el estado de la carga— la naviera está certificando que la recibió en aparente buen estado. Si llega a destino dañada, esa discrepancia entre el BL limpio y la mercancía dañada es la base de la reclamación contra la naviera.</p>
+<p><strong>Tercera función: título de propiedad.</strong> En su versión negociable —el BL a la orden— el conocimiento de embarque representa la propiedad de la mercancía. Quien tiene el BL original debidamente endosado tiene derecho a retirar la carga. Esta función hace posible el financiamiento del comercio internacional: el banco puede controlar la propiedad de la mercancía reteniendo el BL original hasta que el importador pague.</p>
+<h2>Cómo funciona el BL en una importación ecuatoriana típica</h2>
+<p>Para entender el conocimiento de embarque en la práctica, es útil seguir el flujo de una importación típica ecuatoriana financiada con carta de crédito.</p>
+<p>El proceso empieza cuando el importador ecuatoriano y el exportador extranjero acuerdan los términos de la compraventa. Si hay carta de crédito, el banco del importador la emite a favor del exportador, indicando qué documentos debe presentar el exportador para cobrar — incluyendo el BL.</p>
+<p>El exportador embarca la mercancía y la entrega a la naviera en el puerto de origen. La naviera emite el BL: normalmente tres originales y varias copias. Los originales son los que tienen valor jurídico para retirar la carga; las copias son solo para información.</p>
+<p>El exportador presenta los BL originales junto con los otros documentos requeridos (factura, packing list, certificados) al banco del exportador. El banco revisa que los documentos cumplan los términos de la carta de crédito y los envía al banco del importador en Ecuador. El banco del importador revisa, paga al banco del exportador, y entrega los BL al importador una vez que este cumple con sus obligaciones de pago.</p>
+<p>El importador entrega un BL original al agente marítimo en Guayaquil. El agente verifica que el BL es auténtico y que está correctamente endosado. Solo entonces procesa el retiro de la carga del terminal portuario.</p>
+<p style="font-size:.88rem;color:var(--text-secondary);line-height:1.8;background:var(--neutral-light);border-radius:8px;padding:1rem 1.25rem;margin:1.5rem 0;">Cuando contratas la asesoría de Juristam, nos explicas tu situación por texto, nota de voz o llamada. El abogado asignado hace las preguntas pertinentes, revisa los documentos y analiza todo antes de la reunión. Los 45 minutos son para entregarte la estrategia, no para empezar desde cero.</p>
+<h2>Los datos que debe contener el BL y por qué importan en Ecuador</h2>
+<p>El BL tiene campos estandarizados que deben completarse correctamente. En Ecuador, las discrepancias entre el BL y otros documentos, o entre el BL y el RUC del importador, pueden generar problemas en la SENAE durante el proceso de desaduanamiento.</p>
+<p><strong>Shipper (exportador):</strong> nombre, dirección y país del exportador. Debe coincidir con la factura comercial.</p>
+<p><strong>Consignee (consignatario):</strong> quien tiene derecho a retirar la carga en destino. Puede ser "a la orden de [banco]" para BL negociable, o el nombre del importador para BL directo. En Ecuador, debe coincidir exactamente con la denominación legal en el RUC.</p>
+<p><strong>Notify party:</strong> a quién notificar cuando el buque llega. Generalmente el importador o su agente de aduanas.</p>
+<p><strong>Port of loading y port of discharge:</strong> puertos de origen y destino. El puerto de destino en Ecuador debe estar correcto — Guayaquil, Manta, Esmeraldas o Puerto Bolívar según corresponda.</p>
+<p><strong>Description of goods:</strong> descripción de la mercancía. Debe ser consistente con la factura comercial y el packing list. Discrepancias pueden activar canal rojo en la SENAE.</p>
+<p><strong>Gross weight y measurement:</strong> peso bruto y volumen. La SENAE verifica estos datos contra la declaración aduanera.</p>
+<p><strong>Freight:</strong> indica si el flete está pagado en origen (prepaid) o pendiente de pago en destino (collect). Si es collect, el importador debe pagar el flete en Ecuador para retirar la carga.</p>
+<h2>Qué hacer cuando el BL tiene errores</h2>
+<p>Los errores en el BL son más comunes de lo que debería. Nombre del consignatario con variaciones ortográficas, descripción de la mercancía que no coincide con la factura, peso o cantidad equivocados, puerto de destino incorrecto — cada uno de estos errores puede causar problemas en la SENAE y generar días adicionales de demurrage mientras se corrigen.</p>
+<p>El momento en que se detecta el error determina qué opciones hay. Si el error se detecta antes de que el buque zarpe, la naviera puede corregir el BL (enmienda). Si el buque ya zarpó, la corrección se hace a través del agente marítimo local, que tramita la enmienda con la naviera. Si el buque ya llegó y los documentos tienen errores, cada día que toma la corrección es demurrage acumulado.</p>
+<p>El draft del BL — la versión borrador que las navieras envían antes de emitir los originales — debe revisarse con atención contra la factura y el packing list. Ese momento es la oportunidad de detectar y corregir errores sin costo ni demoras.</p>
+
+<h2>El contexto ecuatoriano: lo que diferencia estos casos en Ecuador</h2>
+<p>El comercio marítimo ecuatoriano tiene particularidades que afectan cómo se manejan estos conflictos. El Puerto de Guayaquil concentra la mayor parte del comercio exterior del país. Las operaciones de Contecon Guayaquil (DP World) y las interacciones con la SENAE son factores cotidianos para cualquier importador ecuatoriano que usa transporte marítimo.</p>
+<p>La SENAE tiene un sistema de gestión de riesgo que clasifica cada importación en un canal de aforo: verde (sin inspección física), amarillo (revisión documental), o rojo (aforo físico completo). Ese canal afecta directamente los tiempos de retiro de la mercancía y, por extensión, la exposición al demurrage y otros costos. Entender cómo funciona ese sistema —y cómo reducir el riesgo de caer en canal rojo— es conocimiento operativo valioso para cualquier empresa importadora.</p>
+<p>Los plazos del derecho marítimo son estrictos y no esperan. Las Reglas de La Haya establecen 3 días hábiles para notificar daño oculto y 1 año para iniciar acción legal. Los contratos de transporte establecen plazos aún más cortos para impugnar cobros. El primer paso de cualquier situación marítima es identificar qué plazos aplican y cuánto tiempo queda —antes de hacer cualquier otra cosa.</p>
+<p>El sistema de resolución de conflictos en Ecuador para asuntos marítimos no tiene tribunal especializado. Los conflictos van a juzgados civiles o al arbitraje. Para conflictos con navieras internacionales, la cláusula de jurisdicción del BL puede establecer arbitraje en Londres u otro foro extranjero. Conocer esas cláusulas antes de tener un conflicto permite planificar mejor.</p>
+<h2>Por qué la asesoría temprana marca la diferencia</h2>
+<p>La mayoría de los casos de derecho marítimo que terminan mal para el importador ecuatoriano no fallan por falta de razón jurídica —fallan por falta de acción oportuna y documentación correcta. El importador que descubre el daño el día de la llegada de la carga, toma fotos, contrata el surveyador ese mismo día, envía la carta de protesta antes de salir del terminal, y consulta a un abogado marítimo antes de pagar cualquier factura —ese importador está en una posición completamente diferente al que espera, espera, y eventualmente actúa cuando el plazo está próximo a vencer.</p>
+<p>En Juristam, cuando contratas la asesoría para un caso marítimo, el abogado especialista recibe tus documentos antes de la reunión, los analiza con criterio jurídico, identifica los argumentos disponibles, evalúa la solidez de tu posición, y llega a los 45 minutos de reunión con todo eso ya procesado. No empieza escuchándote desde cero. Empieza diciéndote qué tienes, qué puedes hacer, y qué debes hacer primero.</p>
+
+<h2>Preguntas frecuentes</h2>
+<div class="faq-list">
+<details class="faq-item">
+<summary>¿Cuánto cuesta una asesoría de derecho marítimo en Juristam?</summary>
+<div class="faq-answer"><p>La asesoría de Juristam tiene un costo fijo —sin sorpresas— que se descuenta si decides contratar la representación del caso. En la asesoría de 45 minutos recibes el análisis de tu caso específico y la estrategia recomendada. Si contratas representación, los honorarios de la asesoría se aplican al total. Consulta el valor actualizado en juristam.net o por WhatsApp.</p></div>
+</details>
+<details class="faq-item">
+<summary>¿Es necesario que el barco o la mercancía estén en Ecuador para que Juristam pueda asesorarte?</summary>
+<div class="faq-answer"><p>No. Juristam puede asesorarte sobre reclamaciones marítimas aunque el siniestro haya ocurrido en otro país, aunque la naviera sea extranjera, o aunque el caso esté en fase de negociación internacional. Lo que necesitas es haber importado o exportado desde o hacia Ecuador, o que el conflicto tenga algún punto de conexión con Ecuador donde se pueda actuar jurídicamente.</p></div>
+</details>
+<details class="faq-item">
+<summary>¿Qué documentos debo reunir antes de la asesoría?</summary>
+<div class="faq-answer"><p>Lo básico es: el bill of lading, la factura comercial, el packing list, cualquier comunicación con la naviera o el agente marítimo, el informe del surveyador si lo tienes, y la factura de demurrage o cualquier otro cobro cuestionado. No es necesario tenerlos todos para la asesoría —con los que tengas, el abogado puede hacer una evaluación inicial y decirte cuáles faltan.</p></div>
+</details>
+<details class="faq-item">
+<summary>¿Juristam trabaja casos de derecho marítimo fuera de Guayaquil?</summary>
+<div class="faq-answer"><p>Sí. Aunque la mayoría de los conflictos marítimos en Ecuador involucran el Puerto de Guayaquil, también atendemos casos relacionados con el Puerto de Manta, el Puerto de Esmeraldas, y el Puerto de Puerto Bolívar. Las asesorías se hacen de manera virtual —por videollamada— para clientes de cualquier ciudad de Ecuador.</p></div>
+</details>
+<details class="faq-item">
+<summary>¿Cuánto tiempo toma resolver un caso marítimo?</summary>
+<div class="faq-answer"><p>Depende del tipo de conflicto y la vía elegida. Una impugnación de demurrage bien documentada puede resolverse en negociación en 4 a 8 semanas. Una reclamación de daños a la carga puede tomar 3 a 6 meses si hay acuerdo directo con la naviera, o 1 a 2 años si va a arbitraje. Los plazos que más importan son los de caducidad —que son los que definen hasta cuándo tienes derecho a actuar— y esos deben verificarse desde el primer día.</p></div>
+</details>
+</div>
+<p style="font-size:.9rem;color:var(--text-secondary);line-height:1.75;margin:1.5rem 0;font-style:italic;">El abogado conocerá tu caso incluso mejor que tú — porque lo analizó desde afuera, con criterio jurídico y sin los sesgos de haberlo vivido.</p>
+<div class="cta-block"><p>¿Tienes este problema? Cuéntanos tu caso. <a href="https://wa.me/593994859814">Escribir a Juristam →</a></p></div>
+
+<h2>El contexto ecuatoriano: por qué este tema es especialmente relevante aquí</h2>
+<p>Ecuador es un país con una economía profundamente vinculada al comercio marítimo. El Puerto de Guayaquil —a través de Contecon Guayaquil (DP World)— mueve la mayoría de las importaciones y exportaciones del país. El sector pesquero, la industria camaronera, la exportación de banano, flores y cacao, y las importaciones de insumos industriales, equipos, vehículos y bienes de consumo —todo pasa por el sistema marítimo ecuatoriano.</p>
+<p>Las particularidades del sistema ecuatoriano que afectan estos temas son múltiples. La SENAE —Servicio Nacional de Aduana del Ecuador— tiene un sistema de clasificación de riesgo que puede alargar significativamente los tiempos de desaduanamiento cuando asigna canal rojo. Ese tiempo adicional genera costos —demurrage, almacenaje— que pueden ser reclamados a la SENAE si la demora fue injustificada. La Subsecretaría de Puertos regula las operaciones portuarias. La Dirección de la Marina Mercante (DIGMER) regula a los agentes marítimos y buques de bandera ecuatoriana. El sistema judicial para conflictos marítimos no tiene tribunal especializado —los casos van a juzgados civiles que tienen experiencia variable en la materia.</p>
+<p>Esta complejidad institucional hace que resolver un conflicto marítimo en Ecuador sin conocimiento específico del sistema sea difícil. Saber a qué entidad notificar, en qué plazo, con qué documentos, y por qué vía —administrativa, arbitral o judicial— son preguntas que requieren respuestas precisas para que la reclamación tenga resultado.</p>
+<h2>Los errores más frecuentes que cuestan dinero</h2>
+<p>En la práctica del derecho marítimo ecuatoriano, ciertos errores se repiten consistentemente y tienen consecuencias económicas directas. El primero es actuar tarde: los plazos del derecho marítimo son cortos y son caducidades —no simples prescripciones. El plazo de 3 días hábiles para el daño oculto, el plazo de 1 año para la acción legal bajo las Reglas de La Haya, o los 14 a 30 días para impugnar el demurrage según el contrato —todos esos plazos vencen aunque el importador no lo sepa y aunque haya estado negociando informalmente.</p>
+<p>El segundo error es no documentar desde el inicio. La fotografía del precinto antes de abrirlo, la anotación en el recibo de entrega, el correo a la naviera ese mismo día —son acciones que en el momento parecen menores pero que meses después, en la negociación o en el arbitraje, son evidencia determinante. Lo que no está documentado, no ocurrió jurídicamente.</p>
+<p>El tercero es confundir a los actores responsables. La naviera, el agente marítimo, el terminal portuario, el agente de aduanas, el exportador —cada uno responde por cosas distintas. Notificar al equivocado no preserva los plazos frente al correcto. Y si el plazo frente al responsable real vence mientras se negocia con el equivocado, el derecho se extingue.</p>
+<p>El cuarto es subestimar la solidez de la contraparte. Las navieras internacionales tienen equipos jurídicos especializados, experiencia en miles de reclamaciones, y estrategias definidas para cada tipo de disputa. Un importador ecuatoriano que reclama sin asesoría profesional frente a una naviera internacional enfrenta una asimetría de información y recursos significativa. Eso no significa que no pueda ganar —significa que necesita la preparación adecuada para hacerlo.</p>
+<h2>Qué incluye la asesoría de Juristam en este tipo de caso</h2>
+<p>La asesoría marítima de Juristam está diseñada para darte información real y accionable en el menor tiempo posible. Antes de la reunión, el abogado especialista revisa los documentos que envías: el bill of lading, las comunicaciones con la naviera, el informe del surveyador, la factura de demurrage, o cualquier otro documento relevante para el caso. Cuando llegas a la reunión de 45 minutos, el abogado ya tiene el caso analizado.</p>
+<p>En esos 45 minutos recibes: la evaluación de la solidez de tu posición jurídica, los plazos que aplican y cuánto tiempo tienes, la estrategia recomendada según el caso —negociación, impugnación formal, mediación, arbitraje— y los pasos concretos a seguir. No teoría general sobre derecho marítimo —análisis de tu caso específico.</p>
+<p>Si decides contratar la representación de Juristam para el caso, el valor de la asesoría se descuenta. Si decides actuar por tu cuenta con la información que recibiste, también está bien —la asesoría tiene valor por sí misma. En Juristam, el objetivo no es que dependas del abogado sino que tomes la mejor decisión con la información correcta.</p>
+<h2>Preguntas frecuentes</h2>
+<div class="faq-list">
+<details class="faq-item">
+<summary>¿Juristam tiene experiencia en casos marítimos específicamente?</summary>
+<div class="faq-answer"><p>Sí. La práctica marítima de Juristam incluye reclamaciones por daños y faltantes de carga, impugnaciones de demurrage, conflictos con navieras y agentes marítimos, sanciones del sector pesquero, y asesoría en contratos de transporte marítimo. La especialización es clave en derecho marítimo porque combina legislación nacional e internacional con práctica comercial específica del sector.</p></div>
+</details>
+<details class="faq-item">
+<summary>¿Qué pasa si la naviera tiene sede en el extranjero y no tiene oficina en Ecuador?</summary>
+<div class="faq-answer"><p>La naviera opera en Ecuador a través de su agente marítimo local, quien es el interlocutor para notificaciones y reclamaciones. Para reclamaciones formales o escaladas, hay formas de contactar directamente a la sede regional o central de la naviera. Si la disputa requiere acción legal, las opciones dependen de la cláusula de jurisdicción del BL —que puede establecer foros extranjeros— o de la posibilidad de tomar medidas cautelares en Ecuador, como el embargo preventivo de buques cuando corresponde.</p></div>
+</details>
+<details class="faq-item">
+<summary>¿Cuándo es mejor resolver mediante mediación en lugar de litigio?</summary>
+<div class="faq-answer"><p>La mediación es preferible cuando: el monto en disputa es mediano (USD 1.000 a USD 20.000), ambas partes tienen interés en mantener la relación comercial, hay disposición de ambos lados a llegar a un acuerdo, y el tiempo es un factor importante. El litigio es preferible cuando la parte contraria actúa de mala fe, cuando el monto justifica el costo y el tiempo del proceso, o cuando hay que establecer un precedente. En conflictos marítimos, la mediación resuelve muchos casos de manera eficiente sin llegar a las largas y costosas disputas judiciales o arbitrales.</p></div>
+</details>
+<details class="faq-item">
+<summary>¿Puedo contratar a Juristam solo para la estrategia inicial y gestionar yo mismo el resto?</summary>
+<div class="faq-answer"><p>Absolutamente sí. Muchos clientes de Juristam usan la asesoría para entender su posición y obtener la estrategia, y luego negocian directamente con la contraparte armados con esa información. En otros casos, Juristam lleva el caso completo. Y en otros, empieza el cliente y escala a Juristam cuando la negociación se complica. No hay una sola manera de trabajar —depende del caso, el monto y las preferencias del cliente.</p></div>
+</details>
+<details class="faq-item">
+<summary>¿Hay casos marítimos que Juristam no puede atender?</summary>
+<div class="faq-answer"><p>Los casos que requieren acción judicial o arbitral en jurisdicciones extranjeras —por ejemplo, arbitraje en Londres bajo LMAA para un charter party— generalmente requieren abogados admitidos en esas jurisdicciones. Juristam puede asesorarte sobre la estrategia y conectarte con corresponsales en el exterior cuando sea necesario. Para el ámbito de Ecuador —reclamaciones locales, mediación, acción judicial, embargo de buques, reclamaciones administrativas— Juristam actúa directamente.</p></div>
+</details>
 </div>
 </article></div></main>
 <footer><div class="container">

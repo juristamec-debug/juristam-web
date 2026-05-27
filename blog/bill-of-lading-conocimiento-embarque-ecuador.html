@@ -165,6 +165,17 @@ footer a{color:var(--primary);}footer strong{color:var(--white);}
 @media(max-width:650px){h1{font-size:1.7rem;}.oferta-items{grid-template-columns:1fr;}.modal-precios{grid-template-columns:1fr;}.cta-urgente{flex-direction:column;align-items:flex-start;}.tabla{font-size:.82rem;}.tabla th,.tabla td{padding:.65rem .7rem;}}
 </style>
 <meta property="article:author" content="Juristam" />
+<style>
+.faq-list { margin: 1.5rem 0; }
+.faq-item { border: 1px solid rgba(154,106,255,.2); border-radius: 8px; margin-bottom: .75rem; overflow: hidden; }
+.faq-item summary { cursor: pointer; padding: 1rem 1.25rem; font-weight: 600; font-size: .95rem; color: var(--text-primary); list-style: none; display: flex; justify-content: space-between; align-items: center; gap: 1rem; }
+.faq-item summary::-webkit-details-marker { display: none; }
+.faq-item summary::after { content: "+"; font-size: 1.25rem; color: var(--primary); flex-shrink: 0; transition: transform .2s; }
+.faq-item[open] summary::after { content: "−"; }
+.faq-item[open] summary { color: var(--primary); }
+.faq-answer { padding: .25rem 1.25rem 1.25rem; font-size: .9rem; line-height: 1.75; color: var(--text-secondary); }
+.faq-answer p { margin: 0; }
+</style>
 </head><body>
 <div class="modal-overlay" id="waModal" role="dialog" aria-modal="true">
   <div class="modal">
@@ -205,55 +216,103 @@ footer a{color:var(--primary);}footer strong{color:var(--white);}
 <div class="tldr"><strong>El bill of lading es el documento m&aacute;s importante del transporte mar&iacute;timo.</strong> Es al mismo tiempo el contrato de transporte, el recibo de mercanc&iacute;a y &mdash; en su forma negociable &mdash; un t&iacute;tulo de cr&eacute;dito que puede endosarse. Entender su funcionamiento es esencial para cualquier operaci&oacute;n de comercio exterior.</div>
 <div class="cluster-nav"><strong>Ecosistema &mdash; Derecho Mar&iacute;timo Ecuador &middot; Juristam</strong><div class="cn-pilar"><a href="/blog/derecho-maritimo-ecuador.html">&#9679; Gu&iacute;a completa: derecho mar&iacute;timo en Ecuador</a></div><div class="cn-sat"><a href="/blog/carga-maritima-danos-averia-ecuador.html">&rarr; Da&ntilde;os, aver&iacute;as y faltantes en carga mar&iacute;tima</a><div class="cn-ms"><a href="/blog/averia-gruesa-maritima-ecuador.html">&middot; Aver&iacute;a gruesa en Ecuador: qu&eacute; es y c&oacute;mo reclamar</a><a href="/blog/carga-humeda-danada-contenedor-ecuador.html">&middot; Carga h&uacute;meda o da&ntilde;ada en contenedor: qu&eacute; hacer en Ecuador</a><a href="/blog/faltante-mercaderia-contenedor-ecuador.html">&middot; Faltante de mercanc&iacute;a en contenedor: c&oacute;mo reclamar en Ecuador</a><a href="/blog/seguro-carga-maritima-ecuador.html">&middot; Seguro de carga mar&iacute;tima en Ecuador: qu&eacute; cubre y c&oacute;mo usarlo</a><a href="/blog/bill-of-lading-conocimiento-embarque-ecuador.html" class="active">&middot; Bill of lading en Ecuador: qu&eacute; es y cu&aacute;l es su valor legal</a></div></div><div class="cn-sat"><a href="/blog/demurrage-demoras-contenedores-ecuador.html">&rarr; Demurrage, detention y sobresta&iacute;as en contenedores</a></div><div class="cn-sat"><a href="/blog/contratos-transporte-maritimo-ecuador.html">&rarr; Contratos de transporte mar&iacute;timo en Ecuador</a></div><div class="cn-sat"><a href="/blog/navieras-agentes-maritimos-ecuador.html">&rarr; Navieras y agentes mar&iacute;timos: responsabilidad y reclamaciones</a></div><div class="cn-sat"><a href="/blog/seguros-maritimos-ecuador.html">&rarr; Seguros mar&iacute;timos: coberturas, siniestros y reclamaciones</a></div><div class="cn-sat"><a href="/blog/accidentes-contaminacion-maritima-ecuador.html">&rarr; Accidentes, abordajes y contaminaci&oacute;n marina en Ecuador</a></div><div class="cn-sat"><a href="/blog/pesca-acuicultura-legal-ecuador.html">&rarr; Pesca, acuicultura y exportaci&oacute;n de productos del mar</a></div><div class="cn-sat"><a href="/blog/puertos-operadores-portuarios-ecuador.html">&rarr; Puertos y operadores portuarios en Ecuador</a></div></div>
 <article>
-<h2>Las tres funciones del bill of lading</h2>
-<ul>
-  <li><strong>Contrato de transporte:</strong> evidencia las condiciones bajo las cuales el porteador se compromete a transportar la mercanc&iacute;a.</li>
-  <li><strong>Recibo de mercanc&iacute;a:</strong> acredita que el porteador recibi&oacute; la mercanc&iacute;a descrita en el documento en las condiciones all&iacute; indicadas.</li>
-  <li><strong>T&iacute;tulo de cr&eacute;dito:</strong> en su forma negociable, el portador leg&iacute;timo del BL tiene derecho a recibir la mercanc&iacute;a en destino.</li>
-</ul>
-<h2>Tipos de bill of lading</h2>
-<table class="tabla">
-  <thead><tr><th>Tipo</th><th>Caracter&iacute;stica</th><th>Uso</th></tr></thead>
-  <tbody>
-    <tr><td><strong>BL negociable (a la orden)</strong></td><td>Transferible por endoso</td><td>Operaciones con carta de cr&eacute;dito, financiamiento</td></tr>
-    <tr><td><strong>BL nominativo (straight)</strong></td><td>A nombre de un consignatario espec&iacute;fico, no transferible</td><td>Env&iacute;os directos sin financiamiento</td></tr>
-    <tr><td><strong>BL al portador</strong></td><td>Quien lo tiene puede retirar la carga</td><td>Poco usado en la pr&aacute;ctica actual</td></tr>
-    <tr><td><strong>BL limpio (clean)</strong></td><td>Sin anotaciones sobre el estado de la carga</td><td>Presunci&oacute;n de entrega en buen estado</td></tr>
-    <tr><td><strong>BL sucio (claused)</strong></td><td>Con anotaciones sobre da&ntilde;os observados</td><td>Evidencia de da&ntilde;o preexistente</td></tr>
-  </tbody>
-</table>
-<div class="callout-danger"><strong>&#9888; El BL limpio es una presunci&oacute;n que el porteador usar&aacute; en tu contra</strong>Si la naviera emiti&oacute; un BL limpio y la mercanc&iacute;a lleg&oacute; da&ntilde;ada, el porteador argumentar&aacute; que el da&ntilde;o ocurri&oacute; despu&eacute;s de la entrega o que no es su responsabilidad. Destruir esa presunci&oacute;n requiere prueba s&oacute;lida y oportuna.</div>
-<div class="oferta-box">
-  <h3>&#9989; ¿Tienes un caso de derecho marítimo en Ecuador?</h3>
-  <p style="font-size:.93rem;color:var(--text-secondary);margin-bottom:1.2rem;">El derecho mar&iacute;timo tiene plazos cr&iacute;ticos y normativa internacional espec&iacute;fica. Un error en la estrategia legal puede cerrar el caso antes de empezar. Cu&eacute;ntanos tu situaci&oacute;n.</p>
-<p style="font-size:.9rem;color:var(--text-secondary);line-height:1.75;border-left:3px solid var(--primary);padding-left:1rem;margin:1.5rem 0;">Si tienes un problema de carga marítima o contratos navieros, en Juristam el abogado especialista llega a la asesoría con tu caso ya analizado — no a escucharte, sino a explicarte exactamente qué tienes y qué puedes hacer. <a href="https://wa.me/593994859814" style="color:var(--primary);font-weight:600;">Cuéntanos tu caso →</a></p>
 
-  <div class="oferta-items">
-    <div class="oferta-item dest"><div class="precio">$45</div><div class="label">&#11088; Asesor&iacute;a virtual</div><div class="desc">Revisamos tu caso y definimos la estrategia.</div></div>
-    <div class="oferta-item"><div class="precio">$85</div><div class="label">Presencial</div><div class="desc">En oficina en Guayaquil.</div></div>
-  </div>
-  <div class="oferta-nota"><strong>La asesor&iacute;a de $45 se descuenta del total si avanzas con el servicio completo.</strong></div>
-  <div style="text-align:center;"><button class="btn-wa" onclick="abrirModal()">Consultar por WhatsApp &rarr;</button></div>
-</div>
-<div style="background:var(--primary-light);border-left:4px solid var(--primary);border-radius:8px;padding:1.2rem 1.5rem;margin:2rem 0;">
-  <p style="font-size:.85rem;font-weight:600;color:var(--primary-dark);margin-bottom:.5rem;">&#9733; Resultados reales</p>
-  <p style="font-size:.9rem;line-height:1.7;margin-bottom:.8rem;">¿Quieres ver cómo resolvemos casos como el tuyo? Revisa los resultados reales de clientes de Juristam en esta área.</p>
-  <a href="/casos-de-exito-maritimo.html" style="font-weight:600;color:var(--primary-dark);text-decoration:underline;">Ver casos de éxito en derecho marítimo →</a>
-</div>
+<p>El bill of lading —conocimiento de embarque en español— es el documento más importante del comercio marítimo internacional. Es al mismo tiempo un recibo de la carga, un contrato de transporte y un título de propiedad de la mercancía. Ningún otro documento en el transporte marítimo concentra tanto poder jurídico en tan pocas páginas. Y sin embargo, muchos importadores y exportadores ecuatorianos lo tratan como un trámite administrativo más — hasta que algo sale mal.</p>
+<p>Un error en el bill of lading puede impedir el retiro de la carga en el puerto de destino. Un BL mal endosado puede hacer que la mercancía quede bloqueada. Un BL perdido convierte una importación normal en una pesadilla jurídica. Entender qué es, cómo funciona y qué hacer cuando hay problemas no es solo conocimiento técnico — es protección real para tu operación de comercio exterior.</p>
+<p style="font-size:.9rem;color:var(--text-secondary);line-height:1.75;border-left:3px solid var(--primary);padding-left:1rem;margin:1.5rem 0;">Si este es tu caso, en Juristam el abogado especialista marítimo llega a la asesoría con tu caso ya analizado — no a escucharte, sino a explicarte exactamente qué tienes y qué puedes hacer. <a href="https://wa.me/593994859814" style="color:var(--primary);font-weight:600;">Cuéntanos tu caso →</a></p>
+<h2>Las tres funciones del bill of lading: por qué es único</h2>
+<p>El BL no es un documento ordinario porque cumple tres funciones simultáneamente, y esa combinación es lo que lo hace indispensable en el transporte marítimo.</p>
+<p><strong>Primera función: recibo de la carga.</strong> Cuando la naviera emite el BL, está confirmando que recibió la mercancía descrita en el documento en el estado que se indica. Si el BL dice "20 cajas de producto X, 500 kg, en buen estado", la naviera está certificando que eso fue lo que recibió. Si en destino llegan 18 cajas o la mercancía está dañada, el BL es la prueba de cuál era el estado original — y es la base de cualquier reclamación.</p>
+<p><strong>Segunda función: contrato de transporte.</strong> El BL establece los términos del transporte: origen, destino, descripción de la carga, y en sus condiciones generales (generalmente en el reverso o en el sitio web de la naviera), las responsabilidades de las partes, los límites de responsabilidad de la naviera, los plazos para reclamar y el foro de resolución de disputas. Cuando hay un conflicto entre el cargador y la naviera, el BL es el contrato que rige.</p>
+<p><strong>Tercera función: título de propiedad.</strong> Esta es la función más peculiar del BL y la que lo diferencia de todos los demás documentos de transporte. El BL negociable —a la orden— puede transferir la propiedad de la mercancía simplemente endosándolo, igual que un cheque. Quien presenta el BL original al agente marítimo en destino tiene derecho a retirar la carga. Esta característica lo hace fundamental para el financiamiento del comercio internacional —especialmente para las cartas de crédito documentarias.</p>
 
-<div style="margin:2rem 0;padding:1.25rem 1.5rem;background:var(--primary-light);border-radius:10px;border:1px solid rgba(154,106,255,.2);">
-  <p style="font-size:.9rem;font-weight:600;color:var(--primary-dark);margin-bottom:.5rem;">¿Tienes este problema?</p>
-  <p style="font-size:.88rem;color:var(--text-secondary);line-height:1.75;margin-bottom:.8rem;">El abogado especialista analiza tu caso antes de la reunión — llega con la estrategia definida y la explicación sin tecnicismos. Cuéntanos tu situación y coordinamos.</p>
-  <a href="https://wa.me/593994859814" style="display:inline-block;background:var(--primary);color:#fff;padding:.65rem 1.4rem;border-radius:8px;font-weight:600;font-size:.88rem;text-decoration:none;">Hablar con Juristam →</a>
+<h2>Tipos de bill of lading y sus diferencias prácticas</h2>
+<p>No todos los BL son iguales. El tipo determina cómo puede transferirse la mercancía y quién puede retirarla en destino.</p>
+<p><strong>BL a la orden (Order Bill of Lading).</strong> Es el más común en el comercio internacional. La línea "consignatario" dice "a la orden de" seguido del banco o del comprador. Para retirar la carga, hay que presentar el BL original debidamente endosado. Este tipo es indispensable cuando hay una carta de crédito documentaria involucrada, porque el banco necesita controlar la propiedad de la mercancía hasta que el pago se complete.</p>
+<p><strong>BL directo (Straight Bill of Lading).</strong> El consignatario está nombrado directamente. Solo esa persona puede retirar la carga, y el BL no puede transferirse a un tercero. Es más simple de manejar, pero elimina la flexibilidad de transferir la propiedad de la mercancía en tránsito.</p>
+<p><strong>BL al portador.</strong> Permite que cualquier persona que presente el original retire la carga. Prácticamente no se usa hoy porque el riesgo de fraude es demasiado alto.</p>
+<p><strong>Telex Release (o Surrender BL).</strong> No es exactamente un tipo de BL, sino una modalidad de entrega. El exportador o su banco notifica a la naviera en origen que "suelta" los originales, y la naviera autoriza al agente en destino a entregar la carga sin presentar el BL original. Es útil cuando hay confianza entre las partes y se quiere evitar los retrasos del envío físico del BL. En Ecuador es cada vez más común, pero requiere que ambas partes entiendan exactamente qué implica y que haya documentación escrita del Telex Release.</p>
+<p><strong>Seaway Bill o Sea Waybill.</strong> No es un título de propiedad — no puede endosarse. Es simplemente un contrato de transporte y recibo de carga, sin la función de título negociable. Solo el consignatario nombrado puede retirar la carga. Útil para embarques entre empresas del mismo grupo o cuando hay total confianza entre las partes. No es compatible con cartas de crédito documentarias.</p>
+<p><strong>BL de fletamento (Charter Party BL).</strong> Se emite cuando hay un contrato de fletamento (charter party) subyacente. Las condiciones del BL en estos casos pueden modificarse significativamente por el charter party — lo que complica las reclamaciones cuando hay problemas.</p>
+
+<h2>BL limpio vs BL sucio: el impacto en tu financiamiento</h2>
+<p>El estado en que la naviera describe la mercancía al momento de recibirla determina si el BL es "limpio" (clean) o "sucio" (claused o dirty). Esta distinción puede tener consecuencias financieras mayores.</p>
+<p>Un <strong>BL limpio</strong> no contiene anotaciones sobre el estado de la carga — la naviera la recibió en aparente buen estado y sin observaciones. Es el que requiere cualquier carta de crédito documentaria. Los bancos solo pagan contra un BL limpio.</p>
+<p>Un <strong>BL sucio o claused</strong> contiene anotaciones de la naviera sobre el estado de la carga: "embalaje dañado", "una caja rota", "mercancía con signos de humedad al momento de la recepción". Estas anotaciones no siempre indican un problema grave, pero invalidan el BL para propósitos de carta de crédito y pueden complicar las reclamaciones de seguro.</p>
+<p>El problema surge cuando el exportador presiona a la naviera para emitir un BL limpio aunque la mercancía tenga algún problema visible — a veces ofreciendo una carta de indemnización (letter of indemnity). Esta práctica existe en el comercio internacional, pero tiene riesgos jurídicos serios para todas las partes involucradas.</p>
+<p style="font-size:.88rem;color:var(--text-secondary);line-height:1.8;background:var(--neutral-light);border-radius:8px;padding:1rem 1.25rem;margin:1.5rem 0;">Cuando contratas la asesoría de Juristam, nos explicas tu situación por texto, nota de voz o llamada. El abogado asignado hace las preguntas pertinentes, revisa los documentos y analiza todo antes de la reunión. Los 45 minutos son para entregarte la estrategia — no para empezar desde cero.</p>
+<h2>Los errores más comunes en el BL y cómo afectan al importador ecuatoriano</h2>
+<p>En Ecuador, los errores en el bill of lading generan demoras aduaneras, costos adicionales y en algunos casos la imposibilidad de retirar la mercancía hasta que el problema se corrija. Estos son los errores más frecuentes:</p>
+<p><strong>Error en el nombre o RUC del consignatario.</strong> Si el BL dice "Empresa ABC S.A." pero en el RUC está "Empresa ABC Sociedad Anónima", la SENAE puede generar observaciones. Los nombres deben coincidir exactamente con la denominación legal registrada en Ecuador.</p>
+<p><strong>Error en la descripción de la mercancía.</strong> Si el BL dice "maquinaria industrial" y la declaración aduanera tiene un código arancelario específico para "bombas hidráulicas", puede haber inconsistencia que active una revisión documental o física.</p>
+<p><strong>Error en el peso o cantidad.</strong> Diferencias entre el BL y la factura comercial, el packing list o la declaración aduanera son señales de alerta para la SENAE. Aunque sean errores menores, pueden generar canal rojo y días adicionales en el puerto.</p>
+<p><strong>BL emitido "a bordo" vs "recibido para embarque".</strong> Un BL "recibido para embarque" certifica que la naviera recibió la carga pero no necesariamente que ya está en el buque. Un BL "a bordo" (on board) certifica que la carga está efectivamente embarcada. Para cartas de crédito, generalmente se requiere BL "a bordo". Si el exportador envía un BL "recibido" cuando el banco requería "a bordo", hay un problema.</p>
+<p><strong>Fecha del BL anterior a la fecha de la carta de crédito.</strong> Algunas cartas de crédito establecen que el BL debe estar fechado después de la apertura de la carta. Si el exportador antedatara el BL para cumplir plazos de embarque, eso es una irregularidad con consecuencias jurídicas.</p>
+
+<h2>Qué pasa si pierdes el BL original</h2>
+<p>Perder el bill of lading original es una de las situaciones más complejas en el comercio exterior marítimo. El BL es un título de propiedad — quien lo presenta, tiene derecho a la carga. Si lo pierdes, no puedes retirar la mercancía, y la naviera no puede entregártela a ti directamente sin exponerse a una reclamación del legítimo tenedor del BL.</p>
+<p>La solución más común es el <strong>Telex Release</strong>: el exportador en origen instruy a la naviera para que libere la carga sin presentación del BL original. Esto funciona si el exportador coopera y si las partes tienen confianza. Si hay una disputa entre exportador e importador, el exportador puede negar el Telex Release y la carga queda bloqueada.</p>
+<p>La otra solución es la <strong>carta de indemnización (Letter of Indemnity o LOI)</strong>: el consignatario le da a la naviera una garantía de que si aparece un tercero con el BL original reclamando la carga, lo indemnizará. Las navieras aceptan LOI en ciertos casos, pero suelen exigir que estén avaladas por un banco. Este proceso puede tomar días o semanas.</p>
+<p>En casos extremos, si no hay solución extrajudicial, hay que recurrir a la vía judicial para que un juez ordene la entrega de la mercancía. Eso puede tomar meses y generarle costos significativos en demurrage y almacenaje.</p>
+<p>La lección: el BL original debe tratarse como un cheque al portador. Hay que guardar los originales con seguridad, enviarlos por mensajería con tracking, y considerar alternativas como el Telex Release cuando sea posible eliminar el riesgo del BL físico.</p>
+
+<h2>Cómo rectificar errores en el BL antes y después de la llegada del buque</h2>
+<p>Cuando se detecta un error en el BL, el momento de detección determina las opciones disponibles.</p>
+<p><strong>Antes de que el buque zarpe:</strong> es el mejor momento. El exportador puede solicitar a la naviera una corrección del BL (amendment). En muchos casos esto es posible, aunque puede generar costos y requerir el retiro de los BL originales ya emitidos.</p>
+<p><strong>Después del zarpe pero antes de la llegada:</strong> aún hay margen. La corrección se tramita directamente con la naviera o su representante. La naviera emite un BL correcto (o un "switch BL") en reemplazo del original. Hay que coordinar que los documentos corregidos lleguen antes que la carga o en el mismo momento, porque si la carga llega primero y los documentos tienen errores, comienza a acumular demurrage mientras se resuelve.</p>
+<p><strong>Después de la llegada:</strong> es el escenario más costoso. La corrección debe hacerse mientras el contenedor está en el puerto generando cargos. En Ecuador, la SENAE puede generar observaciones que bloqueen el proceso hasta que los documentos sean corregidos y re-presentados. Cada día cuenta.</p>
+
+<h2>El switch BL: qué es y cuándo se usa</h2>
+<p>El switch BL es la emisión de un nuevo bill of lading en el puerto de transbordo o en destino, en reemplazo del BL original emitido en origen. Se usa en varias situaciones: cuando el exportador quiere mantener el origen de la mercancía confidencial del comprador final, cuando hay un intermediario que no quiere revelar al vendedor, o cuando hubo errores en el BL original que necesitan corrección.</p>
+<p>En Ecuador, el switch BL se usa en operaciones de reexportación o triangulación comercial. Tiene implicaciones en la declaración aduanera y en el cumplimiento de normas de origen. La SENAE puede solicitar el BL original junto con el switch BL para verificar la cadena de documentos. Manejar mal un switch BL puede generar problemas con la aduana ecuatoriana y con el destinatario final de la mercancía.</p>
+
+<h2>Qué hacer si estás en una situación de conflicto con el BL</h2>
+<p>Si tienes un problema con un BL —error de datos, BL perdido, BL que no llega a tiempo, consignatario equivocado— el primer paso es no esperar a que el buque llegue para actuar. Cada día de espera puede convertirse en demurrage que pagas tú.</p>
+<p>Comunícate inmediatamente con el exportador y con el agente marítimo en Ecuador. Identifica exactamente cuál es el error o el problema. Evalúa si hay tiempo de corregirlo antes de la llegada del buque. Si no hay tiempo, pregunta si el Telex Release es posible como solución alternativa.</p>
+<p>Conserva por escrito toda la comunicación — correos, mensajes, instrucciones. Si hay un problema que genera costos adicionales por culpa de la naviera o del exportador, esa documentación será la base de cualquier reclamación posterior.</p>
+<p style="font-size:.9rem;color:var(--text-secondary);line-height:1.75;margin:1.5rem 0;font-style:italic;">El abogado conocerá tu caso incluso mejor que tú — porque lo analizó desde afuera, con criterio jurídico y sin los sesgos de haberlo vivido.</p>
+<h2>Preguntas frecuentes</h2>
+<div class="faq-list">
+<details class="faq-item">
+<summary>¿Cuántos ejemplares originales del BL se emiten normalmente?</summary>
+<div class="faq-answer"><p>Typically se emiten tres originales, aunque el número puede variar. Todos tienen el mismo valor jurídico — quien presenta cualquiera de los tres puede retirar la carga. Por eso es crítico controlar todos los originales. Una vez que uno se presenta y la carga es entregada, los demás quedan sin efecto. El manejo de los originales debe coordinarse cuidadosamente entre el exportador, el banco (si hay carta de crédito) y el importador.</p></div>
+</details>
+<details class="faq-item">
+<summary>¿Puedo retirar la carga con una fotocopia del BL?</summary>
+<div class="faq-answer"><p>No. La naviera solo entrega la carga contra presentación del BL original. Una fotocopia no es suficiente. Las excepciones son el Telex Release (donde la naviera autorizó la entrega sin original) y las cartas de indemnización bancarias (LOI). Si alguien te pide que retires carga con una fotocopia sin un mecanismo formal, hay algo que no está bien en la operación.</p></div>
+</details>
+<details class="faq-item">
+<summary>¿Qué es la cláusula "as per charter party" en el BL?</summary>
+<div class="faq-answer"><p>Significa que las condiciones del BL están subordinadas a un contrato de fletamento (charter party) subyacente. Esto puede afectar significativamente tus derechos como cargador, porque el charter party puede tener condiciones diferentes —a veces más restrictivas— que las de un BL de línea estándar. Si ves esta cláusula, necesitas revisar el charter party antes de entender realmente cuáles son tus derechos.</p></div>
+</details>
+<details class="faq-item">
+<summary>¿Cuánto tiempo tengo para presentar el BL en Ecuador después de la llegada del buque?</summary>
+<div class="faq-answer"><p>No hay un plazo legal fijo para presentar el BL —el plazo relevante es el de los free days de demurrage, que empieza a correr desde la llegada del buque independientemente de cuándo presentes el BL. Si el BL original llega tarde al Ecuador, el demurrage que se acumula mientras esperas no es automáticamente culpa de la naviera —a menos que puedas demostrar que la naviera o el exportador enviaron el BL con retraso.</p></div>
+</details>
+<details class="faq-item">
+<summary>¿El agente marítimo puede retener el BL o no entregarlo?</summary>
+<div class="faq-answer"><p>El agente marítimo tiene el BL como parte de su función de representar a la naviera. No puede usarlo para presionarte indebidamente, pero sí puede condicionar la entrega al pago de flete y demás cargos pendientes. Si el agente retiene el BL sin justificación o lo hace de manera abusiva, hay mecanismos legales para exigir su entrega. Esta situación requiere actuación rápida porque cada día adicional puede generar demurrage.</p></div>
+</details>
 </div>
-<div class="cta-block"><h3>¿Tienes dudas sobre el bill of lading de tu último embarque?</h3><p>Cu&eacute;ntanos la situaci&oacute;n. Revisamos el documento y te explicamos qu&eacute; derechos tienes.</p><button class="btn-solid" onclick="abrirModal()">Consultar &rarr;</button></div><div class="related-t"><h3>Sigue leyendo sobre este tema</h3><ul><li><a href="/blog/carga-maritima-danos-averia-ecuador.html">Da&ntilde;os, aver&iacute;as y faltantes en carga mar&iacute;tima</a></li><li><a href="/blog/averia-gruesa-maritima-ecuador.html">Aver&iacute;a gruesa en Ecuador: qu&eacute; es y c&oacute;mo reclamar</a></li><li><a href="/blog/carga-humeda-danada-contenedor-ecuador.html">Carga h&uacute;meda o da&ntilde;ada en contenedor: qu&eacute; hacer en Ecuador</a></li><li><a href="/blog/faltante-mercaderia-contenedor-ecuador.html">Faltante de mercanc&iacute;a en contenedor: c&oacute;mo reclamar en Ecuador</a></li><li><a href="/blog/seguro-carga-maritima-ecuador.html">Seguro de carga mar&iacute;tima en Ecuador: qu&eacute; cubre y c&oacute;mo usarlo</a></li><li><a href="/blog/derecho-maritimo-ecuador.html">Gu&iacute;a completa de derecho mar&iacute;timo en Ecuador</a></li></ul></div>
-<div class="faq-section">
-<p style="font-size:.88rem;color:var(--text-secondary);line-height:1.8;background:var(--neutral-light);border-radius:8px;padding:1rem 1.25rem;margin:1.5rem 0;">Cuando contratas la asesoría de Juristam, nos explicas tu caso por texto, nota de voz o llamada. El abogado asignado hace las preguntas pertinentes, revisa los documentos y analiza todo antes de la reunión. Los 45 minutos son para entregarte la estrategia — no para empezar desde cero.</p>
-<h2 id="faq">Preguntas frecuentes</h2>
-<details><summary>&iquest;Puedo retirar la mercanc&iacute;a sin el bill of lading original?</summary><p class="faq-answer">En la pr&aacute;ctica es muy dif&iacute;cil. El BL negociable original es el t&iacute;tulo que acredita el derecho a la mercanc&iacute;a. Si lo perdiste, existen procedimientos para obtener una carta de garant&iacute;a que permita el retiro. Esc&iacute;beme: 0994859814.</p></details>
-<details><summary>&iquest;El sea waybill es igual que el bill of lading?</summary><p class="faq-answer">No. El sea waybill no es negociable ni es t&iacute;tulo de cr&eacute;dito. Solo acredita el contrato de transporte y el derecho del consignatario nominado. No puede endosarse ni usarse en operaciones con carta de cr&eacute;dito.</p></details>
-<details><summary>&iquest;Qu&eacute; pasa si la naviera no entrega el BL a tiempo?</summary><p class="faq-answer">Si el retraso en la emisi&oacute;n del BL te genera perjuicios &mdash; por ejemplo, no puedes liberar la carta de cr&eacute;dito &mdash; la naviera puede ser responsable de esos da&ntilde;os. Esc&iacute;beme: 0994859814.</p></details>
-</div>
+<p style="font-size:.9rem;color:var(--text-secondary);line-height:1.75;margin:1.5rem 0;font-style:italic;">El abogado conocerá tu caso incluso mejor que tú — porque lo analizó desde afuera, con criterio jurídico y sin los sesgos de haberlo vivido.</p>
+<div class="cta-block"><p>¿Tienes este problema? Cuéntanos tu caso y el abogado especialista lo analiza antes de la reunión. <a href="https://wa.me/593994859814">Escribir a Juristam →</a></p></div>
+
+<h2>El BL electrónico (eBL): estado en Ecuador y perspectivas</h2>
+<p>El mercado marítimo internacional está avanzando hacia el Bill of Lading electrónico — un documento digital que cumple las mismas funciones jurídicas que el BL en papel pero sin los riesgos del documento físico (pérdida, retraso en el correo, falsificación). Las principales plataformas de eBL son BOLERO, essDOCS y WaveBL.</p>
+<p>En Ecuador, el eBL todavía no tiene adopción masiva. La legislación ecuatoriana de comercio exterior y la operativa de la SENAE están orientadas al BL físico. Sin embargo, en operaciones con contrapartes de países que ya usan eBL extensivamente — principalmente en Europa y algunas rutas del Pacífico — los importadores ecuatorianos pueden encontrarse recibiendo un eBL.</p>
+<p>La validez legal del eBL en Ecuador es un área en desarrollo. El Código de Comercio reconoce el valor de los documentos electrónicos, pero la operativa específica del eBL en aduanas ecuatorianas no está completamente estandarizada. Antes de aceptar un eBL como parte de una operación, es importante verificar con la SENAE y con el agente marítimo local cómo se procesará en el puerto de destino.</p>
+
+<h2>Qué hacer cuando el BL tiene errores y el buque ya está en camino</h2>
+<p>El escenario más frecuente: el importador recibe una copia del BL por correo y descubre un error — el nombre del consignatario está mal, el código postal de la dirección está incorrecto, la descripción de la mercancía no coincide con la factura comercial. Y el buque ya zarpó.</p>
+<p>La primera pregunta es: ¿es un error material o menor? Un error en el nombre del consignatario que impide identificar al destinatario correcto es material — puede bloquear el proceso aduanero. Un error en el código postal de la dirección del consignatario generalmente no impide el desaduanamiento y puede corregirse con menor urgencia.</p>
+<p>Para errores materiales, hay que actuar inmediatamente. Contactar al exportador, que debe pedir a la naviera en origen la corrección del BL (amendment). La naviera emite un BL corregido — en algunos casos recoge los originales ya emitidos y emite nuevos. Este proceso puede tomar 2 a 5 días dependiendo de la naviera y de si los originales ya están en circulación.</p>
+<p>Si el buque está en viaje largo — 20 a 30 días para travesías desde Asia — hay tiempo para corregir. Si es una ruta corta — Colombia a Ecuador, Perú a Ecuador — el margen puede ser mínimo.</p>
+<p>La urgencia de detectar errores en el BL justifica revisar el draft del BL que las navieras envían antes de emitir los originales. Muchas navieras ofrecen un período de revisión del draft. Usarlo activamente — comparar contra la factura comercial, el packing list, el contrato de compraventa — puede evitar problemas costosos.</p>
+
+<h2>El BL y las cartas de crédito: la coordinación que no puede fallar</h2>
+<p>Cuando una importación se financia con carta de crédito documentaria, el BL es uno de los documentos que el banco exige para desembolsar el pago. Los términos de la carta de crédito especifican exactamente qué tipo de BL es aceptable: limpio, a bordo, a la orden del banco, con cierta notificación, emitido antes de cierta fecha.</p>
+<p>Si el BL no cumple exactamente con los términos de la carta de crédito — si hay cualquier discrepancia, por pequeña que sea — el banco puede rechazar los documentos. Ese rechazo bloquea el pago al exportador y puede generar un conflicto que afecte la relación comercial y retrasa el retiro de la carga en Ecuador.</p>
+<p>La coordinación entre el importador, el banco, el exportador y la naviera para asegurar que el BL cumplirá los términos de la carta de crédito debe hacerse antes del embarque — no después de que el BL ya fue emitido. Revisar los términos de la carta de crédito con el exportador antes de que contrate el transporte, y confirmar con la naviera que puede emitir el BL en los términos requeridos, previene la mayoría de los problemas de discrepancia documental.</p>
 </article></div></main>
 <footer><div class="container">
   <p><strong>Juristam</strong> &mdash; Asesor&iacute;a Legal Estrat&eacute;gica en Ecuador</p>

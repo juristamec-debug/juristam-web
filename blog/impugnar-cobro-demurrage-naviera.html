@@ -165,6 +165,17 @@ footer a{color:var(--primary);}footer strong{color:var(--white);}
 @media(max-width:650px){h1{font-size:1.7rem;}.oferta-items{grid-template-columns:1fr;}.modal-precios{grid-template-columns:1fr;}.cta-urgente{flex-direction:column;align-items:flex-start;}.tabla{font-size:.82rem;}.tabla th,.tabla td{padding:.65rem .7rem;}}
 </style>
 <meta property="article:author" content="Juristam" />
+<style>
+.faq-list { margin: 1.5rem 0; }
+.faq-item { border: 1px solid rgba(154,106,255,.2); border-radius: 8px; margin-bottom: .75rem; overflow: hidden; }
+.faq-item summary { cursor: pointer; padding: 1rem 1.25rem; font-weight: 600; font-size: .95rem; color: var(--text-primary); list-style: none; display: flex; justify-content: space-between; align-items: center; gap: 1rem; }
+.faq-item summary::-webkit-details-marker { display: none; }
+.faq-item summary::after { content: "+"; font-size: 1.25rem; color: var(--primary); flex-shrink: 0; transition: transform .2s; }
+.faq-item[open] summary::after { content: "−"; }
+.faq-item[open] summary { color: var(--primary); }
+.faq-answer { padding: .25rem 1.25rem 1.25rem; font-size: .9rem; line-height: 1.75; color: var(--text-secondary); }
+.faq-answer p { margin: 0; }
+</style>
 </head><body>
 <div class="modal-overlay" id="waModal" role="dialog" aria-modal="true">
   <div class="modal">
@@ -205,56 +216,139 @@ footer a{color:var(--primary);}footer strong{color:var(--white);}
 <div class="tldr"><strong>No todo cobro de demurrage es v&aacute;lido.</strong> Si la demora fue causada por la naviera, la aduana o fuerza mayor, el cobro es impugnable. Esta gu&iacute;a explica c&oacute;mo hacerlo paso a paso.</div>
 <div class="cluster-nav"><strong>Ecosistema &mdash; Derecho Mar&iacute;timo Ecuador &middot; Juristam</strong><div class="cn-pilar"><a href="/blog/derecho-maritimo-ecuador.html">&#9679; Gu&iacute;a completa: derecho mar&iacute;timo en Ecuador</a></div><div class="cn-sat"><a href="/blog/carga-maritima-danos-averia-ecuador.html">&rarr; Da&ntilde;os, aver&iacute;as y faltantes en carga mar&iacute;tima</a></div><div class="cn-sat"><a href="/blog/demurrage-demoras-contenedores-ecuador.html">&rarr; Demurrage, detention y sobresta&iacute;as en contenedores</a><div class="cn-ms"><a href="/blog/que-es-demurrage-ecuador.html">&middot; Qu&eacute; es el demurrage y c&oacute;mo se calcula en Ecuador</a><a href="/blog/impugnar-cobro-demurrage-naviera.html" class="active">&middot; C&oacute;mo impugnar un cobro de demurrage de una naviera en Ecuador</a><a href="/blog/demora-fuerza-mayor-contenedor-ecuador.html">&middot; Demora de contenedor por fuerza mayor: qui&eacute;n paga en Ecuador</a><a href="/blog/free-days-contenedor-negociar-naviera.html">&middot; Free days de contenedor: c&oacute;mo negociar con la naviera en Ecuador</a><a href="/blog/demurrage-por-culpa-senae-aduana-ecuador.html">&middot; Demurrage por culpa de SENAE o aduana: qui&eacute;n responde en Ecuador</a></div></div><div class="cn-sat"><a href="/blog/contratos-transporte-maritimo-ecuador.html">&rarr; Contratos de transporte mar&iacute;timo en Ecuador</a></div><div class="cn-sat"><a href="/blog/navieras-agentes-maritimos-ecuador.html">&rarr; Navieras y agentes mar&iacute;timos: responsabilidad y reclamaciones</a></div><div class="cn-sat"><a href="/blog/seguros-maritimos-ecuador.html">&rarr; Seguros mar&iacute;timos: coberturas, siniestros y reclamaciones</a></div><div class="cn-sat"><a href="/blog/accidentes-contaminacion-maritima-ecuador.html">&rarr; Accidentes, abordajes y contaminaci&oacute;n marina en Ecuador</a></div><div class="cn-sat"><a href="/blog/pesca-acuicultura-legal-ecuador.html">&rarr; Pesca, acuicultura y exportaci&oacute;n de productos del mar</a></div><div class="cn-sat"><a href="/blog/puertos-operadores-portuarios-ecuador.html">&rarr; Puertos y operadores portuarios en Ecuador</a></div></div>
 <article>
-<p>Recibir una factura de demurrage de $3.000 o m&aacute;s cuando la demora no fue tu culpa es una situaci&oacute;n frustrante y frecuente para importadores en Ecuador. La buena noticia es que muchos de esos cobros son impugnables si se actúa correctamente.</p>
-<p style="font-size:.9rem;color:var(--text-secondary);line-height:1.75;border-left:3px solid var(--primary);padding-left:1rem;margin:1.5rem 0;">Si tienes un problema de carga marítima o contratos navieros, en Juristam el abogado especialista llega a la asesoría con tu caso ya analizado — no a escucharte, sino a explicarte exactamente qué tienes y qué puedes hacer. <a href="https://wa.me/593994859814" style="color:var(--primary);font-weight:600;">Cuéntanos tu caso →</a></p>
+<p>Impugnar un cobro de demurrage ante una naviera es un proceso que pocas empresas en Ecuador hacen correctamente — y la mayoría de las que lo intenta falla por razones evitables: falta de documentación, argumentos vagos, plazos vencidos o reclamaciones dirigidas a la persona equivocada. Esta guía explica el proceso completo, los argumentos que tienen más peso, los errores que invalidan la impugnación, y cuándo tiene sentido escalar más allá de la negociación directa.</p>
+<p style="font-size:.9rem;color:var(--text-secondary);line-height:1.75;border-left:3px solid var(--primary);padding-left:1rem;margin:1.5rem 0;">Si este es tu caso, en Juristam el abogado especialista marítimo llega a la asesoría con tu caso ya analizado — no a escucharte, sino a explicarte exactamente qué tienes y qué puedes hacer. <a href="https://wa.me/593994859814" style="color:var(--primary);font-weight:600;">Cuéntanos tu caso →</a></p>
+<h2>Antes de impugnar: verificar si el cobro es realmente incorrecto</h2>
+<p>No todo cobro de demurrage que parece excesivo es impugnable. El primer paso, antes de escribir una sola línea de impugnación, es revisar si el cobro es correcto según los términos del contrato.</p>
+<p>Revisa el bill of lading y sus términos y condiciones — generalmente en el reverso, aunque muchas navieras los publican en su sitio web. Ahí están los free days acordados, la tarifa de demurrage por tipo de contenedor y por escala de días, y los procedimientos y plazos para disputas.</p>
+<p>Verifica la fecha de llegada del buque al puerto. Los free days empiezan a contar desde ahí, no desde la fecha en que recibiste la notificación ni desde la fecha en que tramitaste la DAI. Si el buque llegó el 3 de mayo y tienes 7 free days, el período libre termina el 9 de mayo — independientemente de cuándo hayas iniciado el trámite aduanero.</p>
+<p>Calcula por tu cuenta cuántos días de demurrage corresponden realmente al importador. ¿Hubo días de aforo de la SENAE? ¿Hubo retraso en la entrega de documentos por parte de la naviera? ¿El buque llegó tarde respecto a la fecha programada? Cada uno de esos días puede ser excluido del cálculo con la documentación correcta.</p>
+<p>Verifica la tarifa aplicada. Las navieras tienen escalas progresivas: días 1-5 de exceso a tarifa X, días 6-10 a tarifa Y, días 11 en adelante a tarifa Z. También verifican que el tipo de contenedor sea correcto — la tarifa de un contenedor de 40 pies high cube es distinta a la de un 20 pies seco.</p>
+<p>Si después de ese análisis el cobro es correcto, pagarlo es la decisión más sensata. Impugnar un cargo que procede solo genera fricciones con la naviera sin resultado. Si hay una diferencia real entre lo que la naviera cobra y lo que realmente corresponde, entonces vale la pena impugnar.</p>
 
+<h2>Los argumentos con más peso en una impugnación de demurrage</h2>
+<p>Las navieras reciben miles de reclamaciones de demurrage cada año. Las que tienen resultado son las que presentan argumentos claros, específicos y documentados. Estas son las causales con más peso:</p>
+<p><strong>Demora de la SENAE por aforo físico.</strong> Si la aduana ecuatoriana realizó una inspección de canal rojo y ese proceso tomó días durante los cuales el contenedor permaneció en el puerto, esos días tienen base para ser excluidos. El documento que lo prueba es el acta de inicio y cierre del aforo físico, emitida por la SENAE. Sin ese documento, el argumento es muy difícil de sostener.</p>
+<p><strong>Retraso en la entrega de documentos por parte de la naviera.</strong> Si el bill of lading original llegó tarde porque la naviera o el shipper lo enviaron con retraso, y ese retraso impidió tramitar el desaduanamiento a tiempo, hay base para reclamar los días afectados. La prueba es el tracking del envío del BL y la fecha de llegada del buque.</p>
+<p><strong>Error de la naviera en la documentación.</strong> Si el BL tenía errores que requirieron corrección —nombre del consignatario, descripción de la mercancía, peso— y esa corrección tomó días durante los cuales el contenedor no podía ser retirado, esos días son imputables a la naviera.</p>
+<p><strong>Llegada tardía del buque.</strong> Si el buque llegó después de la fecha programada (ETA), el importador que organizó su operación en función de esa fecha no debería cargar con el demurrage generado por el retraso del buque. La prueba es el ETA original vs la fecha real de llegada.</p>
+<p><strong>Días feriados excluidos contractualmente.</strong> Muchos contratos de transporte excluyen del conteo de demurrage los días feriados nacionales y en algunos casos los sábados. Si la naviera los incluyó, hay un error de cálculo directo.</p>
+<p><strong>Fuerza mayor.</strong> Huelgas portuarias, eventos climáticos que cerraron el puerto, situaciones extraordinarias fuera del control del importador. El evento debe haber impedido efectivamente el retiro del contenedor — no basta que haya ocurrido en el período, tiene que haber sido la causa de la demora.</p>
 
-<h2>Los argumentos más fuertes para impugnar</h2>
-<ul>
-  <li><strong>Llegada tard&iacute;a del buque:</strong> si el buque lleg&oacute; despu&eacute;s de la fecha estimada, los d&iacute;as de retraso no deber&iacute;an computar como demurrage del importador</li>
-  <li><strong>Documentaci&oacute;n entregada tarde por la naviera:</strong> si el BL original lleg&oacute; tarde por causas imputables a la naviera, la demora consecuente no es del importador</li>
-  <li><strong>Inspecci&oacute;n de SENAE no programada:</strong> una inspecci&oacute;n f&iacute;sica o aforo que retras&oacute; el proceso aduanero sin culpa del importador</li>
-  <li><strong>Errores del sistema aduanero:</strong> ca&iacute;das del ECUAPASS u otros problemas del sistema de la SENAE</li>
-  <li><strong>Fuerza mayor:</strong> huelgas, paros, desastres naturales</li>
-</ul>
+<h2>La documentación que necesitas reunir antes de impugnar</h2>
+<p>Una impugnación sin documentación es solo una queja. La naviera puede rechazarla con una respuesta estándar en 24 horas. Con documentación sólida, la conversación cambia completamente.</p>
+<p>Reúne antes de redactar la impugnación:</p>
+<p>El <strong>bill of lading</strong> original con todos sus datos: número de BL, fecha de emisión, descripción de la carga, tipo y número de contenedor, navierra, consignatario.</p>
+<p>La <strong>confirmación de llegada del buque</strong> al puerto de Guayaquil o Manta, con la fecha exacta. Si el buque llegó tarde, el ETA original.</p>
+<p>El <strong>acta de aforo de la SENAE</strong> con las fechas de inicio y fin de la inspección, si hubo canal rojo.</p>
+<p>La <strong>Declaración Aduanera de Importación (DAI)</strong> con su fecha de presentación, para mostrar que el importador actuó a tiempo.</p>
+<p>Cualquier <strong>comunicación con la naviera o el agente marítimo</strong> sobre problemas con los documentos, fechas de llegada del BL, errores en la documentación.</p>
+<p>La <strong>factura de demurrage</strong> de la naviera con el desglose de días y tarifas aplicadas.</p>
+<p>Un <strong>cálculo propio</strong> de los días que realmente corresponden al importador, contrastado con la factura de la naviera, mostrando la diferencia y el monto en disputa.</p>
+<p style="font-size:.88rem;color:var(--text-secondary);line-height:1.8;background:var(--neutral-light);border-radius:8px;padding:1rem 1.25rem;margin:1.5rem 0;">Cuando contratas la asesoría de Juristam, nos explicas tu situación por texto, nota de voz o llamada. El abogado asignado hace las preguntas pertinentes, revisa los documentos y analiza todo antes de la reunión. Los 45 minutos son para entregarte la estrategia — no para empezar desde cero.</p>
+<h2>Cómo estructurar la carta de impugnación</h2>
+<p>La impugnación debe ser por escrito, formal, y enviada dentro del plazo establecido en el contrato de transporte. Muchos contratos establecen plazos de 14 o 30 días desde la fecha de la factura para presentar disputas — pasado ese plazo, la naviera puede rechazarla por extemporánea aunque el fondo sea correcto.</p>
+<p>La carta debe identificar claramente: el número de BL o booking, el número de contenedor, el período de demurrage en disputa, el monto cuestionado, y el argumento por el cual se cuestiona. No debe ser una queja genérica sobre que el cobro "es muy alto" — debe señalar específicamente qué días están mal imputados y por qué.</p>
+<p>Adjunta toda la documentación de respaldo organizada y numerada. Una impugnación bien organizada transmite seriedad y aumenta las probabilidades de que sea revisada por alguien con autoridad para tomar decisiones, en lugar de ser rechazada por el agente local con una respuesta estándar.</p>
+<p>Envíala a la naviera directamente —no solo al agente marítimo— por correo con acuse de recibo. Conserva prueba de la fecha de envío. Si el contrato establece un procedimiento específico para disputas, síguelo al pie de la letra.</p>
 
-<h2>La documentación que necesitas reunir</h2>
-<ul>
-  <li>BL original con las condiciones acordadas de free days</li>
-  <li>Confirmaci&oacute;n de llegada del buque (Vessel Arrival Notice)</li>
-  <li>Fecha en que el contenedor qued&oacute; disponible en el terminal</li>
-  <li>Registros del proceso aduanero: fecha de ingreso de la DAI, aprobaciones, inspecciones</li>
-  <li>Correspondencia con la naviera o agente sobre cualquier retraso</li>
-  <li>Facturas y liquidaci&oacute;n de demurrage que envi&oacute; la naviera</li>
-</ul>
+<h2>Qué esperar después de la impugnación</h2>
+<p>Las navieras tienen procedimientos internos para revisar disputas de demurrage. El tiempo de respuesta varía: algunas responden en 2 semanas, otras toman 4 a 6 semanas. Durante ese período, mantén comunicación escrita —no verbal— y conserva todos los registros.</p>
+<p>Hay tres resultados posibles: la naviera acepta la impugnación y ajusta la factura, la naviera rechaza la impugnación y mantiene el cobro original, o la naviera ofrece una reducción parcial como arreglo. El tercer resultado es el más frecuente cuando la impugnación está bien fundamentada pero hay días que son genuinamente imputables al importador.</p>
+<p>Si la naviera rechaza la impugnación, evalúa el monto en disputa antes de decidir qué hacer. Si son USD 200, probablemente no vale la pena escalar. Si son USD 3.000 o más, hay opciones: escalación dentro de la naviera (pasar del agente local a la sede regional), mediación, o acción judicial.</p>
+<p>La cláusula de jurisdicción del bill of lading es importante en esta etapa: si el contrato establece que los conflictos deben resolverse en arbitraje en Londres o en los tribunales de Singapur, actuar localmente tiene limitaciones. Eso no significa que no tengas opciones —pero sí define el marco en el que debes moverte.</p>
+<p style="font-size:.9rem;color:var(--text-secondary);line-height:1.75;margin:1.5rem 0;font-style:italic;">El abogado conocerá tu caso incluso mejor que tú — porque lo analizó desde afuera, con criterio jurídico y sin los sesgos de haberlo vivido.</p>
+<div class="cta-block"><p>¿Tienes un cobro de demurrage que no sabes si es correcto o cómo impugnar? Cuéntanos el caso. <a href="https://wa.me/593994859814">Escribir a Juristam →</a></p></div>
 
-
-<p style="font-size:.88rem;color:var(--text-secondary);line-height:1.8;background:var(--neutral-light);border-radius:8px;padding:1rem 1.25rem;margin:1.5rem 0;">Cuando contratas la asesoría de Juristam, nos explicas tu caso por texto, nota de voz o llamada. El abogado asignado hace las preguntas pertinentes, revisa los documentos y analiza todo antes de la reunión. Los 45 minutos son para entregarte la estrategia — no para empezar desde cero.</p>
-<h2>El proceso de impugnación</h2>
-<ol>
-  <li>An&aacute;lisis del caso: d&iacute;as imputables al importador vs d&iacute;as imputables a terceros</li>
-  <li>Carta formal de impugnaci&oacute;n con argumentos y documentaci&oacute;n</li>
-  <li>Negociaci&oacute;n con la naviera o su agente</li>
-  <li>Acci&oacute;n judicial si la negociaci&oacute;n no prospera</li>
-</ol>
-
-<div class="callout-proceso"><strong>&#128161; El primer error en derecho mar&iacute;timo es esperar</strong><p>Los plazos para reclamar son cortos y en muchos casos son de caducidad. Las navieras y aseguradoras cuentan con que no act&uacute;es a tiempo. Esc&iacute;benos hoy &mdash; primer contacto sin costo.</p></div><div class="oferta-box"><h3>Asesoría corporativa especializada · Juristam</h3><p style="font-size:.93rem;color:var(--text-secondary);margin-bottom:1.4rem;">Manejamos tu caso de derecho mar&iacute;timo con el procedimiento correcto desde el primer d&iacute;a.</p><div class="oferta-items"><div class="oferta-item dest"><div class="precio">$45</div><div class="label">&#11088; Recomendada &middot; Asesor&iacute;a Virtual</div><div class="desc">Videollamada desde cualquier ciudad del Ecuador.</div></div><div class="oferta-item"><div class="precio">$85</div><div class="label">Asesor&iacute;a Presencial</div><div class="desc">En nuestra oficina en Guayaquil.</div></div></div><div class="oferta-nota"><strong>Si contratas el servicio completo, los $45 de la consulta virtual se descuentan del precio final.</strong></div><div style="text-align:center;"><button class="btn-wa" onclick="abrirModal()">Consultar por WhatsApp &rarr;</button></div></div>
-<div style="background:var(--primary-light);border-left:4px solid var(--primary);border-radius:8px;padding:1.2rem 1.5rem;margin:2rem 0;">
-  <p style="font-size:.85rem;font-weight:600;color:var(--primary-dark);margin-bottom:.5rem;">&#9733; Resultados reales</p>
-  <p style="font-size:.9rem;line-height:1.7;margin-bottom:.8rem;">¿Quieres ver cómo resolvemos casos como el tuyo? Revisa los resultados reales de clientes de Juristam en esta área.</p>
-  <a href="/casos-de-exito-maritimo.html" style="font-weight:600;color:var(--primary-dark);text-decoration:underline;">Ver casos de éxito en derecho marítimo →</a>
+<h2>Preguntas frecuentes</h2>
+<div class="faq-list">
+<details class="faq-item">
+<summary>¿Cuál es el plazo para impugnar el demurrage en Ecuador?</summary>
+<div class="faq-answer"><p>No hay un plazo único establecido por ley — el plazo lo fija cada contrato de transporte, generalmente en las condiciones del bill of lading. Típicamente es de 14 a 30 días desde la fecha de la factura. Es fundamental revisar ese plazo antes de actuar, porque una impugnación extemporánea puede ser rechazada formalmente aunque el argumento de fondo sea correcto.</p></div>
+</details>
+<details class="faq-item">
+<summary>¿Puedo impugnar solo parte del demurrage?</summary>
+<div class="faq-answer"><p>Sí. Es perfectamente válido aceptar que algunos días de demurrage son imputables al importador y cuestionar solo los días que corresponden a demoras de terceros. De hecho, esta es la posición más sólida porque demuestra buena fe y análisis real del caso — lo contrario a una impugnación total que parece una negativa a pagar.</p></div>
+</details>
+<details class="faq-item">
+<summary>¿La impugnación suspende la obligación de pago?</summary>
+<div class="faq-answer"><p>Generalmente no. El contrato de transporte suele establecer que las disputas no suspenden la obligación de pago. En la práctica, muchos importadores pagan bajo protesta y luego reclaman la diferencia — o negocian con la naviera un aplazamiento mientras se resuelve la disputa. Cada naviera tiene su política al respecto.</p></div>
+</details>
+<details class="faq-item">
+<summary>¿Qué pasa si el agente marítimo dice que no hay base para impugnar?</summary>
+<div class="faq-answer"><p>El agente representa a la naviera. Su evaluación de si hay o no base para impugnar refleja el interés de la naviera, no el del importador. Si tienes documentación que respalde demoras de terceros, busca una segunda opinión independiente antes de renunciar a la impugnación.</p></div>
+</details>
+<details class="faq-item">
+<summary>¿Es posible impugnar el demurrage de contenedores ya devueltos?</summary>
+<div class="faq-answer"><p>Sí. La obligación de impugnar no depende de si el contenedor ya fue devuelto o no — depende del plazo contractual para disputas. Mientras estés dentro de ese plazo, puedes impugnar aunque el proceso logístico ya haya concluido.</p></div>
+</details>
 </div>
 
-<div style="margin:2rem 0;padding:1.25rem 1.5rem;background:var(--primary-light);border-radius:10px;border:1px solid rgba(154,106,255,.2);">
-  <p style="font-size:.9rem;font-weight:600;color:var(--primary-dark);margin-bottom:.5rem;">¿Tienes este problema?</p>
-  <p style="font-size:.88rem;color:var(--text-secondary);line-height:1.75;margin-bottom:.8rem;">El abogado especialista analiza tu caso antes de la reunión — llega con la estrategia definida y la explicación sin tecnicismos. Cuéntanos tu situación y coordinamos.</p>
-  <a href="https://wa.me/593994859814" style="display:inline-block;background:var(--primary);color:#fff;padding:.65rem 1.4rem;border-radius:8px;font-weight:600;font-size:.88rem;text-decoration:none;">Hablar con Juristam →</a>
-</div>
-<div class="cta-block"><h3>¿Quieres impugnar un cobro de demurrage?</h3><p>Revisamos el caso y calculamos qu&eacute; d&iacute;as son impugnables. $45 la asesor&iacute;a. Primer contacto sin costo.</p><button class="btn-solid" onclick="abrirModal()">Consultar ahora &rarr;</button></div>
-<div class="faq-section"><h2 id="faq">Preguntas frecuentes</h2>
-<details><summary>&iquest;Puedo impugnar el demurrage despu&eacute;s de haberlo pagado?</summary><p class="faq-answer">S&iacute;, puedes pagar bajo protesta y luego ejercer la acci&oacute;n de repetici&oacute;n. El pago no extingue el derecho de reclamaci&oacute;n si se hace con reserva expresa. Esc&iacute;benos: 0994859814.</p></details>
-<details><summary>&iquest;Cuanto tiempo tengo para impugnar el demurrage?</summary><p class="faq-answer">Los plazos dependen del contrato y de la normativa aplicable. No esperes demasiado. Esc&iacute;benos ahora: 0994859814.</p></details>
-<details><summary>&iquest;La naviera puede embargar la carga por demurrage no pagado?</summary><p class="faq-answer">Puede retener el contenedor hasta el pago. Si la situaci&oacute;n se extiende puede haber consecuencias adicionales. Eval&uacute;a urgente si conviene pagar y luego reclamar. Esc&iacute;benos: 0994859814.</p></details>
+<h2>El costo-beneficio de impugnar: cuándo vale la pena y cuándo no</h2>
+<p>No toda impugnación de demurrage tiene sentido económico. Antes de invertir tiempo y recursos en el proceso, el importador debe hacer un análisis básico de costo-beneficio.</p>
+<p>El monto en disputa es el primer factor. Para diferencias de USD 100 o USD 200, el tiempo dedicado a la impugnación — recopilar documentos, redactar la carta, hacer seguimiento — puede tener un costo de oportunidad mayor que lo que se puede recuperar. Para esas diferencias, negociar directamente con el agente local buscando un ajuste informal puede ser más eficiente.</p>
+<p>Para montos de USD 500 en adelante, una impugnación formal bien documentada empieza a tener sentido. Las probabilidades de éxito dependen de la solidez de los argumentos y la documentación, pero el potencial de recuperación justifica el esfuerzo.</p>
+<p>Para montos de USD 2.000 o más, involucrar asesoría jurídica especializada puede ser lo más eficiente. Un abogado marítimo que conozca el proceso puede aumentar significativamente las probabilidades de recuperar el monto y puede manejar la escalación si la naviera rechaza la impugnación inicial.</p>
+<p>El segundo factor es la relación comercial con la naviera. Si importas regularmente con esa naviera y el volumen que mueves es significativo para ellos, la naviera tiene incentivo para mantener la relación — y ese incentivo puede inclinar la negociación a tu favor. Si la impugnación se plantea de manera profesional y no confrontacional, la relación puede mantenerse incluso si hay un conflicto puntual.</p>
+<p>El tercer factor es el tiempo disponible. Las impugnaciones de demurrage tienen plazos de respuesta que pueden tomar semanas. Si el negocio no puede esperar — si necesitas resolver el tema rápido para continuar operando — el cálculo puede cambiar. En algunos casos, pagar el monto disputado con reserva y reclamar la devolución después puede ser más operativo.</p>
+
+<h2>Casos especiales: demurrage en contenedores refrigerados y carga peligrosa</h2>
+<p>Los contenedores refrigerados (reefer) tienen dinámicas de demurrage especiales en Ecuador. Las tarifas de demurrage para reefers son significativamente más altas que para contenedores secos — porque el equipo es más caro y la naviera asume además el costo de la energía para mantener la temperatura. También los free days suelen ser menores.</p>
+<p>Para carga refrigerada — camarón, frutas, flores — el riesgo de demurrage es especialmente alto porque el importador está bajo presión de tiempo por dos razones simultáneas: el demurrage que corre por día, y el deterioro de la mercancía si hay una demora en la cadena de frío. En esa situación de doble presión, el importador tiende a pagar lo que sea para recuperar la carga antes de que se pierda.</p>
+<p>Las navieras lo saben, y las tarifas de demurrage para reefer reflejan en parte esa posición de poder. La negociación de free days adicionales para carga refrigerada es especialmente importante hacerla antes del embarque.</p>
+<p>Para carga peligrosa (IMCO), los requisitos de documentación para el desaduanamiento son más complejos y el proceso de la SENAE puede ser más largo. Eso genera mayor riesgo de demurrage. La planificación anticipada de todos los documentos necesarios es crítica para este tipo de carga.</p>
+
+<h2>Registro histórico de demurrage: cómo usarlo para negociar y mejorar</h2>
+<p>Las empresas que importan con regularidad deberían llevar un registro sistemático de cada evento de demurrage: fecha, naviera, contenedor, causa, días de demurrage, monto pagado, si fue impugnado y resultado. Ese registro tiene múltiples usos.</p>
+<p>Primero, permite identificar patrones: ¿siempre hay demurrage con cierta naviera? ¿Con cierto tipo de mercancía? ¿En cierta época del año? Esos patrones guían decisiones operativas y de negociación.</p>
+<p>Segundo, es un argumento en la negociación de free days. Si puedes mostrar a la naviera que en el 80% de tus importaciones el proceso toma 10 días por razones documentadas, tienes un argumento sólido para pedir 12 o 14 días de free days.</p>
+<p>Tercero, permite calcular el demurrage esperado como costo de la operación y proyectarlo en el precio de los productos importados. Eso evita sorpresas y hace más profesional la gestión del comercio exterior.</p>
+
+<h2>La mediación como alternativa a la confrontación directa</h2>
+<p>Cuando la impugnación directa a la naviera no produce resultado y el monto en disputa no justifica un arbitraje o juicio, la mediación puede ser una vía eficiente en Ecuador. Los Centros de Mediación autorizados por el Consejo de la Judicatura pueden facilitar un proceso de mediación entre el importador y el agente marítimo o la naviera, generalmente en un plazo de 1 a 3 sesiones.</p>
+<p>La mediación tiene ventajas claras: es más rápida que el litigio, más económica, y preserva la relación comercial con la naviera mejor que una demanda judicial. Para montos de demurrage entre USD 1.000 y USD 10.000, la mediación puede ser la opción más práctica después de que la negociación directa no prosperó.</p>
+<p>La condición para que la mediación funcione es que ambas partes tengan disposición a llegar a un acuerdo. Si la naviera considera que tiene razón en el 100% del caso y no tiene disposición a ceder, la mediación termina sin acuerdo. Pero en muchos casos, las navieras prefieren resolver en mediación antes de que el caso escale a arbitraje internacional.</p>
+<h2>El impacto de las disputas de demurrage en la relación con la naviera</h2>
+<p>Una preocupación frecuente de los importadores ecuatorianos es que impugnar el demurrage afecte su relación con la naviera — que les cobren más flete, que no les den espacio en los buques en temporada alta, que el servicio se deteriore. En la mayoría de los casos esa preocupación es exagerada.</p>
+<p>Las navieras grandes manejan miles de contenedores y miles de clientes. Una impugnación bien fundada y presentada con profesionalismo no destruye una relación comercial — de hecho, puede reforzarla porque demuestra que el importador conoce sus derechos y que su impugnación tiene base real, no es un intento de evitar una deuda legítima.</p>
+<p>Lo que sí puede afectar la relación es la impugnación mal fundamentada, el comportamiento confrontacional, o el patrón de impugnar siempre aunque el demurrage corresponda. En esos casos, la naviera puede decidir que el cliente no vale la pena. La clave es impugnar cuando hay razón real, con documentación, con tono profesional.</p>
+<h2>Lo que una asesoría de Juristam te da en este tipo de caso</h2><p>Antes de la reunión, el abogado marítimo de Juristam revisa los documentos del embarque, identifica los días de demurrage que tienen base para ser impugnados y los que corresponden al importador, evalúa la solidez de la documentación disponible, y define la estrategia más adecuada según la naviera y el monto en disputa. Cuando llegas a la reunión, no estás explicando tu caso desde cero — estás validando un análisis ya hecho y decidiendo cómo actuar. Eso es lo que marca la diferencia entre una impugnación que prospera y una que se pierde en el proceso.</p>
+
+<h2>El contexto ecuatoriano: por qué este tema es especialmente relevante aquí</h2>
+<p>Ecuador es un país con una economía profundamente vinculada al comercio marítimo. El Puerto de Guayaquil —a través de Contecon Guayaquil (DP World)— mueve la mayoría de las importaciones y exportaciones del país. El sector pesquero, la industria camaronera, la exportación de banano, flores y cacao, y las importaciones de insumos industriales, equipos, vehículos y bienes de consumo —todo pasa por el sistema marítimo ecuatoriano.</p>
+<p>Las particularidades del sistema ecuatoriano que afectan estos temas son múltiples. La SENAE —Servicio Nacional de Aduana del Ecuador— tiene un sistema de clasificación de riesgo que puede alargar significativamente los tiempos de desaduanamiento cuando asigna canal rojo. Ese tiempo adicional genera costos —demurrage, almacenaje— que pueden ser reclamados a la SENAE si la demora fue injustificada. La Subsecretaría de Puertos regula las operaciones portuarias. La Dirección de la Marina Mercante (DIGMER) regula a los agentes marítimos y buques de bandera ecuatoriana. El sistema judicial para conflictos marítimos no tiene tribunal especializado —los casos van a juzgados civiles que tienen experiencia variable en la materia.</p>
+<p>Esta complejidad institucional hace que resolver un conflicto marítimo en Ecuador sin conocimiento específico del sistema sea difícil. Saber a qué entidad notificar, en qué plazo, con qué documentos, y por qué vía —administrativa, arbitral o judicial— son preguntas que requieren respuestas precisas para que la reclamación tenga resultado.</p>
+<h2>Los errores más frecuentes que cuestan dinero</h2>
+<p>En la práctica del derecho marítimo ecuatoriano, ciertos errores se repiten consistentemente y tienen consecuencias económicas directas. El primero es actuar tarde: los plazos del derecho marítimo son cortos y son caducidades —no simples prescripciones. El plazo de 3 días hábiles para el daño oculto, el plazo de 1 año para la acción legal bajo las Reglas de La Haya, o los 14 a 30 días para impugnar el demurrage según el contrato —todos esos plazos vencen aunque el importador no lo sepa y aunque haya estado negociando informalmente.</p>
+<p>El segundo error es no documentar desde el inicio. La fotografía del precinto antes de abrirlo, la anotación en el recibo de entrega, el correo a la naviera ese mismo día —son acciones que en el momento parecen menores pero que meses después, en la negociación o en el arbitraje, son evidencia determinante. Lo que no está documentado, no ocurrió jurídicamente.</p>
+<p>El tercero es confundir a los actores responsables. La naviera, el agente marítimo, el terminal portuario, el agente de aduanas, el exportador —cada uno responde por cosas distintas. Notificar al equivocado no preserva los plazos frente al correcto. Y si el plazo frente al responsable real vence mientras se negocia con el equivocado, el derecho se extingue.</p>
+<p>El cuarto es subestimar la solidez de la contraparte. Las navieras internacionales tienen equipos jurídicos especializados, experiencia en miles de reclamaciones, y estrategias definidas para cada tipo de disputa. Un importador ecuatoriano que reclama sin asesoría profesional frente a una naviera internacional enfrenta una asimetría de información y recursos significativa. Eso no significa que no pueda ganar —significa que necesita la preparación adecuada para hacerlo.</p>
+<h2>Qué incluye la asesoría de Juristam en este tipo de caso</h2>
+<p>La asesoría marítima de Juristam está diseñada para darte información real y accionable en el menor tiempo posible. Antes de la reunión, el abogado especialista revisa los documentos que envías: el bill of lading, las comunicaciones con la naviera, el informe del surveyador, la factura de demurrage, o cualquier otro documento relevante para el caso. Cuando llegas a la reunión de 45 minutos, el abogado ya tiene el caso analizado.</p>
+<p>En esos 45 minutos recibes: la evaluación de la solidez de tu posición jurídica, los plazos que aplican y cuánto tiempo tienes, la estrategia recomendada según el caso —negociación, impugnación formal, mediación, arbitraje— y los pasos concretos a seguir. No teoría general sobre derecho marítimo —análisis de tu caso específico.</p>
+<p>Si decides contratar la representación de Juristam para el caso, el valor de la asesoría se descuenta. Si decides actuar por tu cuenta con la información que recibiste, también está bien —la asesoría tiene valor por sí misma. En Juristam, el objetivo no es que dependas del abogado sino que tomes la mejor decisión con la información correcta.</p>
+<h2>Preguntas frecuentes</h2>
+<div class="faq-list">
+<details class="faq-item">
+<summary>¿Juristam tiene experiencia en casos marítimos específicamente?</summary>
+<div class="faq-answer"><p>Sí. La práctica marítima de Juristam incluye reclamaciones por daños y faltantes de carga, impugnaciones de demurrage, conflictos con navieras y agentes marítimos, sanciones del sector pesquero, y asesoría en contratos de transporte marítimo. La especialización es clave en derecho marítimo porque combina legislación nacional e internacional con práctica comercial específica del sector.</p></div>
+</details>
+<details class="faq-item">
+<summary>¿Qué pasa si la naviera tiene sede en el extranjero y no tiene oficina en Ecuador?</summary>
+<div class="faq-answer"><p>La naviera opera en Ecuador a través de su agente marítimo local, quien es el interlocutor para notificaciones y reclamaciones. Para reclamaciones formales o escaladas, hay formas de contactar directamente a la sede regional o central de la naviera. Si la disputa requiere acción legal, las opciones dependen de la cláusula de jurisdicción del BL —que puede establecer foros extranjeros— o de la posibilidad de tomar medidas cautelares en Ecuador, como el embargo preventivo de buques cuando corresponde.</p></div>
+</details>
+<details class="faq-item">
+<summary>¿Cuándo es mejor resolver mediante mediación en lugar de litigio?</summary>
+<div class="faq-answer"><p>La mediación es preferible cuando: el monto en disputa es mediano (USD 1.000 a USD 20.000), ambas partes tienen interés en mantener la relación comercial, hay disposición de ambos lados a llegar a un acuerdo, y el tiempo es un factor importante. El litigio es preferible cuando la parte contraria actúa de mala fe, cuando el monto justifica el costo y el tiempo del proceso, o cuando hay que establecer un precedente. En conflictos marítimos, la mediación resuelve muchos casos de manera eficiente sin llegar a las largas y costosas disputas judiciales o arbitrales.</p></div>
+</details>
+<details class="faq-item">
+<summary>¿Puedo contratar a Juristam solo para la estrategia inicial y gestionar yo mismo el resto?</summary>
+<div class="faq-answer"><p>Absolutamente sí. Muchos clientes de Juristam usan la asesoría para entender su posición y obtener la estrategia, y luego negocian directamente con la contraparte armados con esa información. En otros casos, Juristam lleva el caso completo. Y en otros, empieza el cliente y escala a Juristam cuando la negociación se complica. No hay una sola manera de trabajar —depende del caso, el monto y las preferencias del cliente.</p></div>
+</details>
+<details class="faq-item">
+<summary>¿Hay casos marítimos que Juristam no puede atender?</summary>
+<div class="faq-answer"><p>Los casos que requieren acción judicial o arbitral en jurisdicciones extranjeras —por ejemplo, arbitraje en Londres bajo LMAA para un charter party— generalmente requieren abogados admitidos en esas jurisdicciones. Juristam puede asesorarte sobre la estrategia y conectarte con corresponsales en el exterior cuando sea necesario. Para el ámbito de Ecuador —reclamaciones locales, mediación, acción judicial, embargo de buques, reclamaciones administrativas— Juristam actúa directamente.</p></div>
+</details>
 </div>
 </article></div></main>
 <footer><div class="container">

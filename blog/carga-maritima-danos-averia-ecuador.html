@@ -165,6 +165,17 @@ footer a{color:var(--primary);}footer strong{color:var(--white);}
 @media(max-width:650px){h1{font-size:1.7rem;}.oferta-items{grid-template-columns:1fr;}.modal-precios{grid-template-columns:1fr;}.cta-urgente{flex-direction:column;align-items:flex-start;}.tabla{font-size:.82rem;}.tabla th,.tabla td{padding:.65rem .7rem;}}
 </style>
 <meta property="article:author" content="Juristam" />
+<style>
+.faq-list { margin: 1.5rem 0; }
+.faq-item { border: 1px solid rgba(154,106,255,.2); border-radius: 8px; margin-bottom: .75rem; overflow: hidden; }
+.faq-item summary { cursor: pointer; padding: 1rem 1.25rem; font-weight: 600; font-size: .95rem; color: var(--text-primary); list-style: none; display: flex; justify-content: space-between; align-items: center; gap: 1rem; }
+.faq-item summary::-webkit-details-marker { display: none; }
+.faq-item summary::after { content: "+"; font-size: 1.25rem; color: var(--primary); flex-shrink: 0; transition: transform .2s; }
+.faq-item[open] summary::after { content: "−"; }
+.faq-item[open] summary { color: var(--primary); }
+.faq-answer { padding: .25rem 1.25rem 1.25rem; font-size: .9rem; line-height: 1.75; color: var(--text-secondary); }
+.faq-answer p { margin: 0; }
+</style>
 </head><body>
 <div class="modal-overlay" id="waModal" role="dialog" aria-modal="true">
   <div class="modal">
@@ -205,62 +216,129 @@ footer a{color:var(--primary);}footer strong{color:var(--white);}
 <div class="tldr"><strong>Cuando tu mercanc&iacute;a llega da&ntilde;ada, h&uacute;meda o con faltantes, tienes derecho a reclamar.</strong> Pero los plazos son de horas o d&iacute;as. Esta gu&iacute;a explica el proceso completo para no perder tus derechos.</div>
 <div class="cluster-nav"><strong>Ecosistema &mdash; Derecho Mar&iacute;timo Ecuador &middot; Juristam</strong><div class="cn-pilar"><a href="/blog/derecho-maritimo-ecuador.html">&#9679; Gu&iacute;a completa: derecho mar&iacute;timo en Ecuador</a></div><div class="cn-sat"><a href="/blog/carga-maritima-danos-averia-ecuador.html">&rarr; Da&ntilde;os, aver&iacute;as y faltantes en carga mar&iacute;tima</a><div class="cn-ms"><a href="/blog/averia-gruesa-maritima-ecuador.html">&middot; Aver&iacute;a gruesa en Ecuador: qu&eacute; es y c&oacute;mo reclamar</a><a href="/blog/carga-humeda-danada-contenedor-ecuador.html">&middot; Carga h&uacute;meda o da&ntilde;ada en contenedor: qu&eacute; hacer en Ecuador</a><a href="/blog/faltante-mercaderia-contenedor-ecuador.html">&middot; Faltante de mercanc&iacute;a en contenedor: c&oacute;mo reclamar en Ecuador</a><a href="/blog/seguro-carga-maritima-ecuador.html">&middot; Seguro de carga mar&iacute;tima en Ecuador: qu&eacute; cubre y c&oacute;mo usarlo</a><a href="/blog/bill-of-lading-conocimiento-embarque-ecuador.html">&middot; Bill of lading en Ecuador: qu&eacute; es y cu&aacute;l es su valor legal</a></div></div><div class="cn-sat"><a href="/blog/demurrage-demoras-contenedores-ecuador.html">&rarr; Demurrage, detention y sobresta&iacute;as en contenedores</a></div><div class="cn-sat"><a href="/blog/contratos-transporte-maritimo-ecuador.html">&rarr; Contratos de transporte mar&iacute;timo en Ecuador</a></div><div class="cn-sat"><a href="/blog/navieras-agentes-maritimos-ecuador.html">&rarr; Navieras y agentes mar&iacute;timos: responsabilidad y reclamaciones</a></div><div class="cn-sat"><a href="/blog/seguros-maritimos-ecuador.html">&rarr; Seguros mar&iacute;timos: coberturas, siniestros y reclamaciones</a></div><div class="cn-sat"><a href="/blog/accidentes-contaminacion-maritima-ecuador.html">&rarr; Accidentes, abordajes y contaminaci&oacute;n marina en Ecuador</a></div><div class="cn-sat"><a href="/blog/pesca-acuicultura-legal-ecuador.html">&rarr; Pesca, acuicultura y exportaci&oacute;n de productos del mar</a></div><div class="cn-sat"><a href="/blog/puertos-operadores-portuarios-ecuador.html">&rarr; Puertos y operadores portuarios en Ecuador</a></div></div>
 <article>
-<p>Ecuador importa miles de contenedores al mes por el Puerto de Guayaquil, Manta y otros puertos. Una parte significativa de esa carga llega con alg&uacute;n tipo de problema. El importador que no act&uacute;a r&aacute;pido y correctamente pierde el derecho a reclamar &mdash; las navieras lo saben y cuentan con eso.</p>
-<p style="font-size:.9rem;color:var(--text-secondary);line-height:1.75;border-left:3px solid var(--primary);padding-left:1rem;margin:1.5rem 0;">Si tienes un problema de carga marítima o contratos navieros, en Juristam el abogado especialista llega a la asesoría con tu caso ya analizado — no a escucharte, sino a explicarte exactamente qué tienes y qué puedes hacer. <a href="https://wa.me/593994859814" style="color:var(--primary);font-weight:600;">Cuéntanos tu caso →</a></p>
 
+<p>Cuando la mercancía llega dañada, con faltantes o en condiciones distintas a las declaradas en el bill of lading, el importador ecuatoriano enfrenta uno de los escenarios más técnicos del comercio exterior: la reclamación marítima. No es solo presentar una queja — hay un proceso específico que debe seguirse en un orden preciso, con documentos concretos, dentro de plazos que en algunos casos son de días, no de semanas.</p>
+<p>Este artículo explica qué hacer cuando la carga llega dañada en Ecuador, quién responde, qué documentos necesitas, y cuáles son los errores que invalidan una reclamación perfectamente legítima.</p>
+<p style="font-size:.9rem;color:var(--text-secondary);line-height:1.75;border-left:3px solid var(--primary);padding-left:1rem;margin:1.5rem 0;">Si tienes este problema, en Juristam el abogado especialista marítimo llega a la asesoría con tu caso ya analizado. <a href="https://wa.me/593994859814" style="color:var(--primary);font-weight:600;">Cuéntanos tu caso →</a></p>
+<h2>Los tres tipos de problema en carga marítima y sus diferencias</h2>
+<p>No todos los problemas con la carga se reclaman igual. La primera decisión es identificar exactamente qué tipo de problema tienes, porque eso determina a quién reclamar, con qué documentos y en qué plazo.</p>
+<p><strong>Daño visible.</strong> Es el daño que puede detectarse al momento de recibir la carga — embalaje roto, contenedor con marcas de impacto, mercancía mojada o manchada que se aprecia a simple vista. El plazo para reclamarlo en las Reglas de La Haya (el convenio marítimo más aplicado en Ecuador) es al momento de la recepción. Si firmas el recibo de la carga sin hacer ninguna reserva, puedes perder el derecho a reclamar el daño visible.</p>
+<p><strong>Daño oculto.</strong> Es el daño que no se aprecia externamente pero se descubre al abrir los bultos o al usar la mercancía. Las Reglas de La Haya establecen un plazo de 3 días hábiles desde la entrega para notificar el daño oculto. Después de ese plazo, se presume que la mercancía fue entregada en buen estado, y la carga de la prueba se invierte — el importador debe probar que el daño ocurrió durante el transporte, lo cual es mucho más difícil.</p>
+<p><strong>Faltante.</strong> La carga llegó incompleta — faltan bultos, cajas, o la cantidad es menor a la declarada en el BL. El faltante puede ser detectado al momento de la descarga o al verificar el contenido una vez retirado del terminal. El momento de detección y la documentación generada en ese momento son críticos para la reclamación.</p>
 
-<h2>Los tres problemas más frecuentes en carga marítima</h2>
-<ul>
-  <li><strong>Carga da&ntilde;ada:</strong> mercanc&iacute;a golpeada, h&uacute;meda, oxidada o deteriorada. Ver: <a href="/blog/carga-humeda-danada-contenedor-ecuador.html">carga h&uacute;meda o da&ntilde;ada en contenedor</a></li>
-  <li><strong>Faltante:</strong> se recibe menos de lo declarado en el BL. Ver: <a href="/blog/faltante-mercaderia-contenedor-ecuador.html">faltante de mercanc&iacute;a en contenedor</a></li>
-  <li><strong>Aver&iacute;a gruesa:</strong> el buque declara sacrificio proporcional de todos los cargadores. Ver: <a href="/blog/averia-gruesa-maritima-ecuador.html">aver&iacute;a gruesa en Ecuador</a></li>
-</ul>
+<h2>La carta de protesta: el primer acto jurídico y el más importante</h2>
+<p>La carta de protesta es el documento mediante el cual el consignatario notifica formalmente a la naviera o al agente marítimo que la carga fue recibida con reservas — es decir, que hay un problema. Es el primer acto jurídico de la reclamación, y muchas veces es el que determina si la reclamación puede prosperar o no.</p>
+<p>Debe hacerse en el momento de recibir la carga, si el daño es visible. Si el daño es oculto, debe hacerse dentro de los 3 días hábiles siguientes a la entrega. La carta debe identificar claramente: el número de BL, el número de contenedor, el tipo de problema (daño, faltante, condición), una descripción del estado de la mercancía, y la reserva expresa de derechos para reclamar.</p>
+<p>El error más común es firmar el recibo de la carga sin ninguna anotación, incluso cuando hay daños visibles. Muchos importadores firman para no complicar el proceso de retiro del terminal, pensando que después pueden reclamar. En algunos casos esto no es fatal — el daño oculto tiene su propio plazo. Pero para el daño visible, firmar sin reserva puede interpretarse como aceptación de la mercancía en el estado en que se recibió.</p>
+<p>Si al momento de recibir la carga hay dudas sobre el estado pero no se puede verificar completamente en el acto, la solución es hacer una reserva genérica: "mercancía recibida sujeta a verificación del estado". Eso preserva los derechos mientras se hace la inspección detallada.</p>
 
-<h2>Los plazos — lo más crítico</h2>
-<div class="callout-danger"><strong>&#9888; Plazos de caducidad &mdash; una vez vencidos no hay recurso</strong></div>
-<table class="tabla">
-  <thead><tr><th>Tipo de da&ntilde;o</th><th>Reserva escrita</th><th>Acci&oacute;n judicial</th></tr></thead>
-  <tbody>
-    <tr><td>Da&ntilde;o aparente</td><td>Al momento de la entrega</td><td>1 a&ntilde;o desde entrega</td></tr>
-    <tr><td>Da&ntilde;o oculto</td><td>3 d&iacute;as desde la entrega</td><td>1 a&ntilde;o desde entrega</td></tr>
-    <tr><td>Faltante</td><td>Al momento de la entrega</td><td>1 a&ntilde;o desde entrega</td></tr>
-  </tbody>
-</table>
-
-
-<p style="font-size:.88rem;color:var(--text-secondary);line-height:1.8;background:var(--neutral-light);border-radius:8px;padding:1rem 1.25rem;margin:1.5rem 0;">Cuando contratas la asesoría de Juristam, nos explicas tu caso por texto, nota de voz o llamada. El abogado asignado hace las preguntas pertinentes, revisa los documentos y analiza todo antes de la reunión. Los 45 minutos son para entregarte la estrategia — no para empezar desde cero.</p>
-<h2>Proceso de reclamación paso a paso</h2>
-<ol>
-  <li><strong>Documentar el da&ntilde;o al recibir:</strong> fotos, video, anotaciones en el documento de entrega del terminal. Sin documentaci&oacute;n en ese momento, la reclamaci&oacute;n pierde fuerza.</li>
-  <li><strong>Reserva escrita ante la naviera o agente:</strong> notificaci&oacute;n formal del da&ntilde;o. Para da&ntilde;os ocultos, m&aacute;ximo 3 d&iacute;as.</li>
-  <li><strong>Survey de da&ntilde;os:</strong> perito mar&iacute;timo independiente que documenta causa, estado y valor del da&ntilde;o. Es el documento central de la reclamaci&oacute;n.</li>
-  <li><strong>Reclamaci&oacute;n formal:</strong> carta con informe del surveyor, BL, facturas y documentaci&oacute;n completa.</li>
-  <li><strong>Negociaci&oacute;n o acci&oacute;n judicial</strong> dentro del plazo de un a&ntilde;o.</li>
-</ol>
+<h2>El surveyador: por qué es indispensable y cómo contratarlo</h2>
+<p>El surveyador marítimo —perito de avería— es el profesional que inspecciona la carga dañada, determina las causas del daño, cuantifica el perjuicio y emite un informe que puede ser usado como prueba en la reclamación. Es una figura central en cualquier reclamación marítima seria.</p>
+<p>Hay dos tipos de surveyador que pueden intervenir: el surveyador de la aseguradora y el surveyador independiente. El de la aseguradora trabaja para la aseguradora — su objetivo es proteger los intereses de la compañía de seguros, no los del importador. El surveyador independiente trabaja para quien lo contrata y puede ser presentado como perito de parte en un proceso de reclamación.</p>
+<p>El importador tiene el derecho de contratar a un surveyador independiente para que esté presente durante la inspección de la aseguradora y emita su propio informe. Si los dos informes difieren, hay un conflicto pericial que puede resolverse con un tercer perito dirimente. Pero tener un informe propio es mucho mejor que depender solo del informe de la aseguradora.</p>
+<p>La inspección del surveyador debe hacerse lo antes posible — idealmente antes de que la carga sea movida o distribuida. Una vez que los bultos dañados se mezclan con los buenos, o la mercancía dañada se descarta, la prueba del daño se debilita significativamente.</p>
+<p>En Ecuador, la contratación de un surveyador marítimo se hace a través del mismo estudio jurídico o directamente con empresas de peritaje marítimo con presencia en Guayaquil. El costo del peritaje puede ser recuperable como parte de los daños si la reclamación prospera.</p>
+<p style="font-size:.88rem;color:var(--text-secondary);line-height:1.8;background:var(--neutral-light);border-radius:8px;padding:1rem 1.25rem;margin:1.5rem 0;">Cuando contratas la asesoría de Juristam, nos explicas tu situación por texto, nota de voz o llamada. El abogado asignado hace las preguntas pertinentes, revisa los documentos y analiza todo antes de la reunión. Los 45 minutos son para entregarte la estrategia, no para empezar desde cero.</p>
+<h2>Los plazos de caducidad: lo más crítico de toda la reclamación</h2>
+<p>En derecho marítimo, los plazos son caducidades — no simples plazos de prescripción. Eso significa que si vencen, el derecho se extingue y no puede revivirse. No hay posibilidad de alegar que no sabías, que estabas negociando informalmente o que el problema era complejo. El plazo venció y el derecho se perdió.</p>
+<p>Las Reglas de La Haya, que son el convenio marítimo más aplicado en el comercio con y desde Ecuador, establecen un plazo de <strong>un año</strong> desde la entrega de la carga para iniciar la acción legal contra la naviera. Este plazo puede extenderse por acuerdo entre las partes, y muchas navieras aceptan prorrogarlo mientras hay negociaciones — pero esa prórroga debe ser por escrito.</p>
+<p>Un año parece mucho tiempo, pero muchas reclamaciones se pierden porque el importador pasó los primeros meses en negociaciones informales con la naviera o el agente marítimo, y cuando decidió actuar formalmente, el año ya había vencido o quedaban solo días. La naviera esperaba precisamente eso.</p>
+<p>Para el seguro de carga, los plazos pueden ser diferentes y generalmente más cortos. La póliza puede establecer que la notificación del siniestro debe hacerse en 30 días o en 60 días desde el conocimiento del daño. Si no lo haces dentro de ese plazo, la aseguradora puede rechazar el siniestro por notificación tardía.</p>
 
 <h2>Las cláusulas de limitación de responsabilidad de las navieras</h2>
-<p>Las navieras limitan su responsabilidad a valores calculados en DEG por bulto o kilogramo. Esas limitaciones pueden impugnarse cuando el da&ntilde;o se produjo por culpa grave o dolo. Esc&iacute;benos para analizar si en tu caso la limitaci&oacute;n puede combatirse.</p>
+<p>Las navieras incluyen en el bill of lading —y en los convenios internacionales que los sustentan— cláusulas que limitan su responsabilidad por la mercancía dañada. Esto no significa que no respondan, sino que su responsabilidad tiene un techo.</p>
+<p>Bajo las Reglas de La Haya-Visby, el límite es de 666,67 Derechos Especiales de Giro (DEG) por bulto o 2 DEG por kilogramo, lo que resulte mayor. Un DEG vale aproximadamente USD 1,35 — lo que significa que para una carga dañada que valía USD 50.000, la naviera puede estar limitada a pagar una fracción de ese valor si los límites del convenio son más bajos.</p>
+<p>¿Cómo se supera ese límite? Declarando el valor de la carga en el BL. Si el exportador declara el valor de la mercancía y la naviera lo acepta, los límites del convenio no aplican y la responsabilidad puede ser por el valor real. Esta declaración de valor tiene un costo adicional en el flete, pero puede ser determinante si hay una pérdida total.</p>
+<p>También se puede superar la limitación si se prueba dolo o negligencia grave de la naviera — pero ese es un estándar probatorio muy alto.</p>
 
-<h2>El seguro de carga: tu primera línea de defensa</h2>
-<p>Si la mercanc&iacute;a estaba asegurada, activa el seguro primero. La aseguradora paga y luego ejerce la acci&oacute;n contra la naviera. Ver: <a href="/blog/seguros-maritimos-ecuador.html">seguros mar&iacute;timos en Ecuador</a>. Si el seguro rechaza: <a href="/blog/aseguradora-rechaza-siniestro-maritimo.html">qu&eacute; hacer cuando la aseguradora rechaza el siniestro</a>.</p>
+<h2>El seguro de carga y cómo interactúa con la reclamación a la naviera</h2>
+<p>Si tienes seguro de carga, la aseguradora puede pagar el siniestro y luego subrogarse en tus derechos para reclamar a la naviera. Eso significa que una vez que la aseguradora paga, ella toma el lugar del importador en la reclamación contra la naviera.</p>
+<p>Esta estructura tiene ventajas para el importador: cobras del seguro más rápido y la aseguradora asume el trabajo de recuperar el dinero de la naviera. Pero también tiene consecuencias: una vez que cobras del seguro, ya no puedes reclamar a la naviera directamente por ese mismo concepto, porque la aseguradora tiene ese derecho. Si la naviera luego paga más de lo que pagó el seguro, hay un mecanismo de distribución entre importador y aseguradora.</p>
+<p>El error que cometen muchos importadores es no coordinar la reclamación al seguro con la reclamación a la naviera. Si notificas al seguro pero no haces la carta de protesta a la naviera a tiempo, pierdes el derecho de acción contra la naviera aunque el seguro no te pague el 100%. Si cobras del seguro sin preservar los derechos contra la naviera, la aseguradora puede alegar que le causaste un perjuicio.</p>
 
-<div class="callout-proceso"><strong>&#128161; El primer error en derecho mar&iacute;timo es esperar</strong><p>Los plazos para reclamar son cortos y en muchos casos son de caducidad. Las navieras y aseguradoras cuentan con que no act&uacute;es a tiempo. Esc&iacute;benos hoy &mdash; primer contacto sin costo.</p></div><div class="oferta-box"><h3>Asesoría corporativa especializada · Juristam</h3><p style="font-size:.93rem;color:var(--text-secondary);margin-bottom:1.4rem;">Manejamos tu caso de derecho mar&iacute;timo con el procedimiento correcto desde el primer d&iacute;a.</p><div class="oferta-items"><div class="oferta-item dest"><div class="precio">$45</div><div class="label">&#11088; Recomendada &middot; Asesor&iacute;a Virtual</div><div class="desc">Videollamada desde cualquier ciudad del Ecuador.</div></div><div class="oferta-item"><div class="precio">$85</div><div class="label">Asesor&iacute;a Presencial</div><div class="desc">En nuestra oficina en Guayaquil.</div></div></div><div class="oferta-nota"><strong>Si contratas el servicio completo, los $45 de la consulta virtual se descuentan del precio final.</strong></div><div style="text-align:center;"><button class="btn-wa" onclick="abrirModal()">Consultar por WhatsApp &rarr;</button></div></div>
-<div style="background:var(--primary-light);border-left:4px solid var(--primary);border-radius:8px;padding:1.2rem 1.5rem;margin:2rem 0;">
-  <p style="font-size:.85rem;font-weight:600;color:var(--primary-dark);margin-bottom:.5rem;">&#9733; Resultados reales</p>
-  <p style="font-size:.9rem;line-height:1.7;margin-bottom:.8rem;">¿Quieres ver cómo resolvemos casos como el tuyo? Revisa los resultados reales de clientes de Juristam en esta área.</p>
-  <a href="/casos-de-exito-maritimo.html" style="font-weight:600;color:var(--primary-dark);text-decoration:underline;">Ver casos de éxito en derecho marítimo →</a>
+<h2>Qué hacer si la carga ya fue despachada antes de detectar el daño</h2>
+<p>En algunos casos el daño se detecta después de que la mercancía ya fue despachada a los clientes del importador. Quizás los bultos se veían bien externamente pero el producto estaba dañado internamente. O el faltante se detectó al distribuir entre clientes.</p>
+<p>En esta situación la reclamación es más difícil pero no imposible. Necesitas documentar:</p>
+<ul>
+<li>Cuándo se detectó el daño y cómo (qué cliente reclamó, qué inspección se hizo)</li>
+<li>El estado en que la mercancía salió del almacén del importador (si hay registros de inventario, cámaras, registros de salida)</li>
+<li>Los informes de recepción de los clientes</li>
+<li>Prueba de que el daño no pudo ocurrir en el almacén del importador (condiciones de almacenaje, cadena de frío si aplica)</li>
+</ul>
+<p>Esta documentación sirve para demostrar que el daño era preexistente — que ocurrió durante el transporte, no después. Es una carga probatoria más alta que si hubieran hecho la inspección en el momento de recibir la carga, pero con la documentación correcta puede sostenerse.</p>
+
+<h2>Preguntas frecuentes</h2>
+<div class="faq-list">
+<details class="faq-item">
+<summary>¿Puedo reclamar si firmé el recibo de la carga sin reservas?</summary>
+<div class="faq-answer"><p>Para daño visible, firmar sin reservas es un problema serio — se presume que aceptaste la carga en el estado en que la recibiste. Pero si el daño era oculto, el plazo de 3 días hábiles corre desde la entrega independientemente de si firmaste con o sin reservas. En algunos casos también es posible argumentar que el daño visible no era detectable en las condiciones en que se hizo la entrega — pero es una posición más difícil. Lo ideal es siempre hacer reservas cuando hay cualquier duda.</p></div>
+</details>
+<details class="faq-item">
+<summary>¿Quién paga los gastos del surveyador?</summary>
+<div class="faq-answer"><p>Inicialmente los paga quien lo contrata — generalmente el importador. Si la reclamación prospera, los gastos del surveyador pueden incluirse como parte de los daños reclamados a la naviera o al seguro. Si la reclamación no prospera, esos gastos son costo del importador. El costo del peritaje debe evaluarse en relación con el monto del daño — no tiene sentido gastar USD 2.000 en peritaje para reclamar un daño de USD 800.</p></div>
+</details>
+<details class="faq-item">
+<summary>¿La naviera puede negar que el daño ocurrió durante el transporte?</summary>
+<div class="faq-answer"><p>Sí, y lo hace frecuentemente. La naviera puede argumentar que el daño existía antes del embarque, que fue causado por embalaje deficiente del exportador, o que ocurrió después de la entrega. Por eso el BL limpio (que certifica que la carga fue recibida en buen estado) es tan importante — si el BL es limpio, la naviera tiene dificultades para argumentar que el daño era preexistente.</p></div>
+</details>
+<details class="faq-item">
+<summary>¿Qué pasa si la naviera ofrece un pago parcial en negociación?</summary>
+<div class="faq-answer"><p>Es una decisión comercial que depende del monto ofrecido, del costo de seguir litigando, y de cuánto del daño real es recuperable. Antes de aceptar cualquier oferta de la naviera, hay que tener claro el monto total del daño, el límite de responsabilidad que aplica según el convenio, y los costos y probabilidades de éxito de seguir adelante. Un acuerdo extrajudicial mal evaluado puede dejarte en una posición peor que si hubieras rechazado y seguido adelante.</p></div>
+</details>
+<details class="faq-item">
+<summary>¿Hay acciones penales disponibles si la naviera actuó de mala fe?</summary>
+<div class="faq-answer"><p>En teoría sí — el Código Orgánico Integral Penal (COIP) tiene tipos penales que pueden ser relevantes si hubo fraude o conducta dolosa por parte de la naviera o sus agentes. En la práctica, las reclamaciones marítimas se tramitan por la vía civil o arbitral. La vía penal es excepcional y requiere una conducta claramente dolosa que supere el incumplimiento contractual ordinario.</p></div>
+</details>
 </div>
+<p style="font-size:.9rem;color:var(--text-secondary);line-height:1.75;margin:1.5rem 0;font-style:italic;">El abogado conocerá tu caso incluso mejor que tú — porque lo analizó desde afuera, con criterio jurídico y sin los sesgos de haberlo vivido.</p>
+<div class="cta-block"><p>¿Tienes este problema? Cuéntanos tu caso. El abogado especialista lo analiza antes de la reunión. <a href="https://wa.me/593994859814">Escribir a Juristam →</a></p></div>
 
-<div style="margin:2rem 0;padding:1.25rem 1.5rem;background:var(--primary-light);border-radius:10px;border:1px solid rgba(154,106,255,.2);">
-  <p style="font-size:.9rem;font-weight:600;color:var(--primary-dark);margin-bottom:.5rem;">¿Tienes este problema?</p>
-  <p style="font-size:.88rem;color:var(--text-secondary);line-height:1.75;margin-bottom:.8rem;">El abogado especialista analiza tu caso antes de la reunión — llega con la estrategia definida y la explicación sin tecnicismos. Cuéntanos tu situación y coordinamos.</p>
-  <a href="https://wa.me/593994859814" style="display:inline-block;background:var(--primary);color:#fff;padding:.65rem 1.4rem;border-radius:8px;font-weight:600;font-size:.88rem;text-decoration:none;">Hablar con Juristam →</a>
-</div>
-<div class="cta-block"><h3>¿Tu carga llegó dañada o con faltantes? Escíbenos hoy.</h3><p>Los plazos son de horas. Primer contacto sin costo.</p><button class="btn-solid" onclick="abrirModal()">Consultar ahora &rarr;</button></div>
-<div class="faq-section"><h2 id="faq">Preguntas frecuentes</h2>
-<details><summary>&iquest;Cu&aacute;nto tiempo tengo para reclamar si la mercanc&iacute;a lleg&oacute; da&ntilde;ada?</summary><p class="faq-answer">Para da&ntilde;os aparentes hay que hacer la reserva al recibir. Para ocultos, 3 d&iacute;as. Acci&oacute;n judicial: 1 a&ntilde;o. No esperes. Esc&iacute;benos: 0994859814.</p></details>
-<details><summary>&iquest;Qu&eacute; hago si ya recibi&oacute; la mercanc&iacute;a da&ntilde;ada pero no hice ninguna reserva?</summary><p class="faq-answer">Todav&iacute;a puede haber opciones, pero el caso se complica. Esc&iacute;benos urgente con todos los detalles: 0994859814.</p></details>
-<details><summary>&iquest;Cu&aacute;nto cobra Juristam por una reclamaci&oacute;n de da&ntilde;os en carga?</summary><p class="faq-answer">Asesor&iacute;a inicial $45. Caso completo desde $1.500 m&aacute;s % del monto recuperado. Esc&iacute;benos: 0994859814.</p></details>
+<h2>Casos donde la reclamación es más compleja: múltiples transbordes y operadores</h2>
+<p>Las importaciones que pasan por múltiples transbordes — por ejemplo, de Asia a Ecuador via el hub de Balboa en Panamá o de Europa via Algeciras — tienen una cadena de responsabilidad más compleja. Si la carga llega dañada, ¿el daño ocurrió en el buque principal, en el transbordo, o en el buque feeder que hizo la última etapa?</p>
+<p>En estos casos, el BL del buque principal puede cubrir toda la ruta, con la naviera principal siendo responsable de todo el trayecto aunque parte del transporte fue operado por otro buque. Pero si hay BLs separados para diferentes etapas del viaje — lo que ocurre en algunos arreglos de transporte multimodal — la responsabilidad se divide y hay que identificar en qué etapa ocurrió el daño para reclamar al operador correcto.</p>
+<p>El surveyador marítimo puede ayudar a determinar, por las características del daño, en qué etapa probablemente ocurrió. Las marcas de impacto en el contenedor, el patrón de la humedad, o el tipo de daño en los bultos pueden dar indicios sobre cuándo y cómo ocurrió el problema.</p>
+
+<h2>La reclamación a través del seguro: ventajas y condiciones</h2>
+<p>Para muchos importadores ecuatorianos, reclamar a través del seguro es más práctico que reclamar directamente a la naviera. La aseguradora paga más rápido — generalmente en 30 a 60 días si la reclamación está bien documentada — y el importador no tiene que manejar el proceso de reclamación contra la naviera internacional.</p>
+<p>El seguro se activa con la notificación del siniestro, el informe del surveyador, y los documentos del embarque. Si la documentación está completa y la causa del daño está dentro de la cobertura de la póliza, el proceso de pago es relativamente directo.</p>
+<p>La condición para que esta estrategia funcione bien es que el importador preserve sus derechos contra la naviera — con la carta de protesta dentro del plazo — para que la aseguradora, al subrogarse, pueda reclamar a la naviera efectivamente. Si el importador no hizo la carta de protesta a tiempo, la aseguradora puede tener dificultades para recuperar el dinero de la naviera, lo que puede afectar futuros términos del seguro.</p>
+<h2>Checklist: lo que debes hacer en las primeras 48 horas cuando la carga llega dañada</h2><p>Hora 1: documentar con fotografías y video el estado del contenedor y la carga antes de mover nada. Hora 2-4: contratar surveyador independiente para inspección urgente. Hora 4-8: hacer la carta de protesta formal a la naviera o agente marítimo con reserva de derechos. Hora 8-24: notificar el siniestro a la aseguradora. Hora 24-48: obtener el informe preliminar del surveyador, reunir todos los documentos del embarque, y evaluar el monto del daño para definir la estrategia de reclamación. Cada hora que pasa sin documentación es evidencia que se pierde y argumentos que se debilitan.</p>
+
+<h2>El contexto ecuatoriano: por qué este tema es especialmente relevante aquí</h2>
+<p>Ecuador es un país con una economía profundamente vinculada al comercio marítimo. El Puerto de Guayaquil —a través de Contecon Guayaquil (DP World)— mueve la mayoría de las importaciones y exportaciones del país. El sector pesquero, la industria camaronera, la exportación de banano, flores y cacao, y las importaciones de insumos industriales, equipos, vehículos y bienes de consumo —todo pasa por el sistema marítimo ecuatoriano.</p>
+<p>Las particularidades del sistema ecuatoriano que afectan estos temas son múltiples. La SENAE —Servicio Nacional de Aduana del Ecuador— tiene un sistema de clasificación de riesgo que puede alargar significativamente los tiempos de desaduanamiento cuando asigna canal rojo. Ese tiempo adicional genera costos —demurrage, almacenaje— que pueden ser reclamados a la SENAE si la demora fue injustificada. La Subsecretaría de Puertos regula las operaciones portuarias. La Dirección de la Marina Mercante (DIGMER) regula a los agentes marítimos y buques de bandera ecuatoriana. El sistema judicial para conflictos marítimos no tiene tribunal especializado —los casos van a juzgados civiles que tienen experiencia variable en la materia.</p>
+<p>Esta complejidad institucional hace que resolver un conflicto marítimo en Ecuador sin conocimiento específico del sistema sea difícil. Saber a qué entidad notificar, en qué plazo, con qué documentos, y por qué vía —administrativa, arbitral o judicial— son preguntas que requieren respuestas precisas para que la reclamación tenga resultado.</p>
+<h2>Los errores más frecuentes que cuestan dinero</h2>
+<p>En la práctica del derecho marítimo ecuatoriano, ciertos errores se repiten consistentemente y tienen consecuencias económicas directas. El primero es actuar tarde: los plazos del derecho marítimo son cortos y son caducidades —no simples prescripciones. El plazo de 3 días hábiles para el daño oculto, el plazo de 1 año para la acción legal bajo las Reglas de La Haya, o los 14 a 30 días para impugnar el demurrage según el contrato —todos esos plazos vencen aunque el importador no lo sepa y aunque haya estado negociando informalmente.</p>
+<p>El segundo error es no documentar desde el inicio. La fotografía del precinto antes de abrirlo, la anotación en el recibo de entrega, el correo a la naviera ese mismo día —son acciones que en el momento parecen menores pero que meses después, en la negociación o en el arbitraje, son evidencia determinante. Lo que no está documentado, no ocurrió jurídicamente.</p>
+<p>El tercero es confundir a los actores responsables. La naviera, el agente marítimo, el terminal portuario, el agente de aduanas, el exportador —cada uno responde por cosas distintas. Notificar al equivocado no preserva los plazos frente al correcto. Y si el plazo frente al responsable real vence mientras se negocia con el equivocado, el derecho se extingue.</p>
+<p>El cuarto es subestimar la solidez de la contraparte. Las navieras internacionales tienen equipos jurídicos especializados, experiencia en miles de reclamaciones, y estrategias definidas para cada tipo de disputa. Un importador ecuatoriano que reclama sin asesoría profesional frente a una naviera internacional enfrenta una asimetría de información y recursos significativa. Eso no significa que no pueda ganar —significa que necesita la preparación adecuada para hacerlo.</p>
+<h2>Qué incluye la asesoría de Juristam en este tipo de caso</h2>
+<p>La asesoría marítima de Juristam está diseñada para darte información real y accionable en el menor tiempo posible. Antes de la reunión, el abogado especialista revisa los documentos que envías: el bill of lading, las comunicaciones con la naviera, el informe del surveyador, la factura de demurrage, o cualquier otro documento relevante para el caso. Cuando llegas a la reunión de 45 minutos, el abogado ya tiene el caso analizado.</p>
+<p>En esos 45 minutos recibes: la evaluación de la solidez de tu posición jurídica, los plazos que aplican y cuánto tiempo tienes, la estrategia recomendada según el caso —negociación, impugnación formal, mediación, arbitraje— y los pasos concretos a seguir. No teoría general sobre derecho marítimo —análisis de tu caso específico.</p>
+<p>Si decides contratar la representación de Juristam para el caso, el valor de la asesoría se descuenta. Si decides actuar por tu cuenta con la información que recibiste, también está bien —la asesoría tiene valor por sí misma. En Juristam, el objetivo no es que dependas del abogado sino que tomes la mejor decisión con la información correcta.</p>
+<h2>Preguntas frecuentes</h2>
+<div class="faq-list">
+<details class="faq-item">
+<summary>¿Juristam tiene experiencia en casos marítimos específicamente?</summary>
+<div class="faq-answer"><p>Sí. La práctica marítima de Juristam incluye reclamaciones por daños y faltantes de carga, impugnaciones de demurrage, conflictos con navieras y agentes marítimos, sanciones del sector pesquero, y asesoría en contratos de transporte marítimo. La especialización es clave en derecho marítimo porque combina legislación nacional e internacional con práctica comercial específica del sector.</p></div>
+</details>
+<details class="faq-item">
+<summary>¿Qué pasa si la naviera tiene sede en el extranjero y no tiene oficina en Ecuador?</summary>
+<div class="faq-answer"><p>La naviera opera en Ecuador a través de su agente marítimo local, quien es el interlocutor para notificaciones y reclamaciones. Para reclamaciones formales o escaladas, hay formas de contactar directamente a la sede regional o central de la naviera. Si la disputa requiere acción legal, las opciones dependen de la cláusula de jurisdicción del BL —que puede establecer foros extranjeros— o de la posibilidad de tomar medidas cautelares en Ecuador, como el embargo preventivo de buques cuando corresponde.</p></div>
+</details>
+<details class="faq-item">
+<summary>¿Cuándo es mejor resolver mediante mediación en lugar de litigio?</summary>
+<div class="faq-answer"><p>La mediación es preferible cuando: el monto en disputa es mediano (USD 1.000 a USD 20.000), ambas partes tienen interés en mantener la relación comercial, hay disposición de ambos lados a llegar a un acuerdo, y el tiempo es un factor importante. El litigio es preferible cuando la parte contraria actúa de mala fe, cuando el monto justifica el costo y el tiempo del proceso, o cuando hay que establecer un precedente. En conflictos marítimos, la mediación resuelve muchos casos de manera eficiente sin llegar a las largas y costosas disputas judiciales o arbitrales.</p></div>
+</details>
+<details class="faq-item">
+<summary>¿Puedo contratar a Juristam solo para la estrategia inicial y gestionar yo mismo el resto?</summary>
+<div class="faq-answer"><p>Absolutamente sí. Muchos clientes de Juristam usan la asesoría para entender su posición y obtener la estrategia, y luego negocian directamente con la contraparte armados con esa información. En otros casos, Juristam lleva el caso completo. Y en otros, empieza el cliente y escala a Juristam cuando la negociación se complica. No hay una sola manera de trabajar —depende del caso, el monto y las preferencias del cliente.</p></div>
+</details>
+<details class="faq-item">
+<summary>¿Hay casos marítimos que Juristam no puede atender?</summary>
+<div class="faq-answer"><p>Los casos que requieren acción judicial o arbitral en jurisdicciones extranjeras —por ejemplo, arbitraje en Londres bajo LMAA para un charter party— generalmente requieren abogados admitidos en esas jurisdicciones. Juristam puede asesorarte sobre la estrategia y conectarte con corresponsales en el exterior cuando sea necesario. Para el ámbito de Ecuador —reclamaciones locales, mediación, acción judicial, embargo de buques, reclamaciones administrativas— Juristam actúa directamente.</p></div>
+</details>
 </div>
 </article></div></main>
 <footer><div class="container">
