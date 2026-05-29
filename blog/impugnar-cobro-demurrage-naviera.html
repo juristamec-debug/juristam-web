@@ -176,6 +176,21 @@ footer a{color:var(--primary);}footer strong{color:var(--white);}
 .faq-answer { padding: .25rem 1.25rem 1.25rem; font-size: .9rem; line-height: 1.75; color: var(--text-secondary); }
 .faq-answer p { margin: 0; }
 </style>
+
+<style>
+.link-int {
+  color: #2563eb;
+  text-decoration: underline;
+  text-decoration-color: rgba(37,99,235,.4);
+  text-underline-offset: 3px;
+  font-weight: 500;
+  transition: color .15s, text-decoration-color .15s;
+}
+.link-int:hover {
+  color: #1d4ed8;
+  text-decoration-color: #1d4ed8;
+}
+</style>
 </head><body>
 <div class="modal-overlay" id="waModal" role="dialog" aria-modal="true">
   <div class="modal">
@@ -220,7 +235,7 @@ footer a{color:var(--primary);}footer strong{color:var(--white);}
 <p style="font-size:.9rem;color:var(--text-secondary);line-height:1.75;border-left:3px solid var(--primary);padding-left:1rem;margin:1.5rem 0;">Si este es tu caso, en Juristam el abogado especialista marítimo llega a la asesoría con tu caso ya analizado — no a escucharte, sino a explicarte exactamente qué tienes y qué puedes hacer. <a href="https://wa.me/593994859814" style="color:var(--primary);font-weight:600;">Cuéntanos tu caso →</a></p>
 <h2>Antes de impugnar: verificar si el cobro es realmente incorrecto</h2>
 <p>No todo cobro de demurrage que parece excesivo es impugnable. El primer paso, antes de escribir una sola línea de impugnación, es revisar si el cobro es correcto según los términos del contrato.</p>
-<p>Revisa el bill of lading y sus términos y condiciones — generalmente en el reverso, aunque muchas navieras los publican en su sitio web. Ahí están los free days acordados, la tarifa de demurrage por tipo de contenedor y por escala de días, y los procedimientos y plazos para disputas.</p>
+<p>Revisa el bill of lading y sus términos y condiciones — generalmente en el reverso, aunque muchas navieras los publican en su sitio web. Ahí están los free days acordados, la tarifa de demurrage por tipo de contenedor y por escala de días, y los procedimientos y plazos para disputas. (<a href="https://juristam.net/blog/free-days-contenedor-negociar-naviera.html" class="link-int">mira aquí cómo negociar más días libres con tu naviera</a>) (<a href="https://juristam.net/blog/bill-of-lading-conocimiento-embarque-ecuador.html" class="link-int">aquí te explicamos su valor jurídico completo</a>)</p>
 <p>Verifica la fecha de llegada del buque al puerto. Los free days empiezan a contar desde ahí, no desde la fecha en que recibiste la notificación ni desde la fecha en que tramitaste la DAI. Si el buque llegó el 3 de mayo y tienes 7 free days, el período libre termina el 9 de mayo — independientemente de cuándo hayas iniciado el trámite aduanero.</p>
 <p>Calcula por tu cuenta cuántos días de demurrage corresponden realmente al importador. ¿Hubo días de aforo de la SENAE? ¿Hubo retraso en la entrega de documentos por parte de la naviera? ¿El buque llegó tarde respecto a la fecha programada? Cada uno de esos días puede ser excluido del cálculo con la documentación correcta.</p>
 <p>Verifica la tarifa aplicada. Las navieras tienen escalas progresivas: días 1-5 de exceso a tarifa X, días 6-10 a tarifa Y, días 11 en adelante a tarifa Z. También verifican que el tipo de contenedor sea correcto — la tarifa de un contenedor de 40 pies high cube es distinta a la de un 20 pies seco.</p>
@@ -228,12 +243,12 @@ footer a{color:var(--primary);}footer strong{color:var(--white);}
 
 <h2>Los argumentos con más peso en una impugnación de demurrage</h2>
 <p>Las navieras reciben miles de reclamaciones de demurrage cada año. Las que tienen resultado son las que presentan argumentos claros, específicos y documentados. Estas son las causales con más peso:</p>
-<p><strong>Demora de la SENAE por aforo físico.</strong> Si la aduana ecuatoriana realizó una inspección de canal rojo y ese proceso tomó días durante los cuales el contenedor permaneció en el puerto, esos días tienen base para ser excluidos. El documento que lo prueba es el acta de inicio y cierre del aforo físico, emitida por la SENAE. Sin ese documento, el argumento es muy difícil de sostener.</p>
+<p><strong>Demora de la SENAE por aforo físico. (<a href="https://juristam.net/blog/demurrage-por-culpa-senae-aduana-ecuador.html" class="link-int">aquí explicamos cómo recuperarlo cuando la culpa es de la aduana</a>)</strong> Si la aduana ecuatoriana realizó una inspección de canal rojo y ese proceso tomó días durante los cuales el contenedor permaneció en el puerto, esos días tienen base para ser excluidos. El documento que lo prueba es el acta de inicio y cierre del aforo físico, emitida por la SENAE. Sin ese documento, el argumento es muy difícil de sostener.</p>
 <p><strong>Retraso en la entrega de documentos por parte de la naviera.</strong> Si el bill of lading original llegó tarde porque la naviera o el shipper lo enviaron con retraso, y ese retraso impidió tramitar el desaduanamiento a tiempo, hay base para reclamar los días afectados. La prueba es el tracking del envío del BL y la fecha de llegada del buque.</p>
 <p><strong>Error de la naviera en la documentación.</strong> Si el BL tenía errores que requirieron corrección —nombre del consignatario, descripción de la mercancía, peso— y esa corrección tomó días durante los cuales el contenedor no podía ser retirado, esos días son imputables a la naviera.</p>
 <p><strong>Llegada tardía del buque.</strong> Si el buque llegó después de la fecha programada (ETA), el importador que organizó su operación en función de esa fecha no debería cargar con el demurrage generado por el retraso del buque. La prueba es el ETA original vs la fecha real de llegada.</p>
 <p><strong>Días feriados excluidos contractualmente.</strong> Muchos contratos de transporte excluyen del conteo de demurrage los días feriados nacionales y en algunos casos los sábados. Si la naviera los incluyó, hay un error de cálculo directo.</p>
-<p><strong>Fuerza mayor.</strong> Huelgas portuarias, eventos climáticos que cerraron el puerto, situaciones extraordinarias fuera del control del importador. El evento debe haber impedido efectivamente el retiro del contenedor — no basta que haya ocurrido en el período, tiene que haber sido la causa de la demora.</p>
+<p><strong>fuerza mayor. (<a href="https://juristam.net/blog/demora-fuerza-mayor-contenedor-ecuador.html" class="link-int">aquí analizamos cuándo exonera del demurrage</a>)</strong> Huelgas portuarias, eventos climáticos que cerraron el puerto, situaciones extraordinarias fuera del control del importador. El evento debe haber impedido efectivamente el retiro del contenedor — no basta que haya ocurrido en el período, tiene que haber sido la causa de la demora.</p>
 
 <h2>La documentación que necesitas reunir antes de impugnar</h2>
 <p>Una impugnación sin documentación es solo una queja. La naviera puede rechazarla con una respuesta estándar en 24 horas. Con documentación sólida, la conversación cambia completamente.</p>
@@ -242,8 +257,8 @@ footer a{color:var(--primary);}footer strong{color:var(--white);}
 <p>La <strong>confirmación de llegada del buque</strong> al puerto de Guayaquil o Manta, con la fecha exacta. Si el buque llegó tarde, el ETA original.</p>
 <p>El <strong>acta de aforo de la SENAE</strong> con las fechas de inicio y fin de la inspección, si hubo canal rojo.</p>
 <p>La <strong>Declaración Aduanera de Importación (DAI)</strong> con su fecha de presentación, para mostrar que el importador actuó a tiempo.</p>
-<p>Cualquier <strong>comunicación con la naviera o el agente marítimo</strong> sobre problemas con los documentos, fechas de llegada del BL, errores en la documentación.</p>
-<p>La <strong>factura de demurrage</strong> de la naviera con el desglose de días y tarifas aplicadas.</p>
+<p>Cualquier <strong>comunicación con la naviera o el agente marítimo</strong> sobre problemas con los documentos, fechas de llegada del BL, errores en la documentación. (<a href="https://juristam.net/blog/agente-vs-naviera-quien-responde-ecuador.html" class="link-int">aquí explicamos la diferencia con la naviera y quién responde</a>)</p>
+<p>La <strong>factura de demurrage</strong> de la naviera con el desglose de días y tarifas aplicadas. (<a href="https://juristam.net/blog/demurrage-demoras-contenedores-ecuador.html" class="link-int">en esta guía analizamos cómo revisarlos e impugnarlos</a>)</p>
 <p>Un <strong>cálculo propio</strong> de los días que realmente corresponden al importador, contrastado con la factura de la naviera, mostrando la diferencia y el monto en disputa.</p>
 <p style="font-size:.88rem;color:var(--text-secondary);line-height:1.8;background:var(--neutral-light);border-radius:8px;padding:1rem 1.25rem;margin:1.5rem 0;">Cuando contratas la asesoría de Juristam, nos explicas tu situación por texto, nota de voz o llamada. El abogado asignado hace las preguntas pertinentes, revisa los documentos y analiza todo antes de la reunión. Los 45 minutos son para entregarte la estrategia — no para empezar desde cero.</p>
 <h2>Cómo estructurar la carta de impugnación</h2>
@@ -256,7 +271,7 @@ footer a{color:var(--primary);}footer strong{color:var(--white);}
 <p>Las navieras tienen procedimientos internos para revisar disputas de demurrage. El tiempo de respuesta varía: algunas responden en 2 semanas, otras toman 4 a 6 semanas. Durante ese período, mantén comunicación escrita —no verbal— y conserva todos los registros.</p>
 <p>Hay tres resultados posibles: la naviera acepta la impugnación y ajusta la factura, la naviera rechaza la impugnación y mantiene el cobro original, o la naviera ofrece una reducción parcial como arreglo. El tercer resultado es el más frecuente cuando la impugnación está bien fundamentada pero hay días que son genuinamente imputables al importador.</p>
 <p>Si la naviera rechaza la impugnación, evalúa el monto en disputa antes de decidir qué hacer. Si son USD 200, probablemente no vale la pena escalar. Si son USD 3.000 o más, hay opciones: escalación dentro de la naviera (pasar del agente local a la sede regional), mediación, o acción judicial.</p>
-<p>La cláusula de jurisdicción del bill of lading es importante en esta etapa: si el contrato establece que los conflictos deben resolverse en arbitraje en Londres o en los tribunales de Singapur, actuar localmente tiene limitaciones. Eso no significa que no tengas opciones —pero sí define el marco en el que debes moverte.</p>
+<p>La cláusula de jurisdicción del bill of lading es importante en esta etapa: si el contrato establece que los conflictos deben resolverse en arbitraje en Londres o en los tribunales de Singapur, actuar localmente tiene limitaciones. Eso no significa que no tengas opciones —pero sí define el marco en el que debes moverte. (<a href="https://juristam.net/blog/contratos-transporte-maritimo-ecuador.html" class="link-int">aquí puedes ver el análisis completo de las cláusulas clave</a>)</p>
 <p style="font-size:.9rem;color:var(--text-secondary);line-height:1.75;margin:1.5rem 0;font-style:italic;">El abogado conocerá tu caso incluso mejor que tú — porque lo analizó desde afuera, con criterio jurídico y sin los sesgos de haberlo vivido.</p>
 <div class="cta-block"><p>¿Tienes un cobro de demurrage que no sabes si es correcto o cómo impugnar? Cuéntanos el caso. <a href="https://wa.me/593994859814">Escribir a Juristam →</a></p></div>
 
