@@ -82,7 +82,7 @@ article ul li,article ol li{margin-bottom:.5rem;font-size:.95rem;}
 .cluster-links ul li a{color:var(--primary-dark);text-decoration:none;font-size:.92rem;font-weight:500;}
 .cluster-links ul li a:hover{text-decoration:underline;}
 .cta-block{background:var(--primary-dark);color:var(--white);border-radius:14px;padding:2rem 1.8rem;text-align:center;margin:2.5rem 0;}
-.cta-block h3{font-family:'Playfair Display',serif;font-size:1.4rem;margin-bottom:.8rem;}
+.cta-block h3{font-family:'Playfair Display',serif;font-size:1.4rem;margin-bottom:.8rem;color:#fff;}
 .cta-block p{color:#e2d9ff;margin-bottom:1.4rem;font-size:.95rem;}
 .precio-banner{border-radius:16px;overflow:hidden;margin:2.5rem 0;border:1.5px solid var(--border);box-shadow:0 4px 20px rgba(124,58,237,.1);}
 .precio-banner-header{background:linear-gradient(135deg,#1e0a4e,#4c1d95);padding:1.2rem 1.8rem;text-align:center;}
@@ -138,63 +138,163 @@ footer strong{color:var(--white);}
 @media(max-width:600px){h1{font-size:1.6rem;}.cta-urgente{flex-direction:column;}.precio-cards{grid-template-columns:1fr;}.precio-card-item:first-child{border-right:none;border-bottom:1px solid var(--border);}.modal-precios{grid-template-columns:1fr;}.compare-table{font-size:.82rem;}}
 </style>
   <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@graph": [
-      {
-        "@type": "Organization",
-        "@id": "https://juristam.net/#organization",
-        "name": "Juristam",
-        "url": "https://juristam.net",
-        "logo": "https://i.postimg.cc/vHygbHxz/oie-transparent-(2).png",
-        "contactPoint": {"@type":"ContactPoint","telephone":"+593994859814","contactType":"legal services","areaServed":"EC","availableLanguage":"Spanish","email":"juristam.ec@gmail.com"}
-      },
-      {
-        "@type": "LegalService",
-        "@id": "https://juristam.net/#legalservice",
-        "name": "Juristam — Asesoría Legal Estratégica",
-        "url": "https://juristam.net",
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://juristam.net/#organization",
+      "name": "Juristam",
+      "url": "https://juristam.net",
+      "logo": "https://i.postimg.cc/vHygbHxz/oie-transparent-(2).png",
+      "contactPoint": {
+        "@type": "ContactPoint",
         "telephone": "+593994859814",
-        "email": "juristam.ec@gmail.com",
-        "areaServed": {"@type":"Country","name":"Ecuador"},
+        "contactType": "legal services",
+        "areaServed": "EC",
         "availableLanguage": "Spanish",
-        "priceRange": "$45-$400",
-        "serviceType":"Derecho de Familia",
-        "address": {"@type":"PostalAddress","addressLocality":"Guayaquil","addressCountry":"EC"}
-      },
-      {
-        "@type": "Article",
-        "@id": "https://juristam.net/blog/cambiar-orden-apellidos-ecuador.html#article",
-        "headline": "Cambiar el orden de los apellidos en Ecuador: pasar el materno al primero",
-        "description": "Quieres cambiar el orden de tus apellidos en Ecuador — pasar el materno al primero. Te explicamos cómo funciona, en qué se diferencia de quitar un",
-        "datePublished": "2026-05-08T00:00:00-05:00",
-        "dateModified": "2026-05-08T00:00:00-05:00",
-        "inLanguage": "es-EC",
-        "wordCount": 1290,
-        "articleSection": "Familia",
-        "author": {"@id": "https://juristam.net/#organization"},
-        "publisher": {"@id": "https://juristam.net/#organization"}
-      },
-      {
-        "@type": "BreadcrumbList",
-        "itemListElement": [
-          {"@type":"ListItem","position":1,"name":"Inicio","item":"https://juristam.net"},
-          {"@type":"ListItem","position":2,"name":"Guías","item":"https://juristam.net/blog/"},
-          {"@type":"ListItem","position":3,"name":"Familia","item":"https://juristam.net/blog/categoria-familia.html"},
-          {"@type":"ListItem","position":4,"name":"Cambiar el orden de los apellidos en Ecuador: pasar el ma...","item":"https://juristam.net/blog/cambiar-orden-apellidos-ecuador.html"}
-        ]
-      },
-      {
-        "@type": "FAQPage",
-        "mainEntity": [
-          {"@type":"Question","name":"¿Por qué alguien quiere cambiar el orden?","acceptedAnswer":{"@type":"Answer","text":"Para más información sobre este tema, consulte con un abogado de Juristam. Llame al 0994859814."}},
-        {"@type":"Question","name":"¿Cuánto tiempo tarda el proceso relacionado con Cambiar el orden de los apellidos en Ecuador: pasar el materno al primero en Ecuador?","acceptedAnswer":{"@type":"Answer","text":"Para más información sobre este tema, consulte con un abogado de Juristam. Llame al 0994859814."}},
-        {"@type":"Question","name":"¿Necesito un abogado para Cambiar el orden de los apellidos en Ecuador: pasar el materno al primero en Ecuador?","acceptedAnswer":{"@type":"Answer","text":"Para más información sobre este tema, consulte con un abogado de Juristam. Llame al 0994859814."}}
-        ]
+        "email": "juristam.ec@gmail.com"
       }
-    ]
-  }
-  </script><meta property="article:author" content="Juristam" />
+    },
+    {
+      "@type": "LegalService",
+      "@id": "https://juristam.net/#legalservice",
+      "name": "Juristam — Asesoría Legal Estratégica",
+      "url": "https://juristam.net",
+      "telephone": "+593994859814",
+      "email": "juristam.ec@gmail.com",
+      "areaServed": {
+        "@type": "Country",
+        "name": "Ecuador"
+      },
+      "availableLanguage": "Spanish",
+      "priceRange": "$45-$400",
+      "serviceType": "Derecho de Familia",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Guayaquil",
+        "addressCountry": "EC"
+      }
+    },
+    {
+      "@type": "Article",
+      "@id": "https://juristam.net/blog/cambiar-orden-apellidos-ecuador.html#article",
+      "headline": "Cambiar el orden de los apellidos en Ecuador: pasar el materno al primero",
+      "description": "Quieres cambiar el orden de tus apellidos en Ecuador — pasar el materno al primero. Te explicamos cómo funciona, en qué se diferencia de quitar un",
+      "datePublished": "2026-05-08T00:00:00-05:00",
+      "dateModified": "2026-05-08T00:00:00-05:00",
+      "inLanguage": "es-EC",
+      "wordCount": 1290,
+      "articleSection": "Familia",
+      "author": {
+        "@id": "https://juristam.net/#organization"
+      },
+      "publisher": {
+        "@id": "https://juristam.net/#organization"
+      },
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://juristam.net/blog/cambiar-orden-apellidos-ecuador.html"
+      },
+      "image": "https://i.postimg.cc/vHygbHxz/oie-transparent-(2).png",
+      "keywords": [
+        "cambiar orden apellidos Ecuador",
+        "apellido materno primero Ecuador",
+        "Registro Civil orden apellidos",
+        "posesión notoria apellido"
+      ],
+      "about": [
+        {
+          "@type": "Thing",
+          "name": "Orden de apellidos"
+        },
+        {
+          "@type": "Thing",
+          "name": "Registro Civil del Ecuador"
+        },
+        {
+          "@type": "Thing",
+          "name": "Derecho de familia"
+        }
+      ]
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Inicio",
+          "item": "https://juristam.net"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Guías",
+          "item": "https://juristam.net/blog/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "Familia",
+          "item": "https://juristam.net/blog/categoria-familia.html"
+        },
+        {
+          "@type": "ListItem",
+          "position": 4,
+          "name": "Cambiar el orden de los apellidos en Ecuador: pasar el ma...",
+          "item": "https://juristam.net/blog/cambiar-orden-apellidos-ecuador.html"
+        }
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "¿Se puede cambiar el orden de los apellidos en Ecuador?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Sí. El trámite se realiza ante el Registro Civil y permite que el apellido materno pase al primer lugar y el paterno al segundo. El requisito principal es demostrar, con documentos reales, que la persona ha sido conocida con ese orden durante años."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "¿Qué diferencia hay entre cambiar el orden de los apellidos y eliminar un apellido?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Son trámites distintos. Cambiar el orden mantiene ambos apellidos — solo se invierte cuál va primero. Eliminar un apellido lo retira por completo del registro y exige acreditar posesión notoria del apellido restante durante más de diez años."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "¿Qué documentos se necesitan para cambiar el orden de los apellidos?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Certificados escolares, documentos laborales u otras constancias oficiales donde el nombre aparezca con el apellido materno primero. Cuanto mayor sea la antigüedad de esos documentos, más sólido es el caso."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "¿El cambio de orden de apellidos se puede solicitar más de una vez?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Por la vía administrativa ante el Registro Civil, no — es un trámite único en la vida. Si la solicitud es rechazada por falta de documentación, la alternativa posterior es la vía judicial."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "¿Si tengo un solo apellido puedo agregar el materno al primer lugar?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Ese es un caso distinto al cambio de orden: se trata de agregación de apellido, no de reordenamiento, y requiere un análisis específico de la situación de filiación."
+          }
+        }
+      ]
+    }
+  ]
+}
+</script><meta property="article:author" content="Juristam" />
 </head><body><div class="modal-overlay" id="waModal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
   <div class="modal">
     <div class="modal-top">
@@ -232,7 +332,7 @@ footer strong{color:var(--white);}
 <article>
 <h2>La diferencia entre cambiar el orden y quitar un apellido</h2>
 <p>Muchas personas confunden estos dos trámites. Son distintos y tienen requisitos distintos:</p>
-<p style="font-size:.9rem;color:var(--text-secondary);line-height:1.75;border-left:3px solid var(--primary);padding-left:1rem;margin:1.5rem 0;">Si tienes un problema de alimentos, paternidad o divorcio, en Juristam el abogado especialista llega a la asesoría con tu caso ya analizado — no a escucharte, sino a explicarte exactamente qué tienes y qué puedes hacer. <a href="https://wa.me/593994859814" style="color:var(--primary);font-weight:600;">Cuéntanos tu caso →</a></p>
+<p style="font-size:.9rem;color:var(--text-secondary);line-height:1.75;border-left:3px solid var(--primary);padding-left:1rem;margin:1.5rem 0;">Si tienes un problema de alimentos, paternidad o divorcio, en Juristam el abogado especialista llega a la asesoría con tu caso ya analizado — no a escucharte, sino a explicarte exactamente qué tienes y qué puedes hacer. <a href="https://wa.me/593994859814?text=Hola%2C%20tengo%20una%20consulta%20sobre%20apellidos%20en%20Ecuador%20%28Ref%3A%20orden-apellidos%29" style="color:var(--primary);font-weight:600;">Cuéntanos tu caso →</a></p>
 
 <table class="compare-table">
   <thead><tr><th>Trámite</th><th>Resultado</th><th>Requisito principal</th></tr></thead>
@@ -271,7 +371,7 @@ footer strong{color:var(--white);}
 <div style="margin:2rem 0;padding:1.25rem 1.5rem;background:var(--primary-light);border-radius:10px;border:1px solid rgba(154,106,255,.2);">
   <p style="font-size:.9rem;font-weight:600;color:var(--primary-dark);margin-bottom:.5rem;">¿Tienes este problema?</p>
   <p style="font-size:.88rem;color:var(--text-secondary);line-height:1.75;margin-bottom:.8rem;">El abogado especialista analiza tu caso antes de la reunión — llega con la estrategia definida y la explicación sin tecnicismos. Cuéntanos tu situación y coordinamos.</p>
-  <a href="https://wa.me/593994859814" style="display:inline-block;background:var(--primary);color:#fff;padding:.65rem 1.4rem;border-radius:8px;font-weight:600;font-size:.88rem;text-decoration:none;">Hablar con Juristam →</a>
+  <a href="https://wa.me/593994859814?text=Hola%2C%20quiero%20hablar%20con%20Juristam%20sobre%20el%20orden%20de%20mis%20apellidos%20%28Ref%3A%20orden-apellidos%29" style="display:inline-block;background:var(--primary);color:#fff;padding:.65rem 1.4rem;border-radius:8px;font-weight:600;font-size:.88rem;text-decoration:none;">Hablar con Juristam →</a>
 </div>
 <div class="cta-block">
   <h3>¿Quieres que tu apellido materno aparezca primero?</h3>
@@ -285,7 +385,7 @@ footer strong{color:var(--white);}
   </div>
   <div class="precio-footer">
     <p><strong>Si contratas el servicio completo, los $45 de la consulta virtual se descuentan del precio final.</strong></p>
-    <div class="precio-cta"><a class="btn-wa" href="https://wa.me/593994859814?text=Hola%2C%20le%C3%AD%20sobre%20cambiar%20el%20orden%20de%20apellidos%20en%20Ecuador%20y%20quiero%20saber%20si%20mi%20caso%20procede" target="_blank" rel="noopener">Consultar por WhatsApp →</a></div>
+    <div class="precio-cta"><a class="btn-wa" href="https://wa.me/593994859814?text=Hola%2C%20le%C3%AD%20sobre%20cambiar%20el%20orden%20de%20apellidos%20en%20Ecuador%20y%20quiero%20saber%20si%20mi%20caso%20procede%20%28Ref%3A%20orden-apellidos%29" target="_blank" rel="noopener">Consultar por WhatsApp →</a></div>
   </div>
 </div>
 <div class="faq-section">
@@ -312,7 +412,7 @@ footer strong{color:var(--white);}
   <p>© 2026 Juristam. Todos los derechos reservados. <a href="/blog/">Blog</a> · <a href="/#formulario">Contacto</a></p>
   <p style="margin-top:.5rem;font-size:.82rem;">Este artículo es informativo y no constituye asesoría legal individualizada.</p>
 </div></footer><script>
-const WA_URL="https://wa.me/593994859814?text=Hola%2C%20quiero%20cambiar%20el%20orden%20de%20mis%20apellidos%20en%20Ecuador%20y%20necesito%20orientaci%C3%B3n";
+const WA_URL="https://wa.me/593994859814?text=Hola%2C%20quiero%20cambiar%20el%20orden%20de%20mis%20apellidos%20en%20Ecuador%20y%20necesito%20orientaci%C3%B3n%20%28Ref%3A%20orden-apellidos%29";
 function abrirModal(){document.getElementById('waModal').classList.add('active');document.body.style.overflow='hidden';}
 function cerrarModal(){document.getElementById('waModal').classList.remove('active');document.body.style.overflow='';}
 function irAWhatsApp(){cerrarModal();window.open(WA_URL,'_blank','noopener');}
