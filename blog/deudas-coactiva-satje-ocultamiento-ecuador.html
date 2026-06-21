@@ -144,15 +144,54 @@ details[open] summary{background:var(--primary-light);}
 <meta property="article:author" content="Juristam" />
 <meta property="og:image" content="https://i.postimg.cc/vHygbHxz/oie-transparent-(2).png" />
 </head><body>
-<div class="modal-overlay" id="waModal" role="dialog" aria-modal="true">
-  <div class="modal" style="background:#fff;border-radius:16px;padding:2rem;max-width:420px;width:90%;margin:auto;position:relative;top:50%;transform:translateY(-50%);">
-    <button onclick="cerrarModal()" style="position:absolute;top:1rem;right:1rem;background:none;border:none;font-size:1.4rem;cursor:pointer;color:#666;">&#x2715;</button>
-    <h3 style="font-family:'Lora',serif;font-size:1.2rem;margin-bottom:.5rem;">Escríbenos por WhatsApp</h3>
-    <p style="font-size:.9rem;color:#666;margin-bottom:1.2rem;">Cuéntanos tu caso y te respondemos rápido.</p>
-    <a id="waLink" href="#" target="_blank" rel="noopener" style="display:block;background:#25d366;color:#fff;text-align:center;padding:.9rem;border-radius:10px;font-weight:700;font-size:1rem;">Abrir WhatsApp &rarr;</a>
+<div class="modal-overlay" id="waModal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+  <div class="modal">
+    <div class="modal-top">
+      <button class="modal-close" onclick="cerrarModal()" aria-label="Cerrar">&#x2715;</button>
+      <h4 id="modalTitle">Cuéntanos tu caso</h4>
+      <p>¿Calificas para el ocultamiento en SATJE o Fiscalía?</p>
+    </div>
+    <div class="modal-body">
+      <p class="modal-section-label">Asesoría inicial</p>
+      <div class="modal-precios">
+        <div class="modal-precio virtual"><span class="mlabel">Virtual ⭐</span><div class="mmonto">$45</div></div>
+        <div class="modal-precio presencial"><span class="mlabel">Presencial</span><div class="mmonto">$85</div></div>
+      </div>
+      <p class="modal-section-label">Servicio completo</p>
+      <div class="modal-precios-servicio">
+        <div class="modal-precio-mini"><div class="mmonto-mini">$250</div><div class="mlabel-mini">SATJE</div></div>
+        <div class="modal-precio-mini"><div class="mmonto-mini">$250</div><div class="mlabel-mini">Fiscalía</div></div>
+        <div class="modal-precio-mini dest"><div class="mmonto-mini">$400</div><div class="mlabel-mini">Combo</div></div>
+      </div>
+      <div class="modal-nota">Los $45 de la asesoría se descuentan del servicio completo.</div>
+      <a id="waLink" href="#" target="_blank" rel="noopener" class="btn-modal-wa">Continuar a WhatsApp &rarr;</a>
+    </div>
   </div>
 </div>
-<style>.modal-overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,.5);z-index:999;}.modal-overlay.active{display:block;}</style><header><div class="container header-inner">
+<style>
+.modal-overlay{display:none;position:fixed;inset:0;background:rgba(10,5,30,.65);backdrop-filter:blur(5px);z-index:999;align-items:center;justify-content:center;padding:.75rem;}
+.modal-overlay.active{display:flex;}
+.modal{background:#fff;border-radius:18px;max-width:380px;width:100%;box-shadow:0 24px 60px rgba(0,0,0,.25);}
+.modal-top{background:linear-gradient(135deg,var(--primary-deep),#4c1d95);padding:1.1rem 1.2rem .9rem;position:relative;border-radius:18px 18px 0 0;}
+.modal-top h4{font-family:'Lora',serif;color:#fff;font-size:.98rem;font-weight:700;margin-bottom:.2rem;}
+.modal-top p{color:#c4b5fd;font-size:.74rem;line-height:1.4;}
+.modal-close{position:absolute;top:.6rem;right:.6rem;background:rgba(255,255,255,.15);border:none;color:#fff;width:24px;height:24px;border-radius:50%;cursor:pointer;font-size:.8rem;display:flex;align-items:center;justify-content:center;}
+.modal-body{padding:.9rem 1.2rem 1.1rem;}
+.modal-section-label{font-size:.62rem;font-weight:700;color:var(--text-secondary);text-transform:uppercase;letter-spacing:.05em;margin-bottom:.35rem;}
+.modal-precios{display:grid;grid-template-columns:1fr 1fr;gap:.5rem;margin-bottom:.7rem;}
+.modal-precio{border-radius:10px;padding:.5rem .6rem;border:1.5px solid var(--border);text-align:center;}
+.modal-precio.virtual{border-color:var(--primary);background:var(--primary-light);}
+.modal-precio .mlabel{font-size:.6rem;font-weight:700;text-transform:uppercase;letter-spacing:.04em;color:var(--primary-dark);display:block;margin-bottom:.1rem;}
+.modal-precio .mmonto{font-family:'Lora',serif;font-size:1.25rem;font-weight:700;color:var(--text);line-height:1;}
+.modal-precios-servicio{display:grid;grid-template-columns:1fr 1fr 1fr;gap:.4rem;margin-bottom:.7rem;}
+.modal-precio-mini{border-radius:9px;padding:.4rem .3rem;text-align:center;border:1.5px solid var(--border);background:var(--gray-light);}
+.modal-precio-mini.dest{border-color:var(--primary);background:var(--primary-light);}
+.modal-precio-mini .mmonto-mini{font-family:'Lora',serif;font-size:.95rem;font-weight:700;color:var(--primary-dark);line-height:1;}
+.modal-precio-mini .mlabel-mini{font-size:.58rem;color:var(--text-secondary);margin-top:.15rem;line-height:1.2;font-weight:600;}
+.modal-nota{font-size:.7rem;color:var(--text-secondary);background:var(--gray-light);border-radius:8px;padding:.5rem .65rem;margin-bottom:.8rem;line-height:1.4;}
+.btn-modal-wa{display:block;background:#25d366;color:#fff;text-align:center;padding:.7rem;border-radius:9px;font-weight:700;font-size:.86rem;}
+.btn-modal-wa:hover{background:#1da851;color:#fff;}
+</style><header><div class="container header-inner">
   <a href="/blog/"><img class="brand-logo" src="https://i.postimg.cc/vHygbHxz/oie-transparent-(2).png" alt="Juristam" loading="eager" width="120" height="90"/></a>
   <a class="btn-back" href="/blog/">&larr; Volver al blog</a>
 </div></header>
