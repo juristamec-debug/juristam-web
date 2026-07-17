@@ -1114,7 +1114,7 @@
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://juristam.net/blog/embargo-vehículo-multa-transito-ecuador.html</loc>
+    <loc>https://juristam.net/blog/embargo-veh%C3%ADculo-multa-transito-ecuador.html</loc>
     <lastmod>2026-05-16</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
@@ -1528,7 +1528,7 @@
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://juristam.net/blog/padre-no-reconoce-hijo-pension-alimenticia-ecuador.html</loc>
+    <loc>https://juristam.netristam.net/blog/padre-no-reconoce-hijo-pension-alimenticia-ecuador.html</loc>
     <lastmod>2026-05-16</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
@@ -2696,6 +2696,104 @@
     <lastmod>2026-05-16</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
+  </url>
+
+  <!-- ════ NUEVOS — JULIO 2026 ════ -->
+  <url>
+    <loc>https://juristam.net/blog/herencia-ecuador-desde-el-exterior.html</loc>
+    <lastmod>2026-07-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://juristam.net/blog/vender-propiedad-ecuador-desde-el-exterior.html</loc>
+    <lastmod>2026-07-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://juristam.net/blog/comprar-casa-ecuador-desde-el-exterior.html</loc>
+    <lastmod>2026-07-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://juristam.net/blog/divorcio-ecuador-desde-el-exterior.html</loc>
+    <lastmod>2026-07-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://juristam.net/blog/poder-notarial-ecuador-desde-el-exterior.html</loc>
+    <lastmod>2026-07-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://juristam.net/blog/testamento-ecuador-desde-el-exterior.html</loc>
+    <lastmod>2026-07-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://juristam.net/blog/juicio-particion-herencia-coherederos-ecuador.html</loc>
+    <lastmod>2026-07-17</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://juristam.net/blog/cuenta-bloqueada-sri-ecuador-que-hacer.html</loc>
+    <lastmod>2026-07-10</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://juristam.net/blog/divorcio-ecuador-cuanto-cuesta-tarda.html</loc>
+    <lastmod>2026-07-10</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://juristam.net/casos-de-exito-herencias.html</loc>
+    <lastmod>2026-07-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://juristam.net/casos-de-exito-venta-propiedad-exterior.html</loc>
+    <lastmod>2026-07-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://juristam.net/casos-de-exito-compra-propiedad-exterior.html</loc>
+    <lastmod>2026-07-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://juristam.net/casos-de-exito-divorcios-exterior.html</loc>
+    <lastmod>2026-07-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://juristam.net/casos-de-exito-testamento-exterior.html</loc>
+    <lastmod>2026-07-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://juristam.net/casos-de-exito-particion-herencia.html</loc>
+    <lastmod>2026-07-17</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://juristam.net/casos-de-exito-divorcios.html</loc>
+    <lastmod>2026-07-10</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
   </url>
 
 </urlset>
