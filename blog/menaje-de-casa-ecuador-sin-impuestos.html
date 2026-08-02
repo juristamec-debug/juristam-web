@@ -164,7 +164,7 @@ details[open] summary::after{content:"−";}
 details[open]{border-color:var(--primary);}
 details[open] summary{color:var(--primary-dark);}
 .faq-answer{margin-top:.85rem;font-size:.92rem;color:var(--text-secondary);line-height:1.82;}
-.floating-cta{position:fixed;bottom:20px;right:20px;background:#25d366;color:#fff;padding:.85rem 1.3rem;border-radius:30px;font-weight:700;font-size:.86rem;box-shadow:0 4px 16px rgba(0,0,0,.25);z-index:998;display:flex;align-items:center;gap:.4rem;}
+.floating-cta{position:fixed;bottom:20px;right:20px;background:#25d366;color:#fff;padding:.85rem 1.3rem;border-radius:30px;font-weight:700;font-size:.86rem;font-family:inherit;box-shadow:0 4px 16px rgba(0,0,0,.25);z-index:998;display:flex;align-items:center;gap:.4rem;border:none;cursor:pointer;}
 footer{background:var(--text);color:#ccc;padding:2.2rem 0;text-align:center;font-size:.84rem;margin-top:3rem;}
 footer a{color:var(--primary);}footer strong{color:var(--white);}
 @media(max-width:650px){h1{font-size:1.6rem;}.req-grid{grid-template-columns:1fr;}.bienes-grid{grid-template-columns:repeat(2,1fr);}.precio-cards{grid-template-columns:1fr;}.precio-card-item:first-child{border-right:none;border-bottom:1px solid var(--border);}.modal-precios{grid-template-columns:1fr;}.cta-urgente{flex-direction:column;align-items:flex-start;}.paso-card{flex-direction:column;}.tabla{font-size:.82rem;}.floating-cta{padding:.7rem 1rem;font-size:.8rem;}}
@@ -176,8 +176,8 @@ footer a{color:var(--primary);}footer strong{color:var(--white);}
   <div class="modal">
     <div class="modal-top">
       <button type="button" class="modal-close" onclick="cerrarModal()" aria-label="Cerrar">&#x2715;</button>
-      <h4 id="modalTitle">Retorno y menaje de casa</h4>
-      <p>Revisamos si califica para la exoneración y qué documentos necesita antes de embarcar.</p>
+      <h4 id="modalTitle">No pierda la exoneración por un detalle</h4>
+      <p>Exceder los 180 días, embarcar el vehículo aparte o dejar vencer el plazo le cuesta el beneficio completo. Revisamos su caso antes de que cierre el contenedor.</p>
     </div>
     <div class="modal-body">
       <span class="modal-section-label">Asesoría inicial</span>
@@ -518,7 +518,7 @@ footer a{color:var(--primary);}footer strong{color:var(--white);}
 <div style="margin:2rem 0;padding:1.8rem 1.5rem;background:linear-gradient(135deg,var(--primary-deep),#2d1060);border-radius:14px;text-align:center;">
   <p style="font-family:'Lora',serif;font-size:1.2rem;font-weight:700;color:#fff;margin-bottom:.8rem;line-height:1.4;">Después de años construyendo afuera, no pierda el beneficio por un detalle del trámite.</p>
   <p style="font-size:.9rem;color:#e2d9ff;line-height:1.75;margin-bottom:1.3rem;max-width:480px;margin-left:auto;margin-right:auto;">La asesoría inicial revisa su caso completo antes de que embarque — condiciones de permanencia, vehículo, documentos y plazos.</p>
-  <a href="https://wa.me/593994859814?text=Hola%20Juristam%2C%20voy%20a%20retornar%20a%20Ecuador%20y%20necesito%20asesor%C3%ADa%20sobre%20el%20menaje%20de%20casa%20sin%20impuestos" style="display:inline-block;background:#c9a96e;color:#1e0a4e;padding:.85rem 2rem;border-radius:10px;font-weight:700;font-size:.95rem;text-decoration:none;">Consultar mi caso · WhatsApp →</a>
+  <a href="https://wa.me/593994859814?text=Hola%20Juristam%2C%20necesito%20asesor%C3%ADa%20sobre%20el%20menaje%20de%20casa.%20Retorno%20desde%20%5Bpa%C3%ADs%5D%20y%20llevo%20%5Ba%C3%B1os%5D%20fuera%20de%20Ecuador.%20%C2%BFTraigo%20veh%C3%ADculo%3F%20%5Bs%C3%AD/no%5D.%20%C2%BFC%C3%B3mo%20agendamos%20la%20consulta%20virtual%3F" style="display:inline-block;background:#c9a96e;color:#1e0a4e;padding:.85rem 2rem;border-radius:10px;font-weight:700;font-size:.95rem;text-decoration:none;">Consultar mi caso · WhatsApp →</a>
 </div>
 
 <p style="font-size:.82rem;color:var(--text-secondary);background:var(--gray-light);border-radius:8px;padding:.9rem 1.1rem;line-height:1.7;">Base normativa: Ley Orgánica de Movilidad Humana y su Reglamento; Resolución SENAE-SENAE-2024-0083-RE. Los topes expresados en Salarios Básicos Unificados se calculan según el SBU vigente a la fecha de aceptación de la declaración aduanera. La normativa aduanera puede actualizarse — verifique las condiciones vigentes antes de iniciar su trámite.</p>
@@ -526,7 +526,7 @@ footer a{color:var(--primary);}footer strong{color:var(--white);}
 </article>
 </div></main>
 
-<a href="https://wa.me/593994859814?text=Hola%20Juristam%2C%20voy%20a%20retornar%20a%20Ecuador%20y%20necesito%20asesor%C3%ADa%20sobre%20el%20menaje%20de%20casa%20sin%20impuestos" class="floating-cta" target="_blank" rel="noopener">💬 WhatsApp directo</a>
+<button type="button" class="floating-cta" onclick="abrirModal()">💬 Revisar mi caso con un abogado</button>
 
 <footer><div class="container">
   <p><strong>Juristam</strong> — Asesoría Legal Estratégica en Ecuador</p>
@@ -535,7 +535,7 @@ footer a{color:var(--primary);}footer strong{color:var(--white);}
 </div></footer>
 
 <script>
-const WA_URL="https://wa.me/593994859814?text=Hola%20Juristam%2C%20voy%20a%20retornar%20a%20Ecuador%20y%20necesito%20asesor%C3%ADa%20sobre%20el%20menaje%20de%20casa%20sin%20impuestos";
+const WA_URL="https://wa.me/593994859814?text=Hola%20Juristam%2C%20necesito%20asesor%C3%ADa%20sobre%20el%20menaje%20de%20casa.%20Retorno%20desde%20%5Bpa%C3%ADs%5D%20y%20llevo%20%5Ba%C3%B1os%5D%20fuera%20de%20Ecuador.%20%C2%BFTraigo%20veh%C3%ADculo%3F%20%5Bs%C3%AD/no%5D.%20%C2%BFC%C3%B3mo%20agendamos%20la%20consulta%20virtual%3F";
 function abrirModal(){document.getElementById("waModal").classList.add("active");document.body.style.overflow="hidden";}
 function cerrarModal(){document.getElementById("waModal").classList.remove("active");document.body.style.overflow="";}
 function irAWhatsApp(){cerrarModal();window.open(WA_URL,"_blank","noopener");}
