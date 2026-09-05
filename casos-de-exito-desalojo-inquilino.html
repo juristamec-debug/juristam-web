@@ -1,0 +1,505 @@
+<!DOCTYPE html>
+<html lang="es-EC">
+<head>
+<meta charset="UTF-8"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<link rel="icon" type="image/png" href="https://i.postimg.cc/KjDB1NSM/Diseno-sin-titulo-(7).png"/>
+<meta name="theme-color" content="#9a6aff"/>
+<title>Desalojos de inquilinos resueltos en Ecuador · 20 casos · Juristam</title>
+<meta name="description" content="20 casos reales de propietarios que recuperaron su inmueble de inquilinos morosos: cuántos meses tomó, cuánto se logró cobrar y qué hizo la diferencia en cada uno."/>
+<link rel="canonical" href="https://juristam.net/casos-de-exito-desalojo-inquilino.html"/>
+<meta name="robots" content="index,follow"/>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;0,700;1,400&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet"/>
+<style>
+:root{--primary:#9a6aff;--primary-dark:#7c3aed;--primary-light:#efe8ff;--primary-deep:#1e0a4e;--text:#1a1a2e;--text-secondary:#4a4a6a;--white:#fff;--success:#059669;--success-light:#ecfdf5;--gray-light:#f9f9fb;--border:#e8e8f0;}
+*{margin:0;padding:0;box-sizing:border-box;}html{scroll-behavior:smooth;}
+body{font-family:"DM Sans",sans-serif;color:var(--text);background:var(--white);line-height:1.8;-webkit-font-smoothing:antialiased;}
+a{text-decoration:none;color:inherit;}
+.container{max-width:960px;margin:0 auto;padding:0 1.5rem;}
+header{background:var(--white);border-bottom:1px solid var(--border);position:sticky;top:0;z-index:100;height:90px;}
+.header-inner{display:flex;align-items:center;justify-content:space-between;height:100%;}
+.brand-logo{height:90px;width:auto;}
+.btn-back{background:var(--primary-light);color:var(--primary-dark);padding:.5rem 1rem;border-radius:8px;font-size:.85rem;font-weight:600;}
+.hero{background:linear-gradient(135deg,var(--primary-deep),#2d1060);padding:3.5rem 0 2.8rem;text-align:center;margin-bottom:2rem;}
+.hero-tag{display:inline-block;background:rgba(255,255,255,.12);color:#c4b5fd;font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.12em;padding:.35rem .9rem;border-radius:20px;margin-bottom:1rem;}
+.hero h1{font-family:"Lora",serif;font-size:clamp(1.7rem,3.5vw,2.3rem);color:#fff;margin-bottom:.8rem;line-height:1.25;font-weight:700;}
+.hero p{color:#c4b5fd;font-size:.97rem;max-width:600px;margin:0 auto 1.5rem;line-height:1.75;}
+.hero-stats{display:flex;justify-content:center;gap:2.5rem;flex-wrap:wrap;margin-top:1.8rem;}
+.stat-num{font-family:"Lora",serif;font-size:2rem;font-weight:700;color:#fff;display:block;}
+.stat-label{font-size:.75rem;color:#c4b5fd;text-transform:uppercase;letter-spacing:.06em;}
+.btn-wa-hero{background:#25d366;color:#fff;padding:.8rem 2rem;border-radius:10px;font-size:.95rem;font-weight:700;display:inline-block;cursor:pointer;border:none;margin-top:1.5rem;font-family:inherit;}
+.filtros{display:flex;gap:.6rem;flex-wrap:wrap;justify-content:center;margin-bottom:1.2rem;}
+.filtro-btn{background:var(--white);border:1.5px solid var(--border);color:var(--text-secondary);padding:.5rem 1.1rem;border-radius:24px;font-size:.85rem;font-weight:600;cursor:pointer;font-family:inherit;transition:all .18s;}
+.filtro-btn:hover{border-color:var(--primary);color:var(--primary-dark);}
+.filtro-btn.activo{background:var(--primary-dark);border-color:var(--primary-dark);color:#fff;}
+.casos-count{font-size:.85rem;color:var(--text-secondary);margin-bottom:1rem;text-align:center;}
+.casos-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(380px,1fr));gap:1.4rem;margin-bottom:3rem;}
+.caso-card{background:var(--white);border-radius:16px;border:1.5px solid var(--border);overflow:hidden;box-shadow:0 4px 20px rgba(0,0,0,.06);transition:box-shadow .2s,transform .2s;display:flex;flex-direction:column;}
+.caso-card:hover{box-shadow:0 8px 32px rgba(124,58,237,.14);transform:translateY(-2px);}
+.caso-card.oculto{display:none;}
+.caso-header{padding:1.3rem 1.5rem .9rem;border-bottom:1px solid var(--border);}
+.caso-badges{display:flex;gap:.4rem;flex-wrap:wrap;margin-bottom:.55rem;}
+.badge{font-size:.68rem;font-weight:700;padding:.2rem .6rem;border-radius:20px;text-transform:uppercase;letter-spacing:.04em;}
+.badge-resultado{background:var(--success-light);color:var(--success);}
+.badge-tiempo{background:var(--gray-light);color:var(--text-secondary);}
+.caso-titulo{font-family:"Lora",serif;font-size:1rem;font-weight:700;color:var(--text);line-height:1.35;margin-bottom:.25rem;}
+.caso-meta{font-size:.76rem;color:var(--text-secondary);}
+.caso-body{padding:1.1rem 1.5rem;flex:1;}
+.caso-section{margin-bottom:.85rem;}
+.caso-section-label{font-size:.65rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--text-secondary);margin-bottom:.25rem;display:block;}
+.caso-section p{font-size:.87rem;color:var(--text);line-height:1.7;margin:0;}
+.caso-resultado-box{background:var(--success-light);border-left:3px solid var(--success);border-radius:0 8px 8px 0;padding:.75rem .9rem;margin-top:.7rem;}
+.caso-resultado-box p{font-size:.85rem;color:var(--text);line-height:1.65;margin:0;}
+.caso-resultado-box strong{color:var(--success);}
+.caso-footer{padding:.85rem 1.5rem;background:var(--gray-light);border-top:1px solid var(--border);display:flex;align-items:center;justify-content:space-between;gap:.7rem;flex-wrap:wrap;}
+.caso-cita{font-size:.8rem;color:var(--text-secondary);font-style:italic;flex:1;line-height:1.5;}
+.btn-caso{background:var(--primary-dark);color:#fff;padding:.48rem 1rem;border-radius:8px;font-size:.78rem;font-weight:700;white-space:nowrap;cursor:pointer;border:none;flex-shrink:0;font-family:inherit;}
+.cta-final{background:linear-gradient(135deg,var(--primary-deep),#2d1060);border-radius:16px;padding:2.5rem 2rem;text-align:center;margin:1rem 0 3rem;}
+.cta-final h2{font-family:"Lora",serif;color:#fff;font-size:1.5rem;margin-bottom:.8rem;}
+.cta-final p{color:#c4b5fd;margin-bottom:1.5rem;line-height:1.75;max-width:520px;margin-left:auto;margin-right:auto;}
+.precio-mini{display:inline-flex;gap:1.5rem;background:rgba(255,255,255,.1);border-radius:12px;padding:.8rem 1.5rem;margin-bottom:.8rem;flex-wrap:wrap;justify-content:center;}
+.precio-mini-item span:first-child{display:block;font-size:.68rem;color:#c4b5fd;text-transform:uppercase;letter-spacing:.08em;margin-bottom:.2rem;}
+.precio-mini-item span:last-child{font-family:"Lora",serif;font-size:1.6rem;font-weight:700;color:#fff;}
+.modal-overlay{display:none;position:fixed;inset:0;background:rgba(10,5,30,.65);backdrop-filter:blur(5px);z-index:999;align-items:center;justify-content:center;padding:.75rem;}
+.modal-overlay.active{display:flex;}
+.modal{background:#fff;border-radius:18px;max-width:380px;width:100%;box-shadow:0 24px 60px rgba(0,0,0,.25);}
+.modal-top{background:linear-gradient(135deg,var(--primary-deep),#4c1d95);padding:1.1rem 1.2rem .9rem;position:relative;border-radius:18px 18px 0 0;}
+.modal-top h4{color:#fff;font-size:.98rem;font-weight:700;margin-bottom:.2rem;}
+.modal-top p{color:#c4b5fd;font-size:.74rem;line-height:1.4;}
+.modal-close{position:absolute;top:.6rem;right:.6rem;background:rgba(255,255,255,.15);border:none;color:#fff;width:24px;height:24px;border-radius:50%;cursor:pointer;font-size:.8rem;display:flex;align-items:center;justify-content:center;}
+.modal-body{padding:.9rem 1.2rem 1.1rem;}
+.modal-section-label{font-size:.62rem;font-weight:700;color:var(--text-secondary);text-transform:uppercase;letter-spacing:.05em;margin-bottom:.35rem;display:block;}
+.modal-precios{display:grid;grid-template-columns:1fr 1fr;gap:.5rem;margin-bottom:.7rem;}
+.modal-precio{border-radius:10px;padding:.5rem .6rem;border:1.5px solid var(--border);text-align:center;}
+.modal-precio.virtual{border-color:var(--primary);background:var(--primary-light);}
+.modal-precio .mlabel{font-size:.6rem;font-weight:700;text-transform:uppercase;letter-spacing:.04em;color:var(--primary-dark);display:block;margin-bottom:.1rem;}
+.modal-precio .mmonto{font-family:"Lora",serif;font-size:1.25rem;font-weight:700;color:var(--text);line-height:1;}
+.modal-nota{font-size:.7rem;color:var(--text-secondary);background:var(--gray-light);border-radius:8px;padding:.5rem .65rem;margin-bottom:.8rem;line-height:1.4;}
+.btn-modal-wa{display:block;background:#25d366;color:#fff;text-align:center;padding:.7rem;border-radius:9px;font-weight:700;font-size:.86rem;border:none;cursor:pointer;width:100%;font-family:inherit;}
+footer{background:var(--text);color:#ccc;padding:2.2rem 0 5.5rem;text-align:center;font-size:.84rem;margin-top:3rem;}
+footer a{color:var(--primary);}footer strong{color:var(--white);}
+@media(max-width:700px){.casos-grid{grid-template-columns:1fr;}.hero-stats{gap:1.2rem;}.modal-precios{grid-template-columns:1fr;}.filtro-btn{font-size:.8rem;padding:.45rem .9rem;}}
+</style>
+</head>
+<body>
+
+<div class="modal-overlay" id="waModal" role="dialog" aria-modal="true">
+  <div class="modal">
+    <div class="modal-top">
+      <button type="button" class="modal-close" onclick="cerrarModal()" aria-label="Cerrar">&#x2715;</button>
+      <h4>Cada mes que esperas es otro mes sin cobrar</h4>
+      <p>Mándanos el contrato y el detalle de los meses impagos. Revisamos si ya puedes accionar y cuánto puedes recuperar. La revisión inicial no tiene costo.</p>
+    </div>
+    <div class="modal-body">
+      <span class="modal-section-label">Asesoría inicial</span>
+      <div class="modal-precios">
+        <div class="modal-precio virtual"><span class="mlabel">Virtual ⭐</span><div class="mmonto">$45</div></div>
+        <div class="modal-precio"><span class="mlabel">Presencial</span><div class="mmonto">$85</div></div>
+      </div>
+      <div class="modal-nota">Los $45 se descuentan del servicio completo si decides continuar.</div>
+      <button type="button" class="btn-modal-wa" onclick="irAWhatsApp()">Continuar a WhatsApp →</button>
+    </div>
+  </div>
+</div>
+
+<header><div class="container header-inner">
+  <a href="/blog/"><img class="brand-logo" src="https://i.postimg.cc/vHygbHxz/oie-transparent-(2).png" alt="Juristam" loading="eager" width="120" height="90"/></a>
+  <a class="btn-back" href="/blog/desalojo-inquilino-no-paga-ecuador.html">← Volver al artículo</a>
+</div></header>
+
+<div class="hero"><div class="container">
+  <span class="hero-tag">Juristam · Desalojos de inquilinos en Ecuador</span>
+  <h1>Desalojos de inquilinos resueltos en Ecuador</h1>
+  <p>20 casos reales — cuántos meses tomó, cuánto se logró cobrar y qué hizo la diferencia en cada uno.</p>
+  <div class="hero-stats">
+    <div class="stat"><span class="stat-num">20</span><span class="stat-label">Casos documentados</span></div>
+    <div class="stat"><span class="stat-num">3 sem</span><span class="stat-label">Caso más rápido</span></div>
+    <div class="stat"><span class="stat-num">0</span><span class="stat-label">Viajes necesarios</span></div>
+    <div class="stat"><span class="stat-num">$0</span><span class="stat-label">Revisión inicial</span></div>
+  </div>
+  <button type="button" class="btn-wa-hero" data-wa="https://wa.me/593994859814?text=Hola%20Juristam%2C%20mi%20inquilino%20no%20paga%20y%20quiero%20desalojarlo.%20Tengo%20el%20contrato%20y%20los%20meses%20impagos%20documentados." onclick="abrirModal(this)">Revisar mi caso → WhatsApp</button>
+</div></div>
+
+<div class="container">
+<div class="filtros">
+  <button type="button" class="filtro-btn activo" data-filtro="todos" onclick="filtrar(this)">Todos (20)</button>
+  <button type="button" class="filtro-btn" data-filtro="rapido" onclick="filtrar(this)">⚡ Desalojo rápido (5)</button>
+  <button type="button" class="filtro-btn" data-filtro="cobro" onclick="filtrar(this)">💰 Cobro de deuda (5)</button>
+  <button type="button" class="filtro-btn" data-filtro="verbal" onclick="filtrar(this)">📋 Contrato verbal (3)</button>
+  <button type="button" class="filtro-btn" data-filtro="danos" onclick="filtrar(this)">🔧 Daños al inmueble (3)</button>
+  <button type="button" class="filtro-btn" data-filtro="negociacion" onclick="filtrar(this)">🤝 Negociación / acuerdo (4)</button>
+</div>
+<p class="casos-count"><strong id="contador">20</strong> casos encontrados</p>
+<div class="casos-grid" id="grid">
+  <div class="caso-card" data-tipo="rapido">
+    <div class="caso-header"><div>
+      <div class="caso-badges"><span class="badge badge-resultado">✓ Desalojo en 5 semanas</span><span class="badge badge-tiempo">⏱ 5 semanas</span></div>
+      <p class="caso-titulo">Departamento en Guayaquil recuperado con contrato registrado</p>
+      <p class="caso-meta">🇪🇨 Guayaquil · Contrato escrito · Mora de 3 meses</p>
+    </div></div>
+    <div class="caso-body">
+      <div class="caso-section"><span class="caso-section-label">La situación</span><p>Propietario con departamento arrendado en el norte de Guayaquil. Contrato escrito, registrado en el municipio y con inventario firmado. El inquilino dejó de pagar tras el tercer mes.</p></div>
+      <div class="caso-section"><span class="caso-section-label">El problema</span><p>El inquilino prometía pagar "la próxima semana" cada vez que se le reclamaba. Ya debía 3 meses de arriendo y los servicios básicos.</p></div>
+      <div class="caso-resultado-box"><p><strong>Resultado:</strong> Juristam presentó la demanda con el contrato y la mora claramente documentada. En 5 semanas se logró la desocupación voluntaria ordenada por el juez, y se recuperaron $1,800 USD de pensiones adeudadas.</p></div>
+    </div>
+    <div class="caso-footer">
+      <p class="caso-cita">"El contrato bien hecho y registrado fue la clave. En poco más de un mes recuperé mi departamento y parte de la deuda."</p>
+      <button type="button" class="btn-caso" data-wa="https://wa.me/593994859814?text=Hola%20Juristam%2C%20tengo%20contrato%20registrado%20y%20mi%20inquilino%20debe%203%20meses.%20Quiero%20desalojarlo%20r%C3%A1pido." onclick="abrirModal(this)">Tengo un caso similar →</button>
+    </div>
+  </div>
+  <div class="caso-card" data-tipo="cobro">
+    <div class="caso-header"><div>
+      <div class="caso-badges"><span class="badge badge-resultado">✓ Recuperó 6 meses de pensiones</span><span class="badge badge-tiempo">⏱ 4 meses</span></div>
+      <p class="caso-titulo">Casa en Quito con inquilino que dejó de pagar silenciosamente</p>
+      <p class="caso-meta">🇪🇨 Quito · Cobro acumulado · Garantía solidaria</p>
+    </div></div>
+    <div class="caso-body">
+      <div class="caso-section"><span class="caso-section-label">La situación</span><p>Propietaria de una casa en el valle de los Chillos con contrato a 2 años. El inquilino pagó puntualmente los primeros 8 meses y luego simplemente dejó de pagar.</p></div>
+      <div class="caso-section"><span class="caso-section-label">El problema</span><p>La propietaria tardó en reaccionar porque el inquilino respondía sus mensajes con excusas. Al cuarto mes de mora, contactó a Juristam.</p></div>
+      <div class="caso-resultado-box"><p><strong>Resultado:</strong> Se demandó la desocupación y el cobro de 6 meses de pensiones ($3,600 USD), más servicios. El garante solidario respondió por la deuda, y la propietaria recuperó el inmueble y el 80% de lo adeudado.</p></div>
+    </div>
+    <div class="caso-footer">
+      <p class="caso-cita">"El garante solidario fue la salvación. Sin él, habría perdido los 6 meses de arriendo."</p>
+      <button type="button" class="btn-caso" data-wa="https://wa.me/593994859814?text=Hola%20Juristam%2C%20mi%20inquilino%20debe%20varios%20meses%20y%20hay%20garante%20solidario.%20Quiero%20cobrar." onclick="abrirModal(this)">Tengo un caso similar →</button>
+    </div>
+  </div>
+  <div class="caso-card" data-tipo="verbal">
+    <div class="caso-header"><div>
+      <div class="caso-badges"><span class="badge badge-resultado">✓ Contrato verbal probado con transferencias</span><span class="badge badge-tiempo">⏱ 6 meses</span></div>
+      <p class="caso-titulo">Arriendo sin contrato escrito en Cuenca</p>
+      <p class="caso-meta">🇪🇨 Cuenca · Contrato verbal · Transferencias bancarias</p>
+    </div></div>
+    <div class="caso-body">
+      <div class="caso-section"><span class="caso-section-label">La situación</span><p>Propietario arrendó un departamento de palabra, cobrando $400 USD mensuales mediante transferencia bancaria durante 14 meses. El inquilino dejó de pagar.</p></div>
+      <div class="caso-section"><span class="caso-section-label">El problema</span><p>Sin contrato escrito, el inquilino negaba la existencia del arriendo y alegaba que el inmueble era un préstamo familiar.</p></div>
+      <div class="caso-resultado-box"><p><strong>Resultado:</strong> Juristam reconstruyó la relación arrendaticia con los estados de cuenta que mostraban transferencias mensuales por $400 USD y capturas de WhatsApp donde se hablaba del "arriendo". El juez ordenó la desocupación.</p></div>
+    </div>
+    <div class="caso-footer">
+      <p class="caso-cita">"No tenía contrato y pensé que estaba perdido. Las transferencias y los mensajes probaron todo."</p>
+      <button type="button" class="btn-caso" data-wa="https://wa.me/593994859814?text=Hola%20Juristam%2C%20arrend%C3%A9%20de%20palabra%20y%20el%20inquilino%20no%20paga.%20Tengo%20transferencias%20bancarias%20como%20prueba." onclick="abrirModal(this)">Tengo un caso similar →</button>
+    </div>
+  </div>
+  <div class="caso-card" data-tipo="negociacion">
+    <div class="caso-header"><div>
+      <div class="caso-badges"><span class="badge badge-resultado">✓ Acuerdo de desocupación en 3 semanas</span><span class="badge badge-tiempo">⏱ 3 semanas</span></div>
+      <p class="caso-titulo">Salida negociada con inquilino insolvente en Guayaquil</p>
+      <p class="caso-meta">🇪🇨 Guayaquil · Negociación estratégica · Sin juicio</p>
+    </div></div>
+    <div class="caso-body">
+      <div class="caso-section"><span class="caso-section-label">La situación</span><p>Propietario con inquilino que debía 4 meses de un local comercial en el centro. El negocio del inquilino quebró y no tenía bienes embargables.</p></div>
+      <div class="caso-section"><span class="caso-section-label">El problema</span><p>Demandar y ganar significaría una sentencia de papel: el inquilino no tenía con qué pagar. La prioridad era recuperar el local para volver a arrendarlo.</p></div>
+      <div class="caso-resultado-box"><p><strong>Resultado:</strong> Juristam negoció una desocupación voluntaria con fecha cierta, condonando parcialmente la deuda a cambio de entrega inmediata. En 3 semanas el local estaba libre y generando renta otra vez.</p></div>
+    </div>
+    <div class="caso-footer">
+      <p class="caso-cita">"Perdí parte de la deuda, pero recuperé el local en semanas. Ahora ya está arrendado de nuevo."</p>
+      <button type="button" class="btn-caso" data-wa="https://wa.me/593994859814?text=Hola%20Juristam%2C%20mi%20inquilino%20no%20tiene%20con%20qu%C3%A9%20pagar%20y%20solo%20quiero%20recuperar%20mi%20inmueble." onclick="abrirModal(this)">Tengo un caso similar →</button>
+    </div>
+  </div>
+  <div class="caso-card" data-tipo="danos">
+    <div class="caso-header"><div>
+      <div class="caso-badges"><span class="badge badge-resultado">✓ Daños por $2,300 USD reclamados</span><span class="badge badge-tiempo">⏱ 5 meses</span></div>
+      <p class="caso-titulo">Departamento entregado con daños graves y mascotas no autorizadas</p>
+      <p class="caso-meta">🇪🇨 Quito · Daños al inmueble · Inventario</p>
+    </div></div>
+    <div class="caso-body">
+      <div class="caso-section"><span class="caso-section-label">La situación</span><p>Departamento amoblado entregado en perfecto estado con inventario firmado y fotos fechadas. El inquilino tuvo mascotas sin autorización y dañó pisos, muebles y paredes.</p></div>
+      <div class="caso-section"><span class="caso-section-label">El problema</span><p>Al momento de la desocupación, el inquilino alegó que "así estaba cuando entró". El propietario necesitaba probar el estado original.</p></div>
+      <div class="caso-resultado-box"><p><strong>Resultado:</strong> El inventario firmado y las fotos del antes y después fueron determinantes. Se reclamaron $2,300 USD por daños, que se cobraron junto con las pensiones adeudadas.</p></div>
+    </div>
+    <div class="caso-footer">
+      <p class="caso-cita">"El inventario que hice al inicio me salvó de pagar los daños de mi bolsillo. Las fotos no mintieron."</p>
+      <button type="button" class="btn-caso" data-wa="https://wa.me/593994859814?text=Hola%20Juristam%2C%20mi%20inquilino%20da%C3%B1%C3%B3%20el%20departamento%20y%20tengo%20inventario%20y%20fotos%20del%20antes." onclick="abrirModal(this)">Tengo un caso similar →</button>
+    </div>
+  </div>
+  <div class="caso-card" data-tipo="rapido">
+    <div class="caso-header"><div>
+      <div class="caso-badges"><span class="badge badge-resultado">✓ Desalojo en 4 semanas con requerimiento</span><span class="badge badge-tiempo">⏱ 4 semanas</span></div>
+      <p class="caso-titulo">Inquilino pagó tras recibir requerimiento formal</p>
+      <p class="caso-meta">🇪🇨 Ambato · Requerimiento · Sin demanda</p>
+    </div></div>
+    <div class="caso-body">
+      <div class="caso-section"><span class="caso-section-label">La situación</span><p>Propietario con inquilino que debía 2 meses de arriendo de una casa en Ambato. El inquilino respondía mensajes pero no pagaba.</p></div>
+      <div class="caso-section"><span class="caso-section-label">El problema</span><p>El propietario no quería ir directo a juicio sin antes dar una oportunidad formal. Necesitaba algo más contundente que un mensaje de WhatsApp.</p></div>
+      <div class="caso-resultado-box"><p><strong>Resultado:</strong> Juristam redactó un requerimiento formal de pago con plazo perentorio y advertencia de demanda. El inquilino pagó los 2 meses completos en 72 horas y regularizó su situación.</p></div>
+    </div>
+    <div class="caso-footer">
+      <p class="caso-cita">"El requerimiento formal fue como un despertador. Pagó de inmediato sin necesidad de juicio."</p>
+      <button type="button" class="btn-caso" data-wa="https://wa.me/593994859814?text=Hola%20Juristam%2C%20quiero%20enviar%20un%20requerimiento%20formal%20a%20mi%20inquilino%20antes%20de%20demandarlo." onclick="abrirModal(this)">Tengo un caso similar →</button>
+    </div>
+  </div>
+  <div class="caso-card" data-tipo="cobro">
+    <div class="caso-header"><div>
+      <div class="caso-badges"><span class="badge badge-resultado">✓ Servicios acumulados por $650 USD</span><span class="badge badge-tiempo">⏱ 2 meses</span></div>
+      <p class="caso-titulo">Inquilino dejó de pagar servicios básicos y condominio</p>
+      <p class="caso-meta">🇪🇨 Guayaquil · Servicios impagos · Alícuotas</p>
+    </div></div>
+    <div class="caso-body">
+      <div class="caso-section"><span class="caso-section-label">La situación</span><p>Propietario de un departamento en un edificio con alícuota mensual. El inquilino pagaba el arriendo pero dejó de pagar los servicios y el condominio.</p></div>
+      <div class="caso-section"><span class="caso-section-label">El problema</span><p>Las planillas llegaban a nombre del propietario, quien terminó asumiéndolas para evitar el corte de servicios y la mora condominal.</p></div>
+      <div class="caso-resultado-box"><p><strong>Resultado:</strong> Juristam sumó los $650 USD de servicios y alícuotas al reclamo de desalojo. El inquilino pagó el total acumulado antes de la desocupación.</p></div>
+    </div>
+    <div class="caso-footer">
+      <p class="caso-cita">"No solo cobré el arriendo: también recuperé el agua, la luz y el condominio que había pagado por él."</p>
+      <button type="button" class="btn-caso" data-wa="https://wa.me/593994859814?text=Hola%20Juristam%2C%20mi%20inquilino%20dej%C3%B3%20de%20pagar%20servicios%20y%20condominio%20y%20los%20estoy%20asumiendo%20yo." onclick="abrirModal(this)">Tengo un caso similar →</button>
+    </div>
+  </div>
+  <div class="caso-card" data-tipo="verbal">
+    <div class="caso-header"><div>
+      <div class="caso-badges"><span class="badge badge-resultado">✓ Arriendo informal probado con testigos</span><span class="badge badge-tiempo">⏱ 7 meses</span></div>
+      <p class="caso-titulo">Inquilino negaba el arriendo en Machala</p>
+      <p class="caso-meta">🇪🇨 Machala · Contrato verbal · Testigos</p>
+    </div></div>
+    <div class="caso-body">
+      <div class="caso-section"><span class="caso-section-label">La situación</span><p>Propietario arrendó una habitación con baño privado de palabra, cobrando $180 USD mensuales en efectivo. El inquilino dejó de pagar y se negó a salir.</p></div>
+      <div class="caso-section"><span class="caso-section-label">El problema</span><p>Sin contrato, sin transferencias (todo en efectivo) y sin recibos, la existencia del arriendo dependía de testigos.</p></div>
+      <div class="caso-resultado-box"><p><strong>Resultado:</strong> Juristam presentó testimonios de vecinos que confirmaban la relación arrendaticia y la ocupación. El juez ordenó la desocupación, aunque el cobro de la deuda fue limitado.</p></div>
+    </div>
+    <div class="caso-footer">
+      <p class="caso-cita">"Fue más difícil por no tener papeles, pero los testigos ayudaron a probar que él vivía ahí pagando arriendo."</p>
+      <button type="button" class="btn-caso" data-wa="https://wa.me/593994859814?text=Hola%20Juristam%2C%20arrend%C3%A9%20sin%20contrato%20y%20todo%20fue%20en%20efectivo.%20Tengo%20testigos%20que%20confirman%20el%20arriendo." onclick="abrirModal(this)">Tengo un caso similar →</button>
+    </div>
+  </div>
+  <div class="caso-card" data-tipo="danos">
+    <div class="caso-header"><div>
+      <div class="caso-badges"><span class="badge badge-resultado">✓ Mascotas no autorizadas: $1,100 USD</span><span class="badge badge-tiempo">⏱ 4 meses</span></div>
+      <p class="caso-titulo">Daños por mascotas sin autorización en departamento</p>
+      <p class="caso-meta">🇪🇨 Quito · Daños · Cláusula contractual</p>
+    </div></div>
+    <div class="caso-body">
+      <div class="caso-section"><span class="caso-section-label">La situación</span><p>Propietario con contrato que prohibía expresamente mascotas. El inquilino ingresó un perro que dañó puertas, muebles y pisos de madera.</p></div>
+      <div class="caso-section"><span class="caso-section-label">El problema</span><p>El inquilino negaba que los daños fueran de su mascota. El propietario necesitaba acreditar el incumplimiento contractual y el deterioro.</p></div>
+      <div class="caso-resultado-box"><p><strong>Resultado:</strong> Con fotos, el inventario y la cláusula que prohibía mascotas, Juristam demostró el incumplimiento. Se reclamaron $1,100 USD por reparaciones, que se cobraron junto con la desocupación.</p></div>
+    </div>
+    <div class="caso-footer">
+      <p class="caso-cita">"La cláusula de mascotas me salvó. El inquilino no pudo negar lo que estaba en el contrato que firmó."</p>
+      <button type="button" class="btn-caso" data-wa="https://wa.me/593994859814?text=Hola%20Juristam%2C%20mi%20inquilino%20meti%C3%B3%20mascotas%20sin%20permiso%20y%20da%C3%B1%C3%B3%20el%20departamento.%20Tengo%20fotos%20y%20la%20cl%C3%A1usula%20en%20el%20contrato." onclick="abrirModal(this)">Tengo un caso similar →</button>
+    </div>
+  </div>
+  <div class="caso-card" data-tipo="negociacion">
+    <div class="caso-header"><div>
+      <div class="caso-badges"><span class="badge badge-resultado">✓ Salida acordada en 10 días</span><span class="badge badge-tiempo">⏱ 10 días</span></div>
+      <p class="caso-titulo">Inquilino que prometía salir y nunca salía</p>
+      <p class="caso-meta">🇪🇨 Guayaquil · Acuerdo con fecha cierta · Sin juicio</p>
+    </div></div>
+    <div class="caso-body">
+      <div class="caso-section"><span class="caso-section-label">La situación</span><p>Propietario con inquilino que llevaba 3 meses "a punto de irse". Cada semana decía que ya se mudaba, pero seguía ocupando el departamento sin pagar.</p></div>
+      <div class="caso-section"><span class="caso-section-label">El problema</span><p>La promesa de salir se usaba para ganar tiempo. El propietario ya no sabía si esperar o demandar.</p></div>
+      <div class="caso-resultado-box"><p><strong>Resultado:</strong> Juristam redactó un acuerdo de desocupación con fecha cierta y entrega de llaves ante notario. El inquilino salió en 10 días y el propietario evitó el juicio completo.</p></div>
+    </div>
+    <div class="caso-footer">
+      <p class="caso-cita">"Cada semana me decía que ya se iba. El acuerdo con fecha cierta lo obligó a cumplir en serio."</p>
+      <button type="button" class="btn-caso" data-wa="https://wa.me/593994859814?text=Hola%20Juristam%2C%20mi%20inquilino%20siempre%20dice%20que%20se%20va%20y%20nunca%20se%20va.%20Quiero%20una%20soluci%C3%B3n%20r%C3%A1pida." onclick="abrirModal(this)">Tengo un caso similar →</button>
+    </div>
+  </div>
+  <div class="caso-card" data-tipo="rapido">
+    <div class="caso-header"><div>
+      <div class="caso-badges"><span class="badge badge-resultado">✓ Desalojo de local comercial en 6 semanas</span><span class="badge badge-tiempo">⏱ 6 semanas</span></div>
+      <p class="caso-titulo">Local arrendado con negocio que dejó de operar</p>
+      <p class="caso-meta">🇪🇨 Quito · Local comercial · Mora de 2 meses</p>
+    </div></div>
+    <div class="caso-body">
+      <div class="caso-section"><span class="caso-section-label">La situación</span><p>Propietario de un local comercial en el centro de Quito. El inquilino cerró su negocio pero dejó mercadería y no entregaba las llaves. Debía 2 meses.</p></div>
+      <div class="caso-section"><span class="caso-section-label">El problema</span><p>El inquilino había desaparecido de la ciudad. El propietario no podía entrar al local ni disponer de la mercadería.</p></div>
+      <div class="caso-resultado-box"><p><strong>Resultado:</strong> Juristam gestionó la demanda de desocupación y el juez ordenó la entrega del local. Un notario inventarió la mercadería abandonada antes de la entrega formal al propietario.</p></div>
+    </div>
+    <div class="caso-footer">
+      <p class="caso-cita">"Mi inquilino desapareció y dejó todo adentro. Con el inventario notarial, recuperé el local sin meterme en problemas."</p>
+      <button type="button" class="btn-caso" data-wa="https://wa.me/593994859814?text=Hola%20Juristam%2C%20mi%20inquilino%20desapareci%C3%B3%20y%20dej%C3%B3%20sus%20cosas%20en%20el%20local.%20No%20s%C3%A9%20qu%C3%A9%20hacer." onclick="abrirModal(this)">Tengo un caso similar →</button>
+    </div>
+  </div>
+  <div class="caso-card" data-tipo="cobro">
+    <div class="caso-header"><div>
+      <div class="caso-badges"><span class="badge badge-resultado">✓ Intereses moratorios del 12% anual</span><span class="badge badge-tiempo">⏱ 3 meses</span></div>
+      <p class="caso-titulo">Contrato con cláusula de intereses por mora</p>
+      <p class="caso-meta">🇪🇨 Guayaquil · Intereses pactados · Cobro judicial</p>
+    </div></div>
+    <div class="caso-body">
+      <div class="caso-section"><span class="caso-section-label">La situación</span><p>Propietario con contrato que incluía una cláusula de intereses moratorios del 12% anual sobre pensiones impagas. El inquilino debía 3 meses.</p></div>
+      <div class="caso-section"><span class="caso-section-label">El problema</span><p>El inquilino ofrecía pagar solo el valor nominal de las pensiones, sin intereses. El propietario quería hacer valer lo pactado.</p></div>
+      <div class="caso-resultado-box"><p><strong>Resultado:</strong> Juristam incluyó los intereses moratorios en la demanda. El juez los reconoció conforme a la cláusula contractual, y el inquilino pagó el total: pensiones + intereses + costas procesales.</p></div>
+    </div>
+    <div class="caso-footer">
+      <p class="caso-cita">"La cláusula de intereses que puse en el contrato valió oro. Me pagaron más de lo que pensaban."</p>
+      <button type="button" class="btn-caso" data-wa="https://wa.me/593994859814?text=Hola%20Juristam%2C%20mi%20contrato%20tiene%20cl%C3%A1usula%20de%20intereses%20por%20mora%20y%20quiero%20que%20el%20inquilino%20los%20pague." onclick="abrirModal(this)">Tengo un caso similar →</button>
+    </div>
+  </div>
+  <div class="caso-card" data-tipo="danos">
+    <div class="caso-header"><div>
+      <div class="caso-badges"><span class="badge badge-resultado">✓ Daños menores reclamados sin peritaje costoso</span><span class="badge badge-tiempo">⏱ 2 meses</span></div>
+      <p class="caso-titulo">Roturas en paredes y cortinas al desocupar</p>
+      <p class="caso-meta">🇪🇨 Ambato · Daños leves · Inventario fotográfico</p>
+    </div></div>
+    <div class="caso-body">
+      <div class="caso-section"><span class="caso-section-label">La situación</span><p>Departamento entregado con roturas en paredes, cortinas arrancadas y bisagras dañadas. Los daños sumaban $450 USD según presupuesto de taller.</p></div>
+      <div class="caso-section"><span class="caso-section-label">El problema</span><p>El monto era bajo para justificar un peritaje costoso. El propietario necesitaba una forma económica de probar los daños.</p></div>
+      <div class="caso-resultado-box"><p><strong>Resultado:</strong> Con el inventario fotográfico firmado al inicio y fotos del estado al desocupar, Juristam reclamó los $450 USD. El inquilino aceptó pagar antes de la audiencia para evitar costas.</p></div>
+    </div>
+    <div class="caso-footer">
+      <p class="caso-cita">"Las fotos del antes y del después fueron suficientes. Ni siquiera necesitamos peritaje para cobrar los daños menores."</p>
+      <button type="button" class="btn-caso" data-wa="https://wa.me/593994859814?text=Hola%20Juristam%2C%20mi%20inquilino%20dej%C3%B3%20da%C3%B1os%20menores%20y%20tengo%20fotos%20del%20antes%20y%20el%20despu%C3%A9s." onclick="abrirModal(this)">Tengo un caso similar →</button>
+    </div>
+  </div>
+  <div class="caso-card" data-tipo="verbal">
+    <div class="caso-header"><div>
+      <div class="caso-badges"><span class="badge badge-resultado">✓ Arriendo verbal en zona rural probado</span><span class="badge badge-tiempo">⏱ 8 meses</span></div>
+      <p class="caso-titulo">Terreno arrendado de palabra para cultivo en Quevedo</p>
+      <p class="caso-meta">🇪🇨 Quevedo · Arrendamiento rural · Testigos y pagos</p>
+    </div></div>
+    <div class="caso-body">
+      <div class="caso-section"><span class="caso-section-label">La situación</span><p>Propietario de un terreno agrícola arrendado de palabra por $300 USD mensuales en efectivo. El inquilino dejó de pagar y se negaba a desocupar.</p></div>
+      <div class="caso-section"><span class="caso-section-label">El problema</span><p>Sin contrato y con pagos en efectivo, la relación arrendaticia dependía de testigos y de la ocupación visible del terreno.</p></div>
+      <div class="caso-resultado-box"><p><strong>Resultado:</strong> Juristam presentó testimonios de vecinos, comprobantes de pago de impuestos prediales a nombre del propietario y evidencia fotográfica del cultivo. El juez ordenó la desocupación del terreno.</p></div>
+    </div>
+    <div class="caso-footer">
+      <p class="caso-cita">"En el campo los contratos se hacen de palabra. Los testigos y la evidencia de que yo pagaba los impuestos lo resolvieron."</p>
+      <button type="button" class="btn-caso" data-wa="https://wa.me/593994859814?text=Hola%20Juristam%2C%20arrend%C3%A9%20un%20terreno%20de%20palabra%20en%20zona%20rural%20y%20no%20me%20lo%20quieren%20devolver." onclick="abrirModal(this)">Tengo un caso similar →</button>
+    </div>
+  </div>
+  <div class="caso-card" data-tipo="rapido">
+    <div class="caso-header"><div>
+      <div class="caso-badges"><span class="badge badge-resultado">✓ Desalojo con fuerza pública en 7 semanas</span><span class="badge badge-tiempo">⏱ 7 semanas</span></div>
+      <p class="caso-titulo">Inquilino se negó a salir tras sentencia favorable</p>
+      <p class="caso-meta">🇪🇨 Guayaquil · Ejecución forzosa · Fuerza pública</p>
+    </div></div>
+    <div class="caso-body">
+      <div class="caso-section"><span class="caso-section-label">La situación</span><p>Propietario ganó la demanda de desocupación, pero el inquilino se negaba a entregar el inmueble voluntariamente.</p></div>
+      <div class="caso-section"><span class="caso-section-label">El problema</span><p>El inquilino ignoró la orden judicial y siguió viviendo en el departamento. El propietario necesitaba ejecutar la sentencia.</p></div>
+      <div class="caso-resultado-box"><p><strong>Resultado:</strong> Juristam gestionó la ejecución forzosa de la sentencia. Con la fuerza pública se realizó la desocupación del inmueble en presencia de un notario que inventarió los bienes del inquilino.</p></div>
+    </div>
+    <div class="caso-footer">
+      <p class="caso-cita">"Gané el juicio pero no me entregaba las llaves. La ejecución con fuerza pública fue la única forma de que saliera."</p>
+      <button type="button" class="btn-caso" data-wa="https://wa.me/593994859814?text=Hola%20Juristam%2C%20gan%C3%A9%20el%20juicio%20pero%20mi%20inquilino%20no%20quiere%20salir.%20Necesito%20ejecutar%20la%20sentencia." onclick="abrirModal(this)">Tengo un caso similar →</button>
+    </div>
+  </div>
+  <div class="caso-card" data-tipo="cobro">
+    <div class="caso-header"><div>
+      <div class="caso-badges"><span class="badge badge-resultado">✓ $2,700 USD de pensiones recuperadas</span><span class="badge badge-tiempo">⏱ 4 meses</span></div>
+      <p class="caso-titulo">Departamento en Manta con 5 meses de mora</p>
+      <p class="caso-meta">🇪🇨 Manta · Cobro acumulado · Embargo preventivo</p>
+    </div></div>
+    <div class="caso-body">
+      <div class="caso-section"><span class="caso-section-label">La situación</span><p>Propietario con inquilino que acumuló 5 meses de deuda en un departamento frente al mar. El inquilino seguía ocupando el inmueble y el propietario pagaba el condominio.</p></div>
+      <div class="caso-section"><span class="caso-section-label">El problema</span><p>El inquilino tenía un vehículo a su nombre y un negocio activo, pero se negaba a pagar alegando problemas financieros.</p></div>
+      <div class="caso-resultado-box"><p><strong>Resultado:</strong> Juristam solicitó embargo preventivo sobre el vehículo del inquilino. Ante el riesgo de perder el auto, el inquilino pagó los $2,700 USD de pensiones y desocupó el departamento.</p></div>
+    </div>
+    <div class="caso-footer">
+      <p class="caso-cita">"Decía que no tenía dinero, pero el embargo de su carro lo hizo reaccionar. Me pagó todo."</p>
+      <button type="button" class="btn-caso" data-wa="https://wa.me/593994859814?text=Hola%20Juristam%2C%20mi%20inquilino%20tiene%20bienes%20pero%20no%20quiere%20pagarme.%20%C2%BFPuedo%20embargarlo%3F" onclick="abrirModal(this)">Tengo un caso similar →</button>
+    </div>
+  </div>
+  <div class="caso-card" data-tipo="negociacion">
+    <div class="caso-header"><div>
+      <div class="caso-badges"><span class="badge badge-resultado">✓ Inquilino pagó 2 meses y regularizó</span><span class="badge badge-tiempo">⏱ 2 semanas</span></div>
+      <p class="caso-titulo">Mora de 2 meses resuelta sin demanda</p>
+      <p class="caso-meta">🇪🇨 Guayaquil · Requerimiento + negociación</p>
+    </div></div>
+    <div class="caso-body">
+      <div class="caso-section"><span class="caso-section-label">La situación</span><p>Propietario con inquilino que debía 2 meses de arriendo y no respondía los mensajes. El inquilino tenía solvencia pero estaba pasando por un divorcio.</p></div>
+      <div class="caso-section"><span class="caso-section-label">El problema</span><p>El propietario no quería arruinar la relación con un buen inquilino que estaba pasando un mal momento, pero necesitaba cobrar.</p></div>
+      <div class="caso-resultado-box"><p><strong>Resultado:</strong> Juristam envió un requerimiento formal con tono firme pero respetuoso, abriendo la puerta a un plan de pagos. El inquilino pagó los 2 meses y acordó ponerse al día con un cronograma que cumplió puntualmente.</p></div>
+    </div>
+    <div class="caso-footer">
+      <p class="caso-cita">"No quería demandarlo, solo necesitaba que reaccionara. El requerimiento formal fue perfecto: cobré sin perder al inquilino."</p>
+      <button type="button" class="btn-caso" data-wa="https://wa.me/593994859814?text=Hola%20Juristam%2C%20mi%20inquilino%20debe%202%20meses%20pero%20no%20quiero%20llegar%20a%20juicio.%20Quiero%20una%20soluci%C3%B3n%20intermedia." onclick="abrirModal(this)">Tengo un caso similar →</button>
+    </div>
+  </div>
+  <div class="caso-card" data-tipo="cobro">
+    <div class="caso-header"><div>
+      <div class="caso-badges"><span class="badge badge-resultado">✓ Deuda de $4,800 USD cobrada íntegra</span><span class="badge badge-tiempo">⏱ 5 meses</span></div>
+      <p class="caso-titulo">Local comercial con inquilino corporativo moroso</p>
+      <p class="caso-meta">🇪🇨 Quito · Local comercial · Garantía bancaria</p>
+    </div></div>
+    <div class="caso-body">
+      <div class="caso-section"><span class="caso-section-label">La situación</span><p>Propietario de un local comercial arrendado a una empresa con garantía bancaria. La empresa dejó de pagar 8 meses y seguía ocupando el local.</p></div>
+      <div class="caso-section"><span class="caso-section-label">El problema</span><p>La empresa argumentaba que el local tenía filtraciones que lo hacían inhabitable, pero no presentó pruebas. Mientras tanto, la deuda crecía.</p></div>
+      <div class="caso-resultado-box"><p><strong>Resultado:</strong> Juristam ejecutó la garantía bancaria por $4,800 USD y presentó la demanda de desocupación. La empresa desocupó el local y el propietario recuperó la totalidad de la deuda.</p></div>
+    </div>
+    <div class="caso-footer">
+      <p class="caso-cita">"La garantía bancaria fue el colchón perfecto. Cobré todo sin depender de la voluntad del inquilino."</p>
+      <button type="button" class="btn-caso" data-wa="https://wa.me/593994859814?text=Hola%20Juristam%2C%20mi%20inquilino%20corporativo%20no%20paga%20y%20tengo%20garant%C3%ADa%20bancaria.%20%C2%BFC%C3%B3mo%20la%20ejecuto%3F" onclick="abrirModal(this)">Tengo un caso similar →</button>
+    </div>
+  </div>
+  <div class="caso-card" data-tipo="rapido">
+    <div class="caso-header"><div>
+      <div class="caso-badges"><span class="badge badge-resultado">✓ Desalojo de cuarto en 3 semanas</span><span class="badge badge-tiempo">⏱ 3 semanas</span></div>
+      <p class="caso-titulo">Inquilino de habitación que dejó de pagar</p>
+      <p class="caso-meta">🇪🇨 Guayaquil · Arriendo de habitación · Mora de 2 meses</p>
+    </div></div>
+    <div class="caso-body">
+      <div class="caso-section"><span class="caso-section-label">La situación</span><p>Propietario arrendaba una habitación amoblada con contrato simple. El inquilino dejó de pagar tras el primer mes y se negaba a salir.</p></div>
+      <div class="caso-section"><span class="caso-section-label">El problema</span><p>El contrato era básico pero válido. El inquilino alegaba que tenía derecho a quedarse por haber pagado un "depósito".</p></div>
+      <div class="caso-resultado-box"><p><strong>Resultado:</strong> Juristam aclaró que el depósito no sustituye la pensión mensual y presentó la demanda. En 3 semanas se logró la desocupación y la recuperación de 1 mes de arriendo.</p></div>
+    </div>
+    <div class="caso-footer">
+      <p class="caso-cita">"El inquilino creía que el depósito le daba derecho a quedarse. Se equivocó y salió rápido."</p>
+      <button type="button" class="btn-caso" data-wa="https://wa.me/593994859814?text=Hola%20Juristam%2C%20arriendo%20una%20habitaci%C3%B3n%20y%20el%20inquilino%20dice%20que%20el%20dep%C3%B3sito%20le%20da%20derecho%20a%20quedarse." onclick="abrirModal(this)">Tengo un caso similar →</button>
+    </div>
+  </div>
+  <div class="caso-card" data-tipo="negociacion">
+    <div class="caso-header"><div>
+      <div class="caso-badges"><span class="badge badge-resultado">✓ Desocupación pactada con condonación parcial</span><span class="badge badge-tiempo">⏱ 1 mes</span></div>
+      <p class="caso-titulo">Inquilino con deuda impagable que aceptó salir</p>
+      <p class="caso-meta">🇪🇨 Santo Domingo · Negociación estratégica</p>
+    </div></div>
+    <div class="caso-body">
+      <div class="caso-section"><span class="caso-section-label">La situación</span><p>Propietario con inquilino que debía 6 meses de arriendo y no tenía bienes ni ingresos estables. La deuda era incobrable en la práctica.</p></div>
+      <div class="caso-section"><span class="caso-section-label">El problema</span><p>El propietario podía demandar y ganar, pero cobrar sería imposible. Su prioridad real era recuperar el inmueble.</p></div>
+      <div class="caso-resultado-box"><p><strong>Resultado:</strong> Juristam negoció una salida con condonación del 50% de la deuda a cambio de desocupación en 30 días. El inquilino salió puntualmente y el propietario volvió a arrendar el inmueble de inmediato.</p></div>
+    </div>
+    <div class="caso-footer">
+      <p class="caso-cita">"Perdí la mitad de la deuda, pero recuperé el inmueble en un mes. Era mejor que ganar un juicio sin cobrar nunca."</p>
+      <button type="button" class="btn-caso" data-wa="https://wa.me/593994859814?text=Hola%20Juristam%2C%20mi%20inquilino%20no%20tiene%20bienes%20y%20solo%20quiero%20recuperar%20el%20inmueble%20r%C3%A1pido." onclick="abrirModal(this)">Tengo un caso similar →</button>
+    </div>
+  </div>
+</div>
+
+<div class="cta-final">
+  <h2>¿Tu inquilino no paga y quieres recuperar tu inmueble?</h2>
+  <p>Mándanos el contrato y el detalle de los meses impagos. Revisamos si cumple formalidades, si ya tienes causal suficiente y qué conceptos se pueden acumular al reclamo. La revisión inicial no tiene costo.</p>
+  <div class="precio-mini">
+    <div class="precio-mini-item"><span>Revisión inicial</span><span>$0</span></div>
+    <div class="precio-mini-item"><span>Asesoría virtual ⭐</span><span>$45</span></div>
+    <div class="precio-mini-item"><span>Presencial</span><span>$85</span></div>
+  </div>
+  <p style="color:#c4b5fd;font-size:.8rem;margin-bottom:1.2rem;">Los $45 de la asesoría se descuentan del servicio completo si decides continuar.</p>
+  <button type="button" class="btn-wa-hero" data-wa="https://wa.me/593994859814?text=Hola%20Juristam%2C%20vi%20los%20casos%20de%20desalojo%20y%20quiero%20revisar%20mi%20caso.%20Tengo%20el%20contrato%20y%20los%20meses%20impagos." onclick="abrirModal(this)">Enviar mi contrato · WhatsApp →</button>
+</div>
+
+<div style="text-align:center;margin-bottom:2.5rem;">
+  <a href="/blog/desalojo-inquilino-no-paga-ecuador.html" style="color:var(--primary-dark);font-size:.9rem;font-weight:600;text-decoration:underline;">← Volver a la guía completa</a>
+</div>
+</div>
+
+<footer><div class="container">
+  <p><strong>Juristam</strong> — Asesoría Legal Estratégica en Ecuador</p>
+  <p>© 2026 Juristam. Todos los derechos reservados. <a href="/blog/">Blog</a> · <a href="/#formulario">Contacto</a></p>
+  <p style="margin-top:.5rem;font-size:.8rem;opacity:.7;">Casos reales anonimizados. El resultado de un desalojo depende del contrato, las formalidades cumplidas y la evidencia concreta de cada caso — los resultados pueden variar.</p>
+</div></footer>
+
+<script>
+const WA_FALLBACK="https://wa.me/593994859814?text=Hola%20Juristam%2C%20mi%20inquilino%20no%20paga%20y%20quiero%20desalojarlo.%20Tengo%20el%20contrato%20y%20los%20meses%20impagos%20documentados.";
+let waActual = WA_FALLBACK;
+function abrirModal(el){
+  waActual = (el && el.dataset && el.dataset.wa) ? el.dataset.wa : WA_FALLBACK;
+  document.getElementById("waModal").classList.add("active");
+  document.body.style.overflow="hidden";
+}
+function cerrarModal(){document.getElementById("waModal").classList.remove("active");document.body.style.overflow="";}
+function irAWhatsApp(){cerrarModal();window.open(waActual,"_blank","noopener");}
+document.getElementById("waModal").addEventListener("click",function(e){if(e.target===this)cerrarModal();});
+document.addEventListener("keydown",function(e){if(e.key==="Escape")cerrarModal();});
+function filtrar(btn){
+  var f = btn.dataset.filtro;
+  document.querySelectorAll(".filtro-btn").forEach(function(b){b.classList.remove("activo");});
+  btn.classList.add("activo");
+  var n = 0;
+  document.querySelectorAll(".caso-card").forEach(function(c){
+    var ok = (f === "todos" || c.dataset.tipo === f);
+    c.classList.toggle("oculto", !ok);
+    if (ok) n++;
+  });
+  document.getElementById("contador").textContent = n;
+}
+</script>
+</body>
+</html>
