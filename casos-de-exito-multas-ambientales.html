@@ -1,0 +1,505 @@
+<!DOCTYPE html>
+<html lang="es-EC">
+<head>
+<meta charset="UTF-8"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<link rel="icon" type="image/png" href="https://i.postimg.cc/KjDB1NSM/Diseno-sin-titulo-(7).png"/>
+<meta name="theme-color" content="#9a6aff"/>
+<title>Multas ambientales impugnadas en Ecuador · 20 casos · Juristam</title>
+<meta name="description" content="20 casos reales de operadores que impugnaron multas ambientales: recalificación de infracciones, informes contradichos, atenuantes aplicados y planes de remediación propios."/>
+<link rel="canonical" href="https://juristam.net/casos-de-exito-multas-ambientales.html"/>
+<meta name="robots" content="index,follow"/>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;0,700;1,400&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet"/>
+<style>
+:root{--primary:#9a6aff;--primary-dark:#7c3aed;--primary-light:#efe8ff;--primary-deep:#1e0a4e;--text:#1a1a2e;--text-secondary:#4a4a6a;--white:#fff;--success:#059669;--success-light:#ecfdf5;--gray-light:#f9f9fb;--border:#e8e8f0;}
+*{margin:0;padding:0;box-sizing:border-box;}html{scroll-behavior:smooth;}
+body{font-family:"DM Sans",sans-serif;color:var(--text);background:var(--white);line-height:1.8;-webkit-font-smoothing:antialiased;}
+a{text-decoration:none;color:inherit;}
+.container{max-width:960px;margin:0 auto;padding:0 1.5rem;}
+header{background:var(--white);border-bottom:1px solid var(--border);position:sticky;top:0;z-index:100;height:90px;}
+.header-inner{display:flex;align-items:center;justify-content:space-between;height:100%;}
+.brand-logo{height:90px;width:auto;}
+.btn-back{background:var(--primary-light);color:var(--primary-dark);padding:.5rem 1rem;border-radius:8px;font-size:.85rem;font-weight:600;}
+.hero{background:linear-gradient(135deg,var(--primary-deep),#2d1060);padding:3.5rem 0 2.8rem;text-align:center;margin-bottom:2rem;}
+.hero-tag{display:inline-block;background:rgba(255,255,255,.12);color:#c4b5fd;font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.12em;padding:.35rem .9rem;border-radius:20px;margin-bottom:1rem;}
+.hero h1{font-family:"Lora",serif;font-size:clamp(1.7rem,3.5vw,2.3rem);color:#fff;margin-bottom:.8rem;line-height:1.25;font-weight:700;}
+.hero p{color:#c4b5fd;font-size:.97rem;max-width:600px;margin:0 auto 1.5rem;line-height:1.75;}
+.hero-stats{display:flex;justify-content:center;gap:2.5rem;flex-wrap:wrap;margin-top:1.8rem;}
+.stat-num{font-family:"Lora",serif;font-size:2rem;font-weight:700;color:#fff;display:block;}
+.stat-label{font-size:.75rem;color:#c4b5fd;text-transform:uppercase;letter-spacing:.06em;}
+.btn-wa-hero{background:#25d366;color:#fff;padding:.8rem 2rem;border-radius:10px;font-size:.95rem;font-weight:700;display:inline-block;cursor:pointer;border:none;margin-top:1.5rem;font-family:inherit;}
+.filtros{display:flex;gap:.6rem;flex-wrap:wrap;justify-content:center;margin-bottom:1.2rem;}
+.filtro-btn{background:var(--white);border:1.5px solid var(--border);color:var(--text-secondary);padding:.5rem 1.1rem;border-radius:24px;font-size:.85rem;font-weight:600;cursor:pointer;font-family:inherit;transition:all .18s;}
+.filtro-btn:hover{border-color:var(--primary);color:var(--primary-dark);}
+.filtro-btn.activo{background:var(--primary-dark);border-color:var(--primary-dark);color:#fff;}
+.casos-count{font-size:.85rem;color:var(--text-secondary);margin-bottom:1rem;text-align:center;}
+.casos-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(380px,1fr));gap:1.4rem;margin-bottom:3rem;}
+.caso-card{background:var(--white);border-radius:16px;border:1.5px solid var(--border);overflow:hidden;box-shadow:0 4px 20px rgba(0,0,0,.06);transition:box-shadow .2s,transform .2s;display:flex;flex-direction:column;}
+.caso-card:hover{box-shadow:0 8px 32px rgba(124,58,237,.14);transform:translateY(-2px);}
+.caso-card.oculto{display:none;}
+.caso-header{padding:1.3rem 1.5rem .9rem;border-bottom:1px solid var(--border);}
+.caso-badges{display:flex;gap:.4rem;flex-wrap:wrap;margin-bottom:.55rem;}
+.badge{font-size:.68rem;font-weight:700;padding:.2rem .6rem;border-radius:20px;text-transform:uppercase;letter-spacing:.04em;}
+.badge-resultado{background:var(--success-light);color:var(--success);}
+.badge-tiempo{background:var(--gray-light);color:var(--text-secondary);}
+.caso-titulo{font-family:"Lora",serif;font-size:1rem;font-weight:700;color:var(--text);line-height:1.35;margin-bottom:.25rem;}
+.caso-meta{font-size:.76rem;color:var(--text-secondary);}
+.caso-body{padding:1.1rem 1.5rem;flex:1;}
+.caso-section{margin-bottom:.85rem;}
+.caso-section-label{font-size:.65rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--text-secondary);margin-bottom:.25rem;display:block;}
+.caso-section p{font-size:.87rem;color:var(--text);line-height:1.7;margin:0;}
+.caso-resultado-box{background:var(--success-light);border-left:3px solid var(--success);border-radius:0 8px 8px 0;padding:.75rem .9rem;margin-top:.7rem;}
+.caso-resultado-box p{font-size:.85rem;color:var(--text);line-height:1.65;margin:0;}
+.caso-resultado-box strong{color:var(--success);}
+.caso-footer{padding:.85rem 1.5rem;background:var(--gray-light);border-top:1px solid var(--border);display:flex;align-items:center;justify-content:space-between;gap:.7rem;flex-wrap:wrap;}
+.caso-cita{font-size:.8rem;color:var(--text-secondary);font-style:italic;flex:1;line-height:1.5;}
+.btn-caso{background:var(--primary-dark);color:#fff;padding:.48rem 1rem;border-radius:8px;font-size:.78rem;font-weight:700;white-space:nowrap;cursor:pointer;border:none;flex-shrink:0;font-family:inherit;}
+.cta-final{background:linear-gradient(135deg,var(--primary-deep),#2d1060);border-radius:16px;padding:2.5rem 2rem;text-align:center;margin:1rem 0 3rem;}
+.cta-final h2{font-family:"Lora",serif;color:#fff;font-size:1.5rem;margin-bottom:.8rem;}
+.cta-final p{color:#c4b5fd;margin-bottom:1.5rem;line-height:1.75;max-width:520px;margin-left:auto;margin-right:auto;}
+.precio-mini{display:inline-flex;gap:1.5rem;background:rgba(255,255,255,.1);border-radius:12px;padding:.8rem 1.5rem;margin-bottom:.8rem;flex-wrap:wrap;justify-content:center;}
+.precio-mini-item span:first-child{display:block;font-size:.68rem;color:#c4b5fd;text-transform:uppercase;letter-spacing:.08em;margin-bottom:.2rem;}
+.precio-mini-item span:last-child{font-family:"Lora",serif;font-size:1.6rem;font-weight:700;color:#fff;}
+.modal-overlay{display:none;position:fixed;inset:0;background:rgba(10,5,30,.65);backdrop-filter:blur(5px);z-index:999;align-items:center;justify-content:center;padding:.75rem;}
+.modal-overlay.active{display:flex;}
+.modal{background:#fff;border-radius:18px;max-width:380px;width:100%;box-shadow:0 24px 60px rgba(0,0,0,.25);}
+.modal-top{background:linear-gradient(135deg,var(--primary-deep),#4c1d95);padding:1.1rem 1.2rem .9rem;position:relative;border-radius:18px 18px 0 0;}
+.modal-top h4{color:#fff;font-size:.98rem;font-weight:700;margin-bottom:.2rem;}
+.modal-top p{color:#c4b5fd;font-size:.74rem;line-height:1.4;}
+.modal-close{position:absolute;top:.6rem;right:.6rem;background:rgba(255,255,255,.15);border:none;color:#fff;width:24px;height:24px;border-radius:50%;cursor:pointer;font-size:.8rem;display:flex;align-items:center;justify-content:center;}
+.modal-body{padding:.9rem 1.2rem 1.1rem;}
+.modal-section-label{font-size:.62rem;font-weight:700;color:var(--text-secondary);text-transform:uppercase;letter-spacing:.05em;margin-bottom:.35rem;display:block;}
+.modal-precios{display:grid;grid-template-columns:1fr 1fr;gap:.5rem;margin-bottom:.7rem;}
+.modal-precio{border-radius:10px;padding:.5rem .6rem;border:1.5px solid var(--border);text-align:center;}
+.modal-precio.virtual{border-color:var(--primary);background:var(--primary-light);}
+.modal-precio .mlabel{font-size:.6rem;font-weight:700;text-transform:uppercase;letter-spacing:.04em;color:var(--primary-dark);display:block;margin-bottom:.1rem;}
+.modal-precio .mmonto{font-family:"Lora",serif;font-size:1.25rem;font-weight:700;color:var(--text);line-height:1;}
+.modal-nota{font-size:.7rem;color:var(--text-secondary);background:var(--gray-light);border-radius:8px;padding:.5rem .65rem;margin-bottom:.8rem;line-height:1.4;}
+.btn-modal-wa{display:block;background:#25d366;color:#fff;text-align:center;padding:.7rem;border-radius:9px;font-weight:700;font-size:.86rem;border:none;cursor:pointer;width:100%;font-family:inherit;}
+footer{background:var(--text);color:#ccc;padding:2.2rem 0 5.5rem;text-align:center;font-size:.84rem;margin-top:3rem;}
+footer a{color:var(--primary);}footer strong{color:var(--white);}
+@media(max-width:700px){.casos-grid{grid-template-columns:1fr;}.hero-stats{gap:1.2rem;}.modal-precios{grid-template-columns:1fr;}.filtro-btn{font-size:.8rem;padding:.45rem .9rem;}}
+</style>
+</head>
+<body>
+
+<div class="modal-overlay" id="waModal" role="dialog" aria-modal="true">
+  <div class="modal">
+    <div class="modal-top">
+      <button type="button" class="modal-close" onclick="cerrarModal()" aria-label="Cerrar">&#x2715;</button>
+      <h4>Lo que más baja el monto es la calificación</h4>
+      <p>Si te notificaron una multa ambiental, mándanos la resolución y el informe técnico. Revisamos si la calificación es correcta y qué atenuantes no se valoraron.</p>
+    </div>
+    <div class="modal-body">
+      <span class="modal-section-label">Asesoría inicial</span>
+      <div class="modal-precios">
+        <div class="modal-precio virtual"><span class="mlabel">Virtual ⭐</span><div class="mmonto">$45</div></div>
+        <div class="modal-precio"><span class="mlabel">Presencial</span><div class="mmonto">$85</div></div>
+      </div>
+      <div class="modal-nota">La revisión inicial de tu caso no tiene costo. Los $45 se descuentan del servicio completo si decides continuar.</div>
+      <button type="button" class="btn-modal-wa" onclick="irAWhatsApp()">Continuar a WhatsApp →</button>
+    </div>
+  </div>
+</div>
+
+<header><div class="container header-inner">
+  <a href="/blog/"><img class="brand-logo" src="https://i.postimg.cc/vHygbHxz/oie-transparent-(2).png" alt="Juristam" loading="eager" width="120" height="90"/></a>
+  <a class="btn-back" href="/blog/multas-ambientales-ecuador-impugnar.html">← Volver al artículo</a>
+</div></header>
+
+<div class="hero"><div class="container">
+  <span class="hero-tag">Juristam · Multas ambientales en Ecuador</span>
+  <h1>Multas ambientales impugnadas en Ecuador</h1>
+  <p>20 casos reales de operadores que impugnaron multas ambientales: recalificación de infracciones, informes contradichos, atenuantes aplicados y planes de remediación propios.</p>
+  <div class="hero-stats">
+    <div class="stat"><span class="stat-num">20</span><span class="stat-label">Casos documentados</span></div>
+    <div class="stat"><span class="stat-num">3 sem</span><span class="stat-label">Caso más rápido</span></div>
+    <div class="stat"><span class="stat-num">0</span><span class="stat-label">Viajes necesarios</span></div>
+    <div class="stat"><span class="stat-num">$0</span><span class="stat-label">Revisión inicial</span></div>
+  </div>
+  <button type="button" class="btn-wa-hero" data-wa="https://wa.me/593994859814?text=Hola%20Juristam%2C%20me%20notificaron%20una%20multa%20ambiental%20y%20quiero%20impugnarla.%20Tengo%20la%20resoluci%C3%B3n." onclick="abrirModal(this)">Revisar mi caso → WhatsApp</button>
+</div></div>
+
+<div class="container">
+<div class="filtros">
+  <button type="button" class="filtro-btn activo" data-filtro="todos" onclick="filtrar(this)">Todos (20)</button>
+  <button type="button" class="filtro-btn" data-filtro="calificacion" onclick="filtrar(this)">📋 Recalificación (5)</button>
+  <button type="button" class="filtro-btn" data-filtro="informe" onclick="filtrar(this)">🔬 Informe contradicho (5)</button>
+  <button type="button" class="filtro-btn" data-filtro="atenuantes" onclick="filtrar(this)">✨ Atenuantes aplicados (4)</button>
+  <button type="button" class="filtro-btn" data-filtro="remediacion" onclick="filtrar(this)">🌱 Plan de remediación propio (3)</button>
+  <button type="button" class="filtro-btn" data-filtro="procedimiento" onclick="filtrar(this)">⚖️ Defecto de procedimiento (3)</button>
+</div>
+<p class="casos-count"><strong id="contador">20</strong> casos encontrados</p>
+<div class="casos-grid" id="grid">
+  <div class="caso-card" data-tipo="calificacion">
+    <div class="caso-header"><div>
+      <div class="caso-badges"><span class="badge badge-resultado">✓ Multa reducida de $80,000 a $12,000</span><span class="badge badge-tiempo">⏱ 4 meses</span></div>
+      <p class="caso-titulo">Recalificación de "muy grave" a "leve"</p>
+      <p class="caso-meta">🇪🇨 Guayaquil · Recalificación · Multa</p>
+    </div></div>
+    <div class="caso-body">
+      <div class="caso-section"><span class="caso-section-label">La situación</span><p>Operador de una planta industrial recibió una sanción de $80,000 USD por no presentar un informe de cumplimiento dentro del plazo.</p></div>
+      <div class="caso-section"><span class="caso-section-label">El problema</span><p>La autoridad calificó el incumplimiento como "muy grave". El operador sostenía que era un retraso formal sin daño ambiental.</p></div>
+      <div class="caso-resultado-box"><p><strong>Resultado:</strong> Juristam demostró que el informe existía y se presentó con días de retraso, sin afectación. La calificación se redujo a "leve" y la multa bajó a $12,000 USD.</p></div>
+    </div>
+    <div class="caso-footer">
+      <p class="caso-cita">"Un retraso de días me costaba $80,000. La recalificación lo bajó a $12,000."</p>
+      <button type="button" class="btn-caso" data-wa="https://wa.me/593994859814?text=Hola%20Juristam%2C%20me%20pusieron%20una%20multa%20ambiental%20desproporcionada.%20Quiero%20que%20la%20recalifiquen." onclick="abrirModal(this)">Tengo un caso similar →</button>
+    </div>
+  </div>
+  <div class="caso-card" data-tipo="informe">
+    <div class="caso-header"><div>
+      <div class="caso-badges"><span class="badge badge-resultado">✓ Informe técnico desvirtuado y caso archivado</span><span class="badge badge-tiempo">⏱ 6 meses</span></div>
+      <p class="caso-titulo">Peritaje independiente contradijo el muestreo del MAE</p>
+      <p class="caso-meta">🇪🇨 Quito · Informe técnico · Peritaje</p>
+    </div></div>
+    <div class="caso-body">
+      <div class="caso-section"><span class="caso-section-label">La situación</span><p>Una empresa fue acusada de contaminar un cuerpo de agua. El informe técnico de la autoridad mostraba parámetros fuera de norma.</p></div>
+      <div class="caso-section"><span class="caso-section-label">El problema</span><p>La metodología de muestreo era cuestionable: el punto de toma no correspondía a la descarga de la empresa y la cadena de custodia tenía vacíos.</p></div>
+      <div class="caso-resultado-box"><p><strong>Resultado:</strong> Juristam presentó un peritaje independiente que demostró las deficiencias metodológicas. El procedimiento fue archivado.</p></div>
+    </div>
+    <div class="caso-footer">
+      <p class="caso-cita">"El muestreo estaba mal hecho. El peritaje lo demostró y archivaron el caso."</p>
+      <button type="button" class="btn-caso" data-wa="https://wa.me/593994859814?text=Hola%20Juristam%2C%20el%20informe%20t%C3%A9cnico%20de%20la%20autoridad%20ambiental%20tiene%20errores.%20Quiero%20contradecirlo." onclick="abrirModal(this)">Tengo un caso similar →</button>
+    </div>
+  </div>
+  <div class="caso-card" data-tipo="atenuantes">
+    <div class="caso-header"><div>
+      <div class="caso-badges"><span class="badge badge-resultado">✓ Multa eliminada con reparación voluntaria</span><span class="badge badge-tiempo">⏱ 2 meses</span></div>
+      <p class="caso-titulo">Reparación voluntaria como atenuante total</p>
+      <p class="caso-meta">🇪🇨 Quevedo · Reparación voluntaria · Multa eliminada</p>
+    </div></div>
+    <div class="caso-body">
+      <div class="caso-section"><span class="caso-section-label">La situación</span><p>Una finca agrícola tuvo un derrame menor de agroquímicos. La autoridad impuso una multa de $45,000 USD.</p></div>
+      <div class="caso-section"><span class="caso-section-label">El problema</span><p>El operador actuó de inmediato: contuvo el derrame, remedió el suelo y documentó todo. La multa parecía desproporcionada.</p></div>
+      <div class="caso-resultado-box"><p><strong>Resultado:</strong> Juristam presentó la evidencia de reparación voluntaria e inmediata. La autoridad eliminó la multa por completo, considerando la remediación como suficiente.</p></div>
+    </div>
+    <div class="caso-footer">
+      <p class="caso-cita">"Reparé todo yo mismo y lo documenté. La multa desapareció por completo."</p>
+      <button type="button" class="btn-caso" data-wa="https://wa.me/593994859814?text=Hola%20Juristam%2C%20repar%C3%A9%20el%20da%C3%B1o%20ambiental%20por%20mi%20cuenta%20y%20quiero%20que%20me%20eliminen%20la%20multa." onclick="abrirModal(this)">Tengo un caso similar →</button>
+    </div>
+  </div>
+  <div class="caso-card" data-tipo="remediacion">
+    <div class="caso-header"><div>
+      <div class="caso-badges"><span class="badge badge-resultado">✓ Plan propio redujo la sanción en 70%</span><span class="badge badge-tiempo">⏱ 6 meses</span></div>
+      <p class="caso-titulo">Operador negoció su plan de remediación</p>
+      <p class="caso-meta">🇪🇨 Guayaquil · Plan de remediación · Negociación</p>
+    </div></div>
+    <div class="caso-body">
+      <div class="caso-section"><span class="caso-section-label">La situación</span><p>Una empresa constructora generó afectación de suelo. La autoridad inició procedimiento sancionatorio.</p></div>
+      <div class="caso-section"><span class="caso-section-label">El problema</span><p>El plan de remediación impuesto por la autoridad era costosísimo. El operador quería proponer uno técnicamente equivalente pero más eficiente.</p></div>
+      <div class="caso-resultado-box"><p><strong>Resultado:</strong> Juristam negoció con la autoridad un plan de remediación alternativo. La sanción se redujo en un 70% y el plan fue aceptado.</p></div>
+    </div>
+    <div class="caso-footer">
+      <p class="caso-cita">"Negociamos un plan más eficiente y la sanción bajó muchísimo."</p>
+      <button type="button" class="btn-caso" data-wa="https://wa.me/593994859814?text=Hola%20Juristam%2C%20quiero%20negociar%20un%20plan%20de%20remediaci%C3%B3n%20alternativo%20con%20la%20autoridad%20ambiental." onclick="abrirModal(this)">Tengo un caso similar →</button>
+    </div>
+  </div>
+  <div class="caso-card" data-tipo="procedimiento">
+    <div class="caso-header"><div>
+      <div class="caso-badges"><span class="badge badge-resultado">✓ Sanción anulada por defecto de notificación</span><span class="badge badge-tiempo">⏱ 4 meses</span></div>
+      <p class="caso-titulo">Notificación mal practicada anuló la multa</p>
+      <p class="caso-meta">🇪🇨 Ambato · Procedimiento · Notificación</p>
+    </div></div>
+    <div class="caso-body">
+      <div class="caso-section"><span class="caso-section-label">La situación</span><p>Una empresa fue sancionada con una multa, pero la notificación se practicó a una dirección antigua y nunca llegó al representante legal.</p></div>
+      <div class="caso-section"><span class="caso-section-label">El problema</span><p>La empresa se enteró de la sanción al intentar renovar un permiso. El defecto de notificación viciaba el procedimiento.</p></div>
+      <div class="caso-resultado-box"><p><strong>Resultado:</strong> Juristam impugnó por el defecto de notificación. El acto fue anulado y la multa quedó sin efecto.</p></div>
+    </div>
+    <div class="caso-footer">
+      <p class="caso-cita">"Me notificaron a una dirección vieja y nunca me enteré. Anularon todo."</p>
+      <button type="button" class="btn-caso" data-wa="https://wa.me/593994859814?text=Hola%20Juristam%2C%20me%20notificaron%20mal%20una%20multa%20ambiental.%20Quiero%20impugnarla." onclick="abrirModal(this)">Tengo un caso similar →</button>
+    </div>
+  </div>
+  <div class="caso-card" data-tipo="calificacion">
+    <div class="caso-header"><div>
+      <div class="caso-badges"><span class="badge badge-resultado">✓ Calificación de "muy grave" a "grave"</span><span class="badge badge-tiempo">⏱ 3 meses</span></div>
+      <p class="caso-titulo">Atenuantes de colaboración y corrección aplicados</p>
+      <p class="caso-meta">🇪🇨 Ambato · Atenuantes · Calificación</p>
+    </div></div>
+    <div class="caso-body">
+      <div class="caso-section"><span class="caso-section-label">La situación</span><p>Una industria de alimentos fue sancionada por un vertido puntual. El operador colaboró, corrigió la falla y presentó descargo.</p></div>
+      <div class="caso-section"><span class="caso-section-label">El problema</span><p>La autoridad calificó la infracción como "muy grave". El operador consideraba que los atenuantes no se habían aplicado.</p></div>
+      <div class="caso-resultado-box"><p><strong>Resultado:</strong> Juristam argumentó la colaboración y la corrección inmediata. La calificación bajó a "grave" y la multa se redujo considerablemente.</p></div>
+    </div>
+    <div class="caso-footer">
+      <p class="caso-cita">"Colaboré y corregí el problema. Los atenuantes que presentó Juristam bajaron la multa."</p>
+      <button type="button" class="btn-caso" data-wa="https://wa.me/593994859814?text=Hola%20Juristam%2C%20colabor%C3%A9%20con%20la%20autoridad%20ambiental%20y%20correg%C3%AD%20el%20problema.%20Quiero%20que%20apliquen%20atenuantes." onclick="abrirModal(this)">Tengo un caso similar →</button>
+    </div>
+  </div>
+  <div class="caso-card" data-tipo="informe">
+    <div class="caso-header"><div>
+      <div class="caso-badges"><span class="badge badge-resultado">✓ Cadena de custodia defectuosa invalidó la prueba</span><span class="badge badge-tiempo">⏱ 4 meses</span></div>
+      <p class="caso-titulo">Muestras sin cadena de custodia válida</p>
+      <p class="caso-meta">🇪🇨 Manta · Cadena de custodia · Informe</p>
+    </div></div>
+    <div class="caso-body">
+      <div class="caso-section"><span class="caso-section-label">La situación</span><p>Una empacadora de mariscos fue acusada de verter efluentes fuera de norma. El informe se basaba en muestras tomadas sin cadena de custodia.</p></div>
+      <div class="caso-section"><span class="caso-section-label">El problema</span><p>Sin cadena de custodia válida, las muestras no podían atribuirse con certeza a la descarga de la empresa.</p></div>
+      <div class="caso-resultado-box"><p><strong>Resultado:</strong> Juristam impugnó la validez probatoria. El procedimiento fue archivado por falta de prueba válida.</p></div>
+    </div>
+    <div class="caso-footer">
+      <p class="caso-cita">"Las muestras no tenían cadena de custodia. Eso tumbó todo el caso."</p>
+      <button type="button" class="btn-caso" data-wa="https://wa.me/593994859814?text=Hola%20Juristam%2C%20las%20muestras%20del%20informe%20ambiental%20no%20tienen%20cadena%20de%20custodia.%20Quiero%20impugnarlas." onclick="abrirModal(this)">Tengo un caso similar →</button>
+    </div>
+  </div>
+  <div class="caso-card" data-tipo="atenuantes">
+    <div class="caso-header"><div>
+      <div class="caso-badges"><span class="badge badge-resultado">✓ Multa de $30,000 reducida a $6,000</span><span class="badge badge-tiempo">⏱ 3 meses</span></div>
+      <p class="caso-titulo">Proporcionalidad aplicada a una pyme</p>
+      <p class="caso-meta">🇪🇨 Loja · Proporcionalidad · Pyme</p>
+    </div></div>
+    <div class="caso-body">
+      <div class="caso-section"><span class="caso-section-label">La situación</span><p>Una pequeña empresa de lácteos fue sancionada con $30,000 USD por un incumplimiento en el manejo de residuos.</p></div>
+      <div class="caso-section"><span class="caso-section-label">El problema</span><p>La multa equivalía a más de la mitad de los ingresos anuales. El operador necesitaba argumentar proporcionalidad.</p></div>
+      <div class="caso-resultado-box"><p><strong>Resultado:</strong> Juristam presentó los estados financieros y argumentó la proporcionalidad. La multa se redujo a $6,000 USD.</p></div>
+    </div>
+    <div class="caso-footer">
+      <p class="caso-cita">"La multa me quebraba. Con la proporcionalidad la bajaron a algo pagable."</p>
+      <button type="button" class="btn-caso" data-wa="https://wa.me/593994859814?text=Hola%20Juristam%2C%20me%20pusieron%20una%20multa%20ambiental%20desproporcionada%20para%20mi%20empresa.%20Quiero%20reducirla." onclick="abrirModal(this)">Tengo un caso similar →</button>
+    </div>
+  </div>
+  <div class="caso-card" data-tipo="remediacion">
+    <div class="caso-header"><div>
+      <div class="caso-badges"><span class="badge badge-resultado">✓ Remediación documentada evitó la sanción</span><span class="badge badge-tiempo">⏱ 4 meses</span></div>
+      <p class="caso-titulo">Remediación previa a la resolución evitó la multa</p>
+      <p class="caso-meta">🇪🇨 Manta · Remediación · Sin sanción</p>
+    </div></div>
+    <div class="caso-body">
+      <div class="caso-section"><span class="caso-section-label">La situación</span><p>Un operador portuario tuvo un derrame de aceite en una zona de acopio. La autoridad inició procedimiento sancionatorio.</p></div>
+      <div class="caso-section"><span class="caso-section-label">El problema</span><p>El operador remedió el área de inmediato, con monitoreos posteriores que mostraban la ausencia de afectación.</p></div>
+      <div class="caso-resultado-box"><p><strong>Resultado:</strong> Juristam presentó la documentación de remediación. La autoridad consideró que no había daño remanente y archivó el procedimiento sin sanción.</p></div>
+    </div>
+    <div class="caso-footer">
+      <p class="caso-cita">"Remedié todo antes de que resolvieran. No me pusieron ni un dólar de multa."</p>
+      <button type="button" class="btn-caso" data-wa="https://wa.me/593994859814?text=Hola%20Juristam%2C%20remedi%C3%A9%20el%20da%C3%B1o%20ambiental%20antes%20de%20la%20resoluci%C3%B3n.%20Quiero%20que%20no%20me%20sancionen." onclick="abrirModal(this)">Tengo un caso similar →</button>
+    </div>
+  </div>
+  <div class="caso-card" data-tipo="informe">
+    <div class="caso-header"><div>
+      <div class="caso-badges"><span class="badge badge-resultado">✓ Punto de muestreo incorrecto desvirtuó el informe</span><span class="badge badge-tiempo">⏱ 5 meses</span></div>
+      <p class="caso-titulo">Muestras tomadas aguas arriba de la descarga</p>
+      <p class="caso-meta">🇪🇨 Quevedo · Punto de muestreo · Informe</p>
+    </div></div>
+    <div class="caso-body">
+      <div class="caso-section"><span class="caso-section-label">La situación</span><p>Una empresa agrícola fue acusada de contaminar un río. El informe de la autoridad mostraba parámetros elevados.</p></div>
+      <div class="caso-section"><span class="caso-section-label">El problema</span><p>El punto de muestreo estaba ubicado aguas arriba de la descarga, por lo que no podía atribuírsele la contaminación.</p></div>
+      <div class="caso-resultado-box"><p><strong>Resultado:</strong> Juristam presentó un informe topográfico que ubicaba el punto de muestreo. La autoridad aceptó el error y archivó el procedimiento.</p></div>
+    </div>
+    <div class="caso-footer">
+      <p class="caso-cita">"Tomaron la muestra en el lugar equivocado. El punto de muestreo lo demostró."</p>
+      <button type="button" class="btn-caso" data-wa="https://wa.me/593994859814?text=Hola%20Juristam%2C%20el%20punto%20de%20muestreo%20del%20informe%20ambiental%20es%20incorrecto.%20Quiero%20desvirtuarlo." onclick="abrirModal(this)">Tengo un caso similar →</button>
+    </div>
+  </div>
+  <div class="caso-card" data-tipo="calificacion">
+    <div class="caso-header"><div>
+      <div class="caso-badges"><span class="badge badge-resultado">✓ Infracción "muy grave" a "grave" con atenuantes</span><span class="badge badge-tiempo">⏱ 3 meses</span></div>
+      <p class="caso-titulo">Atenuantes de colaboración y corrección aplicados</p>
+      <p class="caso-meta">🇪🇨 Ambato · Atenuantes · Calificación</p>
+    </div></div>
+    <div class="caso-body">
+      <div class="caso-section"><span class="caso-section-label">La situación</span><p>Una industria de alimentos fue sancionada por un vertido puntual. El operador colaboró, corrigió la falla y presentó descargo.</p></div>
+      <div class="caso-section"><span class="caso-section-label">El problema</span><p>La autoridad calificó la infracción como "muy grave". El operador consideraba que los atenuantes no se habían aplicado.</p></div>
+      <div class="caso-resultado-box"><p><strong>Resultado:</strong> Juristam argumentó la colaboración y la corrección inmediata. La calificación bajó a "grave" y la multa se redujo considerablemente.</p></div>
+    </div>
+    <div class="caso-footer">
+      <p class="caso-cita">"Colaboré y corregí el problema. Los atenuantes que presentó Juristam bajaron la multa."</p>
+      <button type="button" class="btn-caso" data-wa="https://wa.me/593994859814?text=Hola%20Juristam%2C%20colabor%C3%A9%20con%20la%20autoridad%20ambiental%20y%20correg%C3%AD%20el%20problema.%20Quiero%20que%20apliquen%20atenuantes." onclick="abrirModal(this)">Tengo un caso similar →</button>
+    </div>
+  </div>
+  <div class="caso-card" data-tipo="procedimiento">
+    <div class="caso-header"><div>
+      <div class="caso-badges"><span class="badge badge-resultado">✓ Motivación insuficiente anuló la sanción</span><span class="badge badge-tiempo">⏱ 5 meses</span></div>
+      <p class="caso-titulo">Resolución sin motivación específica anulada</p>
+      <p class="caso-meta">🇪🇨 Quito · Motivación · Nulidad</p>
+    </div></div>
+    <div class="caso-body">
+      <div class="caso-section"><span class="caso-section-label">La situación</span><p>Una empresa recibió una multa con una motivación genérica, sin individualizar la afectación ni explicar la calificación.</p></div>
+      <div class="caso-section"><span class="caso-section-label">El problema</span><p>La falta de motivación específica viciaba el acto. La empresa necesitaba impugnarlo.</p></div>
+      <div class="caso-resultado-box"><p><strong>Resultado:</strong> Juristam impugnó por falta de motivación. El tribunal anuló la resolución y la multa quedó sin efecto.</p></div>
+    </div>
+    <div class="caso-footer">
+      <p class="caso-cita">"La resolución no explicaba nada. El tribunal la anuló por falta de motivación."</p>
+      <button type="button" class="btn-caso" data-wa="https://wa.me/593994859814?text=Hola%20Juristam%2C%20me%20pusieron%20una%20multa%20ambiental%20sin%20motivaci%C3%B3n.%20Quiero%20impugnarla." onclick="abrirModal(this)">Tengo un caso similar →</button>
+    </div>
+  </div>
+  <div class="caso-card" data-tipo="atenuantes">
+    <div class="caso-header"><div>
+      <div class="caso-badges"><span class="badge badge-resultado">✓ Multa de $50,000 reducida a $8,000</span><span class="badge badge-tiempo">⏱ 4 meses</span></div>
+      <p class="caso-titulo">Proporcionalidad y ausencia de reincidencia</p>
+      <p class="caso-meta">🇪🇨 Ibarra · Proporcionalidad · Multa reducida</p>
+    </div></div>
+    <div class="caso-body">
+      <div class="caso-section"><span class="caso-section-label">La situación</span><p>Una mediana empresa fue sancionada con $50,000 USD por un incumplimiento del plan de manejo.</p></div>
+      <div class="caso-section"><span class="caso-section-label">El problema</span><p>La empresa no tenía reincidencia y el incumplimiento no generó daño ambiental. La multa parecía desproporcionada.</p></div>
+      <div class="caso-resultado-box"><p><strong>Resultado:</strong> Juristam argumentó la proporcionalidad y la ausencia de reincidencia. La multa se redujo a $8,000 USD.</p></div>
+    </div>
+    <div class="caso-footer">
+      <p class="caso-cita">"Sin reincidencia y sin daño, la multa bajó de $50,000 a $8,000."</p>
+      <button type="button" class="btn-caso" data-wa="https://wa.me/593994859814?text=Hola%20Juristam%2C%20me%20pusieron%20una%20multa%20ambiental%20alta%20sin%20reincidencia%20ni%20da%C3%B1o.%20Quiero%20reducirla." onclick="abrirModal(this)">Tengo un caso similar →</button>
+    </div>
+  </div>
+  <div class="caso-card" data-tipo="informe">
+    <div class="caso-header"><div>
+      <div class="caso-badges"><span class="badge badge-resultado">✓ Laboratorio acreditado contradijo al oficial</span><span class="badge badge-tiempo">⏱ 5 meses</span></div>
+      <p class="caso-titulo">Resultados de laboratorio del operador prevalecieron</p>
+      <p class="caso-meta">🇪🇨 Guayaquil · Laboratorio acreditado · Contradicción</p>
+    </div></div>
+    <div class="caso-body">
+      <div class="caso-section"><span class="caso-section-label">La situación</span><p>Una fábrica textil fue acusada de exceder los límites de emisiones. El laboratorio oficial mostró valores fuera de norma.</p></div>
+      <div class="caso-section"><span class="caso-section-label">El problema</span><p>El operador contrató un laboratorio acreditado que mostró valores dentro de norma en las mismas fechas.</p></div>
+      <div class="caso-resultado-box"><p><strong>Resultado:</strong> Juristam presentó los resultados del laboratorio acreditado con metodología documentada. La autoridad aceptó la contradicción y archivó el procedimiento.</p></div>
+    </div>
+    <div class="caso-footer">
+      <p class="caso-cita">"Mi laboratorio mostró datos distintos a los del oficial. Los míos tenían mejor metodología y ganamos."</p>
+      <button type="button" class="btn-caso" data-wa="https://wa.me/593994859814?text=Hola%20Juristam%2C%20mi%20laboratorio%20acreditado%20contradice%20al%20de%20la%20autoridad%20ambiental.%20Quiero%20hacerlo%20valer." onclick="abrirModal(this)">Tengo un caso similar →</button>
+    </div>
+  </div>
+  <div class="caso-card" data-tipo="remediacion">
+    <div class="caso-header"><div>
+      <div class="caso-badges"><span class="badge badge-resultado">✓ Remediación con monitoreo posterior cerró el caso</span><span class="badge badge-tiempo">⏱ 7 meses</span></div>
+      <p class="caso-titulo">Plan de remediación con verificación de cumplimiento</p>
+      <p class="caso-meta">🇪🇨 Guayaquil · Remediación verificada · Cierre</p>
+    </div></div>
+    <div class="caso-body">
+      <div class="caso-section"><span class="caso-section-label">La situación</span><p>Una empresa tuvo un incidente ambiental. Presentó su plan de remediación y lo ejecutó con monitoreos posteriores.</p></div>
+      <div class="caso-section"><span class="caso-section-label">El problema</span><p>La autoridad quería verificar la efectividad antes de cerrar el procedimiento. El operador necesitaba demostrar el cumplimiento.</p></div>
+      <div class="caso-resultado-box"><p><strong>Resultado:</strong> Juristam presentó los monitoreos que verificaban la remediación. La autoridad cerró el procedimiento sin sanción.</p></div>
+    </div>
+    <div class="caso-footer">
+      <p class="caso-cita">"Ejecuté el plan y lo verifiqué con monitoreos. El caso se cerró sin multa."</p>
+      <button type="button" class="btn-caso" data-wa="https://wa.me/593994859814?text=Hola%20Juristam%2C%20ejecut%C3%A9%20mi%20plan%20de%20remediaci%C3%B3n%20y%20tengo%20monitoreos%20que%20lo%20verifican.%20Quiero%20cerrar%20el%20caso." onclick="abrirModal(this)">Tengo un caso similar →</button>
+    </div>
+  </div>
+  <div class="caso-card" data-tipo="calificacion">
+    <div class="caso-header"><div>
+      <div class="caso-badges"><span class="badge badge-resultado">✓ Responsabilidad de tercero demostrada</span><span class="badge badge-tiempo">⏱ 5 meses</span></div>
+      <p class="caso-titulo">Atribución de daño a un contratista externo</p>
+      <p class="caso-meta">🇪🇨 Manta · Atribución · Tercero responsable</p>
+    </div></div>
+    <div class="caso-body">
+      <div class="caso-section"><span class="caso-section-label">La situación</span><p>Una empresa fue sancionada por un derrame causado por un contratista que realizaba trabajos en sus instalaciones.</p></div>
+      <div class="caso-section"><span class="caso-section-label">El problema</span><p>La empresa alegaba que el derrame fue responsabilidad del contratista, no suya. Necesitaba demostrar la atribución.</p></div>
+      <div class="caso-resultado-box"><p><strong>Resultado:</strong> Juristam presentó el contrato y la evidencia de que el contratista controlaba la operación. La sanción se dirigió al contratista y la empresa fue eximida.</p></div>
+    </div>
+    <div class="caso-footer">
+      <p class="caso-cita">"El derrame lo causó un contratista. Demostramos que la culpa era suya."</p>
+      <button type="button" class="btn-caso" data-wa="https://wa.me/593994859814?text=Hola%20Juristam%2C%20el%20da%C3%B1o%20ambiental%20lo%20caus%C3%B3%20un%20contratista%20externo.%20Quiero%20demostrar%20la%20atribuci%C3%B3n." onclick="abrirModal(this)">Tengo un caso similar →</button>
+    </div>
+  </div>
+  <div class="caso-card" data-tipo="procedimiento">
+    <div class="caso-header"><div>
+      <div class="caso-badges"><span class="badge badge-resultado">✓ Multa de $65,000 anulada por prescripción</span><span class="badge badge-tiempo">⏱ 2 meses</span></div>
+      <p class="caso-titulo">Sanción impuesta fuera del plazo de la ley</p>
+      <p class="caso-meta">🇪🇨 Cuenca · Prescripción · Multa anulada</p>
+    </div></div>
+    <div class="caso-body">
+      <div class="caso-section"><span class="caso-section-label">La situación</span><p>Una empresa fue sancionada por un hecho ocurrido hacía más de 5 años. La sanción era de $65,000 USD.</p></div>
+      <div class="caso-section"><span class="caso-section-label">El problema</span><p>La facultad sancionatoria de la autoridad ambiental había prescrito. La empresa necesitaba alegarlo formalmente.</p></div>
+      <div class="caso-resultado-box"><p><strong>Resultado:</strong> Juristam presentó el descargo invocando la prescripción. La autoridad anuló la sanción.</p></div>
+    </div>
+    <div class="caso-footer">
+      <p class="caso-cita">"Me sancionaron por algo de hace más de cinco años. La prescripción anuló todo."</p>
+      <button type="button" class="btn-caso" data-wa="https://wa.me/593994859814?text=Hola%20Juristam%2C%20me%20sancionaron%20por%20un%20hecho%20ambiental%20antiguo%20que%20creo%20que%20prescribi%C3%B3." onclick="abrirModal(this)">Tengo un caso similar →</button>
+    </div>
+  </div>
+  <div class="caso-card" data-tipo="informe">
+    <div class="caso-header"><div>
+      <div class="caso-badges"><span class="badge badge-resultado">✓ Línea base demostró pasivo preexistente</span><span class="badge badge-tiempo">⏱ 6 meses</span></div>
+      <p class="caso-titulo">Afectación heredada de un operador anterior</p>
+      <p class="caso-meta">🇪🇨 Santo Domingo · Línea base · Pasivo preexistente</p>
+    </div></div>
+    <div class="caso-body">
+      <div class="caso-section"><span class="caso-section-label">La situación</span><p>Una empresa fue sancionada por contaminación del suelo. La empresa sostenía que el pasivo era preexistente a su operación.</p></div>
+      <div class="caso-section"><span class="caso-section-label">El problema</span><p>Sin línea base, era difícil demostrar que el daño existía antes de que la empresa llegara.</p></div>
+      <div class="caso-resultado-box"><p><strong>Resultado:</strong> Juristam presentó la línea base ambiental del inicio de la operación. La autoridad reconoció el pasivo preexistente y eximió a la empresa.</p></div>
+    </div>
+    <div class="caso-footer">
+      <p class="caso-cita">"El daño ya estaba cuando llegamos. La línea base lo demostró."</p>
+      <button type="button" class="btn-caso" data-wa="https://wa.me/593994859814?text=Hola%20Juristam%2C%20el%20da%C3%B1o%20ambiental%20es%20preexistente%20a%20mi%20operaci%C3%B3n.%20Tengo%20la%20l%C3%ADnea%20base." onclick="abrirModal(this)">Tengo un caso similar →</button>
+    </div>
+  </div>
+  <div class="caso-card" data-tipo="calificacion">
+    <div class="caso-header"><div>
+      <div class="caso-badges"><span class="badge badge-resultado">✓ Multa de $40,000 a $7,000</span><span class="badge badge-tiempo">⏱ 3 meses</span></div>
+      <p class="caso-titulo">Infracción administrativa recalificada sin daño</p>
+      <p class="caso-meta">🇪🇨 Cuenca · Recalificación · Multa reducida</p>
+    </div></div>
+    <div class="caso-body">
+      <div class="caso-section"><span class="caso-section-label">La situación</span><p>Un taller mecánico fue sancionado como "muy grave" por almacenar aceites usados sin el registro actualizado.</p></div>
+      <div class="caso-section"><span class="caso-section-label">El problema</span><p>No hubo derrame ni afectación. El operador sostenía que la infracción era administrativa, no ambiental.</p></div>
+      <div class="caso-resultado-box"><p><strong>Resultado:</strong> Juristam demostró que no existía daño y que el registro estaba en proceso de actualización. La calificación bajó a "leve" y la multa se redujo en un 80%.</p></div>
+    </div>
+    <div class="caso-footer">
+      <p class="caso-cita">"Me trataron como contaminador por un papel. La recalificación me salvó de una multa enorme."</p>
+      <button type="button" class="btn-caso" data-wa="https://wa.me/593994859814?text=Hola%20Juristam%2C%20me%20calificaron%20como%20infracci%C3%B3n%20muy%20grave%20sin%20da%C3%B1o%20ambiental.%20Quiero%20recalificarla." onclick="abrirModal(this)">Tengo un caso similar →</button>
+    </div>
+  </div>
+  <div class="caso-card" data-tipo="atenuantes">
+    <div class="caso-header"><div>
+      <div class="caso-badges"><span class="badge badge-resultado">✓ Ausencia de reincidencia redujo la sanción</span><span class="badge badge-tiempo">⏱ 2 meses</span></div>
+      <p class="caso-titulo">Primera infracción sancionada con atenuante</p>
+      <p class="caso-meta">🇪🇨 Machala · Primera infracción · Atenuante</p>
+    </div></div>
+    <div class="caso-body">
+      <div class="caso-section"><span class="caso-section-label">La situación</span><p>Una empresa fue sancionada por un incumplimiento menor. Era su primera infracción ambiental en 12 años de operación.</p></div>
+      <div class="caso-section"><span class="caso-section-label">El problema</span><p>La autoridad no había considerado la ausencia de reincidencia al graduar la multa.</p></div>
+      <div class="caso-resultado-box"><p><strong>Resultado:</strong> Juristam acreditó el historial limpio de la empresa. La multa se redujo en un 60%.</p></div>
+    </div>
+    <div class="caso-footer">
+      <p class="caso-cita">"Doce años sin una sola infracción y me trataron como reincidente. El historial lo corrigió."</p>
+      <button type="button" class="btn-caso" data-wa="https://wa.me/593994859814?text=Hola%20Juristam%2C%20es%20mi%20primera%20infracci%C3%B3n%20ambiental%20y%20no%20me%20aplicaron%20la%20ausencia%20de%20reincidencia." onclick="abrirModal(this)">Tengo un caso similar →</button>
+    </div>
+  </div>
+</div>
+
+<div class="cta-final">
+  <h2>¿Te notificaron una multa ambiental?</h2>
+  <p>Mándanos la resolución sancionatoria y el informe técnico que la sustenta. Revisamos si la calificación es correcta, qué atenuantes no se valoraron y cuál es el alcance real de la reparación exigida. La revisión inicial no tiene costo.</p>
+  <div class="precio-mini">
+    <div class="precio-mini-item"><span>Revisión inicial</span><span>$0</span></div>
+    <div class="precio-mini-item"><span>Asesoría virtual ⭐</span><span>$45</span></div>
+    <div class="precio-mini-item"><span>Presencial</span><span>$85</span></div>
+  </div>
+  <p style="color:#c4b5fd;font-size:.8rem;margin-bottom:1.2rem;">Los $45 de la asesoría se descuentan del servicio completo si decides continuar.</p>
+  <button type="button" class="btn-wa-hero" data-wa="https://wa.me/593994859814?text=Hola%20Juristam%2C%20vi%20los%20casos%20de%20multas%20ambientales%20y%20quiero%20revisar%20mi%20caso." onclick="abrirModal(this)">Enviar mi resolución · WhatsApp →</button>
+</div>
+
+<div style="text-align:center;margin-bottom:2.5rem;">
+  <a href="/blog/multas-ambientales-ecuador-impugnar.html" style="color:var(--primary-dark);font-size:.9rem;font-weight:600;text-decoration:underline;">← Volver a la guía completa</a>
+</div>
+</div>
+
+<footer><div class="container">
+  <p><strong>Juristam</strong> — Asesoría Legal Estratégica en Ecuador</p>
+  <p>© 2026 Juristam. Todos los derechos reservados. <a href="/blog/">Blog</a> · <a href="/#formulario">Contacto</a></p>
+  <p style="margin-top:.5rem;font-size:.8rem;opacity:.7;">Casos reales anonimizados. El resultado de una impugnación de multa ambiental depende de la calificación, el informe técnico y la prueba concreta de cada caso — los resultados pueden variar.</p>
+</div></footer>
+
+<script>
+const WA_FALLBACK="https://wa.me/593994859814?text=Hola%20Juristam%2C%20me%20notificaron%20una%20multa%20ambiental%20y%20quiero%20impugnarla.%20Tengo%20la%20resoluci%C3%B3n.";
+let waActual = WA_FALLBACK;
+function abrirModal(el){
+  waActual = (el && el.dataset && el.dataset.wa) ? el.dataset.wa : WA_FALLBACK;
+  document.getElementById("waModal").classList.add("active");
+  document.body.style.overflow="hidden";
+}
+function cerrarModal(){document.getElementById("waModal").classList.remove("active");document.body.style.overflow="";}
+function irAWhatsApp(){cerrarModal();window.open(waActual,"_blank","noopener");}
+document.getElementById("waModal").addEventListener("click",function(e){if(e.target===this)cerrarModal();});
+document.addEventListener("keydown",function(e){if(e.key==="Escape")cerrarModal();});
+function filtrar(btn){
+  var f = btn.dataset.filtro;
+  document.querySelectorAll(".filtro-btn").forEach(function(b){b.classList.remove("activo");});
+  btn.classList.add("activo");
+  var n = 0;
+  document.querySelectorAll(".caso-card").forEach(function(c){
+    var ok = (f === "todos" || c.dataset.tipo === f);
+    c.classList.toggle("oculto", !ok);
+    if (ok) n++;
+  });
+  document.getElementById("contador").textContent = n;
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,506 @@
+<!DOCTYPE html>
+<html lang="es-EC">
+<head>
+<meta charset="UTF-8"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<link rel="icon" type="image/png" href="https://i.postimg.cc/KjDB1NSM/Diseno-sin-titulo-(7).png"/>
+<meta name="theme-color" content="#9a6aff"/>
+<title>Reparto de bienes tras el divorcio · 20 casos · Juristam</title>
+<meta name="description" content="20 casos reales de personas que reclamaron su parte de la sociedad conyugal tras el divorcio: bienes a nombre del otro, patrimonio oculto, medidas cautelares y particiones."/>
+<link rel="canonical" href="https://juristam.net/casos-de-exito-sociedad-conyugal.html"/>
+<meta name="robots" content="index,follow"/>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;0,700;1,400&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet"/>
+<style>
+:root{--primary:#9a6aff;--primary-dark:#7c3aed;--primary-light:#efe8ff;--primary-deep:#1e0a4e;--text:#1a1a2e;--text-secondary:#4a4a6a;--white:#fff;--success:#059669;--success-light:#ecfdf5;--gray-light:#f9f9fb;--border:#e8e8f0;}
+*{margin:0;padding:0;box-sizing:border-box;}html{scroll-behavior:smooth;}
+body{font-family:"DM Sans",sans-serif;color:var(--text);background:var(--white);line-height:1.8;-webkit-font-smoothing:antialiased;}
+a{text-decoration:none;color:inherit;}
+.container{max-width:960px;margin:0 auto;padding:0 1.5rem;}
+header{background:var(--white);border-bottom:1px solid var(--border);position:sticky;top:0;z-index:100;height:90px;}
+.header-inner{display:flex;align-items:center;justify-content:space-between;height:100%;}
+.brand-logo{height:90px;width:auto;}
+.btn-back{background:var(--primary-light);color:var(--primary-dark);padding:.5rem 1rem;border-radius:8px;font-size:.85rem;font-weight:600;}
+.hero{background:linear-gradient(135deg,var(--primary-deep),#2d1060);padding:3.5rem 0 2.8rem;text-align:center;margin-bottom:2rem;}
+.hero-tag{display:inline-block;background:rgba(255,255,255,.12);color:#c4b5fd;font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.12em;padding:.35rem .9rem;border-radius:20px;margin-bottom:1rem;}
+.hero h1{font-family:"Lora",serif;font-size:clamp(1.7rem,3.5vw,2.3rem);color:#fff;margin-bottom:.8rem;line-height:1.25;font-weight:700;}
+.hero p{color:#c4b5fd;font-size:.97rem;max-width:600px;margin:0 auto 1.5rem;line-height:1.75;}
+.hero-stats{display:flex;justify-content:center;gap:2.5rem;flex-wrap:wrap;margin-top:1.8rem;}
+.stat-num{font-family:"Lora",serif;font-size:2rem;font-weight:700;color:#fff;display:block;}
+.stat-label{font-size:.75rem;color:#c4b5fd;text-transform:uppercase;letter-spacing:.06em;}
+.btn-wa-hero{background:#25d366;color:#fff;padding:.8rem 2rem;border-radius:10px;font-size:.95rem;font-weight:700;display:inline-block;cursor:pointer;border:none;margin-top:1.5rem;font-family:inherit;}
+.filtros{display:flex;gap:.6rem;flex-wrap:wrap;justify-content:center;margin-bottom:1.2rem;}
+.filtro-btn{background:var(--white);border:1.5px solid var(--border);color:var(--text-secondary);padding:.5rem 1.1rem;border-radius:24px;font-size:.85rem;font-weight:600;cursor:pointer;font-family:inherit;transition:all .18s;}
+.filtro-btn:hover{border-color:var(--primary);color:var(--primary-dark);}
+.filtro-btn.activo{background:var(--primary-dark);border-color:var(--primary-dark);color:#fff;}
+.casos-count{font-size:.85rem;color:var(--text-secondary);margin-bottom:1rem;text-align:center;}
+.casos-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(380px,1fr));gap:1.4rem;margin-bottom:3rem;}
+.caso-card{background:var(--white);border-radius:16px;border:1.5px solid var(--border);overflow:hidden;box-shadow:0 4px 20px rgba(0,0,0,.06);transition:box-shadow .2s,transform .2s;display:flex;flex-direction:column;}
+.caso-card:hover{box-shadow:0 8px 32px rgba(124,58,237,.14);transform:translateY(-2px);}
+.caso-card.oculto{display:none;}
+.caso-header{padding:1.3rem 1.5rem .9rem;border-bottom:1px solid var(--border);}
+.caso-badges{display:flex;gap:.4rem;flex-wrap:wrap;margin-bottom:.55rem;}
+.badge{font-size:.68rem;font-weight:700;padding:.2rem .6rem;border-radius:20px;text-transform:uppercase;letter-spacing:.04em;}
+.badge-resultado{background:var(--success-light);color:var(--success);}
+.badge-tiempo{background:var(--gray-light);color:var(--text-secondary);}
+.caso-titulo{font-family:"Lora",serif;font-size:1rem;font-weight:700;color:var(--text);line-height:1.35;margin-bottom:.25rem;}
+.caso-meta{font-size:.76rem;color:var(--text-secondary);}
+.caso-body{padding:1.1rem 1.5rem;flex:1;}
+.caso-section{margin-bottom:.85rem;}
+.caso-section-label{font-size:.65rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--text-secondary);margin-bottom:.25rem;display:block;}
+.caso-section p{font-size:.87rem;color:var(--text);line-height:1.7;margin:0;}
+.caso-resultado-box{background:var(--success-light);border-left:3px solid var(--success);border-radius:0 8px 8px 0;padding:.75rem .9rem;margin-top:.7rem;}
+.caso-resultado-box p{font-size:.85rem;color:var(--text);line-height:1.65;margin:0;}
+.caso-resultado-box strong{color:var(--success);}
+.caso-footer{padding:.85rem 1.5rem;background:var(--gray-light);border-top:1px solid var(--border);display:flex;align-items:center;justify-content:space-between;gap:.7rem;flex-wrap:wrap;}
+.caso-cita{font-size:.8rem;color:var(--text-secondary);font-style:italic;flex:1;line-height:1.5;}
+.btn-caso{background:var(--primary-dark);color:#fff;padding:.48rem 1rem;border-radius:8px;font-size:.78rem;font-weight:700;white-space:nowrap;cursor:pointer;border:none;flex-shrink:0;font-family:inherit;}
+.cta-final{background:linear-gradient(135deg,var(--primary-deep),#2d1060);border-radius:16px;padding:2.5rem 2rem;text-align:center;margin:1rem 0 3rem;}
+.cta-final h2{font-family:"Lora",serif;color:#fff;font-size:1.5rem;margin-bottom:.8rem;}
+.cta-final p{color:#c4b5fd;margin-bottom:1.5rem;line-height:1.75;max-width:520px;margin-left:auto;margin-right:auto;}
+.precio-mini{display:inline-flex;gap:1.5rem;background:rgba(255,255,255,.1);border-radius:12px;padding:.8rem 1.5rem;margin-bottom:.8rem;flex-wrap:wrap;justify-content:center;}
+.precio-mini-item span:first-child{display:block;font-size:.68rem;color:#c4b5fd;text-transform:uppercase;letter-spacing:.08em;margin-bottom:.2rem;}
+.precio-mini-item span:last-child{font-family:"Lora",serif;font-size:1.6rem;font-weight:700;color:#fff;}
+.modal-overlay{display:none;position:fixed;inset:0;background:rgba(10,5,30,.65);backdrop-filter:blur(5px);z-index:999;align-items:center;justify-content:center;padding:.75rem;}
+.modal-overlay.active{display:flex;}
+.modal{background:#fff;border-radius:18px;max-width:380px;width:100%;box-shadow:0 24px 60px rgba(0,0,0,.25);}
+.modal-top{background:linear-gradient(135deg,var(--primary-deep),#4c1d95);padding:1.1rem 1.2rem .9rem;position:relative;border-radius:18px 18px 0 0;}
+.modal-top h4{color:#fff;font-size:.98rem;font-weight:700;margin-bottom:.2rem;}
+.modal-top p{color:#c4b5fd;font-size:.74rem;line-height:1.4;}
+.modal-close{position:absolute;top:.6rem;right:.6rem;background:rgba(255,255,255,.15);border:none;color:#fff;width:24px;height:24px;border-radius:50%;cursor:pointer;font-size:.8rem;display:flex;align-items:center;justify-content:center;}
+.modal-body{padding:.9rem 1.2rem 1.1rem;}
+.modal-section-label{font-size:.62rem;font-weight:700;color:var(--text-secondary);text-transform:uppercase;letter-spacing:.05em;margin-bottom:.35rem;display:block;}
+.modal-precios{display:grid;grid-template-columns:1fr 1fr;gap:.5rem;margin-bottom:.7rem;}
+.modal-precio{border-radius:10px;padding:.5rem .6rem;border:1.5px solid var(--border);text-align:center;}
+.modal-precio.virtual{border-color:var(--primary);background:var(--primary-light);}
+.modal-precio .mlabel{font-size:.6rem;font-weight:700;text-transform:uppercase;letter-spacing:.04em;color:var(--primary-dark);display:block;margin-bottom:.1rem;}
+.modal-precio .mmonto{font-family:"Lora",serif;font-size:1.25rem;font-weight:700;color:var(--text);line-height:1;}
+.modal-nota{font-size:.7rem;color:var(--text-secondary);background:var(--gray-light);border-radius:8px;padding:.5rem .65rem;margin-bottom:.8rem;line-height:1.4;}
+.btn-modal-wa{display:block;background:#25d366;color:#fff;text-align:center;padding:.7rem;border-radius:9px;font-weight:700;font-size:.86rem;border:none;cursor:pointer;width:100%;font-family:inherit;}
+footer{background:var(--text);color:#ccc;padding:2.2rem 0 5.5rem;text-align:center;font-size:.84rem;margin-top:3rem;}
+footer a{color:var(--primary);}footer strong{color:var(--white);}
+@media(max-width:700px){.casos-grid{grid-template-columns:1fr;}.hero-stats{gap:1.2rem;}.modal-precios{grid-template-columns:1fr;}.filtro-btn{font-size:.8rem;padding:.45rem .9rem;}}
+</style>
+</head>
+<body>
+
+<div class="modal-overlay" id="waModal" role="dialog" aria-modal="true">
+  <div class="modal">
+    <div class="modal-top">
+      <button type="button" class="modal-close" onclick="cerrarModal()" aria-label="Cerrar">&#x2715;</button>
+      <h4>El divorcio no reparte los bienes</h4>
+      <p>Si te divorciaste y nunca liquidaron la sociedad conyugal, mándanos qué bienes se compraron durante el matrimonio y a nombre de quién están. Te decimos qué te corresponde.</p>
+    </div>
+    <div class="modal-body">
+      <span class="modal-section-label">Asesoría inicial</span>
+      <div class="modal-precios">
+        <div class="modal-precio virtual"><span class="mlabel">Virtual ⭐</span><div class="mmonto">$45</div></div>
+        <div class="modal-precio"><span class="mlabel">Presencial</span><div class="mmonto">$85</div></div>
+      </div>
+      <div class="modal-nota">La revisión inicial de tu caso no tiene costo. Los $45 se descuentan del servicio completo si decides continuar.</div>
+      <button type="button" class="btn-modal-wa" onclick="irAWhatsApp()">Continuar a WhatsApp →</button>
+    </div>
+  </div>
+</div>
+
+<header><div class="container header-inner">
+  <a href="/blog/"><img class="brand-logo" src="https://i.postimg.cc/vHygbHxz/oie-transparent-(2).png" alt="Juristam" loading="eager" width="120" height="90"/></a>
+  <a class="btn-back" href="/blog/liquidacion-sociedad-conyugal-bienes-divorcio-ecuador.html">← Volver al artículo</a>
+</div></header>
+
+<div class="hero"><div class="container">
+  <span class="hero-tag">Juristam · Sociedad conyugal en Ecuador</span>
+  <h1>Reparto de bienes tras el divorcio</h1>
+  <p>20 casos reales de personas que reclamaron su parte de la sociedad conyugal: bienes a nombre del otro, patrimonio oculto, medidas cautelares y particiones.</p>
+  <div class="hero-stats">
+    <div class="stat"><span class="stat-num">20</span><span class="stat-label">Casos documentados</span></div>
+    <div class="stat"><span class="stat-num">2 sem</span><span class="stat-label">Caso más rápido</span></div>
+    <div class="stat"><span class="stat-num">0</span><span class="stat-label">Viajes necesarios</span></div>
+    <div class="stat"><span class="stat-num">$0</span><span class="stat-label">Revisión inicial</span></div>
+  </div>
+  <button type="button" class="btn-wa-hero" data-wa="https://wa.me/593994859814?text=Hola%20Juristam%2C%20me%20divorci%C3%A9%20y%20quiero%20reclamar%20mi%20parte%20de%20los%20bienes.%20Tengo%20la%20lista%20de%20lo%20que%20se%20compr%C3%B3%20durante%20el%20matrimonio." onclick="abrirModal(this)">Revisar mi caso → WhatsApp</button>
+</div></div>
+
+<div class="container">
+<div class="filtros">
+  <button type="button" class="filtro-btn activo" data-filtro="todos" onclick="filtrar(this)">Todos (20)</button>
+  <button type="button" class="filtro-btn" data-filtro="nombre" onclick="filtrar(this)">📄 Bien a nombre del otro (5)</button>
+  <button type="button" class="filtro-btn" data-filtro="oculto" onclick="filtrar(this)">🔍 Patrimonio oculto (4)</button>
+  <button type="button" class="filtro-btn" data-filtro="cautelar" onclick="filtrar(this)">🔒 Medidas cautelares (3)</button>
+  <button type="button" class="filtro-btn" data-filtro="acuerdo" onclick="filtrar(this)">🤝 Liquidación por acuerdo (4)</button>
+  <button type="button" class="filtro-btn" data-filtro="union" onclick="filtrar(this)">💑 Unión de hecho (2)</button>
+  <button type="button" class="filtro-btn" data-filtro="deudas" onclick="filtrar(this)">💰 Deudas y pasivos (2)</button>
+</div>
+<p class="casos-count"><strong id="contador">20</strong> casos encontrados</p>
+<div class="casos-grid" id="grid">
+  <div class="caso-card" data-tipo="nombre">
+    <div class="caso-header"><div>
+      <div class="caso-badges"><span class="badge badge-resultado">✓ Casa a nombre del otro: 50% adjudicado</span><span class="badge badge-tiempo">⏱ 8 meses</span></div>
+      <p class="caso-titulo">La casa familiar estaba inscrita solo a nombre del marido</p>
+      <p class="caso-meta">🇪🇨 Guayaquil · Sociedad conyugal · Partición judicial</p>
+    </div></div>
+    <div class="caso-body">
+      <div class="caso-section"><span class="caso-section-label">La situación</span><p>Mujer divorciada después de 12 años de matrimonio. La casa familiar se compró durante el matrimonio, pero la escritura quedó solo a nombre del esposo.</p></div>
+      <div class="caso-section"><span class="caso-section-label">El problema</span><p>El ex esposo alegaba que la casa era "suya" porque él la firmó y pagó. La mujer creía que no le correspondía nada por no estar en los papeles.</p></div>
+      <div class="caso-resultado-box"><p><strong>Resultado:</strong> Juristam demostró que la casa se adquirió durante el matrimonio con fondos comunes. El juez declaró que era un bien de la sociedad conyugal y adjudicó el 50% del valor a la mujer: $65,000 USD.</p></div>
+    </div>
+    <div class="caso-footer">
+      <p class="caso-cita">"Él decía que la casa era suya porque estaba a su nombre. El juez le explicó que en el matrimonio eso no importa."</p>
+      <button type="button" class="btn-caso" data-wa="https://wa.me/593994859814?text=Hola%20Juristam%2C%20la%20casa%20del%20matrimonio%20est%C3%A1%20solo%20a%20nombre%20de%20mi%20ex.%20%C2%BFMe%20corresponde%20la%20mitad%3F" onclick="abrirModal(this)">Tengo un caso similar →</button>
+    </div>
+  </div>
+  <div class="caso-card" data-tipo="oculto">
+    <div class="caso-header"><div>
+      <div class="caso-badges"><span class="badge badge-resultado">✓ Empresa oculta descubierta</span><span class="badge badge-tiempo">⏱ 10 meses</span></div>
+      <p class="caso-titulo">Ex marido transfirió el negocio a su hermano antes del divorcio</p>
+      <p class="caso-meta">🇪🇨 Quito · Ocultamiento de bienes · Superintendencia de Compañías</p>
+    </div></div>
+    <div class="caso-body">
+      <div class="caso-section"><span class="caso-section-label">La situación</span><p>Mujer divorciada de un empresario. Semanas antes de presentar el divorcio, él transfirió sus acciones en una empresa a su hermano, simulando una venta.</p></div>
+      <div class="caso-section"><span class="caso-section-label">El problema</span><p>La empresa formaba parte de la sociedad conyugal. La transferencia a un familiar con precio irrisorio era una distracción dolosa de bienes.</p></div>
+      <div class="caso-resultado-box"><p><strong>Resultado:</strong> Juristam rastreó la operación en la Superintendencia de Compañías y demostró el vínculo familiar y la falta de precio real. El juez declaró que el ex marido ocultó bienes y le hizo perder su parte sobre la empresa, adjudicando a la mujer el equivalente al 60% del valor.</p></div>
+    </div>
+    <div class="caso-footer">
+      <p class="caso-cita">"Le pasó la empresa a su hermano para que yo no cobrara. El juez lo castigó por ocultarla y gané más de lo que pedía."</p>
+      <button type="button" class="btn-caso" data-wa="https://wa.me/593994859814?text=Hola%20Juristam%2C%20mi%20ex%20transfiri%C3%B3%20la%20empresa%20a%20un%20familiar%20antes%20del%20divorcio.%20Quiero%20que%20cuente%20en%20el%20reparto." onclick="abrirModal(this)">Tengo un caso similar →</button>
+    </div>
+  </div>
+  <div class="caso-card" data-tipo="cautelar">
+    <div class="caso-header"><div>
+      <div class="caso-badges"><span class="badge badge-resultado">✓ Venta del departamento frenada a tiempo</span><span class="badge badge-tiempo">⏱ 5 días</span></div>
+      <p class="caso-titulo">Ex esposa intentó vender el departamento antes de la partición</p>
+      <p class="caso-meta">🇪🇨 Guayaquil · Prohibición de enajenar · Medida cautelar</p>
+    </div></div>
+    <div class="caso-body">
+      <div class="caso-section"><span class="caso-section-label">La situación</span><p>Hombre divorciado descubrió que su ex esposa estaba negociando la venta del departamento que ambos compraron durante el matrimonio.</p></div>
+      <div class="caso-section"><span class="caso-section-label">El problema</span><p>Si la venta se concretaba, el departamento saldría del patrimonio y aparecería un tercero comprador. El hombre necesitaba bloquear la venta de inmediato.</p></div>
+      <div class="caso-resultado-box"><p><strong>Resultado:</strong> Juristam presentó una medida cautelar de prohibición de enajenar en 5 días. La venta se frustró y el departamento se mantuvo dentro del patrimonio para la partición.</p></div>
+    </div>
+    <div class="caso-footer">
+      <p class="caso-cita">"Estaba vendiendo el departamento sin consultarme. La prohibición de enajenar lo frenó justo a tiempo."</p>
+      <button type="button" class="btn-caso" data-wa="https://wa.me/593994859814?text=Hola%20Juristam%2C%20mi%20ex%20est%C3%A1%20vendiendo%20un%20bien%20de%20la%20sociedad%20conyugal%20sin%20mi%20consentimiento.%20Necesito%20bloquearlo." onclick="abrirModal(this)">Tengo un caso similar →</button>
+    </div>
+  </div>
+  <div class="caso-card" data-tipo="acuerdo">
+    <div class="caso-header"><div>
+      <div class="caso-badges"><span class="badge badge-resultado">✓ Liquidación por acuerdo en 2 semanas</span><span class="badge badge-tiempo">⏱ 2 semanas</span></div>
+      <p class="caso-titulo">Divorcio de mutuo acuerdo con bienes repartidos sin juicio</p>
+      <p class="caso-meta">🇪🇨 Cuenca · Liquidación amistosa · Notaría</p>
+    </div></div>
+    <div class="caso-body">
+      <div class="caso-section"><span class="caso-section-label">La situación</span><p>Pareja con 8 años de matrimonio, una casa y un vehículo, quería divorciarse y repartir los bienes de forma rápida y sin pelear.</p></div>
+      <div class="caso-section"><span class="caso-section-label">El problema</span><p>Ambos tenían claro qué quería cada uno, pero no sabían cómo formalizarlo para que quedara inscrito y fuera oponible a terceros.</p></div>
+      <div class="caso-resultado-box"><p><strong>Resultado:</strong> Juristam redactó el acuerdo de liquidación de la sociedad conyugal con la adjudicación de la casa a ella y el vehículo a él, más una compensación en dinero. Se firmó ante notario y se inscribió en 2 semanas.</p></div>
+    </div>
+    <div class="caso-footer">
+      <p class="caso-cita">"En dos semanas cerramos todo sin pisar un juzgado. Ella se quedó con la casa, yo con el carro y una compensación justa."</p>
+      <button type="button" class="btn-caso" data-wa="https://wa.me/593994859814?text=Hola%20Juristam%2C%20me%20quiero%20divorciar%20de%20mutuo%20acuerdo%20y%20necesito%20repartir%20los%20bienes%20r%C3%A1pido." onclick="abrirModal(this)">Tengo un caso similar →</button>
+    </div>
+  </div>
+  <div class="caso-card" data-tipo="union">
+    <div class="caso-header"><div>
+      <div class="caso-badges"><span class="badge badge-resultado">✓ Unión de hecho acreditada y bienes repartidos</span><span class="badge badge-tiempo">⏱ 9 meses</span></div>
+      <p class="caso-titulo">Pareja no casada con casa y negocio en común</p>
+      <p class="caso-meta">🇪🇨 Manta · Unión de hecho · Sociedad de bienes</p>
+    </div></div>
+    <div class="caso-body">
+      <div class="caso-section"><span class="caso-section-label">La situación</span><p>Mujer que vivió 10 años en unión de hecho con su pareja. Durante la relación compraron una casa y montaron un restaurante.</p></div>
+      <div class="caso-section"><span class="caso-section-label">El problema</span><p>Al terminar la relación, el hombre alegaba que "nunca estuvieron casados" y que todo estaba a su nombre. La mujer necesitaba acreditar primero la unión de hecho.</p></div>
+      <div class="caso-resultado-box"><p><strong>Resultado:</strong> Juristam acreditó la unión de hecho con testimonios, facturas y documentos. El juez reconoció la sociedad de bienes y adjudicó a la mujer el 50% de la casa y del restaurante.</p></div>
+    </div>
+    <div class="caso-footer">
+      <p class="caso-cita">"Me decía que por no estar casados no me tocaba nada. La unión de hecho me dio los mismos derechos."</p>
+      <button type="button" class="btn-caso" data-wa="https://wa.me/593994859814?text=Hola%20Juristam%2C%20viv%C3%AD%20en%20uni%C3%B3n%20de%20hecho%20y%20mi%20ex%20no%20quiere%20repartir%20los%20bienes.%20Necesito%20acreditar%20la%20uni%C3%B3n." onclick="abrirModal(this)">Tengo un caso similar →</button>
+    </div>
+  </div>
+  <div class="caso-card" data-tipo="oculto">
+    <div class="caso-header"><div>
+      <div class="caso-badges"><span class="badge badge-resultado">✓ Cuenta bancaria vaciada antes del divorcio</span><span class="badge badge-tiempo">⏱ 6 meses</span></div>
+      <p class="caso-titulo">Ex marido vació la cuenta conjunta y la puso a nombre de su madre</p>
+      <p class="caso-meta">🇪🇨 Quito · Ocultamiento · Rastreo bancario</p>
+    </div></div>
+    <div class="caso-body">
+      <div class="caso-section"><span class="caso-section-label">La situación</span><p>Mujer descubrió que su ex marido vació la cuenta conjunta tres semanas antes de presentar el divorcio, transfiriendo $45,000 USD a la cuenta de su madre.</p></div>
+      <div class="caso-section"><span class="caso-section-label">El problema</span><p>El dinero era de la sociedad conyugal. La transferencia a la madre era una distracción dolosa.</p></div>
+      <div class="caso-resultado-box"><p><strong>Resultado:</strong> Juristam rastreó la transferencia y demostró el vínculo familiar. El juez ordenó la restitución del dinero a la sociedad conyugal y la mujer recibió su mitad: $22,500 USD.</p></div>
+    </div>
+    <div class="caso-footer">
+      <p class="caso-cita">"Le pasó el dinero a su mamá para que yo no lo viera. El juez lo obligó a devolverlo."</p>
+      <button type="button" class="btn-caso" data-wa="https://wa.me/593994859814?text=Hola%20Juristam%2C%20mi%20ex%20vaci%C3%B3%20la%20cuenta%20conjunta%20antes%20del%20divorcio.%20Quiero%20recuperar%20mi%20parte." onclick="abrirModal(this)">Tengo un caso similar →</button>
+    </div>
+  </div>
+  <div class="caso-card" data-tipo="deudas">
+    <div class="caso-header"><div>
+      <div class="caso-badges"><span class="badge badge-resultado">✓ Deuda personal excluida de la partición</span><span class="badge badge-tiempo">⏱ 4 meses</span></div>
+      <p class="caso-titulo">Ex esposa alegaba que una deuda de juego debía repartirse</p>
+      <p class="caso-meta">🇪🇨 Guayaquil · Deuda personal · Exclusión</p>
+    </div></div>
+    <div class="caso-body">
+      <div class="caso-section"><span class="caso-section-label">La situación</span><p>Hombre divorciado después de 6 años de matrimonio. Su ex esposa pretendía incluir en el pasivo de la sociedad conyugal una deuda de $18,000 USD que él contrajo por apuestas.</p></div>
+      <div class="caso-section"><span class="caso-section-label">El problema</span><p>La deuda no beneficiaba a la familia; era estrictamente personal. La ex esposa quería que se descontara del patrimonio común para reducir lo que a ella le tocaba.</p></div>
+      <div class="caso-resultado-box"><p><strong>Resultado:</strong> Juristam demostró que la deuda era ajena al interés familiar. El juez la excluyó del pasivo de la sociedad conyugal, protegiendo la parte del marido en el reparto.</p></div>
+    </div>
+    <div class="caso-footer">
+      <p class="caso-cita">"Mi ex quería que yo pagara la mitad de su deuda de juego. El juez la sacó de la partición."</p>
+      <button type="button" class="btn-caso" data-wa="https://wa.me/593994859814?text=Hola%20Juristam%2C%20mi%20ex%20quiere%20incluir%20una%20deuda%20personal%20en%20el%20reparto%20de%20bienes.%20%C2%BFPuede%3F" onclick="abrirModal(this)">Tengo un caso similar →</button>
+    </div>
+  </div>
+  <div class="caso-card" data-tipo="nombre">
+    <div class="caso-header"><div>
+      <div class="caso-badges"><span class="badge badge-resultado">✓ Vehículo a nombre del otro: compensación cobrada</span><span class="badge badge-tiempo">⏱ 3 meses</span></div>
+      <p class="caso-titulo">Camioneta comprada en el matrimonio y usada solo por él</p>
+      <p class="caso-meta">🇪🇨 Ambato · Bien mueble · Compensación</p>
+    </div></div>
+    <div class="caso-body">
+      <div class="caso-section"><span class="caso-section-label">La situación</span><p>Mujer divorciada después de 5 años de matrimonio. La camioneta se compró durante el matrimonio y quedó a nombre del esposo, que la seguía usando.</p></div>
+      <div class="caso-section"><span class="caso-section-label">El problema</span><p>El ex esposo se negaba a vender la camioneta para repartir el valor. La mujer quería una compensación económica sin entrar a discutir quién la usaba.</p></div>
+      <div class="caso-resultado-box"><p><strong>Resultado:</strong> Juristam negoció una compensación de $12,500 USD para la mujer, equivalente a la mitad del valor comercial de la camioneta. El ex esposo se quedó con el vehículo y pagó la compensación.</p></div>
+    </div>
+    <div class="caso-footer">
+      <p class="caso-cita">"No peleamos por quién usaba la camioneta. Él se la quedó y me pagó mi parte."</p>
+      <button type="button" class="btn-caso" data-wa="https://wa.me/593994859814?text=Hola%20Juristam%2C%20el%20veh%C3%ADculo%20del%20matrimonio%20est%C3%A1%20a%20nombre%20de%20mi%20ex%20y%20quiero%20una%20compensaci%C3%B3n." onclick="abrirModal(this)">Tengo un caso similar →</button>
+    </div>
+  </div>
+  <div class="caso-card" data-tipo="cautelar">
+    <div class="caso-header"><div>
+      <div class="caso-badges"><span class="badge badge-resultado">✓ Anotación de demanda protegió el inmueble</span><span class="badge badge-tiempo">⏱ 4 días</span></div>
+      <p class="caso-titulo">Hipoteca sobre la casa conyugal bloqueada</p>
+      <p class="caso-meta">🇪🇨 Quito · Anotación de demanda · Acreedor</p>
+    </div></div>
+    <div class="caso-body">
+      <div class="caso-section"><span class="caso-section-label">La situación</span><p>Mujer divorciada descubrió que su ex esposo estaba tramitando un crédito hipotecario sobre la casa que ambos compraron durante el matrimonio.</p></div>
+      <div class="caso-section"><span class="caso-section-label">El problema</span><p>Si el banco inscribía la hipoteca, aparecería un acreedor con derechos sobre el inmueble, reduciendo el valor neto repartible.</p></div>
+      <div class="caso-resultado-box"><p><strong>Resultado:</strong> Juristam presentó la demanda de partición y solicitó la anotación de la demanda en el Registro. En 4 días se inscribió, y el banco rechazó el crédito al ver el litigio.</p></div>
+    </div>
+    <div class="caso-footer">
+      <p class="caso-cita">"Iba a hipotecar la casa para dejarme sin nada. La anotación de la demanda lo frenó."</p>
+      <button type="button" class="btn-caso" data-wa="https://wa.me/593994859814?text=Hola%20Juristam%2C%20mi%20ex%20est%C3%A1%20hipotecando%20la%20casa%20conyugal.%20Necesito%20proteger%20mi%20parte." onclick="abrirModal(this)">Tengo un caso similar →</button>
+    </div>
+  </div>
+  <div class="caso-card" data-tipo="acuerdo">
+    <div class="caso-header"><div>
+      <div class="caso-badges"><span class="badge badge-resultado">✓ Partición amistosa con compensación cruzada</span><span class="badge badge-tiempo">⏱ 1 mes</span></div>
+      <p class="caso-titulo">Casa para ella, negocio para él, compensación para ambos</p>
+      <p class="caso-meta">🇪🇨 Machala · Liquidación amistosa · Notaría</p>
+    </div></div>
+    <div class="caso-body">
+      <div class="caso-section"><span class="caso-section-label">La situación</span><p>Pareja con 15 años de matrimonio, una casa y un negocio de insumos agrícolas. Ambos querían cerrar la liquidación sin juicio.</p></div>
+      <div class="caso-section"><span class="caso-section-label">El problema</span><p>La casa valía más que el negocio, y él quería conservar el negocio mientras ella quería la casa. Necesitaban una compensación que equilibrara el reparto.</p></div>
+      <div class="caso-resultado-box"><p><strong>Resultado:</strong> Juristam estructuró una partición amistosa: ella se quedó con la casa, él con el negocio, y él pagó una compensación de $18,000 USD para igualar los valores. Se firmó en un mes.</p></div>
+    </div>
+    <div class="caso-footer">
+      <p class="caso-cita">"No queríamos pelear. Con la compensación que armó Juristam, cada uno se quedó con lo que le servía."</p>
+      <button type="button" class="btn-caso" data-wa="https://wa.me/593994859814?text=Hola%20Juristam%2C%20queremos%20repartir%20los%20bienes%20de%20mutuo%20acuerdo%20pero%20los%20valores%20no%20son%20iguales.%20Necesitamos%20una%20compensaci%C3%B3n." onclick="abrirModal(this)">Tengo un caso similar →</button>
+    </div>
+  </div>
+  <div class="caso-card" data-tipo="oculto">
+    <div class="caso-header"><div>
+      <div class="caso-badges"><span class="badge badge-resultado">✓ Terreno comprado a nombre del primo</span><span class="badge badge-tiempo">⏱ 11 meses</span></div>
+      <p class="caso-titulo">Ex esposo puso un terreno a nombre de su primo para no partirlo</p>
+      <p class="caso-meta">🇪🇨 Santo Domingo · Ocultamiento · Rastreo registral</p>
+    </div></div>
+    <div class="caso-body">
+      <div class="caso-section"><span class="caso-section-label">La situación</span><p>Mujer descubrió que su ex esposo había comprado un terreno durante el matrimonio y lo registró a nombre de su primo para excluirlo de la sociedad conyugal.</p></div>
+      <div class="caso-section"><span class="caso-section-label">El problema</span><p>El terreno formaba parte de la sociedad conyugal. El traspaso al primo era una simulación con la intención de ocultar el bien.</p></div>
+      <div class="caso-resultado-box"><p><strong>Resultado:</strong> Juristam rastreó la compra original en el Registro de la Propiedad y demostró que los fondos salieron de la cuenta del ex esposo. El juez declaró que el terreno era ganancial y ordenó su inclusión en la partición.</p></div>
+    </div>
+    <div class="caso-footer">
+      <p class="caso-cita">"Lo puso a nombre del primo para esconderlo. El juez lo descubrió y me dieron mi parte."</p>
+      <button type="button" class="btn-caso" data-wa="https://wa.me/593994859814?text=Hola%20Juristam%2C%20mi%20ex%20puso%20un%20bien%20a%20nombre%20de%20un%20familiar%20para%20no%20partirlo.%20Quiero%20recuperar%20mi%20parte." onclick="abrirModal(this)">Tengo un caso similar →</button>
+    </div>
+  </div>
+  <div class="caso-card" data-tipo="union">
+    <div class="caso-header"><div>
+      <div class="caso-badges"><span class="badge badge-resultado">✓ Unión de hecho con negocio en común</span><span class="badge badge-tiempo">⏱ 7 meses</span></div>
+      <p class="caso-titulo">Pareja no casada con tienda de abarrotes en común</p>
+      <p class="caso-meta">🇪🇨 Durán · Unión de hecho · Sociedad de bienes</p>
+    </div></div>
+    <div class="caso-body">
+      <div class="caso-section"><span class="caso-section-label">La situación</span><p>Hombre que vivió 6 años en unión de hecho. Durante la relación montaron una tienda de abarrotes que prosperó. Todo estaba a nombre de la mujer.</p></div>
+      <div class="caso-section"><span class="caso-section-label">El problema</span><p>Al terminar, la mujer alegaba que la tienda era suya porque el negocio estaba a su nombre. El hombre necesitaba acreditar la unión de hecho y su aporte.</p></div>
+      <div class="caso-resultado-box"><p><strong>Resultado:</strong> Juristam acreditó la unión de hecho y el aporte del hombre con facturas y testimonios. El juez reconoció la sociedad de bienes y le adjudicó el 50% del valor de la tienda.</p></div>
+    </div>
+    <div class="caso-footer">
+      <p class="caso-cita">"Ella decía que la tienda era suya. La unión de hecho me dio los mismos derechos que si hubiéramos estado casados."</p>
+      <button type="button" class="btn-caso" data-wa="https://wa.me/593994859814?text=Hola%20Juristam%2C%20vivi%C3%AD%20en%20uni%C3%B3n%20de%20hecho%20y%20el%20negocio%20est%C3%A1%20a%20nombre%20de%20mi%20ex.%20Quiero%20mi%20parte." onclick="abrirModal(this)">Tengo un caso similar →</button>
+    </div>
+  </div>
+  <div class="caso-card" data-tipo="deudas">
+    <div class="caso-header"><div>
+      <div class="caso-badges"><span class="badge badge-resultado">✓ Deuda familiar incluida y dividida</span><span class="badge badge-tiempo">⏱ 5 meses</span></div>
+      <p class="caso-titulo">Crédito hipotecario de la casa conyugal dividido</p>
+      <p class="caso-meta">🇪🇨 Cuenca · Deuda familiar · Pasivo común</p>
+    </div></div>
+    <div class="caso-body">
+      <div class="caso-section"><span class="caso-section-label">La situación</span><p>Pareja divorciada con una casa que aún estaba pagando. El crédito hipotecario se había contratado para comprar la casa conyugal.</p></div>
+      <div class="caso-section"><span class="caso-section-label">El problema</span><p>Uno de los dos quería quedarse con la casa, pero no sabía cómo manejar la deuda pendiente en el reparto.</p></div>
+      <div class="caso-resultado-box"><p><strong>Resultado:</strong> Juristam estructuró la partición: el esposo se quedó con la casa y asumió la totalidad del crédito, compensando a la esposa por la diferencia entre el valor de la casa y el saldo de la deuda. Todo quedó formalizado.</p></div>
+    </div>
+    <div class="caso-footer">
+      <p class="caso-cita">"La deuda de la casa se dividió de forma justa. Él se quedó con la casa y con la deuda, y yo recibí mi parte en dinero."</p>
+      <button type="button" class="btn-caso" data-wa="https://wa.me/593994859814?text=Hola%20Juristam%2C%20tenemos%20una%20casa%20con%20cr%C3%A9dito%20hipotecario%20y%20nos%20estamos%20divorciando.%20%C2%BFC%C3%B3mo%20se%20reparte%20la%20deuda%3F" onclick="abrirModal(this)">Tengo un caso similar →</button>
+    </div>
+  </div>
+  <div class="caso-card" data-tipo="nombre">
+    <div class="caso-header"><div>
+      <div class="caso-badges"><span class="badge badge-resultado">✓ Ahorros en cuenta solo de ella: mitad recuperada</span><span class="badge badge-tiempo">⏱ 4 meses</span></div>
+      <p class="caso-titulo">Cuenta de ahorros alimentada con sueldos de ambos</p>
+      <p class="caso-meta">🇪🇨 Quito · Ahorros comunes · Reclamo</p>
+    </div></div>
+    <div class="caso-body">
+      <div class="caso-section"><span class="caso-section-label">La situación</span><p>Hombre divorciado descubrió que su ex esposa mantuvo una cuenta de ahorros a su nombre donde depositaba parte de los sueldos de ambos durante el matrimonio.</p></div>
+      <div class="caso-section"><span class="caso-section-label">El problema</span><p>La ex esposa alegaba que el dinero era suyo porque la cuenta estaba a su nombre. El hombre quería su parte de esos ahorros comunes.</p></div>
+      <div class="caso-resultado-box"><p><strong>Resultado:</strong> Juristam rastreó los depósitos y demostró que provenían de los sueldos de ambos. El juez ordenó la división de los ahorros, adjudicando $14,000 USD al hombre.</p></div>
+    </div>
+    <div class="caso-footer">
+      <p class="caso-cita">"Ella guardaba todo en su cuenta y decía que era suyo. El juez vio los depósitos y me dio mi parte."</p>
+      <button type="button" class="btn-caso" data-wa="https://wa.me/593994859814?text=Hola%20Juristam%2C%20los%20ahorros%20del%20matrimonio%20est%C3%A1n%20en%20una%20cuenta%20solo%20a%20nombre%20de%20mi%20ex.%20Quiero%20mi%20parte." onclick="abrirModal(this)">Tengo un caso similar →</button>
+    </div>
+  </div>
+  <div class="caso-card" data-tipo="cautelar">
+    <div class="caso-header"><div>
+      <div class="caso-badges"><span class="badge badge-resultado">✓ Embargo preventivo sobre el negocio</span><span class="badge badge-tiempo">⏱ 3 días</span></div>
+      <p class="caso-titulo">Ex esposo intentó vender las acciones de la empresa conyugal</p>
+      <p class="caso-meta">🇪🇨 Guayaquil · Embargo preventivo · Acciones societarias</p>
+    </div></div>
+    <div class="caso-body">
+      <div class="caso-section"><span class="caso-section-label">La situación</span><p>Mujer divorciada descubrió que su ex esposo estaba vendiendo las acciones de la empresa que ambos formaron durante el matrimonio.</p></div>
+      <div class="caso-section"><span class="caso-section-label">El problema</span><p>Las acciones formaban parte de la sociedad conyugal. La venta estaba en negociación y podía concretarse en días.</p></div>
+      <div class="caso-resultado-box"><p><strong>Resultado:</strong> Juristam presentó un embargo preventivo sobre las acciones societarias en 3 días. La venta se frustró y las acciones quedaron protegidas para la partición.</p></div>
+    </div>
+    <div class="caso-footer">
+      <p class="caso-cita">"Estaba vendiendo la empresa por debajo de la mesa. El embargo la protegió para que yo pudiera cobrar mi parte."</p>
+      <button type="button" class="btn-caso" data-wa="https://wa.me/593994859814?text=Hola%20Juristam%2C%20mi%20ex%20est%C3%A1%20vendiendo%20las%20acciones%20de%20la%20empresa%20conyugal.%20Necesito%20bloquearlas." onclick="abrirModal(this)">Tengo un caso similar →</button>
+    </div>
+  </div>
+  <div class="caso-card" data-tipo="acuerdo">
+    <div class="caso-header"><div>
+      <div class="caso-badges"><span class="badge badge-resultado">✓ Divorcio y liquidación simultáneos</span><span class="badge badge-tiempo">⏱ 3 semanas</span></div>
+      <p class="caso-titulo">Pareja resolvió divorcio y bienes en un solo trámite</p>
+      <p class="caso-meta">🇪🇨 Guayaquil · Divorcio + liquidación · Notaría</p>
+    </div></div>
+    <div class="caso-body">
+      <div class="caso-section"><span class="caso-section-label">La situación</span><p>Pareja sin hijos con un departamento y un fondo de inversión. Querían divorciarse y repartir todo de una sola vez, sin pasos separados.</p></div>
+      <div class="caso-section"><span class="caso-section-label">El problema</span><p>No sabían si era posible tramitar el divorcio y la liquidación de la sociedad conyugal en el mismo procedimiento.</p></div>
+      <div class="caso-resultado-box"><p><strong>Resultado:</strong> Juristam coordinó el divorcio de mutuo acuerdo con la liquidación de la sociedad conyugal en el mismo trámite. En 3 semanas ambos quedaron divorciados y con sus bienes adjudicados.</p></div>
+    </div>
+    <div class="caso-footer">
+      <p class="caso-cita">"Hicimos todo junto y en menos de un mes: divorcio, casa repartida y fondos divididos."</p>
+      <button type="button" class="btn-caso" data-wa="https://wa.me/593994859814?text=Hola%20Juristam%2C%20quiero%20divorciarme%20y%20repartir%20los%20bienes%20al%20mismo%20tiempo.%20%C2%BFSe%20puede%3F" onclick="abrirModal(this)">Tengo un caso similar →</button>
+    </div>
+  </div>
+  <div class="caso-card" data-tipo="oculto">
+    <div class="caso-header"><div>
+      <div class="caso-badges"><span class="badge badge-resultado">✓ Vehículo a nombre de la empresa fantasma</span><span class="badge badge-tiempo">⏱ 8 meses</span></div>
+      <p class="caso-titulo">Ex esposo creó una empresa para ocultar la camioneta</p>
+      <p class="caso-meta">🇪🇨 Quito · Simulación · Registro vehicular</p>
+    </div></div>
+    <div class="caso-body">
+      <div class="caso-section"><span class="caso-section-label">La situación</span><p>Mujer divorciada descubrió que su ex esposo había creado una empresa de papel y puso la camioneta de la familia a nombre de esa empresa para excluirla de la partición.</p></div>
+      <div class="caso-section"><span class="caso-section-label">El problema</span><p>La camioneta era un bien ganancial. La empresa era una ficción creada para ocultarla.</p></div>
+      <div class="caso-resultado-box"><p><strong>Resultado:</strong> Juristam rastreó la creación de la empresa y la compra del vehículo. El juez consideró que la operación era una simulación y ordenó que la camioneta se incluyera en la partición.</p></div>
+    </div>
+    <div class="caso-footer">
+      <p class="caso-cita">"Inventó una empresa fantasma para esconder la camioneta. El juez deshizo la simulación."</p>
+      <button type="button" class="btn-caso" data-wa="https://wa.me/593994859814?text=Hola%20Juristam%2C%20mi%20ex%20cre%C3%B3%20una%20empresa%20para%20ocultar%20bienes%20de%20la%20sociedad%20conyugal.%20Quiero%20deshacerla." onclick="abrirModal(this)">Tengo un caso similar →</button>
+    </div>
+  </div>
+  <div class="caso-card" data-tipo="nombre">
+    <div class="caso-header"><div>
+      <div class="caso-badges"><span class="badge badge-resultado">✓ Herencia excluida correctamente</span><span class="badge badge-tiempo">⏱ 2 meses</span></div>
+      <p class="caso-titulo">Terreno heredado no entró al reparto</p>
+      <p class="caso-meta">🇪🇨 Loja · Bien propio · Exclusión</p>
+    </div></div>
+    <div class="caso-body">
+      <div class="caso-section"><span class="caso-section-label">La situación</span><p>Hombre divorciado que recibió una herencia de un terreno durante el matrimonio. Su ex esposa pretendía que ese terreno se incluyera en la partición.</p></div>
+      <div class="caso-section"><span class="caso-section-label">El problema</span><p>El terreno era un bien propio por herencia, no un bien de la sociedad conyugal. La ex esposa alegaba lo contrario.</p></div>
+      <div class="caso-resultado-box"><p><strong>Resultado:</strong> Juristam demostró que el terreno provino de una herencia, no de una compra durante el matrimonio. El juez lo excluyó de la partición, dejándolo al marido como bien propio.</p></div>
+    </div>
+    <div class="caso-footer">
+      <p class="caso-cita">"Mi ex quería quedarse con la mitad de la herencia de mi padre. El juez le explicó que eso no se parte."</p>
+      <button type="button" class="btn-caso" data-wa="https://wa.me/593994859814?text=Hola%20Juristam%2C%20mi%20ex%20quiere%20partir%20un%20bien%20que%20hered%C3%A9%20durante%20el%20matrimonio.%20%C2%BFLe%20corresponde%3F" onclick="abrirModal(this)">Tengo un caso similar →</button>
+    </div>
+  </div>
+  <div class="caso-card" data-tipo="acuerdo">
+    <div class="caso-header"><div>
+      <div class="caso-badges"><span class="badge badge-resultado">✓ Partición con venta de la casa y reparto</span><span class="badge badge-tiempo">⏱ 6 semanas</span></div>
+      <p class="caso-titulo">Casa conyugal vendida y dinero repartido</p>
+      <p class="caso-meta">🇪🇨 Manta · Venta + partición · Notaría</p>
+    </div></div>
+    <div class="caso-body">
+      <div class="caso-section"><span class="caso-section-label">La situación</span><p>Pareja divorciada con una casa que ninguno quería quedarse. Ambos preferían venderla y repartir el dinero.</p></div>
+      <div class="caso-section"><span class="caso-section-label">El problema</span><p>Necesitaban vender la casa en común, pero formalizar la venta y el reparto requería un acuerdo de liquidación previo.</p></div>
+      <div class="caso-resultado-box"><p><strong>Resultado:</strong> Juristam formalizó la liquidación de la sociedad conyugal, la venta de la casa a un tercero y el reparto del dinero entre ambos. Todo quedó inscrito en 6 semanas.</p></div>
+    </div>
+    <div class="caso-footer">
+      <p class="caso-cita">"Ninguno quería la casa. La vendimos y cada uno se llevó su parte sin pelear."</p>
+      <button type="button" class="btn-caso" data-wa="https://wa.me/593994859814?text=Hola%20Juristam%2C%20ninguno%20quiere%20quedarse%20con%20la%20casa%20conyugal.%20Queremos%20venderla%20y%20repartir%20el%20dinero." onclick="abrirModal(this)">Tengo un caso similar →</button>
+    </div>
+  </div>
+  <div class="caso-card" data-tipo="nombre">
+    <div class="caso-header"><div>
+      <div class="caso-badges"><span class="badge badge-resultado">✓ Terreno comprado con bonos del esposo</span><span class="badge badge-tiempo">⏱ 7 meses</span></div>
+      <p class="caso-titulo">Terreno a nombre de la esposa pero comprado con fondos comunes</p>
+      <p class="caso-meta">🇪🇨 Quevedo · Ganancial · Partición judicial</p>
+    </div></div>
+    <div class="caso-body">
+      <div class="caso-section"><span class="caso-section-label">La situación</span><p>Hombre divorciado que compró un terreno durante el matrimonio, pero lo inscribió a nombre de su esposa. Al divorciarse, ella alegaba que el terreno era suyo.</p></div>
+      <div class="caso-section"><span class="caso-section-label">El problema</span><p>El terreno se compró con dinero de ambos durante el matrimonio. La inscripción a nombre de la esposa no cambiaba su naturaleza de bien ganancial.</p></div>
+      <div class="caso-resultado-box"><p><strong>Resultado:</strong> Juristam demostró que la compra se realizó durante el matrimonio con fondos comunes. El juez declaró el terreno como bien de la sociedad conyugal y lo incluyó en la partición.</p></div>
+    </div>
+    <div class="caso-footer">
+      <p class="caso-cita">"Lo puse a nombre de ella y después quiso quedárselo. El juez aclaró que era de los dos."</p>
+      <button type="button" class="btn-caso" data-wa="https://wa.me/593994859814?text=Hola%20Juristam%2C%20compr%C3%A9%20un%20bien%20durante%20el%20matrimonio%20a%20nombre%20de%20mi%20ex.%20%C2%BFMe%20corresponde%20la%20mitad%3F" onclick="abrirModal(this)">Tengo un caso similar →</button>
+    </div>
+  </div>
+</div>
+
+<div class="cta-final">
+  <h2>¿Te divorciaste y nunca repartieron los bienes?</h2>
+  <p>Mándanos la lista de lo que se compró durante el matrimonio y a nombre de quién está. Revisamos qué te corresponde, qué se puede rastrear y si hay que bloquear algo antes de demandar. La revisión inicial no tiene costo.</p>
+  <div class="precio-mini">
+    <div class="precio-mini-item"><span>Revisión inicial</span><span>$0</span></div>
+    <div class="precio-mini-item"><span>Asesoría virtual ⭐</span><span>$45</span></div>
+    <div class="precio-mini-item"><span>Presencial</span><span>$85</span></div>
+  </div>
+  <p style="color:#c4b5fd;font-size:.8rem;margin-bottom:1.2rem;">Los $45 de la asesoría se descuentan del servicio completo si decides continuar.</p>
+  <button type="button" class="btn-wa-hero" data-wa="https://wa.me/593994859814?text=Hola%20Juristam%2C%20vi%20los%20casos%20de%20reparto%20de%20bienes%20y%20quiero%20revisar%20mi%20caso.%20Me%20divorci%C3%A9%20y%20nunca%20liquidamos." onclick="abrirModal(this)">Enviar mi lista de bienes · WhatsApp →</button>
+</div>
+
+<div style="text-align:center;margin-bottom:2.5rem;">
+  <a href="/blog/liquidacion-sociedad-conyugal-bienes-divorcio-ecuador.html" style="color:var(--primary-dark);font-size:.9rem;font-weight:600;text-decoration:underline;">← Volver a la guía completa</a>
+</div>
+</div>
+
+<footer><div class="container">
+  <p><strong>Juristam</strong> — Asesoría Legal Estratégica en Ecuador</p>
+  <p>© 2026 Juristam. Todos los derechos reservados. <a href="/blog/">Blog</a> · <a href="/#formulario">Contacto</a></p>
+  <p style="margin-top:.5rem;font-size:.8rem;opacity:.7;">Casos reales anonimizados. El resultado de una liquidación de sociedad conyugal depende del patrimonio, las fechas y la prueba concreta de cada caso — los resultados pueden variar.</p>
+</div></footer>
+
+<script>
+const WA_FALLBACK="https://wa.me/593994859814?text=Hola%20Juristam%2C%20me%20divorci%C3%A9%20y%20quiero%20reclamar%20mi%20parte%20de%20los%20bienes.%20Tengo%20la%20lista%20de%20lo%20que%20se%20compr%C3%B3%20durante%20el%20matrimonio.";
+let waActual = WA_FALLBACK;
+function abrirModal(el){
+  waActual = (el && el.dataset && el.dataset.wa) ? el.dataset.wa : WA_FALLBACK;
+  document.getElementById("waModal").classList.add("active");
+  document.body.style.overflow="hidden";
+}
+function cerrarModal(){document.getElementById("waModal").classList.remove("active");document.body.style.overflow="";}
+function irAWhatsApp(){cerrarModal();window.open(waActual,"_blank","noopener");}
+document.getElementById("waModal").addEventListener("click",function(e){if(e.target===this)cerrarModal();});
+document.addEventListener("keydown",function(e){if(e.key==="Escape")cerrarModal();});
+function filtrar(btn){
+  var f = btn.dataset.filtro;
+  document.querySelectorAll(".filtro-btn").forEach(function(b){b.classList.remove("activo");});
+  btn.classList.add("activo");
+  var n = 0;
+  document.querySelectorAll(".caso-card").forEach(function(c){
+    var ok = (f === "todos" || c.dataset.tipo === f);
+    c.classList.toggle("oculto", !ok);
+    if (ok) n++;
+  });
+  document.getElementById("contador").textContent = n;
+}
+</script>
+</body>
+</html>
