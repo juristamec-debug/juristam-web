@@ -831,12 +831,7 @@
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
-  <url>
-    <loc>https://juristam.net/blog/copiaron-mi-marca-ecuador.html</loc>
-    <lastmod>2026-05-16</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
+
   <url>
     <loc>https://juristam.net/blog/costo-juicio-prescripcion-adquisitiva-ecuador.html</loc>
     <lastmod>2026-05-16</lastmod>
@@ -1114,12 +1109,6 @@
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://juristam.net/blog/embargo-veh%C3%ADculo-multa-transito-ecuador.html</loc>
-    <lastmod>2026-05-16</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
     <loc>https://juristam.net/blog/empresa-revisa-satje-antes-contratar-ecuador.html</loc>
     <lastmod>2026-05-16</lastmod>
     <changefreq>monthly</changefreq>
@@ -1347,12 +1336,7 @@
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
-  <url>
-    <loc>https://juristam.net/blog/mercaderia-retenida-senae-ecuador.html</loc>
-    <lastmod>2026-05-16</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
+  
   <url>
     <loc>https://juristam.net/blog/mi-pareja-hereda-sin-casarnos-ecuador.html</loc>
     <lastmod>2026-05-16</lastmod>
@@ -2109,12 +2093,7 @@
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
-  <url>
-    <loc>https://juristam.net/blog/senae-retencion-mercaderia.html</loc>
-    <lastmod>2026-05-16</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
+  
   <url>
     <loc>https://juristam.net/blog/sentencia-prescripcion-registro-propiedad-ecuador.html</loc>
     <lastmod>2026-05-16</lastmod>
@@ -2795,5 +2774,237 @@
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
+<!-- ══════════════════════════════════════════════════════════════════
+     PEGAR ESTE BLOQUE ANTES DE </urlset>
 
+     ANTES DE PEGAR, HACER DOS COSAS EN EL SITEMAP ACTUAL:
+
+     1) ELIMINAR esta entrada (la página se fusionó y va con 301):
+        https://juristam.net/blog/mercaderia-retenida-senae-ecuador.html
+
+     2) ELIMINAR esta entrada duplicada con carácter acentuado
+        (la versión correcta sin tilde ya está en el sitemap):
+        https://juristam.net/blog/embargo-veh%C3%ADculo-multa-transito-ecuador.html
+
+     3) BORRAR del sitemap actual las tres entradas de los artículos
+        reescritos, porque más abajo van de nuevo con lastmod 2026-08-31:
+        /blog/senae-retencion-mercaderia.html
+        /blog/copiaron-mi-marca-ecuador.html
+        /blog/prohibicion-salida-alimentos.html
+     ══════════════════════════════════════════════════════════════════ -->
+
+  <!-- ════ AGOSTO 2026 · ARTÍCULOS NUEVOS ════ -->
+
+  <!-- Inmobiliario y patrimonio -->
+  <url>
+    <loc>https://juristam.net/blog/aparecio-dueno-terreno-que-ocupo-ecuador.html</loc>
+    <lastmod>2026-08-31</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://juristam.net/blog/me-quieren-sacar-del-terreno-ecuador.html</loc>
+    <lastmod>2026-08-31</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://juristam.net/blog/vendieron-mi-propiedad-sin-mi-autorizacion-ecuador.html</loc>
+    <lastmod>2026-08-31</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://juristam.net/blog/desalojo-inquilino-no-paga-ecuador.html</loc>
+    <lastmod>2026-08-31</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Familia -->
+  <url>
+    <loc>https://juristam.net/blog/liquidacion-sociedad-conyugal-bienes-divorcio-ecuador.html</loc>
+    <lastmod>2026-08-31</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Tránsito -->
+  <url>
+    <loc>https://juristam.net/blog/cobrar-danos-choque-transito-ecuador.html</loc>
+    <lastmod>2026-08-31</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- SENAE / Aduanas -->
+  <url>
+    <loc>https://juristam.net/blog/reclasificacion-partida-arancelaria-senae-ecuador.html</loc>
+    <lastmod>2026-08-31</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://juristam.net/blog/impugnar-resolucion-senae-plazos-vias-ecuador.html</loc>
+    <lastmod>2026-08-31</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://juristam.net/blog/aforo-fisico-senae-derechos-importador-ecuador.html</loc>
+    <lastmod>2026-08-31</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://juristam.net/blog/plazo-vencido-regimen-temporal-senae-ecuador.html</loc>
+    <lastmod>2026-08-31</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://juristam.net/blog/regimen-especial-mal-aplicado-control-posterior-senae.html</loc>
+    <lastmod>2026-08-31</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Ambiental -->
+  <url>
+    <loc>https://juristam.net/blog/procedimiento-sancionatorio-ambiental-ecuador.html</loc>
+    <lastmod>2026-08-31</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://juristam.net/blog/suspension-licencia-ambiental-ecuador.html</loc>
+    <lastmod>2026-08-31</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://juristam.net/blog/multas-ambientales-ecuador-impugnar.html</loc>
+    <lastmod>2026-08-31</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- ════ AGOSTO 2026 · ARTÍCULOS REESCRITOS ════ -->
+  <url>
+    <loc>https://juristam.net/blog/senae-retencion-mercaderia.html</loc>
+    <lastmod>2026-08-31</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://juristam.net/blog/copiaron-mi-marca-ecuador.html</loc>
+    <lastmod>2026-08-31</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://juristam.net/blog/prohibicion-salida-alimentos.html</loc>
+    <lastmod>2026-08-31</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- ════ AGOSTO 2026 · CATEGORÍA NUEVA ════ -->
+  <!-- Necesaria: los tres artículos ambientales apuntan aquí en su breadcrumb -->
+  <url>
+    <loc>https://juristam.net/blog/categoria-ambiental.html</loc>
+    <lastmod>2026-08-31</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <!-- ════ AGOSTO 2026 · PÁGINAS DE CASOS DE ÉXITO ════ -->
+
+  <!-- Inmobiliario y patrimonio -->
+  <url>
+    <loc>https://juristam.net/casos-de-exito-terreno-demandado.html</loc>
+    <lastmod>2026-08-31</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://juristam.net/casos-de-exito-amparo-posesorio.html</loc>
+    <lastmod>2026-08-31</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://juristam.net/casos-de-exito-nulidad-escritura.html</loc>
+    <lastmod>2026-08-31</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://juristam.net/casos-de-exito-desalojo-inquilino.html</loc>
+    <lastmod>2026-08-31</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Familia -->
+  <url>
+    <loc>https://juristam.net/casos-de-exito-sociedad-conyugal.html</loc>
+    <lastmod>2026-08-31</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Tránsito -->
+  <url>
+    <loc>https://juristam.net/casos-de-exito-choque-transito.html</loc>
+    <lastmod>2026-08-31</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- SENAE / Aduanas -->
+  <url>
+    <loc>https://juristam.net/casos-de-exito-impugnacion-senae.html</loc>
+    <lastmod>2026-08-31</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://juristam.net/casos-de-exito-aforo-fisico.html</loc>
+    <lastmod>2026-08-31</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://juristam.net/casos-de-exito-regimenes-aduaneros.html</loc>
+    <lastmod>2026-08-31</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://juristam.net/casos-de-exito-control-posterior-senae.html</loc>
+    <lastmod>2026-08-31</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Ambiental -->
+  <url>
+    <loc>https://juristam.net/casos-de-exito-sancion-ambiental.html</loc>
+    <lastmod>2026-08-31</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://juristam.net/casos-de-exito-licencia-ambiental.html</loc>
+    <lastmod>2026-08-31</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://juristam.net/casos-de-exito-multas-ambientales.html</loc>
+    <lastmod>2026-08-31</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
 </urlset>
