@@ -1,0 +1,525 @@
+<!DOCTYPE html>
+<html lang="es-EC">
+<head>
+<meta charset="UTF-8"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<link rel="icon" type="image/png" href="https://i.postimg.cc/KjDB1NSM/Diseno-sin-titulo-(7).png"/>
+<meta name="theme-color" content="#9a6aff"/>
+<title>Cobro de pagarés en Ecuador · 20 casos · Juristam</title>
+<meta name="description" content="20 casos reales de acreedores que cobraron pagarés vencidos en Ecuador: embargos preventivos, recuperación de cartera, prescripción cambiaria y acuerdos de pago logrados."/>
+<link rel="canonical" href="https://juristam.net/casos-de-exito-cobro-pagare.html"/>
+<meta name="robots" content="index,follow"/>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;0,700;1,400&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet"/>
+<style>
+:root{--primary:#9a6aff;--primary-dark:#7c3aed;--primary-light:#efe8ff;--primary-deep:#1e0a4e;--text:#1a1a2e;--text-secondary:#4a4a6a;--white:#fff;--success:#059669;--success-light:#ecfdf5;--gray-light:#f9f9fb;--border:#e8e8f0;}
+*{margin:0;padding:0;box-sizing:border-box;}html{scroll-behavior:smooth;}
+body{font-family:"DM Sans",sans-serif;color:var(--text);background:var(--white);line-height:1.8;-webkit-font-smoothing:antialiased;}
+a{text-decoration:none;color:inherit;}
+.container{max-width:960px;margin:0 auto;padding:0 1.5rem;}
+header{background:var(--white);border-bottom:1px solid var(--border);position:sticky;top:0;z-index:100;height:90px;}
+.header-inner{display:flex;align-items:center;justify-content:space-between;height:100%;}
+.brand-logo{height:90px;width:auto;}
+.btn-back{background:var(--primary-light);color:var(--primary-dark);padding:.5rem 1rem;border-radius:8px;font-size:.85rem;font-weight:600;}
+.hero{background:linear-gradient(135deg,var(--primary-deep),#2d1060);padding:3.5rem 0 2.8rem;text-align:center;margin-bottom:2rem;}
+.hero-tag{display:inline-block;background:rgba(255,255,255,.12);color:#c4b5fd;font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.12em;padding:.35rem .9rem;border-radius:20px;margin-bottom:1rem;}
+.hero h1{font-family:"Lora",serif;font-size:clamp(1.7rem,3.5vw,2.3rem);color:#fff;margin-bottom:.8rem;line-height:1.25;font-weight:700;}
+.hero p{color:#c4b5fd;font-size:.97rem;max-width:600px;margin:0 auto 1.5rem;line-height:1.75;}
+.hero-stats{display:flex;justify-content:center;gap:2.5rem;flex-wrap:wrap;margin-top:1.8rem;}
+.stat-num{font-family:"Lora",serif;font-size:2rem;font-weight:700;color:#fff;display:block;}
+.stat-label{font-size:.75rem;color:#c4b5fd;text-transform:uppercase;letter-spacing:.06em;}
+.btn-wa-hero{background:#25d366;color:#fff;padding:.8rem 2rem;border-radius:10px;font-size:.95rem;font-weight:700;display:inline-block;cursor:pointer;border:none;margin-top:1.5rem;font-family:inherit;}
+.filtros{display:flex;gap:.6rem;flex-wrap:wrap;justify-content:center;margin-bottom:1.2rem;}
+.filtro-btn{background:var(--white);border:1.5px solid var(--border);color:var(--text-secondary);padding:.5rem 1.1rem;border-radius:24px;font-size:.85rem;font-weight:600;cursor:pointer;font-family:inherit;transition:all .18s;}
+.filtro-btn:hover{border-color:var(--primary);color:var(--primary-dark);}
+.filtro-btn.activo{background:var(--primary-dark);border-color:var(--primary-dark);color:#fff;}
+.casos-count{font-size:.85rem;color:var(--text-secondary);margin-bottom:1rem;text-align:center;}
+.casos-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(380px,1fr));gap:1.4rem;margin-bottom:3rem;}
+.caso-card{background:var(--white);border-radius:16px;border:1.5px solid var(--border);overflow:hidden;box-shadow:0 4px 20px rgba(0,0,0,.06);transition:box-shadow .2s,transform .2s;display:flex;flex-direction:column;}
+.caso-card:hover{box-shadow:0 8px 32px rgba(124,58,237,.14);transform:translateY(-2px);}
+.caso-card.oculto{display:none;}
+.caso-header{padding:1.3rem 1.5rem .9rem;border-bottom:1px solid var(--border);}
+.caso-badges{display:flex;gap:.4rem;flex-wrap:wrap;margin-bottom:.55rem;}
+.badge{font-size:.68rem;font-weight:700;padding:.2rem .6rem;border-radius:20px;text-transform:uppercase;letter-spacing:.04em;}
+.badge-resultado{background:var(--success-light);color:var(--success);}
+.badge-tiempo{background:var(--gray-light);color:var(--text-secondary);}
+.caso-titulo{font-family:"Lora",serif;font-size:1rem;font-weight:700;color:var(--text);line-height:1.35;margin-bottom:.25rem;}
+.caso-meta{font-size:.76rem;color:var(--text-secondary);}
+.caso-body{padding:1.1rem 1.5rem;flex:1;}
+.caso-section{margin-bottom:.85rem;}
+.caso-section-label{font-size:.65rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--text-secondary);margin-bottom:.25rem;display:block;}
+.caso-section p{font-size:.87rem;color:var(--text);line-height:1.7;margin:0;}
+.caso-resultado-box{background:var(--success-light);border-left:3px solid var(--success);border-radius:0 8px 8px 0;padding:.75rem .9rem;margin-top:.7rem;}
+.caso-resultado-box p{font-size:.85rem;color:var(--text);line-height:1.65;margin:0;}
+.caso-resultado-box strong{color:var(--success);}
+.caso-footer{padding:.85rem 1.5rem;background:var(--gray-light);border-top:1px solid var(--border);display:flex;align-items:center;justify-content:space-between;gap:.7rem;flex-wrap:wrap;}
+.caso-cita{font-size:.8rem;color:var(--text-secondary);font-style:italic;flex:1;line-height:1.5;}
+.btn-caso{background:var(--primary-dark);color:#fff;padding:.48rem 1rem;border-radius:8px;font-size:.78rem;font-weight:700;white-space:nowrap;cursor:pointer;border:none;flex-shrink:0;font-family:inherit;}
+.cta-final{background:linear-gradient(135deg,var(--primary-deep),#2d1060);border-radius:16px;padding:2.5rem 2rem;text-align:center;margin:1rem 0 3rem;}
+.cta-final h2{font-family:"Lora",serif;color:#fff;font-size:1.5rem;margin-bottom:.8rem;}
+.cta-final p{color:#c4b5fd;margin-bottom:1.5rem;line-height:1.75;max-width:520px;margin-left:auto;margin-right:auto;}
+.precio-mini{display:inline-flex;gap:1.5rem;background:rgba(255,255,255,.1);border-radius:12px;padding:.8rem 1.5rem;margin-bottom:.8rem;flex-wrap:wrap;justify-content:center;}
+.precio-mini-item span:first-child{display:block;font-size:.68rem;color:#c4b5fd;text-transform:uppercase;letter-spacing:.08em;margin-bottom:.2rem;}
+.precio-mini-item span:last-child{font-family:"Lora",serif;font-size:1.6rem;font-weight:700;color:#fff;}
+.modal-overlay{display:none;position:fixed;inset:0;background:rgba(10,5,30,.65);backdrop-filter:blur(5px);z-index:999;align-items:center;justify-content:center;padding:.75rem;}
+.modal-overlay.active{display:flex;}
+.modal{background:#fff;border-radius:18px;max-width:380px;width:100%;box-shadow:0 24px 60px rgba(0,0,0,.25);}
+.modal-top{background:linear-gradient(135deg,var(--primary-deep),#4c1d95);padding:1.1rem 1.2rem .9rem;position:relative;border-radius:18px 18px 0 0;}
+.modal-top h4{color:#fff;font-size:.98rem;font-weight:700;margin-bottom:.2rem;}
+.modal-top p{color:#c4b5fd;font-size:.74rem;line-height:1.4;}
+.modal-close{position:absolute;top:.6rem;right:.6rem;background:rgba(255,255,255,.15);border:none;color:#fff;width:24px;height:24px;border-radius:50%;cursor:pointer;font-size:.8rem;display:flex;align-items:center;justify-content:center;}
+.modal-body{padding:.9rem 1.2rem 1.1rem;}
+.modal-section-label{font-size:.62rem;font-weight:700;color:var(--text-secondary);text-transform:uppercase;letter-spacing:.05em;margin-bottom:.35rem;display:block;}
+.modal-precios{display:grid;grid-template-columns:1fr 1fr;gap:.5rem;margin-bottom:.7rem;}
+.modal-precio{border-radius:10px;padding:.5rem .6rem;border:1.5px solid var(--border);text-align:center;}
+.modal-precio.virtual{border-color:var(--primary);background:var(--primary-light);}
+.modal-precio .mlabel{font-size:.6rem;font-weight:700;text-transform:uppercase;letter-spacing:.04em;color:var(--primary-dark);display:block;margin-bottom:.1rem;}
+.modal-precio .mmonto{font-family:"Lora",serif;font-size:1.25rem;font-weight:700;color:var(--text);line-height:1;}
+.modal-nota{font-size:.7rem;color:var(--text-secondary);background:var(--gray-light);border-radius:8px;padding:.5rem .65rem;margin-bottom:.8rem;line-height:1.4;}
+.btn-modal-wa{display:block;background:#25d366;color:#fff;text-align:center;padding:.7rem;border-radius:9px;font-weight:700;font-size:.86rem;border:none;cursor:pointer;width:100%;font-family:inherit;}
+footer{background:var(--text);color:#ccc;padding:2.2rem 0 5.5rem;text-align:center;font-size:.84rem;margin-top:3rem;}
+footer a{color:var(--primary);}footer strong{color:var(--white);}
+@media(max-width:700px){.casos-grid{grid-template-columns:1fr;}.hero-stats{gap:1.2rem;}.modal-precios{grid-template-columns:1fr;}.filtro-btn{font-size:.8rem;padding:.45rem .9rem;}}
+</style>
+</head>
+<body>
+
+<div class="modal-overlay" id="waModal" role="dialog" aria-modal="true">
+  <div class="modal">
+    <div class="modal-top">
+      <button type="button" class="modal-close" onclick="cerrarModal()" aria-label="Cerrar">&#x2715;</button>
+      <h4>El pagaré prescribe en 3 años</h4>
+      <p>Cada mes que pasa, el deudor tiene más tiempo para esconder sus bienes. Mándenos el pagaré y le decimos cuánto plazo queda, si conviene embargo preventivo y cuánto se puede recuperar.</p>
+    </div>
+    <div class="modal-body">
+      <span class="modal-section-label">Asesoría inicial</span>
+      <div class="modal-precios">
+        <div class="modal-precio virtual"><span class="mlabel">Virtual ⭐</span><div class="mmonto">$45</div></div>
+        <div class="modal-precio"><span class="mlabel">Presencial</span><div class="mmonto">$85</div></div>
+      </div>
+      <div class="modal-nota">La revisión inicial de su caso no tiene costo. Los $45 se descuentan del servicio completo si decide continuar.</div>
+      <button type="button" class="btn-modal-wa" onclick="irAWhatsApp()">Continuar a WhatsApp →</button>
+    </div>
+  </div>
+</div>
+
+<header><div class="container header-inner">
+  <a href="/blog/"><img class="brand-logo" src="https://i.postimg.cc/vHygbHxz/oie-transparent-(2).png" alt="Juristam" loading="eager" width="120" height="90"/></a>
+  <a class="btn-back" href="/blog/cobrar-pagare-juicio-ejecutivo-ecuador.html">← Volver al artículo</a>
+</div></header>
+
+<div class="hero"><div class="container">
+  <span class="hero-tag">Juristam · Cobro judicial de pagarés · Ecuador</span>
+  <h1>Cobro de pagarés en Ecuador</h1>
+  <p>20 casos reales de acreedores que cobraron pagarés vencidos: embargos preventivos exitosos, recuperación de cartera empresarial, prescripción cambiaria evitada y acuerdos de pago logrados con garantía.</p>
+  <div class="hero-stats">
+    <div class="stat"><span class="stat-num">20</span><span class="stat-label">Casos documentados</span></div>
+    <div class="stat"><span class="stat-num">3 mes</span><span class="stat-label">Caso más rápido</span></div>
+    <div class="stat"><span class="stat-num">$3K–$180K</span><span class="stat-label">Rango recuperado</span></div>
+    <div class="stat"><span class="stat-num">$45</span><span class="stat-label">Asesoría inicial</span></div>
+  </div>
+  <button type="button" class="btn-wa-hero" data-wa="https://wa.me/593994859814?text=Hola%20Juristam%2C%20tengo%20un%20pagar%C3%A9%20vencido%20y%20quiero%20cobrarlo%20judicialmente." onclick="abrirModal(this)">Revisar mi caso → WhatsApp</button>
+</div></div>
+
+<div class="container">
+<div class="filtros">
+  <button type="button" class="filtro-btn activo" data-filtro="todos" onclick="filtrar(this)">Todos (20)</button>
+  <button type="button" class="filtro-btn" data-filtro="embargo" onclick="filtrar(this)">⚡ Embargo preventivo (5)</button>
+  <button type="button" class="filtro-btn" data-filtro="cuentas" onclick="filtrar(this)">🏦 Cuentas y sueldo (4)</button>
+  <button type="button" class="filtro-btn" data-filtro="cartera" onclick="filtrar(this)">📊 Cartera empresarial (4)</button>
+  <button type="button" class="filtro-btn" data-filtro="negociacion" onclick="filtrar(this)">🤝 Acuerdo de pago (4)</button>
+  <button type="button" class="filtro-btn" data-filtro="prescripcion" onclick="filtrar(this)">⏳ Prescripción / vía ordinaria (3)</button>
+</div>
+<p class="casos-count"><strong id="contador">20</strong> casos encontrados</p>
+<div class="casos-grid" id="grid">
+
+  <div class="caso-card" data-tipo="embargo">
+    <div class="caso-header"><div>
+      <div class="caso-badges"><span class="badge badge-resultado">✓ Embargo de cuentas antes de que las vaciara</span><span class="badge badge-tiempo">⏱ 4 meses</span></div>
+      <p class="caso-titulo">Prestó $45,000 y el deudor dejó de contestar</p>
+      <p class="caso-meta">🇪🇨 Quito · Pagaré vencido · Embargo preventivo · COGEP Art. 353</p>
+    </div></div>
+    <div class="caso-body">
+      <div class="caso-section"><span class="caso-section-label">La situación</span><p>Empresario en Quito prestó $45,000 a un conocido de negocios. El pagaré venció hace 8 meses. El deudor decía "mañana te pago" y luego dejó de contestar.</p></div>
+      <div class="caso-section"><span class="caso-section-label">El problema</span><p>El deudor tenía propiedades a su nombre, pero estaba a punto de venderlas. Si no se actuaba rápido, se quedaba sin bienes embargables.</p></div>
+      <div class="caso-resultado-box"><p><strong>Resultado:</strong> Juristam presentó la demanda ejecutiva con embargo preventivo. El juez trabó embargo sobre las cuentas bancarias del deudor antes de que las vaciara. En 4 meses, la deuda completa más intereses y costas fue cobrada por débito directo. Total recuperado: <strong>$52,800 USD</strong>.</p></div>
+    </div>
+    <div class="caso-footer">
+      <p class="caso-cita">"El deudor vendía sus propiedades. El embargo preventivo llegó antes de que pudiera deshacerse de todo."</p>
+      <button type="button" class="btn-caso" data-wa="https://wa.me/593994859814?text=Hola%20Juristam%2C%20tengo%20un%20pagar%C3%A9%20de%20%2445%2C000%20y%20el%20deudor%20no%20paga." onclick="abrirModal(this)">Tengo un caso similar →</button>
+    </div>
+  </div>
+
+  <div class="caso-card" data-tipo="embargo">
+    <div class="caso-header"><div>
+      <div class="caso-badges"><span class="badge badge-resultado">✓ Embargo de vehículo y remate en 3 meses</span><span class="badge badge-tiempo">⏱ 3 meses</span></div>
+      <p class="caso-titulo">Deudor con camioneta a su nombre pero sin cuentas</p>
+      <p class="caso-meta">🇪🇨 Guayaquil · Embargo de vehículo · Remate · COGEP</p>
+    </div></div>
+    <div class="caso-body">
+      <div class="caso-section"><span class="caso-section-label">La situación</span><p>Comerciante en Guayaquil con un pagaré de $18,500 firmado por un transportista. El deudor no tenía cuentas bancarias con saldo pero sí una camioneta a su nombre.</p></div>
+      <div class="caso-section"><span class="caso-section-label">El problema</span><p>El deudor alegaba que "no tenía cómo pagar" y ofrecía $100 mensuales. La camioneta era su herramienta de trabajo, así que la presión del embargo era el punto clave.</p></div>
+      <div class="caso-resultado-box"><p><strong>Resultado:</strong> Juristam solicitó embargo preventivo sobre la camioneta. Al saber que iba a remate, el deudor pagó el total más intereses y costas en 3 meses para recuperar su vehículo. Total recuperado: <strong>$21,400 USD</strong>.</p></div>
+    </div>
+    <div class="caso-footer">
+      <p class="caso-cita">"El deudor decía que no tenía cómo pagar. Cuando vio el embargo sobre su camioneta, apareció el dinero."</p>
+      <button type="button" class="btn-caso" data-wa="https://wa.me/593994859814?text=Hola%20Juristam%2C%20tengo%20un%20pagar%C3%A9%20de%20%2418%2C500%20y%20el%20deudor%20tiene%20un%20veh%C3%ADculo." onclick="abrirModal(this)">Tengo un caso similar →</button>
+    </div>
+  </div>
+
+  <div class="caso-card" data-tipo="embargo">
+    <div class="caso-header"><div>
+      <div class="caso-badges"><span class="badge badge-resultado">✓ Embargo de inmueble antes de la venta</span><span class="badge badge-tiempo">⏱ 5 meses</span></div>
+      <p class="caso-titulo">El deudor estaba vendiendo su casa para no pagar</p>
+      <p class="caso-meta">🇪🇨 Cuenca · Embargo de inmueble · Arts. 835 CC · COGEP</p>
+    </div></div>
+    <div class="caso-body">
+      <div class="caso-section"><span class="caso-section-label">La situación</span><p>Prestamista en Cuenca con un pagaré de $62,000. El deudor había puesto su casa en venta en portales inmobiliarios, con lo que buscaba deshacerse del único bien embargable.</p></div>
+      <div class="caso-section"><span class="caso-section-label">El problema</span><p>Si la venta se cerraba antes del embargo, el acreedor se quedaba sin garantía real. Había que actuar de inmediato.</p></div>
+      <div class="caso-resultado-box"><p><strong>Resultado:</strong> Juristam solicitó embargo preventivo del inmueble, y el juez lo trabó antes de la firma de la escritura. El comprador se retiró al ver el gravamen. El deudor, imposibilitado de vender, pagó en 5 meses. Total recuperado: <strong>$71,300 USD</strong> con intereses y costas.</p></div>
+    </div>
+    <div class="caso-footer">
+      <p class="caso-cita">"Estaba vendiendo la casa para no pagarme. El embargo preventivo frenó la operación y cobré todo."</p>
+      <button type="button" class="btn-caso" data-wa="https://wa.me/593994859814?text=Hola%20Juristam%2C%20tengo%20un%20pagar%C3%A9%20de%20%2462%2C000%20y%20el%20deudor%20est%C3%A1%20vendiendo%20su%20casa." onclick="abrirModal(this)">Tengo un caso similar →</button>
+    </div>
+  </div>
+
+  <div class="caso-card" data-tipo="embargo">
+    <div class="caso-header"><div>
+      <div class="caso-badges"><span class="badge badge-resultado">✓ Embargo de inventario de negocio</span><span class="badge badge-tiempo">⏱ 4 meses</span></div>
+      <p class="caso-titulo">Deudor con local comercial: embargo de mercadería</p>
+      <p class="caso-meta">🇪🇨 Quito · Embargo de bienes muebles · Comerciante · COGEP</p>
+    </div></div>
+    <div class="caso-body">
+      <div class="caso-section"><span class="caso-section-label">La situación</span><p>Proveedor en Quito con un pagaré de $24,000 firmado por el dueño de un local de electrodomésticos. El deudor tenía el local lleno de mercadería pero decía no tener dinero.</p></div>
+      <div class="caso-section"><span class="caso-section-label">El problema</span><p>El deudor movía mercadería rápido, así que el embargo tenía que ser sobre el inventario actual y no sobre un listado estático.</p></div>
+      <div class="caso-resultado-box"><p><strong>Resultado:</strong> Juristam solicitó embargo preventivo sobre el inventario del local. El depositario judicial tomó posesión de los bienes. El deudor, para no perder su stock, pagó el pagaré completo más intereses en 4 meses. Total recuperado: <strong>$27,800 USD</strong>.</p></div>
+    </div>
+    <div class="caso-footer">
+      <p class="caso-cita">"Llenó el local de mercadería pero decía no tener dinero. El embargo sobre el inventario lo obligó a pagar."</p>
+      <button type="button" class="btn-caso" data-wa="https://wa.me/593994859814?text=Hola%20Juristam%2C%20tengo%20un%20pagar%C3%A9%20de%20%2424%2C000%20y%20el%20deudor%20tiene%20un%20local%20comercial." onclick="abrirModal(this)">Tengo un caso similar →</button>
+    </div>
+  </div>
+
+  <div class="caso-card" data-tipo="embargo">
+    <div class="caso-header"><div>
+      <div class="caso-badges"><span class="badge badge-resultado">✓ Embargo de maquinaria industrial</span><span class="badge badge-tiempo">⏱ 6 meses</span></div>
+      <p class="caso-titulo">Pagaré de $95,000 garantizado con maquinaria</p>
+      <p class="caso-meta">🇪🇨 Guayaquil · Embargo de maquinaria · B2B · COGEP</p>
+    </div></div>
+    <div class="caso-body">
+      <div class="caso-section"><span class="caso-section-label">La situación</span><p>Empresa en Guayaquil que vendió maquinaria industrial a crédito con pagaré de $95,000. El comprador dejó de pagar a los 6 meses.</p></div>
+      <div class="caso-section"><span class="caso-section-label">El problema</span><p>El deudor tenía la maquinaria en funcionamiento pero alegaba problemas de flujo de caja. Las cuentas bancarias estaban a nombre de una empresa vinculada, no del deudor.</p></div>
+      <div class="caso-resultado-box"><p><strong>Resultado:</strong> Juristam solicitó embargo preventivo sobre la maquinaria vendida (que seguía siendo del acreedor hasta el pago total) y sobre otros bienes del deudor. Ante el riesgo de perder la línea de producción, el deudor negoció pago en 6 meses con garantía hipotecaria adicional. Total recuperado: <strong>$108,500 USD</strong>.</p></div>
+    </div>
+    <div class="caso-footer">
+      <p class="caso-cita">"El deudor tenía la maquinaria trabajando. El embargo preventivo sobre su línea de producción lo obligó a pagar."</p>
+      <button type="button" class="btn-caso" data-wa="https://wa.me/593994859814?text=Hola%20Juristam%2C%20tengo%20un%20pagar%C3%A9%20empresarial%20de%20%2495%2C000%20con%20maquinaria%20en%20garant%C3%ADa." onclick="abrirModal(this)">Tengo un caso similar →</button>
+    </div>
+  </div>
+
+  <div class="caso-card" data-tipo="cuentas">
+    <div class="caso-header"><div>
+      <div class="caso-badges"><span class="badge badge-resultado">✓ Débito directo de cuentas en 5 meses</span><span class="badge badge-tiempo">⏱ 5 meses</span></div>
+      <p class="caso-titulo">Deudor con sueldo alto y cuentas activas</p>
+      <p class="caso-meta">🇪🇨 Quito · Embargo de sueldo · Pagaré de $32,000</p>
+    </div></div>
+    <div class="caso-body">
+      <div class="caso-section"><span class="caso-section-label">La situación</span><p>Prestamista en Quito con un pagaré de $32,000 firmado por un profesional con empleo formal. El deudor tenía un buen sueldo pero decía que "no podía pagar todo de golpe".</p></div>
+      <div class="caso-section"><span class="caso-section-label">El problema</span><p>El deudor ofrecía pagar en cuotas mínimas que tardarían años. Había que acelerar el cobro con las herramientas del juicio ejecutivo.</p></div>
+      <div class="caso-resultado-box"><p><strong>Resultado:</strong> Juristam solicitó embargo preventivo sobre el sueldo del deudor (hasta el 30% legal) y sobre sus cuentas. Con el débito directo del sueldo y las cuentas, la deuda se cobró en 5 meses. Total recuperado: <strong>$38,600 USD</strong> con intereses y costas.</p></div>
+    </div>
+    <div class="caso-footer">
+      <p class="caso-cita">"Ofrecía pagar en cuotas mínimas por años. Con el embargo del sueldo, la deuda se cobró en 5 meses."</p>
+      <button type="button" class="btn-caso" data-wa="https://wa.me/593994859814?text=Hola%20Juristam%2C%20tengo%20un%20pagar%C3%A9%20de%20%2432%2C000%20y%20el%20deudor%20tiene%20empleo%20formal." onclick="abrirModal(this)">Tengo un caso similar →</button>
+    </div>
+  </div>
+
+  <div class="caso-card" data-tipo="cuentas">
+    <div class="caso-header"><div>
+      <div class="caso-badges"><span class="badge badge-resultado">✓ Embargo de cuentas en dos bancos</span><span class="badge badge-tiempo">⏱ 4 meses</span></div>
+      <p class="caso-titulo">Deudor con cuentas en dos bancos distintos</p>
+      <p class="caso-meta">🇪🇨 Guayaquil · Embargo bancario múltiple · Pagaré de $28,000</p>
+    </div></div>
+    <div class="caso-body">
+      <div class="caso-section"><span class="caso-section-label">La situación</span><p>Acreedor en Guayaquil con un pagaré de $28,000. El deudor tenía cuentas activas en dos bancos distintos y las movía entre ellas.</p></div>
+      <div class="caso-section"><span class="caso-section-label">El problema</span><p>Si solo se embargaba una cuenta, el deudor movía el dinero a la otra. Había que trabar ambas simultáneamente.</p></div>
+      <div class="caso-resultado-box"><p><strong>Resultado:</strong> Juristam solicitó embargo preventivo sobre las dos cuentas bancarias y trabó ambas en el mismo día. El deudor no pudo mover el dinero. Deuda cobrada por débito directo en 4 meses. Total recuperado: <strong>$33,200 USD</strong>.</p></div>
+    </div>
+    <div class="caso-footer">
+      <p class="caso-cita">"El deudor movía el dinero entre dos bancos. El embargo simultáneo lo dejó sin escapatoria."</p>
+      <button type="button" class="btn-caso" data-wa="https://wa.me/593994859814?text=Hola%20Juristam%2C%20tengo%20un%20pagar%C3%A9%20de%20%2428%2C000%20y%20el%20deudor%20tiene%20varias%20cuentas." onclick="abrirModal(this)">Tengo un caso similar →</button>
+    </div>
+  </div>
+
+  <div class="caso-card" data-tipo="cuentas">
+    <div class="caso-header"><div>
+      <div class="caso-badges"><span class="badge badge-resultado">✓ Cobro vía retención de facturación</span><span class="badge badge-tiempo">⏱ 6 meses</span></div>
+      <p class="caso-titulo">Deudor que facturaba por una empresa vinculada</p>
+      <p class="caso-meta">🇪🇨 Quito · Retención de créditos · Pagaré de $47,000</p>
+    </div></div>
+    <div class="caso-body">
+      <div class="caso-section"><span class="caso-section-label">La situación</span><p>Acreedor en Quito con un pagaré de $47,000. El deudor facturaba por una empresa vinculada, pero la cuenta bancaria personal estaba vacía.</p></div>
+      <div class="caso-section"><span class="caso-section-label">El problema</span><p>No se podía embargar directamente la empresa, que era una persona jurídica distinta. Había que buscar la vía de la retención de créditos a favor del deudor.</p></div>
+      <div class="caso-resultado-box"><p><strong>Resultado:</strong> Juristam identificó contratos vigentes del deudor y solicitó la retención de los créditos que le debían a él. Los clientes del deudor pagaron directamente al juzgado. Deuda cobrada en 6 meses. Total recuperado: <strong>$55,600 USD</strong>.</p></div>
+    </div>
+    <div class="caso-footer">
+      <p class="caso-cita">"Su cuenta personal estaba vacía. Pero facturaba a clientes que le debían. Retuvimos esos créditos directamente."</p>
+      <button type="button" class="btn-caso" data-wa="https://wa.me/593994859814?text=Hola%20Juristam%2C%20tengo%20un%20pagar%C3%A9%20de%20%2447%2C000%20y%20el%20deudor%20factura%20por%20una%20empresa%20vinculada." onclick="abrirModal(this)">Tengo un caso similar →</button>
+    </div>
+  </div>
+
+  <div class="caso-card" data-tipo="cuentas">
+    <div class="caso-header"><div>
+      <div class="caso-badges"><span class="badge badge-resultado">✓ Embargo de inversiones y CDT</span><span class="badge badge-tiempo">⏱ 7 meses</span></div>
+      <p class="caso-titulo">Deudor con CDT y fondos de inversión ocultos</p>
+      <p class="caso-meta">🇪🇨 Guayaquil · Embargo de CDT · Pagaré de $78,000</p>
+    </div></div>
+    <div class="caso-body">
+      <div class="caso-section"><span class="caso-section-label">La situación</span><p>Acreedor en Guayaquil con un pagaré de $78,000. El deudor decía no tener bienes, pero se sospechaba que tenía inversiones a su nombre.</p></div>
+      <div class="caso-section"><span class="caso-section-label">El problema</span><p>Los CDT y fondos de inversión no aparecen en el sistema de bienes tradicional. Había que investigar en el sistema financiero bajo orden judicial.</p></div>
+      <div class="caso-resultado-box"><p><strong>Resultado:</strong> Juristam solicitó al juez el levantamiento del secreto bancario del deudor. Se identificó un CDT de $85,000 a su nombre. El embargo preventivo se trabó sobre el CDT. Deuda cobrada en 7 meses. Total recuperado: <strong>$92,400 USD</strong>.</p></div>
+    </div>
+    <div class="caso-footer">
+      <p class="caso-cita">"Decía no tener nada, pero tenía un CDT de $85,000. Con el levantamiento del secreto bancario apareció todo."</p>
+      <button type="button" class="btn-caso" data-wa="https://wa.me/593994859814?text=Hola%20Juristam%2C%20tengo%20un%20pagar%C3%A9%20de%20%2478%2C000%20y%20sospecho%20que%20el%20deudor%20tiene%20inversiones%20ocultas." onclick="abrirModal(this)">Tengo un caso similar →</button>
+    </div>
+  </div>
+
+  <div class="caso-card" data-tipo="cartera">
+    <div class="caso-header"><div>
+      <div class="caso-badges"><span class="badge badge-resultado">✓ Recuperó el 85% de una cartera vencida</span><span class="badge badge-tiempo">⏱ 7 meses</span></div>
+      <p class="caso-titulo">Empresa con $83,760 en pagarés vencidos de clientes</p>
+      <p class="caso-meta">🇪🇨 Guayaquil · Cartera empresarial · Varios deudores</p>
+    </div></div>
+    <div class="caso-body">
+      <div class="caso-section"><span class="caso-section-label">La situación</span><p>Distribuidora en Guayaquil vendió mercadería a crédito con pagarés. Varios clientes dejaron de pagar. La cartera vencida sumaba $83,760.</p></div>
+      <div class="caso-section"><span class="caso-section-label">El problema</span><p>Los pagarés estaban vencidos entre 6 y 18 meses. Algunos deudores tenían bienes, otros no. La empresa necesitaba recuperar para seguir operando.</p></div>
+      <div class="caso-resultado-box"><p><strong>Resultado:</strong> Juristam presentó demandas ejecutivas individuales por cada pagaré. En los casos con bienes, se trabó embargo preventivo. En los casos sin bienes, se negoció acuerdo de pago con garantía. Recuperación total: <strong>$71,300</strong> (85% de la cartera) en 7 meses.</p></div>
+    </div>
+    <div class="caso-footer">
+      <p class="caso-cita">"Tenía $83,000 en pagarés vencidos. Recuperé el 85% con demandas ejecutivas y negociación."</p>
+      <button type="button" class="btn-caso" data-wa="https://wa.me/593994859814?text=Hola%20Juristam%2C%20tengo%20varios%20pagar%C3%A9s%20vencidos%20de%20clientes%20que%20no%20pagan." onclick="abrirModal(this)">Tengo un caso similar →</button>
+    </div>
+  </div>
+
+  <div class="caso-card" data-tipo="cartera">
+    <div class="caso-header"><div>
+      <div class="caso-badges"><span class="badge badge-resultado">✓ Recuperación del 92% con embargos escalonados</span><span class="badge badge-tiempo">⏱ 9 meses</span></div>
+      <p class="caso-titulo">Constructora con 14 pagarés de subcontratistas</p>
+      <p class="caso-meta">🇪🇨 Quito · Cartera de constructora · Pagarés múltiples</p>
+    </div></div>
+    <div class="caso-body">
+      <div class="caso-section"><span class="caso-section-label">La situación</span><p>Constructora en Quito con 14 pagarés firmados por subcontratistas por un total de $142,000. Varios habían vencido hacía más de un año.</p></div>
+      <div class="caso-section"><span class="caso-section-label">El problema</span><p>Los subcontratistas eran personas naturales o empresas pequeñas. Algunos tenían vehículos y maquinaria, otros no tenían nada a su nombre.</p></div>
+      <div class="caso-resultado-box"><p><strong>Resultado:</strong> Juristam priorizó los pagarés con deudores que tenían bienes y presentó demandas ejecutivas con embargo preventivo. Los demás se negociaron con acuerdo de pago garantizado con pagarés adicionales. Recuperación total: <strong>$130,600</strong> (92% de la cartera) en 9 meses.</p></div>
+    </div>
+    <div class="caso-footer">
+      <p class="caso-cita">"Con 14 pagarés, priorizamos los que tenían bienes y negociamos los demás. Recuperamos el 92%."</p>
+      <button type="button" class="btn-caso" data-wa="https://wa.me/593994859814?text=Hola%20Juristam%2C%20mi%20empresa%20tiene%20varios%20pagar%C3%A9s%20vencidos%20y%20necesito%20recuperar%20la%20cartera." onclick="abrirModal(this)">Tengo un caso similar →</button>
+    </div>
+  </div>
+
+  <div class="caso-card" data-tipo="cartera">
+    <div class="caso-header"><div>
+      <div class="caso-badges"><span class="badge badge-resultado">✓ Cobro de pagaré B2B con garantía hipotecaria</span><span class="badge badge-tiempo">⏱ 8 meses</span></div>
+      <p class="caso-titulo">Venta de equipos por $180,000 con pagaré y garantía</p>
+      <p class="caso-meta">🇪🇨 Guayaquil · Pagaré B2B · Garantía hipotecaria · Cobro ejecutivo</p>
+    </div></div>
+    <div class="caso-body">
+      <div class="caso-section"><span class="caso-section-label">La situación</span><p>Empresa en Guayaquil vendió equipos industriales por $180,000 con pagaré firmado y garantía hipotecaria sobre una bodega del deudor.</p></div>
+      <div class="caso-section"><span class="caso-section-label">El problema</span><p>El deudor pagó las primeras 6 cuotas y luego dejó de pagar. Quedaban $142,000 pendientes. Se necesitaba ejecutar la garantía.</p></div>
+      <div class="caso-resultado-box"><p><strong>Resultado:</strong> Juristam presentó la demanda ejecutiva con ejecución de la hipoteca. El juez ordenó el remate de la bodega, pero el deudor pagó antes del remate para evitar perder el inmueble. Total recuperado: <strong>$158,400 USD</strong> con intereses y costas.</p></div>
+    </div>
+    <div class="caso-footer">
+      <p class="caso-cita">"La garantía hipotecaria fue clave. Cuando vio que iban a rematar la bodega, pagó todo."</p>
+      <button type="button" class="btn-caso" data-wa="https://wa.me/593994859814?text=Hola%20Juristam%2C%20tengo%20un%20pagar%C3%A9%20empresarial%20con%20garant%C3%ADa%20hipotecaria%20y%20el%20deudor%20no%20paga." onclick="abrirModal(this)">Tengo un caso similar →</button>
+    </div>
+  </div>
+
+  <div class="caso-card" data-tipo="cartera">
+    <div class="caso-header"><div>
+      <div class="caso-badges"><span class="badge badge-resultado">✓ Recuperación total de cartera de factoring</span><span class="badge badge-tiempo">⏱ 6 meses</span></div>
+      <p class="caso-titulo">Empresa de factoring con pagarés endosados</p>
+      <p class="caso-meta">🇪🇨 Quito · Factoring · Endoso · COGEP Art. 353</p>
+    </div></div>
+    <div class="caso-body">
+      <div class="caso-section"><span class="caso-section-label">La situación</span><p>Empresa de factoring en Quito que había adquirido pagarés endosados por $76,000 de varias pymes. Los pagarés vencieron sin pago.</p></div>
+      <div class="caso-section"><span class="caso-section-label">El problema</span><p>Al ser pagarés endosados, había que verificar los requisitos formales del protesto y demandar tanto al suscriptor como al endosante solidariamente.</p></div>
+      <div class="caso-resultado-box"><p><strong>Resultado:</strong> Juristam verificó el protesto de cada pagaré, presentó demandas ejecutivas contra suscriptores y endosantes solidariamente, y trabó embargos preventivos. Recuperación total: <strong>$76,000 + intereses = $84,500 USD</strong> en 6 meses.</p></div>
+    </div>
+    <div class="caso-footer">
+      <p class="caso-cita">"Los pagarés estaban endosados. Demandamos a todos los obligados solidariamente y recuperamos el 100%."</p>
+      <button type="button" class="btn-caso" data-wa="https://wa.me/593994859814?text=Hola%20Juristam%2C%20tengo%20pagar%C3%A9s%20endosados%20de%20factoring%20y%20quiero%20cobrarlos." onclick="abrirModal(this)">Tengo un caso similar →</button>
+    </div>
+  </div>
+
+  <div class="caso-card" data-tipo="negociacion">
+    <div class="caso-header"><div>
+      <div class="caso-badges"><span class="badge badge-resultado">✓ Acuerdo de pago con garantía hipotecaria</span><span class="badge badge-tiempo">⏱ 3 meses</span></div>
+      <p class="caso-titulo">Deudor con negocio viable pero sin liquidez inmediata</p>
+      <p class="caso-meta">🇪🇨 Cuenca · Negociación · Garantía adicional · Pagaré de $56,000</p>
+    </div></div>
+    <div class="caso-body">
+      <div class="caso-section"><span class="caso-section-label">La situación</span><p>Prestamista en Cuenca con un pagaré de $56,000. El deudor tenía un negocio de restaurante rentable pero había tenido problemas de flujo por la pandemia.</p></div>
+      <div class="caso-section"><span class="caso-section-label">El problema</span><p>El deudor quería pagar pero no podía en un solo pago. Si se embargaba, el negocio quebraba y el acreedor no cobraba nada.</p></div>
+      <div class="caso-resultado-box"><p><strong>Resultado:</strong> Juristam negoció un acuerdo de pago a 18 meses con garantía hipotecaria adicional sobre un inmueble del deudor. Se firmó transacción extrajudicial y se inscribió la garantía. Total recuperado: <strong>$62,400 USD</strong> con intereses en 18 meses.</p></div>
+    </div>
+    <div class="caso-footer">
+      <p class="caso-cita">"Si embargábamos, el restaurante quebraba y no cobraba nada. Con el acuerdo garantizado, cobré todo."</p>
+      <button type="button" class="btn-caso" data-wa="https://wa.me/593994859814?text=Hola%20Juristam%2C%20tengo%20un%20pagar%C3%A9%20de%20%2456%2C000%20y%20el%20deudor%20quiere%20negociar%20un%20acuerdo." onclick="abrirModal(this)">Tengo un caso similar →</button>
+    </div>
+  </div>
+
+  <div class="caso-card" data-tipo="negociacion">
+    <div class="caso-header"><div>
+      <div class="caso-badges"><span class="badge badge-resultado">✓ Acuerdo con quita parcial y pago al contado</span><span class="badge badge-tiempo">⏱ 2 meses</span></div>
+      <p class="caso-titulo">Deudor con cuentas congeladas propuso pago inmediato</p>
+      <p class="caso-meta">🇪🇨 Guayaquil · Quita parcial · Pago inmediato · Pagaré de $34,000</p>
+    </div></div>
+    <div class="caso-body">
+      <div class="caso-section"><span class="caso-section-label">La situación</span><p>Acreedor en Guayaquil con un pagaré de $34,000. Al recibir la demanda con embargo preventivo, el deudor propuso pagar de inmediato si se le condonaba parte de los intereses.</p></div>
+      <div class="caso-section"><span class="caso-section-label">El problema</span><p>El deudor tenía el dinero pero no quería pagar los intereses acumulados de 2 años, que sumaban $8,200.</p></div>
+      <div class="caso-resultado-box"><p><strong>Resultado:</strong> Juristam negoció una quita del 40% de los intereses a cambio de pago en 15 días. El deudor pagó el capital más el 60% de intereses. Total recuperado: <strong>$38,900 USD</strong> en 2 meses, sin llegar a sentencia.</p></div>
+    </div>
+    <div class="caso-footer">
+      <p class="caso-cita">"Con el embargo preventivo encima, pagó en 15 días. Cedimos parte de los intereses pero cobramos rápido."</p>
+      <button type="button" class="btn-caso" data-wa="https://wa.me/593994859814?text=Hola%20Juristam%2C%20tengo%20un%20pagar%C3%A9%20de%20%2434%2C000%20y%20el%20deudor%20quiere%20pagar%20r%C3%A1pido%20con%20quita." onclick="abrirModal(this)">Tengo un caso similar →</button>
+    </div>
+  </div>
+
+  <div class="caso-card" data-tipo="negociacion">
+    <div class="caso-header"><div>
+      <div class="caso-badges"><span class="badge badge-resultado">✓ Acuerdo con codeudor adicional</span><span class="badge badge-tiempo">⏱ 4 meses</span></div>
+      <p class="caso-titulo">Deudor sin bienes pero con familiar dispuesto a garantizar</p>
+      <p class="caso-meta">🇪🇨 Quito · Codeudor · Acuerdo de pago · Pagaré de $22,000</p>
+    </div></div>
+    <div class="caso-body">
+      <div class="caso-section"><span class="caso-section-label">La situación</span><p>Acreedor en Quito con un pagaré de $22,000. El deudor no tenía bienes a su nombre pero su hermano tenía una casa.</p></div>
+      <div class="caso-section"><span class="caso-section-label">El problema</span><p>Sin bienes del deudor, el embargo no tendría efecto. Pero el hermano estaba dispuesto a ayudar si se estructuraba bien el acuerdo.</p></div>
+      <div class="caso-resultado-box"><p><strong>Resultado:</strong> Juristam negoció un acuerdo con codeudor solidario: el hermano firmó como garante y se inscribió una garantía hipotecaria sobre su casa. El deudor pagó en 18 meses. Total recuperado: <strong>$26,400 USD</strong>.</p></div>
+    </div>
+    <div class="caso-footer">
+      <p class="caso-cita">"El deudor no tenía nada. Su hermano firmó como codeudor con garantía hipotecaria y pagó todo."</p>
+      <button type="button" class="btn-caso" data-wa="https://wa.me/593994859814?text=Hola%20Juristam%2C%20tengo%20un%20pagar%C3%A9%20de%20%2422%2C000%20y%20el%20deudor%20no%20tiene%20bienes%20pero%20un%20familiar%20puede%20garantizar." onclick="abrirModal(this)">Tengo un caso similar →</button>
+    </div>
+  </div>
+
+  <div class="caso-card" data-tipo="negociacion">
+    <div class="caso-header"><div>
+      <div class="caso-badges"><span class="badge badge-resultado">✓ Acuerdo de pago escalonado sin embargo</span><span class="badge badge-tiempo">⏱ 3 meses</span></div>
+      <p class="caso-titulo">Deudor con negocio en marcha pero con flujo irregular</p>
+      <p class="caso-meta">🇪🇨 Guayaquil · Pago escalonado · Pagaré de $45,000</p>
+    </div></div>
+    <div class="caso-body">
+      <div class="caso-section"><span class="caso-section-label">La situación</span><p>Acreedor en Guayaquil con un pagaré de $45,000. El deudor tenía un negocio de distribución con flujo irregular pero estable.</p></div>
+      <div class="caso-section"><span class="caso-section-label">El problema</span><p>El embargo podía paralizar el negocio y matar la fuente de pago. Había que buscar una estructura de pagos que no asfixiara al deudor.</p></div>
+      <div class="caso-resultado-box"><p><strong>Resultado:</strong> Juristam negoció un acuerdo de pago escalonado: cuotas pequeñas los primeros 6 meses y cuotas más grandes después, con garantía prendaria sobre un vehículo. El deudor pagó puntualmente. Total recuperado: <strong>$52,300 USD</strong> en 18 meses.</p></div>
+    </div>
+    <div class="caso-footer">
+      <p class="caso-cita">"No embargamos para no matar el negocio. Con el plan escalonado, cobramos todo con intereses."</p>
+      <button type="button" class="btn-caso" data-wa="https://wa.me/593994859814?text=Hola%20Juristam%2C%20tengo%20un%20pagar%C3%A9%20de%20%2445%2C000%20y%20el%20deudor%20tiene%20un%20negocio%20en%20marcha." onclick="abrirModal(this)">Tengo un caso similar →</button>
+    </div>
+  </div>
+
+  <div class="caso-card" data-tipo="prescripcion">
+    <div class="caso-header"><div>
+      <div class="caso-badges"><span class="badge badge-resultado">✓ Cobro por vía ordinaria tras prescripción cambiaria</span><span class="badge badge-tiempo">⏱ 14 meses</span></div>
+      <p class="caso-titulo">El pagaré había prescrito pero la deuda subyacente seguía viva</p>
+      <p class="caso-meta">🇪🇨 Cuenca · Prescripción cambiaria · Art. 479 C.Co. · Vía ordinaria</p>
+    </div></div>
+    <div class="caso-body">
+      <div class="caso-section"><span class="caso-section-label">La situación</span><p>Comerciante en Cuenca con un pagaré de $28,000 vencido hacía 5 años. El deudor alegó prescripción de la acción cambiaria (Art. 479 del Código de Comercio).</p></div>
+      <div class="caso-section"><span class="caso-section-label">El problema</span><p>La vía ejecutiva estaba cerrada por prescripción. Quedaba la acción ordinaria derivada del contrato subyacente, pero era más lenta y costosa.</p></div>
+      <div class="caso-resultado-box"><p><strong>Resultado:</strong> Juristam demandó por la vía ordinaria con base en el contrato de mutuo que originó el pagaré. Se probó la existencia de la deuda con transferencias y testigos. El juez ordenó el pago de $28,000 más intereses. Recuperación: <strong>$34,500</strong> en 14 meses.</p></div>
+    </div>
+    <div class="caso-footer">
+      <p class="caso-cita">"El pagaré había prescrito, pero el contrato de mutuo seguía vivo. Recuperé mi dinero por otra vía."</p>
+      <button type="button" class="btn-caso" data-wa="https://wa.me/593994859814?text=Hola%20Juristam%2C%20mi%20pagar%C3%A9%20prescribi%C3%B3%20pero%20la%20deuda%20sigue%20viva." onclick="abrirModal(this)">Tengo un caso similar →</button>
+    </div>
+  </div>
+
+  <div class="caso-card" data-tipo="prescripcion">
+    <div class="caso-header"><div>
+      <div class="caso-badges"><span class="badge badge-resultado">✓ Interrupción de prescripción con demanda a tiempo</span><span class="badge badge-tiempo">⏱ 6 meses</span></div>
+      <p class="caso-titulo">Pagaré a 2 meses del vencimiento del plazo de 3 años</p>
+      <p class="caso-meta">🇪🇨 Quito · Prescripción evitada · Art. 479 C.Co. · Pagaré de $38,000</p>
+    </div></div>
+    <div class="caso-body">
+      <div class="caso-section"><span class="caso-section-label">La situación</span><p>Acreedor en Quito con un pagaré de $38,000 vencido hacía 34 meses. Quedaban solo 2 meses antes de que prescribiera la acción cambiaria.</p></div>
+      <div class="caso-section"><span class="caso-section-label">El problema</span><p>Había que presentar y notificar la demanda antes del vencimiento del plazo. De lo contrario, se perdía la vía ejecutiva.</p></div>
+      <div class="caso-resultado-box"><p><strong>Resultado:</strong> Juristam presentó la demanda ejecutiva y logró la notificación al deudor 18 días antes del vencimiento. Se interrumpió la prescripción. Con embargo preventivo sobre las cuentas, se cobró en 6 meses. Total recuperado: <strong>$44,700 USD</strong>.</p></div>
+    </div>
+    <div class="caso-footer">
+      <p class="caso-cita">"Quedaban 2 meses antes de la prescripción. Presentamos y notificamos a tiempo. Se salvó el caso."</p>
+      <button type="button" class="btn-caso" data-wa="https://wa.me/593994859814?text=Hola%20Juristam%2C%20mi%20pagar%C3%A9%20est%C3%A1%20por%20prescribir%20y%20quiero%20cobrarlo%20r%C3%A1pido." onclick="abrirModal(this)">Tengo un caso similar →</button>
+    </div>
+  </div>
+
+  <div class="caso-card" data-tipo="prescripcion">
+    <div class="caso-header"><div>
+      <div class="caso-badges"><span class="badge badge-resultado">✓ Cobro tras prescripción con acuerdo de pago</span><span class="badge badge-tiempo">⏱ 8 meses</span></div>
+      <p class="caso-titulo">Pagaré prescrito: negociación directa con el deudor</p>
+      <p class="caso-meta">🇪🇨 Guayaquil · Negociación post-prescripción · Pagaré de $19,500</p>
+    </div></div>
+    <div class="caso-body">
+      <div class="caso-section"><span class="caso-section-label">La situación</span><p>Acreedor en Guayaquil con un pagaré de $19,500 vencido hacía 4 años. El deudor tenía bienes pero la acción cambiaria ya había prescrito.</p></div>
+      <div class="caso-section"><span class="caso-section-label">El problema</span><p>La vía ejecutiva estaba cerrada. La vía ordinaria era posible pero costosa. Había que buscar una negociación directa con el deudor.</p></div>
+      <div class="caso-resultado-box"><p><strong>Resultado:</strong> Juristam estructuró una propuesta de pago con quita del 30% a cambio de pago en 12 meses, con garantía adicional. El deudor aceptó para evitar el juicio ordinario. Total recuperado: <strong>$17,200 USD</strong> en 8 meses.</p></div>
+    </div>
+    <div class="caso-footer">
+      <p class="caso-cita">"El pagaré había prescrito. Con la quita negociada, igual cobré el 88% sin entrar a juicio."</p>
+      <button type="button" class="btn-caso" data-wa="https://wa.me/593994859814?text=Hola%20Juristam%2C%20mi%20pagar%C3%A9%20prescribi%C3%B3%20y%20quiero%20negociar%20con%20el%20deudor." onclick="abrirModal(this)">Tengo un caso similar →</button>
+    </div>
+  </div>
+
+</div>
+
+<div class="cta-final">
+  <h2>¿Tiene un pagaré vencido y el deudor no le paga?</h2>
+  <p>El pagaré es título ejecutivo. Con la demanda se puede pedir <strong>embargo preventivo de cuentas, sueldo y bienes</strong> antes de que el deudor los traspase. Pero la acción cambiaria prescribe en <strong>3 años</strong>. Mándenos el pagaré y le decimos cuánto plazo queda, si conviene embargo preventivo y cuánto se puede recuperar. <strong>La revisión inicial no tiene costo.</strong></p>
+  <div class="precio-mini">
+    <div class="precio-mini-item"><span>Asesoría virtual ⭐</span><span>$45</span></div>
+    <div class="precio-mini-item"><span>Presencial</span><span>$85</span></div>
+  </div>
+  <p style="color:#c4b5fd;font-size:.8rem;margin-bottom:1.2rem;">Los $45 de la asesoría se descuentan del servicio completo si decides continuar.</p>
+  <button type="button" class="btn-wa-hero" data-wa="https://wa.me/593994859814?text=Hola%20Juristam%2C%20vi%20los%20casos%20de%20cobro%20de%20pagar%C3%A9s%20y%20quiero%20revisar%20mi%20caso." onclick="abrirModal(this)">Enviar mi caso · WhatsApp →</button>
+</div>
+
+<div style="text-align:center;margin-bottom:2.5rem;">
+  <a href="/blog/cobrar-pagare-juicio-ejecutivo-ecuador.html" style="color:var(--primary-dark);font-size:.9rem;font-weight:600;text-decoration:underline;">← Volver a la guía completa</a>
+</div>
+</div>
+
+<footer><div class="container">
+  <p><strong>Juristam</strong> — Asesoría Legal Estratégica en Ecuador</p>
+  <p>© 2026 Juristam. Todos los derechos reservados. <a href="/blog/">Blog</a> · <a href="/#formulario">Contacto</a></p>
+  <p style="margin-top:.5rem;font-size:.8rem;opacity:.7;">Casos reales anonimizados. El resultado de un cobro ejecutivo depende de los requisitos formales del pagaré, la prescripción cambiaria, la existencia de bienes del deudor y las excepciones que se opongan — los resultados pueden variar. Base legal: COGEP Art. 353, Código de Comercio Art. 479 y Código Civil.</p>
+</div></footer>
+
+<script>
+const WA_FALLBACK="https://wa.me/593994859814?text=Hola%20Juristam%2C%20tengo%20un%20pagar%C3%A9%20vencido%20y%20quiero%20cobrarlo%20judicialmente.";
+let waActual = WA_FALLBACK;
+function abrirModal(el){
+  waActual = (el && el.dataset && el.dataset.wa) ? el.dataset.wa : WA_FALLBACK;
+  document.getElementById("waModal").classList.add("active");
+  document.body.style.overflow="hidden";
+}
+function cerrarModal(){document.getElementById("waModal").classList.remove("active");document.body.style.overflow="";}
+function irAWhatsApp(){cerrarModal();window.open(waActual,"_blank","noopener");}
+document.getElementById("waModal").addEventListener("click",function(e){if(e.target===this)cerrarModal();});
+document.addEventListener("keydown",function(e){if(e.key==="Escape")cerrarModal();});
+function filtrar(btn){
+  var f = btn.dataset.filtro;
+  document.querySelectorAll(".filtro-btn").forEach(function(b){b.classList.remove("activo");});
+  btn.classList.add("activo");
+  var n = 0;
+  document.querySelectorAll(".caso-card").forEach(function(c){
+    var ok = (f === "todos" || c.dataset.tipo === f);
+    c.classList.toggle("oculto", !ok);
+    if (ok) n++;
+  });
+  document.getElementById("contador").textContent = n;
+}
+</script>
+</body>
+</html>

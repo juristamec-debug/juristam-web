@@ -1,0 +1,560 @@
+<!DOCTYPE html>
+<html lang="es-EC">
+<head>
+<meta charset="UTF-8"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<link rel="icon" type="image/png" href="https://i.postimg.cc/KjDB1NSM/Diseno-sin-titulo-(7).png"/>
+<meta name="theme-color" content="#9a6aff"/>
+<title>Herencias reclamadas desde el exterior · 20 casos · Juristam</title>
+<meta name="description" content="20 casos reales de herederos que reclamaron su parte desde el exterior: posesiones efectivas inscritas, prescripciones interrumpidas, ventas bloqueadas y particiones ganadas sin viajar a Ecuador."/>
+<link rel="canonical" href="https://juristam.net/casos-de-exito-herencia-exterior.html"/>
+<meta name="robots" content="index,follow"/>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;0,700;1,400&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet"/>
+<style>
+:root{--primary:#9a6aff;--primary-dark:#7c3aed;--primary-light:#efe8ff;--primary-deep:#1e0a4e;--text:#1a1a2e;--text-secondary:#4a4a6a;--white:#fff;--success:#059669;--success-light:#ecfdf5;--gray-light:#f9f9fb;--border:#e8e8f0;}
+*{margin:0;padding:0;box-sizing:border-box;}html{scroll-behavior:smooth;}
+body{font-family:"DM Sans",sans-serif;color:var(--text);background:var(--white);line-height:1.8;-webkit-font-smoothing:antialiased;}
+a{text-decoration:none;color:inherit;}
+.container{max-width:960px;margin:0 auto;padding:0 1.5rem;}
+header{background:var(--white);border-bottom:1px solid var(--border);position:sticky;top:0;z-index:100;height:90px;}
+.header-inner{display:flex;align-items:center;justify-content:space-between;height:100%;}
+.brand-logo{height:90px;width:auto;}
+.btn-back{background:var(--primary-light);color:var(--primary-dark);padding:.5rem 1rem;border-radius:8px;font-size:.85rem;font-weight:600;}
+.hero{background:linear-gradient(135deg,var(--primary-deep),#2d1060);padding:3.5rem 0 2.8rem;text-align:center;margin-bottom:2rem;}
+.hero-tag{display:inline-block;background:rgba(255,255,255,.12);color:#c4b5fd;font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.12em;padding:.35rem .9rem;border-radius:20px;margin-bottom:1rem;}
+.hero h1{font-family:"Lora",serif;font-size:clamp(1.7rem,3.5vw,2.3rem);color:#fff;margin-bottom:.8rem;line-height:1.25;font-weight:700;}
+.hero p{color:#c4b5fd;font-size:.97rem;max-width:600px;margin:0 auto 1.5rem;line-height:1.75;}
+.hero-stats{display:flex;justify-content:center;gap:2.5rem;flex-wrap:wrap;margin-top:1.8rem;}
+.stat-num{font-family:"Lora",serif;font-size:2rem;font-weight:700;color:#fff;display:block;}
+.stat-label{font-size:.75rem;color:#c4b5fd;text-transform:uppercase;letter-spacing:.06em;}
+.btn-wa-hero{background:#25d366;color:#fff;padding:.8rem 2rem;border-radius:10px;font-size:.95rem;font-weight:700;display:inline-block;cursor:pointer;border:none;margin-top:1.5rem;font-family:inherit;}
+.filtros{display:flex;gap:.6rem;flex-wrap:wrap;justify-content:center;margin-bottom:1.2rem;}
+.filtro-btn{background:var(--white);border:1.5px solid var(--border);color:var(--text-secondary);padding:.5rem 1.1rem;border-radius:24px;font-size:.85rem;font-weight:600;cursor:pointer;font-family:inherit;transition:all .18s;}
+.filtro-btn:hover{border-color:var(--primary);color:var(--primary-dark);}
+.filtro-btn.activo{background:var(--primary-dark);border-color:var(--primary-dark);color:#fff;}
+.casos-count{font-size:.85rem;color:var(--text-secondary);margin-bottom:1rem;text-align:center;}
+.casos-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(380px,1fr));gap:1.4rem;margin-bottom:3rem;}
+.caso-card{background:var(--white);border-radius:16px;border:1.5px solid var(--border);overflow:hidden;box-shadow:0 4px 20px rgba(0,0,0,.06);transition:box-shadow .2s,transform .2s;display:flex;flex-direction:column;}
+.caso-card:hover{box-shadow:0 8px 32px rgba(124,58,237,.14);transform:translateY(-2px);}
+.caso-card.oculto{display:none;}
+.caso-header{padding:1.3rem 1.5rem .9rem;border-bottom:1px solid var(--border);}
+.caso-badges{display:flex;gap:.4rem;flex-wrap:wrap;margin-bottom:.55rem;}
+.badge{font-size:.68rem;font-weight:700;padding:.2rem .6rem;border-radius:20px;text-transform:uppercase;letter-spacing:.04em;}
+.badge-resultado{background:var(--success-light);color:var(--success);}
+.badge-tiempo{background:var(--gray-light);color:var(--text-secondary);}
+.caso-titulo{font-family:"Lora",serif;font-size:1rem;font-weight:700;color:var(--text);line-height:1.35;margin-bottom:.25rem;}
+.caso-meta{font-size:.76rem;color:var(--text-secondary);}
+.caso-body{padding:1.1rem 1.5rem;flex:1;}
+.caso-section{margin-bottom:.85rem;}
+.caso-section-label{font-size:.65rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--text-secondary);margin-bottom:.25rem;display:block;}
+.caso-section p{font-size:.87rem;color:var(--text);line-height:1.7;margin:0;}
+.caso-resultado-box{background:var(--success-light);border-left:3px solid var(--success);border-radius:0 8px 8px 0;padding:.75rem .9rem;margin-top:.7rem;}
+.caso-resultado-box p{font-size:.85rem;color:var(--text);line-height:1.65;margin:0;}
+.caso-resultado-box strong{color:var(--success);}
+.caso-footer{padding:.85rem 1.5rem;background:var(--gray-light);border-top:1px solid var(--border);display:flex;align-items:center;justify-content:space-between;gap:.7rem;flex-wrap:wrap;}
+.caso-cita{font-size:.8rem;color:var(--text-secondary);font-style:italic;flex:1;line-height:1.5;}
+.btn-caso{background:var(--primary-dark);color:#fff;padding:.48rem 1rem;border-radius:8px;font-size:.78rem;font-weight:700;white-space:nowrap;cursor:pointer;border:none;flex-shrink:0;font-family:inherit;}
+.cta-final{background:linear-gradient(135deg,var(--primary-deep),#2d1060);border-radius:16px;padding:2.5rem 2rem;text-align:center;margin:1rem 0 3rem;}
+.cta-final h2{font-family:"Lora",serif;color:#fff;font-size:1.5rem;margin-bottom:.8rem;}
+.cta-final p{color:#c4b5fd;margin-bottom:1.5rem;line-height:1.75;max-width:520px;margin-left:auto;margin-right:auto;}
+.precio-mini{display:inline-flex;gap:1.5rem;background:rgba(255,255,255,.1);border-radius:12px;padding:.8rem 1.5rem;margin-bottom:.8rem;flex-wrap:wrap;justify-content:center;}
+.precio-mini-item span:first-child{display:block;font-size:.68rem;color:#c4b5fd;text-transform:uppercase;letter-spacing:.08em;margin-bottom:.2rem;}
+.precio-mini-item span:last-child{font-family:"Lora",serif;font-size:1.6rem;font-weight:700;color:#fff;}
+.modal-overlay{display:none;position:fixed;inset:0;background:rgba(10,5,30,.65);backdrop-filter:blur(5px);z-index:999;align-items:center;justify-content:center;padding:.75rem;}
+.modal-overlay.active{display:flex;}
+.modal{background:#fff;border-radius:18px;max-width:380px;width:100%;box-shadow:0 24px 60px rgba(0,0,0,.25);}
+.modal-top{background:linear-gradient(135deg,var(--primary-deep),#4c1d95);padding:1.1rem 1.2rem .9rem;position:relative;border-radius:18px 18px 0 0;}
+.modal-top h4{color:#fff;font-size:.98rem;font-weight:700;margin-bottom:.2rem;}
+.modal-top p{color:#c4b5fd;font-size:.74rem;line-height:1.4;}
+.modal-close{position:absolute;top:.6rem;right:.6rem;background:rgba(255,255,255,.15);border:none;color:#fff;width:24px;height:24px;border-radius:50%;cursor:pointer;font-size:.8rem;display:flex;align-items:center;justify-content:center;}
+.modal-body{padding:.9rem 1.2rem 1.1rem;}
+.modal-section-label{font-size:.62rem;font-weight:700;color:var(--text-secondary);text-transform:uppercase;letter-spacing:.05em;margin-bottom:.35rem;display:block;}
+.modal-precios{display:grid;grid-template-columns:1fr 1fr;gap:.5rem;margin-bottom:.7rem;}
+.modal-precio{border-radius:10px;padding:.5rem .6rem;border:1.5px solid var(--border);text-align:center;}
+.modal-precio.virtual{border-color:var(--primary);background:var(--primary-light);}
+.modal-precio .mlabel{font-size:.6rem;font-weight:700;text-transform:uppercase;letter-spacing:.04em;color:var(--primary-dark);display:block;margin-bottom:.1rem;}
+.modal-precio .mmonto{font-family:"Lora",serif;font-size:1.25rem;font-weight:700;color:var(--text);line-height:1;}
+.modal-nota{font-size:.7rem;color:var(--text-secondary);background:var(--gray-light);border-radius:8px;padding:.5rem .65rem;margin-bottom:.8rem;line-height:1.4;}
+.btn-modal-wa{display:block;background:#25d366;color:#fff;text-align:center;padding:.7rem;border-radius:9px;font-weight:700;font-size:.86rem;border:none;cursor:pointer;width:100%;font-family:inherit;}
+footer{background:var(--text);color:#ccc;padding:2.2rem 0 5.5rem;text-align:center;font-size:.84rem;margin-top:3rem;}
+footer a{color:var(--primary);}footer strong{color:var(--white);}
+@media(max-width:700px){.casos-grid{grid-template-columns:1fr;}.hero-stats{gap:1.2rem;}.modal-precios{grid-template-columns:1fr;}.filtro-btn{font-size:.8rem;padding:.45rem .9rem;}}
+</style>
+</head>
+<body>
+
+<div class="modal-overlay" id="waModal" role="dialog" aria-modal="true">
+  <div class="modal">
+    <div class="modal-top">
+      <button type="button" class="modal-close" onclick="cerrarModal()" aria-label="Cerrar">&#x2715;</button>
+      <h4>Primero la inscripción, después la confianza</h4>
+      <p>Si heredó una casa en Ecuador y vive en el exterior, mándanos la partida de defunción y el certificado del Registro. Revisamos si el bien sigue inscribible a su favor o si ya hay riesgo de prescripción.</p>
+    </div>
+    <div class="modal-body">
+      <span class="modal-section-label">Asesoría inicial</span>
+      <div class="modal-precios">
+        <div class="modal-precio virtual"><span class="mlabel">Virtual ⭐</span><div class="mmonto">$45</div></div>
+        <div class="modal-precio"><span class="mlabel">Presencial</span><div class="mmonto">$85</div></div>
+      </div>
+      <div class="modal-nota">La revisión inicial de tu caso no tiene costo. Los $45 se descuentan del servicio completo si decides continuar.</div>
+      <button type="button" class="btn-modal-wa" onclick="irAWhatsApp()">Continuar a WhatsApp →</button>
+    </div>
+  </div>
+</div>
+
+<header><div class="container header-inner">
+  <a href="/blog/"><img class="brand-logo" src="https://i.postimg.cc/vHygbHxz/oie-transparent-(2).png" alt="Juristam" loading="eager" width="120" height="90"/></a>
+  <a class="btn-back" href="/blog/herede-casa-ecuador-vivo-exterior.html">← Volver al artículo</a>
+</div></header>
+
+<div class="hero"><div class="container">
+  <span class="hero-tag">Juristam · Herencias desde el exterior</span>
+  <h1>Herencias reclamadas desde el exterior</h1>
+  <p>20 casos reales de herederos que reclamaron su parte sin viajar a Ecuador: posesiones efectivas inscritas, prescripciones interrumpidas, ventas bloqueadas y particiones ganadas por poder consular.</p>
+  <div class="hero-stats">
+    <div class="stat"><span class="stat-num">20</span><span class="stat-label">Casos documentados</span></div>
+    <div class="stat"><span class="stat-num">3 mes</span><span class="stat-label">Caso más rápido</span></div>
+    <div class="stat"><span class="stat-num">0</span><span class="stat-label">Viajes necesarios</span></div>
+    <div class="stat"><span class="stat-num">$0</span><span class="stat-label">Revisión inicial</span></div>
+  </div>
+  <button type="button" class="btn-wa-hero" data-wa="https://wa.me/593994859814?text=Hola%20Juristam%2C%20hered%C3%A9%20una%20casa%20en%20Ecuador%20pero%20vivo%20en%20el%20exterior%20y%20quiero%20reclamar%20mi%20parte." onclick="abrirModal(this)">Revisar mi caso → WhatsApp</button>
+</div></div>
+
+<div class="container">
+<div class="filtros">
+  <button type="button" class="filtro-btn activo" data-filtro="todos" onclick="filtrar(this)">Todos (20)</button>
+  <button type="button" class="filtro-btn" data-filtro="posesion" onclick="filtrar(this)">📝 Posesión efectiva (6)</button>
+  <button type="button" class="filtro-btn" data-filtro="particion" onclick="filtrar(this)">⚖️ Partición judicial (5)</button>
+  <button type="button" class="filtro-btn" data-filtro="prescripcion" onclick="filtrar(this)">⏳ Prescripción interrumpida (4)</button>
+  <button type="button" class="filtro-btn" data-filtro="venta" onclick="filtrar(this)">🚫 Venta bloqueada (3)</button>
+  <button type="button" class="filtro-btn" data-filtro="oculto" onclick="filtrar(this)">🔍 Bienes ocultos (2)</button>
+</div>
+<p class="casos-count"><strong id="contador">20</strong> casos encontrados</p>
+<div class="casos-grid" id="grid">
+
+  <div class="caso-card" data-tipo="posesion">
+    <div class="caso-header"><div>
+      <div class="caso-badges"><span class="badge badge-resultado">✓ Herencia inscrita desde Madrid</span><span class="badge badge-tiempo">⏱ 4 meses</span></div>
+      <p class="caso-titulo">Hermano ocupaba la casa familiar y bloqueaba la partición</p>
+      <p class="caso-meta">🇪🇸 Madrid → 🇪🇨 · Posesión efectiva · Poder consular</p>
+    </div></div>
+    <div class="caso-body">
+      <div class="caso-section"><span class="caso-section-label">La situación</span><p>Ecuatoriano en Madrid heredó junto a su hermano una casa en Guayaquil. El hermano vivía ahí desde la muerte del padre, hacía 6 años.</p></div>
+      <div class="caso-section"><span class="caso-section-label">El problema</span><p>El hermano pagaba prediales a su nombre, arrendaba habitaciones y se negaba a hablar de la partición. El migrante no podía viajar.</p></div>
+      <div class="caso-resultado-box"><p><strong>Resultado:</strong> Juristam gestionó el poder consular, inscribió la posesión efectiva a nombre de ambos herederos y presentó la partición. El juez ordenó el remate y el migrante recibió su mitad: $42,000 USD.</p></div>
+    </div>
+    <div class="caso-footer">
+      <p class="caso-cita">"Seis años ocupando la casa y pagando predios a su nombre. Desde Madrid logré mi mitad."</p>
+      <button type="button" class="btn-caso" data-wa="https://wa.me/593994859814?text=Hola%20Juristam%2C%20un%20familiar%20ocupa%20la%20casa%20que%20heredamos%20y%20quiero%20reclamar%20mi%20parte%20desde%20el%20exterior." onclick="abrirModal(this)">Tengo un caso similar →</button>
+    </div>
+  </div>
+
+  <div class="caso-card" data-tipo="prescripcion">
+    <div class="caso-header"><div>
+      <div class="caso-badges"><span class="badge badge-resultado">✓ Prescripción interrumpida con mensajes</span><span class="badge badge-tiempo">⏱ 5 meses</span></div>
+      <p class="caso-titulo">Hermano llevaba 12 años en la casa y alegaba ser el dueño</p>
+      <p class="caso-meta">🇺🇸 Nueva York → 🇪🇨 · Interrupción · Prescripción</p>
+    </div></div>
+    <div class="caso-body">
+      <div class="caso-section"><span class="caso-section-label">La situación</span><p>Ecuatoriano en Nueva York que dejó pasar 12 años sin reclamar. Su hermano vivía en la casa heredada y estaba por cumplir los 15 años para alegar prescripción adquisitiva.</p></div>
+      <div class="caso-section"><span class="caso-section-label">El problema</span><p>La prescripción estaba por cumplirse. Si pasaban 3 años más sin actos de reconocimiento, el migrante perdía todo.</p></div>
+      <div class="caso-resultado-box"><p><strong>Resultado:</strong> Juristam recuperó mensajes donde el hermano reconocía la copropiedad y presentó la demanda con esa prueba. El juez interrumpió la prescripción y ordenó la partición. El migrante recibió $38,000 USD.</p></div>
+    </div>
+    <div class="caso-footer">
+      <p class="caso-cita">"Estaba por perder mi herencia por prescripción. Unos mensajes viejos salvaron todo."</p>
+      <button type="button" class="btn-caso" data-wa="https://wa.me/593994859814?text=Hola%20Juristam%2C%20mi%20hermano%20lleva%20muchos%20a%C3%B1os%20en%20la%20casa%20heredada%20y%20alega%20prescripci%C3%B3n." onclick="abrirModal(this)">Tengo un caso similar →</button>
+    </div>
+  </div>
+
+  <div class="caso-card" data-tipo="venta">
+    <div class="caso-header"><div>
+      <div class="caso-badges"><span class="badge badge-resultado">✓ Venta bloqueada en 5 días</span><span class="badge badge-tiempo">⏱ 5 días</span></div>
+      <p class="caso-titulo">Hermano intentaba vender la casa sin informar al migrante</p>
+      <p class="caso-meta">🇮🇹 Milán → 🇪🇨 · Prohibición de enajenar · Bloqueo</p>
+    </div></div>
+    <div class="caso-body">
+      <div class="caso-section"><span class="caso-section-label">La situación</span><p>Ecuatoriana en Milán se enteró por una prima de que su hermano estaba mostrando la casa heredada a compradores. El bien seguía a nombre del padre fallecido.</p></div>
+      <div class="caso-section"><span class="caso-section-label">El problema</span><p>Si el comprador aparecía antes de inscribir la herencia, el migrante perdía el bien. Había que bloquear de inmediato.</p></div>
+      <div class="caso-resultado-box"><p><strong>Resultado:</strong> Juristam presentó la solicitud de prohibición de enajenar en 5 días. La venta se frustró, la casa se mantuvo en la masa y la partición se resolvió en 8 meses. La migrante recibió $55,000 USD.</p></div>
+    </div>
+    <div class="caso-footer">
+      <p class="caso-cita">"Estaba por vender mi casa sin avisarme. La prohibición de enajenar lo frenó a tiempo."</p>
+      <button type="button" class="btn-caso" data-wa="https://wa.me/593994859814?text=Hola%20Juristam%2C%20mi%20hermano%20est%C3%A1%20vendiendo%20la%20casa%20heredada%20sin%20informarme." onclick="abrirModal(this)">Tengo un caso similar →</button>
+    </div>
+  </div>
+
+  <div class="caso-card" data-tipo="particion">
+    <div class="caso-header"><div>
+      <div class="caso-badges"><span class="badge badge-resultado">✓ Partición ganada sin viajar</span><span class="badge badge-tiempo">⏱ 7 meses</span></div>
+      <p class="caso-titulo">Tres hermanos, dos en el exterior, uno no quería repartir</p>
+      <p class="caso-meta">🇪🇸 Barcelona · 🇺🇸 Miami → 🇪🇨 · Partición judicial</p>
+    </div></div>
+    <div class="caso-body">
+      <div class="caso-section"><span class="caso-section-label">La situación</span><p>Dos hermanos en Barcelona y Miami, y uno en Ecuador que ocupaba el departamento heredado y se negaba a vender.</p></div>
+      <div class="caso-section"><span class="caso-section-label">El problema</span><p>Los dos migrantes necesitaban su parte líquida, pero el hermano local bloqueaba cualquier acuerdo.</p></div>
+      <div class="caso-resultado-box"><p><strong>Resultado:</strong> Juristam presentó la partición con poderes consulares de ambos migrantes. El juez ordenó el remate del departamento. Cada hermano recibió su tercio: $47,000 USD para cada migrante.</p></div>
+    </div>
+    <div class="caso-footer">
+      <p class="caso-cita">"Mi hermano vivía ahí y no quería vender. La partición judicial resolvió todo sin que viajáramos."</p>
+      <button type="button" class="btn-caso" data-wa="https://wa.me/593994859814?text=Hola%20Juristam%2C%20somos%20varios%20hermanos%20y%20uno%20no%20quiere%20repartir%20la%20casa%20heredada." onclick="abrirModal(this)">Tengo un caso similar →</button>
+    </div>
+  </div>
+
+  <div class="caso-card" data-tipo="posesion">
+    <div class="caso-header"><div>
+      <div class="caso-badges"><span class="badge badge-resultado">✓ Posesión efectiva en 3 meses</span><span class="badge badge-tiempo">⏱ 3 meses</span></div>
+      <p class="caso-titulo">Único heredero en Italia: padre falleció hace 8 años</p>
+      <p class="caso-meta">🇮🇹 Roma → 🇪🇨 · Único heredero · Notarial</p>
+    </div></div>
+    <div class="caso-body">
+      <div class="caso-section"><span class="caso-section-label">La situación</span><p>Ecuatoriano en Roma, único heredero de su padre fallecido hace 8 años. La casa seguía a nombre del padre porque nunca se inscribió la herencia.</p></div>
+      <div class="caso-section"><span class="caso-section-label">El problema</span><p>Sin la inscripción, no podía vender ni arrendar la casa. Tampoco podía inscribirla a su nombre sin viajar.</p></div>
+      <div class="caso-resultado-box"><p><strong>Resultado:</strong> Juristam gestionó el poder consular y tramitó la posesión efectiva por vía notarial. La casa quedó inscrita a nombre del heredero en 3 meses, sin que viajara.</p></div>
+    </div>
+    <div class="caso-footer">
+      <p class="caso-cita">"Ocho años con la casa a nombre de mi padre fallecido. En tres meses quedó a mi nombre."</p>
+      <button type="button" class="btn-caso" data-wa="https://wa.me/593994859814?text=Hola%20Juristam%2C%20soy%20%C3%BAnico%20heredero%20y%20quiero%20inscribir%20la%20casa%20a%20mi%20nombre%20desde%20el%20exterior." onclick="abrirModal(this)">Tengo un caso similar →</button>
+    </div>
+  </div>
+
+  <div class="caso-card" data-tipo="oculto">
+    <div class="caso-header"><div>
+      <div class="caso-badges"><span class="badge badge-resultado">✓ Bien oculto descubierto con Registro</span><span class="badge badge-tiempo">⏱ 9 meses</span></div>
+      <p class="caso-titulo">Hermano ocultó un terreno que también era herencia</p>
+      <p class="caso-meta">🇪🇸 Madrid → 🇪🇨 · Bienes ocultos · Investigación registral</p>
+    </div></div>
+    <div class="caso-body">
+      <div class="caso-section"><span class="caso-section-label">La situación</span><p>Migrante en Madrid creía que la herencia del padre era solo la casa. Su hermano había vendido un terreno en otra ciudad sin avisarle.</p></div>
+      <div class="caso-section"><span class="caso-section-label">El problema</span><p>El terreno no aparecía en los papeles que le habían mostrado. Se necesitaba investigar el Registro completo.</p></div>
+      <div class="caso-resultado-box"><p><strong>Resultado:</strong> Juristam rastreó las propiedades del fallecido en todos los cantones. Apareció el terreno vendido y el hermano fue obligado a restituir el 50% del valor: $28,000 USD.</p></div>
+    </div>
+    <div class="caso-footer">
+      <p class="caso-cita">"Vendió un terreno que también era herencia. Con la investigación registral lo descubrimos."</p>
+      <button type="button" class="btn-caso" data-wa="https://wa.me/593994859814?text=Hola%20Juristam%2C%20creo%20que%20mi%20hermano%20ocult%C3%B3%20bienes%20de%20la%20herencia." onclick="abrirModal(this)">Tengo un caso similar →</button>
+    </div>
+  </div>
+
+  <div class="caso-card" data-tipo="particion">
+    <div class="caso-header"><div>
+      <div class="caso-badges"><span class="badge badge-resultado">✓ Adjudicación con compensación</span><span class="badge badge-tiempo">⏱ 6 meses</span></div>
+      <p class="caso-titulo">Hermana local quiso la casa; migrante cobró su parte en efectivo</p>
+      <p class="caso-meta">🇪🇸 Sevilla → 🇪🇨 · Adjudicación · Compensación</p>
+    </div></div>
+    <div class="caso-body">
+      <div class="caso-section"><span class="caso-section-label">La situación</span><p>Dos hermanas heredaron la casa familiar en Cuenca. Una vivía en Sevilla, la otra en Cuenca y quería quedarse con la casa.</p></div>
+      <div class="caso-section"><span class="caso-section-label">El problema</span><p>La hermana local no tenía efectivo para pagar la mitad del valor de la casa. La migrante necesitaba su parte.</p></div>
+      <div class="caso-resultado-box"><p><strong>Resultado:</strong> Juristam negoció un plan de pagos con garantía hipotecaria. La hermana local se quedó con la casa y la migrante recibió $68,000 USD en 24 cuotas.</p></div>
+    </div>
+    <div class="caso-footer">
+      <p class="caso-cita">"Mi hermana quiso la casa pero no podía pagarme todo de una vez. Con el plan de pagos cobré mi parte."</p>
+      <button type="button" class="btn-caso" data-wa="https://wa.me/593994859814?text=Hola%20Juristam%2C%20mi%20hermana%20quiere%20quedarse%20con%20la%20casa%20y%20no%20puede%20pagarme%20todo%20de%20una%20vez." onclick="abrirModal(this)">Tengo un caso similar →</button>
+    </div>
+  </div>
+
+  <div class="caso-card" data-tipo="prescripcion">
+    <div class="caso-header"><div>
+      <div class="caso-badges"><span class="badge badge-resultado">✓ Prescripción no operó por pago de predial</span><span class="badge badge-tiempo">⏱ 8 meses</span></div>
+      <p class="caso-titulo">Migrante pagó prediales durante años y conservó su parte</p>
+      <p class="caso-meta">🇺🇸 Los Ángeles → 🇪🇨 · Actos de reconocimiento · Prescripción</p>
+    </div></div>
+    <div class="caso-body">
+      <div class="caso-section"><span class="caso-section-label">La situación</span><p>Migrante en Los Ángeles que enviaba dinero a su hermano cada año para pagar los prediales de la casa heredada.</p></div>
+      <div class="caso-section"><span class="caso-section-label">El problema</span><p>Su hermano llevaba 13 años en la casa y estaba por cumplir los 15 años para prescripción. El migrante necesitaba prueba de que siguió siendo copropietario.</p></div>
+      <div class="caso-resultado-box"><p><strong>Resultado:</strong> Juristam presentó los comprobantes de predial pagados por el migrante y los mensajes donde reconocía la copropiedad. El juez interrumpió la prescripción y aprobó la partición: $51,000 USD para el migrante.</p></div>
+    </div>
+    <div class="caso-footer">
+      <p class="caso-cita">"Cada año enviaba plata para el predial. Esos comprobantes salvaron mi herencia."</p>
+      <button type="button" class="btn-caso" data-wa="https://wa.me/593994859814?text=Hola%20Juristam%2C%20env%C3%ADo%20dinero%20para%20los%20prediales%20y%20quiero%20probar%20que%20sigo%20siendo%20copropietario." onclick="abrirModal(this)">Tengo un caso similar →</button>
+    </div>
+  </div>
+
+  <div class="caso-card" data-tipo="posesion">
+    <div class="caso-header"><div>
+      <div class="caso-badges"><span class="badge badge-resultado">✓ Herencia inscrita sin testamento</span><span class="badge badge-tiempo">⏱ 4 meses</span></div>
+      <p class="caso-titulo">Padre falleció sin testamento y con varios hijos en el exterior</p>
+      <p class="caso-meta">🇮🇹 Milán → 🇪🇨 · Sucesión intestada · Poderes</p>
+    </div></div>
+    <div class="caso-body">
+      <div class="caso-section"><span class="caso-section-label">La situación</span><p>Tres hijos herederos: uno en Milán, uno en Guayaquil y uno en Quito. El padre falleció sin testamento. Nadie había tramitado nada en 4 años.</p></div>
+      <div class="caso-section"><span class="caso-section-label">El problema</span><p>Ninguno tenía claro cómo tramitar la sucesión intestada ni qué documentos hacían falta. La casa seguía a nombre del fallecido.</p></div>
+      <div class="caso-resultado-box"><p><strong>Resultado:</strong> Juristam tramitó la posesión efectiva intestada con poderes de los tres hijos. La casa quedó inscrita a nombre de los tres herederos y se tramitó la partición en 4 meses.</p></div>
+    </div>
+    <div class="caso-footer">
+      <p class="caso-cita">"Sin testamento y con uno de nosotros en Italia. Juristam tramitó todo y quedó inscrito."</p>
+      <button type="button" class="btn-caso" data-wa="https://wa.me/593994859814?text=Hola%20Juristam%2C%20mi%20padre%20falleci%C3%B3%20sin%20testamento%20y%20somos%20varios%20herederos%20en%20el%20exterior." onclick="abrirModal(this)">Tengo un caso similar →</button>
+    </div>
+  </div>
+
+  <div class="caso-card" data-tipo="particion">
+    <div class="caso-header"><div>
+      <div class="caso-badges"><span class="badge badge-resultado">✓ Terreno vendido y repartido sin viajar</span><span class="badge badge-tiempo">⏱ 7 meses</span></div>
+      <p class="caso-titulo">Tres hermanos: dos en España, uno en Ecuador</p>
+      <p class="caso-meta">🇪🇸 Valencia · 🇪🇸 Madrid → 🇪🇨 · Remate · Poder consular</p>
+    </div></div>
+    <div class="caso-body">
+      <div class="caso-section"><span class="caso-section-label">La situación</span><p>Tres hermanos heredaron un terreno en Santo Domingo. Dos vivían en España, uno en Ecuador. Ninguno podía quedarse con el terreno completo.</p></div>
+      <div class="caso-section"><span class="caso-section-label">El problema</span><p>La venta directa entre hermanos era imposible por diferencias de precio. Había que ir a remate judicial.</p></div>
+      <div class="caso-resultado-box"><p><strong>Resultado:</strong> Juristam presentó la partición con poderes consulares de los dos migrantes. El terreno se vendió en remate por $120,000. Cada hermano recibió su tercio: $40,000 USD.</p></div>
+    </div>
+    <div class="caso-footer">
+      <p class="caso-cita">"Ninguno podía quedarse con el terreno. Con el remate, cada uno cobró su parte."</p>
+      <button type="button" class="btn-caso" data-wa="https://wa.me/593994859814?text=Hola%20Juristam%2C%20heredamos%20un%20terreno%20y%20ninguno%20puede%20qued%C3%A1rselo%20completo.%20Queremos%20repartir." onclick="abrirModal(this)">Tengo un caso similar →</button>
+    </div>
+  </div>
+
+  <div class="caso-card" data-tipo="venta">
+    <div class="caso-header"><div>
+      <div class="caso-badges"><span class="badge badge-resultado">✓ Venta a tercero anulada</span><span class="badge badge-tiempo">⏱ 11 meses</span></div>
+      <p class="caso-titulo">Hermano vendió la casa a un tercero sin el migrante</p>
+      <p class="caso-meta">🇺🇸 Miami → 🇪🇨 · Nulidad de venta · Mala fe</p>
+    </div></div>
+    <div class="caso-body">
+      <div class="caso-section"><span class="caso-section-label">La situación</span><p>Migrante en Miami descubrió que su hermano había vendido la casa heredada a un tercero, usando un poder que el padre había otorgado antes de morir.</p></div>
+      <div class="caso-section"><span class="caso-section-label">El problema</span><p>El poder había caducado con la muerte del padre. La venta era nula pero el tercero ya había inscrito.</p></div>
+      <div class="caso-resultado-box"><p><strong>Resultado:</strong> Juristam demostró la caducidad del poder y la mala fe del comprador (era primo del hermano). El juez anuló la venta y ordenó la restitución. El migrante recuperó su mitad de la casa: $73,000 USD.</p></div>
+    </div>
+    <div class="caso-footer">
+      <p class="caso-cita">"Usó un poder caducado para vender mi parte. El juez anuló todo y recuperé mi mitad."</p>
+      <button type="button" class="btn-caso" data-wa="https://wa.me/593994859814?text=Hola%20Juristam%2C%20vendieron%20mi%20parte%20de%20la%20casa%20heredada%20con%20un%20poder%20caducado." onclick="abrirModal(this)">Tengo un caso similar →</button>
+    </div>
+  </div>
+
+  <div class="caso-card" data-tipo="oculto">
+    <div class="caso-header"><div>
+      <div class="caso-badges"><span class="badge badge-resultado">✓ Cuentas bancarias ocultas descubiertas</span><span class="badge badge-tiempo">⏱ 10 meses</span></div>
+      <p class="caso-titulo">Hermano se quedó con las cuentas del padre sin compartir</p>
+      <p class="caso-meta">🇪🇸 Madrid → 🇪🇨 · Bienes ocultos · Rastreo bancario</p>
+    </div></div>
+    <div class="caso-body">
+      <div class="caso-section"><span class="caso-section-label">La situación</span><p>Migrante en Madrid sospechaba que su hermano había vaciado las cuentas del padre poco después del fallecimiento. No tenía pruebas.</p></div>
+      <div class="caso-section"><span class="caso-section-label">El problema</span><p>El hermano negaba cualquier movimiento. La investigación requería acceso a información bancaria que solo el juez puede ordenar.</p></div>
+      <div class="caso-resultado-box"><p><strong>Resultado:</strong> Juristam solicitó el rastreo bancario. Se comprobaron transferencias por $48,000 al hermano en los tres meses posteriores al fallecimiento. El juez ordenó restituir la mitad al migrante: $24,000 USD.</p></div>
+    </div>
+    <div class="caso-footer">
+      <p class="caso-cita">"Vació las cuentas de mi padre y lo negaba. El rastreo bancario lo demostró."</p>
+      <button type="button" class="btn-caso" data-wa="https://wa.me/593994859814?text=Hola%20Juristam%2C%20sospecho%20que%20mi%20hermano%20se%20qued%C3%B3%20con%20las%20cuentas%20de%20mi%20padre." onclick="abrirModal(this)">Tengo un caso similar →</button>
+    </div>
+  </div>
+
+  <div class="caso-card" data-tipo="particion">
+    <div class="caso-header"><div>
+      <div class="caso-badges"><span class="badge badge-resultado">✓ Acuerdo en 3 meses sin juicio</span><span class="badge badge-tiempo">⏱ 3 meses</span></div>
+      <p class="caso-titulo">Migrante en Madrid y hermano en Quito llegaron a un acuerdo</p>
+      <p class="caso-meta">🇪🇸 Madrid → 🇪🇨 · Negociación · Sin litigio</p>
+    </div></div>
+    <div class="caso-body">
+      <div class="caso-section"><span class="caso-section-label">La situación</span><p>Migrante en Madrid y su hermano en Quito heredaron un departamento. Ninguno quería juicio, pero no lograban ponerse de acuerdo sobre el valor.</p></div>
+      <div class="caso-section"><span class="caso-section-label">El problema</span><p>El hermano local valoraba el departamento por debajo del mercado. El migrante necesitaba un peritaje independiente.</p></div>
+      <div class="caso-resultado-box"><p><strong>Resultado:</strong> Juristam encargó un avalúo pericial y presentó la propuesta al hermano. Con el valor fijado por perito, ambos firmaron la partición notarial en 3 meses. El migrante cobró $52,000 USD.</p></div>
+    </div>
+    <div class="caso-footer">
+      <p class="caso-cita">"Con el peritaje independiente, mi hermano aceptó el valor. Firmamos la partición en tres meses."</p>
+      <button type="button" class="btn-caso" data-wa="https://wa.me/593994859814?text=Hola%20Juristam%2C%20mi%20hermano%20y%20yo%20no%20nos%20ponemos%20de%20acuerdo%20sobre%20el%20valor%20de%20la%20casa." onclick="abrirModal(this)">Tengo un caso similar →</button>
+    </div>
+  </div>
+
+  <div class="caso-card" data-tipo="posesion">
+    <div class="caso-header"><div>
+      <div class="caso-badges"><span class="badge badge-resultado">✓ Posesión efectiva con testamento</span><span class="badge badge-tiempo">⏱ 5 meses</span></div>
+      <p class="caso-titulo">Padre dejó testamento con un solo heredero en el exterior</p>
+      <p class="caso-meta">🇩🇪 Berlín → 🇪🇨 · Testamento · Único heredero</p>
+    </div></div>
+    <div class="caso-body">
+      <div class="caso-section"><span class="caso-section-label">La situación</span><p>Ecuatoriano en Berlín, único heredero por testamento de su padre. El testamento estaba en una notaría de Guayaquil que él desconocía.</p></div>
+      <div class="caso-section"><span class="caso-section-label">El problema</span><p>No tenía copia del testamento. Necesitaba ubicarlo, tramitar la posesión efectiva y vender la casa desde Alemania.</p></div>
+      <div class="caso-resultado-box"><p><strong>Resultado:</strong> Juristam ubicó el testamento, inscribió la posesión efectiva por vía notarial y vendió la casa. El migrante recibió $85,000 USD netos.</p></div>
+    </div>
+    <div class="caso-footer">
+      <p class="caso-cita">"No tenía el testamento. Juristam lo ubicó, inscribió todo y vendió la casa por mí."</p>
+      <button type="button" class="btn-caso" data-wa="https://wa.me/593994859814?text=Hola%20Juristam%2C%20soy%20%C3%BAnico%20heredero%20por%20testamento%20y%20quiero%20vender%20la%20casa%20desde%20el%20exterior." onclick="abrirModal(this)">Tengo un caso similar →</button>
+    </div>
+  </div>
+
+  <div class="caso-card" data-tipo="prescripcion">
+    <div class="caso-header"><div>
+      <div class="caso-badges"><span class="badge badge-resultado">✓ Usucapión detenida con carta notarial</span><span class="badge badge-tiempo">⏱ 4 meses</span></div>
+      <p class="caso-titulo">Carta notarial interrumpió los 15 años del poseedor</p>
+      <p class="caso-meta">🇺🇸 Chicago → 🇪🇨 · Carta notarial · Interrupción</p>
+    </div></div>
+    <div class="caso-body">
+      <div class="caso-section"><span class="caso-section-label">La situación</span><p>Migrante en Chicago cuyo tío llevaba 14 años en un terreno heredado. El tío estaba por cumplir 15 años para prescripción adquisitiva.</p></div>
+      <div class="caso-section"><span class="caso-section-label">El problema</span><p>Faltaba un año para que el tío pudiera alegar prescripción. Era urgente un acto que interrumpiera el plazo.</p></div>
+      <div class="caso-resultado-box"><p><strong>Resultado:</strong> Juristam envió carta notarial reconociendo y exigiendo el respeto a la copropiedad. El plazo se interrumpió y el migrante pudo luego tramitar la partición. Recibió $34,000 USD.</p></div>
+    </div>
+    <div class="caso-footer">
+      <p class="caso-cita">"Faltaba un año para que ganara por prescripción. La carta notarial lo frenó justo a tiempo."</p>
+      <button type="button" class="btn-caso" data-wa="https://wa.me/593994859814?text=Hola%20Juristam%2C%20un%20familiar%20lleva%20a%C3%B1os%20en%20el%20terreno%20heredado%20y%20quiero%20interrumpir%20la%20prescripci%C3%B3n." onclick="abrirModal(this)">Tengo un caso similar →</button>
+    </div>
+  </div>
+
+  <div class="caso-card" data-tipo="venta">
+    <div class="caso-header"><div>
+      <div class="caso-badges"><span class="badge badge-resultado">✓ Venta al exterior suspendida por anotación</span><span class="badge badge-tiempo">⏱ 6 días</span></div>
+      <p class="caso-titulo">Hermano estaba en notaría con un comprador cuando llegó la medida</p>
+      <p class="caso-meta">🇨🇦 Toronto → 🇪🇨 · Anotación de demanda · Venta suspendida</p>
+    </div></div>
+    <div class="caso-body">
+      <div class="caso-section"><span class="caso-section-label">La situación</span><p>Migrante en Toronto supo que su hermano tenía cita en notaría para vender la casa heredada a un tercero. El bien seguía a nombre del padre fallecido.</p></div>
+      <div class="caso-section"><span class="caso-section-label">El problema</span><p>La cita era en 4 días. Había que inscribir una anotación en el Registro antes de la firma.</p></div>
+      <div class="caso-resultado-box"><p><strong>Resultado:</strong> Juristam presentó la solicitud de anotación de la demanda con carácter urgente. El Registro la inscribió en 6 días. La notaría rechazó la venta por la anotación vigente.</p></div>
+    </div>
+    <div class="caso-footer">
+      <p class="caso-cita">"Tenían cita en notaría en cuatro días. La anotación llegó a tiempo y la venta se cayó."</p>
+      <button type="button" class="btn-caso" data-wa="https://wa.me/593994859814?text=Hola%20Juristam%2C%20mi%20hermano%20tiene%20cita%20en%20notar%C3%ADa%20para%20vender%20la%20casa%20heredada.%20Necesito%20bloquearlo." onclick="abrirModal(this)">Tengo un caso similar →</button>
+    </div>
+  </div>
+
+  <div class="caso-card" data-tipo="particion">
+    <div class="caso-header"><div>
+      <div class="caso-badges"><span class="badge badge-resultado">✓ Liquidación de sociedad conyugal previa</span><span class="badge badge-tiempo">⏱ 8 meses</span></div>
+      <p class="caso-titulo">Madre viuda en el exterior con bienes gananciales y herencia mezclados</p>
+      <p class="caso-meta">🇪🇸 Madrid → 🇪🇨 · Gananciales + herencia · Liquidación</p>
+    </div></div>
+    <div class="caso-body">
+      <div class="caso-section"><span class="caso-section-label">La situación</span><p>Ecuatoriana en Madrid cuyo esposo falleció en Guayaquil. Necesitaba liquidar la sociedad conyugal antes de tramitar la herencia de sus hijos.</p></div>
+      <div class="caso-section"><span class="caso-section-label">El problema</span><p>El proceso tenía dos etapas: primero separar los gananciales, después partición entre herederos. Difícil desde Madrid sin asesoría.</p></div>
+      <div class="caso-resultado-box"><p><strong>Resultado:</strong> Juristam tramitó la liquidación de la sociedad conyugal y luego la partición con los hijos. La viuda recibió su mitad de gananciales más su cuota hereditaria: $92,000 USD.</p></div>
+    </div>
+    <div class="caso-footer">
+      <p class="caso-cita">"Primero separamos lo mío y luego la herencia de los hijos. Todo desde Madrid."</p>
+      <button type="button" class="btn-caso" data-wa="https://wa.me/593994859814?text=Hola%20Juristam%2C%20soy%20viuda%20y%20necesito%20liquidar%20gananciales%20y%20luego%20la%20herencia%20desde%20el%20exterior." onclick="abrirModal(this)">Tengo un caso similar →</button>
+    </div>
+  </div>
+
+  <div class="caso-card" data-tipo="posesion">
+    <div class="caso-header"><div>
+      <div class="caso-badges"><span class="badge badge-resultado">✓ Posesión efectiva tras 20 años</span><span class="badge badge-tiempo">⏱ 5 meses</span></div>
+      <p class="caso-titulo">Padre falleció hace 20 años y nunca se tramitó la herencia</p>
+      <p class="caso-meta">🇦🇷 Buenos Aires → 🇪🇨 · Herencia antigua · Reconstrucción</p>
+    </div></div>
+    <div class="caso-body">
+      <div class="caso-section"><span class="caso-section-label">La situación</span><p>Ecuatoriano en Buenos Aires cuya madre falleció hace 20 años. Nunca se tramitó la posesión efectiva. La casa seguía a nombre de la fallecida.</p></div>
+      <div class="caso-section"><span class="caso-section-label">El problema</span><p>Había que reconstruir el expediente con documentación antigua, ubicar los certificados y tramitar todo desde Argentina.</p></div>
+      <div class="caso-resultado-box"><p><strong>Resultado:</strong> Juristam reconstruyó la documentación, tramitó la posesión efectiva por vía notarial y luego la partición. La casa quedó inscrita a nombre del migrante en 5 meses.</p></div>
+    </div>
+    <div class="caso-footer">
+      <p class="caso-cita">"Mi madre murió hace 20 años y nadie tramitó nada. Juristam lo resolvió todo."</p>
+      <button type="button" class="btn-caso" data-wa="https://wa.me/593994859814?text=Hola%20Juristam%2C%20un%20familiar%20falleci%C3%B3%20hace%20a%C3%B1os%20y%20nunca%20se%20tramit%C3%B3%20la%20herencia." onclick="abrirModal(this)">Tengo un caso similar →</button>
+    </div>
+  </div>
+
+  <div class="caso-card" data-tipo="prescripcion">
+    <div class="caso-header"><div>
+      <div class="caso-badges"><span class="badge badge-resultado">✓ Prescripción descartada por copropiedad inscrita</span><span class="badge badge-tiempo">⏱ 7 meses</span></div>
+      <p class="caso-titulo">Hermano alegó prescripción pero la casa estaba inscrita a nombre de ambos</p>
+      <p class="caso-meta">🇺🇸 Houston → 🇪🇨 · Copropiedad inscrita · Defensa</p>
+    </div></div>
+    <div class="caso-body">
+      <div class="caso-section"><span class="caso-section-label">La situación</span><p>Migrante en Houston cuya casa estaba inscrita a nombre de ambos hermanos tras la muerte del padre. Su hermano llevaba 16 años viviendo ahí y alegó prescripción.</p></div>
+      <div class="caso-section"><span class="caso-section-label">El problema</span><p>La prescripción adquisitiva no puede operar contra un copropietario inscrito. Había que demostrar esa defensa.</p></div>
+      <div class="caso-resultado-box"><p><strong>Resultado:</strong> Juristam demostró la copropiedad inscrita y la imposibilidad de prescripción entre copropietarios. El juez ordenó la partición y el migrante recibió $58,000 USD.</p></div>
+    </div>
+    <div class="caso-footer">
+      <p class="caso-cita">"Alegaba prescripción pero estábamos inscritos los dos. El juez rechazó su argumento."</p>
+      <button type="button" class="btn-caso" data-wa="https://wa.me/593994859814?text=Hola%20Juristam%2C%20mi%20hermano%20alega%20prescripci%C3%B3n%20pero%20la%20casa%20est%C3%A1%20inscrita%20a%20nombre%20de%20los%20dos." onclick="abrirModal(this)">Tengo un caso similar →</button>
+    </div>
+  </div>
+
+  <div class="caso-card" data-tipo="particion">
+    <div class="caso-header"><div>
+      <div class="caso-badges"><span class="badge badge-resultado">✓ Venta de casa para dividir el dinero</span><span class="badge badge-tiempo">⏱ 6 meses</span></div>
+      <p class="caso-titulo">Nadie quería la casa, todos querían su parte líquida</p>
+      <p class="caso-meta">🇪🇸 Madrid · 🇮🇹 Roma → 🇪🇨 · Venta conjunta · División</p>
+    </div></div>
+    <div class="caso-body">
+      <div class="caso-section"><span class="caso-section-label">La situación</span><p>Dos hermanos, uno en Madrid y otro en Roma, heredaron una casa que ninguno quería. Preferían vender y dividir el dinero.</p></div>
+      <div class="caso-section"><span class="caso-section-label">El problema</span><p>Necesitaban vender la casa estando ambos en Europa. Los compradores locales no querían tratar con vendedores ausentes.</p></div>
+      <div class="caso-resultado-box"><p><strong>Resultado:</strong> Juristam tramitó la posesión efectiva, consiguió comprador, firmó la venta con poder de ambos y dividió el dinero. Cada hermano recibió $71,000 USD.</p></div>
+    </div>
+    <div class="caso-footer">
+      <p class="caso-cita">"Vendimos la casa sin que ninguno de los dos viajara. Cada uno recibió su mitad."</p>
+      <button type="button" class="btn-caso" data-wa="https://wa.me/593994859814?text=Hola%20Juristam%2C%20queremos%20vender%20la%20casa%20heredada%20desde%20el%20exterior%20y%20dividir%20el%20dinero." onclick="abrirModal(this)">Tengo un caso similar →</button>
+    </div>
+  </div>
+
+  <div class="caso-card" data-tipo="oculto">
+    <div class="caso-header"><div>
+      <div class="caso-badges"><span class="badge badge-resultado">✓ Cuentas, vehículos y joyas incluidos en la partición</span><span class="badge badge-tiempo">⏱ 9 meses</span></div>
+      <p class="caso-titulo">Migrante descubrió que había más bienes que la casa</p>
+      <p class="caso-meta">🇺🇸 Nueva Jersey → 🇪🇨 · Bienes ocultos · Inventario</p>
+    </div></div>
+    <div class="caso-body">
+      <div class="caso-section"><span class="caso-section-label">La situación</span><p>Migrante en Nueva Jersey creía que la herencia era solo la casa familiar. Durante el proceso se descubrieron cuentas, un vehículo y joyas no declaradas.</p></div>
+      <div class="caso-section"><span class="caso-section-label">El problema</span><p>El hermano local había dispuesto de esos bienes sin informar. Había que hacer un inventario completo.</p></div>
+      <div class="caso-resultado-box"><p><strong>Resultado:</strong> Juristam rastreó cuentas bancarias, registro vehicular y otros bienes. El juez incluyó todo en la partición. El migrante recibió $27,000 USD adicionales por los bienes no declarados.</p></div>
+    </div>
+    <div class="caso-footer">
+      <p class="caso-cita">"Había cuentas, un carro y joyas que mi hermano nunca mencionó. Todo entró a la partición."</p>
+      <button type="button" class="btn-caso" data-wa="https://wa.me/593994859814?text=Hola%20Juristam%2C%20creo%20que%20hay%20m%C3%A1s%20bienes%20en%20la%20herencia%20que%20mi%20hermano%20no%20declara." onclick="abrirModal(this)">Tengo un caso similar →</button>
+    </div>
+  </div>
+
+  <div class="caso-card" data-tipo="posesion">
+    <div class="caso-header"><div>
+      <div class="caso-badges"><span class="badge badge-resultado">✓ Herencia inscrita con testamento en el exterior</span><span class="badge badge-tiempo">⏱ 6 meses</span></div>
+      <p class="caso-titulo">Testamento otorgado en Italia y aplicado en Ecuador</p>
+      <p class="caso-meta">🇮🇹 Roma → 🇪🇨 · Testamento internacional · Inscripción</p>
+    </div></div>
+    <div class="caso-body">
+      <div class="caso-section"><span class="caso-section-label">La situación</span><p>Ecuatoriano en Roma cuyo padre falleció en Italia. El testamento se otorgó ante notario italiano y dejaba un inmueble en Cuenca al migrante.</p></div>
+      <div class="caso-section"><span class="caso-section-label">El problema</span><p>Había que hacer valer un testamento extranjero en Ecuador. El proceso requería apostilla, traducción y homologación.</p></div>
+      <div class="caso-resultado-box"><p><strong>Resultado:</strong> Juristam gestionó la apostilla y traducción del testamento, tramitó la inscripción en Ecuador. La casa quedó a nombre del migrante en 6 meses.</p></div>
+    </div>
+    <div class="caso-footer">
+      <p class="caso-cita">"El testamento era italiano. Juristam lo hizo valer en Ecuador sin que yo viajara."</p>
+      <button type="button" class="btn-caso" data-wa="https://wa.me/593994859814?text=Hola%20Juristam%2C%20tengo%20un%20testamento%20otorgado%20en%20el%20exterior%20y%20necesito%20hacerlo%20valer%20en%20Ecuador." onclick="abrirModal(this)">Tengo un caso similar →</button>
+    </div>
+  </div>
+
+</div>
+
+<div class="cta-final">
+  <h2>¿Heredó una casa en Ecuador y vive en el exterior?</h2>
+  <p>Cada año que pasa sin inscribir la herencia fortalece al que posee el bien. Mándanos la partida de defunción y el certificado del Registro. Revisamos el estado real de la herencia antes de que compre el pasaje. La revisión inicial no tiene costo.</p>
+  <div class="precio-mini">
+    <div class="precio-mini-item"><span>Revisión inicial</span><span>$0</span></div>
+    <div class="precio-mini-item"><span>Asesoría virtual ⭐</span><span>$45</span></div>
+    <div class="precio-mini-item"><span>Presencial</span><span>$85</span></div>
+  </div>
+  <p style="color:#c4b5fd;font-size:.8rem;margin-bottom:1.2rem;">Los $45 de la asesoría se descuentan del servicio completo si decides continuar.</p>
+  <button type="button" class="btn-wa-hero" data-wa="https://wa.me/593994859814?text=Hola%20Juristam%2C%20vi%20los%20casos%20de%20herencias%20desde%20el%20exterior%20y%20quiero%20revisar%20mi%20caso." onclick="abrirModal(this)">Enviar mi caso · WhatsApp →</button>
+</div>
+
+<div style="text-align:center;margin-bottom:2.5rem;">
+  <a href="/blog/herede-casa-ecuador-vivo-exterior.html" style="color:var(--primary-dark);font-size:.9rem;font-weight:600;text-decoration:underline;">← Volver a la guía completa</a>
+</div>
+</div>
+
+<footer><div class="container">
+  <p><strong>Juristam</strong> — Asesoría Legal Estratégica en Ecuador</p>
+  <p>© 2026 Juristam. Todos los derechos reservados. <a href="/blog/">Blog</a> · <a href="/#formulario">Contacto</a></p>
+  <p style="margin-top:.5rem;font-size:.8rem;opacity:.7;">Casos reales anonimizados. El resultado de un reclamo de herencia desde el exterior depende del tiempo transcurrido, la documentación disponible y la conducta del poseedor — los resultados pueden variar.</p>
+</div></footer>
+
+<script>
+const WA_FALLBACK="https://wa.me/593994859814?text=Hola%20Juristam%2C%20hered%C3%A9%20una%20casa%20en%20Ecuador%20pero%20vivo%20en%20el%20exterior%20y%20quiero%20reclamar%20mi%20parte.";
+let waActual = WA_FALLBACK;
+function abrirModal(el){
+  waActual = (el && el.dataset && el.dataset.wa) ? el.dataset.wa : WA_FALLBACK;
+  document.getElementById("waModal").classList.add("active");
+  document.body.style.overflow="hidden";
+}
+function cerrarModal(){document.getElementById("waModal").classList.remove("active");document.body.style.overflow="";}
+function irAWhatsApp(){cerrarModal();window.open(waActual,"_blank","noopener");}
+document.getElementById("waModal").addEventListener("click",function(e){if(e.target===this)cerrarModal();});
+document.addEventListener("keydown",function(e){if(e.key==="Escape")cerrarModal();});
+function filtrar(btn){
+  var f = btn.dataset.filtro;
+  document.querySelectorAll(".filtro-btn").forEach(function(b){b.classList.remove("activo");});
+  btn.classList.add("activo");
+  var n = 0;
+  document.querySelectorAll(".caso-card").forEach(function(c){
+    var ok = (f === "todos" || c.dataset.tipo === f);
+    c.classList.toggle("oculto", !ok);
+    if (ok) n++;
+  });
+  document.getElementById("contador").textContent = n;
+}
+</script>
+</body>
+</html>
