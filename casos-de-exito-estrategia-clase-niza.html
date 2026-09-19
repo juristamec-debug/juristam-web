@@ -1,0 +1,525 @@
+<!DOCTYPE html>
+<html lang="es-EC">
+<head>
+<meta charset="UTF-8"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<link rel="icon" type="image/png" href="https://i.postimg.cc/KjDB1NSM/Diseno-sin-titulo-(7).png"/>
+<meta name="theme-color" content="#9a6aff"/>
+<title>Estrategia de clase de Niza · 20 casos · Juristam</title>
+<meta name="description" content="20 casos reales de empresarios que definieron la estrategia de clases antes de registrar su marca en Ecuador: registros multiclase preventivos, búsquedas fonéticas, estrategias de expansión y corrección de errores a tiempo."/>
+<link rel="canonical" href="https://juristam.net/casos-de-exito-estrategia-clase-niza.html"/>
+<meta name="robots" content="index,follow"/>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;0,700;1,400&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet"/>
+<style>
+:root{--primary:#9a6aff;--primary-dark:#7c3aed;--primary-light:#efe8ff;--primary-deep:#1e0a4e;--text:#1a1a2e;--text-secondary:#4a4a6a;--white:#fff;--success:#059669;--success-light:#ecfdf5;--gray-light:#f9f9fb;--border:#e8e8f0;}
+*{margin:0;padding:0;box-sizing:border-box;}html{scroll-behavior:smooth;}
+body{font-family:"DM Sans",sans-serif;color:var(--text);background:var(--white);line-height:1.8;-webkit-font-smoothing:antialiased;}
+a{text-decoration:none;color:inherit;}
+.container{max-width:960px;margin:0 auto;padding:0 1.5rem;}
+header{background:var(--white);border-bottom:1px solid var(--border);position:sticky;top:0;z-index:100;height:90px;}
+.header-inner{display:flex;align-items:center;justify-content:space-between;height:100%;}
+.brand-logo{height:90px;width:auto;}
+.btn-back{background:var(--primary-light);color:var(--primary-dark);padding:.5rem 1rem;border-radius:8px;font-size:.85rem;font-weight:600;}
+.hero{background:linear-gradient(135deg,var(--primary-deep),#2d1060);padding:3.5rem 0 2.8rem;text-align:center;margin-bottom:2rem;}
+.hero-tag{display:inline-block;background:rgba(255,255,255,.12);color:#c4b5fd;font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.12em;padding:.35rem .9rem;border-radius:20px;margin-bottom:1rem;}
+.hero h1{font-family:"Lora",serif;font-size:clamp(1.7rem,3.5vw,2.3rem);color:#fff;margin-bottom:.8rem;line-height:1.25;font-weight:700;}
+.hero p{color:#c4b5fd;font-size:.97rem;max-width:600px;margin:0 auto 1.5rem;line-height:1.75;}
+.hero-stats{display:flex;justify-content:center;gap:2.5rem;flex-wrap:wrap;margin-top:1.8rem;}
+.stat-num{font-family:"Lora",serif;font-size:2rem;font-weight:700;color:#fff;display:block;}
+.stat-label{font-size:.75rem;color:#c4b5fd;text-transform:uppercase;letter-spacing:.06em;}
+.btn-wa-hero{background:#25d366;color:#fff;padding:.8rem 2rem;border-radius:10px;font-size:.95rem;font-weight:700;display:inline-block;cursor:pointer;border:none;margin-top:1.5rem;font-family:inherit;}
+.filtros{display:flex;gap:.6rem;flex-wrap:wrap;justify-content:center;margin-bottom:1.2rem;}
+.filtro-btn{background:var(--white);border:1.5px solid var(--border);color:var(--text-secondary);padding:.5rem 1.1rem;border-radius:24px;font-size:.85rem;font-weight:600;cursor:pointer;font-family:inherit;transition:all .18s;}
+.filtro-btn:hover{border-color:var(--primary);color:var(--primary-dark);}
+.filtro-btn.activo{background:var(--primary-dark);border-color:var(--primary-dark);color:#fff;}
+.casos-count{font-size:.85rem;color:var(--text-secondary);margin-bottom:1rem;text-align:center;}
+.casos-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(380px,1fr));gap:1.4rem;margin-bottom:3rem;}
+.caso-card{background:var(--white);border-radius:16px;border:1.5px solid var(--border);overflow:hidden;box-shadow:0 4px 20px rgba(0,0,0,.06);transition:box-shadow .2s,transform .2s;display:flex;flex-direction:column;}
+.caso-card:hover{box-shadow:0 8px 32px rgba(124,58,237,.14);transform:translateY(-2px);}
+.caso-card.oculto{display:none;}
+.caso-header{padding:1.3rem 1.5rem .9rem;border-bottom:1px solid var(--border);}
+.caso-badges{display:flex;gap:.4rem;flex-wrap:wrap;margin-bottom:.55rem;}
+.badge{font-size:.68rem;font-weight:700;padding:.2rem .6rem;border-radius:20px;text-transform:uppercase;letter-spacing:.04em;}
+.badge-resultado{background:var(--success-light);color:var(--success);}
+.badge-tiempo{background:var(--gray-light);color:var(--text-secondary);}
+.caso-titulo{font-family:"Lora",serif;font-size:1rem;font-weight:700;color:var(--text);line-height:1.35;margin-bottom:.25rem;}
+.caso-meta{font-size:.76rem;color:var(--text-secondary);}
+.caso-body{padding:1.1rem 1.5rem;flex:1;}
+.caso-section{margin-bottom:.85rem;}
+.caso-section-label{font-size:.65rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--text-secondary);margin-bottom:.25rem;display:block;}
+.caso-section p{font-size:.87rem;color:var(--text);line-height:1.7;margin:0;}
+.caso-resultado-box{background:var(--success-light);border-left:3px solid var(--success);border-radius:0 8px 8px 0;padding:.75rem .9rem;margin-top:.7rem;}
+.caso-resultado-box p{font-size:.85rem;color:var(--text);line-height:1.65;margin:0;}
+.caso-resultado-box strong{color:var(--success);}
+.caso-footer{padding:.85rem 1.5rem;background:var(--gray-light);border-top:1px solid var(--border);display:flex;align-items:center;justify-content:space-between;gap:.7rem;flex-wrap:wrap;}
+.caso-cita{font-size:.8rem;color:var(--text-secondary);font-style:italic;flex:1;line-height:1.5;}
+.btn-caso{background:var(--primary-dark);color:#fff;padding:.48rem 1rem;border-radius:8px;font-size:.78rem;font-weight:700;white-space:nowrap;cursor:pointer;border:none;flex-shrink:0;font-family:inherit;}
+.cta-final{background:linear-gradient(135deg,var(--primary-deep),#2d1060);border-radius:16px;padding:2.5rem 2rem;text-align:center;margin:1rem 0 3rem;}
+.cta-final h2{font-family:"Lora",serif;color:#fff;font-size:1.5rem;margin-bottom:.8rem;}
+.cta-final p{color:#c4b5fd;margin-bottom:1.5rem;line-height:1.75;max-width:520px;margin-left:auto;margin-right:auto;}
+.precio-mini{display:inline-flex;gap:1.5rem;background:rgba(255,255,255,.1);border-radius:12px;padding:.8rem 1.5rem;margin-bottom:.8rem;flex-wrap:wrap;justify-content:center;}
+.precio-mini-item span:first-child{display:block;font-size:.68rem;color:#c4b5fd;text-transform:uppercase;letter-spacing:.08em;margin-bottom:.2rem;}
+.precio-mini-item span:last-child{font-family:"Lora",serif;font-size:1.6rem;font-weight:700;color:#fff;}
+.modal-overlay{display:none;position:fixed;inset:0;background:rgba(10,5,30,.65);backdrop-filter:blur(5px);z-index:999;align-items:center;justify-content:center;padding:.75rem;}
+.modal-overlay.active{display:flex;}
+.modal{background:#fff;border-radius:18px;max-width:380px;width:100%;box-shadow:0 24px 60px rgba(0,0,0,.25);}
+.modal-top{background:linear-gradient(135deg,var(--primary-deep),#4c1d95);padding:1.1rem 1.2rem .9rem;position:relative;border-radius:18px 18px 0 0;}
+.modal-top h4{color:#fff;font-size:.98rem;font-weight:700;margin-bottom:.2rem;}
+.modal-top p{color:#c4b5fd;font-size:.74rem;line-height:1.4;}
+.modal-close{position:absolute;top:.6rem;right:.6rem;background:rgba(255,255,255,.15);border:none;color:#fff;width:24px;height:24px;border-radius:50%;cursor:pointer;font-size:.8rem;display:flex;align-items:center;justify-content:center;}
+.modal-body{padding:.9rem 1.2rem 1.1rem;}
+.modal-section-label{font-size:.62rem;font-weight:700;color:var(--text-secondary);text-transform:uppercase;letter-spacing:.05em;margin-bottom:.35rem;display:block;}
+.modal-precios{display:grid;grid-template-columns:1fr 1fr;gap:.5rem;margin-bottom:.7rem;}
+.modal-precio{border-radius:10px;padding:.5rem .6rem;border:1.5px solid var(--border);text-align:center;}
+.modal-precio.virtual{border-color:var(--primary);background:var(--primary-light);}
+.modal-precio .mlabel{font-size:.6rem;font-weight:700;text-transform:uppercase;letter-spacing:.04em;color:var(--primary-dark);display:block;margin-bottom:.1rem;}
+.modal-precio .mmonto{font-family:"Lora",serif;font-size:1.25rem;font-weight:700;color:var(--text);line-height:1;}
+.modal-nota{font-size:.7rem;color:var(--text-secondary);background:var(--gray-light);border-radius:8px;padding:.5rem .65rem;margin-bottom:.8rem;line-height:1.4;}
+.btn-modal-wa{display:block;background:#25d366;color:#fff;text-align:center;padding:.7rem;border-radius:9px;font-weight:700;font-size:.86rem;border:none;cursor:pointer;width:100%;font-family:inherit;}
+footer{background:var(--text);color:#ccc;padding:2.2rem 0 5.5rem;text-align:center;font-size:.84rem;margin-top:3rem;}
+footer a{color:var(--primary);}footer strong{color:var(--white);}
+@media(max-width:700px){.casos-grid{grid-template-columns:1fr;}.hero-stats{gap:1.2rem;}.modal-precios{grid-template-columns:1fr;}.filtro-btn{font-size:.8rem;padding:.45rem .9rem;}}
+</style>
+</head>
+<body>
+
+<div class="modal-overlay" id="waModal" role="dialog" aria-modal="true">
+  <div class="modal">
+    <div class="modal-top">
+      <button type="button" class="modal-close" onclick="cerrarModal()" aria-label="Cerrar">&#x2715;</button>
+      <h4>La clase se elige antes, no se corrige después</h4>
+      <p>Es la primera casilla del formulario y la única que no se puede modificar. Mándenos su modelo de negocio y le decimos qué clases registrar, en qué orden y por qué, antes de que presente la solicitud.</p>
+    </div>
+    <div class="modal-body">
+      <span class="modal-section-label">Asesoría inicial</span>
+      <div class="modal-precios">
+        <div class="modal-precio virtual"><span class="mlabel">Virtual ⭐</span><div class="mmonto">$45</div></div>
+        <div class="modal-precio"><span class="mlabel">Presencial</span><div class="mmonto">$85</div></div>
+      </div>
+      <div class="modal-nota">La revisión inicial de su caso no tiene costo. Los $45 se descuentan del servicio completo si decide continuar.</div>
+      <button type="button" class="btn-modal-wa" onclick="irAWhatsApp()">Continuar a WhatsApp →</button>
+    </div>
+  </div>
+</div>
+
+<header><div class="container header-inner">
+  <a href="/blog/"><img class="brand-logo" src="https://i.postimg.cc/vHygbHxz/oie-transparent-(2).png" alt="Juristam" loading="eager" width="120" height="90"/></a>
+  <a class="btn-back" href="/blog/clase-niza-registrar-marca-ecuador-estrategia.html">← Volver al artículo</a>
+</div></header>
+
+<div class="hero"><div class="container">
+  <span class="hero-tag">Juristam · Estrategia de registro de marca · Ecuador</span>
+  <h1>Estrategia de clase de Niza</h1>
+  <p>20 casos reales de empresarios que definieron su estrategia de clases antes de registrar la marca: registros multiclase preventivos, búsquedas fonéticas anticipadas, proyección de expansión y corrección de registros incompletos a tiempo.</p>
+  <div class="hero-stats">
+    <div class="stat"><span class="stat-num">20</span><span class="stat-label">Casos documentados</span></div>
+    <div class="stat"><span class="stat-num">3 sem</span><span class="stat-label">Caso más rápido</span></div>
+    <div class="stat"><span class="stat-num">$208</span><span class="stat-label">Tasa por clase</span></div>
+    <div class="stat"><span class="stat-num">$45</span><span class="stat-label">Asesoría inicial</span></div>
+  </div>
+  <button type="button" class="btn-wa-hero" data-wa="https://wa.me/593994859814?text=Hola%20Juristam%2C%20voy%20a%20registrar%20mi%20marca%20y%20quiero%20definir%20la%20estrategia%20de%20clases%20antes%20de%20presentar." onclick="abrirModal(this)">Definir estrategia → WhatsApp</button>
+</div></div>
+
+<div class="container">
+<div class="filtros">
+  <button type="button" class="filtro-btn activo" data-filtro="todos" onclick="filtrar(this)">Todos (20)</button>
+  <button type="button" class="filtro-btn" data-filtro="multiclase" onclick="filtrar(this)">🎯 Registro multiclase (5)</button>
+  <button type="button" class="filtro-btn" data-filtro="prevencion" onclick="filtrar(this)">🛡️ Búsqueda previa (4)</button>
+  <button type="button" class="filtro-btn" data-filtro="expansion" onclick="filtrar(this)">📈 Proyección expansión (4)</button>
+  <button type="button" class="filtro-btn" data-filtro="correccion" onclick="filtrar(this)">🔧 Corrección a tiempo (4)</button>
+  <button type="button" class="filtro-btn" data-filtro="oposicion" onclick="filtrar(this)">⚖️ Oposición anticipada (3)</button>
+</div>
+<p class="casos-count"><strong id="contador">20</strong> casos encontrados</p>
+<div class="casos-grid" id="grid">
+
+  <div class="caso-card" data-tipo="multiclase">
+    <div class="caso-header"><div>
+      <div class="caso-badges"><span class="badge badge-resultado">✓ Registró en 3 clases y blindó su marca</span><span class="badge badge-tiempo">⏱ 8 meses</span></div>
+      <p class="caso-titulo">Marca de café registrada en clases 30, 35 y 43</p>
+      <p class="caso-meta">🇪🇨 Loja · Clase 30 · Clase 35 · Clase 43 · Decisión 486 CAN</p>
+    </div></div>
+    <div class="caso-body">
+      <div class="caso-section"><span class="caso-section-label">La situación</span><p>Empresario cafetalero en Loja con tostaduría propia, venta directa al público y planes de abrir una cafetería. Iba a registrar su marca solo en la clase 30 (café como producto).</p></div>
+      <div class="caso-section"><span class="caso-section-label">El problema</span><p>En la asesoría se identificó que su modelo incluía tres frentes: producto (clase 30), venta al por menor en su local (clase 35) y servicio de cafetería (clase 43). Con una sola clase, quedaban dos frentes descubiertos.</p></div>
+      <div class="caso-resultado-box"><p><strong>Resultado:</strong> Se registró en las tres clases desde el inicio (inversión: <strong>$624 en tasas</strong>). A los dos años, un competidor intentó abrir una cafetería con nombre similar. La oposición fue exitosa porque la clase 43 ya estaba protegida. <strong>Sin el registro multiclase, el competidor habría operado legalmente en la cafetería.</strong></p></div>
+    </div>
+    <div class="caso-footer">
+      <p class="caso-cita">"Iba a registrar solo el café. Con la asesoría registré tres clases. Cuando el competidor apareció, esa diferencia fue lo que me salvó."</p>
+      <button type="button" class="btn-caso" data-wa="https://wa.me/593994859814?text=Hola%20Juristam%2C%20tengo%20un%20negocio%20de%20caf%C3%A9%20y%20quiero%20definir%20bien%20mis%20clases." onclick="abrirModal(this)">Tengo un caso similar →</button>
+    </div>
+  </div>
+
+  <div class="caso-card" data-tipo="multiclase">
+    <div class="caso-header"><div>
+      <div class="caso-badges"><span class="badge badge-resultado">✓ De 1 clase a 4 antes de presentar</span><span class="badge badge-tiempo">⏱ 3 semanas</span></div>
+      <p class="caso-titulo">Emprendedora de cosméticos casi registró solo una clase</p>
+      <p class="caso-meta">🇪🇨 Guayaquil · Clases 3, 5, 21 y 35 · Análisis previo</p>
+    </div></div>
+    <div class="caso-body">
+      <div class="caso-section"><span class="caso-section-label">La situación</span><p>Emprendedora de cosméticos en Guayaquil iba a presentar su solicitud solo en clase 3 (cosméticos). Su plan era "empezar con lo básico" y agregar clases después.</p></div>
+      <div class="caso-section"><span class="caso-section-label">El problema</span><p>En la asesoría se identificó que además de cosméticos (clase 3), tenía línea de cuidado personal (clase 5), planeaba lanzar accesorios de belleza (clase 21) y vendía directamente al público (clase 35). Cuatro frentes, no uno.</p></div>
+      <div class="caso-resultado-box"><p><strong>Resultado:</strong> Se registró en las cuatro clases desde el inicio (inversión: <strong>$832</strong>). Al año siguiente, cuando lanzó su línea de accesorios, ya tenía la clase 21 protegida. <strong>Sin la asesoría previa, habría tenido que presentar tres solicitudes adicionales, con el riesgo de encontrar esas clases ocupadas.</strong></p></div>
+    </div>
+    <div class="caso-footer">
+      <p class="caso-cita">"Pensé que con la clase 3 era suficiente. La asesoría me mostró que mi negocio operaba en cuatro frentes."</p>
+      <button type="button" class="btn-caso" data-wa="https://wa.me/593994859814?text=Hola%20Juristam%2C%20tengo%20un%20negocio%20de%20cosm%C3%A9ticos%20y%20quiero%20definir%20mis%20clases." onclick="abrirModal(this)">Tengo un caso similar →</button>
+    </div>
+  </div>
+
+  <div class="caso-card" data-tipo="multiclase">
+    <div class="caso-header"><div>
+      <div class="caso-badges"><span class="badge badge-resultado">✓ Registro completo para cadena de comida</span><span class="badge badge-tiempo">⏱ 7 semanas</span></div>
+      <p class="caso-titulo">Cadena de comida rápida con 3 clases antes de franquiciar</p>
+      <p class="caso-meta">🇪🇨 Guayaquil · Clases 30, 35 y 43 · Franquicia</p>
+    </div></div>
+    <div class="caso-body">
+      <div class="caso-section"><span class="caso-section-label">La situación</span><p>Cadena de comida rápida en Guayaquil con 5 locales. Querían franquiciar y necesitaban el registro blindado. Solo tenían clase 43.</p></div>
+      <div class="caso-section"><span class="caso-section-label">El problema</span><p>La franquicia requiere protección en todas las clases del modelo: servicios de restauración (43), productos alimenticios (30) y servicios de comercialización (35). Faltaban dos.</p></div>
+      <div class="caso-resultado-box"><p><strong>Resultado:</strong> Juristam auditó el modelo antes de franquiciar y presentó las solicitudes en clases 30 y 35. Total en tasas: <strong>$416</strong>. La cadena pudo franquiciar con protección completa y con respaldo del registro para exigir exclusividad.</p></div>
+    </div>
+    <div class="caso-footer">
+      <p class="caso-cita">"Íbamos a franquiciar. La auditoría nos mostró que el modelo no estaba protegido en todas sus dimensiones."</p>
+      <button type="button" class="btn-caso" data-wa="https://wa.me/593994859814?text=Hola%20Juristam%2C%20quiero%20franquiciar%20mi%20negocio%20y%20necesito%20auditar%20mi%20registro%20de%20marca." onclick="abrirModal(this)">Tengo un caso similar →</button>
+    </div>
+  </div>
+
+  <div class="caso-card" data-tipo="multiclase">
+    <div class="caso-header"><div>
+      <div class="caso-badges"><span class="badge badge-resultado">✓ Registro multiclase para startup SaaS</span><span class="badge badge-tiempo">⏱ 6 semanas</span></div>
+      <p class="caso-titulo">Startup con producto y servicio: clases 9 y 42</p>
+      <p class="caso-meta">🇪🇨 Quito · Clase 9 · Clase 42 · SaaS</p>
+    </div></div>
+    <div class="caso-body">
+      <div class="caso-section"><span class="caso-section-label">La situación</span><p>Startup en Quito con plataforma de gestión empresarial. Ofrecían el software como servicio (SaaS) y como licencia instalable.</p></div>
+      <div class="caso-section"><span class="caso-section-label">El problema</span><p>El servicio SaaS es clase 42, pero el software como producto descargable es clase 9. El equipo de la startup había preparado la solicitud solo con la clase 42.</p></div>
+      <div class="caso-resultado-box"><p><strong>Resultado:</strong> Juristam auditó el modelo de negocio antes de presentar y añadió la clase 9. Inversión total: <strong>$416</strong>. La startup quedó protegida en ambos formatos desde el primer día, sin necesidad de corregir después.</p></div>
+    </div>
+    <div class="caso-footer">
+      <p class="caso-cita">"Íbamos a registrar solo la clase 42. La asesoría nos mostró que el producto descargable era otra clase."</p>
+      <button type="button" class="btn-caso" data-wa="https://wa.me/593994859814?text=Hola%20Juristam%2C%20tengo%20una%20startup%20SaaS%20y%20quiero%20registrar%20mi%20marca%20en%20las%20clases%20correctas." onclick="abrirModal(this)">Tengo un caso similar →</button>
+    </div>
+  </div>
+
+  <div class="caso-card" data-tipo="multiclase">
+    <div class="caso-header"><div>
+      <div class="caso-badges"><span class="badge badge-resultado">✓ Cinco clases antes de lanzar línea completa</span><span class="badge badge-tiempo">⏱ 10 semanas</span></div>
+      <p class="caso-titulo">Marca de cuidado personal con 5 clases desde el inicio</p>
+      <p class="caso-meta">🇪🇨 Cuenca · Clases 3, 5, 21, 35 y 44 · Línea integral</p>
+    </div></div>
+    <div class="caso-body">
+      <div class="caso-section"><span class="caso-section-label">La situación</span><p>Emprendedora en Cuenca con marca de cuidado personal que incluía cremas (clase 3), suplementos (clase 5), accesorios (clase 21), venta directa (clase 35) y servicios de spa (clase 44).</p></div>
+      <div class="caso-section"><span class="caso-section-label">El problema</span><p>Su idea original era registrar solo la clase 3 porque "ahí van las cremas". Pero el negocio se extendía por cinco frentes distintos.</p></div>
+      <div class="caso-resultado-box"><p><strong>Resultado:</strong> Juristam diseñó el mapa completo y presentó solicitudes en las cinco clases. Inversión total: <strong>$1,040 USD</strong>. Al año siguiente, cuando lanzó el spa, ya tenía la clase 44 protegida. <strong>Ninguna corrección posterior fue necesaria.</strong></p></div>
+    </div>
+    <div class="caso-footer">
+      <p class="caso-cita">"Pensé en registrar solo las cremas. La asesoría me mostró que el negocio completo necesitaba cinco clases."</p>
+      <button type="button" class="btn-caso" data-wa="https://wa.me/593994859814?text=Hola%20Juristam%2C%20tengo%20una%20marca%20de%20cuidado%20personal%20con%20varios%20productos%20y%20servicios%20y%20quiero%20definir%20las%20clases." onclick="abrirModal(this)">Tengo un caso similar →</button>
+    </div>
+  </div>
+
+  <div class="caso-card" data-tipo="prevencion">
+    <div class="caso-header"><div>
+      <div class="caso-badges"><span class="badge badge-resultado">✓ Búsqueda fonética evitó oposición</span><span class="badge badge-tiempo">⏱ 2 semanas</span></div>
+      <p class="caso-titulo">Búsqueda previa detectó marca idéntica antes de presentar</p>
+      <p class="caso-meta">🇪🇨 Guayaquil · Búsqueda fonética · Prevención</p>
+    </div></div>
+    <div class="caso-body">
+      <div class="caso-section"><span class="caso-section-label">La situación</span><p>Empresario en Guayaquil con nueva marca de alimentos. Estaba a punto de presentar la solicitud con el nombre que había diseñado con su agencia de branding.</p></div>
+      <div class="caso-section"><span class="caso-section-label">El problema</span><p>La búsqueda fonética previa reveló que existía una marca casi idéntica registrada en la misma clase por un competidor regional. Si presentaba la solicitud, habría recibido oposición y perdido la tasa.</p></div>
+      <div class="caso-resultado-box"><p><strong>Resultado:</strong> Juristam identificó el conflicto antes de presentar. El empresario pudo ajustar el nombre (cambiar una letra) y presentar una solicitud limpia. <strong>Ahorro: $208 de tasa perdida + costos de oposición + tiempo del proceso.</strong></p></div>
+    </div>
+    <div class="caso-footer">
+      <p class="caso-cita">"Iba a presentar un nombre que ya existía. La búsqueda previa me ahorró perder la tasa y meses de proceso."</p>
+      <button type="button" class="btn-caso" data-wa="https://wa.me/593994859814?text=Hola%20Juristam%2C%20quiero%20hacer%20una%20b%C3%BAsqueda%20fon%C3%A9tica%20antes%20de%20presentar%20mi%20solicitud%20de%20marca." onclick="abrirModal(this)">Tengo un caso similar →</button>
+    </div>
+  </div>
+
+  <div class="caso-card" data-tipo="prevencion">
+    <div class="caso-header"><div>
+      <div class="caso-badges"><span class="badge badge-resultado">✓ Análisis de conexión entre clases</span><span class="badge badge-tiempo">⏱ 3 semanas</span></div>
+      <p class="caso-titulo">Consultora evitó conflicto con clase 35 ya ocupada</p>
+      <p class="caso-meta">🇪🇨 Quito · Clase 35 · Clase 41 · Búsqueda previa</p>
+    </div></div>
+    <div class="caso-body">
+      <div class="caso-section"><span class="caso-section-label">La situación</span><p>Consultora en Quito con marca nueva de servicios profesionales (clase 35) y planes de lanzar cursos y capacitaciones (clase 41).</p></div>
+      <div class="caso-section"><span class="caso-section-label">El problema</span><p>La búsqueda previa reveló que un competidor tenía una marca fonéticamente similar en clase 35 pero no en clase 41. Presentar en 35 habría generado oposición.</p></div>
+      <div class="caso-resultado-box"><p><strong>Resultado:</strong> Juristam analizó la conexión competitiva y recomendó presentar primero la clase 41 (sin conflicto) mientras se diseñaba una estrategia para la clase 35 (modificar ligeramente el nombre o negociar coexistencia). <strong>La marca se registró sin oposición en la clase 41 y con estrategia planificada para la 35.</strong></p></div>
+    </div>
+    <div class="caso-footer">
+      <p class="caso-cita">"La búsqueda previa nos mostró que la clase 35 era terreno minado. Presentamos primero la 41 y luego negociamos la 35."</p>
+      <button type="button" class="btn-caso" data-wa="https://wa.me/593994859814?text=Hola%20Juristam%2C%20tengo%20una%20consultora%20y%20quiero%20hacer%20b%C3%BAsqueda%20previa%20antes%20de%20registrar." onclick="abrirModal(this)">Tengo un caso similar →</button>
+    </div>
+  </div>
+
+  <div class="caso-card" data-tipo="prevencion">
+    <div class="caso-header"><div>
+      <div class="caso-badges"><span class="badge badge-resultado">✓ Búsqueda previa en 3 clases simultáneas</span><span class="badge badge-tiempo">⏱ 4 semanas</span></div>
+      <p class="caso-titulo">Restaurante nuevo evitó sorpresa en clases 30, 35 y 43</p>
+      <p class="caso-meta">🇪🇨 Cuenca · Clases 30, 35 y 43 · Búsqueda simultánea</p>
+    </div></div>
+    <div class="caso-body">
+      <div class="caso-section"><span class="caso-section-label">La situación</span><p>Grupo inversor en Cuenca quería lanzar un restaurante con marca nueva. Planeaban vender también productos envasados y abrir una tienda de insumos.</p></div>
+      <div class="caso-section"><span class="caso-section-label">El problema</span><p>Antes de invertir en branding y marketing, necesitaban saber si el nombre estaba libre en las tres clases relevantes (30, 35 y 43).</p></div>
+      <div class="caso-resultado-box"><p><strong>Resultado:</strong> Juristam hizo búsqueda fonética simultánea en las tres clases. Se identificó un conflicto en clase 43 con una marca similar. El grupo ajustó el nombre antes de invertir en branding. <strong>Presentaron solicitud limpia en las tres clases.</strong></p></div>
+    </div>
+    <div class="caso-footer">
+      <p class="caso-cita">"Antes de gastar en branding, queríamos saber si el nombre era viable. La búsqueda previa en tres clases lo resolvió."</p>
+      <button type="button" class="btn-caso" data-wa="https://wa.me/593994859814?text=Hola%20Juristam%2C%20quiero%20lanzar%20un%20restaurante%20y%20hacer%20b%C3%BAsqueda%20previa%20en%20varias%20clases." onclick="abrirModal(this)">Tengo un caso similar →</button>
+    </div>
+  </div>
+
+  <div class="caso-card" data-tipo="prevencion">
+    <div class="caso-header"><div>
+      <div class="caso-badges"><span class="badge badge-resultado">✓ Análisis previo evitó litigio costoso</span><span class="badge badge-tiempo">⏱ 5 semanas</span></div>
+      <p class="caso-titulo">Farmacéutica pequeña evitó oposición en clase 5</p>
+      <p class="caso-meta">🇪🇨 Quito · Clase 5 · Clase 44 · Análisis previo</p>
+    </div></div>
+    <div class="caso-body">
+      <div class="caso-section"><span class="caso-section-label">La situación</span><p>Pequeña farmacéutica en Quito quería registrar marca para suplementos (clase 5) y servicios farmacéuticos (clase 44).</p></div>
+      <div class="caso-section"><span class="caso-section-label">El problema</span><p>La búsqueda reveló una marca idéntica registrada hacía 15 años en clase 5 pero sin uso actual. El registro seguía vigente y podía generar oposición.</p></div>
+      <div class="caso-resultado-box"><p><strong>Resultado:</strong> Juristam evaluó las opciones: (1) negociar con el titular del registro antiguo, (2) modificar el nombre, (3) presentar y arriesgarse a la oposición. Se recomendó negociar. El titular aceptó ceder el registro por un pago simbólico. <strong>Costo total: $1,500 en lugar de un litigio de $5,000+.</strong></p></div>
+    </div>
+    <div class="caso-footer">
+      <p class="caso-cita">"Había una marca idéntica sin uso desde hacía 15 años. En vez de arriesgarnos a la oposición, negociamos."</p>
+      <button type="button" class="btn-caso" data-wa="https://wa.me/593994859814?text=Hola%20Juristam%2C%20quiero%20registrar%20mi%20marca%20farmac%C3%A9utica%20y%20hacer%20b%C3%BAsqueda%20previa%20en%20clase%205." onclick="abrirModal(this)">Tengo un caso similar →</button>
+    </div>
+  </div>
+
+  <div class="caso-card" data-tipo="expansion">
+    <div class="caso-header"><div>
+      <div class="caso-badges"><span class="badge badge-resultado">✓ Proyección de 3 clases futuras</span><span class="badge badge-tiempo">⏱ 5 semanas</span></div>
+      <p class="caso-titulo">Marca de ropa que registró futuro e-commerce</p>
+      <p class="caso-meta">🇪🇨 Guayaquil · Clase 25 · Clase 35 · Clase 42 · Expansión</p>
+    </div></div>
+    <div class="caso-body">
+      <div class="caso-section"><span class="caso-section-label">La situación</span><p>Marca de ropa en Guayaquil con tienda física (clase 25) que planeaba lanzar una plataforma de e-commerce y una app de personal shopper en los próximos 2 años.</p></div>
+      <div class="caso-section"><span class="caso-section-label">El problema</span><p>El e-commerce (clase 35) y la app de servicios digitales (clase 42) no existían aún pero estaban en el plan de negocio. Si no se registraban ahora, cuando se lanzaran podrían encontrarlas ocupadas.</p></div>
+      <div class="caso-resultado-box"><p><strong>Resultado:</strong> Juristam registró las tres clases desde el inicio (inversión: <strong>$624</strong>). Cuando la marca lanzó el e-commerce 18 meses después, la clase 35 ya estaba protegida y ningún competidor pudo ocuparla. <strong>El costo de anticipar fue mucho menor que el de corregir después.</strong></p></div>
+    </div>
+    <div class="caso-footer">
+      <p class="caso-cita">"Registré la clase 35 y 42 antes de lanzar. Cuando el e-commerce llegó, ya estaba protegido."</p>
+      <button type="button" class="btn-caso" data-wa="https://wa.me/593994859814?text=Hola%20Juristam%2C%20tengo%20una%20marca%20de%20ropa%20y%20planes%20de%20expansi%C3%B3n%20a%20e-commerce%20y%20app." onclick="abrirModal(this)">Tengo un caso similar →</button>
+    </div>
+  </div>
+
+  <div class="caso-card" data-tipo="expansion">
+    <div class="caso-header"><div>
+      <div class="caso-badges"><span class="badge badge-resultado">✓ Registró clase 43 antes de abrir sucursal</span><span class="badge badge-tiempo">⏱ 6 semanas</span></div>
+      <p class="caso-titulo">Cafetería que registró servicio antes de expandirse</p>
+      <p class="caso-meta">🇪🇨 Quito · Clase 30 · Clase 43 · Expansión</p>
+    </div></div>
+    <div class="caso-body">
+      <div class="caso-section"><span class="caso-section-label">La situación</span><p>Cafetería en Quito con marca registrada solo en clase 30 (café envasado). El plan era abrir 3 sucursales de cafetería en 18 meses.</p></div>
+      <div class="caso-section"><span class="caso-section-label">El problema</span><p>El servicio de cafetería es clase 43. Si las sucursales abrían sin protección en esa clase, cualquier competidor podría usar el mismo nombre para servicios similares.</p></div>
+      <div class="caso-resultado-box"><p><strong>Resultado:</strong> Juristam registró la clase 43 antes de la apertura de la primera sucursal (inversión: <strong>$208</strong>). Cuando se abrieron las tres sucursales, la marca ya cubría producto y servicio. <strong>Inversión preventiva mínima, protección completa.</strong></p></div>
+    </div>
+    <div class="caso-footer">
+      <p class="caso-cita">"Íbamos a abrir sucursales sin protección en clase 43. Registramos antes y evitamos un problema."</p>
+      <button type="button" class="btn-caso" data-wa="https://wa.me/593994859814?text=Hola%20Juristam%2C%20tengo%20una%20cafeter%C3%ADa%20y%20voy%20a%20abrir%20sucursales%2C%20quiero%20registrar%20la%20clase%2043." onclick="abrirModal(this)">Tengo un caso similar →</button>
+    </div>
+  </div>
+
+  <div class="caso-card" data-tipo="expansion">
+    <div class="caso-header"><div>
+      <div class="caso-badges"><span class="badge badge-resultado">✓ Proyección de franquicia completa</span><span class="badge badge-tiempo">⏱ 9 semanas</span></div>
+      <p class="caso-titulo">Clínica estética con 4 clases antes de franquiciar</p>
+      <p class="caso-meta">🇪🇨 Guayaquil · Clases 5, 35, 41 y 44 · Franquicia</p>
+    </div></div>
+    <div class="caso-body">
+      <div class="caso-section"><span class="caso-section-label">La situación</span><p>Clínica estética en Guayaquil con marca registrada solo en clase 44 (servicios médicos). Planeaba franquiciar el modelo, vender productos propios, ofrecer formación a esteticistas y vender insumos.</p></div>
+      <div class="caso-section"><span class="caso-section-label">El problema</span><p>El modelo de franquicia incluía cuatro clases adicionales: productos cosméticos (clase 5), venta de insumos (clase 35), formación (clase 41) y servicios médicos (clase 44). Solo tenía una.</p></div>
+      <div class="caso-resultado-box"><p><strong>Resultado:</strong> Juristam auditó el modelo de franquicia completo y registró las tres clases faltantes. Total adicional invertido: <strong>$624</strong>. La clínica franquició con protección integral y pudo exigir exclusividad a sus franquiciados.</p></div>
+    </div>
+    <div class="caso-footer">
+      <p class="caso-cita">"Al auditar el modelo de franquicia, encontramos tres clases descubiertas. Las registramos antes de firmar el primer contrato."</p>
+      <button type="button" class="btn-caso" data-wa="https://wa.me/593994859814?text=Hola%20Juristam%2C%20tengo%20una%20cl%C3%ADnica%20y%20quiero%20franquiciar%2C%20necesito%20auditar%20mis%20clases." onclick="abrirModal(this)">Tengo un caso similar →</button>
+    </div>
+  </div>
+
+  <div class="caso-card" data-tipo="expansion">
+    <div class="caso-header"><div>
+      <div class="caso-badges"><span class="badge badge-resultado">✓ Registró línea de merchandising antes</span><span class="badge badge-tiempo">⏱ 4 semanas</span></div>
+      <p class="caso-titulo">Marca de eventos que registró merchandising con anticipación</p>
+      <p class="caso-meta">🇪🇨 Quito · Clase 41 · Clase 25 · Clase 16 · Expansión</p>
+    </div></div>
+    <div class="caso-body">
+      <div class="caso-section"><span class="caso-section-label">La situación</span><p>Organizadora de eventos en Quito con marca registrada en clase 41 (educación y entretenimiento). Planeaba vender ropa (clase 25) y cuadernos/agendas (clase 16) como merchandising.</p></div>
+      <div class="caso-section"><span class="caso-section-label">El problema</span><p>El merchandising es un canal de ingresos importantes en eventos. Si se lanzaba sin registro, cualquier competidor podía usar la marca en esos productos.</p></div>
+      <div class="caso-resultado-box"><p><strong>Resultado:</strong> Juristam registró las clases 25 y 16 antes del primer evento con merch. Inversión total: <strong>$416</strong>. La marca organizó tres eventos vendiendo merchandising protegido sin conflictos.</p></div>
+    </div>
+    <div class="caso-footer">
+      <p class="caso-cita">"Íbamos a vender ropa y agendas con nuestra marca sin protección. Registramos antes y evitamos problemas."</p>
+      <button type="button" class="btn-caso" data-wa="https://wa.me/593994859814?text=Hola%20Juristam%2C%20organizo%20eventos%20y%20quiero%20vender%20merchandising%20con%20mi%20marca%2C%20necesito%20registrar%20clases%2025%20y%2016." onclick="abrirModal(this)">Tengo un caso similar →</button>
+    </div>
+  </div>
+
+  <div class="caso-card" data-tipo="correccion">
+    <div class="caso-header"><div>
+      <div class="caso-badges"><span class="badge badge-resultado">✓ Corrección de registro incompleto</span><span class="badge badge-tiempo">⏱ 3 meses</span></div>
+      <p class="caso-titulo">Restaurante que había registrado solo en clase 43</p>
+      <p class="caso-meta">🇪🇨 Quito · Clase 43 · Clase 30 · Corrección</p>
+    </div></div>
+    <div class="caso-body">
+      <div class="caso-section"><span class="caso-section-label">La situación</span><p>Restaurante en Quito con marca registrada solo en clase 43 (servicios de comida). Un año después decidió lanzar salsas y aderezos con su marca.</p></div>
+      <div class="caso-section"><span class="caso-section-label">El problema</span><p>Necesitaba la clase 30 (productos alimenticios), que no tenía registrada. Antes de presentar, se hizo búsqueda y un competidor había solicitado la misma marca en clase 30 dos meses antes.</p></div>
+      <div class="caso-resultado-box"><p><strong>Resultado:</strong> Juristam presentó oposición contra el competidor alegando notoriedad de la marca del restaurante. Tras 3 meses, el SENADI resolvió a favor. Se registró la clase 30. <strong>La marca quedó protegida en ambos frentes, pero el proceso fue costoso y tardó 3 meses cuando pudo evitarse con registro inicial completo.</strong></p></div>
+    </div>
+    <div class="caso-footer">
+      <p class="caso-cita">"Si hubiera registrado la clase 30 desde el principio, me habría ahorrado el juicio."</p>
+      <button type="button" class="btn-caso" data-wa="https://wa.me/593994859814?text=Hola%20Juristam%2C%20tengo%20un%20restaurante%20y%20quiero%20corregir%20mi%20registro%20para%20cubrir%20productos%20envasados." onclick="abrirModal(this)">Tengo un caso similar →</button>
+    </div>
+  </div>
+
+  <div class="caso-card" data-tipo="correccion">
+    <div class="caso-header"><div>
+      <div class="caso-badges"><span class="badge badge-resultado">✓ Corrección de registro en clase 9</span><span class="badge badge-tiempo">⏱ 5 semanas</span></div>
+      <p class="caso-titulo">Software registrado solo en clase 42</p>
+      <p class="caso-meta">🇪🇨 Guayaquil · Clase 42 · Clase 9 · Corrección</p>
+    </div></div>
+    <div class="caso-body">
+      <div class="caso-section"><span class="caso-section-label">La situación</span><p>Empresa de software en Guayaquil con marca registrada solo en clase 42 (servicios tecnológicos). Tenían certificado desde hacía 2 años.</p></div>
+      <div class="caso-section"><span class="caso-section-label">El problema</span><p>Un competidor empezó a vender software con nombre parecido como producto descargable. La marca no podía oponerse porque no tenía la clase 9.</p></div>
+      <div class="caso-resultado-box"><p><strong>Resultado:</strong> Juristam presentó la solicitud en clase 9 (inversión: <strong>$208</strong>) y logró bloquear al competidor por conexión competitiva entre las clases 9 y 42. <strong>Brecha cerrada en 5 semanas.</strong></p></div>
+    </div>
+    <div class="caso-footer">
+      <p class="caso-cita">"Registré el software como servicio, no como producto. La corrección en clase 9 nos permitió actuar contra el competidor."</p>
+      <button type="button" class="btn-caso" data-wa="https://wa.me/593994859814?text=Hola%20Juristam%2C%20tengo%20una%20empresa%20de%20software%20y%20quiero%20corregir%20mi%20registro%20para%20cubrir%20clase%209." onclick="abrirModal(this)">Tengo un caso similar →</button>
+    </div>
+  </div>
+
+  <div class="caso-card" data-tipo="correccion">
+    <div class="caso-header"><div>
+      <div class="caso-badges"><span class="badge badge-resultado">✓ Corrección de registro en clase 35</span><span class="badge badge-tiempo">⏱ 4 semanas</span></div>
+      <p class="caso-titulo">Marca de accesorios registrada solo en clase 25</p>
+      <p class="caso-meta">🇪🇨 Cuenca · Clase 25 · Clase 35 · Corrección</p>
+    </div></div>
+    <div class="caso-body">
+      <div class="caso-section"><span class="caso-section-label">La situación</span><p>Marca de accesorios de moda en Cuenca con registro solo en clase 25 (prendas y accesorios). Vendía en su local propio y por redes sociales.</p></div>
+      <div class="caso-section"><span class="caso-section-label">El problema</span><p>La venta al por menor es clase 35. Un competidor abrió una tienda con nombre similar y no había herramientas legales para oponerse.</p></div>
+      <div class="caso-resultado-box"><p><strong>Resultado:</strong> Juristam presentó la solicitud en clase 35 y una oposición contra el competidor por conexión competitiva entre las clases 25 y 35. El SENADI falló a favor de la marca original. Inversión: <strong>$208 + costos de oposición</strong>. <strong>Marca protegida en producto y venta.</strong></p></div>
+    </div>
+    <div class="caso-footer">
+      <p class="caso-cita">"Me di cuenta tarde de que la venta al por menor era otra clase. Presentamos la 35 y ganamos la oposición."</p>
+      <button type="button" class="btn-caso" data-wa="https://wa.me/593994859814?text=Hola%20Juristam%2C%20tengo%20una%20marca%20de%20accesorios%20y%20quiero%20corregir%20mi%20registro%20para%20cubrir%20clase%2035." onclick="abrirModal(this)">Tengo un caso similar →</button>
+    </div>
+  </div>
+
+  <div class="caso-card" data-tipo="correccion">
+    <div class="caso-header"><div>
+      <div class="caso-badges"><span class="badge badge-resultado">✓ Corrección en salud y productos</span><span class="badge badge-tiempo">⏱ 6 semanas</span></div>
+      <p class="caso-titulo">Clínica dental con marca solo en clase 44</p>
+      <p class="caso-meta">🇪🇨 Guayaquil · Clase 44 · Clase 5 · Clase 35 · Corrección</p>
+    </div></div>
+    <div class="caso-body">
+      <div class="caso-section"><span class="caso-section-label">La situación</span><p>Clínica dental en Guayaquil con marca registrada solo en clase 44 (servicios médicos). Empezaron a lanzar una línea propia de productos de higiene dental.</p></div>
+      <div class="caso-section"><span class="caso-section-label">El problema</span><p>Los productos de higiene dental son clase 5, distinta de la 44. La clínica no podía registrar los productos con su marca sin presentar la nueva clase.</p></div>
+      <div class="caso-resultado-box"><p><strong>Resultado:</strong> Juristam presentó solicitudes en clases 5 y 35 (venta de productos). Total adicional: <strong>$416</strong>. La clínica lanzó su línea de productos con protección completa en servicios y productos.</p></div>
+    </div>
+    <div class="caso-footer">
+      <p class="caso-cita">"Íbamos a lanzar productos con nuestra marca, pero solo teníamos la clase 44. Presentamos 5 y 35, y ahora todo está cubierto."</p>
+      <button type="button" class="btn-caso" data-wa="https://wa.me/593994859814?text=Hola%20Juristam%2C%20tengo%20una%20cl%C3%ADnica%20dental%20y%20quiero%20corregir%20mi%20registro%20para%20lanzar%20productos%20con%20mi%20marca." onclick="abrirModal(this)">Tengo un caso similar →</button>
+    </div>
+  </div>
+
+  <div class="caso-card" data-tipo="oposicion">
+    <div class="caso-header"><div>
+      <div class="caso-badges"><span class="badge badge-resultado">✓ Oposición exitosa por conexión 43/30</span><span class="badge badge-tiempo">⏱ 8 meses</span></div>
+      <p class="caso-titulo">Restaurante ganó oposición contra competidor en clase 30</p>
+      <p class="caso-meta">🇪🇨 Guayaquil · Clase 43 · Clase 30 · Art. 136 Decisión 486</p>
+    </div></div>
+    <div class="caso-body">
+      <div class="caso-section"><span class="caso-section-label">La situación</span><p>Restaurante en Guayaquil con marca registrada en clase 43 desde hacía 8 años. Un competidor solicitó la misma marca en clase 30 (salsas y aderezos).</p></div>
+      <div class="caso-section"><span class="caso-section-label">El problema</span><p>Sin clase 30 registrada, el restaurante no tenía oposición automática. Había que demostrar notoriedad y conexión competitiva entre las clases 43 y 30.</p></div>
+      <div class="caso-resultado-box"><p><strong>Resultado:</strong> Juristam presentó oposición alegando notoriedad de la marca y conexión competitiva. El SENADI aceptó los argumentos y rechazó la solicitud del competidor. <strong>Marca protegida por su reputación en el sector.</strong></p></div>
+    </div>
+    <div class="caso-footer">
+      <p class="caso-cita">"No tenía la clase 30 registrada. Pero la notoriedad de mi restaurante pesó más. La oposición ganó."</p>
+      <button type="button" class="btn-caso" data-wa="https://wa.me/593994859814?text=Hola%20Juristam%2C%20un%20competidor%20quiere%20registrar%20mi%20marca%20en%20una%20clase%20que%20no%20tengo%20y%20quiero%20oponerme." onclick="abrirModal(this)">Tengo un caso similar →</button>
+    </div>
+  </div>
+
+  <div class="caso-card" data-tipo="oposicion">
+    <div class="caso-header"><div>
+      <div class="caso-badges"><span class="badge badge-resultado">✓ Oposición por uso previo</span><span class="badge badge-tiempo">⏱ 6 meses</span></div>
+      <p class="caso-titulo">Consultora ganó oposición por uso previo en clase 35</p>
+      <p class="caso-meta">🇪🇨 Quito · Clase 35 · Uso previo · Art. 165 Decisión 486</p>
+    </div></div>
+    <div class="caso-body">
+      <div class="caso-section"><span class="caso-section-label">La situación</span><p>Consultora en Quito que había usado su marca en el mercado desde hacía 4 años, pero no había registrado en clase 35. Un competidor solicitó esa clase con un nombre idéntico.</p></div>
+      <div class="caso-section"><span class="caso-section-label">El problema</span><p>Sin registro previo, el competidor tenía la ventaja formal. La única herramienta era demostrar el uso previo y la notoriedad en el sector.</p></div>
+      <div class="caso-resultado-box"><p><strong>Resultado:</strong> Juristam presentó oposición con pruebas de uso previo: facturas, publicidad, contratos y testimonios. El SENADI reconoció el uso anterior y rechazó la solicitud del competidor. <strong>Marca protegida por uso previo.</strong></p></div>
+    </div>
+    <div class="caso-footer">
+      <p class="caso-cita">"Llevaba 4 años usando mi marca sin registrarla. Un competidor quiso registrarla en clase 35. El uso previo la salvó."</p>
+      <button type="button" class="btn-caso" data-wa="https://wa.me/593994859814?text=Hola%20Juristam%2C%20llevo%20a%C3%B1os%20usando%20mi%20marca%20y%20un%20competidor%20quiere%20registrarla%20en%20otra%20clase." onclick="abrirModal(this)">Tengo un caso similar →</button>
+    </div>
+  </div>
+
+  <div class="caso-card" data-tipo="oposicion">
+    <div class="caso-header"><div>
+      <div class="caso-badges"><span class="badge badge-resultado">✓ Oposición por riesgo de confusión</span><span class="badge badge-tiempo">⏱ 9 meses</span></div>
+      <p class="caso-titulo">Marca de alimentos ganó oposición por similitud fonética</p>
+      <p class="caso-meta">🇪🇨 Cuenca · Clases 30 y 43 · Clase 29 · Similitud fonética</p>
+    </div></div>
+    <div class="caso-body">
+      <div class="caso-section"><span class="caso-section-label">La situación</span><p>Marca de alimentos en Cuenca con registro en clases 30 y 43. Un competidor solicitó una marca fonéticamente similar en clase 29 (carnes, pescados).</p></div>
+      <div class="caso-section"><span class="caso-section-label">El problema</span><p>La clase 29 no estaba registrada, pero las marcas eran casi idénticas. Había riesgo de confusión en el mercado alimenticio.</p></div>
+      <div class="caso-resultado-box"><p><strong>Resultado:</strong> Juristam presentó oposición alegando riesgo de confusión por similitud fonética y conexión competitiva con las clases 30 y 43 ya registradas. El SENADI aceptó los argumentos y rechazó la solicitud del competidor. <strong>Marca protegida en todo el sector alimenticio.</strong></p></div>
+    </div>
+    <div class="caso-footer">
+      <p class="caso-cita">"Las marcas eran casi idénticas. La similitud fonética fue suficiente para ganar la oposición."</p>
+      <button type="button" class="btn-caso" data-wa="https://wa.me/593994859814?text=Hola%20Juristam%2C%20un%20competidor%20solicit%C3%B3%20una%20marca%20parecida%20a%20la%20m%C3%ADa%20en%20otra%20clase." onclick="abrirModal(this)">Tengo un caso similar →</button>
+    </div>
+  </div>
+
+</div>
+
+<div class="cta-final">
+  <h2>¿Vas a registrar tu marca en el SENADI?</h2>
+  <p>La clase de Niza es la <strong>primera casilla del formulario</strong> y la única que <strong>no se puede modificar después</strong>. Define exactamente qué puede proteger tu marca: si registras solo la clase del producto principal, dejas fuera los canales de venta, los servicios complementarios y las líneas de expansión. Mándenos su modelo de negocio: le decimos cuántas clases registrar, en qué orden y por qué. <strong>La revisión inicial no tiene costo.</strong></p>
+  <div class="precio-mini">
+    <div class="precio-mini-item"><span>Asesoría virtual ⭐</span><span>$45</span></div>
+    <div class="precio-mini-item"><span>Presencial</span><span>$85</span></div>
+  </div>
+  <p style="color:#c4b5fd;font-size:.8rem;margin-bottom:1.2rem;">Los $45 de la asesoría se descuentan del servicio completo si decides continuar.</p>
+  <button type="button" class="btn-wa-hero" data-wa="https://wa.me/593994859814?text=Hola%20Juristam%2C%20vi%20los%20casos%20de%20estrategia%20de%20clase%20de%20Niza%20y%20quiero%20revisar%20mi%20caso." onclick="abrirModal(this)">Definir estrategia · WhatsApp →</button>
+</div>
+
+<div style="text-align:center;margin-bottom:2.5rem;">
+  <a href="/blog/clase-niza-registrar-marca-ecuador-estrategia.html" style="color:var(--primary-dark);font-size:.9rem;font-weight:600;text-decoration:underline;">← Volver a la guía completa</a>
+</div>
+</div>
+
+<footer><div class="container">
+  <p><strong>Juristam</strong> — Asesoría Legal Estratégica en Ecuador</p>
+  <p>© 2026 Juristam. Todos los derechos reservados. <a href="/blog/">Blog</a> · <a href="/#formulario">Contacto</a></p>
+  <p style="margin-top:.5rem;font-size:.8rem;opacity:.7;">Casos reales anonimizados. El resultado de una estrategia de registro de marca depende del modelo de negocio, los planes de expansión, las clases donde compite el titular y las solicitudes de terceros — los resultados pueden variar. Base legal: Decisión 486 de la Comunidad Andina, COESCCI y Clasificación de Niza NCL 13-2026.</p>
+</div></footer>
+
+<script>
+const WA_FALLBACK="https://wa.me/593994859814?text=Hola%20Juristam%2C%20voy%20a%20registrar%20mi%20marca%20y%20quiero%20definir%20la%20estrategia%20de%20clases%20antes%20de%20presentar.";
+let waActual = WA_FALLBACK;
+function abrirModal(el){
+  waActual = (el && el.dataset && el.dataset.wa) ? el.dataset.wa : WA_FALLBACK;
+  document.getElementById("waModal").classList.add("active");
+  document.body.style.overflow="hidden";
+}
+function cerrarModal(){document.getElementById("waModal").classList.remove("active");document.body.style.overflow="";}
+function irAWhatsApp(){cerrarModal();window.open(waActual,"_blank","noopener");}
+document.getElementById("waModal").addEventListener("click",function(e){if(e.target===this)cerrarModal();});
+document.addEventListener("keydown",function(e){if(e.key==="Escape")cerrarModal();});
+function filtrar(btn){
+  var f = btn.dataset.filtro;
+  document.querySelectorAll(".filtro-btn").forEach(function(b){b.classList.remove("activo");});
+  btn.classList.add("activo");
+  var n = 0;
+  document.querySelectorAll(".caso-card").forEach(function(c){
+    var ok = (f === "todos" || c.dataset.tipo === f);
+    c.classList.toggle("oculto", !ok);
+    if (ok) n++;
+  });
+  document.getElementById("contador").textContent = n;
+}
+</script>
+</body>
+</html>

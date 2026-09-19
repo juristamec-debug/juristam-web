@@ -1,0 +1,525 @@
+<!DOCTYPE html>
+<html lang="es-EC">
+<head>
+<meta charset="UTF-8"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<link rel="icon" type="image/png" href="https://i.postimg.cc/KjDB1NSM/Diseno-sin-titulo-(7).png"/>
+<meta name="theme-color" content="#9a6aff"/>
+<title>Software protegido por derecho de autor · 20 casos · Juristam</title>
+<meta name="description" content="20 casos reales de empresas y desarrolladores que protegieron su software: registro previo en SENADI, litigios contra exempleados, cesión de derechos con freelancers y estrategias sin exponer el código fuente."/>
+<link rel="canonical" href="https://juristam.net/casos-de-exito-software-derecho-autor.html"/>
+<meta name="robots" content="index,follow"/>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;0,700;1,400&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet"/>
+<style>
+:root{--primary:#9a6aff;--primary-dark:#7c3aed;--primary-light:#efe8ff;--primary-deep:#1e0a4e;--text:#1a1a2e;--text-secondary:#4a4a6a;--white:#fff;--success:#059669;--success-light:#ecfdf5;--gray-light:#f9f9fb;--border:#e8e8f0;}
+*{margin:0;padding:0;box-sizing:border-box;}html{scroll-behavior:smooth;}
+body{font-family:"DM Sans",sans-serif;color:var(--text);background:var(--white);line-height:1.8;-webkit-font-smoothing:antialiased;}
+a{text-decoration:none;color:inherit;}
+.container{max-width:960px;margin:0 auto;padding:0 1.5rem;}
+header{background:var(--white);border-bottom:1px solid var(--border);position:sticky;top:0;z-index:100;height:90px;}
+.header-inner{display:flex;align-items:center;justify-content:space-between;height:100%;}
+.brand-logo{height:90px;width:auto;}
+.btn-back{background:var(--primary-light);color:var(--primary-dark);padding:.5rem 1rem;border-radius:8px;font-size:.85rem;font-weight:600;}
+.hero{background:linear-gradient(135deg,var(--primary-deep),#2d1060);padding:3.5rem 0 2.8rem;text-align:center;margin-bottom:2rem;}
+.hero-tag{display:inline-block;background:rgba(255,255,255,.12);color:#c4b5fd;font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.12em;padding:.35rem .9rem;border-radius:20px;margin-bottom:1rem;}
+.hero h1{font-family:"Lora",serif;font-size:clamp(1.7rem,3.5vw,2.3rem);color:#fff;margin-bottom:.8rem;line-height:1.25;font-weight:700;}
+.hero p{color:#c4b5fd;font-size:.97rem;max-width:600px;margin:0 auto 1.5rem;line-height:1.75;}
+.hero-stats{display:flex;justify-content:center;gap:2.5rem;flex-wrap:wrap;margin-top:1.8rem;}
+.stat-num{font-family:"Lora",serif;font-size:2rem;font-weight:700;color:#fff;display:block;}
+.stat-label{font-size:.75rem;color:#c4b5fd;text-transform:uppercase;letter-spacing:.06em;}
+.btn-wa-hero{background:#25d366;color:#fff;padding:.8rem 2rem;border-radius:10px;font-size:.95rem;font-weight:700;display:inline-block;cursor:pointer;border:none;margin-top:1.5rem;font-family:inherit;}
+.filtros{display:flex;gap:.6rem;flex-wrap:wrap;justify-content:center;margin-bottom:1.2rem;}
+.filtro-btn{background:var(--white);border:1.5px solid var(--border);color:var(--text-secondary);padding:.5rem 1.1rem;border-radius:24px;font-size:.85rem;font-weight:600;cursor:pointer;font-family:inherit;transition:all .18s;}
+.filtro-btn:hover{border-color:var(--primary);color:var(--primary-dark);}
+.filtro-btn.activo{background:var(--primary-dark);border-color:var(--primary-dark);color:#fff;}
+.casos-count{font-size:.85rem;color:var(--text-secondary);margin-bottom:1rem;text-align:center;}
+.casos-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(380px,1fr));gap:1.4rem;margin-bottom:3rem;}
+.caso-card{background:var(--white);border-radius:16px;border:1.5px solid var(--border);overflow:hidden;box-shadow:0 4px 20px rgba(0,0,0,.06);transition:box-shadow .2s,transform .2s;display:flex;flex-direction:column;}
+.caso-card:hover{box-shadow:0 8px 32px rgba(124,58,237,.14);transform:translateY(-2px);}
+.caso-card.oculto{display:none;}
+.caso-header{padding:1.3rem 1.5rem .9rem;border-bottom:1px solid var(--border);}
+.caso-badges{display:flex;gap:.4rem;flex-wrap:wrap;margin-bottom:.55rem;}
+.badge{font-size:.68rem;font-weight:700;padding:.2rem .6rem;border-radius:20px;text-transform:uppercase;letter-spacing:.04em;}
+.badge-resultado{background:var(--success-light);color:var(--success);}
+.badge-tiempo{background:var(--gray-light);color:var(--text-secondary);}
+.caso-titulo{font-family:"Lora",serif;font-size:1rem;font-weight:700;color:var(--text);line-height:1.35;margin-bottom:.25rem;}
+.caso-meta{font-size:.76rem;color:var(--text-secondary);}
+.caso-body{padding:1.1rem 1.5rem;flex:1;}
+.caso-section{margin-bottom:.85rem;}
+.caso-section-label{font-size:.65rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--text-secondary);margin-bottom:.25rem;display:block;}
+.caso-section p{font-size:.87rem;color:var(--text);line-height:1.7;margin:0;}
+.caso-resultado-box{background:var(--success-light);border-left:3px solid var(--success);border-radius:0 8px 8px 0;padding:.75rem .9rem;margin-top:.7rem;}
+.caso-resultado-box p{font-size:.85rem;color:var(--text);line-height:1.65;margin:0;}
+.caso-resultado-box strong{color:var(--success);}
+.caso-footer{padding:.85rem 1.5rem;background:var(--gray-light);border-top:1px solid var(--border);display:flex;align-items:center;justify-content:space-between;gap:.7rem;flex-wrap:wrap;}
+.caso-cita{font-size:.8rem;color:var(--text-secondary);font-style:italic;flex:1;line-height:1.5;}
+.btn-caso{background:var(--primary-dark);color:#fff;padding:.48rem 1rem;border-radius:8px;font-size:.78rem;font-weight:700;white-space:nowrap;cursor:pointer;border:none;flex-shrink:0;font-family:inherit;}
+.cta-final{background:linear-gradient(135deg,var(--primary-deep),#2d1060);border-radius:16px;padding:2.5rem 2rem;text-align:center;margin:1rem 0 3rem;}
+.cta-final h2{font-family:"Lora",serif;color:#fff;font-size:1.5rem;margin-bottom:.8rem;}
+.cta-final p{color:#c4b5fd;margin-bottom:1.5rem;line-height:1.75;max-width:520px;margin-left:auto;margin-right:auto;}
+.precio-mini{display:inline-flex;gap:1.5rem;background:rgba(255,255,255,.1);border-radius:12px;padding:.8rem 1.5rem;margin-bottom:.8rem;flex-wrap:wrap;justify-content:center;}
+.precio-mini-item span:first-child{display:block;font-size:.68rem;color:#c4b5fd;text-transform:uppercase;letter-spacing:.08em;margin-bottom:.2rem;}
+.precio-mini-item span:last-child{font-family:"Lora",serif;font-size:1.6rem;font-weight:700;color:#fff;}
+.modal-overlay{display:none;position:fixed;inset:0;background:rgba(10,5,30,.65);backdrop-filter:blur(5px);z-index:999;align-items:center;justify-content:center;padding:.75rem;}
+.modal-overlay.active{display:flex;}
+.modal{background:#fff;border-radius:18px;max-width:380px;width:100%;box-shadow:0 24px 60px rgba(0,0,0,.25);}
+.modal-top{background:linear-gradient(135deg,var(--primary-deep),#4c1d95);padding:1.1rem 1.2rem .9rem;position:relative;border-radius:18px 18px 0 0;}
+.modal-top h4{color:#fff;font-size:.98rem;font-weight:700;margin-bottom:.2rem;}
+.modal-top p{color:#c4b5fd;font-size:.74rem;line-height:1.4;}
+.modal-close{position:absolute;top:.6rem;right:.6rem;background:rgba(255,255,255,.15);border:none;color:#fff;width:24px;height:24px;border-radius:50%;cursor:pointer;font-size:.8rem;display:flex;align-items:center;justify-content:center;}
+.modal-body{padding:.9rem 1.2rem 1.1rem;}
+.modal-section-label{font-size:.62rem;font-weight:700;color:var(--text-secondary);text-transform:uppercase;letter-spacing:.05em;margin-bottom:.35rem;display:block;}
+.modal-precios{display:grid;grid-template-columns:1fr 1fr;gap:.5rem;margin-bottom:.7rem;}
+.modal-precio{border-radius:10px;padding:.5rem .6rem;border:1.5px solid var(--border);text-align:center;}
+.modal-precio.virtual{border-color:var(--primary);background:var(--primary-light);}
+.modal-precio .mlabel{font-size:.6rem;font-weight:700;text-transform:uppercase;letter-spacing:.04em;color:var(--primary-dark);display:block;margin-bottom:.1rem;}
+.modal-precio .mmonto{font-family:"Lora",serif;font-size:1.25rem;font-weight:700;color:var(--text);line-height:1;}
+.modal-nota{font-size:.7rem;color:var(--text-secondary);background:var(--gray-light);border-radius:8px;padding:.5rem .65rem;margin-bottom:.8rem;line-height:1.4;}
+.btn-modal-wa{display:block;background:#25d366;color:#fff;text-align:center;padding:.7rem;border-radius:9px;font-weight:700;font-size:.86rem;border:none;cursor:pointer;width:100%;font-family:inherit;}
+footer{background:var(--text);color:#ccc;padding:2.2rem 0 5.5rem;text-align:center;font-size:.84rem;margin-top:3rem;}
+footer a{color:var(--primary);}footer strong{color:var(--white);}
+@media(max-width:700px){.casos-grid{grid-template-columns:1fr;}.hero-stats{gap:1.2rem;}.modal-precios{grid-template-columns:1fr;}.filtro-btn{font-size:.8rem;padding:.45rem .9rem;}}
+</style>
+</head>
+<body>
+
+<div class="modal-overlay" id="waModal" role="dialog" aria-modal="true">
+  <div class="modal">
+    <div class="modal-top">
+      <button type="button" class="modal-close" onclick="cerrarModal()" aria-label="Cerrar">&#x2715;</button>
+      <h4>El derecho de autor sin prueba es un cheque sin firma</h4>
+      <p>Si su software no está registrado, probar autoría y fecha en juicio es cuesta arriba. Mándenos su caso: revisamos quién es el autor real, qué contratos existen y cómo blindarlo.</p>
+    </div>
+    <div class="modal-body">
+      <span class="modal-section-label">Asesoría inicial</span>
+      <div class="modal-precios">
+        <div class="modal-precio virtual"><span class="mlabel">Virtual ⭐</span><div class="mmonto">$45</div></div>
+        <div class="modal-precio"><span class="mlabel">Presencial</span><div class="mmonto">$85</div></div>
+      </div>
+      <div class="modal-nota">La revisión inicial de su caso no tiene costo. Los $45 se descuentan del servicio completo si decide continuar.</div>
+      <button type="button" class="btn-modal-wa" onclick="irAWhatsApp()">Continuar a WhatsApp →</button>
+    </div>
+  </div>
+</div>
+
+<header><div class="container header-inner">
+  <a href="/blog/"><img class="brand-logo" src="https://i.postimg.cc/vHygbHxz/oie-transparent-(2).png" alt="Juristam" loading="eager" width="120" height="90"/></a>
+  <a class="btn-back" href="/blog/software-derecho-autor-ecuador-probar-autoria.html">← Volver al artículo</a>
+</div></header>
+
+<div class="hero"><div class="container">
+  <span class="hero-tag">Juristam · Propiedad Intelectual y Tecnología · Ecuador</span>
+  <h1>Software protegido por derecho de autor</h1>
+  <p>20 casos reales de empresas y desarrolladores que protegieron su software: registro previo en SENADI, litigios contra exempleados que copiaron código, cesión de derechos con freelancers y estrategias de registro sin exponer el código fuente.</p>
+  <div class="hero-stats">
+    <div class="stat"><span class="stat-num">20</span><span class="stat-label">Casos documentados</span></div>
+    <div class="stat"><span class="stat-num">3 sem</span><span class="stat-label">Caso más rápido</span></div>
+    <div class="stat"><span class="stat-num">70 años</span><span class="stat-label">Duración del derecho</span></div>
+    <div class="stat"><span class="stat-num">$45</span><span class="stat-label">Asesoría inicial</span></div>
+  </div>
+  <button type="button" class="btn-wa-hero" data-wa="https://wa.me/593994859814?text=Hola%20Juristam%2C%20quiero%20proteger%20mi%20software%20por%20derecho%20de%20autor%20y%20revisar%20mi%20situaci%C3%B3n." onclick="abrirModal(this)">Auditar mi software → WhatsApp</button>
+</div></div>
+
+<div class="container">
+<div class="filtros">
+  <button type="button" class="filtro-btn activo" data-filtro="todos" onclick="filtrar(this)">Todos (20)</button>
+  <button type="button" class="filtro-btn" data-filtro="registro" onclick="filtrar(this)">📜 Registro previo (5)</button>
+  <button type="button" class="filtro-btn" data-filtro="litigio" onclick="filtrar(this)">⚖️ Litigio por plagio (5)</button>
+  <button type="button" class="filtro-btn" data-filtro="cesion" onclick="filtrar(this)">🤝 Cesión de derechos (4)</button>
+  <button type="button" class="filtro-btn" data-filtro="exempleado" onclick="filtrar(this)">🚪 Exempleado copió código (3)</button>
+  <button type="button" class="filtro-btn" data-filtro="estrategia" onclick="filtrar(this)">🛡️ Registro sin exponer (3)</button>
+</div>
+<p class="casos-count"><strong id="contador">20</strong> casos encontrados</p>
+<div class="casos-grid" id="grid">
+
+  <div class="caso-card" data-tipo="registro">
+    <div class="caso-header"><div>
+      <div class="caso-badges"><span class="badge badge-resultado">✓ Registro previo ganó caso contra exempleado</span><span class="badge badge-tiempo">⏱ 8 meses</span></div>
+      <p class="caso-titulo">Startup había registrado su software antes de que un exempleado lo copiara</p>
+      <p class="caso-meta">🇪🇨 Quito · Registro previo · Art. 118 COESCCI · SaaS B2B</p>
+    </div></div>
+    <div class="caso-body">
+      <div class="caso-section"><span class="caso-section-label">La situación</span><p>Startup SaaS en Quito con software de gestión empresarial. Un exempleado, tras salir de la empresa, lanzó un producto con funcionalidad similar. La startup sospechaba que había copiado el código fuente.</p></div>
+      <div class="caso-section"><span class="caso-section-label">El problema</span><p>Probar la copia requería peritaje técnico, pero primero había que probar autoría y fecha. Si no podían acreditar que el software era de la startup, el peritaje no tenía sentido.</p></div>
+      <div class="caso-resultado-box"><p><strong>Resultado:</strong> La startup había registrado su software en el SENADI 3 años antes, con código fuente y documentación técnica. El certificado sirvió como <strong>prueba de autoría y fecha</strong>. Se realizó peritaje que confirmó similitud sustancial. El juez ordenó el cese de uso del producto del exempleado y una indemnización por daños y perjuicios. <strong>El registro previo fue la pieza clave del caso.</strong></p></div>
+    </div>
+    <div class="caso-footer">
+      <p class="caso-cita">"Habíamos registrado el software cuando lo lanzamos. No pensamos que lo necesitaríamos. Tres años después, ese certificado salvó la empresa."</p>
+      <button type="button" class="btn-caso" data-wa="https://wa.me/593994859814?text=Hola%20Juristam%2C%20un%20exempleado%20copi%C3%B3%20mi%20software%20y%20quiero%20evaluar%20acciones." onclick="abrirModal(this)">Tengo un caso similar →</button>
+    </div>
+  </div>
+
+  <div class="caso-card" data-tipo="registro">
+    <div class="caso-header"><div>
+      <div class="caso-badges"><span class="badge badge-resultado">✓ Registro preventivo antes del lanzamiento</span><span class="badge badge-tiempo">⏱ 4 semanas</span></div>
+      <p class="caso-titulo">App móvil registrada antes del lanzamiento al mercado</p>
+      <p class="caso-meta">🇪🇨 Guayaquil · App móvil · Registro preventivo · Startup</p>
+    </div></div>
+    <div class="caso-body">
+      <div class="caso-section"><span class="caso-section-label">La situación</span><p>Startup en Guayaquil con aplicación móvil de delivery. Iban a lanzarla en 2 meses y querían proteger el código antes de exponerlo en las tiendas de aplicaciones.</p></div>
+      <div class="caso-section"><span class="caso-section-label">El problema</span><p>Al subir la app a Google Play o App Store, el código queda expuesto a decompilación. Sin registro previo, no tenían forma de probar autoría si alguien replicaba el software.</p></div>
+      <div class="caso-resultado-box"><p><strong>Resultado:</strong> Juristam registró el software en el SENADI con código fuente, documentación técnica y datos del titular antes del lanzamiento. <strong>La app salió al mercado con prueba oficial de autoría y fecha.</strong> El proceso tomó 4 semanas y la tasa fue mínima comparada con el valor del activo.</p></div>
+    </div>
+    <div class="caso-footer">
+      <p class="caso-cita">"Registramos antes de subir la app a las tiendas. Cuando la decompilaron, ya teníamos el certificado para defendernos."</p>
+      <button type="button" class="btn-caso" data-wa="https://wa.me/593994859814?text=Hola%20Juristam%2C%20voy%20a%20lanzar%20una%20app%20y%20quiero%20registrar%20el%20software%20antes." onclick="abrirModal(this)">Tengo un caso similar →</button>
+    </div>
+  </div>
+
+  <div class="caso-card" data-tipo="registro">
+    <div class="caso-header"><div>
+      <div class="caso-badges"><span class="badge badge-resultado">✓ Registro por versiones sucesivas</span><span class="badge badge-tiempo">⏱ 6 semanas</span></div>
+      <p class="caso-titulo">Empresa registró versiones sucesivas de su software a lo largo de 4 años</p>
+      <p class="caso-meta">🇪🇨 Quito · Versiones sucesivas · Registro continuo · ERP</p>
+    </div></div>
+    <div class="caso-body">
+      <div class="caso-section"><span class="caso-section-label">La situación</span><p>Empresa de ERP en Quito con software que había evolucionado durante 4 años con versiones mayores cada 12 meses. Nunca habían registrado ninguna versión.</p></div>
+      <div class="caso-section"><span class="caso-section-label">El problema</span><p>Cada versión incluía nuevas funcionalidades y mejoras sustanciales. La empresa quería proteger la versión actual pero también entender si era posible proteger versiones anteriores.</p></div>
+      <div class="caso-resultado-box"><p><strong>Resultado:</strong> Juristam estructuró el registro de las versiones principales (v1.0, v2.0, v3.0 y v4.0) y estableció un protocolo de registro anual para nuevas versiones. <strong>El portafolio de versiones registradas protege la evolución completa del software</strong> y da mayor cobertura probatoria si alguien copia una versión específica.</p></div>
+    </div>
+    <div class="caso-footer">
+      <p class="caso-cita">"Tenía 4 años de desarrollo sin registrar nada. Registramos todas las versiones mayores y ahora tenemos el historial completo protegido."</p>
+      <button type="button" class="btn-caso" data-wa="https://wa.me/593994859814?text=Hola%20Juristam%2C%20tengo%20un%20software%20con%20m%C3%BAltiples%20versiones%20y%20quiero%20registrar%20el%20historial%20completo." onclick="abrirModal(this)">Tengo un caso similar →</button>
+    </div>
+  </div>
+
+  <div class="caso-card" data-tipo="registro">
+    <div class="caso-header"><div>
+      <div class="caso-badges"><span class="badge badge-resultado">✓ Registro de software empresarial tras 8 años</span><span class="badge badge-tiempo">⏱ 5 semanas</span></div>
+      <p class="caso-titulo">Empresa con software crítico de 8 años regularizó su registro</p>
+      <p class="caso-meta">🇪🇨 Guayaquil · Software crítico · Regularización · Empresa mediana</p>
+    </div></div>
+    <div class="caso-body">
+      <div class="caso-section"><span class="caso-section-label">La situación</span><p>Empresa mediana en Guayaquil con software de gestión logística desarrollado internamente hacía 8 años. Era el sistema crítico de operaciones y nunca había sido registrado.</p></div>
+      <div class="caso-section"><span class="caso-section-label">El problema</span><p>El software era mantenido por un equipo que había rotado mucho. Varios extrabajadores podían reclamar autoría parcial si no había claridad sobre la titularidad. La empresa quería regularizar antes de cualquier conflicto.</p></div>
+      <div class="caso-resultado-box"><p><strong>Resultado:</strong> Juristam revisó los contratos históricos, reconstruyó la cadena de autoría y diseñó acuerdos de cesión retroactivos con los desarrolladores clave que aún eran localizables. Se registró el software a nombre de la empresa con la documentación completa. <strong>Activo crítico blindado sin conflictos.</strong></p></div>
+    </div>
+    <div class="caso-footer">
+      <p class="caso-cita">"Ocho años de desarrollo interno sin registro ni cesión. Regularizamos todo con acuerdos retroactivos y registramos el software."</p>
+      <button type="button" class="btn-caso" data-wa="https://wa.me/593994859814?text=Hola%20Juristam%2C%20tengo%20un%20software%20antiguo%20desarrollado%20internamente%20y%20quiero%20regularizar%20el%20registro." onclick="abrirModal(this)">Tengo un caso similar →</button>
+    </div>
+  </div>
+
+  <div class="caso-card" data-tipo="registro">
+    <div class="caso-header"><div>
+      <div class="caso-badges"><span class="badge badge-resultado">✓ Registro de videojuego antes del lanzamiento</span><span class="badge badge-tiempo">⏱ 7 semanas</span></div>
+      <p class="caso-titulo">Estudio indie registró videojuego antes de publicarlo en Steam</p>
+      <p class="caso-meta">🇪🇨 Cuenca · Videojuego · Steam · Estudio indie</p>
+    </div></div>
+    <div class="caso-body">
+      <div class="caso-section"><span class="caso-section-label">La situación</span><p>Estudio indie en Cuenca con videojuego listo para lanzar en Steam. Iban a publicarlo globalmente y querían proteger el código del motor de juego y assets creativos.</p></div>
+      <div class="caso-section"><span class="caso-section-label">El problema</span><p>La industria de videojuegos tiene altos índices de clonación. El registro preventivo del código y los assets era clave antes de exponer el juego al público global.</p></div>
+      <div class="caso-resultado-box"><p><strong>Resultado:</strong> Juristam registró el código del videojuego en el SENADI y coordinó la estrategia de protección de los assets creativos (personajes, música, arte) por vía de derecho de autor. <strong>El juego salió a Steam con protección integral.</strong> Cuando un clon apareció en una tienda digital regional, el certificado fue suficiente para solicitar el takedown.</p></div>
+    </div>
+    <div class="caso-footer">
+      <p class="caso-cita">"Registramos antes de Steam. Cuando apareció un clon, el certificado fue todo lo que necesitamos para tirarlo abajo."</p>
+      <button type="button" class="btn-caso" data-wa="https://wa.me/593994859814?text=Hola%20Juristam%2C%20tengo%20un%20videojuego%20y%20quiero%20registrar%20el%20c%C3%B3digo%20y%20los%20assets%20antes%20de%20lanzarlo." onclick="abrirModal(this)">Tengo un caso similar →</button>
+    </div>
+  </div>
+
+  <div class="caso-card" data-tipo="litigio">
+    <div class="caso-header"><div>
+      <div class="caso-badges"><span class="badge badge-resultado">✓ Litigio ganado con peritaje técnico</span><span class="badge badge-tiempo">⏱ 10 meses</span></div>
+      <p class="caso-titulo">Competidor replicó la lógica del software sin copiar el código literal</p>
+      <p class="caso-meta">🇪🇨 Quito · Similitud sustancial · Peritaje · SaaS B2B</p>
+    </div></div>
+    <div class="caso-body">
+      <div class="caso-section"><span class="caso-section-label">La situación</span><p>Empresa SaaS en Quito con software de facturación electrónica. Un competidor apareció con un producto cuya funcionalidad era casi idéntica, aunque el código visible había sido reescrito.</p></div>
+      <div class="caso-section"><span class="caso-section-label">El problema</span><p>La empresa tenía sospechas fundadas de que el competidor había accedido al código fuente (posiblemente a través de un exempleado), pero el código del demandado había sido ofuscado y parcialmente reescrito. Sin peritaje técnico, probar la copia era imposible.</p></div>
+      <div class="caso-resultado-box"><p><strong>Resultado:</strong> Con el registro previo en SENADI como prueba de autoría y fecha, Juristam contrató un peritaje informático que analizó estructura de carpetas, nombres de variables internas, mensajes de error, y patrones de código no visibles en la interfaz. El peritaje concluyó similitud sustancial. <strong>El juez condenó al competidor a cesar el uso y pagar indemnización.</strong></p></div>
+    </div>
+    <div class="caso-footer">
+      <p class="caso-cita">"El código estaba ofuscado pero el peritaje encontró la copia en la estructura interna. Sin el registro previo, no habríamos llegado hasta ahí."</p>
+      <button type="button" class="btn-caso" data-wa="https://wa.me/593994859814?text=Hola%20Juristam%2C%20un%20competidor%20replic%C3%B3%20la%20l%C3%B3gica%20de%20mi%20software%20y%20quiero%20evaluar%20un%20litigio." onclick="abrirModal(this)">Tengo un caso similar →</button>
+    </div>
+  </div>
+
+  <div class="caso-card" data-tipo="litigio">
+    <div class="caso-header"><div>
+      <div class="caso-badges"><span class="badge badge-resultado">✓ Indemnización por plagio de código fuente</span><span class="badge badge-tiempo">⏱ 12 meses</span></div>
+      <p class="caso-titulo">Empresa de software recuperó indemnización por copia masiva de código</p>
+      <p class="caso-meta">🇪🇨 Guayaquil · Copia masiva · Indemnización · Software empresarial</p>
+    </div></div>
+    <div class="caso-body">
+      <div class="caso-section"><span class="caso-section-label">La situación</span><p>Empresa en Guayaquil con software de gestión contable. Un competidor lanzó un producto donde aproximadamente el 70% del código era idéntico, incluyendo comentarios originales del equipo de desarrollo.</p></div>
+      <div class="caso-section"><span class="caso-section-label">El problema</span><p>La evidencia era contundente pero sin registro previo en SENADI la empresa habría tenido que probar autoría con repositorios y correos, lo que restaba certeza al caso. Afortunadamente habían registrado el software 4 años antes.</p></div>
+      <div class="caso-resultado-box"><p><strong>Resultado:</strong> El registro funcionó como prueba base. El peritaje confirmó copia masiva. El juez ordenó al competidor cesar el uso, destruir las copias y pagar indemnización por daño emergente y lucro cesante. <strong>La indemnización superó los $85,000 USD.</strong></p></div>
+    </div>
+    <div class="caso-footer">
+      <p class="caso-cita">"El código era idéntico, hasta los comentarios. Sin el registro previo no habríamos podido llegar tan rápido a la indemnización."</p>
+      <button type="button" class="btn-caso" data-wa="https://wa.me/593994859814?text=Hola%20Juristam%2C%20un%20competidor%20copi%C3%B3%20el%20c%C3%B3digo%20de%20mi%20software%20y%20quiero%20demandar%20una%20indemnizaci%C3%B3n." onclick="abrirModal(this)">Tengo un caso similar →</button>
+    </div>
+  </div>
+
+  <div class="caso-card" data-tipo="litigio">
+    <div class="caso-header"><div>
+      <div class="caso-badges"><span class="badge badge-resultado">✓ Takedown en Google Play y App Store</span><span class="badge badge-tiempo">⏱ 3 meses</span></div>
+      <p class="caso-titulo">App registrada permitió eliminar copias en tiendas digitales</p>
+      <p class="caso-meta">🇪🇨 Quito · Takedown · Google Play · App Store · App móvil</p>
+    </div></div>
+    <div class="caso-body">
+      <div class="caso-section"><span class="caso-section-label">La situación</span><p>Desarrollador independiente en Quito con app de finanzas personales. Detectó tres apps en Google Play que replicaban su interfaz y funcionalidad con nombres ligeramente distintos.</p></div>
+      <div class="caso-section"><span class="caso-section-label">El problema</span><p>Google Play y App Store tienen procesos de takedown por infracción de derechos de autor, pero exigen prueba de titularidad. Sin registro, los reportes se rechazaban o se demoraban meses.</p></div>
+      <div class="caso-resultado-box"><p><strong>Resultado:</strong> Con el certificado del SENADI, Juristam presentó los takedowns en Google Play y App Store. Las tres apps fueron eliminadas en <strong>3 meses</strong>. El desarrollador no tuvo que ir a juicio.</p></div>
+    </div>
+    <div class="caso-footer">
+      <p class="caso-cita">"Presenté el certificado del SENADI y Google Play eliminó las copias. Sin el registro, cada reporte era rechazado."</p>
+      <button type="button" class="btn-caso" data-wa="https://wa.me/593994859814?text=Hola%20Juristam%2C%20copiaron%20mi%20app%20en%20Google%20Play%20y%20quiero%20eliminarlas%20con%20el%20registro%20del%20SENADI." onclick="abrirModal(this)">Tengo un caso similar →</button>
+    </div>
+  </div>
+
+  <div class="caso-card" data-tipo="litigio">
+    <div class="caso-header"><div>
+      <div class="caso-badges"><span class="badge badge-resultado">✓ Litigio con peritaje internacional</span><span class="badge badge-tiempo">⏱ 14 meses</span></div>
+      <p class="caso-titulo">Software ecuatoriano copiado por empresa en otro país</p>
+      <p class="caso-meta">🇪🇨 → 🌎 Internacional · Peritaje internacional · Software B2B</p>
+    </div></div>
+    <div class="caso-body">
+      <div class="caso-section"><span class="caso-section-label">La situación</span><p>Empresa de software B2B en Guayaquil. Una empresa en otro país de la región había lanzado un producto casi idéntico al suyo, incluyendo módulos con la misma estructura funcional.</p></div>
+      <div class="caso-section"><span class="caso-section-label">El problema</span><p>El litigio requería coordinación internacional y peritaje técnico transfronterizo. Pero la base legal era la misma: probar autoría, fecha y similitud sustancial.</p></div>
+      <div class="caso-resultado-box"><p><strong>Resultado:</strong> Con el registro en SENADI y la protección del derecho de autor reconocida en la región andina, Juristam coordinó el litigio con colegas del país del demandado. El peritaje internacional confirmó la copia. Se logró acuerdo transaccional antes de sentencia: <strong>cese de uso + indemnización + licencia retribuida</strong>.</p></div>
+    </div>
+    <div class="caso-footer">
+      <p class="caso-cita">"El software ecuatoriano fue copiado al otro lado de la frontera. Con el registro y coordinación regional, logramos acuerdo sin llegar a sentencia."</p>
+      <button type="button" class="btn-caso" data-wa="https://wa.me/593994859814?text=Hola%20Juristam%2C%20copiaron%20mi%20software%20desde%20otro%20pa%C3%ADs%20y%20quiero%20evaluar%20un%20litigio%20internacional." onclick="abrirModal(this)">Tengo un caso similar →</button>
+    </div>
+  </div>
+
+  <div class="caso-card" data-tipo="litigio">
+    <div class="caso-header"><div>
+      <div class="caso-badges"><span class="badge badge-resultado">✓ Acción penal por apropiación de software</span><span class="badge badge-tiempo">⏱ 11 meses</span></div>
+      <p class="caso-titulo">Ejecutivo se apropió del software de su empresa y lo licenció a un tercero</p>
+      <p class="caso-meta">🇪🇨 Guayaquil · Art. 208 COIP · Acción penal · Apropiación</p>
+    </div></div>
+    <div class="caso-body">
+      <div class="caso-section"><span class="caso-section-label">La situación</span><p>Empresa en Guayaquil. Un ejecutivo con acceso al código fuente del software propietario lo extrajo, lo rebautizó y lo licenció a una empresa competidora sin autorización.</p></div>
+      <div class="caso-section"><span class="caso-section-label">El problema</span><p>La conducta no solo configuraba infracción civil sino también el delito del Art. 208 del COIP (apropiación de obras protegidas). La empresa quería acción penal además de la civil.</p></div>
+      <div class="caso-resultado-box"><p><strong>Resultado:</strong> Con el registro previo en SENADI y el certificado como prueba central, Juristam presentó denuncia penal. El ejecutivo fue condenado a <strong>18 meses de prisión suspendida</strong> y a indemnización civil. La empresa competidora cesó el uso del software.</p></div>
+    </div>
+    <div class="caso-footer">
+      <p class="caso-cita">"Un ejecutivo se apropió del software y lo licenció a la competencia. La acción penal del COIP fue contundente."</p>
+      <button type="button" class="btn-caso" data-wa="https://wa.me/593994859814?text=Hola%20Juristam%2C%20un%20ejecutivo%20se%20apropi%C3%B3%20de%20mi%20software%20y%20quiero%20acci%C3%B3n%20penal." onclick="abrirModal(this)">Tengo un caso similar →</button>
+    </div>
+  </div>
+
+  <div class="caso-card" data-tipo="cesion">
+    <div class="caso-header"><div>
+      <div class="caso-badges"><span class="badge badge-resultado">✓ Cesión regularizada con 5 freelancers</span><span class="badge badge-tiempo">⏱ 6 semanas</span></div>
+      <p class="caso-titulo">Empresa de software regularizó contratos con 5 freelancers</p>
+      <p class="caso-meta">🇪🇨 Cuenca · Cesión de derechos · Contratos · Expansión internacional</p>
+    </div></div>
+    <div class="caso-body">
+      <div class="caso-section"><span class="caso-section-label">La situación</span><p>Empresa de software en Cuenca con un producto consolidado. Había sido desarrollado por 5 freelancers a lo largo de 4 años. Ninguno de los contratos incluía cesión de derechos de autor.</p></div>
+      <div class="caso-section"><span class="caso-section-label">El problema</span><p>La empresa quería registrar el software y expandirse al extranjero, pero legalmente no podía acreditar ser la titular de los derechos patrimoniales. Los freelancers podían reclamar autoría en cualquier momento.</p></div>
+      <div class="caso-resultado-box"><p><strong>Resultado:</strong> Juristam diseñó un proceso de regularización: acuerdos de cesión de derechos patrimoniales con cada freelancer, actualización de contratos base y registro del software a nombre de la empresa. <strong>La empresa quedó como titular legal del software y pudo iniciar su expansión internacional con seguridad jurídica.</strong></p></div>
+    </div>
+    <div class="caso-footer">
+      <p class="caso-cita">"Habíamos desarrollado el software con 5 freelancers sin cesión de derechos. Regularizamos todo y ahora podemos crecer sin miedo."</p>
+      <button type="button" class="btn-caso" data-wa="https://wa.me/593994859814?text=Hola%20Juristam%2C%20tengo%20un%20software%20desarrollado%20por%20freelancers%20y%20quiero%20regularizar%20los%20derechos." onclick="abrirModal(this)">Tengo un caso similar →</button>
+    </div>
+  </div>
+
+  <div class="caso-card" data-tipo="cesion">
+    <div class="caso-header"><div>
+      <div class="caso-badges"><span class="badge badge-resultado">✓ Contratos laborales con cesión incluida</span><span class="badge badge-tiempo">⏱ 4 semanas</span></div>
+      <p class="caso-titulo">Startup formalizó contratos con cesión de derechos para todo el equipo</p>
+      <p class="caso-meta">🇪🇨 Quito · Cesión laboral · Contratos · Startup tecnológica</p>
+    </div></div>
+    <div class="caso-body">
+      <div class="caso-section"><span class="caso-section-label">La situación</span><p>Startup en Quito con 8 desarrolladores en relación de dependencia. Los contratos laborales originales no incluían cláusula de cesión de derechos de autor sobre obras creadas en el giro del negocio.</p></div>
+      <div class="caso-section"><span class="caso-section-label">El problema</span><p>Antes de una ronda de inversión, el fondo de venture capital exigió que la startup demostrara titularidad plena del software. Sin cesión clara, el software no era técnicamente de la empresa.</p></div>
+      <div class="caso-resultado-box"><p><strong>Resultado:</strong> Juristam redactó cláusulas de cesión de derechos patrimoniales adaptadas a cada contrato y coordinó su firma con los 8 desarrolladores. Se registró el software a nombre de la startup. <strong>La ronda de inversión se cerró sin obstáculos.</strong></p></div>
+    </div>
+    <div class="caso-footer">
+      <p class="caso-cita">"El fondo de inversión exigió demostrar titularidad. Actualizamos los contratos con cesión y cerramos la ronda."</p>
+      <button type="button" class="btn-caso" data-wa="https://wa.me/593994859814?text=Hola%20Juristam%2C%20mi%20startup%20necesita%20contratos%20con%20cesi%C3%B3n%20de%20derechos%20de%20autor%20para%20todo%20el%20equipo." onclick="abrirModal(this)">Tengo un caso similar →</button>
+    </div>
+  </div>
+
+  <div class="caso-card" data-tipo="cesion">
+    <div class="caso-header"><div>
+      <div class="caso-badges"><span class="badge badge-resultado">✓ Cesión retroactiva con ex socio</span><span class="badge badge-tiempo">⏱ 8 semanas</span></div>
+      <p class="caso-titulo">Empresa negoció cesión retroactiva de derechos con ex socio desarrollador</p>
+      <p class="caso-meta">🇪🇨 Guayaquil · Cesión retroactiva · Ex socio · Negociación</p>
+    </div></div>
+    <div class="caso-body">
+      <div class="caso-section"><span class="caso-section-label">La situación</span><p>Empresa en Guayaquil con software que había sido desarrollado en gran parte por un socio fundador que salió de la empresa. No había cesión escrita de sus derechos de autor.</p></div>
+      <div class="caso-section"><span class="caso-section-label">El problema</span><p>El ex socio podía reclamar autoría en cualquier momento. La empresa necesitaba regularizar la titularidad sin generar conflicto con él.</p></div>
+      <div class="caso-resultado-box"><p><strong>Resultado:</strong> Juristam estructuró una negociación de cesión retroactiva: el ex socio cedió los derechos patrimoniales a cambio de un reconocimiento en los créditos del software y una compensación simbólica. <strong>La empresa regularizó la titularidad sin litigio.</strong></p></div>
+    </div>
+    <div class="caso-footer">
+      <p class="caso-cita">"El software lo había desarrollado mayormente mi ex socio. Negociamos la cesión retroactiva sin juicio."</p>
+      <button type="button" class="btn-caso" data-wa="https://wa.me/593994859814?text=Hola%20Juristam%2C%20mi%20ex%20socio%20desarroll%C3%B3%20parte%20de%20mi%20software%20sin%20cesi%C3%B3n%20y%20quiero%20regularizarlo." onclick="abrirModal(this)">Tengo un caso similar →</button>
+    </div>
+  </div>
+
+  <div class="caso-card" data-tipo="cesion">
+    <div class="caso-header"><div>
+      <div class="caso-badges"><span class="badge badge-resultado">✓ Contratos con agencia de desarrollo</span><span class="badge badge-tiempo">⏱ 5 semanas</span></div>
+      <p class="caso-titulo">Empresa terciarizó desarrollo y aseguró cesión en contratos</p>
+      <p class="caso-meta">🇪🇨 Quito · Agencia externa · Cesión · Terciarización</p>
+    </div></div>
+    <div class="caso-body">
+      <div class="caso-section"><span class="caso-section-label">La situación</span><p>Empresa en Quito contrató a una agencia de desarrollo externa para construir su plataforma digital. La agencia entregó el software pero sin cesión expresa de derechos de autor.</p></div>
+      <div class="caso-section"><span class="caso-section-label">El problema</span><p>La agencia era la autora del software, pero la empresa necesitaba ser la titular para poder registrarlo, licenciarlo o defenderlo. Los contratos de desarrollo sin cesión son uno de los errores más comunes.</p></div>
+      <div class="caso-resultado-box"><p><strong>Resultado:</strong> Juristam negoció con la agencia un addendum al contrato original con cesión de derechos patrimoniales a favor de la empresa. Se registró el software en SENADI a nombre de la empresa. <strong>Plataforma blindada legalmente.</strong></p></div>
+    </div>
+    <div class="caso-footer">
+      <p class="caso-cita">"La agencia desarrolló la plataforma pero no nos cedió los derechos. Negociamos un addendum y registramos a nuestro nombre."</p>
+      <button type="button" class="btn-caso" data-wa="https://wa.me/593994859814?text=Hola%20Juristam%2C%20una%20agencia%20desarroll%C3%B3%20mi%20software%20sin%20cesi%C3%B3n%20de%20derechos%20y%20quiero%20regularizarlo." onclick="abrirModal(this)">Tengo un caso similar →</button>
+    </div>
+  </div>
+
+  <div class="caso-card" data-tipo="exempleado">
+    <div class="caso-header"><div>
+      <div class="caso-badges"><span class="badge badge-resultado">✓ Exempleado condenado por copia de código</span><span class="badge badge-tiempo">⏱ 9 meses</span></div>
+      <p class="caso-titulo">Exempleado lanzó startup con el código del empleador</p>
+      <p class="caso-meta">🇪🇨 Guayaquil · Exempleado · Copia de código · Startup competidora</p>
+    </div></div>
+    <div class="caso-body">
+      <div class="caso-section"><span class="caso-section-label">La situación</span><p>Empresa en Guayaquil. Un exempleado con acceso al código fuente salió y fundó una startup con un producto casi idéntico en menos de 6 meses. La velocidad de desarrollo era sospechosa.</p></div>
+      <div class="caso-section"><span class="caso-section-label">El problema</span><p>El exempleado había ofuscado el código y cambiado la interfaz, pero los patrones internos eran reconocibles. La empresa tenía el software registrado desde hacía 2 años.</p></div>
+      <div class="caso-resultado-box"><p><strong>Resultado:</strong> Con el certificado del SENADI como prueba base, Juristam solicitó peritaje que confirmó copia sustancial. El exempleado fue condenado a <strong>cesar el uso, indemnizar a la empresa original y enfrentar acción penal por apropiación</strong>. La startup cerró operaciones.</p></div>
+    </div>
+    <div class="caso-footer">
+      <p class="caso-cita">"Fundó su startup en 6 meses con nuestro código. El peritaje lo demostró y la condena fue ejemplar."</p>
+      <button type="button" class="btn-caso" data-wa="https://wa.me/593994859814?text=Hola%20Juristam%2C%20un%20exempleado%20fund%C3%B3%20una%20startup%20con%20mi%20c%C3%B3digo%20y%20quiero%20demandarlo." onclick="abrirModal(this)">Tengo un caso similar →</button>
+    </div>
+  </div>
+
+  <div class="caso-card" data-tipo="exempleado">
+    <div class="caso-header"><div>
+      <div class="caso-badges"><span class="badge badge-resultado">✓ Bloqueo de ex empleado con medida cautelar</span><span class="badge badge-tiempo">⏱ 4 meses</span></div>
+      <p class="caso-titulo">Medida cautelar detuvo a ex empleado que copió módulos críticos</p>
+      <p class="caso-meta">🇪🇨 Quito · Medida cautelar · Ex empleado · Módulos críticos</p>
+    </div></div>
+    <div class="caso-body">
+      <div class="caso-section"><span class="caso-section-label">La situación</span><p>Empresa SaaS en Quito. Un ex empleado había extraído módulos críticos del software (motor de cálculo, integración con API bancaria) y estaba lanzando un servicio competidor.</p></div>
+      <div class="caso-section"><span class="caso-section-label">El problema</span><p>Cada semana que pasaba el ex empleado captaba más clientes con la tecnología copiada. La empresa necesitaba una medida cautelar urgente para detener la comercialización.</p></div>
+      <div class="caso-resultado-box"><p><strong>Resultado:</strong> Con el registro previo en SENADI y un peritaje técnico urgente, Juristam obtuvo una <strong>medida cautelar de cese de uso</strong> en 4 meses. El ex empleado tuvo que desactivar su servicio mientras se resolvía el juicio. La empresa recuperó tracción comercial.</p></div>
+    </div>
+    <div class="caso-footer">
+      <p class="caso-cita">"El ex empleado estaba captando clientes con nuestro motor. La medida cautelar detuvo todo en 4 meses."</p>
+      <button type="button" class="btn-caso" data-wa="https://wa.me/593994859814?text=Hola%20Juristam%2C%20un%20exempleado%20copi%C3%B3%20m%C3%B3dulos%20cr%C3%ADticos%20de%20mi%20software%20y%20quiero%20una%20medida%20cautelar." onclick="abrirModal(this)">Tengo un caso similar →</button>
+    </div>
+  </div>
+
+  <div class="caso-card" data-tipo="exempleado">
+    <div class="caso-header"><div>
+      <div class="caso-badges"><span class="badge badge-resultado">✓ Ex empleado y cliente cómplice condenados</span><span class="badge badge-tiempo">⏱ 13 meses</span></div>
+      <p class="caso-titulo">Ex empleado licenció el software de su empleador a un cliente</p>
+      <p class="caso-meta">🇪🇨 Cuenca · Licencia indebida · Cliente cómplice · Litigio doble</p>
+    </div></div>
+    <div class="caso-body">
+      <div class="caso-section"><span class="caso-section-label">La situación</span><p>Empresa de software en Cuenca. Un ex empleado con acceso al código fuente había licenciado el software propietario a un cliente de la empresa, que lo estaba usando para su propio negocio.</p></div>
+      <div class="caso-section"><span class="caso-section-label">El problema</span><p>La infracción no solo era del ex empleado sino también del cliente que había aceptado la licencia ilegítima y estaba usando el software sin autorización.</p></div>
+      <div class="caso-resultado-box"><p><strong>Resultado:</strong> Juristam demandó conjuntamente al ex empleado y al cliente. El ex empleado fue condenado por apropiación y licencia indebida. El cliente fue condenado por uso no autorizado y debió cesar el uso. <strong>Indemnización solidaria por $52,000 USD.</strong></p></div>
+    </div>
+    <div class="caso-footer">
+      <p class="caso-cita">"El ex empleado licenció nuestro software a un cliente. Demandamos a los dos y ganamos."</p>
+      <button type="button" class="btn-caso" data-wa="https://wa.me/593994859814?text=Hola%20Juristam%2C%20un%20exempleado%20licenci%C3%B3%20mi%20software%20a%20un%20cliente%20sin%20autorizaci%C3%B3n." onclick="abrirModal(this)">Tengo un caso similar →</button>
+    </div>
+  </div>
+
+  <div class="caso-card" data-tipo="estrategia">
+    <div class="caso-header"><div>
+      <div class="caso-badges"><span class="badge badge-resultado">✓ Registro sin exponer algoritmo propietario</span><span class="badge badge-tiempo">⏱ 3 semanas</span></div>
+      <p class="caso-titulo">Fintech registró su software sin exponer el algoritmo propietario</p>
+      <p class="caso-meta">🇪🇨 Guayaquil · Registro estratégico · Secreto industrial · Fintech</p>
+    </div></div>
+    <div class="caso-body">
+      <div class="caso-section"><span class="caso-section-label">La situación</span><p>Fintech en Guayaquil con un algoritmo propietario para evaluación de riesgo crediticio. El fundador no quería registrar el software porque temía exponer el algoritmo al público.</p></div>
+      <div class="caso-section"><span class="caso-section-label">El problema</span><p>Sin registro, el software quedaba sin prueba oficial de autoría. Con registro, temían que el algoritmo se expusiera en el proceso público.</p></div>
+      <div class="caso-resultado-box"><p><strong>Resultado:</strong> Juristam diseñó una estrategia de registro que protegía la autoría sin exponer el algoritmo completo: se registró documentación técnica representativa, estructura del software y módulos principales, dejando el núcleo del algoritmo protegido por <strong>secreto industrial</strong>. La fintech obtuvo prueba oficial de autoría y mantuvo su ventaja competitiva.</p></div>
+    </div>
+    <div class="caso-footer">
+      <p class="caso-cita">"Pensaba que registrar era exponer el algoritmo. La estrategia nos permitió tener ambas cosas: protección legal y secreto industrial."</p>
+      <button type="button" class="btn-caso" data-wa="https://wa.me/593994859814?text=Hola%20Juristam%2C%20tengo%20una%20fintech%20y%20quiero%20proteger%20mi%20software%20sin%20exponer%20el%20algoritmo." onclick="abrirModal(this)">Tengo un caso similar →</button>
+    </div>
+  </div>
+
+  <div class="caso-card" data-tipo="estrategia">
+    <div class="caso-header"><div>
+      <div class="caso-badges"><span class="badge badge-resultado">✓ Registro con documentación técnica parcial</span><span class="badge badge-tiempo">⏱ 5 semanas</span></div>
+      <p class="caso-titulo">Software médico registrado con documentación técnica parcial</p>
+      <p class="caso-meta">🇪🇨 Quito · Software médico · Documentación parcial · Salud</p>
+    </div></div>
+    <div class="caso-body">
+      <div class="caso-section"><span class="caso-section-label">La situación</span><p>Empresa de software médico en Quito con plataforma para gestión de clínicas. El código incluía integraciones con sistemas de salud y protocolos de seguridad que no podían exponerse completamente.</p></div>
+      <div class="caso-section"><span class="caso-section-label">El problema</span><p>Exponer el código completo comprometía secretos comerciales y de seguridad. No registrar dejaba el software sin protección probatoria.</p></div>
+      <div class="caso-resultado-box"><p><strong>Resultado:</strong> Juristam seleccionó los módulos representativos que no comprometían secretos comerciales y registró el software con esa documentación. <strong>Protección probatoria garantizada sin exposición de los protocolos críticos.</strong></p></div>
+    </div>
+    <div class="caso-footer">
+      <p class="caso-cita">"Registramos con módulos representativos. Los protocolos críticos de seguridad quedaron fuera del registro público."</p>
+      <button type="button" class="btn-caso" data-wa="https://wa.me/593994859814?text=Hola%20Juristam%2C%20tengo%20software%20m%C3%A9dico%20con%20protocolos%20cr%C3%ADticos%20y%20quiero%20registrar%20sin%20exponerlos." onclick="abrirModal(this)">Tengo un caso similar →</button>
+    </div>
+  </div>
+
+  <div class="caso-card" data-tipo="estrategia">
+    <div class="caso-header"><div>
+      <div class="caso-badges"><span class="badge badge-resultado">✓ Estrategia combinada de protección</span><span class="badge badge-tiempo">⏱ 8 semanas</span></div>
+      <p class="caso-titulo">Startup combinó registro de software + marca + contratos</p>
+      <p class="caso-meta">🇪🇨 Guayaquil · Estrategia combinada · Marca + software + contratos</p>
+    </div></div>
+    <div class="caso-body">
+      <div class="caso-section"><span class="caso-section-label">La situación</span><p>Startup en Guayaquil con plataforma digital B2B. Necesitaban proteger el nombre comercial, el código fuente, la interfaz de usuario y los contratos con el equipo fundador.</p></div>
+      <div class="caso-section"><span class="caso-section-label">El problema</span><p>El equipo había pensado solo en registrar la marca. La estrategia de protección integral incluía también el software, el diseño de interfaz (derecho de autor), los contratos con cesión y la protección del dominio web.</p></div>
+      <div class="caso-resultado-box"><p><strong>Resultado:</strong> Juristam diseñó la estrategia integral: registro de marca (clases 9 y 42), registro de software en SENADI, contratos con cesión de derechos para fundadores y colaboradores, y coordinación de la protección del dominio. <strong>Activo tecnológico blindado por completo.</strong></p></div>
+    </div>
+    <div class="caso-footer">
+      <p class="caso-cita">"Pensábamos solo en la marca. La estrategia integral cubrió marca, software, contratos y dominio."</p>
+      <button type="button" class="btn-caso" data-wa="https://wa.me/593994859814?text=Hola%20Juristam%2C%20quiero%20una%20estrategia%20integral%20de%20protecci%C3%B3n%20para%20mi%20plataforma%20digital." onclick="abrirModal(this)">Tengo un caso similar →</button>
+    </div>
+  </div>
+
+</div>
+
+<div class="cta-final">
+  <h2>¿Tu software está realmente protegido?</h2>
+  <p>El derecho de autor nace con la creación, pero <strong>probarlo en juicio es otro tema</strong>. Sin registro en el SENADI, tu defensa contra un copiador es cuesta arriba: sin prueba de autoría, sin fecha oficial, sin titularidad clara. Mándenos su caso: revisamos quién es el autor real, qué contratos existen y cómo blindar el activo más valioso de tu empresa. <strong>La revisión inicial no tiene costo.</strong></p>
+  <div class="precio-mini">
+    <div class="precio-mini-item"><span>Asesoría virtual ⭐</span><span>$45</span></div>
+    <div class="precio-mini-item"><span>Presencial</span><span>$85</span></div>
+  </div>
+  <p style="color:#c4b5fd;font-size:.8rem;margin-bottom:1.2rem;">Los $45 de la asesoría se descuentan del servicio completo si decides continuar.</p>
+  <button type="button" class="btn-wa-hero" data-wa="https://wa.me/593994859814?text=Hola%20Juristam%2C%20vi%20los%20casos%20de%20protecci%C3%B3n%20de%20software%20y%20quiero%20revisar%20mi%20caso." onclick="abrirModal(this)">Enviar mi caso · WhatsApp →</button>
+</div>
+
+<div style="text-align:center;margin-bottom:2.5rem;">
+  <a href="/blog/software-derecho-autor-ecuador-probar-autoria.html" style="color:var(--primary-dark);font-size:.9rem;font-weight:600;text-decoration:underline;">← Volver a la guía completa</a>
+</div>
+</div>
+
+<footer><div class="container">
+  <p><strong>Juristam</strong> — Asesoría Legal Estratégica en Ecuador</p>
+  <p>© 2026 Juristam. Todos los derechos reservados. <a href="/blog/">Blog</a> · <a href="/#formulario">Contacto</a></p>
+  <p style="margin-top:.5rem;font-size:.8rem;opacity:.7;">Casos reales anonimizados. El resultado de una protección de software depende de la titularidad, los contratos existentes, el estado del registro y la conducta de las partes — los resultados pueden variar. Base legal: Decisión 351 de la Comunidad Andina, COESCCI (Arts. 118 y siguientes) y Código Orgánico Integral Penal (Art. 208).</p>
+</div></footer>
+
+<script>
+const WA_FALLBACK="https://wa.me/593994859814?text=Hola%20Juristam%2C%20quiero%20proteger%20mi%20software%20por%20derecho%20de%20autor%20y%20revisar%20mi%20situaci%C3%B3n.";
+let waActual = WA_FALLBACK;
+function abrirModal(el){
+  waActual = (el && el.dataset && el.dataset.wa) ? el.dataset.wa : WA_FALLBACK;
+  document.getElementById("waModal").classList.add("active");
+  document.body.style.overflow="hidden";
+}
+function cerrarModal(){document.getElementById("waModal").classList.remove("active");document.body.style.overflow="";}
+function irAWhatsApp(){cerrarModal();window.open(waActual,"_blank","noopener");}
+document.getElementById("waModal").addEventListener("click",function(e){if(e.target===this)cerrarModal();});
+document.addEventListener("keydown",function(e){if(e.key==="Escape")cerrarModal();});
+function filtrar(btn){
+  var f = btn.dataset.filtro;
+  document.querySelectorAll(".filtro-btn").forEach(function(b){b.classList.remove("activo");});
+  btn.classList.add("activo");
+  var n = 0;
+  document.querySelectorAll(".caso-card").forEach(function(c){
+    var ok = (f === "todos" || c.dataset.tipo === f);
+    c.classList.toggle("oculto", !ok);
+    if (ok) n++;
+  });
+  document.getElementById("contador").textContent = n;
+}
+</script>
+</body>
+</html>
