@@ -79,6 +79,22 @@ header{background:var(--white);border-bottom:1px solid var(--border);position:st
 footer{background:var(--text);color:#ccc;padding:2.2rem 0 5.5rem;text-align:center;font-size:.84rem;margin-top:3rem;}
 footer a{color:var(--primary);}footer strong{color:var(--white);}
 @media(max-width:700px){.casos-grid{grid-template-columns:1fr;}.hero-stats{gap:1.2rem;}.modal-precios{grid-template-columns:1fr;}.filtro-btn{font-size:.8rem;padding:.45rem .9rem;}}
+
+.wa-modal-overlay{position:fixed;inset:0;z-index:2000;background:rgba(10,10,15,.45);backdrop-filter:blur(6px);display:flex;align-items:flex-end;justify-content:center;padding:0 0 80px;opacity:0;pointer-events:none;transition:opacity .22s ease;}
+.wa-modal-overlay.active{opacity:1;pointer-events:all;}
+.wa-modal{background:#fff;border-radius:20px;padding:28px 22px 22px;width:100%;max-width:380px;box-shadow:0 20px 60px rgba(0,0,0,.18);position:relative;}
+.wa-modal-close{position:absolute;top:14px;right:14px;background:#f3f4f6;border:none;border-radius:999px;width:28px;height:28px;cursor:pointer;color:#6b7280;font-size:.8rem;}
+.wa-modal-title{font-family:'Lora',serif;font-weight:700;font-size:1.25rem;margin-bottom:6px;}
+.wa-modal-lead{font-size:.9rem;line-height:1.7;margin-bottom:14px;}
+.wa-modal-btn{display:flex;align-items:center;justify-content:center;gap:8px;padding:13px 16px;border-radius:10px;background:#25d366;color:#fff;font-weight:700;font-size:.92rem;text-decoration:none;margin-bottom:14px;}
+.wa-modal-prices{display:flex;gap:10px;margin-bottom:10px;}
+.wa-price-box{flex:1;border-radius:10px;padding:8px;text-align:center;border:1px solid var(--border);background:var(--gray-light);}
+.wa-price-box.featured{border-color:rgba(154,106,255,.3);background:var(--primary-light);}
+.wa-price-label{font-size:.6rem;font-weight:700;text-transform:uppercase;color:var(--primary-dark);margin-bottom:2px;}
+.wa-price-amount{font-weight:700;font-size:1rem;line-height:1;}
+.wa-price-note{font-size:.6rem;color:#6b7280;margin-top:3px;}
+.wa-modal-note{font-size:.72rem;color:var(--text-secondary);text-align:center;line-height:1.6;}
+@media(min-width:640px){.wa-modal-overlay{align-items:center;padding:0;}}
 </style>
 <!-- Google Analytics 4 -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-3L5I5CEKRL"></script>
@@ -99,25 +115,6 @@ footer a{color:var(--primary);}footer strong{color:var(--white);}
 </head>
 <body>
 
-<div class="modal-overlay" id="waModal" role="dialog" aria-modal="true">
-  <div class="modal">
-    <div class="modal-top">
-      <button type="button" class="modal-close" onclick="cerrarModal()" aria-label="Cerrar">&#x2715;</button>
-      <h4>El derecho de autor sin prueba es un cheque sin firma</h4>
-      <p>Si su software no está registrado, probar autoría y fecha en juicio es cuesta arriba. Mándenos su caso: revisamos quién es el autor real, qué contratos existen y cómo blindarlo.</p>
-    </div>
-    <div class="modal-body">
-      <span class="modal-section-label">Asesoría inicial</span>
-      <div class="modal-precios">
-        <div class="modal-precio virtual"><span class="mlabel">Virtual ⭐</span><div class="mmonto">$45</div></div>
-        <div class="modal-precio"><span class="mlabel">Presencial</span><div class="mmonto">$85</div></div>
-      </div>
-      <div class="modal-nota">La revisión inicial de su caso no tiene costo. Los $45 se descuentan del servicio completo si decide continuar.</div>
-      <button type="button" class="btn-modal-wa" onclick="irAWhatsApp()">Continuar a WhatsApp →</button>
-    </div>
-  </div>
-</div>
-
 <header><div class="container header-inner">
   <a href="/blog/"><img class="brand-logo" src="https://i.postimg.cc/vHygbHxz/oie-transparent-(2).png" alt="Juristam" loading="eager" width="120" height="90"/></a>
   <a class="btn-back" href="/blog/software-derecho-autor-ecuador-probar-autoria.html">← Volver al artículo</a>
@@ -126,14 +123,14 @@ footer a{color:var(--primary);}footer strong{color:var(--white);}
 <div class="hero"><div class="container">
   <span class="hero-tag">Juristam · Propiedad Intelectual y Tecnología · Ecuador</span>
   <h1>Software protegido por derecho de autor</h1>
-  <p>20 casos reales de empresas y desarrolladores que protegieron su software: registro previo en SENADI, litigios contra exempleados que copiaron código, cesión de derechos con freelancers y estrategias de registro sin exponer el código fuente.</p>
+  <p>20 casos reales de empresas y desarrolladores que protegieron su software: registro previo en SENADI, litigios contra exempleados que copiaron código, cesión de derechos con freelancers y estrategias de registro sin exponer el código fuente. Eso se desarrolla en <a href="/blog/registrar-marca-ecuador.html" style="color:var(--primary-dark);font-weight:600;text-decoration:underline;">cómo se registra una marca ante el SENADI</a>.</p>
   <div class="hero-stats">
     <div class="stat"><span class="stat-num">20</span><span class="stat-label">Casos documentados</span></div>
     <div class="stat"><span class="stat-num">3 sem</span><span class="stat-label">Caso más rápido</span></div>
     <div class="stat"><span class="stat-num">70 años</span><span class="stat-label">Duración del derecho</span></div>
     <div class="stat"><span class="stat-num">$45</span><span class="stat-label">Asesoría inicial</span></div>
   </div>
-  <button type="button" class="btn-wa-hero" data-wa="https://wa.me/593994859814?text=Hola%20Juristam%2C%20quiero%20proteger%20mi%20software%20por%20derecho%20de%20autor%20y%20revisar%20mi%20situaci%C3%B3n." onclick="abrirModal(this)">Auditar mi software → WhatsApp</button>
+  <a class="btn-wa-hero" href="https://wa.me/593994859814?text=Hola%2C%20vengo%20del%20art%C3%ADculo%20sobre%20SOFTWARE%20Y%20DERECHO%20DE%20AUTOR.%20Necesito%20probar%20la%20autor%C3%ADa%20de%20mi%20software." target="_blank" rel="noopener">Auditar mi software → WhatsApp</a>
 </div></div>
 
 <div class="container">
@@ -155,13 +152,13 @@ footer a{color:var(--primary);}footer strong{color:var(--white);}
       <p class="caso-meta">🇪🇨 Quito · Registro previo · Art. 118 COESCCI · SaaS B2B</p>
     </div></div>
     <div class="caso-body">
-      <div class="caso-section"><span class="caso-section-label">La situación</span><p>Startup SaaS en Quito con software de gestión empresarial. Un exempleado, tras salir de la empresa, lanzó un producto con funcionalidad similar. La startup sospechaba que había copiado el código fuente.</p></div>
-      <div class="caso-section"><span class="caso-section-label">El problema</span><p>Probar la copia requería peritaje técnico, pero primero había que probar autoría y fecha. Si no podían acreditar que el software era de la startup, el peritaje no tenía sentido.</p></div>
-      <div class="caso-resultado-box"><p><strong>Resultado:</strong> La startup había registrado su software en el SENADI 3 años antes, con código fuente y documentación técnica. El certificado sirvió como <strong>prueba de autoría y fecha</strong>. Se realizó peritaje que confirmó similitud sustancial. El juez ordenó el cese de uso del producto del exempleado y una indemnización por daños y perjuicios. <strong>El registro previo fue la pieza clave del caso.</strong></p></div>
+      <div class="caso-section"><span class="caso-section-label">La situación</span><p>Startup SaaS en Quito con software de gestión empresarial. Un exempleado, tras salir de la empresa, lanzó un producto con funcionalidad similar. La startup sospechaba que había copiado el código fuente. Conviene revisar <a href="/blog/oposicion-marca-senadi-ecuador.html" style="color:var(--primary-dark);font-weight:600;text-decoration:underline;">la guía completa de oposición de marca ante el SENADI</a> antes de dar el siguiente paso.</p></div>
+      <div class="caso-section"><span class="caso-section-label">El problema</span><p>Probar la copia requería peritaje técnico, pero primero había que probar autoría y fecha. Si no podían acreditar que el software era de la startup, el peritaje no tenía sentido. Hay un desarrollo completo en <a href="/blog/infraccion-marca-ecuador.html" style="color:var(--primary-dark);font-weight:600;text-decoration:underline;">las acciones por infracción de marca</a>.</p></div>
+      <div class="caso-resultado-box"><p><strong>Resultado:</strong> La startup había registrado su software en el SENADI 3 años antes, con código fuente y documentación técnica. El certificado sirvió como <strong>prueba de autoría y fecha</strong>. Se realizó peritaje que confirmó similitud sustancial. El juez ordenó el cese de uso del producto del exempleado y una indemnización por daños y perjuicios. <strong>El registro previo fue la pieza clave del caso.</strong> Este punto se aborda por separado en <a href="/blog/clase-niza-equivocada-marca-ecuador.html" style="color:var(--primary-dark);font-weight:600;text-decoration:underline;">qué pasa si elegiste mal la clase de Niza</a>.</p></div>
     </div>
     <div class="caso-footer">
       <p class="caso-cita">"Habíamos registrado el software cuando lo lanzamos. No pensamos que lo necesitaríamos. Tres años después, ese certificado salvó la empresa."</p>
-      <button type="button" class="btn-caso" data-wa="https://wa.me/593994859814?text=Hola%20Juristam%2C%20un%20exempleado%20copi%C3%B3%20mi%20software%20y%20quiero%20evaluar%20acciones." onclick="abrirModal(this)">Tengo un caso similar →</button>
+      <a class="btn-caso" href="https://wa.me/593994859814?text=Hola%2C%20vengo%20del%20art%C3%ADculo%20sobre%20SOFTWARE%20Y%20DERECHO%20DE%20AUTOR.%20Necesito%20probar%20la%20autor%C3%ADa%20de%20mi%20software." target="_blank" rel="noopener">Tengo un caso similar →</a>
     </div>
   </div>
 
@@ -173,12 +170,12 @@ footer a{color:var(--primary);}footer strong{color:var(--white);}
     </div></div>
     <div class="caso-body">
       <div class="caso-section"><span class="caso-section-label">La situación</span><p>Startup en Guayaquil con aplicación móvil de delivery. Iban a lanzarla en 2 meses y querían proteger el código antes de exponerlo en las tiendas de aplicaciones.</p></div>
-      <div class="caso-section"><span class="caso-section-label">El problema</span><p>Al subir la app a Google Play o App Store, el código queda expuesto a decompilación. Sin registro previo, no tenían forma de probar autoría si alguien replicaba el software.</p></div>
+      <div class="caso-section"><span class="caso-section-label">El problema</span><p>Al subir la app a Google Play o App Store, el código queda expuesto a decompilación. Sin registro previo, no tenían forma de probar autoría si alguien replicaba el software. Para ese escenario, la referencia es <a href="/blog/renovacion-marca-ecuador.html" style="color:var(--primary-dark);font-weight:600;text-decoration:underline;">la renovación de marca</a>.</p></div>
       <div class="caso-resultado-box"><p><strong>Resultado:</strong> Juristam registró el software en el SENADI con código fuente, documentación técnica y datos del titular antes del lanzamiento. <strong>La app salió al mercado con prueba oficial de autoría y fecha.</strong> El proceso tomó 4 semanas y la tasa fue mínima comparada con el valor del activo.</p></div>
     </div>
     <div class="caso-footer">
       <p class="caso-cita">"Registramos antes de subir la app a las tiendas. Cuando la decompilaron, ya teníamos el certificado para defendernos."</p>
-      <button type="button" class="btn-caso" data-wa="https://wa.me/593994859814?text=Hola%20Juristam%2C%20voy%20a%20lanzar%20una%20app%20y%20quiero%20registrar%20el%20software%20antes." onclick="abrirModal(this)">Tengo un caso similar →</button>
+      <a class="btn-caso" href="https://wa.me/593994859814?text=Hola%2C%20vengo%20del%20art%C3%ADculo%20sobre%20SOFTWARE%20Y%20DERECHO%20DE%20AUTOR.%20Necesito%20probar%20la%20autor%C3%ADa%20de%20mi%20software." target="_blank" rel="noopener">Tengo un caso similar →</a>
     </div>
   </div>
 
@@ -195,7 +192,7 @@ footer a{color:var(--primary);}footer strong{color:var(--white);}
     </div>
     <div class="caso-footer">
       <p class="caso-cita">"Tenía 4 años de desarrollo sin registrar nada. Registramos todas las versiones mayores y ahora tenemos el historial completo protegido."</p>
-      <button type="button" class="btn-caso" data-wa="https://wa.me/593994859814?text=Hola%20Juristam%2C%20tengo%20un%20software%20con%20m%C3%BAltiples%20versiones%20y%20quiero%20registrar%20el%20historial%20completo." onclick="abrirModal(this)">Tengo un caso similar →</button>
+      <a class="btn-caso" href="https://wa.me/593994859814?text=Hola%2C%20vengo%20del%20art%C3%ADculo%20sobre%20SOFTWARE%20Y%20DERECHO%20DE%20AUTOR.%20Necesito%20probar%20la%20autor%C3%ADa%20de%20mi%20software." target="_blank" rel="noopener">Tengo un caso similar →</a>
     </div>
   </div>
 
@@ -212,7 +209,7 @@ footer a{color:var(--primary);}footer strong{color:var(--white);}
     </div>
     <div class="caso-footer">
       <p class="caso-cita">"Ocho años de desarrollo interno sin registro ni cesión. Regularizamos todo con acuerdos retroactivos y registramos el software."</p>
-      <button type="button" class="btn-caso" data-wa="https://wa.me/593994859814?text=Hola%20Juristam%2C%20tengo%20un%20software%20antiguo%20desarrollado%20internamente%20y%20quiero%20regularizar%20el%20registro." onclick="abrirModal(this)">Tengo un caso similar →</button>
+      <a class="btn-caso" href="https://wa.me/593994859814?text=Hola%2C%20vengo%20del%20art%C3%ADculo%20sobre%20SOFTWARE%20Y%20DERECHO%20DE%20AUTOR.%20Necesito%20probar%20la%20autor%C3%ADa%20de%20mi%20software." target="_blank" rel="noopener">Tengo un caso similar →</a>
     </div>
   </div>
 
@@ -229,7 +226,7 @@ footer a{color:var(--primary);}footer strong{color:var(--white);}
     </div>
     <div class="caso-footer">
       <p class="caso-cita">"Registramos antes de Steam. Cuando apareció un clon, el certificado fue todo lo que necesitamos para tirarlo abajo."</p>
-      <button type="button" class="btn-caso" data-wa="https://wa.me/593994859814?text=Hola%20Juristam%2C%20tengo%20un%20videojuego%20y%20quiero%20registrar%20el%20c%C3%B3digo%20y%20los%20assets%20antes%20de%20lanzarlo." onclick="abrirModal(this)">Tengo un caso similar →</button>
+      <a class="btn-caso" href="https://wa.me/593994859814?text=Hola%2C%20vengo%20del%20art%C3%ADculo%20sobre%20SOFTWARE%20Y%20DERECHO%20DE%20AUTOR.%20Necesito%20probar%20la%20autor%C3%ADa%20de%20mi%20software." target="_blank" rel="noopener">Tengo un caso similar →</a>
     </div>
   </div>
 
@@ -246,7 +243,7 @@ footer a{color:var(--primary);}footer strong{color:var(--white);}
     </div>
     <div class="caso-footer">
       <p class="caso-cita">"El código estaba ofuscado pero el peritaje encontró la copia en la estructura interna. Sin el registro previo, no habríamos llegado hasta ahí."</p>
-      <button type="button" class="btn-caso" data-wa="https://wa.me/593994859814?text=Hola%20Juristam%2C%20un%20competidor%20replic%C3%B3%20la%20l%C3%B3gica%20de%20mi%20software%20y%20quiero%20evaluar%20un%20litigio." onclick="abrirModal(this)">Tengo un caso similar →</button>
+      <a class="btn-caso" href="https://wa.me/593994859814?text=Hola%2C%20vengo%20del%20art%C3%ADculo%20sobre%20SOFTWARE%20Y%20DERECHO%20DE%20AUTOR.%20Necesito%20probar%20la%20autor%C3%ADa%20de%20mi%20software." target="_blank" rel="noopener">Tengo un caso similar →</a>
     </div>
   </div>
 
@@ -263,7 +260,7 @@ footer a{color:var(--primary);}footer strong{color:var(--white);}
     </div>
     <div class="caso-footer">
       <p class="caso-cita">"El código era idéntico, hasta los comentarios. Sin el registro previo no habríamos podido llegar tan rápido a la indemnización."</p>
-      <button type="button" class="btn-caso" data-wa="https://wa.me/593994859814?text=Hola%20Juristam%2C%20un%20competidor%20copi%C3%B3%20el%20c%C3%B3digo%20de%20mi%20software%20y%20quiero%20demandar%20una%20indemnizaci%C3%B3n." onclick="abrirModal(this)">Tengo un caso similar →</button>
+      <a class="btn-caso" href="https://wa.me/593994859814?text=Hola%2C%20vengo%20del%20art%C3%ADculo%20sobre%20SOFTWARE%20Y%20DERECHO%20DE%20AUTOR.%20Necesito%20probar%20la%20autor%C3%ADa%20de%20mi%20software." target="_blank" rel="noopener">Tengo un caso similar →</a>
     </div>
   </div>
 
@@ -280,7 +277,7 @@ footer a{color:var(--primary);}footer strong{color:var(--white);}
     </div>
     <div class="caso-footer">
       <p class="caso-cita">"Presenté el certificado del SENADI y Google Play eliminó las copias. Sin el registro, cada reporte era rechazado."</p>
-      <button type="button" class="btn-caso" data-wa="https://wa.me/593994859814?text=Hola%20Juristam%2C%20copiaron%20mi%20app%20en%20Google%20Play%20y%20quiero%20eliminarlas%20con%20el%20registro%20del%20SENADI." onclick="abrirModal(this)">Tengo un caso similar →</button>
+      <a class="btn-caso" href="https://wa.me/593994859814?text=Hola%2C%20vengo%20del%20art%C3%ADculo%20sobre%20SOFTWARE%20Y%20DERECHO%20DE%20AUTOR.%20Necesito%20probar%20la%20autor%C3%ADa%20de%20mi%20software." target="_blank" rel="noopener">Tengo un caso similar →</a>
     </div>
   </div>
 
@@ -297,7 +294,7 @@ footer a{color:var(--primary);}footer strong{color:var(--white);}
     </div>
     <div class="caso-footer">
       <p class="caso-cita">"El software ecuatoriano fue copiado al otro lado de la frontera. Con el registro y coordinación regional, logramos acuerdo sin llegar a sentencia."</p>
-      <button type="button" class="btn-caso" data-wa="https://wa.me/593994859814?text=Hola%20Juristam%2C%20copiaron%20mi%20software%20desde%20otro%20pa%C3%ADs%20y%20quiero%20evaluar%20un%20litigio%20internacional." onclick="abrirModal(this)">Tengo un caso similar →</button>
+      <a class="btn-caso" href="https://wa.me/593994859814?text=Hola%2C%20vengo%20del%20art%C3%ADculo%20sobre%20SOFTWARE%20Y%20DERECHO%20DE%20AUTOR.%20Necesito%20probar%20la%20autor%C3%ADa%20de%20mi%20software." target="_blank" rel="noopener">Tengo un caso similar →</a>
     </div>
   </div>
 
@@ -314,7 +311,7 @@ footer a{color:var(--primary);}footer strong{color:var(--white);}
     </div>
     <div class="caso-footer">
       <p class="caso-cita">"Un ejecutivo se apropió del software y lo licenció a la competencia. La acción penal del COIP fue contundente."</p>
-      <button type="button" class="btn-caso" data-wa="https://wa.me/593994859814?text=Hola%20Juristam%2C%20un%20ejecutivo%20se%20apropi%C3%B3%20de%20mi%20software%20y%20quiero%20acci%C3%B3n%20penal." onclick="abrirModal(this)">Tengo un caso similar →</button>
+      <a class="btn-caso" href="https://wa.me/593994859814?text=Hola%2C%20vengo%20del%20art%C3%ADculo%20sobre%20SOFTWARE%20Y%20DERECHO%20DE%20AUTOR.%20Necesito%20probar%20la%20autor%C3%ADa%20de%20mi%20software." target="_blank" rel="noopener">Tengo un caso similar →</a>
     </div>
   </div>
 
@@ -331,7 +328,7 @@ footer a{color:var(--primary);}footer strong{color:var(--white);}
     </div>
     <div class="caso-footer">
       <p class="caso-cita">"Habíamos desarrollado el software con 5 freelancers sin cesión de derechos. Regularizamos todo y ahora podemos crecer sin miedo."</p>
-      <button type="button" class="btn-caso" data-wa="https://wa.me/593994859814?text=Hola%20Juristam%2C%20tengo%20un%20software%20desarrollado%20por%20freelancers%20y%20quiero%20regularizar%20los%20derechos." onclick="abrirModal(this)">Tengo un caso similar →</button>
+      <a class="btn-caso" href="https://wa.me/593994859814?text=Hola%2C%20vengo%20del%20art%C3%ADculo%20sobre%20SOFTWARE%20Y%20DERECHO%20DE%20AUTOR.%20Necesito%20probar%20la%20autor%C3%ADa%20de%20mi%20software." target="_blank" rel="noopener">Tengo un caso similar →</a>
     </div>
   </div>
 
@@ -348,7 +345,7 @@ footer a{color:var(--primary);}footer strong{color:var(--white);}
     </div>
     <div class="caso-footer">
       <p class="caso-cita">"El fondo de inversión exigió demostrar titularidad. Actualizamos los contratos con cesión y cerramos la ronda."</p>
-      <button type="button" class="btn-caso" data-wa="https://wa.me/593994859814?text=Hola%20Juristam%2C%20mi%20startup%20necesita%20contratos%20con%20cesi%C3%B3n%20de%20derechos%20de%20autor%20para%20todo%20el%20equipo." onclick="abrirModal(this)">Tengo un caso similar →</button>
+      <a class="btn-caso" href="https://wa.me/593994859814?text=Hola%2C%20vengo%20del%20art%C3%ADculo%20sobre%20SOFTWARE%20Y%20DERECHO%20DE%20AUTOR.%20Necesito%20probar%20la%20autor%C3%ADa%20de%20mi%20software." target="_blank" rel="noopener">Tengo un caso similar →</a>
     </div>
   </div>
 
@@ -365,7 +362,7 @@ footer a{color:var(--primary);}footer strong{color:var(--white);}
     </div>
     <div class="caso-footer">
       <p class="caso-cita">"El software lo había desarrollado mayormente mi ex socio. Negociamos la cesión retroactiva sin juicio."</p>
-      <button type="button" class="btn-caso" data-wa="https://wa.me/593994859814?text=Hola%20Juristam%2C%20mi%20ex%20socio%20desarroll%C3%B3%20parte%20de%20mi%20software%20sin%20cesi%C3%B3n%20y%20quiero%20regularizarlo." onclick="abrirModal(this)">Tengo un caso similar →</button>
+      <a class="btn-caso" href="https://wa.me/593994859814?text=Hola%2C%20vengo%20del%20art%C3%ADculo%20sobre%20SOFTWARE%20Y%20DERECHO%20DE%20AUTOR.%20Necesito%20probar%20la%20autor%C3%ADa%20de%20mi%20software." target="_blank" rel="noopener">Tengo un caso similar →</a>
     </div>
   </div>
 
@@ -382,7 +379,7 @@ footer a{color:var(--primary);}footer strong{color:var(--white);}
     </div>
     <div class="caso-footer">
       <p class="caso-cita">"La agencia desarrolló la plataforma pero no nos cedió los derechos. Negociamos un addendum y registramos a nuestro nombre."</p>
-      <button type="button" class="btn-caso" data-wa="https://wa.me/593994859814?text=Hola%20Juristam%2C%20una%20agencia%20desarroll%C3%B3%20mi%20software%20sin%20cesi%C3%B3n%20de%20derechos%20y%20quiero%20regularizarlo." onclick="abrirModal(this)">Tengo un caso similar →</button>
+      <a class="btn-caso" href="https://wa.me/593994859814?text=Hola%2C%20vengo%20del%20art%C3%ADculo%20sobre%20SOFTWARE%20Y%20DERECHO%20DE%20AUTOR.%20Necesito%20probar%20la%20autor%C3%ADa%20de%20mi%20software." target="_blank" rel="noopener">Tengo un caso similar →</a>
     </div>
   </div>
 
@@ -399,7 +396,7 @@ footer a{color:var(--primary);}footer strong{color:var(--white);}
     </div>
     <div class="caso-footer">
       <p class="caso-cita">"Fundó su startup en 6 meses con nuestro código. El peritaje lo demostró y la condena fue ejemplar."</p>
-      <button type="button" class="btn-caso" data-wa="https://wa.me/593994859814?text=Hola%20Juristam%2C%20un%20exempleado%20fund%C3%B3%20una%20startup%20con%20mi%20c%C3%B3digo%20y%20quiero%20demandarlo." onclick="abrirModal(this)">Tengo un caso similar →</button>
+      <a class="btn-caso" href="https://wa.me/593994859814?text=Hola%2C%20vengo%20del%20art%C3%ADculo%20sobre%20SOFTWARE%20Y%20DERECHO%20DE%20AUTOR.%20Necesito%20probar%20la%20autor%C3%ADa%20de%20mi%20software." target="_blank" rel="noopener">Tengo un caso similar →</a>
     </div>
   </div>
 
@@ -416,7 +413,7 @@ footer a{color:var(--primary);}footer strong{color:var(--white);}
     </div>
     <div class="caso-footer">
       <p class="caso-cita">"El ex empleado estaba captando clientes con nuestro motor. La medida cautelar detuvo todo en 4 meses."</p>
-      <button type="button" class="btn-caso" data-wa="https://wa.me/593994859814?text=Hola%20Juristam%2C%20un%20exempleado%20copi%C3%B3%20m%C3%B3dulos%20cr%C3%ADticos%20de%20mi%20software%20y%20quiero%20una%20medida%20cautelar." onclick="abrirModal(this)">Tengo un caso similar →</button>
+      <a class="btn-caso" href="https://wa.me/593994859814?text=Hola%2C%20vengo%20del%20art%C3%ADculo%20sobre%20SOFTWARE%20Y%20DERECHO%20DE%20AUTOR.%20Necesito%20probar%20la%20autor%C3%ADa%20de%20mi%20software." target="_blank" rel="noopener">Tengo un caso similar →</a>
     </div>
   </div>
 
@@ -433,7 +430,7 @@ footer a{color:var(--primary);}footer strong{color:var(--white);}
     </div>
     <div class="caso-footer">
       <p class="caso-cita">"El ex empleado licenció nuestro software a un cliente. Demandamos a los dos y ganamos."</p>
-      <button type="button" class="btn-caso" data-wa="https://wa.me/593994859814?text=Hola%20Juristam%2C%20un%20exempleado%20licenci%C3%B3%20mi%20software%20a%20un%20cliente%20sin%20autorizaci%C3%B3n." onclick="abrirModal(this)">Tengo un caso similar →</button>
+      <a class="btn-caso" href="https://wa.me/593994859814?text=Hola%2C%20vengo%20del%20art%C3%ADculo%20sobre%20SOFTWARE%20Y%20DERECHO%20DE%20AUTOR.%20Necesito%20probar%20la%20autor%C3%ADa%20de%20mi%20software." target="_blank" rel="noopener">Tengo un caso similar →</a>
     </div>
   </div>
 
@@ -450,7 +447,7 @@ footer a{color:var(--primary);}footer strong{color:var(--white);}
     </div>
     <div class="caso-footer">
       <p class="caso-cita">"Pensaba que registrar era exponer el algoritmo. La estrategia nos permitió tener ambas cosas: protección legal y secreto industrial."</p>
-      <button type="button" class="btn-caso" data-wa="https://wa.me/593994859814?text=Hola%20Juristam%2C%20tengo%20una%20fintech%20y%20quiero%20proteger%20mi%20software%20sin%20exponer%20el%20algoritmo." onclick="abrirModal(this)">Tengo un caso similar →</button>
+      <a class="btn-caso" href="https://wa.me/593994859814?text=Hola%2C%20vengo%20del%20art%C3%ADculo%20sobre%20SOFTWARE%20Y%20DERECHO%20DE%20AUTOR.%20Necesito%20probar%20la%20autor%C3%ADa%20de%20mi%20software." target="_blank" rel="noopener">Tengo un caso similar →</a>
     </div>
   </div>
 
@@ -467,7 +464,7 @@ footer a{color:var(--primary);}footer strong{color:var(--white);}
     </div>
     <div class="caso-footer">
       <p class="caso-cita">"Registramos con módulos representativos. Los protocolos críticos de seguridad quedaron fuera del registro público."</p>
-      <button type="button" class="btn-caso" data-wa="https://wa.me/593994859814?text=Hola%20Juristam%2C%20tengo%20software%20m%C3%A9dico%20con%20protocolos%20cr%C3%ADticos%20y%20quiero%20registrar%20sin%20exponerlos." onclick="abrirModal(this)">Tengo un caso similar →</button>
+      <a class="btn-caso" href="https://wa.me/593994859814?text=Hola%2C%20vengo%20del%20art%C3%ADculo%20sobre%20SOFTWARE%20Y%20DERECHO%20DE%20AUTOR.%20Necesito%20probar%20la%20autor%C3%ADa%20de%20mi%20software." target="_blank" rel="noopener">Tengo un caso similar →</a>
     </div>
   </div>
 
@@ -484,7 +481,7 @@ footer a{color:var(--primary);}footer strong{color:var(--white);}
     </div>
     <div class="caso-footer">
       <p class="caso-cita">"Pensábamos solo en la marca. La estrategia integral cubrió marca, software, contratos y dominio."</p>
-      <button type="button" class="btn-caso" data-wa="https://wa.me/593994859814?text=Hola%20Juristam%2C%20quiero%20una%20estrategia%20integral%20de%20protecci%C3%B3n%20para%20mi%20plataforma%20digital." onclick="abrirModal(this)">Tengo un caso similar →</button>
+      <a class="btn-caso" href="https://wa.me/593994859814?text=Hola%2C%20vengo%20del%20art%C3%ADculo%20sobre%20SOFTWARE%20Y%20DERECHO%20DE%20AUTOR.%20Necesito%20probar%20la%20autor%C3%ADa%20de%20mi%20software." target="_blank" rel="noopener">Tengo un caso similar →</a>
     </div>
   </div>
 
@@ -498,7 +495,7 @@ footer a{color:var(--primary);}footer strong{color:var(--white);}
     <div class="precio-mini-item"><span>Presencial</span><span>$85</span></div>
   </div>
   <p style="color:#c4b5fd;font-size:.8rem;margin-bottom:1.2rem;">Los $45 de la asesoría se descuentan del servicio completo si decides continuar.</p>
-  <button type="button" class="btn-wa-hero" data-wa="https://wa.me/593994859814?text=Hola%20Juristam%2C%20vi%20los%20casos%20de%20protecci%C3%B3n%20de%20software%20y%20quiero%20revisar%20mi%20caso." onclick="abrirModal(this)">Enviar mi caso · WhatsApp →</button>
+  <a class="btn-wa-hero" href="https://wa.me/593994859814?text=Hola%2C%20vengo%20del%20art%C3%ADculo%20sobre%20SOFTWARE%20Y%20DERECHO%20DE%20AUTOR.%20Necesito%20probar%20la%20autor%C3%ADa%20de%20mi%20software." target="_blank" rel="noopener">Enviar mi caso · WhatsApp →</a>
 </div>
 
 <div style="text-align:center;margin-bottom:2.5rem;">
@@ -513,17 +510,7 @@ footer a{color:var(--primary);}footer strong{color:var(--white);}
 </div></footer>
 
 <script>
-const WA_FALLBACK="https://wa.me/593994859814?text=Hola%20Juristam%2C%20quiero%20proteger%20mi%20software%20por%20derecho%20de%20autor%20y%20revisar%20mi%20situaci%C3%B3n.";
-let waActual = WA_FALLBACK;
-function abrirModal(el){
-  waActual = (el && el.dataset && el.dataset.wa) ? el.dataset.wa : WA_FALLBACK;
-  document.getElementById("waModal").classList.add("active");
-  document.body.style.overflow="hidden";
-}
-function cerrarModal(){document.getElementById("waModal").classList.remove("active");document.body.style.overflow="";}
-function irAWhatsApp(){cerrarModal();window.open(waActual,"_blank","noopener");}
-document.getElementById("waModal").addEventListener("click",function(e){if(e.target===this)cerrarModal();});
-document.addEventListener("keydown",function(e){if(e.key==="Escape")cerrarModal();});
+
 function filtrar(btn){
   var f = btn.dataset.filtro;
   document.querySelectorAll(".filtro-btn").forEach(function(b){b.classList.remove("activo");});
@@ -536,6 +523,32 @@ function filtrar(btn){
   });
   document.getElementById("contador").textContent = n;
 }
+</script>
+<div class="wa-modal-overlay" id="waModal" role="dialog" aria-modal="true" aria-labelledby="waModalTitle">
+ <div class="wa-modal">
+ <button class="wa-modal-close" id="waModalClose" aria-label="Cerrar">&#10005;</button>
+ <div class="wa-modal-title" id="waModalTitle">As&iacute; trabajamos tu caso</div>
+ <p class="wa-modal-lead">El abogado revisa tu documentaci&oacute;n, tus plazos y tu posici&oacute;n <strong>antes</strong> de sentarse contigo. Llegas a una estrategia definida, no a una conversaci&oacute;n exploratoria. Por eso la asesor&iacute;a tiene un valor:</p>
+ <a class="wa-modal-btn" id="waModalLink" href="https://wa.me/593994859814?text=Hola%2C%20vengo%20del%20art%C3%ADculo%20sobre%20SOFTWARE%20Y%20DERECHO%20DE%20AUTOR.%20Necesito%20probar%20la%20autor%C3%ADa%20de%20mi%20software." target="_blank" rel="noopener">Continuar a WhatsApp</a>
+ <div class="wa-modal-prices">
+ <div class="wa-price-box featured"><div class="wa-price-label">Virtual</div><div class="wa-price-amount">$45</div><div class="wa-price-note">Todo Ecuador</div></div>
+ <div class="wa-price-box"><div class="wa-price-label">Presencial</div><div class="wa-price-amount">$85</div><div class="wa-price-note">Sede Guayaquil</div></div>
+ </div>
+ <p class="wa-modal-note">Si contratas el servicio, los $45 se descuentan del precio final. No es un gasto aparte: es el primer paso del caso.</p>
+ </div>
+</div>
+<script>
+(function(){
+  var overlay=document.getElementById('waModal'),closeBtn=document.getElementById('waModalClose'),modalLink=document.getElementById('waModalLink');
+  if(!overlay||!modalLink) return;
+  var triggers=document.querySelectorAll('a[href*="wa.me"]:not(#waModalLink)');
+  function openModal(e){e.preventDefault();var h=this.getAttribute('href');if(h&&h.indexOf('wa.me')!==-1){modalLink.setAttribute('href',h);}overlay.classList.add('active');document.body.style.overflow='hidden';}
+  function closeModal(){overlay.classList.remove('active');document.body.style.overflow='';}
+  triggers.forEach(function(b){b.addEventListener('click',openModal);});
+  closeBtn.addEventListener('click',closeModal);
+  overlay.addEventListener('click',function(e){if(e.target===overlay)closeModal();});
+  document.addEventListener('keydown',function(e){if(e.key==='Escape')closeModal();});
+})();
 </script>
 </body>
 </html>

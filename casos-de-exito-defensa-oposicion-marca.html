@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="es-EC">
 <head>
@@ -80,6 +79,22 @@ header{background:var(--white);border-bottom:1px solid var(--border);position:st
 footer{background:var(--text);color:#ccc;padding:2.2rem 0 5.5rem;text-align:center;font-size:.84rem;margin-top:3rem;}
 footer a{color:var(--primary);}footer strong{color:var(--white);}
 @media(max-width:700px){.casos-grid{grid-template-columns:1fr;}.hero-stats{gap:1.2rem;}.modal-precios{grid-template-columns:1fr;}.filtro-btn{font-size:.8rem;padding:.45rem .9rem;}}
+
+.wa-modal-overlay{position:fixed;inset:0;z-index:2000;background:rgba(10,10,15,.45);backdrop-filter:blur(6px);display:flex;align-items:flex-end;justify-content:center;padding:0 0 80px;opacity:0;pointer-events:none;transition:opacity .22s ease;}
+.wa-modal-overlay.active{opacity:1;pointer-events:all;}
+.wa-modal{background:#fff;border-radius:20px;padding:28px 22px 22px;width:100%;max-width:380px;box-shadow:0 20px 60px rgba(0,0,0,.18);position:relative;}
+.wa-modal-close{position:absolute;top:14px;right:14px;background:#f3f4f6;border:none;border-radius:999px;width:28px;height:28px;cursor:pointer;color:#6b7280;font-size:.8rem;}
+.wa-modal-title{font-family:'Lora',serif;font-weight:700;font-size:1.25rem;margin-bottom:6px;}
+.wa-modal-lead{font-size:.9rem;line-height:1.7;margin-bottom:14px;}
+.wa-modal-btn{display:flex;align-items:center;justify-content:center;gap:8px;padding:13px 16px;border-radius:10px;background:#25d366;color:#fff;font-weight:700;font-size:.92rem;text-decoration:none;margin-bottom:14px;}
+.wa-modal-prices{display:flex;gap:10px;margin-bottom:10px;}
+.wa-price-box{flex:1;border-radius:10px;padding:8px;text-align:center;border:1px solid var(--border);background:var(--gray-light);}
+.wa-price-box.featured{border-color:rgba(154,106,255,.3);background:var(--primary-light);}
+.wa-price-label{font-size:.6rem;font-weight:700;text-transform:uppercase;color:var(--primary-dark);margin-bottom:2px;}
+.wa-price-amount{font-weight:700;font-size:1rem;line-height:1;}
+.wa-price-note{font-size:.6rem;color:#6b7280;margin-top:3px;}
+.wa-modal-note{font-size:.72rem;color:var(--text-secondary);text-align:center;line-height:1.6;}
+@media(min-width:640px){.wa-modal-overlay{align-items:center;padding:0;}}
 </style>
 <!-- Google Analytics 4 -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-3L5I5CEKRL"></script>
@@ -100,25 +115,6 @@ footer a{color:var(--primary);}footer strong{color:var(--white);}
 </head>
 <body>
 
-<div class="modal-overlay" id="waModal" role="dialog" aria-modal="true">
-  <div class="modal">
-    <div class="modal-top">
-      <button type="button" class="modal-close" onclick="cerrarModal()" aria-label="Cerrar">&#x2715;</button>
-      <h4>Cada día que pasa puede costarte tu marca</h4>
-      <p>Los plazos del SENADI son perentorios: 30 días hábiles para oponerte o contestar. Mientras más esperas, más se fortalece la posición de la otra parte. Revisamos tu expediente y definimos la estrategia antes del vencimiento.</p>
-    </div>
-    <div class="modal-body">
-      <span class="modal-section-label">Asesoría inicial</span>
-      <div class="modal-precios">
-        <div class="modal-precio virtual"><span class="mlabel">Virtual ⭐</span><div class="mmonto">$45</div></div>
-        <div class="modal-precio"><span class="mlabel">Presencial</span><div class="mmonto">$85</div></div>
-      </div>
-      <div class="modal-nota">Los $45 se descuentan del servicio completo si decides continuar.</div>
-      <button type="button" class="btn-modal-wa" onclick="irAWhatsApp()">Continuar a WhatsApp →</button>
-    </div>
-  </div>
-</div>
-
 <header><div class="container header-inner">
   <a href="/blog/"><img class="brand-logo" src="https://i.postimg.cc/vHygbHxz/oie-transparent-(2).png" alt="Juristam" loading="eager" width="120" height="90"/></a>
   <a class="btn-back" href="/blog/oposicion-marca-senadi-ecuador.html">← Volver al artículo</a>
@@ -134,7 +130,7 @@ footer a{color:var(--primary);}footer strong{color:var(--white);}
     <div class="stat"><span class="stat-num">0</span><span class="stat-label">Viajes necesarios</span></div>
     <div class="stat"><span class="stat-num">$45</span><span class="stat-label">Asesoría inicial</span></div>
   </div>
-  <button type="button" class="btn-wa-hero" data-wa="https://wa.me/593994859814?text=Hola%20Juristam%2C%20vi%20los%20casos%20de%20%C3%A9xito%20de%20defensa%20de%20marcas%20en%20Ecuador.%20Quiero%20consultar%20sobre%20mi%20caso%20ante%20el%20SENADI." onclick="abrirModal(this)">Revisar mi caso → WhatsApp</button>
+  <a class="btn-wa-hero" href="https://wa.me/593994859814?text=Hola%2C%20vengo%20del%20art%C3%ADculo%20sobre%20DEFENSA%20ANTE%20OPOSICI%C3%93N%20DE%20MARCA.%20Me%20presentaron%20una%20oposici%C3%B3n%20y%20necesito%20contestarla." target="_blank" rel="noopener">Revisar mi caso → WhatsApp</a>
 </div></div>
 
 <div class="container">
@@ -154,11 +150,11 @@ footer a{color:var(--primary);}footer strong{color:var(--white);}
     <div class="caso-body">
       <div class="caso-section"><span class="caso-section-label">La situación</span><p>Emprendedor de jugos artesanales y bebidas orgánicas que solicitó el registro de su marca en la Clase 32 tras tres años de ventas en Guayaquil.</p></div>
       <div class="caso-section"><span class="caso-section-label">El problema</span><p>Recibió una notificación del SENADI donde una corporación transnacional se oponía a su registro alegando riesgo de confusión fonética y visual.</p></div>
-      <div class="caso-resultado-box"><p><strong>Resultado:</strong> Juristam asumió la defensa dentro del plazo de 30 días hábiles, demostró las diferencias fonéticas clave y aportó un expediente con facturas y publicidad que probaban el posicionamiento propio. El SENADI desechó la oposición y concedió el título.</p></div>
+      <div class="caso-resultado-box"><p><strong>Resultado:</strong> Juristam asumió la defensa dentro del plazo de 30 días hábiles, demostró las diferencias fonéticas clave y aportó un expediente con facturas y publicidad que probaban el posicionamiento propio. El SENADI desechó la oposición y concedió el título. Conviene revisar <a href="/blog/plazo-oposicion-marca-senadi.html" style="color:var(--primary-dark);font-weight:600;text-decoration:underline;">los plazos de oposición en el SENADI</a> antes de dar el siguiente paso.</p></div>
     </div>
     <div class="caso-footer">
       <p class="caso-cita">"Pensé que una multinacional aplastaría mi negocio. La contestación técnica de Juristam defendió el expediente y ganamos el registro."</p>
-      <button type="button" class="btn-caso" data-wa="https://wa.me/593994859814?text=Hola%20Juristam%2C%20vi%20el%20caso%20de%20la%20multinacional%20de%20bebidas%20y%20quiero%20consultar%20sobre%20mi%20marca." onclick="abrirModal(this)">Tengo un caso similar →</button>
+      <a class="btn-caso" href="https://wa.me/593994859814?text=Hola%2C%20vengo%20del%20art%C3%ADculo%20sobre%20DEFENSA%20ANTE%20OPOSICI%C3%93N%20DE%20MARCA.%20Me%20presentaron%20una%20oposici%C3%B3n%20y%20necesito%20contestarla." target="_blank" rel="noopener">Tengo un caso similar →</a>
     </div>
   </div>
   <div class="caso-card" data-tipo="coexistencia">
@@ -174,7 +170,7 @@ footer a{color:var(--primary);}footer strong{color:var(--white);}
     </div>
     <div class="caso-footer">
       <p class="caso-cita">"Evitamos un pleito larguísimo en el SENADI. Logramos un acuerdo firmado que nos dejó operar tranquilos a ambas partes."</p>
-      <button type="button" class="btn-caso" data-wa="https://wa.me/593994859814?text=Hola%20Juristam%2C%20vi%20el%20caso%20de%20coexistencia%20entre%20tienda%20de%20ropa%20y%20calzado%20y%20quiero%20consultar." onclick="abrirModal(this)">Tengo un caso similar →</button>
+      <a class="btn-caso" href="https://wa.me/593994859814?text=Hola%2C%20vengo%20del%20art%C3%ADculo%20sobre%20DEFENSA%20ANTE%20OPOSICI%C3%93N%20DE%20MARCA.%20Me%20presentaron%20una%20oposici%C3%B3n%20y%20necesito%20contestarla." target="_blank" rel="noopener">Tengo un caso similar →</a>
     </div>
   </div>
   <div class="caso-card" data-tipo="defensa">
@@ -186,11 +182,11 @@ footer a{color:var(--primary);}footer strong{color:var(--white);}
     <div class="caso-body">
       <div class="caso-section"><span class="caso-section-label">La situación</span><p>Laboratorio de nutrición deportiva que solicitó el registro de una nueva línea de proteínas en polvo ante el SENADI.</p></div>
       <div class="caso-section"><span class="caso-section-label">El problema</span><p>Un competidor de la misma clase interpuso oposición alegando que la pronunciación del nombre provocaba un impacto auditivo casi idéntico.</p></div>
-      <div class="caso-resultado-box"><p><strong>Resultado:</strong> Juristam sustentó la contestación con un análisis fonético detallado de las sílabas tónicas, la terminación de las palabras y el empaque gráfico. El SENADI rechazó la oposición.</p></div>
+      <div class="caso-resultado-box"><p><strong>Resultado:</strong> Juristam sustentó la contestación con un análisis fonético detallado de las sílabas tónicas, la terminación de las palabras y el empaque gráfico. El SENADI rechazó la oposición. Para ese escenario, la referencia es <a href="/blog/clase-niza-equivocada-marca-ecuador.html" style="color:var(--primary-dark);font-weight:600;text-decoration:underline;">qué pasa si elegiste mal la clase de Niza</a>.</p></div>
     </div>
     <div class="caso-footer">
       <p class="caso-cita">"La explicación sobre la estructura de la palabra que presentó Juristam fue impecable. Desarmaron la oposición del competidor."</p>
-      <button type="button" class="btn-caso" data-wa="https://wa.me/593994859814?text=Hola%20Juristam%2C%20vi%20el%20caso%20de%20confundibilidad%20fon%C3%A9tica%20descartada%20y%20quiero%20consultar." onclick="abrirModal(this)">Tengo un caso similar →</button>
+      <a class="btn-caso" href="https://wa.me/593994859814?text=Hola%2C%20vengo%20del%20art%C3%ADculo%20sobre%20DEFENSA%20ANTE%20OPOSICI%C3%93N%20DE%20MARCA.%20Me%20presentaron%20una%20oposici%C3%B3n%20y%20necesito%20contestarla." target="_blank" rel="noopener">Tengo un caso similar →</a>
     </div>
   </div>
   <div class="caso-card" data-tipo="defensa">
@@ -206,7 +202,7 @@ footer a{color:var(--primary);}footer strong{color:var(--white);}
     </div>
     <div class="caso-footer">
       <p class="caso-cita">"Nos acusaban de copiar la idea del nombre. La defensa jurídica de Juristam demostró que eran conceptos totalmente distintos."</p>
-      <button type="button" class="btn-caso" data-wa="https://wa.me/593994859814?text=Hola%20Juristam%2C%20vi%20el%20caso%20de%20similitud%20ideol%C3%B3gica%20rechazada%20y%20quiero%20consultar." onclick="abrirModal(this)">Tengo un caso similar →</button>
+      <a class="btn-caso" href="https://wa.me/593994859814?text=Hola%2C%20vengo%20del%20art%C3%ADculo%20sobre%20DEFENSA%20ANTE%20OPOSICI%C3%93N%20DE%20MARCA.%20Me%20presentaron%20una%20oposici%C3%B3n%20y%20necesito%20contestarla." target="_blank" rel="noopener">Tengo un caso similar →</a>
     </div>
   </div>
   <div class="caso-card" data-tipo="defensa">
@@ -222,7 +218,7 @@ footer a{color:var(--primary);}footer strong{color:var(--white);}
     </div>
     <div class="caso-footer">
       <p class="caso-cita">"Faltaban cuatro días para perder la marca por descuido. Juristam redactó el escrito con una velocidad y precisión quirúrgicas."</p>
-      <button type="button" class="btn-caso" data-wa="https://wa.me/593994859814?text=Hola%20Juristam%2C%20vi%20el%20caso%20de%20respuesta%20en%20tiempo%20r%C3%A9cord%20y%20quiero%20consultar." onclick="abrirModal(this)">Tengo un caso similar →</button>
+      <a class="btn-caso" href="https://wa.me/593994859814?text=Hola%2C%20vengo%20del%20art%C3%ADculo%20sobre%20DEFENSA%20ANTE%20OPOSICI%C3%93N%20DE%20MARCA.%20Me%20presentaron%20una%20oposici%C3%B3n%20y%20necesito%20contestarla." target="_blank" rel="noopener">Tengo un caso similar →</a>
     </div>
   </div>
   <div class="caso-card" data-tipo="defensa">
@@ -238,7 +234,7 @@ footer a{color:var(--primary);}footer strong{color:var(--white);}
     </div>
     <div class="caso-footer">
       <p class="caso-cita">"Enfrentar a un gigante que alegaba notoriedad daba miedo, pero Juristam estructuró una defensa técnica impecable."</p>
-      <button type="button" class="btn-caso" data-wa="https://wa.me/593994859814?text=Hola%20Juristam%2C%20vi%20el%20caso%20de%20marca%20notoria%20neutralizado%20y%20quiero%20consultar." onclick="abrirModal(this)">Tengo un caso similar →</button>
+      <a class="btn-caso" href="https://wa.me/593994859814?text=Hola%2C%20vengo%20del%20art%C3%ADculo%20sobre%20DEFENSA%20ANTE%20OPOSICI%C3%93N%20DE%20MARCA.%20Me%20presentaron%20una%20oposici%C3%B3n%20y%20necesito%20contestarla." target="_blank" rel="noopener">Tengo un caso similar →</a>
     </div>
   </div>
   <div class="caso-card" data-tipo="defensa">
@@ -254,7 +250,7 @@ footer a{color:var(--primary);}footer strong{color:var(--white);}
     </div>
     <div class="caso-footer">
       <p class="caso-cita">"Demostramos que un producto gourmet no se confunde con golosinas de masa. Gran trabajo probatorio de Juristam."</p>
-      <button type="button" class="btn-caso" data-wa="https://wa.me/593994859814?text=Hola%20Juristam%2C%20vi%20el%20caso%20de%20chocolates%20gourmet%20salvados%20y%20quiero%20consultar." onclick="abrirModal(this)">Tengo un caso similar →</button>
+      <a class="btn-caso" href="https://wa.me/593994859814?text=Hola%2C%20vengo%20del%20art%C3%ADculo%20sobre%20DEFENSA%20ANTE%20OPOSICI%C3%93N%20DE%20MARCA.%20Me%20presentaron%20una%20oposici%C3%B3n%20y%20necesito%20contestarla." target="_blank" rel="noopener">Tengo un caso similar →</a>
     </div>
   </div>
   <div class="caso-card" data-tipo="defensa">
@@ -266,11 +262,11 @@ footer a{color:var(--primary);}footer strong{color:var(--white);}
     <div class="caso-body">
       <div class="caso-section"><span class="caso-section-label">La situación</span><p>Startup ecuatoriana de tecnología que lanzó una plataforma digital de gestión de pagos y solicitó su registro en la Clase 36.</p></div>
       <div class="caso-section"><span class="caso-section-label">El problema</span><p>Una institución bancaria tradicional interpuso oposición alegando semejanza auditiva con una de sus líneas de banca móvil.</p></div>
-      <div class="caso-resultado-box"><p><strong>Resultado:</strong> Juristam fundamentó la contestación en las diferencias de diseño de interfaz, el público objetivo y la ausencia de confusión real. El SENADI otorgó el título a la startup.</p></div>
+      <div class="caso-resultado-box"><p><strong>Resultado:</strong> Juristam fundamentó la contestación en las diferencias de diseño de interfaz, el público objetivo y la ausencia de confusión real. El SENADI otorgó el título a la startup. Este punto se aborda por separado en <a href="/blog/marca-confundible-similitud-ecuador.html" style="color:var(--primary-dark);font-weight:600;text-decoration:underline;">el análisis de confundibilidad</a>.</p></div>
     </div>
     <div class="caso-footer">
       <p class="caso-cita">"Nos enfrentábamos a un banco con recursos ilimitados. Juristam hizo un análisis de confundibilidad tan sólido que ganamos."</p>
-      <button type="button" class="btn-caso" data-wa="https://wa.me/593994859814?text=Hola%20Juristam%2C%20vi%20el%20caso%20de%20app%20fintech%20defendida%20ante%20banco%20y%20quiero%20consultar." onclick="abrirModal(this)">Tengo un caso similar →</button>
+      <a class="btn-caso" href="https://wa.me/593994859814?text=Hola%2C%20vengo%20del%20art%C3%ADculo%20sobre%20DEFENSA%20ANTE%20OPOSICI%C3%93N%20DE%20MARCA.%20Me%20presentaron%20una%20oposici%C3%B3n%20y%20necesito%20contestarla." target="_blank" rel="noopener">Tengo un caso similar →</a>
     </div>
   </div>
   <div class="caso-card" data-tipo="defensa">
@@ -286,7 +282,7 @@ footer a{color:var(--primary);}footer strong{color:var(--white);}
     </div>
     <div class="caso-footer">
       <p class="caso-cita">"El expediente de pruebas de uso que armó Juristam fue determinante. Demostramos la realidad de nuestra marca en el mercado."</p>
-      <button type="button" class="btn-caso" data-wa="https://wa.me/593994859814?text=Hola%20Juristam%2C%20vi%20el%20caso%20de%20registro%20respaldado%20por%20facturas%20y%20quiero%20consultar." onclick="abrirModal(this)">Tengo un caso similar →</button>
+      <a class="btn-caso" href="https://wa.me/593994859814?text=Hola%2C%20vengo%20del%20art%C3%ADculo%20sobre%20DEFENSA%20ANTE%20OPOSICI%C3%93N%20DE%20MARCA.%20Me%20presentaron%20una%20oposici%C3%B3n%20y%20necesito%20contestarla." target="_blank" rel="noopener">Tengo un caso similar →</a>
     </div>
   </div>
   <div class="caso-card" data-tipo="defensa">
@@ -302,7 +298,7 @@ footer a{color:var(--primary);}footer strong{color:var(--white);}
     </div>
     <div class="caso-footer">
       <p class="caso-cita">"Nos aconsejaron ajustar la lista de productos sin perder lo esencial y destrabamos el registro en pocos meses."</p>
-      <button type="button" class="btn-caso" data-wa="https://wa.me/593994859814?text=Hola%20Juristam%2C%20vi%20el%20caso%20de%20cobertura%20reestructurada%20con%20%C3%A9xito%20y%20quiero%20consultar." onclick="abrirModal(this)">Tengo un caso similar →</button>
+      <a class="btn-caso" href="https://wa.me/593994859814?text=Hola%2C%20vengo%20del%20art%C3%ADculo%20sobre%20DEFENSA%20ANTE%20OPOSICI%C3%93N%20DE%20MARCA.%20Me%20presentaron%20una%20oposici%C3%B3n%20y%20necesito%20contestarla." target="_blank" rel="noopener">Tengo un caso similar →</a>
     </div>
   </div>
   <div class="caso-card" data-tipo="defensa">
@@ -314,11 +310,11 @@ footer a{color:var(--primary);}footer strong{color:var(--white);}
     <div class="caso-body">
       <div class="caso-section"><span class="caso-section-label">La situación</span><p>Microcervecería artesanal que solicitó la protección de su marca comercial en la Clase 32 tras dos años de presencia en ferias.</p></div>
       <div class="caso-section"><span class="caso-section-label">El problema</span><p>Una importadora de licores de alta graduación presentó una oposición argumentando coincidencia de canales de consumo.</p></div>
-      <div class="caso-resultado-box"><p><strong>Resultado:</strong> Juristam contestó la oposición diferenciando los grados alcohólicos, el proceso de elaboración y las dinámicas de comercialización. El SENADI otorgó el registro de marca.</p></div>
+      <div class="caso-resultado-box"><p><strong>Resultado:</strong> Juristam contestó la oposición diferenciando los grados alcohólicos, el proceso de elaboración y las dinámicas de comercialización. El SENADI otorgó el registro de marca. Hay un desarrollo completo en <a href="/blog/registrar-marca-ecuador.html" style="color:var(--primary-dark);font-weight:600;text-decoration:underline;">cómo se registra una marca ante el SENADI</a>.</p></div>
     </div>
     <div class="caso-footer">
       <p class="caso-cita">"Querían frenar nuestra cerveza usando el nombre de un licor importado. Juristam demostró las diferencias en el SENADI."</p>
-      <button type="button" class="btn-caso" data-wa="https://wa.me/593994859814?text=Hola%20Juristam%2C%20vi%20el%20caso%20de%20cerveza%20artesanal%20defendida%20y%20quiero%20consultar." onclick="abrirModal(this)">Tengo un caso similar →</button>
+      <a class="btn-caso" href="https://wa.me/593994859814?text=Hola%2C%20vengo%20del%20art%C3%ADculo%20sobre%20DEFENSA%20ANTE%20OPOSICI%C3%93N%20DE%20MARCA.%20Me%20presentaron%20una%20oposici%C3%B3n%20y%20necesito%20contestarla." target="_blank" rel="noopener">Tengo un caso similar →</a>
     </div>
   </div>
   <div class="caso-card" data-tipo="defensa">
@@ -330,11 +326,11 @@ footer a{color:var(--primary);}footer strong{color:var(--white);}
     <div class="caso-body">
       <div class="caso-section"><span class="caso-section-label">La situación</span><p>Emprendimiento de jabones y cremas artesanales a base de extractos botánicos que inició su registro ante el SENADI.</p></div>
       <div class="caso-section"><span class="caso-section-label">El problema</span><p>Un competidor del mismo sector se opuso argumentando que el nombre contenía palabras de uso común que no podían apropiarse.</p></div>
-      <div class="caso-resultado-box"><p><strong>Resultado:</strong> Juristam demostró en el escrito de contestación la distintividad de la combinación gráfica y denominativa del signo. El SENADI desestimó el argumento del opositor.</p></div>
+      <div class="caso-resultado-box"><p><strong>Resultado:</strong> Juristam demostró en el escrito de contestación la distintividad de la combinación gráfica y denominativa del signo. El SENADI desestimó el argumento del opositor. Eso se desarrolla en <a href="/blog/como-presentar-oposicion-marca-ecuador.html" style="color:var(--primary-dark);font-weight:600;text-decoration:underline;">cómo presentar una oposición de marca</a>.</p></div>
     </div>
     <div class="caso-footer">
       <p class="caso-cita">"Nos querían anular el registro diciendo que nuestro nombre era genérico. Juristam defendió la distintividad de nuestra marca."</p>
-      <button type="button" class="btn-caso" data-wa="https://wa.me/593994859814?text=Hola%20Juristam%2C%20vi%20el%20caso%20de%20cosm%C3%A9tica%20natural%20concedida%20y%20quiero%20consultar." onclick="abrirModal(this)">Tengo un caso similar →</button>
+      <a class="btn-caso" href="https://wa.me/593994859814?text=Hola%2C%20vengo%20del%20art%C3%ADculo%20sobre%20DEFENSA%20ANTE%20OPOSICI%C3%93N%20DE%20MARCA.%20Me%20presentaron%20una%20oposici%C3%B3n%20y%20necesito%20contestarla." target="_blank" rel="noopener">Tengo un caso similar →</a>
     </div>
   </div>
   <div class="caso-card" data-tipo="defensa">
@@ -350,7 +346,7 @@ footer a{color:var(--primary);}footer strong{color:var(--white);}
     </div>
     <div class="caso-footer">
       <p class="caso-cita">"Demostraron que los logos eran totalmente diferentes visualmente. Juristam nos dio tranquilidad durante todo el proceso."</p>
-      <button type="button" class="btn-caso" data-wa="https://wa.me/593994859814?text=Hola%20Juristam%2C%20vi%20el%20caso%20de%20logotipo%20m%C3%A9dico%20salvado%20y%20quiero%20consultar." onclick="abrirModal(this)">Tengo un caso similar →</button>
+      <a class="btn-caso" href="https://wa.me/593994859814?text=Hola%2C%20vengo%20del%20art%C3%ADculo%20sobre%20DEFENSA%20ANTE%20OPOSICI%C3%93N%20DE%20MARCA.%20Me%20presentaron%20una%20oposici%C3%B3n%20y%20necesito%20contestarla." target="_blank" rel="noopener">Tengo un caso similar →</a>
     </div>
   </div>
   <div class="caso-card" data-tipo="defensa">
@@ -366,7 +362,7 @@ footer a{color:var(--primary);}footer strong{color:var(--white);}
     </div>
     <div class="caso-footer">
       <p class="caso-cita">"Un grupo restaurante quiso frenar nuestra app. La contestación legal de Juristam aclaró el alcance de nuestro servicio."</p>
-      <button type="button" class="btn-caso" data-wa="https://wa.me/593994859814?text=Hola%20Juristam%2C%20vi%20el%20caso%20de%20plataforma%20de%20delivery%20victoriosa%20y%20quiero%20consultar." onclick="abrirModal(this)">Tengo un caso similar →</button>
+      <a class="btn-caso" href="https://wa.me/593994859814?text=Hola%2C%20vengo%20del%20art%C3%ADculo%20sobre%20DEFENSA%20ANTE%20OPOSICI%C3%93N%20DE%20MARCA.%20Me%20presentaron%20una%20oposici%C3%B3n%20y%20necesito%20contestarla." target="_blank" rel="noopener">Tengo un caso similar →</a>
     </div>
   </div>
   <div class="caso-card" data-tipo="defensa">
@@ -382,7 +378,7 @@ footer a{color:var(--primary);}footer strong{color:var(--white);}
     </div>
     <div class="caso-footer">
       <p class="caso-cita">"Presentaron una oposición fuerte, pero el escrito de contestación que armó Juristam desarmó todos sus argumentos."</p>
-      <button type="button" class="btn-caso" data-wa="https://wa.me/593994859814?text=Hola%20Juristam%2C%20vi%20el%20caso%20de%20marca%20textil%20protegida%20y%20quiero%20consultar." onclick="abrirModal(this)">Tengo un caso similar →</button>
+      <a class="btn-caso" href="https://wa.me/593994859814?text=Hola%2C%20vengo%20del%20art%C3%ADculo%20sobre%20DEFENSA%20ANTE%20OPOSICI%C3%93N%20DE%20MARCA.%20Me%20presentaron%20una%20oposici%C3%B3n%20y%20necesito%20contestarla." target="_blank" rel="noopener">Tengo un caso similar →</a>
     </div>
   </div>
   <div class="caso-card" data-tipo="defensa">
@@ -398,7 +394,7 @@ footer a{color:var(--primary);}footer strong{color:var(--white);}
     </div>
     <div class="caso-footer">
       <p class="caso-cita">"Querían impedir que usemos el nombre de nuestra localidad en la marca. Juristam hizo valer nuestros derechos ante el SENADI."</p>
-      <button type="button" class="btn-caso" data-wa="https://wa.me/593994859814?text=Hola%20Juristam%2C%20vi%20el%20caso%20de%20hotel%20boutique%20defendido%20y%20quiero%20consultar." onclick="abrirModal(this)">Tengo un caso similar →</button>
+      <a class="btn-caso" href="https://wa.me/593994859814?text=Hola%2C%20vengo%20del%20art%C3%ADculo%20sobre%20DEFENSA%20ANTE%20OPOSICI%C3%93N%20DE%20MARCA.%20Me%20presentaron%20una%20oposici%C3%B3n%20y%20necesito%20contestarla." target="_blank" rel="noopener">Tengo un caso similar →</a>
     </div>
   </div>
   <div class="caso-card" data-tipo="defensa">
@@ -414,7 +410,7 @@ footer a{color:var(--primary);}footer strong{color:var(--white);}
     </div>
     <div class="caso-footer">
       <p class="caso-cita">"Defendieron nuestro software con argumentos jurídicos muy claros. El SENADI terminó rechazando la oposición por completo."</p>
-      <button type="button" class="btn-caso" data-wa="https://wa.me/593994859814?text=Hola%20Juristam%2C%20vi%20el%20caso%20de%20software%20agr%C3%ADcola%20protegido%20y%20quiero%20consultar." onclick="abrirModal(this)">Tengo un caso similar →</button>
+      <a class="btn-caso" href="https://wa.me/593994859814?text=Hola%2C%20vengo%20del%20art%C3%ADculo%20sobre%20DEFENSA%20ANTE%20OPOSICI%C3%93N%20DE%20MARCA.%20Me%20presentaron%20una%20oposici%C3%B3n%20y%20necesito%20contestarla." target="_blank" rel="noopener">Tengo un caso similar →</a>
     </div>
   </div>
   <div class="caso-card" data-tipo="defensa">
@@ -430,7 +426,7 @@ footer a{color:var(--primary);}footer strong{color:var(--white);}
     </div>
     <div class="caso-footer">
       <p class="caso-cita">"Somos artesanos y pensamos que no podríamos responderle a una marca internacional. Juristam nos defendió y ganamos."</p>
-      <button type="button" class="btn-caso" data-wa="https://wa.me/593994859814?text=Hola%20Juristam%2C%20vi%20el%20caso%20de%20calzado%20de%20cuero%20ecuatoriano%20salvado%20y%20quiero%20consultar." onclick="abrirModal(this)">Tengo un caso similar →</button>
+      <a class="btn-caso" href="https://wa.me/593994859814?text=Hola%2C%20vengo%20del%20art%C3%ADculo%20sobre%20DEFENSA%20ANTE%20OPOSICI%C3%93N%20DE%20MARCA.%20Me%20presentaron%20una%20oposici%C3%B3n%20y%20necesito%20contestarla." target="_blank" rel="noopener">Tengo un caso similar →</a>
     </div>
   </div>
   <div class="caso-card" data-tipo="defensa">
@@ -446,7 +442,7 @@ footer a{color:var(--primary);}footer strong{color:var(--white);}
     </div>
     <div class="caso-footer">
       <p class="caso-cita">"La respuesta que redactó Juristam demostró un conocimiento profundo tanto del derecho de marcas como de nuestro sector."</p>
-      <button type="button" class="btn-caso" data-wa="https://wa.me/593994859814?text=Hola%20Juristam%2C%20vi%20el%20caso%20de%20materiales%20de%20construcci%C3%B3n%20otorgados%20y%20quiero%20consultar." onclick="abrirModal(this)">Tengo un caso similar →</button>
+      <a class="btn-caso" href="https://wa.me/593994859814?text=Hola%2C%20vengo%20del%20art%C3%ADculo%20sobre%20DEFENSA%20ANTE%20OPOSICI%C3%93N%20DE%20MARCA.%20Me%20presentaron%20una%20oposici%C3%B3n%20y%20necesito%20contestarla." target="_blank" rel="noopener">Tengo un caso similar →</a>
     </div>
   </div>
   <div class="caso-card" data-tipo="defensa">
@@ -462,7 +458,7 @@ footer a{color:var(--primary);}footer strong{color:var(--white);}
     </div>
     <div class="caso-footer">
       <p class="caso-cita">"Mi ex-socio quiso bloquear la marca por despecho comercial. Juristam desmontó la oposición en el expediente y obtuvimos la marca."</p>
-      <button type="button" class="btn-caso" data-wa="https://wa.me/593994859814?text=Hola%20Juristam%2C%20vi%20el%20caso%20de%20negocio%20gastron%C3%B3mico%20defendido%20y%20quiero%20consultar." onclick="abrirModal(this)">Tengo un caso similar →</button>
+      <a class="btn-caso" href="https://wa.me/593994859814?text=Hola%2C%20vengo%20del%20art%C3%ADculo%20sobre%20DEFENSA%20ANTE%20OPOSICI%C3%93N%20DE%20MARCA.%20Me%20presentaron%20una%20oposici%C3%B3n%20y%20necesito%20contestarla." target="_blank" rel="noopener">Tengo un caso similar →</a>
     </div>
   </div>
 </div>
@@ -475,7 +471,7 @@ footer a{color:var(--primary);}footer strong{color:var(--white);}
     <div class="precio-mini-item"><span>Presencial</span><span>$85</span></div>
   </div>
   <p style="color:#c4b5fd;font-size:.8rem;margin-bottom:1.2rem;">Los $45 se descuentan del servicio completo.</p>
-  <button type="button" class="btn-wa-hero" data-wa="https://wa.me/593994859814?text=Hola%20Juristam%2C%20vi%20los%20casos%20de%20%C3%A9xito%20de%20defensa%20de%20marcas%20y%20quiero%20consultar%20sobre%20mi%20caso%20ante%20el%20SENADI." onclick="abrirModal(this)">Revisar mi caso · WhatsApp →</button>
+  <a class="btn-wa-hero" href="https://wa.me/593994859814?text=Hola%2C%20vengo%20del%20art%C3%ADculo%20sobre%20DEFENSA%20ANTE%20OPOSICI%C3%93N%20DE%20MARCA.%20Me%20presentaron%20una%20oposici%C3%B3n%20y%20necesito%20contestarla." target="_blank" rel="noopener">Revisar mi caso · WhatsApp →</a>
 </div>
 
 <div style="text-align:center;margin-bottom:2.5rem;">
@@ -490,17 +486,7 @@ footer a{color:var(--primary);}footer strong{color:var(--white);}
 </div></footer>
 
 <script>
-const WA_FALLBACK="https://wa.me/593994859814?text=Hola%20Juristam%2C%20vi%20los%20casos%20de%20%C3%A9xito%20de%20defensa%20de%20marcas%20en%20Ecuador.%20Quiero%20consultar%20sobre%20mi%20caso%20ante%20el%20SENADI.";
-let waActual = WA_FALLBACK;
-function abrirModal(el){
-  waActual = (el && el.dataset && el.dataset.wa) ? el.dataset.wa : WA_FALLBACK;
-  document.getElementById("waModal").classList.add("active");
-  document.body.style.overflow="hidden";
-}
-function cerrarModal(){document.getElementById("waModal").classList.remove("active");document.body.style.overflow="";}
-function irAWhatsApp(){cerrarModal();window.open(waActual,"_blank","noopener");}
-document.getElementById("waModal").addEventListener("click",function(e){if(e.target===this)cerrarModal();});
-document.addEventListener("keydown",function(e){if(e.key==="Escape")cerrarModal();});
+
 function filtrar(btn){
   var f = btn.dataset.filtro;
   document.querySelectorAll(".filtro-btn").forEach(function(b){b.classList.remove("activo");});
@@ -513,6 +499,32 @@ function filtrar(btn){
   });
   document.getElementById("contador").textContent = n;
 }
+</script>
+<div class="wa-modal-overlay" id="waModal" role="dialog" aria-modal="true" aria-labelledby="waModalTitle">
+ <div class="wa-modal">
+ <button class="wa-modal-close" id="waModalClose" aria-label="Cerrar">&#10005;</button>
+ <div class="wa-modal-title" id="waModalTitle">As&iacute; trabajamos tu caso</div>
+ <p class="wa-modal-lead">El abogado revisa tu documentaci&oacute;n, tus plazos y tu posici&oacute;n <strong>antes</strong> de sentarse contigo. Llegas a una estrategia definida, no a una conversaci&oacute;n exploratoria. Por eso la asesor&iacute;a tiene un valor:</p>
+ <a class="wa-modal-btn" id="waModalLink" href="https://wa.me/593994859814?text=Hola%2C%20vengo%20del%20art%C3%ADculo%20sobre%20DEFENSA%20ANTE%20OPOSICI%C3%93N%20DE%20MARCA.%20Me%20presentaron%20una%20oposici%C3%B3n%20y%20necesito%20contestarla." target="_blank" rel="noopener">Continuar a WhatsApp</a>
+ <div class="wa-modal-prices">
+ <div class="wa-price-box featured"><div class="wa-price-label">Virtual</div><div class="wa-price-amount">$45</div><div class="wa-price-note">Todo Ecuador</div></div>
+ <div class="wa-price-box"><div class="wa-price-label">Presencial</div><div class="wa-price-amount">$85</div><div class="wa-price-note">Sede Guayaquil</div></div>
+ </div>
+ <p class="wa-modal-note">Si contratas el servicio, los $45 se descuentan del precio final. No es un gasto aparte: es el primer paso del caso.</p>
+ </div>
+</div>
+<script>
+(function(){
+  var overlay=document.getElementById('waModal'),closeBtn=document.getElementById('waModalClose'),modalLink=document.getElementById('waModalLink');
+  if(!overlay||!modalLink) return;
+  var triggers=document.querySelectorAll('a[href*="wa.me"]:not(#waModalLink)');
+  function openModal(e){e.preventDefault();var h=this.getAttribute('href');if(h&&h.indexOf('wa.me')!==-1){modalLink.setAttribute('href',h);}overlay.classList.add('active');document.body.style.overflow='hidden';}
+  function closeModal(){overlay.classList.remove('active');document.body.style.overflow='';}
+  triggers.forEach(function(b){b.addEventListener('click',openModal);});
+  closeBtn.addEventListener('click',closeModal);
+  overlay.addEventListener('click',function(e){if(e.target===overlay)closeModal();});
+  document.addEventListener('keydown',function(e){if(e.key==='Escape')closeModal();});
+})();
 </script>
 </body>
 </html>

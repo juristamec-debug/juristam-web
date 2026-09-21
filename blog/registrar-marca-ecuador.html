@@ -18,7 +18,7 @@
 <meta property="og:url" content="https://juristam.net/blog/registrar-marca-ecuador.html"/>
 <meta property="og:image" content="https://i.postimg.cc/vHygbHxz/oie-transparent-(2).png"/>
 <meta property="article:published_time" content="2026-05-12T00:00:00-05:00"/>
-<meta property="article:modified_time" content="2026-05-12T00:00:00-05:00"/>
+<meta property="article:modified_time" content="2026-09-20T00:00:00-05:00"/>
 <meta property="article:section" content="Corporativo"/>
 <meta name="twitter:card" content="summary_large_image"/>
 <meta name="twitter:title" content="C&oacute;mo registrar una marca en Ecuador paso a paso"/>
@@ -62,7 +62,7 @@
       "headline": "Cómo registrar una marca en Ecuador paso a paso: requisitos, costos y tiempos",
       "description": "Guía para registrar una marca en Ecuador ante el SENADI. Proceso, requisitos, costos y cuánto tarda.",
       "datePublished": "2026-05-12T00:00:00-05:00",
-      "dateModified": "2026-05-12T00:00:00-05:00",
+      "dateModified": "2026-09-20T00:00:00-05:00",
       "author": {
         "@id": "https://juristam.net/#organization"
       },
@@ -391,6 +391,22 @@ details[open] summary::after{content:"−";}
 footer{background:var(--text);color:#ccc;padding:2.2rem 0;text-align:center;font-size:.84rem;margin-top:3rem;}
 footer a{color:var(--primary);}footer strong{color:var(--white);}
 @media(max-width:650px){h1{font-size:1.7rem;}.precio-cards{grid-template-columns:1fr;}.precio-card-item:first-child{border-right:none;border-bottom:1px solid var(--border);}.modal-precios{grid-template-columns:1fr;}.cta-urgente{flex-direction:column;align-items:flex-start;}.tabla{font-size:.82rem;}.tabla th,.tabla td{padding:.65rem .7rem;}}
+
+.wa-modal-overlay{position:fixed;inset:0;z-index:2000;background:rgba(10,10,15,.45);backdrop-filter:blur(6px);display:flex;align-items:flex-end;justify-content:center;padding:0 0 80px;opacity:0;pointer-events:none;transition:opacity .22s ease;}
+.wa-modal-overlay.active{opacity:1;pointer-events:all;}
+.wa-modal{background:#fff;border-radius:20px;padding:28px 22px 22px;width:100%;max-width:380px;box-shadow:0 20px 60px rgba(0,0,0,.18);position:relative;}
+.wa-modal-close{position:absolute;top:14px;right:14px;background:#f3f4f6;border:none;border-radius:999px;width:28px;height:28px;cursor:pointer;color:#6b7280;font-size:.8rem;}
+.wa-modal-title{font-family:'Lora',serif;font-weight:700;font-size:1.25rem;margin-bottom:6px;}
+.wa-modal-lead{font-size:.9rem;line-height:1.7;margin-bottom:14px;}
+.wa-modal-btn{display:flex;align-items:center;justify-content:center;gap:8px;padding:13px 16px;border-radius:10px;background:#25d366;color:#fff;font-weight:700;font-size:.92rem;text-decoration:none;margin-bottom:14px;}
+.wa-modal-prices{display:flex;gap:10px;margin-bottom:10px;}
+.wa-price-box{flex:1;border-radius:10px;padding:8px;text-align:center;border:1px solid var(--border);background:var(--gray-light);}
+.wa-price-box.featured{border-color:rgba(154,106,255,.3);background:var(--primary-light);}
+.wa-price-label{font-size:.6rem;font-weight:700;text-transform:uppercase;color:var(--primary-dark);margin-bottom:2px;}
+.wa-price-amount{font-weight:700;font-size:1rem;line-height:1;}
+.wa-price-note{font-size:.6rem;color:#6b7280;margin-top:3px;}
+.wa-modal-note{font-size:.72rem;color:var(--text-secondary);text-align:center;line-height:1.6;}
+@media(min-width:640px){.wa-modal-overlay{align-items:center;padding:0;}}
 </style>
 <!-- Google Analytics 4 -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-3L5I5CEKRL"></script>
@@ -409,42 +425,24 @@ footer a{color:var(--primary);}footer strong{color:var(--white);}
   })(window, document, "clarity", "script", "ykk7rlhcr0");
 </script>
 </head><body>
-<div class="modal-overlay" id="waModal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
-  <div class="modal">
-    <div class="modal-top">
-      <button class="modal-close" onclick="cerrarModal()" aria-label="Cerrar">&#x2715;</button>
-      <h4 id="modalTitle">Cu&eacute;ntanos el caso de tu empresa</h4>
-      <p>Leer tu situaci&oacute;n no tiene costo. Si decides avanzar con una asesor&iacute;a completa, la tarifa es:</p>
-    </div>
-    <div class="modal-body">
-      <div class="modal-precios">
-        <div class="modal-precio virtual"><span class="mlabel">&#11088; Virtual &middot; Recomendada</span><div class="mmonto">$45</div><div class="mdesc">Todo Ecuador &mdash; videollamada</div></div>
-        <div class="modal-precio presencial"><span class="mlabel">Presencial</span><div class="mmonto">$85</div><div class="mdesc">Solo Guayaquil &mdash; en oficina</div></div>
-      </div>
-      <div class="modal-nota"><strong>Si contratas el servicio completo, los $45 de la consulta virtual se descuentan del precio final.</strong> No es un gasto adicional &mdash; es parte del proceso.</div>
-      <div class="modal-btns">
-        <button class="btn-modal-wa" onclick="irAWhatsApp()">Entendido, continuar a WhatsApp &rarr;</button>
-        <a class="btn-modal-form" href="/#formulario" onclick="cerrarModal()">Prefiero llenar el formulario</a>
-      </div>
-    </div>
-  </div>
-</div><header><div class="container header-inner">
+
+<header><div class="container header-inner">
   <a href="/blog/"><img class="brand-logo" src="https://i.postimg.cc/vHygbHxz/oie-transparent-(2).png" alt="Juristam" loading="eager" width="120" height="90"/></a>
   <a class="btn-back" href="/blog/">&larr; Volver al blog</a>
 </div></header>
 <main><div class="container">
 <nav class="breadcrumb" aria-label="Breadcrumb"><a href="/">Inicio</a><span>&rsaquo;</span><a href="/blog/">Gu&iacute;as</a><span>&rsaquo;</span><a href="/blog/propiedad-intelectual-marcas-ecuador.html">Propiedad Intelectual</a><span>&rsaquo;</span>C&oacute;mo registrar una marca en Ecuador paso a paso</nav>
-<div class="meta-wrap"><span class="tag">Marcas</span><span class="tag">Propiedad Intelectual</span><span class="meta-date">12 de mayo de 2026 &middot; SENADI &middot; COESC</span></div>
+<div class="meta-wrap"><span class="tag">Marcas</span><span class="tag">Propiedad Intelectual</span><span class="meta-date">Actualizaci&oacute;n: septiembre 2026</span></div>
 <h1>C&oacute;mo registrar una marca en Ecuador paso a paso: requisitos, costos y tiempos</h1>
 <p class="catline">Categor&iacute;a: <a href="/blog/propiedad-intelectual-marcas-ecuador.html">Marcas y Propiedad Intelectual</a></p>
 <div class="autor-firma">
   <div class="autor-avatar">J</div>
   <div class="autor-info">
-    <strong>Revisado por abogados de Juristam especializados en propiedad intelectual</strong>
-    Contenido elaborado con base en el C&oacute;digo Org&aacute;nico de la Econom&iacute;a Social de los Conocimientos (COESC), la Decisi&oacute;n 486 de la Comunidad Andina y la pr&aacute;ctica profesional en propiedad intelectual ante el SENADI.
+    <strong>Equipo Editorial · Juristam</strong>
+    Abogados especializados en marcas y propiedad intelectual en Ecuador. Contenido elaborado con base en el Código Orgánico de la Economía Social de los Conocimientos (COESC), la Decisión 486 de la Comunidad Andina y la práctica administrativa ante el SENADI. Actualización: septiembre 2026.
   </div>
 </div>
-<div class="cta-urgente"><p>&iquest;Quieres registrar una marca en Ecuador?<span>Revisamos disponibilidad, clase de Niza y riesgos antes de iniciar el tr&aacute;mite.</span></p><button class="btn-wa" onclick="abrirModal()">Solicitar an&aacute;lisis previo &rarr;</button></div>
+<div class="cta-urgente"><p>&iquest;Quieres registrar una marca en Ecuador?<span>Revisamos disponibilidad, clase de Niza y riesgos antes de iniciar el tr&aacute;mite.</span></p><a class="btn-wa" href="https://wa.me/593994859814?text=Hola%2C%20vengo%20del%20art%C3%ADculo%20sobre%20C%C3%93MO%20REGISTRAR%20UNA%20MARCA.%20Quiero%20registrar%20mi%20marca%20en%20el%20SENADI." target="_blank" rel="noopener">Solicitar an&aacute;lisis previo &rarr;</a></div>
 <div class="tldr"><strong>Registrar una marca en Ecuador no es complicado si se conoce el proceso.</strong> Lo que s&iacute; es importante es hacerlo correctamente desde el inicio: una solicitud mal presentada puede perder la fecha de presentaci&oacute;n &mdash; que es cr&iacute;tica en el sistema de primer registro.</div>
 <div class="callout-danger">
   <strong>&#9888; En Ecuador rige el principio de primer registro</strong>
@@ -472,21 +470,21 @@ footer a{color:var(--primary);}footer strong{color:var(--white);}
   <li><strong>Pago de la tasa oficial del SENADI:</strong> corresponde a la tarifa vigente por clase solicitada.</li>
   <li><strong>Poder de representaci&oacute;n:</strong> cuando un abogado o tercero act&uacute;a en nombre del solicitante.</li>
 </ul>
-<p>El SENADI puede requerir documentaci&oacute;n adicional dependiendo del tipo de signo o las circunstancias del caso. Una solicitud incompleta puede generar observaciones y retrasos que afectan el avance normal del tr&aacute;mite.</p>
+<p>El SENADI puede requerir documentaci&oacute;n adicional dependiendo del tipo de signo o las circunstancias del caso. Una solicitud incompleta puede generar observaciones y retrasos que afectan el avance normal del tr&aacute;mite. Hay un desarrollo completo en <a href="/blog/que-pasa-si-no-registro-mi-marca-ecuador.html" style="color:var(--primary-dark);font-weight:600;text-decoration:underline;">qué pasa si no registras tu marca</a>.</p>
 
 <h2>&iquest;Cu&aacute;nto cuesta registrar una marca en Ecuador?</h2>
 <p>El costo total del registro de marca en Ecuador tiene dos componentes:</p>
 <h3>Tasas oficiales del SENADI</h3>
-<p>El SENADI cobra una tasa por cada clase de Niza solicitada. Esta tasa puede variar seg&uacute;n actualizaciones tarifarias de la entidad. La solicitud en m&uacute;ltiples clases implica el pago de la tasa correspondiente por cada una.</p>
+<p>El SENADI cobra una tasa por cada clase de Niza solicitada. Esta tasa puede variar seg&uacute;n actualizaciones tarifarias de la entidad. La solicitud en m&uacute;ltiples clases implica el pago de la tasa correspondiente por cada una. Para ese escenario, la referencia es <a href="/blog/clase-niza-equivocada-marca-ecuador.html" style="color:var(--primary-dark);font-weight:600;text-decoration:underline;">qué pasa si elegiste mal la clase de Niza</a>.</p>
 <h3>Honorarios profesionales</h3>
-<p>El costo del servicio legal depende de la complejidad del caso: n&uacute;mero de clases, necesidad de b&uacute;squeda de antecedentes, respuesta a observaciones de forma y, si surge, defensa ante oposiciones. En Juristam el servicio completo de registro tiene un costo fijo de <strong>$350</strong>, que incluye b&uacute;squeda de antecedentes, solicitud y seguimiento hasta la concesi&oacute;n. La asesor&iacute;a inicial de $45 se descuenta de ese valor si decides continuar.</p>
+<p>El costo del servicio legal depende de la complejidad del caso: n&uacute;mero de clases, necesidad de b&uacute;squeda de antecedentes, respuesta a observaciones de forma y, si surge, defensa ante oposiciones. En Juristam el servicio completo de registro tiene un costo fijo de <strong>$350</strong>, que incluye b&uacute;squeda de antecedentes, solicitud y seguimiento hasta la concesi&oacute;n. La asesor&iacute;a inicial de $45 se descuenta de ese valor si decides continuar. Con el certificado en mano cambia tambi&eacute;n c&oacute;mo puedes presentar la marca: <a href="/blog/marca-registrada-simbolo-ecuador.html" style="color:var(--primary-dark);font-weight:600;text-decoration:underline;">cu&aacute;ndo puedes usar el s&iacute;mbolo &reg;</a>.</p>
 
 <div style="background:var(--primary-light);border-radius:12px;padding:1.2rem 1.5rem;margin:1.5rem 0;">
   <p style="font-size:.92rem;color:var(--text);line-height:1.75;margin-bottom:.8rem;">Si no est&aacute;s seguro de si tu marca puede registrarse, conviene verificar primero la disponibilidad y posibles conflictos antes de pagar tasas oficiales.</p>
-  <button onclick="abrirModal()" style="background:var(--primary-dark);color:#fff;padding:.65rem 1.3rem;border-radius:8px;font-weight:600;font-size:.88rem;cursor:pointer;border:none;">Solicitar an&aacute;lisis previo &rarr;</button>
+  <a style="background:var(--primary-dark);color:#fff;padding:.65rem 1.3rem;border-radius:8px;font-weight:600;font-size:.88rem;" href="https://wa.me/593994859814?text=Hola%2C%20vengo%20del%20art%C3%ADculo%20sobre%20C%C3%93MO%20REGISTRAR%20UNA%20MARCA.%20Quiero%20registrar%20mi%20marca%20en%20el%20SENADI." target="_blank" rel="noopener">Solicitar an&aacute;lisis previo &rarr;</a>
 </div>
 <h2>&iquest;Cu&aacute;nto tarda registrar una marca en Ecuador?</h2>
-<p>El proceso de registro ante el SENADI tiene etapas con duraciones variables. El plazo total est&aacute; entre <strong>6 y 14 meses</strong> dependiendo principalmente de si existen oposiciones durante el per&iacute;odo de publicaci&oacute;n.</p>
+<p>El proceso de registro ante el SENADI tiene etapas con duraciones variables. El plazo total est&aacute; entre <strong>6 y 14 meses</strong> dependiendo principalmente de si existen oposiciones durante el per&iacute;odo de publicaci&oacute;n. El detalle de esto está en <a href="/blog/tiempo-registro-marca-senadi-ecuador.html" style="color:var(--primary-dark);font-weight:600;text-decoration:underline;">cuánto tarda el registro en el SENADI</a>.</p>
 <table class="tabla">
   <thead><tr><th>Etapa</th><th>Tiempo aproximado</th></tr></thead>
   <tbody>
@@ -502,7 +500,7 @@ footer a{color:var(--primary);}footer strong{color:var(--white);}
 
 <h2>&iquest;Puedo registrar una marca sin abogado?</h2>
 <p>S&iacute;. La normativa ecuatoriana no exige contratar un abogado para presentar una solicitud de registro ante el SENADI. Es posible realizarlo directamente.</p>
-<p>Sin embargo, muchos problemas aparecen <strong>antes</strong> de presentar la solicitud: elecci&oacute;n incorrecta de clases, conflictos con marcas anteriores, oposiciones predecibles o errores estrat&eacute;gicos que pueden afectar la protecci&oacute;n futura. Una solicitud presentada en la clase equivocada obtiene un certificado que no protege donde la empresa realmente compite.</p>
+<p>Sin embargo, muchos problemas aparecen <strong>antes</strong> de presentar la solicitud: elecci&oacute;n incorrecta de clases, conflictos con marcas anteriores, oposiciones predecibles o errores estrat&eacute;gicos que pueden afectar la protecci&oacute;n futura. Una solicitud presentada en la clase equivocada obtiene un certificado que no protege donde la empresa realmente compite. Este punto se aborda por separado en <a href="/blog/marca-antes-de-lanzar-producto-ecuador.html" style="color:var(--primary-dark);font-weight:600;text-decoration:underline;">por qué conviene registrar antes de lanzar</a>.</p>
 <p>Por eso muchas empresas prefieren realizar una revisi&oacute;n previa antes de iniciar el tr&aacute;mite. Una decisi&oacute;n tomada con informaci&oacute;n completa suele ser menos costosa que corregir un error despu&eacute;s de que el proceso ya est&aacute; iniciado.</p>
 
 
@@ -517,7 +515,7 @@ footer a{color:var(--primary);}footer strong{color:var(--white);}
   <li><strong>Concesi&oacute;n:</strong> si no hay oposiciones v&aacute;lidas y la marca es registrable, el SENADI concede el registro. Vigencia: 10 a&ntilde;os renovables.</li>
 </ol>
 <h2>Las clases de Niza: elegir las correctas</h2>
-<p>Las marcas se registran por clases de productos o servicios seg&uacute;n la Clasificaci&oacute;n Internacional de Niza. Registrar en la clase incorrecta deja sin protecci&oacute;n en la actividad real de la empresa. Una marca de ropa registrada solo en la Clase 25 no protege la marca si alguien la usa en productos de la Clase 18 (bolsos, accesorios).</p>
+<p>Las marcas se registran por clases de productos o servicios seg&uacute;n la Clasificaci&oacute;n Internacional de Niza. Registrar en la clase incorrecta deja sin protecci&oacute;n en la actividad real de la empresa. Una marca de ropa registrada solo en la Clase 25 no protege la marca si alguien la usa en productos de la Clase 18 (bolsos, accesorios). Conviene revisar <a href="/blog/registro-marca-sin-abogado-ecuador.html" style="color:var(--primary-dark);font-weight:600;text-decoration:underline;">los riesgos de registrar sin abogado</a> antes de dar el siguiente paso.</p>
 <h2>Errores frecuentes al registrar una marca en Ecuador</h2>
 <ul>
   <li><strong>Presentar la solicitud sin b&uacute;squeda previa.</strong> Una solicitud sin verificar antecedentes puede generar oposiciones predecibles que se pudieron detectar antes de invertir en el tr&aacute;mite.</li>
@@ -530,7 +528,7 @@ footer a{color:var(--primary);}footer strong{color:var(--white);}
 
 <div style="background:var(--primary-light);border-radius:12px;padding:1.4rem 1.6rem;margin:1.5rem 0;">
   <p style="font-size:.95rem;color:var(--text);line-height:1.82;margin-bottom:.9rem;">Muchas solicitudes rechazadas no fracasan porque la marca sea mala. Fracasan porque los conflictos pod&iacute;an detectarse antes de presentar la solicitud. Una b&uacute;squeda de antecedentes y una revisi&oacute;n estrat&eacute;gica suelen ser mucho menos costosas que enfrentar una oposici&oacute;n o rehacer todo el proceso.</p>
-  <button onclick="abrirModal()" style="background:var(--primary-dark);color:#fff;padding:.65rem 1.3rem;border-radius:8px;font-weight:600;font-size:.88rem;cursor:pointer;border:none;">Solicitar revisi&oacute;n previa &rarr;</button>
+  <a style="background:var(--primary-dark);color:#fff;padding:.65rem 1.3rem;border-radius:8px;font-weight:600;font-size:.88rem;" href="https://wa.me/593994859814?text=Hola%2C%20vengo%20del%20art%C3%ADculo%20sobre%20C%C3%93MO%20REGISTRAR%20UNA%20MARCA.%20Quiero%20registrar%20mi%20marca%20en%20el%20SENADI." target="_blank" rel="noopener">Solicitar revisi&oacute;n previa &rarr;</a>
 </div>
 <h2>&iquest;Qu&eacute; marcas no se pueden registrar en Ecuador?</h2>
 <p>La Decisi&oacute;n 486 de la Comunidad Andina y el COESC establecen causales de irregistrabilidad. Los signos que no pueden registrarse como marca incluyen:</p>
@@ -565,7 +563,7 @@ footer a{color:var(--primary);}footer strong{color:var(--white);}
     <div style="background:var(--success-light);border:1px solid var(--success);border-radius:8px;padding:.7rem 1rem;margin-bottom:1rem;font-size:.85rem;color:var(--success);font-weight:600;">
       &#9989; Los $45 de la asesor&iacute;a virtual se descuentan del precio final.
     </div>
-    <div style="text-align:center;"><button class="btn-wa" onclick="abrirModal()">Consultar con Juristam &rarr;</button></div>
+    <div style="text-align:center;"><a class="btn-wa" href="https://wa.me/593994859814?text=Hola%2C%20vengo%20del%20art%C3%ADculo%20sobre%20C%C3%93MO%20REGISTRAR%20UNA%20MARCA.%20Quiero%20registrar%20mi%20marca%20en%20el%20SENADI." target="_blank" rel="noopener">Consultar con Juristam &rarr;</a></div>
   </div>
 </div><div class="related-corp">
   <h3>Sigue leyendo sobre este tema</h3>
@@ -573,8 +571,8 @@ footer a{color:var(--primary);}footer strong{color:var(--white);}
 <li><a href="/blog/oposicion-registro-marca-ecuador.html"><strong><u>Qu&eacute; hacer si se oponen a tu marca</u></strong></a></li>
 <li><a href="/blog/copiaron-mi-marca-ecuador.html"><strong><u>Acciones por uso indebido de marca</u></strong></a></li>
 <li><a href="/blog/propiedad-intelectual-emprendedores.html"><strong><u>Errores de emprendedores con marcas</u></strong></a></li>
-<li><a href="/blog/proteger-nombre-comercial-ecuador.html"><strong><u>Marca vs nombre comercial</u></strong></a></li>
-<li><a href="/blog/derecho-corporativo-empresas-ecuador.html"><strong><u>Gu&iacute;a principal: Derecho corporativo en Ecuador</u></strong></a></li></ul>
+<li><a href="/blog/marca-vs-nombre-comercial-ecuador.html"><strong><u>Marca vs nombre comercial</u></strong></a></li>
+<li><a href="/blog/renovacion-marca-ecuador.html"><strong><u>Renovaci&oacute;n de marca en Ecuador</u></strong></a></li></ul>
 </div>
 <div class="faq-section"><h2 id="faq">Preguntas frecuentes</h2>
 <details><summary>&iquest;Cu&aacute;nto tarda registrar una marca en Ecuador?</summary>
@@ -592,7 +590,7 @@ footer a{color:var(--primary);}footer strong{color:var(--white);}
 <details><summary>&iquest;Cu&aacute;nto dura una marca registrada en Ecuador?</summary>
 <p class="faq-answer">El registro dura 10 a&ntilde;os renovables indefinidamente. Si no se renueva dentro del plazo o durante los 6 meses de gracia, la marca caduca y cualquier tercero puede registrarla. Adem&aacute;s, una marca sin uso durante 3 a&ntilde;os puede ser cancelada a solicitud de terceros. Ver: <a href="/blog/renovacion-marca-ecuador.html">renovaci&oacute;n de marca en Ecuador</a>.</p></details>
 <details><summary>&iquest;Puedo registrar solo el nombre o tambi&eacute;n el logo?</summary>
-<p class="faq-answer">En Ecuador es posible registrar marcas denominativas (solo el nombre), figurativas (solo el logo) o mixtas (nombre y logo combinados). La protecci&oacute;n recae sobre el signo tal como fue registrado, por lo que la estrategia de registro debe definirse seg&uacute;n el uso real que la empresa hace de cada elemento.</p></details>
+<p class="faq-answer">En Ecuador es posible registrar marcas denominativas (solo el nombre), figurativas (solo el logo) o mixtas (nombre y logo combinados). La protecci&oacute;n recae sobre el signo tal como fue registrado, por lo que la estrategia de registro debe definirse seg&uacute;n el uso real que la empresa hace de cada elemento. Eso se desarrolla en <a href="/blog/logo-slogan-registro-ecuador.html" style="color:var(--primary-dark);font-weight:600;text-decoration:underline;">cómo se registran el logo y el eslogan</a>.</p></details>
 <details><summary>&iquest;Qu&eacute; pasa si alguien ya registr&oacute; una marca parecida a la m&iacute;a?</summary>
 <p class="faq-answer">Una marca anterior puede impedir el registro de una nueva si existe riesgo de confusi&oacute;n para los consumidores. Antes de presentar la solicitud es recomendable realizar una b&uacute;squeda de antecedentes para identificar posibles conflictos. Si ya existe una marca similar registrada, existen alternativas que dependen del caso concreto.</p></details>
 <details><summary>&iquest;Es obligatorio hacer una b&uacute;squeda de antecedentes antes de registrar?</summary>
@@ -608,12 +606,31 @@ footer a{color:var(--primary);}footer strong{color:var(--white);}
   <p>&copy; 2026 Juristam. Todos los derechos reservados. <a href="/blog/">Blog</a> &middot; <a href="/#formulario">Contacto</a> &middot; <a href="https://juristam.net/conocenos.html">Con&oacute;cenos</a></p>
   <p style="margin-top:.5rem;font-size:.8rem;opacity:.7;">Este art&iacute;culo es informativo y no constituye asesor&iacute;a legal individualizada.</p>
 </div></footer>
+
+<div class="wa-modal-overlay" id="waModal" role="dialog" aria-modal="true" aria-labelledby="waModalTitle">
+ <div class="wa-modal">
+ <button class="wa-modal-close" id="waModalClose" aria-label="Cerrar">&#10005;</button>
+ <div class="wa-modal-title" id="waModalTitle">As&iacute; trabajamos tu caso</div>
+ <p class="wa-modal-lead">El abogado revisa tu documentaci&oacute;n, tus plazos y tu posici&oacute;n <strong>antes</strong> de sentarse contigo. Llegas a una estrategia definida, no a una conversaci&oacute;n exploratoria. Por eso la asesor&iacute;a tiene un valor:</p>
+ <a class="wa-modal-btn" id="waModalLink" href="https://wa.me/593994859814?text=Hola%2C%20vengo%20del%20art%C3%ADculo%20sobre%20C%C3%93MO%20REGISTRAR%20UNA%20MARCA.%20Quiero%20registrar%20mi%20marca%20en%20el%20SENADI." target="_blank" rel="noopener">Continuar a WhatsApp</a>
+ <div class="wa-modal-prices">
+ <div class="wa-price-box featured"><div class="wa-price-label">Virtual</div><div class="wa-price-amount">$45</div><div class="wa-price-note">Todo Ecuador</div></div>
+ <div class="wa-price-box"><div class="wa-price-label">Presencial</div><div class="wa-price-amount">$85</div><div class="wa-price-note">Sede Guayaquil</div></div>
+ </div>
+ <p class="wa-modal-note">Si contratas el servicio, los $45 se descuentan del precio final. No es un gasto aparte: es el primer paso del caso.</p>
+ </div>
+</div>
 <script>
-const WA_URL="https://wa.me/593994859814?text=Hola%2C%20quiero%20registrar%20una%20marca%20en%20Ecuador";
-function abrirModal(){document.getElementById('waModal').classList.add('active');document.body.style.overflow='hidden';}
-function cerrarModal(){document.getElementById('waModal').classList.remove('active');document.body.style.overflow='';}
-function irAWhatsApp(){cerrarModal();window.open(WA_URL,'_blank','noopener');}
-document.getElementById('waModal').addEventListener('click',function(e){if(e.target===this)cerrarModal();});
-document.addEventListener('keydown',function(e){if(e.key==='Escape')cerrarModal();});
+(function(){
+  var overlay=document.getElementById('waModal'),closeBtn=document.getElementById('waModalClose'),modalLink=document.getElementById('waModalLink');
+  if(!overlay||!modalLink) return;
+  var triggers=document.querySelectorAll('a[href*="wa.me"]:not(#waModalLink)');
+  function openModal(e){e.preventDefault();var h=this.getAttribute('href');if(h&&h.indexOf('wa.me')!==-1){modalLink.setAttribute('href',h);}overlay.classList.add('active');document.body.style.overflow='hidden';}
+  function closeModal(){overlay.classList.remove('active');document.body.style.overflow='';}
+  triggers.forEach(function(b){b.addEventListener('click',openModal);});
+  closeBtn.addEventListener('click',closeModal);
+  overlay.addEventListener('click',function(e){if(e.target===overlay)closeModal();});
+  document.addEventListener('keydown',function(e){if(e.key==='Escape')closeModal();});
+})();
 </script>
 </body></html>
