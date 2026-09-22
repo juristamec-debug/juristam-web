@@ -170,6 +170,19 @@ footer a{color:var(--primary);}footer strong{color:var(--white);}
 .lp-ref-btn{background:var(--primary-dark);color:#fff;border-radius:10px;padding:.72rem 1.3rem;font-size:.88rem;font-weight:700;white-space:nowrap;flex-shrink:0;text-decoration:none;display:inline-block;}
 .lp-ref-btn:hover{background:var(--primary);color:#fff;}
 @media(max-width:560px){.lp-ref{gap:.85rem;}.lp-ref-btn{width:100%;text-align:center;}}
+
+.form-async{background:linear-gradient(135deg,#f9f9fb,#efe8ff);border:1.5px solid var(--primary,#9a6aff);border-radius:16px;padding:1.6rem 1.8rem;margin:2.5rem 0;}
+.form-async h3{font-family:'Lora',serif;font-size:1.15rem;color:var(--text,#1a1a2e);margin-bottom:.4rem;}
+.form-async > p{font-size:.88rem;color:var(--text-secondary,#4a4a6a);margin-bottom:1.2rem;line-height:1.65;}
+.form-async form{display:grid;gap:.7rem;}
+.form-async .form-row{display:grid;grid-template-columns:1fr 1fr;gap:.7rem;}
+.form-async input,.form-async textarea{width:100%;padding:.75rem 1rem;border:1.5px solid var(--border,#e8e8f0);border-radius:10px;font-family:inherit;font-size:.9rem;background:#fff;color:var(--text,#1a1a2e);transition:border-color .2s;}
+.form-async input:focus,.form-async textarea:focus{outline:none;border-color:var(--primary,#9a6aff);}
+.form-async textarea{resize:vertical;min-height:90px;}
+.form-async button{background:var(--primary-dark,#7c3aed);color:#fff;padding:.85rem 1.5rem;border-radius:10px;font-size:.92rem;font-weight:700;cursor:pointer;border:none;font-family:inherit;transition:background .2s;}
+.form-async button:hover{background:var(--primary,#9a6aff);}
+.form-async .form-note{font-size:.76rem;color:var(--text-secondary,#4a4a6a);text-align:center;line-height:1.5;margin-top:.3rem;}
+@media(max-width:560px){.form-async{padding:1.3rem 1.1rem;}.form-async .form-row{grid-template-columns:1fr;}}
 </style>
 <!-- Google Analytics 4 -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-3L5I5CEKRL"></script>
@@ -218,7 +231,7 @@ footer a{color:var(--primary);}footer strong{color:var(--white);}
     </div>
     <div class="modal-foot">
       <a class="btn-modal-wa" id="waModalLink" href="https://wa.me/593994859814?text=Hola%2C%20vengo%20de%20los%20casos%20de%20REGISTRO%20DE%20MARCA.%20Quiero%20revisar%20mi%20caso%20antes%20de%20presentar." target="_blank" rel="noopener" onclick="cerrarModal()">Continuar a WhatsApp →</a>
-      <p class="modal-alt">¿Prefieres correo? <a href="/blog/registrar-marca-ecuador.html#formulario-async" target="_blank">Déjanos tus datos aquí</a></p>
+      <p class="modal-alt">¿Prefieres correo? <a href="/blog/registrar-marca-ecuador.html#formulario-async" target="_blank" rel="noopener">Déjanos tus datos aquí</a></p>
     </div>
   </div>
 </div>
@@ -659,6 +672,30 @@ footer a{color:var(--primary);}footer strong{color:var(--white);}
 </div>
 </div>
 
+
+<section class="form-async" id="formulario-async">
+  <h3>&iquest;Prefieres que te contactemos por correo?</h3>
+  <p>Si el WhatsApp no es tu canal habitual, d&eacute;janos tus datos y te escribimos desde <strong>legal@juristam.net</strong> con el an&aacute;lisis de tu caso. Respondemos en menos de 24 horas h&aacute;biles.</p>
+  <form action="https://formsubmit.co/legal@juristam.net" method="POST">
+    <input type="hidden" name="_subject" value="Nueva consulta: Casos de registro de marca">
+    <input type="hidden" name="_captcha" value="false">
+    <input type="hidden" name="_template" value="table">
+    <input type="hidden" name="_next" value="https://juristam.net/gracias.html">
+    <input type="text" name="_honey" style="display:none">
+    <div class="form-row">
+      <input type="text" name="nombre" placeholder="Nombre completo" required>
+      <input type="email" name="email" placeholder="Correo electr&oacute;nico" required>
+    </div>
+    <div class="form-row">
+      <input type="tel" name="telefono" placeholder="Tel&eacute;fono / WhatsApp (opcional)">
+      <input type="text" name="empresa" placeholder="Empresa o marca (opcional)">
+    </div>
+    <textarea name="consulta" placeholder="Cuéntanos qué marca quieres registrar y en qué actividad opera tu negocio." required></textarea>
+    <button type="submit">Enviar consulta por correo &rarr;</button>
+    <p class="form-note">Tus datos solo se usan para responder tu consulta. No compartimos informaci&oacute;n con terceros.</p>
+  </form>
+</section>
+
 <footer><div class="container">
   <p><strong>Juristam</strong> — Asesoría Legal Estratégica en Ecuador</p>
   <p>© 2026 Juristam. Todos los derechos reservados. <a href="/blog/">Blog</a> · <a href="/#contacto">Contacto</a></p>
@@ -712,5 +749,84 @@ function filtrar(btn){
   document.getElementById("contador").textContent = n;
 }
 </script>
+<script>
+/* ===== Medición de conversión · Juristam ===== */
+(function(){
+  if(window.__jtrack) return; window.__jtrack=1;
+  window.dataLayer=window.dataLayer||[];
+  function gt(){ if(typeof gtag==='function'){try{gtag.apply(null,arguments);}catch(e){}} else {window.dataLayer.push(arguments);} }
+  var PAG=(document.title||'').slice(0,90);
+  var t0=Date.now(), maxScroll=0, hitos={};
+  function ev(n,p){ p=p||{}; p.pagina=PAG; p.segundos=Math.round((Date.now()-t0)/1000); gt('event',n,p); }
+
+  function txt(el){ return (el.textContent||'').trim().replace(/\s+/g,' ').slice(0,60); }
+  function zona(el){
+    if(el.closest('.diag')) return 'diagnostico';
+    if(el.closest('header')) return 'header';
+    if(el.closest('footer')) return 'footer';
+    if(el.closest('.caso-card,.caso-footer')) return 'caso';
+    if(el.closest('.oferta-box,.cta-final,.cta-block')) return 'oferta';
+    if(el.closest('.cta-urgente')) return 'cta-urgente';
+    if(el.classList.contains('wa-float')) return 'flotante';
+    return 'cuerpo';
+  }
+
+  document.addEventListener('click', function(e){
+    var el=e.target;
+    while(el && el!==document.body && !(el.tagName==='A'||el.tagName==='BUTTON')) el=el.parentNode;
+    if(!el||el===document.body||!el.tagName) return;
+
+    var id=el.id||'', cls=el.className||'';
+    if(typeof cls!=='string') cls='';
+
+    if(/^diagGo/.test(id)||/btn-diag-go/.test(cls)){ ev('diagnostico_inicio'); return; }
+    if(/btn-diag\b/.test(cls)){ ev('diagnostico_cta',{etiqueta:txt(el)}); return; }
+    if(id==='waModalLink'){ ev('whatsapp_abierto',{con_diagnostico:!!window.__diagMsg}); return; }
+    if(/lp-ref-btn/.test(cls)){ ev('click_landing',{destino:el.getAttribute('href')||''}); return; }
+    if(/btn-caso|caso-cta-link/.test(cls)){ ev('caso_cta',{etiqueta:txt(el)}); return; }
+    if(/filtro-btn/.test(cls)){ ev('filtro_casos',{filtro:el.getAttribute('data-filtro')||''}); return; }
+
+    var href=el.getAttribute&&el.getAttribute('href')||'';
+    var wa=el.getAttribute&&el.getAttribute('data-wa')||'';
+    if(href.indexOf('wa.me')!==-1||wa){ ev('cta_whatsapp',{zona:zona(el),etiqueta:txt(el)}); return; }
+  }, true);
+
+  document.addEventListener('submit', function(e){
+    if(e.target&&e.target.tagName==='FORM') ev('formulario_enviado');
+  }, true);
+
+  function observar(sel,cb){
+    var n=document.querySelector(sel); if(!n) return;
+    new MutationObserver(cb).observe(n,{attributes:true,attributeFilter:['class','hidden','style']});
+  }
+  observar('.diag-res',function(){
+    var r=document.querySelector('.diag-res');
+    if(r&&!r.hidden&&!hitos.diag){ hitos.diag=1;
+      var n=r.querySelector('.diag-res-n'), tt=r.querySelector('.diag-res-top strong');
+      ev('diagnostico_completado',{resultado:n?txt(n):'',titular:tt?txt(tt):''});
+    }
+  });
+  observar('#waModal',function(){
+    var m=document.getElementById('waModal');
+    if(m&&m.classList.contains('active')&&!hitos.modalAbierto){ hitos.modalAbierto=1; ev('modal_abierto'); }
+  });
+
+  var tick=false;
+  window.addEventListener('scroll',function(){
+    if(tick) return; tick=true;
+    setTimeout(function(){
+      tick=false;
+      var h=document.body.scrollHeight-window.innerHeight;
+      if(h<=0) return;
+      var p=Math.round(100*window.scrollY/h);
+      if(p>maxScroll) maxScroll=p;
+      [25,50,75,90].forEach(function(u){ if(maxScroll>=u&&!hitos['s'+u]){hitos['s'+u]=1; ev('scroll',{profundidad:u});} });
+    },250);
+  },{passive:true});
+
+  window.addEventListener('pagehide',function(){ ev('salida',{scroll_max:maxScroll}); });
+})();
+</script>
+
 </body>
 </html>

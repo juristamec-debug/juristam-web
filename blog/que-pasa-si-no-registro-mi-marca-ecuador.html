@@ -1105,4 +1105,83 @@ function waDiag(m){window.__diagMsg=m;return 'https://wa.me/593994859814?text='+
   onChange();
 })();
 </script>
+<script>
+/* ===== Medición de conversión · Juristam ===== */
+(function(){
+  if(window.__jtrack) return; window.__jtrack=1;
+  window.dataLayer=window.dataLayer||[];
+  function gt(){ if(typeof gtag==='function'){try{gtag.apply(null,arguments);}catch(e){}} else {window.dataLayer.push(arguments);} }
+  var PAG=(document.title||'').slice(0,90);
+  var t0=Date.now(), maxScroll=0, hitos={};
+  function ev(n,p){ p=p||{}; p.pagina=PAG; p.segundos=Math.round((Date.now()-t0)/1000); gt('event',n,p); }
+
+  function txt(el){ return (el.textContent||'').trim().replace(/\s+/g,' ').slice(0,60); }
+  function zona(el){
+    if(el.closest('.diag')) return 'diagnostico';
+    if(el.closest('header')) return 'header';
+    if(el.closest('footer')) return 'footer';
+    if(el.closest('.caso-card,.caso-footer')) return 'caso';
+    if(el.closest('.oferta-box,.cta-final,.cta-block')) return 'oferta';
+    if(el.closest('.cta-urgente')) return 'cta-urgente';
+    if(el.classList.contains('wa-float')) return 'flotante';
+    return 'cuerpo';
+  }
+
+  document.addEventListener('click', function(e){
+    var el=e.target;
+    while(el && el!==document.body && !(el.tagName==='A'||el.tagName==='BUTTON')) el=el.parentNode;
+    if(!el||el===document.body||!el.tagName) return;
+
+    var id=el.id||'', cls=el.className||'';
+    if(typeof cls!=='string') cls='';
+
+    if(/^diagGo/.test(id)||/btn-diag-go/.test(cls)){ ev('diagnostico_inicio'); return; }
+    if(/btn-diag\b/.test(cls)){ ev('diagnostico_cta',{etiqueta:txt(el)}); return; }
+    if(id==='waModalLink'){ ev('whatsapp_abierto',{con_diagnostico:!!window.__diagMsg}); return; }
+    if(/lp-ref-btn/.test(cls)){ ev('click_landing',{destino:el.getAttribute('href')||''}); return; }
+    if(/btn-caso|caso-cta-link/.test(cls)){ ev('caso_cta',{etiqueta:txt(el)}); return; }
+    if(/filtro-btn/.test(cls)){ ev('filtro_casos',{filtro:el.getAttribute('data-filtro')||''}); return; }
+
+    var href=el.getAttribute&&el.getAttribute('href')||'';
+    var wa=el.getAttribute&&el.getAttribute('data-wa')||'';
+    if(href.indexOf('wa.me')!==-1||wa){ ev('cta_whatsapp',{zona:zona(el),etiqueta:txt(el)}); return; }
+  }, true);
+
+  document.addEventListener('submit', function(e){
+    if(e.target&&e.target.tagName==='FORM') ev('formulario_enviado');
+  }, true);
+
+  function observar(sel,cb){
+    var n=document.querySelector(sel); if(!n) return;
+    new MutationObserver(cb).observe(n,{attributes:true,attributeFilter:['class','hidden','style']});
+  }
+  observar('.diag-res',function(){
+    var r=document.querySelector('.diag-res');
+    if(r&&!r.hidden&&!hitos.diag){ hitos.diag=1;
+      var n=r.querySelector('.diag-res-n'), tt=r.querySelector('.diag-res-top strong');
+      ev('diagnostico_completado',{resultado:n?txt(n):'',titular:tt?txt(tt):''});
+    }
+  });
+  observar('#waModal',function(){
+    var m=document.getElementById('waModal');
+    if(m&&m.classList.contains('active')&&!hitos.modalAbierto){ hitos.modalAbierto=1; ev('modal_abierto'); }
+  });
+
+  var tick=false;
+  window.addEventListener('scroll',function(){
+    if(tick) return; tick=true;
+    setTimeout(function(){
+      tick=false;
+      var h=document.body.scrollHeight-window.innerHeight;
+      if(h<=0) return;
+      var p=Math.round(100*window.scrollY/h);
+      if(p>maxScroll) maxScroll=p;
+      [25,50,75,90].forEach(function(u){ if(maxScroll>=u&&!hitos['s'+u]){hitos['s'+u]=1; ev('scroll',{profundidad:u});} });
+    },250);
+  },{passive:true});
+
+  window.addEventListener('pagehide',function(){ ev('salida',{scroll_max:maxScroll}); });
+})();
+</script>
+
 </body></html>

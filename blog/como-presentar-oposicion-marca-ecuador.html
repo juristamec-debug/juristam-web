@@ -346,7 +346,7 @@
           "@type": "HowToStep",
           "position": 6,
           "name": "Presentar dentro de los 30 días hábiles",
-          "text": "El escrito se ingresa ante el SENADI dentro del plazo de 30 días hábiles contados desde la publicación en la Gaceta. Vencido el plazo, la oposición administrativa ya no puede presentarse.",
+          "text": "El escrito se ingresa ante el SENADI dentro del plazo de 30 días hábiles contados desde la publicación en la Gaceta (Art. 146 de la Decisión 486). Vencido el plazo, la oposición administrativa ya no puede presentarse.",
           "url": "https://juristam.net/blog/como-presentar-oposicion-marca-ecuador.html#paso-6"
         }
       ]
@@ -388,7 +388,7 @@
           "name": "¿Cuánto tiempo tengo para oponerme a una marca en Ecuador?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Tienes 30 días hábiles contados desde la publicación de la solicitud en la Gaceta de Propiedad Intelectual del SENADI. El plazo corre desde la publicación, no desde que te enteras de que existe la solicitud. Vencido ese término, la oposición administrativa ya no puede presentarse y solo quedan acciones posteriores, más largas y costosas."
+            "text": "Tienes 30 días hábiles contados desde la publicación de la solicitud en la Gaceta de Propiedad Intelectual del SENADI (Art. 146 de la Decisión 486). El plazo corre desde la publicación, no desde que te enteras de que existe la solicitud. Vencido ese término, la oposición administrativa ya no puede presentarse y solo quedan acciones posteriores, más largas y costosas."
           }
         },
         {
@@ -631,8 +631,6 @@ details[open] summary::after{content:"−";}
 details[open]{border-color:var(--primary);}
 details[open] summary{background:var(--primary-light);}
 .faq-answer{padding:1rem 1.2rem 1.2rem;font-size:.93rem;color:var(--text-secondary);line-height:1.75;border-top:1px solid var(--border);}
-.modal-overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,.5);z-index:999;}
-.modal-overlay.active{display:block;}
 @media(max-width:600px){.oferta-items{grid-template-columns:1fr;}.oferta-completo{grid-template-columns:1fr;}.cta-urgente{flex-direction:column;align-items:flex-start;}.tabla{font-size:.82rem;}.tabla th,.tabla td{padding:.65rem .7rem;}}
 
 .wa-modal-overlay{position:fixed;inset:0;z-index:2000;background:rgba(10,10,15,.45);backdrop-filter:blur(6px);display:flex;align-items:flex-end;justify-content:center;padding:0 0 80px;opacity:0;pointer-events:none;transition:opacity .22s ease;}
@@ -650,6 +648,150 @@ details[open] summary{background:var(--primary-light);}
 .wa-price-note{font-size:.6rem;color:#6b7280;margin-top:3px;}
 .wa-modal-note{font-size:.72rem;color:var(--text-secondary);text-align:center;line-height:1.6;}
 @media(min-width:640px){.wa-modal-overlay{align-items:center;padding:0;}}
+
+@media(max-width:400px){
+  .cta-block{padding:1.4rem 1rem;}
+  .brand-logo{height:48px;}
+}
+
+/* --- el modal se escala completo: nada se corta, nada se recorta --- */
+#waModal .modal{max-height:none!important;overflow:visible!important;transform-origin:center center;will-change:transform;}
+#waModal .modal-body{flex:0 0 auto!important;}
+.modal-body{overflow:visible!important;max-height:none!important;}
+.modal-top p{display:block!important;}
+.modal-benefit{display:block!important;}
+.modal-incluye li{display:list-item!important;}
+.modal-precio .mdesc{display:block!important;}
+.modal-overlay{padding:.6rem;}
+
+/* Pantallas de 320-400px (iPhone SE, Android de gama baja) */
+@media(max-width:400px){
+  .costo-row{flex-wrap:wrap;gap:.3rem;align-items:flex-start;}
+  .costo-row > *{min-width:0;}
+  .costo-valor{white-space:normal;text-align:left;flex:none;width:100%;}
+  .btn-wa,.btn-solid,.btn-caso,.btn-modal-wa,.btn-wa-hero,.btn-header-cta{white-space:normal;}
+  table,.tabla,.compare-table{display:block;width:100%;overflow-x:auto;-webkit-overflow-scrolling:touch;}
+  .container{padding:0 1rem;}
+}
+
+/* ===== Diagnóstico interactivo ===== */
+.diag{background:linear-gradient(160deg,#1e0a4e 0%,#2a0f5e 60%,#1a0842 100%);border-radius:18px;padding:1.8rem 1.6rem;margin:2.5rem 0;}
+.diag-label{display:block;font-size:.66rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:#a78bfa;margin-bottom:.5rem;}
+.diag h3{font-family:'Lora',serif;font-size:1.3rem;color:#fff;margin:0 0 .35rem;}
+.diag-sub{font-size:.88rem;color:#c7bce8;line-height:1.65;margin-bottom:1.1rem;}
+.diag-opts label{display:flex;align-items:flex-start;gap:.7rem;background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.14);border-radius:10px;padding:.75rem .9rem;margin-bottom:.5rem;font-size:.89rem;color:#ede9fe;line-height:1.5;cursor:pointer;transition:background .15s,border-color .15s;}
+.diag-opts label:hover{background:rgba(255,255,255,.12);}
+.diag-opts label.on{background:rgba(220,38,38,.18);border-color:rgba(248,113,113,.55);}
+.diag-opts label.on-ok{background:rgba(5,150,105,.2);border-color:rgba(52,211,153,.55);}
+.diag-opts input{margin-top:.28rem;width:16px;height:16px;flex-shrink:0;accent-color:#a78bfa;cursor:pointer;}
+.diag-campo{margin-bottom:.8rem;}
+.diag-campo > span{display:block;font-size:.8rem;color:#c7bce8;margin-bottom:.45rem;font-weight:600;}
+.diag-chips{display:flex;gap:.4rem;flex-wrap:wrap;}
+.diag-chip{background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.18);color:#ede9fe;border-radius:8px;padding:.5rem .9rem;font-size:.85rem;font-weight:600;font-family:inherit;cursor:pointer;transition:all .15s;}
+.diag-chip:hover{background:rgba(255,255,255,.15);}
+.diag-chip.sel{background:#a78bfa;border-color:#a78bfa;color:#1e0a4e;}
+.btn-diag-go{width:100%;margin-top:.9rem;background:#a78bfa;color:#1e0a4e;border:none;border-radius:10px;padding:.85rem 1.2rem;font-size:.95rem;font-weight:700;font-family:inherit;cursor:pointer;transition:background .15s,opacity .15s;}
+.btn-diag-go:hover:not(:disabled){background:#c4b5fd;}
+.btn-diag-go:disabled{opacity:.38;cursor:not-allowed;}
+.diag-hint{text-align:center;font-size:.74rem;color:#8b7cb8;margin:.5rem 0 0;}
+.diag-res{margin-top:1.3rem;border-top:1px solid rgba(255,255,255,.16);padding-top:1.3rem;}
+.diag-res-top{display:flex;align-items:center;gap:1rem;margin-bottom:1.1rem;}
+.diag-res-n{font-family:'Lora',serif;font-size:2rem;font-weight:700;color:#fff;line-height:1.05;background:rgba(220,38,38,.25);border:2px solid rgba(248,113,113,.5);border-radius:14px;min-width:84px;padding:.7rem .5rem;text-align:center;flex-shrink:0;}
+.diag-res-n.ok{background:rgba(5,150,105,.25);border-color:rgba(52,211,153,.6);}
+.diag-res-n.med{background:rgba(217,119,6,.25);border-color:rgba(251,191,36,.6);}
+.diag-res-n small{display:block;font-family:'DM Sans',sans-serif;font-size:.6rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;opacity:.85;margin-top:.25rem;}
+.diag-res-top strong{display:block;font-size:.72rem;text-transform:uppercase;letter-spacing:.1em;color:#fca5a5;margin-bottom:.3rem;}
+.diag-res-top.ok strong{color:#6ee7b7;}
+.diag-res-top.med strong{color:#fcd34d;}
+.diag-res-top p{font-size:.92rem;color:#ede9fe;line-height:1.6;margin:0;}
+.diag-items{display:grid;gap:.6rem;}
+.diag-item{background:rgba(255,255,255,.06);border-left:3px solid #f87171;border-radius:0 10px 10px 0;padding:.85rem 1rem;}
+.diag-item.ok{border-left-color:#34d399;}
+.diag-item.med{border-left-color:#fbbf24;}
+.diag-item b{display:block;font-size:.85rem;color:#fff;margin-bottom:.3rem;line-height:1.4;}
+.diag-item p{font-size:.85rem;color:#c7bce8;line-height:1.65;margin:0;}
+.diag-tabla{background:rgba(255,255,255,.06);border-radius:12px;padding:.9rem 1.05rem;margin-bottom:.7rem;}
+.diag-fila{display:flex;justify-content:space-between;align-items:baseline;gap:1rem;padding:.42rem 0;border-bottom:1px solid rgba(255,255,255,.1);font-size:.87rem;color:#c7bce8;}
+.diag-fila:last-child{border-bottom:none;}
+.diag-fila span:last-child{color:#fff;font-weight:700;white-space:nowrap;}
+.diag-fila.total{border-top:2px solid rgba(167,139,250,.5);margin-top:.35rem;padding-top:.6rem;border-bottom:none;font-size:1rem;}
+.diag-fila.total span{color:#fff;font-weight:700;}
+.diag-fila.total span:last-child{font-family:'Lora',serif;font-size:1.4rem;}
+.diag-fila.ahorro span:last-child{color:#6ee7b7;}
+.diag-combo{margin-top:.8rem;background:rgba(217,119,6,.18);border:1px solid rgba(251,191,36,.45);border-radius:10px;padding:.9rem 1.05rem;}
+.diag-combo b{display:block;font-size:.72rem;text-transform:uppercase;letter-spacing:.08em;color:#fbbf24;margin-bottom:.35rem;}
+.diag-combo p{font-size:.86rem;color:#fde68a;line-height:1.65;margin:0;}
+.diag-combo a{color:#fff;text-decoration:underline;font-weight:600;}
+.diag-cierre{margin-top:1.1rem;background:rgba(255,255,255,.1);border-radius:12px;padding:1.1rem;text-align:center;}
+.diag-cierre p{font-size:.87rem;color:#ede9fe;line-height:1.65;margin:0 0 .9rem;text-align:left;}
+.diag-cierre strong{color:#fff;}
+.btn-diag{background:#25d366;color:#fff;border:none;border-radius:10px;padding:.8rem 1.6rem;font-size:.93rem;font-weight:700;font-family:inherit;cursor:pointer;width:100%;}
+.btn-diag:hover{background:#1da851;}
+.diag-nota{display:block;font-size:.72rem;color:#a78bfa;margin-top:.55rem;}
+.diag-gar{margin-top:1.1rem;display:grid;gap:.6rem;}
+.diag-gar > div{border-radius:10px;padding:.85rem 1rem;text-align:left;}
+.diag-gar .dg-a{background:rgba(5,150,105,.18);border:1px solid rgba(52,211,153,.45);}
+.diag-gar .dg-b{background:rgba(255,255,255,.07);border-left:3px solid #a78bfa;border-radius:0 10px 10px 0;}
+.diag-gar b{display:block;font-size:.72rem;text-transform:uppercase;letter-spacing:.08em;margin-bottom:.3rem;}
+.diag-gar .dg-a b{color:#6ee7b7;}
+.diag-gar .dg-b b{color:#c4b5fd;}
+.diag-gar p{font-size:.85rem;color:#ede9fe;line-height:1.65;margin:0;text-align:left;}
+.diag-gar .dg-a strong{color:#6ee7b7;}
+.diag-gar .dg-b strong{color:#fff;}
+@media(max-width:600px){.diag{padding:1.4rem 1.1rem;}.diag-res-n{min-width:70px;font-size:1.65rem;}.diag-fila{font-size:.82rem;}}
+
+.incluye li.incluye-dest{background:var(--success-light);border:1px solid var(--success);border-radius:8px;padding:.6rem .8rem .6rem 2.1rem;margin-bottom:.5rem;}
+.incluye li.incluye-dest::before{color:var(--success);}
+.incluye li.incluye-dest strong{color:var(--success);}
+.que-es-45{background:var(--primary-light);border:1px solid rgba(154,106,255,.35);border-radius:12px;padding:.95rem 1.15rem;margin:.9rem 0;}
+.que-es-45 > strong{display:block;font-size:.72rem;text-transform:uppercase;letter-spacing:.08em;color:var(--primary-dark);margin-bottom:.4rem;}
+.que-es-45 p{font-size:.86rem;color:var(--text);line-height:1.7;margin:0;}
+.que-es-45 p strong{color:var(--primary-dark);}
+.cta-vig{background:rgba(52,211,153,.15);border:1px solid rgba(52,211,153,.45);border-radius:10px;padding:.7rem 1rem;max-width:520px;margin:0 auto 1rem;font-size:.84rem;color:#d1fae5;line-height:1.6;}
+.cta-vig strong{color:#6ee7b7;}
+
+.modal-que-es{background:#f5f3ff;border:1px solid rgba(124,58,237,.3);border-radius:8px;padding:.55rem .7rem;font-size:.7rem;color:#4a4a6a;line-height:1.5;margin:.5rem 0 0;}
+.modal-que-es strong{color:#7c3aed;}
+.modal-diag-of{font-size:.68rem;text-align:center;color:#6b7280;line-height:1.45;margin:.5rem 0 0;}
+.modal-diag-of a{color:#7c3aed;text-decoration:underline;font-weight:700;cursor:pointer;}
+
+.garantia{background:#ecfdf5;border:1.5px solid var(--success);border-radius:12px;padding:1rem 1.2rem;margin:.9rem 0;}
+.garantia > strong{display:block;font-size:.74rem;text-transform:uppercase;letter-spacing:.08em;color:var(--success);margin-bottom:.4rem;}
+.garantia p{font-size:.87rem;color:var(--text);line-height:1.7;margin:0;}
+.garantia p strong{color:var(--success);}
+.barato{background:var(--gray-light);border-left:3px solid var(--primary);border-radius:0 10px 10px 0;padding:.85rem 1.1rem;margin:.9rem 0;}
+.barato > strong{display:block;font-size:.74rem;text-transform:uppercase;letter-spacing:.08em;color:var(--primary-dark);margin-bottom:.35rem;}
+.barato p{font-size:.86rem;color:var(--text-secondary);line-height:1.7;margin:0;}
+.barato p strong{color:var(--text);}
+.cta-gar{background:rgba(52,211,153,.15);border:1px solid rgba(52,211,153,.45);border-radius:10px;padding:.7rem 1rem;max-width:520px;margin:0 auto 1rem;font-size:.84rem;color:#d1fae5;line-height:1.6;}
+.cta-gar strong{color:#6ee7b7;}
+
+.lp-ref{display:flex;align-items:center;gap:1.1rem;flex-wrap:wrap;background:#fff;border:2px solid var(--primary);border-radius:14px;padding:1.1rem 1.3rem;margin:1.8rem 0;box-shadow:0 6px 24px rgba(124,58,237,.14);}
+.lp-ref-txt{flex:1;min-width:210px;}
+.lp-ref-txt b{display:block;font-family:'Lora',serif;font-size:1.05rem;color:var(--text);line-height:1.35;margin-bottom:.25rem;}
+.lp-ref-txt span{display:block;font-size:.85rem;color:var(--text-secondary);line-height:1.6;}
+.lp-ref-btn{background:var(--primary-dark);color:#fff;border-radius:10px;padding:.72rem 1.3rem;font-size:.88rem;font-weight:700;white-space:nowrap;flex-shrink:0;text-decoration:none;display:inline-block;}
+.lp-ref-btn:hover{background:var(--primary);color:#fff;}
+@media(max-width:560px){.lp-ref{gap:.85rem;}.lp-ref-btn{width:100%;text-align:center;}}
+
+[hidden]{display:none!important;}
+.diag-date{width:100%;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.2);color:#ede9fe;border-radius:10px;padding:.7rem .9rem;font-size:.9rem;font-family:inherit;margin-bottom:.45rem;}
+.diag-date::-webkit-calendar-picker-indicator{filter:invert(1);opacity:.7;cursor:pointer;}
+.wa-modal{max-height:92vh;overflow-y:auto;}
+
+
+.form-async{background:linear-gradient(135deg,#f9f9fb,#efe8ff);border:1.5px solid var(--primary,#9a6aff);border-radius:16px;padding:1.6rem 1.8rem;margin:2.5rem 0;}
+.form-async h3{font-family:'Lora',serif;font-size:1.15rem;color:var(--text,#1a1a2e);margin-bottom:.4rem;}
+.form-async > p{font-size:.88rem;color:var(--text-secondary,#4a4a6a);margin-bottom:1.2rem;line-height:1.65;}
+.form-async form{display:grid;gap:.7rem;}
+.form-async .form-row{display:grid;grid-template-columns:1fr 1fr;gap:.7rem;}
+.form-async input,.form-async textarea{width:100%;padding:.75rem 1rem;border:1.5px solid var(--border,#e8e8f0);border-radius:10px;font-family:inherit;font-size:.9rem;background:#fff;color:var(--text,#1a1a2e);transition:border-color .2s;}
+.form-async input:focus,.form-async textarea:focus{outline:none;border-color:var(--primary,#9a6aff);}
+.form-async textarea{resize:vertical;min-height:90px;}
+.form-async button{background:var(--primary-dark,#7c3aed);color:#fff;padding:.85rem 1.5rem;border-radius:10px;font-size:.92rem;font-weight:700;cursor:pointer;border:none;font-family:inherit;transition:background .2s;}
+.form-async button:hover{background:var(--primary,#9a6aff);}
+.form-async .form-note{font-size:.76rem;color:var(--text-secondary,#4a4a6a);text-align:center;line-height:1.5;margin-top:.3rem;}
+@media(max-width:560px){.form-async{padding:1.3rem 1.1rem;}.form-async .form-row{grid-template-columns:1fr;}}
 </style>
 <!-- Google Analytics 4 -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-3L5I5CEKRL"></script>
@@ -711,6 +853,43 @@ details[open] summary{background:var(--primary-light);}
     <li>La mayor&iacute;a de oposiciones que fracasan no lo hacen por falta de raz&oacute;n, sino por <strong>invocar la norma equivocada o no probar el uso</strong>.</li>
   </ul>
 </div>
+
+<div class="diag" id="diagOpo2">
+  <span class="diag-label">Diagnóstico · 40 segundos</span>
+  <h3>¿Tu oposición se sostiene?</h3>
+  <p class="diag-sub">La mayoría de oposiciones que fracasan no fracasan por falta de razón: fracasan por invocar la norma equivocada o por no poder probar el uso. Responde tres cosas y te digo qué derecho te toca invocar, qué prueba necesitas y cuántos días te quedan.</p>
+
+  <div class="diag-campo">
+    <span>1. ¿Qué tienes sobre tu propio signo?</span>
+    <div class="diag-opts" id="dqDer">
+      <label><input type="radio" name="dDer" value="reg"> Marca registrada y vigente</label>
+      <label><input type="radio" name="dDer" value="sol"> Una solicitud anterior, todavía en trámite</label>
+      <label><input type="radio" name="dDer" value="uso"> Lo uso hace años, pero nunca lo registré</label>
+      <label><input type="radio" name="dDer" value="nada"> Nada todavía: recién voy a registrar</label>
+    </div>
+  </div>
+
+  <div class="diag-campo" id="dqFWrap" hidden>
+    <span>2. ¿Qué fecha tiene la publicación en la Gaceta?</span>
+    <input type="date" id="dqF" class="diag-date">
+    <button type="button" class="diag-chip" id="dqSinF">No sé la fecha</button>
+  </div>
+
+  <div class="diag-campo" id="dqRWrap" hidden>
+    <span>3. ¿El signo publicado es del mismo rubro que el tuyo?</span>
+    <div class="diag-chips" id="dqR">
+      <button type="button" class="diag-chip" data-v="misma">Misma clase</button>
+      <button type="button" class="diag-chip" data-v="conexa">Rubro relacionado</button>
+      <button type="button" class="diag-chip" data-v="otra">Rubro distinto</button>
+    </div>
+  </div>
+
+  <button type="button" class="btn-diag-go" id="diagGo2" disabled>Comenzar diagnóstico</button>
+  <p class="diag-hint">No pedimos datos. El resultado aparece aquí mismo.</p>
+
+  <div class="diag-res" id="diagRes2" hidden></div>
+</div>
+
 
 <div class="toc">
   <strong>En esta gu&iacute;a</strong>
@@ -807,7 +986,7 @@ details[open] summary{background:var(--primary-light);}
 
 <div class="respuesta-directa">
   <strong class="rd-label">Respuesta directa</strong>
-  La <strong>marca</strong> se adquiere por el registro y protege un signo para productos o servicios determinados. El <strong>nombre comercial</strong> identifica a la actividad o al establecimiento y se adquiere por el uso, no por el registro; su protecci&oacute;n alcanza hasta donde se acredite ese uso. Son derechos distintos, con normas distintas y con exigencias probatorias distintas.
+  La <strong>marca</strong> se adquiere por el registro (<strong>Art. 154 de la Decisi&oacute;n 486</strong>) y protege un signo para productos o servicios determinados. El <strong>nombre comercial</strong> identifica a la actividad o al establecimiento y se adquiere por el uso, no por el registro (<strong>Art. 224</strong>); su protecci&oacute;n alcanza hasta donde se acredite ese uso. Son derechos distintos, con normas distintas y con exigencias probatorias distintas.
 </div>
 
 <p>Esta distinci&oacute;n parece te&oacute;rica y no lo es: es la causa m&aacute;s frecuente de oposiciones bien intencionadas que terminan rechazadas.</p>
@@ -822,7 +1001,7 @@ details[open] summary{background:var(--primary-light);}
 
 <div class="respuesta-directa">
   <strong class="rd-label">Respuesta directa</strong>
-  El plazo para presentar una oposici&oacute;n es de <strong>30 d&iacute;as h&aacute;biles contados desde la publicaci&oacute;n de la solicitud en la Gaceta de Propiedad Intelectual del SENADI</strong>. Corre desde la publicaci&oacute;n, no desde que el titular afectado se entera. Es perentorio: vencido, la oposici&oacute;n administrativa ya no puede presentarse. Cómo se cuentan esos días hábiles y qué ocurre con los feriados está en los <a href="/blog/plazo-oposicion-marca-senadi.html" style="color:var(--primary-dark);font-weight:600;text-decoration:underline;">plazos exactos de oposición</a>.
+  El plazo para presentar una oposici&oacute;n es de <strong>30 d&iacute;as h&aacute;biles contados desde la publicaci&oacute;n de la solicitud en la Gaceta de Propiedad Intelectual del SENADI</strong>, seg&uacute;n el <strong>Art. 146 de la Decisi&oacute;n 486</strong>. Corre desde la publicaci&oacute;n, no desde que el titular afectado se entera. Es perentorio: vencido, la oposici&oacute;n administrativa ya no puede presentarse. Cómo se cuentan esos días hábiles y qué ocurre con los feriados está en los <a href="/blog/plazo-oposicion-marca-senadi.html" style="color:var(--primary-dark);font-weight:600;text-decoration:underline;">plazos exactos de oposición</a>.
 </div>
 
 <p>Dos precisiones que en la pr&aacute;ctica cuestan casos:</p>
@@ -832,6 +1011,14 @@ details[open] summary{background:var(--primary-light);}
 </ul>
 
 <p>Ver el detalle: <a href="/blog/plazo-oposicion-marca-senadi.html">plazos de oposici&oacute;n de marca en el SENADI</a>.</p>
+
+<div class="lp-ref">
+  <div class="lp-ref-txt">
+    <b>Antes de redactar, ubicá tu caso</b>
+    <span>En la página de defensa de marca están las cinco situaciones posibles y el contador de plazos: te opusieron, querés oponerte, te copiaron, te negaron el registro o querés recuperar una marca. Cada una se resuelve por una vía distinta.</span>
+  </div>
+  <a class="lp-ref-btn" href="/defender-mi-marca/">Ver defensa de marca &rarr;</a>
+</div>
 
 <h2 id="paso-a-paso">Paso a paso para presentar la oposici&oacute;n</h2>
 
@@ -881,9 +1068,18 @@ details[open] summary{background:var(--primary-light);}
   </div>
   <div class="oferta-descuento">&#9989; Los $45 de la asesor&iacute;a virtual se descuentan del precio del servicio completo si decides continuar.</div>
   <div class="micro-disclaimer">Si tras la asesor&iacute;a analizamos que tu caso no tiene probabilidades reales de &eacute;xito, te lo diremos con total honestidad para que no gastes en el proceso completo.</div>
+
+  <div class="garantia">
+    <strong>Nuestra apuesta, no la tuya</strong>
+    <p><strong>No presentamos una oposici&oacute;n que no se sostiene.</strong> Si al revisar tu derecho y tus documentos vemos que el caso se cae, te lo decimos y no presentamos — para eso existe la asesor&iacute;a, no para venderte el paso siguiente. Y en registro de marca, si damos luz verde y el SENADI niega el registro, volvemos a presentar con el signo ajustado <strong>sin cobrarte honorarios otra vez</strong>.</p>
+  </div>
+  <div class="barato">
+    <strong>Y si la respuesta es que no conviene oponerse, te cuesta $45</strong>
+    <p>Enterarte de que tu oposici&oacute;n no se sostiene cuesta <strong>$45 y ah&iacute; termina</strong>. No un paquete completo pagado por adelantado para descubrirlo despu&eacute;s. Aqu&iacute; vale doble: una oposici&oacute;n rechazada no solo se pierde, <strong>deja constancia en el expediente</strong> y le da a la otra parte un antecedente a favor.</p>
+  </div>
   <p style="font-size:.85rem;font-weight:700;color:var(--text);text-transform:uppercase;letter-spacing:.05em;margin:.9rem 0 .7rem;">Paso 2 &mdash; Servicios de marcas</p>
   <div class="oferta-completo">
-    <div class="oferta-completo-item"><div class="precio">$350</div><div class="label">Registro de marca</div><div class="desc">B&uacute;squeda, solicitud y seguimiento ante el SENADI.</div></div>
+    <div class="oferta-completo-item"><div class="precio">$350</div><div class="label">Registro de marca</div><div class="desc">B&uacute;squeda, solicitud y seguimiento ante el SENADI, con <strong>vigilancia de tu marca por los 10 a&ntilde;os</strong> de vigencia: te avisamos cuando se publique un signo que choque con el tuyo, mientras el plazo sigue abierto.</div></div>
     <div class="oferta-completo-item dest"><div class="precio"><span class="desde">Desde</span>$400</div><div class="label">Oposici&oacute;n</div><div class="desc">Presentaci&oacute;n o defensa ante el SENADI. El valor final depende de la complejidad del caso.</div></div>
     <div class="oferta-completo-item"><div class="precio"><span class="desde">Desde</span>$400</div><div class="label">Infracci&oacute;n</div><div class="desc">Acci&oacute;n legal contra quien usa tu marca. El valor final depende de la complejidad del caso.</div></div>
   </div>
@@ -930,7 +1126,7 @@ details[open] summary{background:var(--primary-light);}
 
 <h2 id="confundibilidad">C&oacute;mo se argumenta la confundibilidad</h2>
 
-<p>La confundibilidad es el criterio central: la posibilidad de que el <strong>consumidor promedio</strong> del producto o servicio confunda los dos signos, o crea que provienen del mismo origen empresarial. No se exige identidad; basta el riesgo de confusi&oacute;n.</p>
+<p>La confundibilidad es el criterio central, y es lo que recoge el <strong>Art. 136 de la Decisi&oacute;n 486</strong>: la posibilidad de que el <strong>consumidor promedio</strong> del producto o servicio confunda los dos signos, o crea que provienen del mismo origen empresarial. No se exige identidad; basta el riesgo de confusi&oacute;n.</p>
 
 <table class="tabla">
   <thead><tr><th>Plano de an&aacute;lisis</th><th>Qu&eacute; se compara</th><th>Ejemplo</th></tr></thead>
@@ -946,6 +1142,8 @@ details[open] summary{background:var(--primary-light);}
 <p>Dos criterios pr&aacute;cticos que suelen decidir el an&aacute;lisis: los signos se comparan <strong>en conjunto</strong>, no descomponi&eacute;ndolos en s&iacute;labas; y se comparan <strong>de forma sucesiva</strong>, no lado a lado, porque as&iacute; es como el consumidor los encuentra en el mercado &mdash; recordando uno mientras ve el otro.</p>
 
 <p>An&aacute;lisis ampliado: <a href="/blog/marca-confundible-similitud-ecuador.html">marcas confundibles: similitud visual, fon&eacute;tica y conceptual</a> y <a href="/blog/ganar-oposicion-marca-ecuador.html">argumentos para ganar una oposici&oacute;n de marca</a>.</p>
+
+
 
 <h2 id="errores">Por qu&eacute; fracasan oposiciones que ten&iacute;an raz&oacute;n de fondo</h2>
 
@@ -971,7 +1169,7 @@ details[open] summary{background:var(--primary-light);}
 
 <div class="respuesta-directa">
   <strong class="rd-label">Respuesta directa</strong>
-  Presentada la oposici&oacute;n, el tr&aacute;mite de registro <strong>queda suspendido</strong>. El SENADI corre traslado al solicitante para que conteste dentro del plazo que le fije, y luego contin&uacute;a con las actuaciones del expediente hasta resolver.
+  Presentada la oposici&oacute;n, el tr&aacute;mite de registro <strong>queda suspendido</strong>. El SENADI corre traslado al solicitante, que dispone de <strong>30 d&iacute;as h&aacute;biles para contestar</strong> — prorrogables por 30 m&aacute;s a solicitud de parte y por una sola vez (<strong>Art. 148 de la Decisi&oacute;n 486</strong>) —, y luego contin&uacute;a con las actuaciones del expediente hasta resolver.
 </div>
 
 <p>Despu&eacute;s del traslado el expediente puede incluir contestaci&oacute;n, prueba de ambas partes, providencias con requerimientos, resoluci&oacute;n y eventuales recursos. Cada etapa admite actuaciones que influyen en el resultado; abandonar el seguimiento despu&eacute;s de presentar es una forma silenciosa de perder.</p>
@@ -987,7 +1185,7 @@ details[open] summary{background:var(--primary-light);}
 
 <h2 id="no-me-opuse">Si el plazo ya venci&oacute;</h2>
 
-<p>No es el final del camino, pero s&iacute; un camino peor. Vencido el t&eacute;rmino de oposici&oacute;n, quedan v&iacute;as posteriores seg&uacute;n el caso: la acci&oacute;n de nulidad del registro concedido, la cancelaci&oacute;n por falta de uso o la acci&oacute;n por infracci&oacute;n si el tercero est&aacute; usando el signo en el mercado.</p>
+<p>No es el final del camino, pero s&iacute; un camino peor. Vencido el t&eacute;rmino de oposici&oacute;n, quedan v&iacute;as posteriores seg&uacute;n el caso: la <strong>nulidad</strong> del registro concedido (Art. 172), la <strong>cancelaci&oacute;n por falta de uso</strong> cuando la marca lleva tres a&ntilde;os sin usarse (Art. 165) o la <strong>acci&oacute;n por infracci&oacute;n</strong> si el tercero est&aacute; usando el signo en el mercado (Art. 156).</p>
 
 <p>Todas son m&aacute;s largas, m&aacute;s costosas y menos predecibles que una oposici&oacute;n presentada a tiempo &mdash; y en ellas la carga de atacar un derecho ya concedido recae sobre ti. Si crees que el plazo pudo vencerse, vale la pena verificar la fecha exacta de publicaci&oacute;n antes de asumirlo: entre suspensiones de t&eacute;rminos y errores de c&aacute;lculo, a veces queda m&aacute;s tiempo del que parece.</p>
 
@@ -1012,7 +1210,7 @@ details[open] summary{background:var(--primary-light);}
 <div class="faq-section"><h2 id="faq">Preguntas frecuentes sobre c&oacute;mo oponerse a una marca en Ecuador</h2>
 
 <details><summary>&iquest;Cu&aacute;nto tiempo tengo para oponerme a una marca en Ecuador?</summary>
-<p class="faq-answer">Tienes 30 d&iacute;as h&aacute;biles contados desde la publicaci&oacute;n de la solicitud en la Gaceta de Propiedad Intelectual del SENADI. El plazo corre desde la publicaci&oacute;n, no desde que te enteras de que existe la solicitud. Vencido ese t&eacute;rmino, la oposici&oacute;n administrativa ya no puede presentarse y solo quedan acciones posteriores, m&aacute;s largas y costosas.</p></details>
+<p class="faq-answer">Tienes 30 d&iacute;as h&aacute;biles contados desde la publicaci&oacute;n de la solicitud en la Gaceta de Propiedad Intelectual del SENADI (<strong>Art. 146 de la Decisi&oacute;n 486</strong>). El plazo corre desde la publicaci&oacute;n, no desde que te enteras de que existe la solicitud. Vencido ese t&eacute;rmino, la oposici&oacute;n administrativa ya no puede presentarse y solo quedan acciones posteriores, m&aacute;s largas y costosas.</p></details>
 
 <details><summary>&iquest;Puedo oponerme si mi marca est&aacute; en tr&aacute;mite y todav&iacute;a no registrada?</summary>
 <p class="faq-answer">S&iacute;. Si tu solicitud es anterior a la que impugnas, puedes invocar tu derecho de prioridad como fundamento de la oposici&oacute;n. La solicitud anterior no te da todav&iacute;a un registro, pero s&iacute; una posici&oacute;n registral previa que el SENADI debe considerar al resolver.</p></details>
@@ -1069,6 +1267,30 @@ details[open] summary{background:var(--primary-light);}
 
 </article></div></main>
 
+
+<section class="form-async" id="formulario-async">
+  <h3>&iquest;Prefieres que te contactemos por correo?</h3>
+  <p>Si el WhatsApp no es tu canal habitual, d&eacute;janos tus datos y te escribimos desde <strong>legal@juristam.net</strong> con el an&aacute;lisis de tu caso. Respondemos en menos de 24 horas h&aacute;biles.</p>
+  <form action="https://formsubmit.co/legal@juristam.net" method="POST">
+    <input type="hidden" name="_subject" value="Nueva consulta: Cómo presentar una oposición">
+    <input type="hidden" name="_captcha" value="false">
+    <input type="hidden" name="_template" value="table">
+    <input type="hidden" name="_next" value="https://juristam.net/gracias.html">
+    <input type="text" name="_honey" style="display:none">
+    <div class="form-row">
+      <input type="text" name="nombre" placeholder="Nombre completo" required>
+      <input type="email" name="email" placeholder="Correo electr&oacute;nico" required>
+    </div>
+    <div class="form-row">
+      <input type="tel" name="telefono" placeholder="Tel&eacute;fono / WhatsApp (opcional)">
+      <input type="text" name="empresa" placeholder="Empresa o marca (opcional)">
+    </div>
+    <textarea name="consulta" placeholder="Cuéntanos qué derecho tienes sobre tu signo (registro, solicitud anterior o uso) y qué fecha tiene la publicación en la Gaceta." required></textarea>
+    <button type="submit">Enviar consulta por correo &rarr;</button>
+    <p class="form-note">Tus datos solo se usan para responder tu consulta. No compartimos informaci&oacute;n con terceros.</p>
+  </form>
+</section>
+
 <footer style="background:var(--primary-deep);color:#e2d9ff;padding:2rem 0;margin-top:3rem;">
 <div class="container">
   <p><strong style="color:#fff;">Juristam</strong> &mdash; Asesor&iacute;a Legal Estrat&eacute;gica en Ecuador</p>
@@ -1095,12 +1317,235 @@ details[open] summary{background:var(--primary-light);}
   var overlay=document.getElementById('waModal'),closeBtn=document.getElementById('waModalClose'),modalLink=document.getElementById('waModalLink');
   if(!overlay||!modalLink) return;
   var triggers=document.querySelectorAll('a[href*="wa.me"]:not(#waModalLink)');
-  function openModal(e){e.preventDefault();var h=this.getAttribute('href');if(h&&h.indexOf('wa.me')!==-1){modalLink.setAttribute('href',h);}overlay.classList.add('active');document.body.style.overflow='hidden';}
+  function ajustarModal(){
+    var box=overlay.querySelector('.wa-modal'); if(!box) return;
+    box.style.transform='';box.style.transformOrigin='top center';
+    var h=box.scrollHeight, disp=window.innerHeight*0.92;
+    if(h>disp){var e=Math.max(0.72,disp/h);box.style.transform='scale('+e+')';}
+  }
+  function abrir(el){
+    var h=el?el.getAttribute('href'):null;
+    if(!h||h.indexOf('wa.me')===-1){h=modalLink.getAttribute('href');}
+    if(window.__diagMsg && !(el&&el.id==='diagBtn')){
+      h+=encodeURIComponent(' Mi diagn\u00f3stico: '+String(window.__diagMsg).replace(/^Hola[^.]*\. /,''));
+    }
+    modalLink.setAttribute('href',h);
+    overlay.classList.add('active');document.body.style.overflow='hidden';
+    setTimeout(ajustarModal,0);
+  }
+  window.__openModal=abrir;
+  function openModal(e){e.preventDefault();abrir(this);}
   function closeModal(){overlay.classList.remove('active');document.body.style.overflow='';}
   triggers.forEach(function(b){b.addEventListener('click',openModal);});
   closeBtn.addEventListener('click',closeModal);
   overlay.addEventListener('click',function(e){if(e.target===overlay)closeModal();});
   document.addEventListener('keydown',function(e){if(e.key==='Escape')closeModal();});
+  window.addEventListener('resize',function(){if(overlay.classList.contains('active'))ajustarModal();});
 })();
 </script>
+<script>
+/* ===== Diagnóstico: ¿tu oposición se sostiene? ===== */
+(function(){
+  var der=null,rub=null,sinF=false;
+  var fw=document.getElementById('dqFWrap'),fi=document.getElementById('dqF'),sf=document.getElementById('dqSinF');
+  var rw=document.getElementById('dqRWrap'),rc=document.getElementById('dqR');
+  var go=document.getElementById('diagGo2'),res=document.getElementById('diagRes2');
+  if(!go) return;
+
+  function chk(){go.disabled=!(der&&rub&&(sinF||fi.value));}
+
+  Array.prototype.forEach.call(document.querySelectorAll('#dqDer input'),function(r){
+    r.addEventListener('change',function(){
+      der=r.value;
+      Array.prototype.forEach.call(document.querySelectorAll('#dqDer label'),function(l){l.classList.remove('on','on-ok');});
+      r.parentNode.classList.add(der==='reg'?'on-ok':'on');
+      fw.hidden=false;rw.hidden=false;chk();
+    });
+  });
+  fi.addEventListener('change',function(){sinF=false;sf.classList.remove('sel');chk();});
+  sf.addEventListener('click',function(){sinF=!sinF;sf.classList.toggle('sel',sinF);if(sinF)fi.value='';chk();});
+  Array.prototype.forEach.call(rc.children,function(b){
+    b.addEventListener('click',function(){
+      Array.prototype.forEach.call(rc.children,function(c){c.classList.remove('sel');});
+      b.classList.add('sel');rub=b.dataset.v;chk();
+    });
+  });
+
+  function habiles(a,b){var n=0,d=new Date(a.getTime());while(d<b){d.setDate(d.getDate()+1);var w=d.getDay();if(w!==0&&w!==6)n++;}return n;}
+
+  var NORMA={
+    reg:['ok','Tu norma es el Art. 136 sobre la base de tu registro','Tienes un título vigente, así que el derecho no hay que probarlo: lo acredita el certificado. Lo que hay que construir es el cotejo entre los dos signos y el solapamiento de coberturas. Es la posición más sólida de las cuatro, y también la que más se desperdicia cuando el escrito se redacta con prisa.'],
+    sol:['med','Tu norma es la prioridad de tu fecha de presentación','No tienes título todavía, pero sí una posición registral anterior. Eso entra al expediente y el SENADI debe considerarlo al resolver. Hay que acreditar la fecha y explicar por qué el signo posterior invade tu ámbito — mencionarla sin desarrollarla no alcanza.'],
+    uso:['','Tu norma es el Art. 224, no la de marca registrada','Aquí está el error que hunde más oposiciones con razón de fondo: invocar las normas de marca registrada teniendo un nombre comercial. El SENADI no puede dar protección de marca a quien no la tiene registrada, y la oposición se cae sin que se discuta el fondo. Tu derecho existe, pero nace del uso y se prueba con documentos fechados: facturas, publicidad, rótulo, redes, contratos.'],
+    nada:['','No tienes con qué oponerte todavía','El derecho sobre la marca se adquiere con el registro (Art. 154). Sin registro, sin solicitud anterior y sin uso documentado, no hay interés legítimo que acreditar y la oposición se rechaza de entrada. Eso no significa que no haya nada que hacer: significa que lo urgente es tu propia solicitud, no la oposición.']
+  };
+  var RUBRO={
+    misma:['','Misma clase: es el escenario más fuerte y el más urgente','La coincidencia de productos o servicios es el segundo plano del Art. 136, y cuando es directa multiplica el peso de cualquier similitud entre los signos. También significa que ese competidor va a operar en tu mismo mercado desde el día que le concedan el título.'],
+    conexa:['med','Rubro relacionado: se puede, pero hay que construirlo','El Art. 136 no exige clases idénticas: alcanza con conexión competitiva — que los productos se vendan por los mismos canales, al mismo público o se perciban como del mismo origen. Es argumentable, pero no se da por supuesto: hay que demostrarlo, y ahí es donde se caen las oposiciones improvisadas.'],
+    otra:['med','Rubro distinto: es el escenario más difícil','Con coberturas lejanas, el riesgo de confusión no se presume. La vía suele pasar por la notoriedad del signo o por el aprovechamiento indebido del prestigio ajeno, y ambas exigen prueba sustancial. Antes de presentar conviene medir si el caso aguanta, porque una oposición rechazada deja constancia en el expediente.']
+  };
+
+  go.addEventListener('click',function(){
+    var hoy=new Date();hoy.setHours(0,0,0,0);
+    var trans=null,rest=null;
+    if(!sinF&&fi.value){
+      var p=fi.value.split('-');var f=new Date(+p[0],+p[1]-1,+p[2]);f.setHours(0,0,0,0);
+      trans=habiles(f,hoy);rest=30-trans;
+    }
+    var n,nl,niv,tit,lead;
+    if(sinF){
+      n='?';nl='días';niv='med';
+      tit='Lo primero es la fecha, no el escrito';
+      lead='Sin la fecha de publicación no hay diagnóstico de plazo posible, y el plazo manda sobre todo lo demás. Está en la Gaceta de Propiedad Intelectual: hay que ubicar el número de trámite del signo publicado y leer la fecha exacta. Mientras tanto, esto es lo que sí se puede decir de tu caso.';
+    }else if(rest<=0){
+      n='0';nl='días';niv='';
+      tit='El plazo del Art. 146 ya venció';
+      lead='Han pasado '+trans+' días hábiles desde la publicación y el plazo es de treinta. La oposición administrativa ya no se presenta. Pero antes de darlo por cerrado: entre suspensiones de términos y errores de cálculo, a veces queda más tiempo del que parece, y eso se verifica contra la Gaceta.';
+    }else{
+      n=String(rest);nl=rest===1?'día hábil':'días hábiles';
+      niv=rest>15?'med':'';
+      tit=rest>15?'Tienes margen para armarla bien':(rest>5?'El margen se está cerrando':'Últimos días útiles');
+      lead='Desde la publicación han transcurrido '+trans+' días hábiles. Del plazo de treinta del Art. 146 quedan '+rest+'. El cálculo descuenta sábados y domingos, no feriados ni suspensiones de términos: eso se verifica contra la Gaceta.';
+    }
+
+    var items=[NORMA[der],RUBRO[rub]];
+    if(der==='uso'||der==='nada'){
+      items.push(['','Sin documentos fechados, el derecho no existe en el expediente','Afirmar el uso no es probarlo. Lo que pesa son facturas con fecha, publicidad pautada, contratos, registros sanitarios, publicaciones con fecha verificable y el rótulo del local. Reunir eso lleva días — por eso el plazo que queda importa tanto como el derecho que tienes.']);
+    }else{
+      items.push(['','La titularidad es lo primero que ataca la contraparte','Que el derecho figure a nombre de otra compañía, o que una transferencia previa no se haya formalizado, tumba la oposición antes de que se discuta el parecido de los signos. Vale la pena revisar a nombre de quién está realmente tu signo antes de redactar una línea.']);
+    }
+    if(rest!==null&&rest<=0){
+      items.push(['','Lo que queda después del plazo cuesta más','Nulidad del registro concedido (Art. 172), cancelación por falta de uso si lleva tres años sin usarse (Art. 165), o acción por infracción si ya está usando el signo (Art. 156). Todas son más largas, más caras y menos predecibles — y en ellas eres tú quien tiene que derribar un derecho ya concedido.']);
+    }else{
+      items.push(['','Esperar no mejora tu posición','Si el registro se concede, tu competidor obtiene un título con presunción de validez que después hay que derribar — y podrá usarlo contra ti, incluso para reclamarte el uso de tu propio signo. Lo que hoy se resuelve con un escrito, después se resuelve con un procedimiento de años.']);
+    }
+
+    var msg='Quiero oponerme a una marca publicada. Mi derecho: '+
+      ({reg:'marca registrada vigente',sol:'solicitud anterior en trámite',uso:'uso sin registro',nada:'ninguno todavía'})[der]+
+      '. Rubro: '+({misma:'misma clase',conexa:'rubro relacionado',otra:'rubro distinto'})[rub]+
+      '. '+(sinF?'No tengo la fecha de publicación en la Gaceta.':('Publicación en Gaceta: '+fi.value+'. '+(rest>0?('Me quedan '+rest+' días hábiles del plazo del Art. 146.'):'El plazo ya venció.')));
+
+    var gar='<div class="diag-gar">'+
+      '<div class="dg-a"><b>Nuestra apuesta, no la tuya</b><p><strong>No presentamos una oposición que no se sostiene.</strong> Si al revisar tu derecho y tus documentos vemos que el caso se cae, te lo decimos y no presentamos. Para eso existe la asesoría.</p></div>'+
+      '<div class="dg-b"><b>Y si la respuesta es que no conviene, te cuesta $45</b><p>Enterarte de que tu oposición no se sostiene cuesta <strong>$45 y ahí termina</strong>, y si continúas se descuentan de los honorarios. Aquí vale el doble: una oposición rechazada no solo se pierde, <strong>deja constancia en el expediente</strong>.</p></div>'+
+      '</div>';
+    if(der==='nada'){
+      gar='<div class="diag-gar">'+
+        '<div class="dg-a"><b>Nuestra apuesta, no la tuya</b><p><strong>No damos luz verde a un signo dudoso.</strong> Si el análisis muestra que tu marca no es registrable, te lo decimos y no presentamos. Y si damos luz verde y el SENADI la niega, volvemos a presentar con el signo ajustado <strong>sin cobrarte honorarios otra vez</strong>.</p></div>'+
+        '<div class="dg-b"><b>Y si la respuesta es que no se puede, te cuesta $45</b><p>Enterarte de que tu signo no es registrable cuesta <strong>$45 y ahí termina</strong>. No un paquete completo pagado por adelantado. Y si se puede, esos $45 se descuentan de los honorarios: no es un gasto aparte, es el primer paso.</p></div>'+
+        '</div>';
+    }
+
+    var ctaText='Revisar si me conviene oponerme →', cierre='Este diagnóstico te dice <strong>qué derecho tienes y qué te falta</strong>. Lo que sigue es lo concreto: qué norma se invoca en tu caso, con qué prueba y en qué orden va el escrito. Eso lo define el abogado con tus documentos delante. <strong>Llevamos tu diagnóstico ya cargado al chat.</strong>';
+
+    if(der==='nada'){
+      n='0';nl='derechos';niv='';
+      tit='El plazo no es tu problema: no tienes con qué oponerte';
+      lead='El derecho sobre la marca se adquiere con el registro (Art. 154). Sin registro, sin solicitud anterior y sin uso documentado no hay interés legítimo que acreditar, así que contar los días del plazo de oposición no cambia nada. Lo urgente está en el otro frente: alguien está registrando ahora mismo un signo '+
+        ({misma:'en tu misma clase',conexa:'en un rubro conectado con el tuyo',otra:'parecido al tuyo'})[rub]+
+        ', y si se lo conceden podrá reclamarte a ti el uso del nombre que llevas usando.';
+      msg='Quiero registrar mi marca. Vi publicada una solicitud '+
+        ({misma:'en mi misma clase',conexa:'de un rubro conectado con el mío',otra:'parecida a mi signo'})[rub]+
+        ' y todavía no tengo nada registrado ni solicitado.';
+      ctaText='Registrar mi marca ahora →';
+      cierre='Este diagnóstico te dice <strong>por qué hoy estás descubierto</strong>. Lo que sigue es lo concreto: si tu signo es registrable, en qué clases conviene presentarlo y qué hacer con la solicitud que ya está publicada. Eso lo revisa el abogado antes de la reunión. <strong>Llevamos tu diagnóstico ya cargado al chat.</strong>';
+    }
+
+    var h='<div class="diag-res-top '+niv+'"><div class="diag-res-n '+niv+'">'+n+'<small>'+nl+'</small></div><div><strong>'+tit+'</strong><p>'+lead+'</p></div></div><div class="diag-items">';
+    items.forEach(function(it){h+='<div class="diag-item '+it[0]+'"><b>'+it[1]+'</b><p>'+it[2]+'</p></div>';});
+    h+='</div><div class="diag-cierre"><p>'+cierre+'</p>'+gar+'<div style="height:.9rem"></div><button type="button" class="btn-diag" onclick="irDiag2()">'+ctaText+'</button><span class="diag-nota">Respuesta de Noemí en horario laboral · Todo Ecuador</span></div>';
+
+    res.innerHTML=h;res.hidden=false;
+    window.__diagMsg='Hola, vengo del artículo sobre CÓMO PRESENTAR UNA OPOSICIÓN DE MARCA. '+msg;
+    res.scrollIntoView({behavior:'smooth',block:'nearest'});
+  });
+
+  window.irDiag2=function(){
+    var a=document.createElement('a');
+    a.setAttribute('href','https://wa.me/593994859814?text='+encodeURIComponent(window.__diagMsg||'Hola, vengo del artículo sobre CÓMO PRESENTAR UNA OPOSICIÓN DE MARCA.'));
+    a.id='diagBtn';
+    if(typeof window.__openModal==='function'){window.__openModal(a);}else{window.open(a.getAttribute('href'),'_blank');}
+  };
+})();
+
+</script>
+<script>
+/* ===== Medición de conversión · Juristam ===== */
+(function(){
+  if(window.__jtrack) return; window.__jtrack=1;
+  window.dataLayer=window.dataLayer||[];
+  function gt(){ if(typeof gtag==='function'){try{gtag.apply(null,arguments);}catch(e){}} else {window.dataLayer.push(arguments);} }
+  var PAG=(document.title||'').slice(0,90);
+  var t0=Date.now(), maxScroll=0, hitos={};
+  function ev(n,p){ p=p||{}; p.pagina=PAG; p.segundos=Math.round((Date.now()-t0)/1000); gt('event',n,p); }
+
+  function txt(el){ return (el.textContent||'').trim().replace(/\s+/g,' ').slice(0,60); }
+  function zona(el){
+    if(el.closest('.diag')) return 'diagnostico';
+    if(el.closest('header')) return 'header';
+    if(el.closest('footer')) return 'footer';
+    if(el.closest('.caso-card,.caso-footer')) return 'caso';
+    if(el.closest('.oferta-box,.cta-final,.cta-block')) return 'oferta';
+    if(el.closest('.cta-urgente')) return 'cta-urgente';
+    if(el.classList.contains('wa-float')) return 'flotante';
+    return 'cuerpo';
+  }
+
+  document.addEventListener('click', function(e){
+    var el=e.target;
+    while(el && el!==document.body && !(el.tagName==='A'||el.tagName==='BUTTON')) el=el.parentNode;
+    if(!el||el===document.body||!el.tagName) return;
+
+    var id=el.id||'', cls=el.className||'';
+    if(typeof cls!=='string') cls='';
+
+    if(/^diagGo/.test(id)||/btn-diag-go/.test(cls)){ ev('diagnostico_inicio'); return; }
+    if(/btn-diag\b/.test(cls)){ ev('diagnostico_cta',{etiqueta:txt(el)}); return; }
+    if(id==='waModalLink'){ ev('whatsapp_abierto',{con_diagnostico:!!window.__diagMsg}); return; }
+    if(/lp-ref-btn/.test(cls)){ ev('click_landing',{destino:el.getAttribute('href')||''}); return; }
+    if(/btn-caso|caso-cta-link/.test(cls)){ ev('caso_cta',{etiqueta:txt(el)}); return; }
+    if(/filtro-btn/.test(cls)){ ev('filtro_casos',{filtro:el.getAttribute('data-filtro')||''}); return; }
+
+    var href=el.getAttribute&&el.getAttribute('href')||'';
+    var wa=el.getAttribute&&el.getAttribute('data-wa')||'';
+    if(href.indexOf('wa.me')!==-1||wa){ ev('cta_whatsapp',{zona:zona(el),etiqueta:txt(el)}); return; }
+  }, true);
+
+  document.addEventListener('submit', function(e){
+    if(e.target&&e.target.tagName==='FORM') ev('formulario_enviado');
+  }, true);
+
+  function observar(sel,cb){
+    var n=document.querySelector(sel); if(!n) return;
+    new MutationObserver(cb).observe(n,{attributes:true,attributeFilter:['class','hidden','style']});
+  }
+  observar('.diag-res',function(){
+    var r=document.querySelector('.diag-res');
+    if(r&&!r.hidden&&!hitos.diag){ hitos.diag=1;
+      var n=r.querySelector('.diag-res-n'), tt=r.querySelector('.diag-res-top strong');
+      ev('diagnostico_completado',{resultado:n?txt(n):'',titular:tt?txt(tt):''});
+    }
+  });
+  observar('#waModal',function(){
+    var m=document.getElementById('waModal');
+    if(m&&m.classList.contains('active')&&!hitos.modalAbierto){ hitos.modalAbierto=1; ev('modal_abierto'); }
+  });
+
+  var tick=false;
+  window.addEventListener('scroll',function(){
+    if(tick) return; tick=true;
+    setTimeout(function(){
+      tick=false;
+      var h=document.body.scrollHeight-window.innerHeight;
+      if(h<=0) return;
+      var p=Math.round(100*window.scrollY/h);
+      if(p>maxScroll) maxScroll=p;
+      [25,50,75,90].forEach(function(u){ if(maxScroll>=u&&!hitos['s'+u]){hitos['s'+u]=1; ev('scroll',{profundidad:u});} });
+    },250);
+  },{passive:true});
+
+  window.addEventListener('pagehide',function(){ ev('salida',{scroll_max:maxScroll}); });
+})();
+</script>
+
 </body></html>

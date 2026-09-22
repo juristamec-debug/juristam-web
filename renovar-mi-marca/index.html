@@ -447,6 +447,16 @@ footer a{color:#c4b5fd;}
 .plazo-n small{display:block;font-family:'DM Sans',sans-serif;font-size:.58rem;font-weight:700;letter-spacing:.09em;text-transform:uppercase;opacity:.9;margin-top:.3rem;}
 .plazo-out p{font-size:.88rem;color:#ede9fe;line-height:1.65;margin:0;}
 @media(max-width:700px){.lp-hero{padding:2.4rem 0 2rem;}.lp-final{padding:1.8rem 1.2rem;}.lp-precio{padding:1.3rem;}}
+
+.lp-nav{background:var(--gray-light,#f9f9fb);border-top:1px solid var(--border,#e8e8f0);border-bottom:1px solid var(--border,#e8e8f0);padding:1.6rem 0;margin:2.5rem 0 0;}
+.lp-nav-in{max-width:960px;margin:0 auto;padding:0 1.5rem;}
+.lp-nav > .lp-nav-in > strong{display:block;font-size:.72rem;text-transform:uppercase;letter-spacing:.1em;color:var(--text-secondary,#4a4a6a);margin-bottom:.9rem;}
+.lp-nav-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:.7rem;}
+.lp-nav-grid a{display:block;background:#fff;border:1.5px solid var(--border,#e8e8f0);border-radius:12px;padding:.85rem 1rem;transition:border-color .18s,box-shadow .18s;}
+.lp-nav-grid a:hover{border-color:var(--primary,#9a6aff);box-shadow:0 4px 16px rgba(124,58,237,.12);}
+.lp-nav-grid a b{display:block;font-size:.88rem;font-weight:700;color:var(--primary-dark,#7c3aed);margin-bottom:.15rem;}
+.lp-nav-grid a span{display:block;font-size:.78rem;color:var(--text-secondary,#4a4a6a);line-height:1.5;}
+.lp-nav-grid a.actual{background:var(--primary-light,#efe8ff);border-color:var(--primary,#9a6aff);}
 </style>
 <!-- Google Analytics 4 -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-3L5I5CEKRL"></script>
@@ -596,6 +606,40 @@ footer a{color:#c4b5fd;}
 
 <button type="button" class="wa-float" data-wa="https://wa.me/593994859814?text=Hola%2C%20vengo%20de%20la%20p%C3%A1gina%20de%20RENOVAR%20MI%20MARCA.%20Quiero%20renovar%20mi%20marca." onclick="abrirModal(this)" aria-label="Escribir por WhatsApp"><svg width="26" height="26" fill="white" viewBox="0 0 24 24" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg></button>
 
+<div class="lp-nav"><div class="lp-nav-in">
+  <strong>Todos los servicios de marcas &middot; Juristam</strong>
+  <div class="lp-nav-grid">
+    <a href="/registro-de-marca/"><b>Registrar mi marca</b><span>Búsqueda, solicitud y seguimiento ante el SENADI</span></a>
+    <a href="/defender-mi-marca/"><b>Defender mi marca</b><span>Oposición, copia, negativa o recuperación</span></a>
+    <a href="/renovar-mi-marca/" class="actual"><b>Renovar mi marca &larr; est&aacute;s aqu&iacute;</b><span>Vigencia, plazos y periodo de gracia</span></a>
+    <a href="/marca-internacional/"><b>Marca internacional</b><span>Comunidad Andina y Protocolo de Madrid</span></a>
+    <a href="/marca-para-empresas/"><b>Marcas para empresas</b><span>Auditoría, transferencias y due diligence</span></a>
+  </div>
+</div></div>
+
+<section class="form-async" id="formulario-async">
+  <h3>&iquest;Prefieres que te contactemos por correo?</h3>
+  <p>Si el WhatsApp no es tu canal habitual, d&eacute;janos tus datos y te escribimos desde <strong>legal@juristam.net</strong> con el an&aacute;lisis de tu caso. Respondemos en menos de 24 horas h&aacute;biles.</p>
+  <form action="https://formsubmit.co/legal@juristam.net" method="POST">
+    <input type="hidden" name="_subject" value="Nueva consulta: Renovación de marca">
+    <input type="hidden" name="_captcha" value="false">
+    <input type="hidden" name="_template" value="table">
+    <input type="hidden" name="_next" value="https://juristam.net/gracias.html">
+    <input type="text" name="_honey" style="display:none">
+    <div class="form-row">
+      <input type="text" name="nombre" placeholder="Nombre completo" required>
+      <input type="email" name="email" placeholder="Correo electr&oacute;nico" required>
+    </div>
+    <div class="form-row">
+      <input type="tel" name="telefono" placeholder="Tel&eacute;fono / WhatsApp (opcional)">
+      <input type="text" name="empresa" placeholder="Empresa o marca (opcional)">
+    </div>
+    <textarea name="consulta" placeholder="Indícanos el nombre de la marca y, si lo tienes a mano, la fecha de concesión o del último trámite." required></textarea>
+    <button type="submit">Enviar consulta por correo &rarr;</button>
+    <p class="form-note">Tus datos solo se usan para responder tu consulta. No compartimos informaci&oacute;n con terceros.</p>
+  </form>
+</section>
+
 <footer><div class="container">
   <p><strong>Juristam</strong> — Asesoría Legal Estratégica en Ecuador</p>
   <p>© 2026 Juristam. Todos los derechos reservados. <a href="/blog/">Guías</a> · <a href="/#contacto">Contacto</a></p>
@@ -671,5 +715,84 @@ function waDiag(m){window.__diagMsg=m;return 'https://wa.me/593994859814?text='+
   });
 })();
 </script>
+<script>
+/* ===== Medición de conversión · Juristam ===== */
+(function(){
+  if(window.__jtrack) return; window.__jtrack=1;
+  window.dataLayer=window.dataLayer||[];
+  function gt(){ if(typeof gtag==='function'){try{gtag.apply(null,arguments);}catch(e){}} else {window.dataLayer.push(arguments);} }
+  var PAG=(document.title||'').slice(0,90);
+  var t0=Date.now(), maxScroll=0, hitos={};
+  function ev(n,p){ p=p||{}; p.pagina=PAG; p.segundos=Math.round((Date.now()-t0)/1000); gt('event',n,p); }
+
+  function txt(el){ return (el.textContent||'').trim().replace(/\s+/g,' ').slice(0,60); }
+  function zona(el){
+    if(el.closest('.diag')) return 'diagnostico';
+    if(el.closest('header')) return 'header';
+    if(el.closest('footer')) return 'footer';
+    if(el.closest('.caso-card,.caso-footer')) return 'caso';
+    if(el.closest('.oferta-box,.cta-final,.cta-block')) return 'oferta';
+    if(el.closest('.cta-urgente')) return 'cta-urgente';
+    if(el.classList.contains('wa-float')) return 'flotante';
+    return 'cuerpo';
+  }
+
+  document.addEventListener('click', function(e){
+    var el=e.target;
+    while(el && el!==document.body && !(el.tagName==='A'||el.tagName==='BUTTON')) el=el.parentNode;
+    if(!el||el===document.body||!el.tagName) return;
+
+    var id=el.id||'', cls=el.className||'';
+    if(typeof cls!=='string') cls='';
+
+    if(/^diagGo/.test(id)||/btn-diag-go/.test(cls)){ ev('diagnostico_inicio'); return; }
+    if(/btn-diag\b/.test(cls)){ ev('diagnostico_cta',{etiqueta:txt(el)}); return; }
+    if(id==='waModalLink'){ ev('whatsapp_abierto',{con_diagnostico:!!window.__diagMsg}); return; }
+    if(/lp-ref-btn/.test(cls)){ ev('click_landing',{destino:el.getAttribute('href')||''}); return; }
+    if(/btn-caso|caso-cta-link/.test(cls)){ ev('caso_cta',{etiqueta:txt(el)}); return; }
+    if(/filtro-btn/.test(cls)){ ev('filtro_casos',{filtro:el.getAttribute('data-filtro')||''}); return; }
+
+    var href=el.getAttribute&&el.getAttribute('href')||'';
+    var wa=el.getAttribute&&el.getAttribute('data-wa')||'';
+    if(href.indexOf('wa.me')!==-1||wa){ ev('cta_whatsapp',{zona:zona(el),etiqueta:txt(el)}); return; }
+  }, true);
+
+  document.addEventListener('submit', function(e){
+    if(e.target&&e.target.tagName==='FORM') ev('formulario_enviado');
+  }, true);
+
+  function observar(sel,cb){
+    var n=document.querySelector(sel); if(!n) return;
+    new MutationObserver(cb).observe(n,{attributes:true,attributeFilter:['class','hidden','style']});
+  }
+  observar('.diag-res',function(){
+    var r=document.querySelector('.diag-res');
+    if(r&&!r.hidden&&!hitos.diag){ hitos.diag=1;
+      var n=r.querySelector('.diag-res-n'), tt=r.querySelector('.diag-res-top strong');
+      ev('diagnostico_completado',{resultado:n?txt(n):'',titular:tt?txt(tt):''});
+    }
+  });
+  observar('#waModal',function(){
+    var m=document.getElementById('waModal');
+    if(m&&m.classList.contains('active')&&!hitos.modalAbierto){ hitos.modalAbierto=1; ev('modal_abierto'); }
+  });
+
+  var tick=false;
+  window.addEventListener('scroll',function(){
+    if(tick) return; tick=true;
+    setTimeout(function(){
+      tick=false;
+      var h=document.body.scrollHeight-window.innerHeight;
+      if(h<=0) return;
+      var p=Math.round(100*window.scrollY/h);
+      if(p>maxScroll) maxScroll=p;
+      [25,50,75,90].forEach(function(u){ if(maxScroll>=u&&!hitos['s'+u]){hitos['s'+u]=1; ev('scroll',{profundidad:u});} });
+    },250);
+  },{passive:true});
+
+  window.addEventListener('pagehide',function(){ ev('salida',{scroll_max:maxScroll}); });
+})();
+</script>
+
 </body>
 </html>

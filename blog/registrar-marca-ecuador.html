@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="es-EC">
 <head>
 <meta charset="UTF-8"/>
@@ -500,10 +500,15 @@ footer a{color:#c4b5fd;}
 .cta-gar{background:rgba(52,211,153,.15);border:1px solid rgba(52,211,153,.45);border-radius:10px;padding:.7rem 1rem;max-width:520px;margin:0 auto 1rem;font-size:.84rem;color:#d1fae5;line-height:1.6;}
 .cta-gar strong{color:#6ee7b7;}
 
-.lp-ref{display:flex;align-items:center;gap:.8rem;flex-wrap:wrap;background:var(--primary-light);border:1px solid rgba(154,106,255,.35);border-radius:10px;padding:.7rem 1rem;margin:1.4rem 0;font-size:.87rem;line-height:1.5;}
-.lp-ref span{color:var(--text-secondary);}
-.lp-ref a{color:var(--primary-dark);font-weight:700;text-decoration:underline;}
-.lp-ref a:hover{color:var(--primary);}
+
+
+.lp-ref{display:flex;align-items:center;gap:1.1rem;flex-wrap:wrap;background:#fff;border:2px solid var(--primary);border-radius:14px;padding:1.1rem 1.3rem;margin:1.8rem 0;box-shadow:0 6px 24px rgba(124,58,237,.14);}
+.lp-ref-txt{flex:1;min-width:210px;}
+.lp-ref-txt b{display:block;font-family:'Lora',serif;font-size:1.05rem;color:var(--text);line-height:1.35;margin-bottom:.25rem;}
+.lp-ref-txt span{display:block;font-size:.85rem;color:var(--text-secondary);line-height:1.6;}
+.lp-ref-btn{background:var(--primary-dark);color:#fff;border-radius:10px;padding:.72rem 1.3rem;font-size:.88rem;font-weight:700;white-space:nowrap;flex-shrink:0;text-decoration:none;display:inline-block;}
+.lp-ref-btn:hover{background:var(--primary);color:#fff;}
+@media(max-width:560px){.lp-ref{gap:.85rem;}.lp-ref-btn{width:100%;text-align:center;}}
 </style>
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-3L5I5CEKRL"></script>
 <script>
@@ -619,8 +624,8 @@ footer a{color:#c4b5fd;}
 <article>
 
 <div class="lp-ref">
-  <span>¿Prefieres ver el servicio antes de escribir?</span>
-  <a href="/registro-de-marca/">Registro de marca: qué incluye, cuánto cuesta y la calculadora →</a>
+  <div class="lp-ref-txt"><b>¿Cuánto costaría el tuyo?</b><span>Calculadora con el tarifario SENADI 2026: eliges signos y clases y te da el total, con tasas y honorarios separados.</span></div>
+  <a class="lp-ref-btn" href="/registro-de-marca/">Calcular mi presupuesto →</a>
 </div>
 <h2 id="que-se-juega">Qué se juega al registrar una marca en Ecuador</h2>
 
@@ -1100,4 +1105,83 @@ function waDiag(m){window.__diagMsg=m;return 'https://wa.me/593994859814?text='+
   });
 })();
 </script>
+<script>
+/* ===== Medición de conversión · Juristam ===== */
+(function(){
+  if(window.__jtrack) return; window.__jtrack=1;
+  window.dataLayer=window.dataLayer||[];
+  function gt(){ if(typeof gtag==='function'){try{gtag.apply(null,arguments);}catch(e){}} else {window.dataLayer.push(arguments);} }
+  var PAG=(document.title||'').slice(0,90);
+  var t0=Date.now(), maxScroll=0, hitos={};
+  function ev(n,p){ p=p||{}; p.pagina=PAG; p.segundos=Math.round((Date.now()-t0)/1000); gt('event',n,p); }
+
+  function txt(el){ return (el.textContent||'').trim().replace(/\s+/g,' ').slice(0,60); }
+  function zona(el){
+    if(el.closest('.diag')) return 'diagnostico';
+    if(el.closest('header')) return 'header';
+    if(el.closest('footer')) return 'footer';
+    if(el.closest('.caso-card,.caso-footer')) return 'caso';
+    if(el.closest('.oferta-box,.cta-final,.cta-block')) return 'oferta';
+    if(el.closest('.cta-urgente')) return 'cta-urgente';
+    if(el.classList.contains('wa-float')) return 'flotante';
+    return 'cuerpo';
+  }
+
+  document.addEventListener('click', function(e){
+    var el=e.target;
+    while(el && el!==document.body && !(el.tagName==='A'||el.tagName==='BUTTON')) el=el.parentNode;
+    if(!el||el===document.body||!el.tagName) return;
+
+    var id=el.id||'', cls=el.className||'';
+    if(typeof cls!=='string') cls='';
+
+    if(/^diagGo/.test(id)||/btn-diag-go/.test(cls)){ ev('diagnostico_inicio'); return; }
+    if(/btn-diag\b/.test(cls)){ ev('diagnostico_cta',{etiqueta:txt(el)}); return; }
+    if(id==='waModalLink'){ ev('whatsapp_abierto',{con_diagnostico:!!window.__diagMsg}); return; }
+    if(/lp-ref-btn/.test(cls)){ ev('click_landing',{destino:el.getAttribute('href')||''}); return; }
+    if(/btn-caso|caso-cta-link/.test(cls)){ ev('caso_cta',{etiqueta:txt(el)}); return; }
+    if(/filtro-btn/.test(cls)){ ev('filtro_casos',{filtro:el.getAttribute('data-filtro')||''}); return; }
+
+    var href=el.getAttribute&&el.getAttribute('href')||'';
+    var wa=el.getAttribute&&el.getAttribute('data-wa')||'';
+    if(href.indexOf('wa.me')!==-1||wa){ ev('cta_whatsapp',{zona:zona(el),etiqueta:txt(el)}); return; }
+  }, true);
+
+  document.addEventListener('submit', function(e){
+    if(e.target&&e.target.tagName==='FORM') ev('formulario_enviado');
+  }, true);
+
+  function observar(sel,cb){
+    var n=document.querySelector(sel); if(!n) return;
+    new MutationObserver(cb).observe(n,{attributes:true,attributeFilter:['class','hidden','style']});
+  }
+  observar('.diag-res',function(){
+    var r=document.querySelector('.diag-res');
+    if(r&&!r.hidden&&!hitos.diag){ hitos.diag=1;
+      var n=r.querySelector('.diag-res-n'), tt=r.querySelector('.diag-res-top strong');
+      ev('diagnostico_completado',{resultado:n?txt(n):'',titular:tt?txt(tt):''});
+    }
+  });
+  observar('#waModal',function(){
+    var m=document.getElementById('waModal');
+    if(m&&m.classList.contains('active')&&!hitos.modalAbierto){ hitos.modalAbierto=1; ev('modal_abierto'); }
+  });
+
+  var tick=false;
+  window.addEventListener('scroll',function(){
+    if(tick) return; tick=true;
+    setTimeout(function(){
+      tick=false;
+      var h=document.body.scrollHeight-window.innerHeight;
+      if(h<=0) return;
+      var p=Math.round(100*window.scrollY/h);
+      if(p>maxScroll) maxScroll=p;
+      [25,50,75,90].forEach(function(u){ if(maxScroll>=u&&!hitos['s'+u]){hitos['s'+u]=1; ev('scroll',{profundidad:u});} });
+    },250);
+  },{passive:true});
+
+  window.addEventListener('pagehide',function(){ ev('salida',{scroll_max:maxScroll}); });
+})();
+</script>
+
 </body></html>
