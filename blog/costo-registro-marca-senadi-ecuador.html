@@ -415,6 +415,98 @@ footer a{color:#c4b5fd;}
   table,.tabla,.compare-table{display:block;width:100%;overflow-x:auto;-webkit-overflow-scrolling:touch;}
   .container{padding:0 1rem;}
 }
+
+/* ===== Diagnóstico interactivo ===== */
+.diag{background:linear-gradient(160deg,#1e0a4e 0%,#2a0f5e 60%,#1a0842 100%);border-radius:18px;padding:1.8rem 1.6rem;margin:2.5rem 0;}
+.diag-label{display:block;font-size:.66rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:#a78bfa;margin-bottom:.5rem;}
+.diag h3{font-family:'Lora',serif;font-size:1.3rem;color:#fff;margin:0 0 .35rem;}
+.diag-sub{font-size:.88rem;color:#c7bce8;line-height:1.65;margin-bottom:1.1rem;}
+.diag-opts label{display:flex;align-items:flex-start;gap:.7rem;background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.14);border-radius:10px;padding:.75rem .9rem;margin-bottom:.5rem;font-size:.89rem;color:#ede9fe;line-height:1.5;cursor:pointer;transition:background .15s,border-color .15s;}
+.diag-opts label:hover{background:rgba(255,255,255,.12);}
+.diag-opts label.on{background:rgba(220,38,38,.18);border-color:rgba(248,113,113,.55);}
+.diag-opts label.on-ok{background:rgba(5,150,105,.2);border-color:rgba(52,211,153,.55);}
+.diag-opts input{margin-top:.28rem;width:16px;height:16px;flex-shrink:0;accent-color:#a78bfa;cursor:pointer;}
+.diag-campo{margin-bottom:.8rem;}
+.diag-campo > span{display:block;font-size:.8rem;color:#c7bce8;margin-bottom:.45rem;font-weight:600;}
+.diag-chips{display:flex;gap:.4rem;flex-wrap:wrap;}
+.diag-chip{background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.18);color:#ede9fe;border-radius:8px;padding:.5rem .9rem;font-size:.85rem;font-weight:600;font-family:inherit;cursor:pointer;transition:all .15s;}
+.diag-chip:hover{background:rgba(255,255,255,.15);}
+.diag-chip.sel{background:#a78bfa;border-color:#a78bfa;color:#1e0a4e;}
+.btn-diag-go{width:100%;margin-top:.9rem;background:#a78bfa;color:#1e0a4e;border:none;border-radius:10px;padding:.85rem 1.2rem;font-size:.95rem;font-weight:700;font-family:inherit;cursor:pointer;transition:background .15s,opacity .15s;}
+.btn-diag-go:hover:not(:disabled){background:#c4b5fd;}
+.btn-diag-go:disabled{opacity:.38;cursor:not-allowed;}
+.diag-hint{text-align:center;font-size:.74rem;color:#8b7cb8;margin:.5rem 0 0;}
+.diag-res{margin-top:1.3rem;border-top:1px solid rgba(255,255,255,.16);padding-top:1.3rem;}
+.diag-res-top{display:flex;align-items:center;gap:1rem;margin-bottom:1.1rem;}
+.diag-res-n{font-family:'Lora',serif;font-size:2rem;font-weight:700;color:#fff;line-height:1.05;background:rgba(220,38,38,.25);border:2px solid rgba(248,113,113,.5);border-radius:14px;min-width:84px;padding:.7rem .5rem;text-align:center;flex-shrink:0;}
+.diag-res-n.ok{background:rgba(5,150,105,.25);border-color:rgba(52,211,153,.6);}
+.diag-res-n.med{background:rgba(217,119,6,.25);border-color:rgba(251,191,36,.6);}
+.diag-res-n small{display:block;font-family:'DM Sans',sans-serif;font-size:.6rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;opacity:.85;margin-top:.25rem;}
+.diag-res-top strong{display:block;font-size:.72rem;text-transform:uppercase;letter-spacing:.1em;color:#fca5a5;margin-bottom:.3rem;}
+.diag-res-top.ok strong{color:#6ee7b7;}
+.diag-res-top.med strong{color:#fcd34d;}
+.diag-res-top p{font-size:.92rem;color:#ede9fe;line-height:1.6;margin:0;}
+.diag-items{display:grid;gap:.6rem;}
+.diag-item{background:rgba(255,255,255,.06);border-left:3px solid #f87171;border-radius:0 10px 10px 0;padding:.85rem 1rem;}
+.diag-item.ok{border-left-color:#34d399;}
+.diag-item.med{border-left-color:#fbbf24;}
+.diag-item b{display:block;font-size:.85rem;color:#fff;margin-bottom:.3rem;line-height:1.4;}
+.diag-item p{font-size:.85rem;color:#c7bce8;line-height:1.65;margin:0;}
+.diag-tabla{background:rgba(255,255,255,.06);border-radius:12px;padding:.9rem 1.05rem;margin-bottom:.7rem;}
+.diag-fila{display:flex;justify-content:space-between;align-items:baseline;gap:1rem;padding:.42rem 0;border-bottom:1px solid rgba(255,255,255,.1);font-size:.87rem;color:#c7bce8;}
+.diag-fila:last-child{border-bottom:none;}
+.diag-fila span:last-child{color:#fff;font-weight:700;white-space:nowrap;}
+.diag-fila.total{border-top:2px solid rgba(167,139,250,.5);margin-top:.35rem;padding-top:.6rem;border-bottom:none;font-size:1rem;}
+.diag-fila.total span{color:#fff;font-weight:700;}
+.diag-fila.total span:last-child{font-family:'Lora',serif;font-size:1.4rem;}
+.diag-fila.ahorro span:last-child{color:#6ee7b7;}
+.diag-combo{margin-top:.8rem;background:rgba(217,119,6,.18);border:1px solid rgba(251,191,36,.45);border-radius:10px;padding:.9rem 1.05rem;}
+.diag-combo b{display:block;font-size:.72rem;text-transform:uppercase;letter-spacing:.08em;color:#fbbf24;margin-bottom:.35rem;}
+.diag-combo p{font-size:.86rem;color:#fde68a;line-height:1.65;margin:0;}
+.diag-combo a{color:#fff;text-decoration:underline;font-weight:600;}
+.diag-cierre{margin-top:1.1rem;background:rgba(255,255,255,.1);border-radius:12px;padding:1.1rem;text-align:center;}
+.diag-cierre p{font-size:.87rem;color:#ede9fe;line-height:1.65;margin:0 0 .9rem;text-align:left;}
+.diag-cierre strong{color:#fff;}
+.btn-diag{background:#25d366;color:#fff;border:none;border-radius:10px;padding:.8rem 1.6rem;font-size:.93rem;font-weight:700;font-family:inherit;cursor:pointer;width:100%;}
+.btn-diag:hover{background:#1da851;}
+.diag-nota{display:block;font-size:.72rem;color:#a78bfa;margin-top:.55rem;}
+@media(max-width:600px){.diag{padding:1.4rem 1.1rem;}.diag-res-n{min-width:70px;font-size:1.65rem;}.diag-fila{font-size:.82rem;}}
+
+.incluye li.incluye-dest{background:var(--success-light);border:1px solid var(--success);border-radius:8px;padding:.6rem .8rem .6rem 2.1rem;margin-bottom:.5rem;}
+.incluye li.incluye-dest::before{color:var(--success);}
+.incluye li.incluye-dest strong{color:var(--success);}
+.que-es-45{background:var(--primary-light);border:1px solid rgba(154,106,255,.35);border-radius:12px;padding:.95rem 1.15rem;margin:.9rem 0;}
+.que-es-45 > strong{display:block;font-size:.72rem;text-transform:uppercase;letter-spacing:.08em;color:var(--primary-dark);margin-bottom:.4rem;}
+.que-es-45 p{font-size:.86rem;color:var(--text);line-height:1.7;margin:0;}
+.que-es-45 p strong{color:var(--primary-dark);}
+.cta-vig{background:rgba(52,211,153,.15);border:1px solid rgba(52,211,153,.45);border-radius:10px;padding:.7rem 1rem;max-width:520px;margin:0 auto 1rem;font-size:.84rem;color:#d1fae5;line-height:1.6;}
+.cta-vig strong{color:#6ee7b7;}
+
+.modal-que-es{background:#f5f3ff;border:1px solid rgba(124,58,237,.3);border-radius:8px;padding:.55rem .7rem;font-size:.7rem;color:#4a4a6a;line-height:1.5;margin:.5rem 0 0;}
+.modal-que-es strong{color:#7c3aed;}
+.modal-diag-of{font-size:.68rem;text-align:center;color:#6b7280;line-height:1.45;margin:.5rem 0 0;}
+.modal-diag-of a{color:#7c3aed;text-decoration:underline;font-weight:700;cursor:pointer;}
+
+.garantia{background:#ecfdf5;border:1.5px solid var(--success);border-radius:12px;padding:1rem 1.2rem;margin:.9rem 0;}
+.garantia > strong{display:block;font-size:.74rem;text-transform:uppercase;letter-spacing:.08em;color:var(--success);margin-bottom:.4rem;}
+.garantia p{font-size:.87rem;color:var(--text);line-height:1.7;margin:0;}
+.garantia p strong{color:var(--success);}
+.barato{background:var(--gray-light);border-left:3px solid var(--primary);border-radius:0 10px 10px 0;padding:.85rem 1.1rem;margin:.9rem 0;}
+.barato > strong{display:block;font-size:.74rem;text-transform:uppercase;letter-spacing:.08em;color:var(--primary-dark);margin-bottom:.35rem;}
+.barato p{font-size:.86rem;color:var(--text-secondary);line-height:1.7;margin:0;}
+.barato p strong{color:var(--text);}
+.cta-gar{background:rgba(52,211,153,.15);border:1px solid rgba(52,211,153,.45);border-radius:10px;padding:.7rem 1rem;max-width:520px;margin:0 auto 1rem;font-size:.84rem;color:#d1fae5;line-height:1.6;}
+.cta-gar strong{color:#6ee7b7;}
+
+
+
+.lp-ref{display:flex;align-items:center;gap:1.1rem;flex-wrap:wrap;background:#fff;border:2px solid var(--primary);border-radius:14px;padding:1.1rem 1.3rem;margin:1.8rem 0;box-shadow:0 6px 24px rgba(124,58,237,.14);}
+.lp-ref-txt{flex:1;min-width:210px;}
+.lp-ref-txt b{display:block;font-family:'Lora',serif;font-size:1.05rem;color:var(--text);line-height:1.35;margin-bottom:.25rem;}
+.lp-ref-txt span{display:block;font-size:.85rem;color:var(--text-secondary);line-height:1.6;}
+.lp-ref-btn{background:var(--primary-dark);color:#fff;border-radius:10px;padding:.72rem 1.3rem;font-size:.88rem;font-weight:700;white-space:nowrap;flex-shrink:0;text-decoration:none;display:inline-block;}
+.lp-ref-btn:hover{background:var(--primary);color:#fff;}
+@media(max-width:560px){.lp-ref{gap:.85rem;}.lp-ref-btn{width:100%;text-align:center;}}
 </style>
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-3L5I5CEKRL"></script>
 <script>
@@ -457,6 +549,8 @@ footer a{color:#c4b5fd;}
         <div class="modal-precio virtual"><span class="mlabel">⭐ Virtual</span><div class="mmonto">$45</div><div class="mdesc">Todo Ecuador</div></div>
         <div class="modal-precio presencial"><span class="mlabel">Presencial</span><div class="mmonto">$85</div><div class="mdesc">Solo Guayaquil</div></div>
       </div>
+      <p class="modal-que-es"><strong>No es una llamada para cotizarte.</strong> Es el análisis que define si tu marca es registrable, en qué clases y con qué riesgo. Si tu caso resulta simple, te lo decimos y ahí termina el gasto.</p>
+      <p class="modal-diag-of" id="modalDiagOferta">¿Prefieres que lleguemos con tu caso ya revisado? <a onclick="cerrarModal();document.getElementById('diagnostico').scrollIntoView({behavior:'smooth'});">Haz el diagnóstico de 30 segundos →</a></p>
 
     </div>
     <div class="modal-foot">
@@ -470,7 +564,7 @@ footer a{color:#c4b5fd;}
   <a href="/blog/"><img class="brand-logo" src="https://i.postimg.cc/vHygbHxz/oie-transparent-(2).png" alt="Juristam" loading="eager" width="120" height="64"/></a>
   <div class="header-actions">
     <a class="btn-back" href="/blog/">&larr; Volver al blog</a>
-    <button type="button" class="btn-header-cta" onclick="abrirModal()">
+    <button type="button" class="btn-header-cta" data-wa="https://wa.me/593994859814?text=Hola%2C%20vengo%20del%20art%C3%ADculo%20sobre%20COSTO%20DE%20REGISTRO.%20Quiero%20revisar%20mi%20caso." onclick="abrirModal(this)">
       <svg width="14" height="14" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.374 0 0 5.373 0 12c0 2.117.554 4.127 1.524 5.875L0 24l6.29-1.501A11.96 11.96 0 0012 24c6.626 0 12-5.374 12-12S18.626 0 12 0zm0 21.818a9.81 9.81 0 01-5.002-1.368l-.358-.214-3.734.891.944-3.622-.236-.375A9.808 9.808 0 012.182 12C2.182 6.58 6.58 2.182 12 2.182c5.42 0 9.818 4.398 9.818 9.818 0 5.42-4.398 9.818-9.818 9.818z"/></svg>
       <span class="btn-header-text">Agendar Asesoría</span>
     </button>
@@ -499,7 +593,7 @@ footer a{color:#c4b5fd;}
 <div class="cta-urgente">
   <p>¿Vas a registrar una marca y no sabes cuánto te costará realmente?
   <span>El precio más bajo de la vitrina no es el más económico. Antes de pagar tasas conviene saber exactamente qué se paga, cuándo y por qué.</span></p>
-  <button class="btn-wa" onclick="abrirModal()">Cotizar mi caso →</button>
+  <button class="btn-wa" onclick="abrirModal(this)">Cotizar mi caso →</button>
 </div>
 
 <div class="tldr">
@@ -528,6 +622,10 @@ footer a{color:#c4b5fd;}
 
 <article>
 
+<div class="lp-ref">
+  <div class="lp-ref-txt"><b>Todo lo que entra en los $350</b><span>La búsqueda, la presentación, el seguimiento hasta la concesión, la respuesta a observaciones y la vigilancia por 10 años.</span></div>
+  <a class="lp-ref-btn" href="/registro-de-marca/">Ver el servicio →</a>
+</div>
 <h2 id="composicion">Qué compone el costo del registro de una marca en Ecuador</h2>
 
 <div class="respuesta-directa">
@@ -575,6 +673,50 @@ footer a{color:#c4b5fd;}
 <div class="callout-warning">
   <strong>⚠ El precio que ves y el costo que pagas no son lo mismo</strong>
   La mayoría de tarifas del mercado muestran solo honorarios, sin las tasas del SENADI. Cuando sumas la tasa oficial por clase y agregas una posible oposición, el costo real suele duplicar el número inicial. Y si hubo error de estrategia al inicio, el costo se puede triplicar. Antes de elegir proveedor conviene preguntar: <em>¿este precio incluye la búsqueda de antecedentes y la estrategia de clases?</em>
+</div>
+
+<div class="diag" id="diagnostico">
+  <span class="diag-label">Calculadora · 30 segundos</span>
+  <h3>¿Cuánto te cuesta a ti registrar tu marca?</h3>
+  <p class="diag-sub">Las cifras de este artículo son generales. Esta calculadora usa el tarifario 2026 del SENADI y te da el número de tu caso.</p>
+
+  <div class="diag-campo"><span>¿Cuántos signos vas a registrar? (nombre, logo y eslogan son signos distintos)</span>
+    <div class="diag-chips" data-grupo="signos">
+      <button type="button" class="diag-chip sel" data-v="1">1 signo</button>
+      <button type="button" class="diag-chip" data-v="2">2 signos</button>
+      <button type="button" class="diag-chip" data-v="3">3 signos</button>
+    </div>
+  </div>
+  <div class="diag-campo"><span>¿En cuántas clases de Niza compite tu negocio?</span>
+    <div class="diag-chips" data-grupo="clases">
+      <button type="button" class="diag-chip sel" data-v="1">1 clase</button>
+      <button type="button" class="diag-chip" data-v="2">2 clases</button>
+      <button type="button" class="diag-chip" data-v="3">3 clases</button>
+      <button type="button" class="diag-chip" data-v="4">4 clases</button>
+      <button type="button" class="diag-chip" data-v="5">5 clases</button>
+    </div>
+  </div>
+  <div class="diag-campo"><span>¿Calificas al descuento del 50%?</span>
+    <div class="diag-chips" data-grupo="desc">
+      <button type="button" class="diag-chip" data-v="1">Sí</button>
+      <button type="button" class="diag-chip" data-v="0">No</button>
+      <button type="button" class="diag-chip sel" data-v="?">No lo sé</button>
+    </div>
+  </div>
+
+  <button type="button" class="btn-diag-go" id="diagGo">Calcular mi presupuesto</button>
+  <p class="diag-hint" id="diagHint">Tarifario SENADI vigente 2026.</p>
+
+  <div class="diag-res" id="diagRes" hidden>
+    <div class="diag-tabla" id="diagTabla"></div>
+    <div class="diag-items" id="diagItems"></div>
+    <div class="diag-combo" id="diagCombo" hidden></div>
+    <div class="diag-cierre">
+      <p><strong>Lo que esta calculadora no puede decirte:</strong> si las clases que elegiste son las correctas para tu modelo de negocio, y si tu signo está libre en ellas. Presupuestar bien un registro que se presenta en la clase equivocada es presupuestar bien una pérdida — la clase se fija al presentar y no se corrige después.</p>
+      <button type="button" class="btn-diag" id="diagBtn" onclick="abrirModal(this)">Revisar mis clases antes de presentar →</button>
+      <span class="diag-nota">Asesoría $45 · se descuentan del registro si decides continuar</span>
+    </div>
+  </div>
 </div>
 
 <h2 id="normativa">Normativa y tarifario aplicable</h2>
@@ -661,7 +803,7 @@ footer a{color:#c4b5fd;}
     <div class="caso-testimonio">
       "Pensé que con $400 alcanzaba para el registro. La asesoría me mostró que mi negocio operaba en tres clases y que el presupuesto real era otro. Preferí saberlo antes y planificar por fases."
     </div>
-    <button type="button" class="caso-cta-link" onclick="abrirModal()">Quiero saber mi costo real →</button>
+    <button type="button" class="caso-cta-link" onclick="abrirModal(this)">Quiero saber mi costo real →</button>
   </div>
 
   <div class="caso-card">
@@ -686,7 +828,7 @@ footer a{color:#c4b5fd;}
     <div class="caso-testimonio">
       "Pensé que $200 era un buen precio. Terminé pagando casi $1.000 por un error que se podía haber evitado con una búsqueda previa."
     </div>
-    <button type="button" class="caso-cta-link" onclick="abrirModal()">Quiero evitar este escenario →</button>
+    <button type="button" class="caso-cta-link" onclick="abrirModal(this)">Quiero evitar este escenario →</button>
   </div>
 
   <div class="caso-card">
@@ -711,7 +853,7 @@ footer a{color:#c4b5fd;}
     <div class="caso-testimonio">
       "Haber pagado los $45 de la asesoría nos ahorró potencialmente el registro entero. La búsqueda mostró el conflicto antes de presentar y ajustamos a tiempo."
     </div>
-    <button type="button" class="caso-cta-link" onclick="abrirModal()">Quiero cotizar mi caso →</button>
+    <button type="button" class="caso-cta-link" onclick="abrirModal(this)">Quiero cotizar mi caso →</button>
   </div>
 
   <div class="casos-footer-cta">
@@ -722,7 +864,7 @@ footer a{color:#c4b5fd;}
 <div class="cta-block">
   <h3>¿Quieres el costo exacto para tu caso?</h3>
   <p>La asesoría de $45 te da el desglose exacto: tasa oficial por clase, honorarios y cualquier costo previsible. Se descuenta del servicio completo.</p>
-  <button class="btn-solid" onclick="abrirModal()">Cotizar mi caso ahora →</button>
+  <button class="btn-solid" onclick="abrirModal(this)">Cotizar mi caso ahora →</button>
 </div>
 
 <h2 id="errores">Errores al calcular el costo real</h2>
@@ -786,6 +928,18 @@ footer a{color:#c4b5fd;}
     </ul>
   </div>
 <div class="oferta-descuento">✅ Los $45 de la asesoría virtual se descuentan del servicio completo si decides continuar.</div>
+  <div class="que-es-45">
+    <strong>Para que quede claro qué son los $45</strong>
+    <p>No son un anticipo del trámite ni una llamada para cotizarte: son el <strong>análisis que define si tu marca es registrable</strong>, en qué clases y con qué riesgo concreto. A veces ese análisis concluye que tu caso es simple y puedes presentarlo por tu cuenta — cuando pasa, te lo decimos y ahí termina el gasto. Si decides continuar con nosotros, se descuentan del registro.</p>
+  </div>
+  <div class="garantia">
+    <strong>Nuestra apuesta, no la tuya</strong>
+    <p><strong>No damos luz verde a un caso dudoso.</strong> Si el análisis muestra un riesgo real, te lo decimos y no presentamos — para eso existe la asesoría. Y si damos luz verde y el SENADI niega el registro, volvemos a presentar con el signo ajustado <strong>sin cobrarte honorarios otra vez</strong>.</p>
+  </div>
+  <div class="barato">
+    <strong>Y si la respuesta es que no se puede, te cuesta $45</strong>
+    <p>Enterarte de que tu signo no es registrable cuesta <strong>$45 y ahí termina</strong>. No un paquete completo pagado por adelantado, ni una devolución que haya que esperar y perseguir. La decisión va primero; el trámite, después.</p>
+  </div>
   <div class="micro-disclaimer">Si tras la asesoría analizamos que tu caso no tiene probabilidades reales de éxito, te lo diremos con total honestidad para que no gastes en el proceso completo.</div>
   <p style="font-size:.82rem;font-weight:700;color:var(--text);text-transform:uppercase;letter-spacing:.05em;margin:1rem 0 .6rem;">Paso 2 — Registro de marca (ejecución)</p>
   <div class="oferta-completo">
@@ -797,6 +951,7 @@ footer a{color:#c4b5fd;}
   </div>
   <p style="font-size:.82rem;font-weight:700;color:var(--text);text-transform:uppercase;letter-spacing:.05em;margin:1rem 0 .5rem;">Qué incluye el servicio de registro</p>
   <ul class="incluye">
+    <li class="incluye-dest"><strong>Vigilancia de tu marca durante los 10 años de vigencia.</strong> Monitoreamos las solicitudes que se publican y te avisamos si alguien intenta registrar un signo parecido al tuyo — a tiempo para oponerte, que es lo único que sirve.</li>
     <li>Búsqueda profunda de antecedentes con análisis de confundibilidad</li>
     <li>Redacción técnica de la solicitud según las clases definidas</li>
     <li>Presentación de la solicitud ante el SENADI</li>
@@ -809,7 +964,7 @@ footer a{color:#c4b5fd;}
     <p class="cita">"La asesoría me mostró el costo real por fases. Pude decidir con números, no con suposiciones."</p>
     <p class="autor">— Cliente Juristam · Guayaquil</p>
   </div>
-  <div style="text-align:center;"><button class="btn-wa" onclick="abrirModal()">Cotizar mi caso por WhatsApp →</button></div>
+  <div style="text-align:center;"><button class="btn-wa" onclick="abrirModal(this)">Cotizar mi caso por WhatsApp →</button></div>
 </div>
 
 <section class="form-async" id="formulario-async">
@@ -878,7 +1033,8 @@ footer a{color:#c4b5fd;}
 <section class="related-section">
   <h3>Continúa con la guía de marcas</h3>
   <div class="related-grid">
-    <div class="related-card"><a href="/blog/propiedad-intelectual-marcas-ecuador.html">Guía principal: marcas en Ecuador</a><span class="rtipo">Pilar</span></div>
+    <div class="related-card" style="border-color:var(--primary);background:var(--primary-light);"><a href="/registro-de-marca/" style="color:var(--primary-dark);font-weight:700;">Registro de marca · el servicio completo</a><span class="rtipo">Calculadora y precios</span></div>
+<div class="related-card"><a href="/blog/propiedad-intelectual-marcas-ecuador.html">Guía principal: marcas en Ecuador</a><span class="rtipo">Pilar</span></div>
     <div class="related-card"><a href="/blog/registrar-marca-ecuador.html">Cómo registrar una marca en Ecuador</a><span class="rtipo">Proceso</span></div>
     <div class="related-card"><a href="/blog/busqueda-anterioridad-marca-ecuador.html">Búsqueda de anterioridad</a><span class="rtipo">Prevención</span></div>
     <div class="related-card"><a href="/blog/clases-niza-marca-ecuador.html">Clases de Niza: cuál elegir</a><span class="rtipo">Fundamento</span></div>
@@ -900,14 +1056,22 @@ footer a{color:#c4b5fd;}
   <p style="font-size:.78rem;opacity:.7;">Este artículo es informativo y no reemplaza asesoría legal individualizada. Los valores mencionados son referenciales y pueden actualizarse por resolución del SENADI. Base legal: Decisión 486 de la Comunidad Andina, COESC y tarifario vigente del SENADI.</p>
 </div></footer>
 
-<button type="button" class="wa-float" onclick="abrirModal()" aria-label="Escribir por WhatsApp">
+<button type="button" class="wa-float" data-wa="https://wa.me/593994859814?text=Hola%2C%20vengo%20del%20art%C3%ADculo%20sobre%20COSTO%20DE%20REGISTRO.%20Quiero%20revisar%20mi%20caso." onclick="abrirModal(this)" aria-label="Escribir por WhatsApp">
   <svg width="26" height="26" fill="white" viewBox="0 0 24 24" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.374 0 0 5.373 0 12c0 2.117.554 4.127 1.524 5.875L0 24l6.29-1.501A11.96 11.96 0 0012 24c6.626 0 12-5.374 12-12S18.626 0 12 0zm0 21.818a9.81 9.81 0 01-5.002-1.368l-.358-.214-3.734.891.944-3.622-.236-.375A9.808 9.808 0 012.182 12C2.182 6.58 6.58 2.182 12 2.182c5.42 0 9.818 4.398 9.818 9.818 0 5.42-4.398 9.818-9.818 9.818z"/></svg>
   <span class="wa-float-text">¿Tienes dudas? Escríbenos</span>
 </button>
 
 <script>
 const WA_URL="https://wa.me/593994859814?text=Hola%2C%20vengo%20del%20art%C3%ADculo%20sobre%20CU%C3%81NTO%20CUESTA%20REGISTRAR%20UNA%20MARCA%20EN%20ECUADOR.%20Quiero%20el%20costo%20exacto%20de%20mi%20caso.";
-function abrirModal(){setTimeout(window.ajustarModal,0);document.getElementById('waModal').classList.add('active');document.body.style.overflow='hidden';}
+function abrirModal(el){
+  var h=(el&&el.dataset&&el.dataset.wa)?el.dataset.wa:WA_URL;
+  if(window.__diagMsg && !(el&&el.id==='diagBtn')){h+=encodeURIComponent(' Mi diagnóstico: '+window.__diagMsg.replace(/^Hola[^.]*\. /,''));}
+  var of=document.getElementById('modalDiagOferta'); if(of) of.hidden=!!window.__diagMsg;
+  var lk=document.getElementById('waModalLink'); if(lk) lk.setAttribute('href',h);
+  setTimeout(window.ajustarModal,0);
+  document.getElementById('waModal').classList.add('active');
+  document.body.style.overflow='hidden';
+}
 function cerrarModal(){document.getElementById('waModal').classList.remove('active');document.body.style.overflow='';}
 document.getElementById('waModal').addEventListener('click',function(e){if(e.target===this)cerrarModal();});
 document.addEventListener('keydown',function(e){if(e.key==='Escape')cerrarModal();});
@@ -915,5 +1079,64 @@ document.addEventListener('keydown',function(e){if(e.key==='Escape')cerrarModal(
 <script>
 (function(){function a(){var m=document.querySelector('#waModal .modal');if(!m||!document.getElementById('waModal').classList.contains('active'))return;m.style.transform='none';var k=Math.min(1,(window.innerHeight-16)/m.offsetHeight,(window.innerWidth-16)/m.offsetWidth);m.style.transform=k<1?'scale('+k.toFixed(4)+')':'none';}
 window.ajustarModal=a;window.addEventListener('resize',a);window.addEventListener('orientationchange',function(){setTimeout(a,150)});})();
+
+function waDiag(m){window.__diagMsg=m;return 'https://wa.me/593994859814?text='+encodeURIComponent(m);}
+(function(){
+  var d=document.getElementById('diagnostico'); if(!d) return;
+  var v={signos:1,clases:1,desc:'?'};
+  d.querySelectorAll('.diag-chips').forEach(function(g){
+    g.querySelectorAll('.diag-chip').forEach(function(b){
+      b.addEventListener('click',function(){
+        g.querySelectorAll('.diag-chip').forEach(function(x){x.classList.remove('sel');});
+        b.classList.add('sel');
+        var val=b.dataset.v; v[g.dataset.grupo] = (val==='?')?'?':parseInt(val,10);
+        var r=document.getElementById('diagRes'); if(!r.hidden){r.hidden=true;document.getElementById('diagGo').textContent='Calcular mi presupuesto';}
+      });
+    });
+  });
+  function fmt(n){return '$'+n.toLocaleString('de-DE');}
+  document.getElementById('diagGo').addEventListener('click',function(){
+    var s=v.signos, c=v.clases, sol=s*c;
+    var tasaPlena=208, tasaDesc=104;
+    var conDesc = (v.desc===1);
+    var tasa = conDesc?tasaDesc:tasaPlena;
+    var tasas = sol*tasa, hon = s*350, tot = tasas+hon;
+    var ahorro = sol*(tasaPlena-tasaDesc);
+    var h='';
+    h+='<div class="diag-fila"><span>Solicitudes a presentar</span><span>'+sol+(sol===1?' solicitud':' solicitudes')+'</span></div>';
+    h+='<div class="diag-fila"><span>Tasas SENADI ('+sol+' × '+fmt(tasa)+')</span><span>'+fmt(tasas)+'</span></div>';
+    h+='<div class="diag-fila"><span>Honorarios Juristam ('+s+' × $350)</span><span>'+fmt(hon)+'</span></div>';
+    h+='<div class="diag-fila total"><span>Total</span><span>'+fmt(tot)+'</span></div>';
+    if(conDesc){h+='<div class="diag-fila ahorro"><span>Ya descontado por MIPYME</span><span>−'+fmt(ahorro)+'</span></div>';}
+    document.getElementById('diagTabla').innerHTML=h;
+
+    var it='';
+    if(v.desc==='?'){
+      it+='<div class="diag-item med"><b>No sabes si calificas al 50% — y eso vale '+fmt(ahorro)+'</b><p>El descuento no es solo para MIPYMES: cubre artesanos, inventores independientes, instituciones de educación superior, pequeños y medianos agricultores, organizaciones campesinas, actores de la economía popular y solidaria, y a quien esté inscrito en el Registro Nacional de Emprendimiento. Casi nadie lo reclama porque casi nadie sabe que le corresponde.</p></div>';
+    } else if(!conDesc){
+      it+='<div class="diag-item med"><b>Si calificaras al 50%, pagarías '+fmt(ahorro)+' menos</b><p>Vale confirmarlo antes de pagar: el descuento alcanza a más perfiles de los que la gente supone, y se aplica al presentar — no se devuelve después.</p></div>';
+    }
+    if(s>1){
+      it+='<div class="diag-item"><b>'+s+' signos = '+s+' trámites independientes</b><p>Nombre, logo y eslogan no se registran juntos: cada uno paga su tasa por cada clase. Por eso el orden importa — el denominativo protege la palabra aunque el diseño cambie, y el diseño es lo que cambia.</p></div>';
+    }
+    if(c>1){
+      it+='<div class="diag-item"><b>Ecuador no tiene sistema multiclase</b><p>Cada clase es una solicitud aparte con su propia tasa y su propio examen. Registrar en '+c+' clases no es un trámite con '+c+' casillas: son '+c+' trámites.</p></div>';
+    }
+    it+='<div class="diag-item ok"><b>Lo que sí está incluido en los $350</b><p>Búsqueda de antecedentes, preparación técnica de la solicitud, presentación ante el SENADI, seguimiento hasta la concesión, respuesta a observaciones del examinador y <strong>vigilancia de tu marca durante los 10 años de vigencia</strong>: si alguien solicita un signo parecido al tuyo, te avisamos a tiempo para oponerte.</p></div>';
+    document.getElementById('diagItems').innerHTML=it;
+
+    var cb=document.getElementById('diagCombo');
+    if(sol>=4){
+      cb.innerHTML='<b>Con '+sol+' solicitudes conviene decidir el orden</b><p>No todo tiene que presentarse el mismo mes. Se puede cubrir primero lo crítico para operar y dejar el resto para una segunda fase, sin perder protección sobre lo que importa. <a href="/casos-de-exito-registro-marca.html">Ver casos de estrategia multiclase →</a></p>';
+      cb.hidden=false;
+    } else cb.hidden=true;
+
+    var msg='Hola, vengo del artículo sobre COSTO DE REGISTRO. Calculé mi presupuesto: '+s+(s===1?' signo':' signos')+' en '+c+(c===1?' clase':' clases')+' = '+sol+(sol===1?' solicitud':' solicitudes')+', total estimado '+fmt(tot)+(v.desc==='?'?' (no sé si califico al descuento del 50%)':(conDesc?' (con descuento MIPYME)':''))+'. Quiero confirmar si las clases son las correctas.';
+    document.getElementById('diagBtn').setAttribute('data-wa', waDiag(msg));
+    document.getElementById('diagRes').hidden=false;
+    this.textContent='Recalcular';
+    document.getElementById('diagRes').scrollIntoView({behavior:'smooth',block:'nearest'});
+  });
+})();
 </script>
 </body></html>

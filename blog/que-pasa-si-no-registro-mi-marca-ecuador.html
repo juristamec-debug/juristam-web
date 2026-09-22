@@ -439,6 +439,42 @@ footer a{color:#c4b5fd;}
   table,.tabla,.compare-table{display:block;width:100%;overflow-x:auto;-webkit-overflow-scrolling:touch;}
   .container{padding:0 1rem;}
 }
+
+.incluye li.incluye-dest{background:var(--success-light);border:1px solid var(--success);border-radius:8px;padding:.6rem .8rem .6rem 2.1rem;margin-bottom:.5rem;}
+.incluye li.incluye-dest::before{color:var(--success);}
+.incluye li.incluye-dest strong{color:var(--success);}
+.que-es-45{background:var(--primary-light);border:1px solid rgba(154,106,255,.35);border-radius:12px;padding:.95rem 1.15rem;margin:.9rem 0;}
+.que-es-45 > strong{display:block;font-size:.72rem;text-transform:uppercase;letter-spacing:.08em;color:var(--primary-dark);margin-bottom:.4rem;}
+.que-es-45 p{font-size:.86rem;color:var(--text);line-height:1.7;margin:0;}
+.que-es-45 p strong{color:var(--primary-dark);}
+.cta-vig{background:rgba(52,211,153,.15);border:1px solid rgba(52,211,153,.45);border-radius:10px;padding:.7rem 1rem;max-width:520px;margin:0 auto 1rem;font-size:.84rem;color:#d1fae5;line-height:1.6;}
+.cta-vig strong{color:#6ee7b7;}
+
+.modal-que-es{background:#f5f3ff;border:1px solid rgba(124,58,237,.3);border-radius:8px;padding:.55rem .7rem;font-size:.7rem;color:#4a4a6a;line-height:1.5;margin:.5rem 0 0;}
+.modal-que-es strong{color:#7c3aed;}
+.modal-diag-of{font-size:.68rem;text-align:center;color:#6b7280;line-height:1.45;margin:.5rem 0 0;}
+.modal-diag-of a{color:#7c3aed;text-decoration:underline;font-weight:700;cursor:pointer;}
+
+.garantia{background:#ecfdf5;border:1.5px solid var(--success);border-radius:12px;padding:1rem 1.2rem;margin:.9rem 0;}
+.garantia > strong{display:block;font-size:.74rem;text-transform:uppercase;letter-spacing:.08em;color:var(--success);margin-bottom:.4rem;}
+.garantia p{font-size:.87rem;color:var(--text);line-height:1.7;margin:0;}
+.garantia p strong{color:var(--success);}
+.barato{background:var(--gray-light);border-left:3px solid var(--primary);border-radius:0 10px 10px 0;padding:.85rem 1.1rem;margin:.9rem 0;}
+.barato > strong{display:block;font-size:.74rem;text-transform:uppercase;letter-spacing:.08em;color:var(--primary-dark);margin-bottom:.35rem;}
+.barato p{font-size:.86rem;color:var(--text-secondary);line-height:1.7;margin:0;}
+.barato p strong{color:var(--text);}
+.cta-gar{background:rgba(52,211,153,.15);border:1px solid rgba(52,211,153,.45);border-radius:10px;padding:.7rem 1rem;max-width:520px;margin:0 auto 1rem;font-size:.84rem;color:#d1fae5;line-height:1.6;}
+.cta-gar strong{color:#6ee7b7;}
+
+
+
+.lp-ref{display:flex;align-items:center;gap:1.1rem;flex-wrap:wrap;background:#fff;border:2px solid var(--primary);border-radius:14px;padding:1.1rem 1.3rem;margin:1.8rem 0;box-shadow:0 6px 24px rgba(124,58,237,.14);}
+.lp-ref-txt{flex:1;min-width:210px;}
+.lp-ref-txt b{display:block;font-family:'Lora',serif;font-size:1.05rem;color:var(--text);line-height:1.35;margin-bottom:.25rem;}
+.lp-ref-txt span{display:block;font-size:.85rem;color:var(--text-secondary);line-height:1.6;}
+.lp-ref-btn{background:var(--primary-dark);color:#fff;border-radius:10px;padding:.72rem 1.3rem;font-size:.88rem;font-weight:700;white-space:nowrap;flex-shrink:0;text-decoration:none;display:inline-block;}
+.lp-ref-btn:hover{background:var(--primary);color:#fff;}
+@media(max-width:560px){.lp-ref{gap:.85rem;}.lp-ref-btn{width:100%;text-align:center;}}
 </style>
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-3L5I5CEKRL"></script>
 <script>
@@ -481,6 +517,8 @@ footer a{color:#c4b5fd;}
         <div class="modal-precio virtual"><span class="mlabel">⭐ Virtual</span><div class="mmonto">$45</div><div class="mdesc">Todo Ecuador</div></div>
         <div class="modal-precio presencial"><span class="mlabel">Presencial</span><div class="mmonto">$85</div><div class="mdesc">Solo Guayaquil</div></div>
       </div>
+      <p class="modal-que-es"><strong>No es una llamada para cotizarte.</strong> Es el análisis que define si tu marca es registrable, en qué clases y con qué riesgo. Si tu caso resulta simple, te lo decimos y ahí termina el gasto.</p>
+      <p class="modal-diag-of" id="modalDiagOferta">¿Prefieres que lleguemos con tu caso ya revisado? <a onclick="cerrarModal();document.getElementById('diagnostico').scrollIntoView({behavior:'smooth'});">Haz el diagnóstico de 30 segundos →</a></p>
 
     </div>
     <div class="modal-foot">
@@ -552,6 +590,10 @@ footer a{color:#c4b5fd;}
 
 <article>
 
+<div class="lp-ref">
+  <div class="lp-ref-txt"><b>Cerrar todos esos frentes cuesta esto</b><span>Calculadora con el tarifario SENADI 2026, según cuántos signos y cuántas clases necesitas cubrir.</span></div>
+  <a class="lp-ref-btn" href="/registro-de-marca/">Calcular mi presupuesto →</a>
+</div>
 <h2 id="que-se-pierde">Qué se pierde cuando la marca no está registrada</h2>
 
 <div class="respuesta-directa">
@@ -833,6 +875,18 @@ footer a{color:#c4b5fd;}
   </div>
   <p class="nota-paso">La búsqueda, la medición de exposición y la definición de clases <strong>se resuelven en la asesoría</strong>: es lo que hay que saber antes de decidir si regularizas o sigues así. Por eso los $45 se descuentan del registro y no se cobran dos veces.</p>
   <div class="oferta-descuento">✅ Los $45 de la asesoría virtual se descuentan del servicio completo si decides continuar.</div>
+  <div class="que-es-45">
+    <strong>Para que quede claro qué son los $45</strong>
+    <p>No son un anticipo del trámite ni una llamada para cotizarte: son el <strong>análisis que define si tu marca es registrable</strong>, en qué clases y con qué riesgo concreto. A veces ese análisis concluye que tu caso es simple y puedes presentarlo por tu cuenta — cuando pasa, te lo decimos y ahí termina el gasto. Si decides continuar con nosotros, se descuentan del registro.</p>
+  </div>
+  <div class="garantia">
+    <strong>Nuestra apuesta, no la tuya</strong>
+    <p><strong>No damos luz verde a un caso dudoso.</strong> Si el análisis muestra un riesgo real, te lo decimos y no presentamos — para eso existe la asesoría. Y si damos luz verde y el SENADI niega el registro, volvemos a presentar con el signo ajustado <strong>sin cobrarte honorarios otra vez</strong>.</p>
+  </div>
+  <div class="barato">
+    <strong>Y si la respuesta es que no se puede, te cuesta $45</strong>
+    <p>Enterarte de que tu signo no es registrable cuesta <strong>$45 y ahí termina</strong>. No un paquete completo pagado por adelantado, ni una devolución que haya que esperar y perseguir. La decisión va primero; el trámite, después.</p>
+  </div>
   <div class="micro-disclaimer">Si tras la asesoría analizamos que tu caso no tiene urgencia real, te lo diremos con total honestidad. No vas a contratar un servicio por presión.</div>
   <p style="font-size:.82rem;font-weight:700;color:var(--text);text-transform:uppercase;letter-spacing:.05em;margin:1rem 0 .6rem;">Paso 2 — Registro de marca (ejecución)</p>
   <div class="oferta-completo">
@@ -840,6 +894,7 @@ footer a{color:#c4b5fd;}
   </div>
   <p style="font-size:.82rem;font-weight:700;color:var(--text);text-transform:uppercase;letter-spacing:.05em;margin:1rem 0 .5rem;">Qué incluye el servicio de registro</p>
   <ul class="incluye">
+    <li class="incluye-dest"><strong>Vigilancia de tu marca durante los 10 años de vigencia.</strong> Monitoreamos las solicitudes que se publican y te avisamos si alguien intenta registrar un signo parecido al tuyo — a tiempo para oponerte, que es lo único que sirve.</li>
     <li>Búsqueda profunda de antecedentes con análisis de confundibilidad</li>
     <li>Estrategia de clases según modelo de negocio real</li>
     <li>Redacción técnica de la solicitud</li>
@@ -920,7 +975,8 @@ footer a{color:#c4b5fd;}
 <section class="related-section">
   <h3>Continúa con la guía de marcas</h3>
   <div class="related-grid">
-    <div class="related-card"><a href="/blog/propiedad-intelectual-marcas-ecuador.html">Guía principal: marcas en Ecuador</a><span class="rtipo">Pilar</span></div>
+    <div class="related-card" style="border-color:var(--primary);background:var(--primary-light);"><a href="/registro-de-marca/" style="color:var(--primary-dark);font-weight:700;">Registro de marca · el servicio completo</a><span class="rtipo">Calculadora y precios</span></div>
+<div class="related-card"><a href="/blog/propiedad-intelectual-marcas-ecuador.html">Guía principal: marcas en Ecuador</a><span class="rtipo">Pilar</span></div>
     <div class="related-card"><a href="/blog/marca-antes-de-lanzar-producto-ecuador.html">Registrar antes de lanzar</a><span class="rtipo">Estrategia</span></div>
     <div class="related-card"><a href="/blog/que-pasa-si-alguien-registro-mi-marca-ecuador.html">Alguien registró tu marca antes</a><span class="rtipo">Acción</span></div>
     <div class="related-card"><a href="/blog/marca-ecommerce-ecuador.html">Protección de marca en e-commerce</a><span class="rtipo">Canal digital</span></div>
@@ -951,6 +1007,8 @@ footer a{color:#c4b5fd;}
 const WA_URL="https://wa.me/593994859814?text=Hola%2C%20vengo%20del%20art%C3%ADculo%20sobre%20NO%20REGISTRAR%20LA%20MARCA.%20Mi%20negocio%20opera%20sin%20marca%20registrada%20y%20quiero%20saber%20qu%C3%A9%20tan%20expuesto%20estoy.";
 function abrirModal(el){
   var h=(el&&el.dataset&&el.dataset.wa)?el.dataset.wa:WA_URL;
+  if(window.__diagMsg && !(el&&el.id==='diagBtn')){h+=encodeURIComponent(' Mi diagnóstico: '+window.__diagMsg.replace(/^Hola[^.]*\. /,''));}
+  var of=document.getElementById('modalDiagOferta'); if(of) of.hidden=!!window.__diagMsg;
   document.getElementById('waModalLink').setAttribute('href',h);
   document.getElementById('waModal').classList.add('active');
   document.body.style.overflow='hidden';
@@ -969,6 +1027,7 @@ function cerrarModal(){document.getElementById('waModal').classList.remove('acti
 document.getElementById('waModal').addEventListener('click',function(e){if(e.target===this)cerrarModal();});
 document.addEventListener('keydown',function(e){if(e.key==='Escape')cerrarModal();});
 
+function waDiag(m){window.__diagMsg=m;return 'https://wa.me/593994859814?text='+encodeURIComponent(m);}
 (function(){
   var d=document.getElementById('diagnostico'); if(!d) return;
   var R={
@@ -1036,8 +1095,7 @@ document.addEventListener('keydown',function(e){if(e.key==='Escape')cerrarModal(
     }
     if(hit){cb.innerHTML='<b>'+hit.b+'</b><p>'+hit.p+'</p>';cb.hidden=false;}else{cb.hidden=true;}
     var lista=k.map(function(x){return R[x].s;}).join('; ');
-    btn.setAttribute('data-wa','https://wa.me/593994859814?text='+encodeURIComponent(
-      BASE+'Hice el diagnóstico: '+n+(n===1?' frente expuesto':' frentes expuestos')+' — '+lista+'. Quiero revisar mi caso.'));
+    btn.setAttribute('data-wa', waDiag(BASE+'Hice el diagnóstico: '+n+(n===1?' frente expuesto':' frentes expuestos')+' — '+lista+'. Quiero revisar mi caso.'));
     res.hidden=false;
     go.textContent='Recalcular diagnóstico';
     res.scrollIntoView({behavior:'smooth',block:'nearest'});

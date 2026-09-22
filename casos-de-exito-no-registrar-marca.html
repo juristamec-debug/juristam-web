@@ -134,6 +134,42 @@ footer a{color:var(--primary);}footer strong{color:var(--white);}
   .modal-foot{padding:.5rem 1rem .65rem;}
 }
 @media(max-width:700px){.casos-grid{grid-template-columns:minmax(0,1fr);}.caso-card{min-width:0;}.caso-footer{flex-direction:column;align-items:stretch;}.caso-cita{flex:none;}.btn-caso{white-space:normal;width:100%;}.mid-cta{flex-direction:column;align-items:stretch;}.btn-mid{width:100%;}.hero-stats{gap:1.2rem;}.filtro-btn{font-size:.8rem;padding:.45rem .9rem;}}
+
+.incluye li.incluye-dest{background:var(--success-light);border:1px solid var(--success);border-radius:8px;padding:.6rem .8rem .6rem 2.1rem;margin-bottom:.5rem;}
+.incluye li.incluye-dest::before{color:var(--success);}
+.incluye li.incluye-dest strong{color:var(--success);}
+.que-es-45{background:var(--primary-light);border:1px solid rgba(154,106,255,.35);border-radius:12px;padding:.95rem 1.15rem;margin:.9rem 0;}
+.que-es-45 > strong{display:block;font-size:.72rem;text-transform:uppercase;letter-spacing:.08em;color:var(--primary-dark);margin-bottom:.4rem;}
+.que-es-45 p{font-size:.86rem;color:var(--text);line-height:1.7;margin:0;}
+.que-es-45 p strong{color:var(--primary-dark);}
+.cta-vig{background:rgba(52,211,153,.15);border:1px solid rgba(52,211,153,.45);border-radius:10px;padding:.7rem 1rem;max-width:520px;margin:0 auto 1rem;font-size:.84rem;color:#d1fae5;line-height:1.6;}
+.cta-vig strong{color:#6ee7b7;}
+
+.modal-que-es{background:#f5f3ff;border:1px solid rgba(124,58,237,.3);border-radius:8px;padding:.55rem .7rem;font-size:.7rem;color:#4a4a6a;line-height:1.5;margin:.5rem 0 0;}
+.modal-que-es strong{color:#7c3aed;}
+.modal-diag-of{font-size:.68rem;text-align:center;color:#6b7280;line-height:1.45;margin:.5rem 0 0;}
+.modal-diag-of a{color:#7c3aed;text-decoration:underline;font-weight:700;cursor:pointer;}
+
+.garantia{background:#ecfdf5;border:1.5px solid var(--success);border-radius:12px;padding:1rem 1.2rem;margin:.9rem 0;}
+.garantia > strong{display:block;font-size:.74rem;text-transform:uppercase;letter-spacing:.08em;color:var(--success);margin-bottom:.4rem;}
+.garantia p{font-size:.87rem;color:var(--text);line-height:1.7;margin:0;}
+.garantia p strong{color:var(--success);}
+.barato{background:var(--gray-light);border-left:3px solid var(--primary);border-radius:0 10px 10px 0;padding:.85rem 1.1rem;margin:.9rem 0;}
+.barato > strong{display:block;font-size:.74rem;text-transform:uppercase;letter-spacing:.08em;color:var(--primary-dark);margin-bottom:.35rem;}
+.barato p{font-size:.86rem;color:var(--text-secondary);line-height:1.7;margin:0;}
+.barato p strong{color:var(--text);}
+.cta-gar{background:rgba(52,211,153,.15);border:1px solid rgba(52,211,153,.45);border-radius:10px;padding:.7rem 1rem;max-width:520px;margin:0 auto 1rem;font-size:.84rem;color:#d1fae5;line-height:1.6;}
+.cta-gar strong{color:#6ee7b7;}
+
+
+
+.lp-ref{display:flex;align-items:center;gap:1.1rem;flex-wrap:wrap;background:#fff;border:2px solid var(--primary);border-radius:14px;padding:1.1rem 1.3rem;margin:1.8rem 0;box-shadow:0 6px 24px rgba(124,58,237,.14);}
+.lp-ref-txt{flex:1;min-width:210px;}
+.lp-ref-txt b{display:block;font-family:'Lora',serif;font-size:1.05rem;color:var(--text);line-height:1.35;margin-bottom:.25rem;}
+.lp-ref-txt span{display:block;font-size:.85rem;color:var(--text-secondary);line-height:1.6;}
+.lp-ref-btn{background:var(--primary-dark);color:#fff;border-radius:10px;padding:.72rem 1.3rem;font-size:.88rem;font-weight:700;white-space:nowrap;flex-shrink:0;text-decoration:none;display:inline-block;}
+.lp-ref-btn:hover{background:var(--primary);color:#fff;}
+@media(max-width:560px){.lp-ref{gap:.85rem;}.lp-ref-btn{width:100%;text-align:center;}}
 </style>
 <!-- Google Analytics 4 -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-3L5I5CEKRL"></script>
@@ -178,6 +214,7 @@ footer a{color:var(--primary);}footer strong{color:var(--white);}
         <div class="modal-precio virtual"><span class="mlabel">⭐ Virtual</span><div class="mmonto">$45</div><div class="mdesc">Todo Ecuador</div></div>
         <div class="modal-precio presencial"><span class="mlabel">Presencial</span><div class="mmonto">$85</div><div class="mdesc">Guayaquil</div></div>
       </div>
+      <p class="modal-que-es"><strong>No es una llamada para cotizarte.</strong> Es el análisis que define si tu marca es registrable, en qué clases y con qué riesgo. Si tu caso resulta simple, te lo decimos y ahí termina el gasto.</p>
     </div>
     <div class="modal-foot">
       <a class="btn-modal-wa" id="waModalLink" href="https://wa.me/593994859814?text=Hola%2C%20vengo%20del%20art%C3%ADculo%20sobre%20NO%20REGISTRAR%20LA%20MARCA.%20Quiero%20medir%20mi%20exposici%C3%B3n." target="_blank" rel="noopener">Continuar a WhatsApp →</a>
@@ -215,6 +252,10 @@ footer a{color:var(--primary);}footer strong{color:var(--white);}
   <button type="button" class="filtro-btn" data-filtro="rebranding" onclick="filtrar(this)">🔄 Rebranding forzado (2)</button>
 </div>
 <p class="casos-count"><strong id="contador">20</strong> casos encontrados</p>
+<div class="lp-ref">
+  <div class="lp-ref-txt"><b>Estos casos salieron del mismo servicio</b><span>Qué incluye, cuánto cuesta y la calculadora con el tarifario SENADI 2026.</span></div>
+  <a class="lp-ref-btn" href="/registro-de-marca/">Ver el servicio →</a>
+</div>
 <div class="casos-grid" id="grid">
 
   <div class="caso-card" data-tipo="expansion">
@@ -570,6 +611,7 @@ footer a{color:var(--primary);}footer strong{color:var(--white);}
 <div class="rel-links">
   <strong>Lo que hay detrás de cada uno de estos casos</strong>
   <ul>
+    <li><a href="/registro-de-marca/">Registro de marca: el servicio completo, con calculadora de presupuesto →</a></li>
     <li><a href="/blog/que-pasa-si-no-registro-mi-marca-ecuador.html">Consecuencias comerciales de no registrar tu marca →</a></li>
     <li><a href="/blog/registrar-marca-ecuador.html">Cómo registrar una marca en Ecuador: la guía completa →</a></li>
     <li><a href="/blog/que-pasa-si-alguien-registro-mi-marca-ecuador.html">Qué hacer si alguien registró tu marca antes →</a></li>
@@ -578,6 +620,10 @@ footer a{color:var(--primary);}footer strong{color:var(--white);}
   </ul>
 </div>
 
+<div class="lp-ref">
+  <div class="lp-ref-txt"><b>Estos casos salieron del mismo servicio</b><span>Qué incluye, cuánto cuesta y la calculadora con el tarifario SENADI 2026.</span></div>
+  <a class="lp-ref-btn" href="/registro-de-marca/">Ver el servicio →</a>
+</div>
 <div class="cta-final">
   <h2>¿Tu negocio opera sin marca registrada?</h2>
   <p>Lo que pierdes no es solo el derecho legal: es lo que invertiste en branding, el dominio, las redes, el acceso a marketplaces y la valoración de tu empresa ante un inversionista. Mándenos su caso: medimos qué tan expuesto estás y qué frentes hay que cerrar primero.</p>
@@ -594,6 +640,8 @@ footer a{color:var(--primary);}footer strong{color:var(--white);}
     <div class="precio-mini-item"><span>Asesoría virtual ⭐</span><span>$45</span></div>
     <div class="precio-mini-item"><span>Presencial</span><span>$85</span></div>
   </div>
+  <div class="cta-vig"><strong>Incluido en el registro completo:</strong> vigilancia de tu marca durante los 10 años de vigencia. Si alguien solicita un signo parecido al tuyo, te avisamos a tiempo para oponerte.</div>
+  <div class="cta-gar"><strong>Nuestra apuesta, no la tuya:</strong> no damos luz verde a un caso dudoso. Y si la damos y el SENADI niega, volvemos a presentar sin cobrarte honorarios otra vez. Si el análisis dice que no se puede, lo sabes por $45 y ahí termina.</div>
   <p style="color:#c4b5fd;font-size:.8rem;margin-bottom:1.2rem;">Los $45 se descuentan de los honorarios finales si decides contratarnos.</p>
   <button type="button" class="btn-wa-hero" data-wa="https://wa.me/593994859814?text=Hola%20Juristam%2C%20vi%20los%20casos%20de%20no%20registrar%20la%20marca%20y%20quiero%20medir%20mi%20exposici%C3%B3n." onclick="abrirModal(this)">Medir mi exposición · WhatsApp →</button>
 </div>

@@ -44,7 +44,7 @@
       "address": {"@type": "PostalAddress","addressLocality": "Guayaquil","addressCountry": "EC"},
       "foundingDate": "2019",
       "contactPoint": {"@type": "ContactPoint","telephone": "+593994859814","email": "legal@juristam.net","contactType": "legal services","areaServed": "EC","availableLanguage": "Spanish"},
-      "knowsAbout": ["Registro de marcas en Ecuador","Clases de Niza","Conexión competitiva","Distintividad adquirida","Búsqueda de antecedentes","Estrategia marcaria","Decisión 486 CAN","COESC","Interpretación Prejudicial 89-IP-2015","Interpretación Prejudicial 39-IP-2015"]
+      "knowsAbout": ["Registro de marcas en Ecuador","Clases de Niza","Conexión competitiva","Distintividad adquirida","Búsqueda de antecedentes","Estrategia marcaria","Decisión 486 CAN","COESC","Derecho de prioridad","Prohibiciones absolutas y relativas"]
     },
     {
       "@type": "LegalService",
@@ -88,13 +88,13 @@
       "citation": [
         {"@type": "Legislation","name": "Decisión 486 de la Comunidad Andina — Art. 136 (Riesgo de confusión)"},
         {"@type": "Legislation","name": "Decisión 486 — Art. 137 (Competencia desleal)"},
-        {"@type": "Legislation","name": "Decisión 486 — Art. 150 (Distintividad adquirida)"},
+        {"@type": "Legislation","name": "Decisión 486 — Art. 150 (Examen de registrabilidad)"},
         {"@type": "Legislation","name": "Decisión 486 — Art. 172 (Nulidad por mala fe)"},
         {"@type": "Legislation","name": "Decisión 486 — Art. 224 (Nombre comercial)"},
         {"@type": "Legislation","name": "Código Orgánico de la Economía Social de los Conocimientos (COESC)"},
-        {"@type": "Legislation","name": "Tribunal de Justicia de la Comunidad Andina — Interpretación Prejudicial 89-IP-2015 (Conexión competitiva)"},
-        {"@type": "Legislation","name": "Tribunal de Justicia de la Comunidad Andina — Interpretación Prejudicial 39-IP-2015 (Mala fe)"},
-        {"@type": "Legislation","name": "Resolución SENADI — Caso DASH (2022) — Criterio de competencia desleal"}
+        {"@type": "Legislation","name": "Decisión 486 — Art. 154 (El derecho exclusivo se adquiere por el registro)"},
+        {"@type": "Legislation","name": "Decisión 486 — Arts. 144 y 145 (Examen de forma y abandono)"},
+        {"@type": "Legislation","name": "Decisión 486 — Arts. 146 y 148 (Oposición y contestación)"}
       ],
       "mainEntityOfPage": {"@type": "WebPage","@id": "https://juristam.net/blog/registrar-marca-ecuador.html#webpage"},
       "articleSection": ["Marcas","Propiedad Intelectual","SENADI"]
@@ -335,6 +335,7 @@ details[open] summary{background:var(--primary-light);}
 .modal-precio .mmonto{font-size:1.6rem;font-weight:700;color:#1a1a2e;line-height:1;}
 .modal-precio .mdesc{font-size:.7rem;color:#4a4a6a;margin-top:.25rem;}
 .btn-modal-wa{background:#25d366;color:#fff;padding:.8rem 1rem;border-radius:10px;font-size:.88rem;font-weight:700;width:100%;border:none;cursor:pointer;font-family:inherit;flex-shrink:0;}
+.btn-modal-wa{display:block;text-align:center;text-decoration:none;width:100%;}
 .btn-modal-wa:hover{background:#1da851;}
 .modal-foot{flex-shrink:0;padding:.9rem 1.6rem calc(1rem + env(safe-area-inset-bottom,0px));border-top:1px solid var(--border);background:#fff;}
 .modal-alt{text-align:center;font-size:.78rem;color:#6b7280;margin-top:.7rem;margin-bottom:0;}
@@ -416,6 +417,93 @@ footer a{color:#c4b5fd;}
   table,.tabla,.compare-table{display:block;width:100%;overflow-x:auto;-webkit-overflow-scrolling:touch;}
   .container{padding:0 1rem;}
 }
+
+/* ===== Diagnóstico interactivo ===== */
+.diag{background:linear-gradient(160deg,#1e0a4e 0%,#2a0f5e 60%,#1a0842 100%);border-radius:18px;padding:1.8rem 1.6rem;margin:2.5rem 0;}
+.diag-label{display:block;font-size:.66rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:#a78bfa;margin-bottom:.5rem;}
+.diag h3{font-family:'Lora',serif;font-size:1.3rem;color:#fff;margin:0 0 .35rem;}
+.diag-sub{font-size:.88rem;color:#c7bce8;line-height:1.65;margin-bottom:1.1rem;}
+.diag-opts label{display:flex;align-items:flex-start;gap:.7rem;background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.14);border-radius:10px;padding:.75rem .9rem;margin-bottom:.5rem;font-size:.89rem;color:#ede9fe;line-height:1.5;cursor:pointer;transition:background .15s,border-color .15s;}
+.diag-opts label:hover{background:rgba(255,255,255,.12);}
+.diag-opts label.on{background:rgba(220,38,38,.18);border-color:rgba(248,113,113,.55);}
+.diag-opts label.on-ok{background:rgba(5,150,105,.2);border-color:rgba(52,211,153,.55);}
+.diag-opts input{margin-top:.28rem;width:16px;height:16px;flex-shrink:0;accent-color:#a78bfa;cursor:pointer;}
+.diag-campo{margin-bottom:.8rem;}
+.diag-campo > span{display:block;font-size:.8rem;color:#c7bce8;margin-bottom:.45rem;font-weight:600;}
+.diag-chips{display:flex;gap:.4rem;flex-wrap:wrap;}
+.diag-chip{background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.18);color:#ede9fe;border-radius:8px;padding:.5rem .9rem;font-size:.85rem;font-weight:600;font-family:inherit;cursor:pointer;transition:all .15s;}
+.diag-chip:hover{background:rgba(255,255,255,.15);}
+.diag-chip.sel{background:#a78bfa;border-color:#a78bfa;color:#1e0a4e;}
+.btn-diag-go{width:100%;margin-top:.9rem;background:#a78bfa;color:#1e0a4e;border:none;border-radius:10px;padding:.85rem 1.2rem;font-size:.95rem;font-weight:700;font-family:inherit;cursor:pointer;transition:background .15s,opacity .15s;}
+.btn-diag-go:hover:not(:disabled){background:#c4b5fd;}
+.btn-diag-go:disabled{opacity:.38;cursor:not-allowed;}
+.diag-hint{text-align:center;font-size:.74rem;color:#8b7cb8;margin:.5rem 0 0;}
+.diag-res{margin-top:1.3rem;border-top:1px solid rgba(255,255,255,.16);padding-top:1.3rem;}
+.diag-res-top{display:flex;align-items:center;gap:1rem;margin-bottom:1.1rem;}
+.diag-res-n{font-family:'Lora',serif;font-size:2rem;font-weight:700;color:#fff;line-height:1.05;background:rgba(220,38,38,.25);border:2px solid rgba(248,113,113,.5);border-radius:14px;min-width:84px;padding:.7rem .5rem;text-align:center;flex-shrink:0;}
+.diag-res-n.ok{background:rgba(5,150,105,.25);border-color:rgba(52,211,153,.6);}
+.diag-res-n.med{background:rgba(217,119,6,.25);border-color:rgba(251,191,36,.6);}
+.diag-res-n small{display:block;font-family:'DM Sans',sans-serif;font-size:.6rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;opacity:.85;margin-top:.25rem;}
+.diag-res-top strong{display:block;font-size:.72rem;text-transform:uppercase;letter-spacing:.1em;color:#fca5a5;margin-bottom:.3rem;}
+.diag-res-top.ok strong{color:#6ee7b7;}
+.diag-res-top.med strong{color:#fcd34d;}
+.diag-res-top p{font-size:.92rem;color:#ede9fe;line-height:1.6;margin:0;}
+.diag-items{display:grid;gap:.6rem;}
+.diag-item{background:rgba(255,255,255,.06);border-left:3px solid #f87171;border-radius:0 10px 10px 0;padding:.85rem 1rem;}
+.diag-item.ok{border-left-color:#34d399;}
+.diag-item.med{border-left-color:#fbbf24;}
+.diag-item b{display:block;font-size:.85rem;color:#fff;margin-bottom:.3rem;line-height:1.4;}
+.diag-item p{font-size:.85rem;color:#c7bce8;line-height:1.65;margin:0;}
+.diag-tabla{background:rgba(255,255,255,.06);border-radius:12px;padding:.9rem 1.05rem;margin-bottom:.7rem;}
+.diag-fila{display:flex;justify-content:space-between;align-items:baseline;gap:1rem;padding:.42rem 0;border-bottom:1px solid rgba(255,255,255,.1);font-size:.87rem;color:#c7bce8;}
+.diag-fila:last-child{border-bottom:none;}
+.diag-fila span:last-child{color:#fff;font-weight:700;white-space:nowrap;}
+.diag-fila.total{border-top:2px solid rgba(167,139,250,.5);margin-top:.35rem;padding-top:.6rem;border-bottom:none;font-size:1rem;}
+.diag-fila.total span{color:#fff;font-weight:700;}
+.diag-fila.total span:last-child{font-family:'Lora',serif;font-size:1.4rem;}
+.diag-fila.ahorro span:last-child{color:#6ee7b7;}
+.diag-combo{margin-top:.8rem;background:rgba(217,119,6,.18);border:1px solid rgba(251,191,36,.45);border-radius:10px;padding:.9rem 1.05rem;}
+.diag-combo b{display:block;font-size:.72rem;text-transform:uppercase;letter-spacing:.08em;color:#fbbf24;margin-bottom:.35rem;}
+.diag-combo p{font-size:.86rem;color:#fde68a;line-height:1.65;margin:0;}
+.diag-combo a{color:#fff;text-decoration:underline;font-weight:600;}
+.diag-cierre{margin-top:1.1rem;background:rgba(255,255,255,.1);border-radius:12px;padding:1.1rem;text-align:center;}
+.diag-cierre p{font-size:.87rem;color:#ede9fe;line-height:1.65;margin:0 0 .9rem;text-align:left;}
+.diag-cierre strong{color:#fff;}
+.btn-diag{background:#25d366;color:#fff;border:none;border-radius:10px;padding:.8rem 1.6rem;font-size:.93rem;font-weight:700;font-family:inherit;cursor:pointer;width:100%;}
+.btn-diag:hover{background:#1da851;}
+.diag-nota{display:block;font-size:.72rem;color:#a78bfa;margin-top:.55rem;}
+@media(max-width:600px){.diag{padding:1.4rem 1.1rem;}.diag-res-n{min-width:70px;font-size:1.65rem;}.diag-fila{font-size:.82rem;}}
+
+.incluye li.incluye-dest{background:var(--success-light);border:1px solid var(--success);border-radius:8px;padding:.6rem .8rem .6rem 2.1rem;margin-bottom:.5rem;}
+.incluye li.incluye-dest::before{color:var(--success);}
+.incluye li.incluye-dest strong{color:var(--success);}
+.que-es-45{background:var(--primary-light);border:1px solid rgba(154,106,255,.35);border-radius:12px;padding:.95rem 1.15rem;margin:.9rem 0;}
+.que-es-45 > strong{display:block;font-size:.72rem;text-transform:uppercase;letter-spacing:.08em;color:var(--primary-dark);margin-bottom:.4rem;}
+.que-es-45 p{font-size:.86rem;color:var(--text);line-height:1.7;margin:0;}
+.que-es-45 p strong{color:var(--primary-dark);}
+.cta-vig{background:rgba(52,211,153,.15);border:1px solid rgba(52,211,153,.45);border-radius:10px;padding:.7rem 1rem;max-width:520px;margin:0 auto 1rem;font-size:.84rem;color:#d1fae5;line-height:1.6;}
+.cta-vig strong{color:#6ee7b7;}
+
+.modal-que-es{background:#f5f3ff;border:1px solid rgba(124,58,237,.3);border-radius:8px;padding:.55rem .7rem;font-size:.7rem;color:#4a4a6a;line-height:1.5;margin:.5rem 0 0;}
+.modal-que-es strong{color:#7c3aed;}
+.modal-diag-of{font-size:.68rem;text-align:center;color:#6b7280;line-height:1.45;margin:.5rem 0 0;}
+.modal-diag-of a{color:#7c3aed;text-decoration:underline;font-weight:700;cursor:pointer;}
+
+.garantia{background:#ecfdf5;border:1.5px solid var(--success);border-radius:12px;padding:1rem 1.2rem;margin:.9rem 0;}
+.garantia > strong{display:block;font-size:.74rem;text-transform:uppercase;letter-spacing:.08em;color:var(--success);margin-bottom:.4rem;}
+.garantia p{font-size:.87rem;color:var(--text);line-height:1.7;margin:0;}
+.garantia p strong{color:var(--success);}
+.barato{background:var(--gray-light);border-left:3px solid var(--primary);border-radius:0 10px 10px 0;padding:.85rem 1.1rem;margin:.9rem 0;}
+.barato > strong{display:block;font-size:.74rem;text-transform:uppercase;letter-spacing:.08em;color:var(--primary-dark);margin-bottom:.35rem;}
+.barato p{font-size:.86rem;color:var(--text-secondary);line-height:1.7;margin:0;}
+.barato p strong{color:var(--text);}
+.cta-gar{background:rgba(52,211,153,.15);border:1px solid rgba(52,211,153,.45);border-radius:10px;padding:.7rem 1rem;max-width:520px;margin:0 auto 1rem;font-size:.84rem;color:#d1fae5;line-height:1.6;}
+.cta-gar strong{color:#6ee7b7;}
+
+.lp-ref{display:flex;align-items:center;gap:.8rem;flex-wrap:wrap;background:var(--primary-light);border:1px solid rgba(154,106,255,.35);border-radius:10px;padding:.7rem 1rem;margin:1.4rem 0;font-size:.87rem;line-height:1.5;}
+.lp-ref span{color:var(--text-secondary);}
+.lp-ref a{color:var(--primary-dark);font-weight:700;text-decoration:underline;}
+.lp-ref a:hover{color:var(--primary);}
 </style>
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-3L5I5CEKRL"></script>
 <script>
@@ -458,9 +546,11 @@ footer a{color:#c4b5fd;}
         <div class="modal-precio virtual"><span class="mlabel">⭐ Virtual</span><div class="mmonto">$45</div><div class="mdesc">Todo Ecuador</div></div>
         <div class="modal-precio presencial"><span class="mlabel">Presencial</span><div class="mmonto">$85</div><div class="mdesc">Solo Guayaquil</div></div>
       </div>
+      <p class="modal-que-es"><strong>No es una llamada para cotizarte.</strong> Es el análisis que define si tu marca es registrable, en qué clases y con qué riesgo. Si tu caso resulta simple, te lo decimos y ahí termina el gasto.</p>
+      <p class="modal-diag-of" id="modalDiagOferta">¿Prefieres que lleguemos con tu caso ya revisado? <a onclick="cerrarModal();document.getElementById('diagnostico').scrollIntoView({behavior:'smooth'});">Haz el diagnóstico de 30 segundos →</a></p>
     </div>
     <div class="modal-foot">
-      <button class="btn-modal-wa" onclick="irAWhatsApp()">Continuar a WhatsApp →</button>
+      <a class="btn-modal-wa" id="waModalLink" href="https://wa.me/593994859814?text=Hola%2C%20vengo%20del%20art%C3%ADculo%20sobre%20REGISTRAR%20UNA%20MARCA%20EN%20ECUADOR.%20Quiero%20revisar%20mi%20caso." target="_blank" rel="noopener" onclick="cerrarModal()">Continuar a WhatsApp →</a>
       <p class="modal-alt">¿Prefieres correo? <a href="#formulario-async" onclick="cerrarModal()">Déjanos tus datos aquí</a></p>
     </div>
   </div>
@@ -470,7 +560,7 @@ footer a{color:#c4b5fd;}
   <a href="/blog/"><img class="brand-logo" src="https://i.postimg.cc/vHygbHxz/oie-transparent-(2).png" alt="Juristam" loading="eager" width="120" height="64"/></a>
   <div class="header-actions">
     <a class="btn-back" href="/blog/">&larr; Volver al blog</a>
-    <button type="button" class="btn-header-cta" onclick="abrirModal()">
+    <button type="button" class="btn-header-cta" data-wa="https://wa.me/593994859814?text=Hola%2C%20vengo%20del%20art%C3%ADculo%20sobre%20REGISTRAR%20UNA%20MARCA%20EN%20ECUADOR.%20Quiero%20revisar%20mi%20caso." onclick="abrirModal(this)">
       <svg width="14" height="14" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.374 0 0 5.373 0 12c0 2.117.554 4.127 1.524 5.875L0 24l6.29-1.501A11.96 11.96 0 0012 24c6.626 0 12-5.374 12-12S18.626 0 12 0zm0 21.818a9.81 9.81 0 01-5.002-1.368l-.358-.214-3.734.891.944-3.622-.236-.375A9.808 9.808 0 012.182 12C2.182 6.58 6.58 2.182 12 2.182c5.42 0 9.818 4.398 9.818 9.818 0 5.42-4.398 9.818-9.818 9.818z"/></svg>
       <span class="btn-header-text">Agendar Asesoría</span>
     </button>
@@ -499,7 +589,7 @@ footer a{color:#c4b5fd;}
 <div class="cta-urgente">
   <p>¿Vas a registrar una marca en Ecuador?
   <span>En Ecuador rige el principio de primer registro. Quien presenta primero, gana — aunque tú la uses desde hace años. Revisamos disponibilidad y clases antes de presentar.</span></p>
-  <button class="btn-wa" onclick="abrirModal()">Revisar mi caso →</button>
+  <button class="btn-wa" data-wa="https://wa.me/593994859814?text=Hola%2C%20vengo%20del%20art%C3%ADculo%20sobre%20REGISTRAR%20UNA%20MARCA%20EN%20ECUADOR.%20Quiero%20revisar%20mi%20caso%20antes%20de%20presentar%20la%20solicitud." onclick="abrirModal(this)">Revisar mi caso →</button>
 </div>
 
 <div class="tldr">
@@ -528,6 +618,10 @@ footer a{color:#c4b5fd;}
 
 <article>
 
+<div class="lp-ref">
+  <span>¿Prefieres ver el servicio antes de escribir?</span>
+  <a href="/registro-de-marca/">Registro de marca: qué incluye, cuánto cuesta y la calculadora →</a>
+</div>
 <h2 id="que-se-juega">Qué se juega al registrar una marca en Ecuador</h2>
 
 <div class="respuesta-directa">
@@ -581,6 +675,39 @@ footer a{color:#c4b5fd;}
   La normativa ecuatoriana permite presentar la solicitud sin abogado. Lo que no permite es corregir después los errores estratégicos: la clase queda fija, la fecha queda fija, la estrategia del signo queda fija. Un certificado obtenido en la clase equivocada no protege el negocio donde realmente compite, y descubrirlo cuando un competidor ya ocupa el frente descubierto es tarde. Los riesgos específicos de hacerlo sin asesoría se desarrollan en <a href="/blog/registro-marca-sin-abogado-ecuador.html">los riesgos de registrar sin abogado</a>.
 </div>
 
+<div class="diag" id="diagnostico">
+  <span class="diag-label">Revisión previa · 30 segundos</span>
+  <h3>¿Tu solicitud está lista para presentarse?</h3>
+  <p class="diag-sub">Siete decisiones se toman antes de tocar el formulario, y cinco de ellas no se corrigen después. Marca las que ya tienes resueltas.</p>
+
+  <div class="diag-opts">
+    <label><input type="checkbox" data-k="signo"> Tengo definido exactamente qué signo presento: nombre, logo o ambos</label>
+    <label><input type="checkbox" data-k="clases"> Sé en qué clases de Niza compite mi negocio hoy y en cuáles va a competir</label>
+    <label><input type="checkbox" data-k="busqueda"> Hice búsqueda de antecedentes, incluidas variantes parecidas y clases conexas</label>
+    <label><input type="checkbox" data-k="distintivo"> Verifiqué que mi signo no describe ni elogia lo que vendo</label>
+    <label><input type="checkbox" data-k="titular"> Definí a nombre de quién va: persona natural o la compañía</label>
+    <label><input type="checkbox" data-k="descuento"> Sé si califico al descuento del 50% en las tasas</label>
+    <label><input type="checkbox" data-k="productos"> Tengo redactada la lista de productos o servicios que voy a cubrir</label>
+  </div>
+
+  <button type="button" class="btn-diag-go" id="diagGo">Revisar si estoy listo</button>
+  <p class="diag-hint" id="diagHint">Marca solo lo que tengas resuelto de verdad.</p>
+
+  <div class="diag-res" id="diagRes" hidden>
+    <div class="diag-res-top" id="diagTop">
+      <span class="diag-res-n" id="diagN"></span>
+      <div><strong id="diagTit"></strong><p id="diagLead"></p></div>
+    </div>
+    <div class="diag-items" id="diagItems"></div>
+    <div class="diag-combo" id="diagCombo" hidden></div>
+    <div class="diag-cierre">
+      <p><strong>Las cinco que no se corrigen después:</strong> la clase, el signo, el titular, la lista de productos y la fecha de presentación. Todo lo demás admite enmienda; eso no. Por eso el trabajo que decide el resultado ocurre antes de presentar, no durante el trámite — y por eso la asesoría es lo primero, no un extra.</p>
+      <button type="button" class="btn-diag" id="diagBtn" onclick="abrirModal(this)">Cerrar lo que me falta →</button>
+      <span class="diag-nota">Asesoría $45 · se descuentan del registro si decides continuar</span>
+    </div>
+  </div>
+</div>
+
 <h2 id="jurisprudencia">Jurisprudencia andina aplicable</h2>
 
 <p>El registro de marca en Ecuador se rige por la Decisión 486 de la Comunidad Andina, y el Tribunal de Justicia de la CAN ha desarrollado interpretaciones prejudiciales obligatorias que definen cómo se analizan los signos, las clases y las oposiciones. Ignorarlas deja la solicitud sin sustento técnico:</p>
@@ -594,18 +721,18 @@ footer a{color:#c4b5fd;}
   </div>
 
   <div class="juris-item">
-    <h4>Interpretación Prejudicial 89-IP-2015 — Conexión competitiva</h4>
-    <p>Establece que el riesgo de confusión puede existir aunque los productos o servicios estén en clases distintas de la Clasificación de Niza, si el consumidor puede atribuirlos razonablemente al mismo origen empresarial. Esto amplía el análisis más allá de la coincidencia formal de clases y obliga a examinar canales de comercialización, público objetivo y relación funcional entre productos.</p>
+    <h4>Decisión 486 — Art. 154 (El derecho se adquiere por el registro)</h4>
+    <p>Es la norma que gobierna todo lo demás y cabe en una línea: <strong>el derecho al uso exclusivo de una marca se adquiere por el registro</strong>. No por usarla, no por haber llegado primero al mercado, no por llevar años facturando con ella. Mientras no haya registro no hay derecho exclusivo que hacer valer — solo un nombre comercial que habría que probar con documentación fechada.</p>
   </div>
 
   <div class="juris-item">
-    <h4>Interpretación Prejudicial 39-IP-2015 — Mala fe</h4>
-    <p>Desarrolla el estándar para determinar cuándo un solicitante actúa de mala fe al pedir el registro. Elementos como el conocimiento previo de la marca ajena, la coincidencia exacta en clases y productos, y el contexto de la relación entre las partes pueden sustentar una oposición basada no solo en confundibilidad sino en el propósito del solicitante.</p>
+    <h4>Decisión 486 — Arts. 144 y 145 (Examen de forma y abandono)</h4>
+    <p>El Art. 144 da a la oficina <strong>30 días</strong> para verificar los requisitos formales. Si hay observación, el Art. 145 concede <strong>2 meses</strong> para subsanar — y si no se subsana, la solicitud <strong>se considera abandonada y pierde su prelación</strong>. Esa pérdida es lo grave: la fecha de presentación es lo que define quién llegó primero, y se pierde entera.</p>
   </div>
 
   <div class="juris-item">
-    <h4>Caso DASH (SENADI, 2022) — Competencia desleal como causal autónoma</h4>
-    <p>El SENADI ha aplicado el Art. 137 de la Decisión 486 como causal autónoma de negación de registro, sosteniendo que el aprovechamiento parasitario del prestigio ajeno y el bloqueo anticompetitivo configuran competencia desleal. Es el precedente real que el propio SENADI ha citado como referencia en su práctica administrativa reciente.</p>
+    <h4>Decisión 486 — Arts. 146 y 148 (Oposición y contestación)</h4>
+    <p>Publicada la solicitud, cualquier tercero con interés legítimo tiene <strong>30 días</strong> para oponerse (Art. 146). Presentada la oposición, el solicitante tiene <strong>30 días para contestarla, prorrogables por 30 más</strong> (Art. 148). Quien no revisa el casillero electrónico se entera cuando el plazo ya corrió, y ese plazo no se recupera.</p>
   </div>
 </div>
 
@@ -639,7 +766,7 @@ footer a{color:#c4b5fd;}
     <div class="caso-testimonio">
       "Iba a registrar solo la clase de ropa. La revisión estratégica mostró que mi negocio operaba en dos frentes. Esa diferencia fue lo que me protegió después."
     </div>
-    <button type="button" class="caso-cta-link" onclick="abrirModal()">Tengo un caso similar →</button>
+    <button type="button" class="caso-cta-link" data-wa="https://wa.me/593994859814?text=Hola%2C%20vengo%20del%20art%C3%ADculo%20sobre%20REGISTRAR%20UNA%20MARCA%20EN%20ECUADOR.%20Tengo%20un%20caso%20parecido%20a%20uno%20de%20los%20que%20muestran." onclick="abrirModal(this)">Tengo un caso similar →</button>
   </div>
 
   <div class="caso-card">
@@ -664,7 +791,7 @@ footer a{color:#c4b5fd;}
     <div class="caso-testimonio">
       "Pensé que con una clase era suficiente. La revisión mostró que mi negocio operaba en cuatro frentes. Registré todos desde el inicio."
     </div>
-    <button type="button" class="caso-cta-link" onclick="abrirModal()">Tengo un caso similar →</button>
+    <button type="button" class="caso-cta-link" data-wa="https://wa.me/593994859814?text=Hola%2C%20vengo%20del%20art%C3%ADculo%20sobre%20REGISTRAR%20UNA%20MARCA%20EN%20ECUADOR.%20Tengo%20un%20caso%20parecido%20a%20uno%20de%20los%20que%20muestran." onclick="abrirModal(this)">Tengo un caso similar →</button>
   </div>
 
   <div class="caso-card">
@@ -689,7 +816,7 @@ footer a{color:#c4b5fd;}
     <div class="caso-testimonio">
       "Si hubiéramos presentado sin la búsqueda, la solicitud se caía. La revisión previa nos ahorró meses y el riesgo de perder la marca."
     </div>
-    <button type="button" class="caso-cta-link" onclick="abrirModal()">Tengo un caso similar →</button>
+    <button type="button" class="caso-cta-link" data-wa="https://wa.me/593994859814?text=Hola%2C%20vengo%20del%20art%C3%ADculo%20sobre%20REGISTRAR%20UNA%20MARCA%20EN%20ECUADOR.%20Tengo%20un%20caso%20parecido%20a%20uno%20de%20los%20que%20muestran." onclick="abrirModal(this)">Tengo un caso similar →</button>
   </div>
 
   <div class="casos-footer-cta">
@@ -700,7 +827,7 @@ footer a{color:#c4b5fd;}
 <div class="cta-block">
   <h3>¿Vas a presentar tu marca este mes?</h3>
   <p>Antes de pagar tasas conviene saber si el signo es registrable, si hay conflictos predecibles y qué clases cubren realmente tu negocio. Eso lo resolvemos en la asesoría.</p>
-  <button class="btn-solid" onclick="abrirModal()">Revisar mi caso ahora →</button>
+  <button class="btn-solid" data-wa="https://wa.me/593994859814?text=Hola%2C%20vengo%20del%20art%C3%ADculo%20sobre%20REGISTRAR%20UNA%20MARCA%20EN%20ECUADOR.%20Quiero%20revisar%20mi%20caso%20antes%20de%20presentar%20la%20solicitud." onclick="abrirModal(this)">Revisar mi caso ahora →</button>
 </div>
 
 <h2 id="errores">Errores que arruinan solicitudes antes de empezar</h2>
@@ -759,6 +886,18 @@ footer a{color:#c4b5fd;}
     </ul>
   </div>
   <div class="oferta-descuento">✅ Los $45 de la asesoría virtual se descuentan del servicio completo si decides continuar.</div>
+  <div class="que-es-45">
+    <strong>Para que quede claro qué son los $45</strong>
+    <p>No son un anticipo del trámite ni una llamada para cotizarte: son el <strong>análisis que define si tu marca es registrable</strong>, en qué clases y con qué riesgo concreto. A veces ese análisis concluye que tu caso es simple y puedes presentarlo por tu cuenta — cuando pasa, te lo decimos y ahí termina el gasto. Si decides continuar con nosotros, se descuentan del registro.</p>
+  </div>
+  <div class="garantia">
+    <strong>Nuestra apuesta, no la tuya</strong>
+    <p><strong>No damos luz verde a un caso dudoso.</strong> Si el análisis muestra un riesgo real, te lo decimos y no presentamos — para eso existe la asesoría. Y si damos luz verde y el SENADI niega el registro, volvemos a presentar con el signo ajustado <strong>sin cobrarte honorarios otra vez</strong>.</p>
+  </div>
+  <div class="barato">
+    <strong>Y si la respuesta es que no se puede, te cuesta $45</strong>
+    <p>Enterarte de que tu signo no es registrable cuesta <strong>$45 y ahí termina</strong>. No un paquete completo pagado por adelantado, ni una devolución que haya que esperar y perseguir. La decisión va primero; el trámite, después.</p>
+  </div>
   <div class="micro-disclaimer">Si tras la asesoría analizamos que tu caso no tiene probabilidades reales de éxito, te lo diremos con total honestidad para que no gastes en el proceso completo.</div>
   <p style="font-size:.82rem;font-weight:700;color:var(--text);text-transform:uppercase;letter-spacing:.05em;margin:1rem 0 .6rem;">Paso 2 — Registro de marca · $350</p>
   <div class="oferta-completo uno">
@@ -766,6 +905,7 @@ footer a{color:#c4b5fd;}
   </div>
   <p style="font-size:.82rem;font-weight:700;color:var(--text);text-transform:uppercase;letter-spacing:.05em;margin:1rem 0 .5rem;">Qué incluye el servicio de registro</p>
   <ul class="incluye">
+    <li class="incluye-dest"><strong>Vigilancia de tu marca durante los 10 años de vigencia.</strong> Monitoreamos las solicitudes que se publican y te avisamos si alguien intenta registrar un signo parecido al tuyo — a tiempo para oponerte, que es lo único que sirve.</li>
     <li>Preparación y presentación de la solicitud ante el SENADI</li>
     <li>Gestión del expediente electrónico y de las tasas por clase</li>
     <li>Control de la publicación en la Gaceta y del período de oposición</li>
@@ -777,7 +917,7 @@ footer a{color:#c4b5fd;}
     <p class="cita">"Llegábamos con el caso ya revisado a la reunión. Nos explicaron exactamente qué teníamos, qué nos faltaba y qué venía después."</p>
     <p class="autor">— Cliente Juristam · Guayaquil</p>
   </div>
-  <div style="text-align:center;"><button class="btn-wa" onclick="abrirModal()">Consultar por WhatsApp →</button></div>
+  <div style="text-align:center;"><button class="btn-wa" data-wa="https://wa.me/593994859814?text=Hola%2C%20vengo%20del%20art%C3%ADculo%20sobre%20REGISTRAR%20UNA%20MARCA%20EN%20ECUADOR.%20Quiero%20registrar%20mi%20marca%20y%20saber%20por%20d%C3%B3nde%20empezar." onclick="abrirModal(this)">Consultar por WhatsApp →</button></div>
 </div>
 
 <section class="form-async" id="formulario-async">
@@ -846,7 +986,8 @@ footer a{color:#c4b5fd;}
 <section class="related-section">
   <h3>Continúa con la guía de marcas</h3>
   <div class="related-grid">
-    <div class="related-card"><a href="/blog/propiedad-intelectual-marcas-ecuador.html">Guía principal: marcas en Ecuador</a><span class="rtipo">Pilar</span></div>
+    <div class="related-card" style="border-color:var(--primary);background:var(--primary-light);"><a href="/registro-de-marca/" style="color:var(--primary-dark);font-weight:700;">Registro de marca · el servicio completo</a><span class="rtipo">Calculadora y precios</span></div>
+<div class="related-card"><a href="/blog/propiedad-intelectual-marcas-ecuador.html">Guía principal: marcas en Ecuador</a><span class="rtipo">Pilar</span></div>
     <div class="related-card"><a href="/blog/clase-niza-equivocada-marca-ecuador.html">Elegiste mal la clase de Niza</a><span class="rtipo">Riesgo</span></div>
     <div class="related-card"><a href="/blog/oposicion-marca-senadi-ecuador.html">Oposición de marca en el SENADI</a><span class="rtipo">Fundamento</span></div>
     <div class="related-card"><a href="/blog/como-presentar-oposicion-marca-ecuador.html">Cómo presentar una oposición</a><span class="rtipo">Proceso</span></div>
@@ -868,16 +1009,23 @@ footer a{color:#c4b5fd;}
   <p style="font-size:.78rem;opacity:.7;">Este artículo es informativo y no reemplaza asesoría legal individualizada. Base legal: Decisión 486 de la Comunidad Andina, COESC y jurisprudencia del Tribunal de Justicia de la CAN.</p>
 </div></footer>
 
-<button type="button" class="wa-float" onclick="abrirModal()" aria-label="Escribir por WhatsApp">
+<button type="button" class="wa-float" data-wa="https://wa.me/593994859814?text=Hola%2C%20vengo%20del%20art%C3%ADculo%20sobre%20REGISTRAR%20UNA%20MARCA%20EN%20ECUADOR.%20Quiero%20revisar%20mi%20caso." onclick="abrirModal(this)" aria-label="Escribir por WhatsApp">
   <svg width="26" height="26" fill="white" viewBox="0 0 24 24" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.374 0 0 5.373 0 12c0 2.117.554 4.127 1.524 5.875L0 24l6.29-1.501A11.96 11.96 0 0012 24c6.626 0 12-5.374 12-12S18.626 0 12 0zm0 21.818a9.81 9.81 0 01-5.002-1.368l-.358-.214-3.734.891.944-3.622-.236-.375A9.808 9.808 0 012.182 12C2.182 6.58 6.58 2.182 12 2.182c5.42 0 9.818 4.398 9.818 9.818 0 5.42-4.398 9.818-9.818 9.818z"/></svg>
   <span class="wa-float-text">¿Tienes dudas? Escríbenos</span>
 </button>
 
 <script>
 const WA_URL="https://wa.me/593994859814?text=Hola%2C%20vengo%20del%20art%C3%ADculo%20sobre%20REGISTRAR%20UNA%20MARCA%20EN%20ECUADOR.%20Quiero%20revisar%20mi%20caso.";
-function abrirModal(){setTimeout(window.ajustarModal,0);document.getElementById('waModal').classList.add('active');document.body.style.overflow='hidden';}
+function abrirModal(el){
+  var h=(el&&el.dataset&&el.dataset.wa)?el.dataset.wa:WA_URL;
+  if(window.__diagMsg && !(el&&el.id==='diagBtn')){h+=encodeURIComponent(' Mi diagnóstico: '+window.__diagMsg.replace(/^Hola[^.]*\. /,''));}
+  var of=document.getElementById('modalDiagOferta'); if(of) of.hidden=!!window.__diagMsg;
+  var lk=document.getElementById('waModalLink'); if(lk) lk.setAttribute('href',h);
+  setTimeout(window.ajustarModal,0);
+  document.getElementById('waModal').classList.add('active');
+  document.body.style.overflow='hidden';
+}
 function cerrarModal(){document.getElementById('waModal').classList.remove('active');document.body.style.overflow='';}
-function irAWhatsApp(){cerrarModal();window.open(WA_URL,'_blank','noopener');}
 document.getElementById('waModal').addEventListener('click',function(e){if(e.target===this)cerrarModal();});
 document.addEventListener('keydown',function(e){if(e.key==='Escape')cerrarModal();});
 </script>
@@ -896,6 +1044,60 @@ document.addEventListener('keydown',function(e){if(e.key==='Escape')cerrarModal(
   window.addEventListener('resize',ajustarModal);
   window.addEventListener('orientationchange',function(){setTimeout(ajustarModal,150);});
   document.addEventListener('DOMContentLoaded',ajustarModal);
+})();
+
+function waDiag(m){window.__diagMsg=m;return 'https://wa.me/593994859814?text='+encodeURIComponent(m);}
+(function(){
+  var d=document.getElementById('diagnostico'); if(!d) return;
+  var FALTA={
+    signo:{t:'No está definido qué signo presentas',p:'Nombre, logo y conjunto mixto son tres registros distintos con alcances distintos. Presentar el mixto cuando lo que necesitabas era el denominativo deja la palabra libre para cualquiera con otro diseño — y el registro concedido no te avisa del hueco.',s:'signo sin definir',fix:1},
+    clases:{t:'Las clases no están definidas',p:'Es la decisión irreversible más cara. La clase se fija al presentar y no se modifica: cubrir un frente nuevo exige una solicitud nueva, con su tasa y su examen. Un negocio que produce y además vende al público opera en dos clases, no en una.',s:'clases sin definir',fix:1},
+    busqueda:{t:'Sin búsqueda de antecedentes',p:'La tasa se paga al presentar y no se devuelve si niegan. Presentar sin búsqueda es pagar por averiguar, cuando averiguar antes cuesta menos que la tasa que arriesgas.',s:'sin búsqueda previa',fix:1},
+    distintivo:{t:'No verificaste la distintividad',p:'Un signo descriptivo, genérico o elogioso cae en las prohibiciones absolutas del Art. 135 y se rechaza en el examen de fondo — haya o no oposición. El SENADI no avisa antes: examina cuando ya pagaste.',s:'distintividad sin verificar',fix:1},
+    titular:{t:'Falta definir el titular',p:'Registrar a nombre personal una marca que sostiene a una compañía es el hallazgo clásico del due diligence, y corregirlo después obliga a una transferencia con costos notariales, registrales y fiscales. Ponerlo bien desde el inicio no cuesta nada.',s:'titular sin definir',fix:0},
+    descuento:{t:'No sabes si te corresponde el 50%',p:'El descuento del tarifario no es solo para MIPYMES: alcanza a artesanos, inventores independientes, instituciones de educación superior, pequeños y medianos agricultores, organizaciones campesinas, actores de la economía popular y solidaria y a quien esté en el Registro Nacional de Emprendimiento. Se aplica al presentar y no se devuelve después.',s:'no sabe si aplica el descuento',fix:0},
+    productos:{t:'La lista de productos no está redactada',p:'El texto de la solicitud define qué protege el registro. Una lista imprecisa genera observación de forma y retrasa el expediente; una demasiado estrecha concede un registro que no cubre lo que realmente vendes.',s:'lista de productos pendiente',fix:0}
+  };
+  var LISTO={
+    signo:'Signo definido', clases:'Clases definidas', busqueda:'Búsqueda hecha',
+    distintividad:'', distintivo:'Distintividad verificada', titular:'Titular definido',
+    descuento:'Descuento verificado', productos:'Lista de productos redactada'
+  };
+  var cbs=d.querySelectorAll('.diag-opts input'), go=document.getElementById('diagGo'),
+      res=document.getElementById('diagRes'), btn=document.getElementById('diagBtn');
+  cbs.forEach(function(c){c.addEventListener('change',function(){
+    c.parentNode.classList.toggle('on-ok',c.checked);
+    if(!res.hidden){res.hidden=true;go.textContent='Revisar si estoy listo';}
+  });});
+  go.addEventListener('click',function(){
+    var si=[],no=[];
+    cbs.forEach(function(c){(c.checked?si:no).push(c.dataset.k);});
+    var n=si.length, irrev=no.filter(function(x){return FALTA[x].fix===1;}).length;
+    var top=document.getElementById('diagTop'), num=document.getElementById('diagN');
+    var cls = (irrev===0 && n>=6)?' ok':(irrev<=1?' med':'');
+    top.className='diag-res-top'+cls; num.className='diag-res-n'+cls;
+    num.innerHTML=n+'<small>de 7</small>';
+    var tit,lead;
+    if(irrev===0 && n===7){tit='listo para presentar';lead='Tienes resueltas las siete, incluidas las cuatro que no se corrigen después. Lo único que queda es que la búsqueda se haya hecho con el criterio correcto — el Art. 136 mide la confundibilidad en tres planos y desde clases conexas, no solo en la tuya.';}
+    else if(irrev===0){tit='casi listo';lead='Las cuatro decisiones irreversibles están cubiertas. Lo que falta se puede resolver sobre la marcha sin comprometer el registro, aunque conviene cerrarlo antes de pagar la tasa.';}
+    else if(irrev===1){tit='falta una decisión irreversible';lead='Hay una decisión pendiente que no se corrige después de presentar. Presentar así no es un atajo: es fijar un error que luego obliga a una solicitud nueva.';}
+    else {tit='no presentes todavía';lead=irrev+' de las decisiones que faltan no se corrigen después de presentar. La tasa se paga al inicio y no se devuelve — y la fecha de presentación, que es lo que realmente vale, se fija sobre lo que hayas puesto.';}
+    document.getElementById('diagTit').textContent=tit;
+    document.getElementById('diagLead').textContent=lead;
+    var h='';
+    no.sort(function(a,b){return FALTA[b].fix-FALTA[a].fix;});
+    no.forEach(function(x){h+='<div class="diag-item'+(FALTA[x].fix?'':' med')+'"><b>'+FALTA[x].t+'</b><p>'+FALTA[x].p+'</p></div>';});
+    si.forEach(function(x){h+='<div class="diag-item ok"><b>✓ '+LISTO[x]+'</b><p>Resuelto. Es una menos de las siete que hay que cerrar antes de tocar el formulario.</p></div>';});
+    document.getElementById('diagItems').innerHTML=h;
+    var cb=document.getElementById('diagCombo');
+    if(no.indexOf('clases')>-1 || no.indexOf('busqueda')>-1){
+      cb.innerHTML='<b>Las dos que más registros arruinan</b><p>La clase equivocada y la falta de búsqueda previa son, con diferencia, las que más solicitudes cuestan. No porque sean difíciles, sino porque ninguna de las dos avisa: el registro se concede igual y el problema aparece cuando ya construiste el negocio encima. <a href="/casos-de-exito-registro-marca.html">Ver casos de clase equivocada y oposición →</a></p>';
+      cb.hidden=false;
+    } else cb.hidden=true;
+    var lista = no.length? no.map(function(x){return FALTA[x].s;}).join('; ') : 'las siete resueltas';
+    btn.setAttribute('data-wa', waDiag('Hola, vengo del artículo sobre REGISTRAR UNA MARCA. Hice la revisión previa: '+n+' de 7 resueltas. Me falta: '+lista+'. Quiero cerrarlo antes de presentar.'));
+    res.hidden=false; this.textContent='Recalcular'; res.scrollIntoView({behavior:'smooth',block:'nearest'});
+  });
 })();
 </script>
 </body></html>

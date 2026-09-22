@@ -407,6 +407,93 @@ footer a{color:#c4b5fd;}
   table,.tabla,.compare-table{display:block;width:100%;overflow-x:auto;-webkit-overflow-scrolling:touch;}
   .container{padding:0 1rem;}
 }
+
+/* ===== Diagnóstico interactivo ===== */
+.diag{background:linear-gradient(160deg,#1e0a4e 0%,#2a0f5e 60%,#1a0842 100%);border-radius:18px;padding:1.8rem 1.6rem;margin:2.5rem 0;}
+.diag-label{display:block;font-size:.66rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:#a78bfa;margin-bottom:.5rem;}
+.diag h3{font-family:'Lora',serif;font-size:1.3rem;color:#fff;margin:0 0 .35rem;}
+.diag-sub{font-size:.88rem;color:#c7bce8;line-height:1.65;margin-bottom:1.1rem;}
+.diag-opts label{display:flex;align-items:flex-start;gap:.7rem;background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.14);border-radius:10px;padding:.75rem .9rem;margin-bottom:.5rem;font-size:.89rem;color:#ede9fe;line-height:1.5;cursor:pointer;transition:background .15s,border-color .15s;}
+.diag-opts label:hover{background:rgba(255,255,255,.12);}
+.diag-opts label.on{background:rgba(220,38,38,.18);border-color:rgba(248,113,113,.55);}
+.diag-opts label.on-ok{background:rgba(5,150,105,.2);border-color:rgba(52,211,153,.55);}
+.diag-opts input{margin-top:.28rem;width:16px;height:16px;flex-shrink:0;accent-color:#a78bfa;cursor:pointer;}
+.diag-campo{margin-bottom:.8rem;}
+.diag-campo > span{display:block;font-size:.8rem;color:#c7bce8;margin-bottom:.45rem;font-weight:600;}
+.diag-chips{display:flex;gap:.4rem;flex-wrap:wrap;}
+.diag-chip{background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.18);color:#ede9fe;border-radius:8px;padding:.5rem .9rem;font-size:.85rem;font-weight:600;font-family:inherit;cursor:pointer;transition:all .15s;}
+.diag-chip:hover{background:rgba(255,255,255,.15);}
+.diag-chip.sel{background:#a78bfa;border-color:#a78bfa;color:#1e0a4e;}
+.btn-diag-go{width:100%;margin-top:.9rem;background:#a78bfa;color:#1e0a4e;border:none;border-radius:10px;padding:.85rem 1.2rem;font-size:.95rem;font-weight:700;font-family:inherit;cursor:pointer;transition:background .15s,opacity .15s;}
+.btn-diag-go:hover:not(:disabled){background:#c4b5fd;}
+.btn-diag-go:disabled{opacity:.38;cursor:not-allowed;}
+.diag-hint{text-align:center;font-size:.74rem;color:#8b7cb8;margin:.5rem 0 0;}
+.diag-res{margin-top:1.3rem;border-top:1px solid rgba(255,255,255,.16);padding-top:1.3rem;}
+.diag-res-top{display:flex;align-items:center;gap:1rem;margin-bottom:1.1rem;}
+.diag-res-n{font-family:'Lora',serif;font-size:2rem;font-weight:700;color:#fff;line-height:1.05;background:rgba(220,38,38,.25);border:2px solid rgba(248,113,113,.5);border-radius:14px;min-width:84px;padding:.7rem .5rem;text-align:center;flex-shrink:0;}
+.diag-res-n.ok{background:rgba(5,150,105,.25);border-color:rgba(52,211,153,.6);}
+.diag-res-n.med{background:rgba(217,119,6,.25);border-color:rgba(251,191,36,.6);}
+.diag-res-n small{display:block;font-family:'DM Sans',sans-serif;font-size:.6rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;opacity:.85;margin-top:.25rem;}
+.diag-res-top strong{display:block;font-size:.72rem;text-transform:uppercase;letter-spacing:.1em;color:#fca5a5;margin-bottom:.3rem;}
+.diag-res-top.ok strong{color:#6ee7b7;}
+.diag-res-top.med strong{color:#fcd34d;}
+.diag-res-top p{font-size:.92rem;color:#ede9fe;line-height:1.6;margin:0;}
+.diag-items{display:grid;gap:.6rem;}
+.diag-item{background:rgba(255,255,255,.06);border-left:3px solid #f87171;border-radius:0 10px 10px 0;padding:.85rem 1rem;}
+.diag-item.ok{border-left-color:#34d399;}
+.diag-item.med{border-left-color:#fbbf24;}
+.diag-item b{display:block;font-size:.85rem;color:#fff;margin-bottom:.3rem;line-height:1.4;}
+.diag-item p{font-size:.85rem;color:#c7bce8;line-height:1.65;margin:0;}
+.diag-tabla{background:rgba(255,255,255,.06);border-radius:12px;padding:.9rem 1.05rem;margin-bottom:.7rem;}
+.diag-fila{display:flex;justify-content:space-between;align-items:baseline;gap:1rem;padding:.42rem 0;border-bottom:1px solid rgba(255,255,255,.1);font-size:.87rem;color:#c7bce8;}
+.diag-fila:last-child{border-bottom:none;}
+.diag-fila span:last-child{color:#fff;font-weight:700;white-space:nowrap;}
+.diag-fila.total{border-top:2px solid rgba(167,139,250,.5);margin-top:.35rem;padding-top:.6rem;border-bottom:none;font-size:1rem;}
+.diag-fila.total span{color:#fff;font-weight:700;}
+.diag-fila.total span:last-child{font-family:'Lora',serif;font-size:1.4rem;}
+.diag-fila.ahorro span:last-child{color:#6ee7b7;}
+.diag-combo{margin-top:.8rem;background:rgba(217,119,6,.18);border:1px solid rgba(251,191,36,.45);border-radius:10px;padding:.9rem 1.05rem;}
+.diag-combo b{display:block;font-size:.72rem;text-transform:uppercase;letter-spacing:.08em;color:#fbbf24;margin-bottom:.35rem;}
+.diag-combo p{font-size:.86rem;color:#fde68a;line-height:1.65;margin:0;}
+.diag-combo a{color:#fff;text-decoration:underline;font-weight:600;}
+.diag-cierre{margin-top:1.1rem;background:rgba(255,255,255,.1);border-radius:12px;padding:1.1rem;text-align:center;}
+.diag-cierre p{font-size:.87rem;color:#ede9fe;line-height:1.65;margin:0 0 .9rem;text-align:left;}
+.diag-cierre strong{color:#fff;}
+.btn-diag{background:#25d366;color:#fff;border:none;border-radius:10px;padding:.8rem 1.6rem;font-size:.93rem;font-weight:700;font-family:inherit;cursor:pointer;width:100%;}
+.btn-diag:hover{background:#1da851;}
+.diag-nota{display:block;font-size:.72rem;color:#a78bfa;margin-top:.55rem;}
+@media(max-width:600px){.diag{padding:1.4rem 1.1rem;}.diag-res-n{min-width:70px;font-size:1.65rem;}.diag-fila{font-size:.82rem;}}
+
+.incluye li.incluye-dest{background:var(--success-light);border:1px solid var(--success);border-radius:8px;padding:.6rem .8rem .6rem 2.1rem;margin-bottom:.5rem;}
+.incluye li.incluye-dest::before{color:var(--success);}
+.incluye li.incluye-dest strong{color:var(--success);}
+.que-es-45{background:var(--primary-light);border:1px solid rgba(154,106,255,.35);border-radius:12px;padding:.95rem 1.15rem;margin:.9rem 0;}
+.que-es-45 > strong{display:block;font-size:.72rem;text-transform:uppercase;letter-spacing:.08em;color:var(--primary-dark);margin-bottom:.4rem;}
+.que-es-45 p{font-size:.86rem;color:var(--text);line-height:1.7;margin:0;}
+.que-es-45 p strong{color:var(--primary-dark);}
+.cta-vig{background:rgba(52,211,153,.15);border:1px solid rgba(52,211,153,.45);border-radius:10px;padding:.7rem 1rem;max-width:520px;margin:0 auto 1rem;font-size:.84rem;color:#d1fae5;line-height:1.6;}
+.cta-vig strong{color:#6ee7b7;}
+
+.modal-que-es{background:#f5f3ff;border:1px solid rgba(124,58,237,.3);border-radius:8px;padding:.55rem .7rem;font-size:.7rem;color:#4a4a6a;line-height:1.5;margin:.5rem 0 0;}
+.modal-que-es strong{color:#7c3aed;}
+.modal-diag-of{font-size:.68rem;text-align:center;color:#6b7280;line-height:1.45;margin:.5rem 0 0;}
+.modal-diag-of a{color:#7c3aed;text-decoration:underline;font-weight:700;cursor:pointer;}
+
+.garantia{background:#ecfdf5;border:1.5px solid var(--success);border-radius:12px;padding:1rem 1.2rem;margin:.9rem 0;}
+.garantia > strong{display:block;font-size:.74rem;text-transform:uppercase;letter-spacing:.08em;color:var(--success);margin-bottom:.4rem;}
+.garantia p{font-size:.87rem;color:var(--text);line-height:1.7;margin:0;}
+.garantia p strong{color:var(--success);}
+.barato{background:var(--gray-light);border-left:3px solid var(--primary);border-radius:0 10px 10px 0;padding:.85rem 1.1rem;margin:.9rem 0;}
+.barato > strong{display:block;font-size:.74rem;text-transform:uppercase;letter-spacing:.08em;color:var(--primary-dark);margin-bottom:.35rem;}
+.barato p{font-size:.86rem;color:var(--text-secondary);line-height:1.7;margin:0;}
+.barato p strong{color:var(--text);}
+.cta-gar{background:rgba(52,211,153,.15);border:1px solid rgba(52,211,153,.45);border-radius:10px;padding:.7rem 1rem;max-width:520px;margin:0 auto 1rem;font-size:.84rem;color:#d1fae5;line-height:1.6;}
+.cta-gar strong{color:#6ee7b7;}
+
+.lp-ref{display:flex;align-items:center;gap:.8rem;flex-wrap:wrap;background:var(--primary-light);border:1px solid rgba(154,106,255,.35);border-radius:10px;padding:.7rem 1rem;margin:1.4rem 0;font-size:.87rem;line-height:1.5;}
+.lp-ref span{color:var(--text-secondary);}
+.lp-ref a{color:var(--primary-dark);font-weight:700;text-decoration:underline;}
+.lp-ref a:hover{color:var(--primary);}
 </style>
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-3L5I5CEKRL"></script>
 <script>
@@ -449,6 +536,8 @@ footer a{color:#c4b5fd;}
         <div class="modal-precio virtual"><span class="mlabel">⭐ Virtual</span><div class="mmonto">$45</div><div class="mdesc">Todo Ecuador</div></div>
         <div class="modal-precio presencial"><span class="mlabel">Presencial</span><div class="mmonto">$85</div><div class="mdesc">Solo Guayaquil</div></div>
       </div>
+      <p class="modal-que-es"><strong>No es una llamada para cotizarte.</strong> Es el análisis que define si tu marca es registrable, en qué clases y con qué riesgo. Si tu caso resulta simple, te lo decimos y ahí termina el gasto.</p>
+      <p class="modal-diag-of" id="modalDiagOferta">¿Prefieres que lleguemos con tu caso ya revisado? <a onclick="cerrarModal();document.getElementById('diagnostico').scrollIntoView({behavior:'smooth'});">Haz el diagnóstico de 30 segundos →</a></p>
     </div>
     <div class="modal-foot">
       <a class="btn-modal-wa" id="waModalLink" href="https://wa.me/593994859814?text=Hola%2C%20vengo%20del%20art%C3%ADculo%20sobre%20B%C3%9ASQUEDA%20DE%20ANTERIORIDAD%20DE%20MARCA.%20Quiero%20revisar%20mi%20caso." target="_blank" rel="noopener">Continuar a WhatsApp →</a>
@@ -461,7 +550,7 @@ footer a{color:#c4b5fd;}
   <a href="/blog/"><img class="brand-logo" src="https://i.postimg.cc/vHygbHxz/oie-transparent-(2).png" alt="Juristam" loading="eager" width="120" height="64"/></a>
   <div class="header-actions">
     <a class="btn-back" href="/blog/">&larr; Volver al blog</a>
-    <button type="button" class="btn-header-cta" onclick="abrirModal()">
+    <button type="button" class="btn-header-cta" data-wa="https://wa.me/593994859814?text=Hola%2C%20vengo%20del%20art%C3%ADculo%20sobre%20B%C3%9ASQUEDA%20DE%20ANTERIORIDAD.%20Quiero%20revisar%20mi%20caso." onclick="abrirModal(this)">
       <svg width="14" height="14" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.374 0 0 5.373 0 12c0 2.117.554 4.127 1.524 5.875L0 24l6.29-1.501A11.96 11.96 0 0012 24c6.626 0 12-5.374 12-12S18.626 0 12 0zm0 21.818a9.81 9.81 0 01-5.002-1.368l-.358-.214-3.734.891.944-3.622-.236-.375A9.808 9.808 0 012.182 12C2.182 6.58 6.58 2.182 12 2.182c5.42 0 9.818 4.398 9.818 9.818 0 5.42-4.398 9.818-9.818 9.818z"/></svg>
       <span class="btn-header-text">Agendar Asesoría</span>
     </button>
@@ -490,7 +579,7 @@ footer a{color:#c4b5fd;}
 <div class="cta-urgente">
   <p>¿Vas a presentar tu marca ante el SENADI?
   <span>Antes de pagar tasas conviene saber si tu signo es registrable. La búsqueda de anterioridad evita oposiciones predecibles y meses perdidos.</span></p>
-  <button class="btn-wa" onclick="abrirModal()">Solicitar búsqueda →</button>
+  <button class="btn-wa" onclick="abrirModal(this)">Solicitar búsqueda →</button>
 </div>
 
 <div class="tldr">
@@ -519,6 +608,10 @@ footer a{color:#c4b5fd;}
 
 <article>
 
+<div class="lp-ref">
+  <span>¿Prefieres ver el servicio antes de escribir?</span>
+  <a href="/registro-de-marca/">Registro de marca: qué incluye, cuánto cuesta y la calculadora →</a>
+</div>
 <h2 id="que-es">Qué es la búsqueda de anterioridad y por qué decide todo</h2>
 
 <div class="respuesta-directa">
@@ -566,6 +659,37 @@ footer a{color:#c4b5fd;}
 <div class="callout-warning">
   <strong>⚠ "Revisé el portal y no apareció nada" no es una búsqueda</strong>
   El portal confirma que no hay coincidencia literal. No confirma que no exista riesgo de confusión. La búsqueda técnica cruza similitud fonética, visual e ideológica, conexión competitiva entre clases y jurisprudencia andina. Es lo que separa una solicitud que avanza de una que cae en oposición. Ver <a href="/blog/clases-niza-marca-ecuador.html">clases de Niza en Ecuador</a>.
+</div>
+
+<div class="diag" id="diagnostico">
+  <span class="diag-label">Cobertura · 30 segundos</span>
+  <h3>¿Qué tan a ciegas vas a presentar?</h3>
+  <p class="diag-sub">Marca lo que <strong>ya verificaste</strong>. Lo que quede sin marcar es por donde puede llegar la negativa o la oposición.</p>
+
+  <div class="diag-opts">
+    <label><input type="checkbox" data-k="identico"> Busqué mi signo exacto en el portal del SENADI</label>
+    <label><input type="checkbox" data-k="fonetico"> Busqué variantes que suenan parecido, aunque se escriban distinto</label>
+    <label><input type="checkbox" data-k="visual"> Revisé signos que se parecen visualmente o significan lo mismo</label>
+    <label><input type="checkbox" data-k="conexas"> Busqué también en clases conexas, no solo en la mía</label>
+    <label><input type="checkbox" data-k="comercial"> Verifiqué nombres comerciales en uso que nunca se registraron</label>
+    <label><input type="checkbox" data-k="tramite"> Revisé solicitudes en trámite, no solo marcas ya concedidas</label>
+  </div>
+
+  <button type="button" class="btn-diag-go" id="diagGo">Ver mi cobertura</button>
+  <p class="diag-hint" id="diagHint">Si no has buscado nada, pulsa igual: ese es el resultado más común.</p>
+
+  <div class="diag-res" id="diagRes" hidden>
+    <div class="diag-res-top" id="diagTop">
+      <span class="diag-res-n" id="diagN"></span>
+      <div><strong id="diagTit"></strong><p id="diagLead"></p></div>
+    </div>
+    <div class="diag-items" id="diagItems"></div>
+    <div class="diag-cierre">
+      <p><strong>Por qué esto no se resuelve buscando más rato:</strong> el portal del SENADI devuelve lo que escribes, no lo que se te parece. El estándar del Art. 136 mide la confundibilidad en tres planos — visual, fonético e ideológico — y desde la percepción del consumidor, no desde el número de clase. Eso es un criterio técnico aplicado a un universo de signos, no una consulta.</p>
+      <button type="button" class="btn-diag" id="diagBtn" onclick="abrirModal(this)">Cerrar los frentes que me faltan →</button>
+      <span class="diag-nota">Asesoría $45 · se descuentan del registro si decides continuar</span>
+    </div>
+  </div>
 </div>
 
 <h2 id="jurisprudencia">Jurisprudencia andina aplicable</h2>
@@ -622,7 +746,7 @@ footer a{color:#c4b5fd;}
       <span class="label">Resultado</span>
       <p>Se ajustó el signo antes de presentar y se cubrieron las clases 9 y 42 con una estrategia coordinada. El registro avanzó sin oposición.</p>
     </div>
-    <button type="button" class="caso-cta-link" onclick="abrirModal()">Tengo un caso similar →</button>
+    <button type="button" class="caso-cta-link" data-wa="https://wa.me/593994859814?text=Hola%2C%20vengo%20del%20art%C3%ADculo%20sobre%20B%C3%9ASQUEDA%20DE%20ANTERIORIDAD.%20Tengo%20un%20caso%20parecido%20a%20uno%20de%20los%20que%20muestran." onclick="abrirModal(this)">Tengo un caso similar →</button>
   </div>
 
   <div class="caso-card">
@@ -643,7 +767,7 @@ footer a{color:#c4b5fd;}
       <span class="label">Resultado</span>
       <p>Se ajustó la estrategia: se presentó primero en clase 29 con un argumento de diferenciación fonética y se dejó clase 35 para una segunda fase. La solicitud avanzó sin oposición en clase 29 y se preparó el terreno para ampliar después.</p>
     </div>
-    <button type="button" class="caso-cta-link" onclick="abrirModal()">Tengo un caso similar →</button>
+    <button type="button" class="caso-cta-link" data-wa="https://wa.me/593994859814?text=Hola%2C%20vengo%20del%20art%C3%ADculo%20sobre%20B%C3%9ASQUEDA%20DE%20ANTERIORIDAD.%20Tengo%20un%20caso%20parecido%20a%20uno%20de%20los%20que%20muestran." onclick="abrirModal(this)">Tengo un caso similar →</button>
   </div>
 
   <div class="caso-card">
@@ -664,7 +788,7 @@ footer a{color:#c4b5fd;}
       <span class="label">Resultado</span>
       <p>Se rediseñó el signo diferenciándolo visual y fonéticamente del nombre comercial previo, y se documentó la ausencia de riesgo de confusión real. El registro avanzó y la marca quedó protegida sin oposición.</p>
     </div>
-    <button type="button" class="caso-cta-link" onclick="abrirModal()">Tengo un caso similar →</button>
+    <button type="button" class="caso-cta-link" data-wa="https://wa.me/593994859814?text=Hola%2C%20vengo%20del%20art%C3%ADculo%20sobre%20B%C3%9ASQUEDA%20DE%20ANTERIORIDAD.%20Tengo%20un%20caso%20parecido%20a%20uno%20de%20los%20que%20muestran." onclick="abrirModal(this)">Tengo un caso similar →</button>
   </div>
 
   <div class="casos-footer-cta">
@@ -675,7 +799,7 @@ footer a{color:#c4b5fd;}
 <div class="cta-block">
   <h3>¿Vas a presentar tu marca este mes?</h3>
   <p>Antes de pagar tasas conviene saber si tu signo es registrable y qué conflictos son predecibles. Eso lo resolvemos en la asesoría inicial.</p>
-  <button class="btn-solid" onclick="abrirModal()">Solicitar búsqueda ahora →</button>
+  <button class="btn-solid" onclick="abrirModal(this)">Solicitar búsqueda ahora →</button>
 </div>
 
 <h2 id="errores">Errores frecuentes al hacer la búsqueda</h2>
@@ -735,6 +859,18 @@ footer a{color:#c4b5fd;}
     </ul>
   </div>
   <div class="oferta-descuento">✅ Los $45 de la asesoría virtual se descuentan del servicio completo si decides continuar.</div>
+  <div class="que-es-45">
+    <strong>Para que quede claro qué son los $45</strong>
+    <p>No son un anticipo del trámite ni una llamada para cotizarte: son el <strong>análisis que define si tu marca es registrable</strong>, en qué clases y con qué riesgo concreto. A veces ese análisis concluye que tu caso es simple y puedes presentarlo por tu cuenta — cuando pasa, te lo decimos y ahí termina el gasto. Si decides continuar con nosotros, se descuentan del registro.</p>
+  </div>
+  <div class="garantia">
+    <strong>Nuestra apuesta, no la tuya</strong>
+    <p><strong>No damos luz verde a un caso dudoso.</strong> Si el análisis muestra un riesgo real, te lo decimos y no presentamos — para eso existe la asesoría. Y si damos luz verde y el SENADI niega el registro, volvemos a presentar con el signo ajustado <strong>sin cobrarte honorarios otra vez</strong>.</p>
+  </div>
+  <div class="barato">
+    <strong>Y si la respuesta es que no se puede, te cuesta $45</strong>
+    <p>Enterarte de que tu signo no es registrable cuesta <strong>$45 y ahí termina</strong>. No un paquete completo pagado por adelantado, ni una devolución que haya que esperar y perseguir. La decisión va primero; el trámite, después.</p>
+  </div>
   <div class="micro-disclaimer">Si tras la búsqueda analizamos que tu caso no tiene probabilidades reales de éxito, te lo diremos con total honestidad para que no gastes en el proceso completo.</div>
   <p style="font-size:.82rem;font-weight:700;color:var(--text);text-transform:uppercase;letter-spacing:.05em;margin:1rem 0 .6rem;">Paso 2 — Registro de marca (ejecución)</p>
   <div class="oferta-completo">
@@ -742,6 +878,7 @@ footer a{color:#c4b5fd;}
   </div>
   <p style="font-size:.82rem;font-weight:700;color:var(--text);text-transform:uppercase;letter-spacing:.05em;margin:1rem 0 .5rem;">Qué incluye el servicio de registro</p>
   <ul class="incluye">
+    <li class="incluye-dest"><strong>Vigilancia de tu marca durante los 10 años de vigencia.</strong> Monitoreamos las solicitudes que se publican y te avisamos si alguien intenta registrar un signo parecido al tuyo — a tiempo para oponerte, que es lo único que sirve.</li>
     <li>Redacción técnica de la solicitud según las clases definidas</li>
     <li>Presentación de la solicitud ante el SENADI</li>
     <li>Seguimiento del expediente hasta la concesión</li>
@@ -753,7 +890,7 @@ footer a{color:#c4b5fd;}
     <p class="cita">"La búsqueda mostró un nombre comercial previo que yo no había detectado. Ajustamos el signo y el registro avanzó sin problema."</p>
     <p class="autor">— Cliente Juristam · Ambato</p>
   </div>
-  <div style="text-align:center;"><button class="btn-wa" onclick="abrirModal()">Solicitar búsqueda por WhatsApp →</button></div>
+  <div style="text-align:center;"><button class="btn-wa" onclick="abrirModal(this)">Solicitar búsqueda por WhatsApp →</button></div>
 </div>
 
 <section class="form-async" id="formulario-async">
@@ -816,7 +953,8 @@ footer a{color:#c4b5fd;}
 <section class="related-section">
   <h3>Continúa con la guía de marcas</h3>
   <div class="related-grid">
-    <div class="related-card"><a href="/blog/propiedad-intelectual-marcas-ecuador.html">Guía principal: marcas en Ecuador</a><span class="rtipo">Pilar</span></div>
+    <div class="related-card" style="border-color:var(--primary);background:var(--primary-light);"><a href="/registro-de-marca/" style="color:var(--primary-dark);font-weight:700;">Registro de marca · el servicio completo</a><span class="rtipo">Calculadora y precios</span></div>
+<div class="related-card"><a href="/blog/propiedad-intelectual-marcas-ecuador.html">Guía principal: marcas en Ecuador</a><span class="rtipo">Pilar</span></div>
     <div class="related-card"><a href="/blog/registrar-marca-ecuador.html">Cómo registrar una marca en Ecuador</a><span class="rtipo">Proceso</span></div>
     <div class="related-card"><a href="/blog/clases-niza-marca-ecuador.html">Clases de Niza: cuál elegir</a><span class="rtipo">Fundamento</span></div>
     <div class="related-card"><a href="/blog/marca-confundible-similitud-ecuador.html">Marcas confundibles: similitud</a><span class="rtipo">Análisis</span></div>
@@ -838,16 +976,23 @@ footer a{color:#c4b5fd;}
   <p style="font-size:.78rem;opacity:.7;">Este artículo es informativo y no reemplaza asesoría legal individualizada. Base legal: Decisión 486 de la Comunidad Andina, COESC y jurisprudencia del Tribunal de Justicia de la CAN.</p>
 </div></footer>
 
-<button type="button" class="wa-float" onclick="abrirModal()" aria-label="Escribir por WhatsApp">
+<button type="button" class="wa-float" data-wa="https://wa.me/593994859814?text=Hola%2C%20vengo%20del%20art%C3%ADculo%20sobre%20B%C3%9ASQUEDA%20DE%20ANTERIORIDAD.%20Quiero%20revisar%20mi%20caso." onclick="abrirModal(this)" aria-label="Escribir por WhatsApp">
   <svg width="26" height="26" fill="white" viewBox="0 0 24 24" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.374 0 0 5.373 0 12c0 2.117.554 4.127 1.524 5.875L0 24l6.29-1.501A11.96 11.96 0 0012 24c6.626 0 12-5.374 12-12S18.626 0 12 0zm0 21.818a9.81 9.81 0 01-5.002-1.368l-.358-.214-3.734.891.944-3.622-.236-.375A9.808 9.808 0 012.182 12C2.182 6.58 6.58 2.182 12 2.182c5.42 0 9.818 4.398 9.818 9.818 0 5.42-4.398 9.818-9.818 9.818z"/></svg>
   <span class="wa-float-text">¿Tienes dudas? Escríbenos</span>
 </button>
 
 <script>
 const WA_URL="https://wa.me/593994859814?text=Hola%2C%20vengo%20del%20art%C3%ADculo%20sobre%20B%C3%9ASQUEDA%20DE%20ANTERIORIDAD%20DE%20MARCA.%20Quiero%20revisar%20mi%20caso.";
-function abrirModal(){setTimeout(window.ajustarModal,0);document.getElementById('waModal').classList.add('active');document.body.style.overflow='hidden';}
+function abrirModal(el){
+  var h=(el&&el.dataset&&el.dataset.wa)?el.dataset.wa:WA_URL;
+  if(window.__diagMsg && !(el&&el.id==='diagBtn')){h+=encodeURIComponent(' Mi diagnóstico: '+window.__diagMsg.replace(/^Hola[^.]*\. /,''));}
+  var of=document.getElementById('modalDiagOferta'); if(of) of.hidden=!!window.__diagMsg;
+  var lk=document.getElementById('waModalLink'); if(lk) lk.setAttribute('href',h);
+  setTimeout(window.ajustarModal,0);
+  document.getElementById('waModal').classList.add('active');
+  document.body.style.overflow='hidden';
+}
 function cerrarModal(){document.getElementById('waModal').classList.remove('active');document.body.style.overflow='';}
-function irAWhatsApp(){document.getElementById('waModalLink').click();}
 document.getElementById('waModal').addEventListener('click',function(e){if(e.target===this)cerrarModal();});
 document.addEventListener('keydown',function(e){if(e.key==='Escape')cerrarModal();});
 </script>
@@ -866,6 +1011,55 @@ document.addEventListener('keydown',function(e){if(e.key==='Escape')cerrarModal(
   window.addEventListener('resize',ajustarModal);
   window.addEventListener('orientationchange',function(){setTimeout(ajustarModal,150);});
   document.addEventListener('DOMContentLoaded',ajustarModal);
+})();
+
+function waDiag(m){window.__diagMsg=m;return 'https://wa.me/593994859814?text='+encodeURIComponent(m);}
+(function(){
+  var d=document.getElementById('diagnostico'); if(!d) return;
+  var F={
+    identico:{t:'Búsqueda literal hecha',p:'Es el punto de partida y el único que el portal resuelve bien. Descarta la coincidencia exacta, que es la causa menos frecuente de negativa.'},
+    fonetico:{t:'Variantes fonéticas revisadas',p:'Es el plano por el que más solicitudes caen. Dos signos que se escriben distinto pero suenan igual son confundibles bajo el Art. 136, y el buscador no los relaciona.'},
+    visual:{t:'Plano visual e ideológico cubierto',p:'Cubriste los otros dos planos del estándar: cómo se ve el conjunto y qué idea transmite. Dos palabras distintas que evocan lo mismo pueden ser confundibles.'},
+    conexas:{t:'Clases conexas revisadas',p:'Es lo que separa una búsqueda real de una consulta. Un tercero puede oponerse desde otra clase si el consumidor atribuye los productos al mismo origen empresarial.'},
+    comercial:{t:'Nombres comerciales verificados',p:'El frente que no aparece en el registro de marcas. Un negocio que usa el nombre desde antes puede oponerse invocando el Art. 224 sin haber registrado nunca nada.'},
+    tramite:{t:'Solicitudes en trámite revisadas',p:'Una solicitud presentada antes que la tuya ya fijó su prelación aunque todavía no esté concedida. Mirar solo lo concedido es mirar el pasado.'}
+  };
+  var FALTA={
+    identico:{t:'No verificaste ni la coincidencia exacta',p:'Es lo mínimo y es gratis: el buscador del SENADI está abierto. Si ni eso se revisó, la solicitud se está presentando completamente a ciegas.'},
+    fonetico:{t:'El plano fonético está descubierto',p:'Aquí es donde caen la mayoría de las solicitudes. Basta que una marca anterior suene parecido a la tuya en la misma clase para que el examinador la observe o el titular se oponga — y el buscador nunca te la va a mostrar, porque se escribe distinto.'},
+    visual:{t:'Los planos visual e ideológico están descubiertos',p:'El Art. 136 mide la confundibilidad en tres planos, no en uno. Un conjunto que se ve parecido, o dos palabras distintas que evocan la misma idea, entran en el estándar aunque ninguna búsqueda literal las relacione.'},
+    conexas:{t:'Solo miraste tu clase',p:'Es el hueco más caro. La conexión competitiva permite que alguien de otra clase se oponga si el consumidor puede atribuir los productos al mismo origen. Buscar solo en la clase propia es revisar una habitación de la casa.'},
+    comercial:{t:'No sabes qué nombres comerciales están en uso',p:'El registro de marcas no los muestra. Un negocio operando con tu mismo nombre desde hace años puede oponerse al amparo del Art. 224, y esa oposición se decide con prueba de uso documentada — no con quién registró primero.'},
+    tramite:{t:'No revisaste lo que está en trámite',p:'Quien presentó antes que tú ya tiene prelación aunque su marca aún no esté concedida. Puede aparecer meses después, cuando ya pagaste la tasa y esperaste medio año.'}
+  };
+  var cbs=d.querySelectorAll('.diag-opts input'), go=document.getElementById('diagGo'),
+      res=document.getElementById('diagRes'), btn=document.getElementById('diagBtn');
+  cbs.forEach(function(c){c.addEventListener('change',function(){
+    c.parentNode.classList.toggle('on-ok',c.checked);
+    if(!res.hidden){res.hidden=true;go.textContent='Ver mi cobertura';}
+  });});
+  go.addEventListener('click',function(){
+    var si=[],no=[];
+    cbs.forEach(function(c){(c.checked?si:no).push(c.dataset.k);});
+    var n=si.length, top=document.getElementById('diagTop'), num=document.getElementById('diagN');
+    var cls = n>=5?' ok':(n>=3?' med':'');
+    top.className='diag-res-top'+cls; num.className='diag-res-n'+cls;
+    num.innerHTML=n+'<small>de 6</small>';
+    var tit,lead;
+    if(n>=5){tit='cobertura alta';lead='Cubriste casi todos los frentes. Lo que queda no es buscar más, sino interpretar lo que encontraste: dos signos parecidos pueden coexistir o no según criterios que no se resuelven mirando una lista.';}
+    else if(n>=3){tit='cobertura parcial';lead='Cubriste los frentes evidentes y dejaste abiertos los que producen las sorpresas. Las negativas rara vez llegan por donde ya miraste.';}
+    else if(n>=1){tit='cobertura mínima';lead='Revisaste lo que el portal devuelve solo. Eso descarta la coincidencia literal y deja abierto todo lo demás — que es de donde vienen casi todas las negativas y oposiciones.';}
+    else {tit='sin verificar';lead='Vas a presentar sin saber contra qué compites. La tasa se paga al presentar y no se devuelve si el registro se niega: es el único gasto del proceso que se pierde entero por no haber mirado antes.';}
+    document.getElementById('diagTit').textContent=tit;
+    document.getElementById('diagLead').textContent=lead;
+    var h='';
+    no.forEach(function(x){h+='<div class="diag-item"><b>'+FALTA[x].t+'</b><p>'+FALTA[x].p+'</p></div>';});
+    si.forEach(function(x){h+='<div class="diag-item ok"><b>✓ '+F[x].t+'</b><p>'+F[x].p+'</p></div>';});
+    document.getElementById('diagItems').innerHTML=h;
+    var faltan = no.length? no.length+(no.length===1?' frente sin cubrir':' frentes sin cubrir') : 'todos los frentes cubiertos';
+    btn.setAttribute('data-wa', waDiag('Hola, vengo del artículo sobre BÚSQUEDA DE ANTERIORIDAD. Mi cobertura salió '+n+' de 6 ('+faltan+'). Quiero cerrar lo que me falta antes de presentar.'));
+    res.hidden=false; this.textContent='Recalcular'; res.scrollIntoView({behavior:'smooth',block:'nearest'});
+  });
 })();
 </script>
 </body></html>
