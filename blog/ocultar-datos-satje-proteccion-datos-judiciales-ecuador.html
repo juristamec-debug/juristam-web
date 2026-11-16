@@ -420,30 +420,7 @@
 </head>
 
 <body>
-<div class="modal-overlay" id="waModal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
-  <div class="modal">
-    <div class="modal-top">
-      <button class="modal-close" onclick="cerrarModal()" aria-label="Cerrar">&#x2715;</button>
-      <h4 id="modalTitle">Cuéntanos tu caso</h4>
-      <p>¿Calificas para el ocultamiento en SATJE o Fiscalía?</p>
-    </div>
-    <div class="modal-body">
-      <p class="modal-section-label">Asesoría inicial</p>
-      <div class="modal-precios">
-        <div class="modal-precio virtual"><span class="mlabel">Virtual ⭐</span><div class="mmonto">$45</div></div>
-        <div class="modal-precio presencial"><span class="mlabel">Presencial</span><div class="mmonto">$85</div></div>
-      </div>
-      <p class="modal-section-label">Servicio completo</p>
-      <div class="modal-precios-servicio">
-        <div class="modal-precio-mini"><div class="mmonto-mini">$250</div><div class="mlabel-mini">SATJE</div></div>
-        <div class="modal-precio-mini"><div class="mmonto-mini">$250</div><div class="mlabel-mini">Fiscalía</div></div>
-        <div class="modal-precio-mini dest"><div class="mmonto-mini">$400</div><div class="mlabel-mini">Combo</div></div>
-      </div>
-      <div class="modal-nota">Los $45 de la asesoría se descuentan del servicio completo.</div>
-      <a id="waLink" href="#" target="_blank" rel="noopener" class="btn-modal-wa">Continuar a WhatsApp &rarr;</a>
-    </div>
-  </div>
-</div>
+
 <style>
 .modal-overlay{display:none;position:fixed;inset:0;background:rgba(10,5,30,.65);backdrop-filter:blur(5px);z-index:999;align-items:center;justify-content:center;padding:.75rem;}
 .modal-overlay.active{display:flex;}
@@ -492,7 +469,6 @@
 
         <p class="catline">Categoría: <a href="/blog/categoria-familia.html">Familia</a> <span style="color:#9aa3af;">·</span> <a href="/blog/">Guías</a></p>
 <p style="font-size:.9rem;color:var(--text-secondary);line-height:1.75;border-left:3px solid var(--primary);padding-left:1rem;margin:1.5rem 0;">Si tienes antecedentes en el SATJE o necesitas ocultarlos, en Juristam el abogado especialista llega a la asesoría con tu caso ya analizado — no a escucharte, sino a explicarte exactamente qué tienes y qué puedes hacer. <a href="https://wa.me/593994859814" style="color:var(--primary);font-weight:600;">Cuéntanos tu caso →</a></p>
-
 
         <p><strong>Si tu proceso terminó hace años y aun así sigues perdiendo trabajo, crédito o oportunidades porque tu nombre aparece en el SATJE, este artículo es para ti.</strong></p>
 
@@ -554,6 +530,7 @@
 
         
 <p style="font-size:.88rem;color:var(--text-secondary);line-height:1.8;background:var(--neutral-light);border-radius:8px;padding:1rem 1.25rem;margin:1.5rem 0;">Cuando contratas la asesoría de Juristam, nos explicas tu caso por texto, nota de voz o llamada. El abogado asignado hace las preguntas pertinentes, revisa los documentos y analiza todo antes de la reunión. Los 45 minutos son para entregarte la estrategia — no para empezar desde cero.</p>
+<p>Eso es exactamente lo que se resuelve en la asesor&iacute;a: ver qué vía te conviene, la de la Judicatura o la de datos personales. Cuesta <strong>$45 por videollamada</strong> desde cualquier ciudad del Ecuador u <strong>$85 presencial</strong> en Guayaquil, y los $45 se descuentan del servicio completo si decides continuar. Si antes de pagar quieres ver qui&eacute;n te atiende y c&oacute;mo se lleva un caso de principio a fin, lo explicamos aqu&iacute;: <a href="/conocenos.html">c&oacute;mo trabajamos en Juristam</a>.</p>
 <h2>3) La vía correcta importa (y perder por estrategia pasa de verdad)</h2>
         <p>Hay casos recientes donde personas han intentado resolver esto con acciones equivocadas (por ejemplo, ir directo con una acción constitucional contra un auto que no es definitivo). ¿Qué pasa?</p>
         <ul>
@@ -621,7 +598,8 @@
 
         <h2 id="faq">Preguntas frecuentes</h2>
 
-        <details>
+        <details><summary>&iquest;Cu&aacute;nto cuesta y la primera consulta es gratis?</summary><p class="faq-answer">No hay consulta gratis. La asesor&iacute;a inicial cuesta $45 por videollamada &mdash; 60 minutos con el abogado, desde cualquier ciudad del Ecuador &mdash; u $85 presencial en Guayaquil, y esos $45 se descuentan del servicio completo si decides continuar. El ocultamiento completo es de $250 por un sistema y $400 por los dos. Esc&iacute;benos: 0994859814.</p></details>
+<details>
           <summary>¿Se puede “borrar” un proceso del SATJE?</summary>
           <p>No se trata de borrar la historia judicial. Se trata de proteger datos personales (modificar, rectificar u ocultar) cuando la ley lo permite y el pedido está bien fundamentado.</p>
         </details>
@@ -667,20 +645,13 @@
     <div class="oferta-completo-item"><div class="precio">$400</div><div class="label">SATJE + Fiscal&iacute;a</div><div class="desc">Los dos sistemas en un solo proceso. La opci&oacute;n m&aacute;s completa.</div></div>
   </div>
   <div class="oferta-nota"><strong>Recuerda:</strong> los $45 de la asesor&iacute;a se descuentan del precio final. Solo pagas la diferencia.</div>
-  <div style="text-align:center;"><button class="btn-wa" onclick="abrirModal()">Consultar por WhatsApp &rarr;</button></div>
-</div>
-<div style="background:linear-gradient(135deg,#1e0a4e,#4c1d95);border-radius:16px;padding:1.8rem 2rem;margin:2rem 0;text-align:center;">
-  <p style="color:#c4b5fd;font-size:.78rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;margin-bottom:.6rem;">&#9733; Resultados reales</p>
-  <h3 style="font-family:'Lora',serif;color:#fff;font-size:1.2rem;margin-bottom:.8rem;line-height:1.5;">&iquest;Quieres ver resultados reales?</h3>
-  <p style="color:#e2d9ff;font-size:.95rem;line-height:1.7;margin-bottom:1.3rem;">Revisa los casos de personas que ya ocultaron sus antecedentes con Juristam y recuperaron su tranquilidad.</p>
-  <a href="https://juristam.net/casos-de-exito-antecedentes" style="display:inline-block;background:#c9a96e;color:#1e0a4e;padding:.75rem 1.8rem;border-radius:10px;font-weight:700;font-size:.95rem;text-decoration:none;">Ver casos de &eacute;xito &rarr;</a>
+  <div style="text-align:center;"><a class="btn-wa" href="https://wa.me/593994859814" target="_blank" rel="noopener">Consultar por WhatsApp &rarr;</a></div>
 </div>
 
-<div style="margin:2rem 0;padding:1.25rem 1.5rem;background:var(--primary-light);border-radius:10px;border:1px solid rgba(154,106,255,.2);">
-  <p style="font-size:.9rem;font-weight:600;color:var(--primary-dark);margin-bottom:.5rem;">¿Tienes este problema?</p>
-  <p style="font-size:.88rem;color:var(--text-secondary);line-height:1.75;margin-bottom:.8rem;">El abogado especialista analiza tu caso antes de la reunión — llega con la estrategia definida y la explicación sin tecnicismos. Cuéntanos tu situación y coordinamos.</p>
-  <a href="https://wa.me/593994859814" style="display:inline-block;background:var(--primary);color:#fff;padding:.65rem 1.4rem;border-radius:8px;font-weight:600;font-size:.88rem;text-decoration:none;">Hablar con Juristam →</a>
-</div>
+<h2>Qu&eacute; cuesta y c&oacute;mo se empieza</h2>
+<p>La asesor&iacute;a inicial son <strong>$45</strong> por videollamada &mdash; 60 minutos con el abogado, desde cualquier ciudad del Ecuador &mdash; u <strong>$85</strong> presencial en nuestra oficina de Guayaquil. Esos $45 se descuentan del servicio completo si decides continuar, as&iacute; que no es un gasto aparte: es el primer paso ya pagado. Y conviene decir tambi&eacute;n lo que no es: no es una consulta gratis, ni una respuesta de tres l&iacute;neas por WhatsApp, ni una llamada para que expliques tu caso desde cero. En Ecuador te cobran por escucharte. Nosotros te cobramos por ya tener la respuesta cuando te conectas.</p>
+<p>El ocultamiento completo cuesta <strong>$250</strong> si apareces en un solo sistema y <strong>$400</strong> si hay que hacerlo en el SATJE y en Fiscal&iacute;a. Lo que decide el precio no es la gravedad de tu caso: es en cu&aacute;ntos sistemas sales.</p>
+<p>Si lo tuyo adem&aacute;s toca otra materia &mdash; una coactiva, un tema laboral, aduanas, una herencia &mdash;, se revisa en la misma asesor&iacute;a sin pagar dos veces, porque Juristam <a href="/">trabaja todas las &aacute;reas del derecho en Ecuador</a>. Para empezar, escr&iacute;benos al <strong>0994859814</strong> y cu&eacute;ntanos qu&eacute; proceso quieres ocultar.</p>
 </article>
     </div>
   <div style="background:#f5f0ff;border-left:4px solid #9a6aff;padding:1.2rem 1.5rem;border-radius:8px;margin:2rem 0;">
@@ -690,9 +661,6 @@
 </div></main>
 <script>
 const WA_URL="https://wa.me/593994859814?text=Hola%2C%20quiero%20consultar%20sobre%20el%20ocultamiento%20de%20mis%20antecedentes%20judiciales%20en%20Ecuador";
-function abrirModal(){document.getElementById('waModal').classList.add('active');document.body.style.overflow='hidden';document.getElementById('waLink').href=WA_URL;}
-function cerrarModal(){document.getElementById('waModal').classList.remove('active');document.body.style.overflow='';}
-document.getElementById('waModal').addEventListener('click',function(e){if(e.target===this)cerrarModal();});
 </script>
 </body>
 </html>

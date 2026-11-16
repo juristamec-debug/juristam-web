@@ -1137,8 +1137,7 @@
     const pretensiones = [
       `1) Se declare la paternidad del señor ${datos.demandado_nombres} respecto de mi(s) hijo/a(s) ${(datos.menor_nombres_list || []).join(', ')}.`,
       `2) Se fije una pensión alimenticia mensual total de $${(parseFloat(datos.valor_pretendido) || 0).toFixed(2)} a favor de mi(s) hijo/a(s).`,
-      `3) Se disponga el pago mediante depósito en la cuenta ${datos.banco_tipo} N.° ${datos.banco_cuenta}, banco/cooperativa ${datos.banco_nombre}.`,
-    ];
+      `3) Se disponga el pago mediante depósito en la cuenta ${datos.banco_tipo} N.° ${datos.banco_cuenta}, banco/cooperativa ${datos.banco_nombre}.`];
     let numPret = 4;
     if (datos.mc_prohibicion_salida) pretensiones.push(`${numPret++}) Se dicte prohibición de salida del país del demandado.`);
     if (datos.mc_prohibicion_enajenar_vehiculos) pretensiones.push(`${numPret++}) Se prohíba al demandado enajenar sus vehículos, debiendo oficiarse a la ANT.`);
