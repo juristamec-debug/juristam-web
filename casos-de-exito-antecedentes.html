@@ -443,5 +443,20 @@
   document.querySelectorAll('.fade-up-scroll').forEach(el=>obs.observe(el));
   if(window.matchMedia('(pointer:fine)').matches){const TRAIL=10;const dot=document.createElement('div');dot.className='cursor-dot';document.body.appendChild(dot);const trails=Array.from({length:TRAIL},(_,i)=>{const el=document.createElement('div');el.className='cursor-trail';el.style.opacity=((1-i/TRAIL)*0.55).toFixed(2);el.style.width=Math.max(2,5-i*0.3)+'px';el.style.height=el.style.width;document.body.appendChild(el);return{el}});let mx=0,my=0;const pos=Array(TRAIL).fill(null).map(()=>({x:0,y:0}));document.addEventListener('mousemove',e=>{mx=e.clientX;my=e.clientY;});const tick=()=>{dot.style.left=mx+'px';dot.style.top=my+'px';pos[0].x+=(mx-pos[0].x)*0.35;pos[0].y+=(my-pos[0].y)*0.35;for(let i=1;i<TRAIL;i++){pos[i].x+=(pos[i-1].x-pos[i].x)*0.38;pos[i].y+=(pos[i-1].y-pos[i].y)*0.38;}trails.forEach((t,i)=>{t.el.style.left=pos[i].x+'px';t.el.style.top=pos[i].y+'px';});requestAnimationFrame(tick);};requestAnimationFrame(tick);}
 </script>
-</body>
+<!-- medicion de clics a WhatsApp -->
+<script>
+(function(){
+  if(window.__waTrack)return; window.__waTrack=1;
+  document.addEventListener('click',function(e){
+    var t=e.target; if(!t||!t.closest)return;
+    var a=t.closest('a[href*="wa.me/593994859814"]');
+    if(!a||typeof gtag!=='function')return;
+    gtag('event','clic_whatsapp',{
+      pagina:location.pathname,
+      titulo:document.title.slice(0,100),
+      transport_type:'beacon'
+    });
+  },true);
+})();
+</script></body>
 </html>

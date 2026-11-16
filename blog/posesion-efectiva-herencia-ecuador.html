@@ -506,7 +506,22 @@
   }
 })();
 </script>
-</body>
+<!-- medicion de clics a WhatsApp -->
+<script>
+(function(){
+  if(window.__waTrack)return; window.__waTrack=1;
+  document.addEventListener('click',function(e){
+    var t=e.target; if(!t||!t.closest)return;
+    var a=t.closest('a[href*="wa.me/593994859814"]');
+    if(!a||typeof gtag!=='function')return;
+    gtag('event','clic_whatsapp',{
+      pagina:location.pathname,
+      titulo:document.title.slice(0,100),
+      transport_type:'beacon'
+    });
+  },true);
+})();
+</script></body>
 </html<div class="related" style="background:#f9f9fb;border-radius:12px;padding:1.5rem;margin:2.5rem 0;">
   <h3 style="font-size:1rem;font-weight:700;margin-bottom:1rem;">Si un heredero bloquea el reparto</h3>
   <ul style="list-style:none;margin:0;padding:0;">

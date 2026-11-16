@@ -1170,5 +1170,20 @@
 </script>
 
 <div style="background:#f5f0ff;border-left:4px solid #9a6aff;padding:1.2rem 1.5rem;border-radius:8px;margin:2rem auto;max-width:700px;"><strong>¿Tienes dudas sobre tu caso?</strong><p style="margin:.5rem 0 1rem;">Escríbenos y un abogado de Juristam te orienta sin compromiso.</p><a href="https://wa.me/593994859814?text=Hola%2C%20vengo%20del%20art%C3%ADculo%20%22Me%20bloquearon%20la%20cuenta%20y%20ah%C3%AD%20cae%20mi%20sueldo%3A%20qu%C3%A9%20hacer%22.%20Quiero%20una%20asesor%C3%ADa%20para%20mi%20caso." style="background:#9a6aff;color:#fff;padding:.7rem 1.4rem;border-radius:6px;font-weight:600;text-decoration:none;display:inline-block;">Consultar por WhatsApp →</a></div>
-</body>
+<!-- medicion de clics a WhatsApp -->
+<script>
+(function(){
+  if(window.__waTrack)return; window.__waTrack=1;
+  document.addEventListener('click',function(e){
+    var t=e.target; if(!t||!t.closest)return;
+    var a=t.closest('a[href*="wa.me/593994859814"]');
+    if(!a||typeof gtag!=='function')return;
+    gtag('event','clic_whatsapp',{
+      pagina:location.pathname,
+      titulo:document.title.slice(0,100),
+      transport_type:'beacon'
+    });
+  },true);
+})();
+</script></body>
 </html>

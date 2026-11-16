@@ -533,5 +533,20 @@ function irAWhatsApp(){cerrarModal();window.open(WA_URL,"_blank","noopener");}
 document.getElementById("waModal").addEventListener("click",function(e){if(e.target===this)cerrarModal();});
 document.addEventListener("keydown",function(e){if(e.key==="Escape")cerrarModal();});
 </script>
-</body>
+<!-- medicion de clics a WhatsApp -->
+<script>
+(function(){
+  if(window.__waTrack)return; window.__waTrack=1;
+  document.addEventListener('click',function(e){
+    var t=e.target; if(!t||!t.closest)return;
+    var a=t.closest('a[href*="wa.me/593994859814"]');
+    if(!a||typeof gtag!=='function')return;
+    gtag('event','clic_whatsapp',{
+      pagina:location.pathname,
+      titulo:document.title.slice(0,100),
+      transport_type:'beacon'
+    });
+  },true);
+})();
+</script></body>
 </html>

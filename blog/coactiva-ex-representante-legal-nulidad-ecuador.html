@@ -832,5 +832,20 @@ Porque en coactiva, el error no es solo legal… es económico.
   <p style="margin:.5rem 0 1rem;">Escríbenos y un abogado de Juristam te orienta sin compromiso.</p>
   <a href="https://wa.me/593994859814?text=Hola%2C%20vengo%20del%20art%C3%ADculo%20%22Te%20cobran%20la%20coactiva%20de%20una%20empresa%20que%20ya%20dejaste%22.%20Quiero%20una%20asesor%C3%ADa%20para%20mi%20caso." style="background:#9a6aff;color:#fff;padding:.7rem 1.4rem;border-radius:6px;font-weight:600;text-decoration:none;display:inline-block;">Consultar por WhatsApp →</a>
 </div></main>
-</body>
+<!-- medicion de clics a WhatsApp -->
+<script>
+(function(){
+  if(window.__waTrack)return; window.__waTrack=1;
+  document.addEventListener('click',function(e){
+    var t=e.target; if(!t||!t.closest)return;
+    var a=t.closest('a[href*="wa.me/593994859814"]');
+    if(!a||typeof gtag!=='function')return;
+    gtag('event','clic_whatsapp',{
+      pagina:location.pathname,
+      titulo:document.title.slice(0,100),
+      transport_type:'beacon'
+    });
+  },true);
+})();
+</script></body>
 </html>
