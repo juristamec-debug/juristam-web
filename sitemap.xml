@@ -2616,4 +2616,19 @@
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
+<url>
+    <loc>https://juristam.net/cambio-de-apellido/</loc>
+    <lastmod>2026-11-17</lastmod>
+    <priority>0.9</priority>
+  </url>
+<url>
+    <loc>https://juristam.net/salida-laboral/</loc>
+    <lastmod>2026-11-17</lastmod>
+    <priority>0.9</priority>
+  </url>
+<url>
+    <loc>https://juristam.net/corregir-sas/</loc>
+    <lastmod>2026-11-17</lastmod>
+    <priority>0.9</priority>
+  </url>
 </urlset>
